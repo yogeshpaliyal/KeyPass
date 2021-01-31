@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:shape="oval" xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <shape android:shape="oval">
+        <solid android:color="@color/keypass_white_50"/>
+    </shape>
+</item>
+    <item android:drawable="@drawable/ic_baseline_casino_24"
+        android:left="@dimen/grid_1"
+        android:right="@dimen/grid_1"
+        android:top="@dimen/grid_1"
+        android:bottom="@dimen/grid_1"/>
+</layer-list>

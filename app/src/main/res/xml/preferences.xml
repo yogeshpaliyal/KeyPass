@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory
+        app:key="help_category"
+        app:title="Help">
+
+        <Preference
+            app:key="feedback"
+            app:icon="@drawable/ic_baseline_feedback_24"
+            app:title="Send feedback"
+            app:summary="Report technical issues or suggest new features" />
+
+        <Preference
+            app:key="share"
+            app:icon="@drawable/ic_baseline_share_24"
+            app:title="Share"
+            app:summary="Share app with others" />
+    </PreferenceCategory>
+</PreferenceScreen>

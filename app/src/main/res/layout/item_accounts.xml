@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.yogeshpaliyal.keypass.data.AccountModel" />
+
+        <variable
+            name="model"
+            type="AccountModel" />
+        <variable
+            name="listener"
+            type="com.yogeshpaliyal.keypass.listener.UniversalClickListener&lt;AccountModel>" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.yogeshpaliyal.keypass.custom_views.MaskedCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardUseCompatPadding="true"
+        android:elevation="@dimen/plane_00"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardElevation="0dp"
+        android:onClick="@{(view)->listener.onItemClick(view, model)}"
+        android:layout_marginVertical="@dimen/grid_0_25"
+        android:layout_marginHorizontal="@dimen/grid_0_5">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="60dp"
+                android:background="@drawable/avatar_none"
+                android:layout_height="60dp"
+                android:text="@{model.initials}"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/startIcon"/>
+
+            <TextView
+                android:id="@+id/txtTitle"
+                style="@style/TextStyle.Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:text="@{model.title}"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/txtUsername"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/startIcon"
+                app:layout_constraintTop_toTopOf="@id/startIcon"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/TextStyle.SubHeading"
+                android:text="@{model.username}"
+                android:id="@+id/txtUsername"
+                app:layout_constraintHorizontal_bias="0"
+                tools:text="@tools:sample/full_names"
+                app:layout_constrainedWidth="true"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.yogeshpaliyal.keypass.custom_views.MaskedCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

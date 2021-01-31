@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="accountData"
+            type="com.yogeshpaliyal.keypass.data.AccountModel" />
+    </data>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="@dimen/grid_0_5"
+    android:paddingVertical="@dimen/grid_0_5"
+    android:id="@+id/nestedScrollView">
+
+    <com.yogeshpaliyal.keypass.custom_views.MaskedCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:layout_constraintTop_toTopOf="@id/topGuideline"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                android:layout_width="0dp"
+                android:id="@+id/tilAccountName"
+                android:layout_height="wrap_content"
+                android:hint="Account Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAccountName"
+                    android:singleLine="true"
+                    android:text="@={accountData.title}"
+                    android:inputType="textNoSuggestions|text"
+                    android:layout_width="match_parent"
+                    android:importantForAutofill="no"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/grid_1"
+                app:layout_constraintTop_toBottomOf="@id/tilAccountName"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                android:layout_width="0dp"
+                android:id="@+id/tilUsername"
+                android:layout_height="wrap_content"
+                android:hint="Username/Email/Phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:importantForAutofill="no"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:text="@={accountData.username}"
+                    android:inputType="textNoSuggestions|text"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/grid_1"
+                app:layout_constraintTop_toBottomOf="@id/tilUsername"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                android:layout_width="0dp"
+                android:id="@+id/tilPassword"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions|textPassword"
+                    android:singleLine="true"
+                    android:text="@={accountData.password}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/grid_1"
+                app:layout_constraintTop_toBottomOf="@id/tilPassword"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                android:layout_width="0dp"
+                android:id="@+id/tilTags"
+                android:layout_height="wrap_content"
+                android:hint="Tags comma separated (optional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTag"
+                    android:singleLine="true"
+                    android:importantForAutofill="no"
+                    android:text="@={accountData.tags}"
+                    android:inputType="textNoSuggestions|text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/grid_1"
+                app:layout_constraintTop_toBottomOf="@id/tilTags"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                android:layout_width="0dp"
+                android:id="@+id/tilWebsite"
+                android:layout_height="wrap_content"
+                android:hint="Website url (optional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:importantForAutofill="no"
+                    android:id="@+id/etWebsite"
+                    android:inputType="textNoSuggestions|textWebEditText"
+                    android:text="@={accountData.site}"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="@dimen/grid_1"
+                app:layout_constraintTop_toBottomOf="@id/tilWebsite"
+                app:layout_constraintStart_toStartOf="@id/startGuideline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                android:layout_width="0dp"
+                android:id="@+id/tilNotes"
+                android:layout_height="wrap_content"
+                android:hint="Notes (optional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNotes"
+                    android:lines="3"
+                    android:importantForAutofill="no"
+                    android:minLines="3"
+                    android:text="@={accountData.notes}"
+                    android:inputType="textNoSuggestions|text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/grid_1"
+                app:layout_constraintTop_toBottomOf="@id/tilNotes" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/startGuideline"
+                app:layout_constraintGuide_begin="@dimen/grid_1"
+                android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/endGuideline"
+                app:layout_constraintGuide_end="@dimen/grid_1"
+                android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/topGuideline"
+                app:layout_constraintGuide_begin="@dimen/grid_1"
+                android:orientation="horizontal"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.yogeshpaliyal.keypass.custom_views.MaskedCardView>
+
+
+</androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,19 @@
+<shortcuts xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="generate_password"
+        android:enabled="true"
+        android:icon="@drawable/white_circle"
+        android:shortcutShortLabel="@string/generate_shortcut_short_label"
+        tools:targetApi="n_mr1">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.yogeshpaliyal.keypass"
+            android:targetClass="com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>

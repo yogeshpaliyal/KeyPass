@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearanceOverlay.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Diamond" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cards" parent="">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerSizeTopLeft">20%</item>
+    </style>
+
+
+    <!--Shape-->
+
+    <style name="ShapeAppearance.KeyPass.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/keypass_small_component_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.KeyPass.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/keypass_medium_component_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.KeyPass.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/keypass_large_component_corner_radius</item>
+    </style>
+
+    <dimen name="keypass_small_component_corner_radius">4dp</dimen>
+    <dimen name="keypass_medium_component_corner_radius">0dp</dimen>
+    <dimen name="keypass_large_component_corner_radius">12dp</dimen>
+
+</resources>

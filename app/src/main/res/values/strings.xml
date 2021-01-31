@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">KeyPass</string>
+
+
+    <string name="generate_password">Generate Password</string>
+    <string name="home">Home</string>
+    <string name="delete">Delete</string>
+
+
+    <string name="generate_shortcut_short_label">Generate Password</string>
+    <string name="retry">Retry</string>
+</resources>
