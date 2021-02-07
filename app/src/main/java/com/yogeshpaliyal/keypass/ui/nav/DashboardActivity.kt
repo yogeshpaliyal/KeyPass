@@ -20,9 +20,7 @@ import com.google.android.material.transition.MaterialElevationScale
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
-import com.yogeshpaliyal.keypass.ui.detail.DetailFragment
-import com.yogeshpaliyal.keypass.ui.detail.DetailFragmentArgs
-import com.yogeshpaliyal.keypass.ui.detail.DetailFragmentDirections
+import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import com.yogeshpaliyal.keypass.ui.home.HomeFragmentDirections
 import com.yogeshpaliyal.keypass.ui.settings.MySettingsFragmentDirections
@@ -40,8 +38,6 @@ class DashboardActivity : AppCompatActivity(),
     private val bottomNavDrawer: BottomNavDrawerFragment by lazy(LazyThreadSafetyMode.NONE) {
         supportFragmentManager.findFragmentById(R.id.bottom_nav_drawer) as BottomNavDrawerFragment
     }
-
-    private var currentAccountId = -1L
 
     val currentNavigationFragment: Fragment?
         get() = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
@@ -78,11 +74,6 @@ class DashboardActivity : AppCompatActivity(),
 
 
         binding.btnAdd.setOnClickListener {
-            if (it.isActivated && currentNavigationFragment is DetailFragment) {
-                (currentNavigationFragment as DetailFragment).fabClicked()
-                return@setOnClickListener
-            }
-
             currentNavigationFragment?.apply {
                 exitTransition = MaterialElevationScale(false).apply {
                     duration = resources.getInteger(R.integer.keypass_motion_duration_large).toLong()
@@ -92,8 +83,7 @@ class DashboardActivity : AppCompatActivity(),
                 }
             }
 
-            val directions = DetailFragmentDirections.actionGlobalCreateFragment()
-            findNavController(R.id.nav_host_fragment).navigate(directions)
+           DetailActivity.start(this)
         }
 
 
@@ -130,7 +120,6 @@ class DashboardActivity : AppCompatActivity(),
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.action_delete -> deleteAccount()
             R.id.action_settings -> {
                 val settingDestination = MySettingsFragmentDirections.actionGlobalSettings()
                 findNavController(R.id.nav_host_fragment).navigate(settingDestination)
@@ -140,44 +129,16 @@ class DashboardActivity : AppCompatActivity(),
         return true
     }
 
-    private fun deleteAccount() {
-        MaterialAlertDialogBuilder(this)
-            .setTitle("Are you sure?")
-            .setMessage("Do you really want to delete this entry, it can't be restored")
-            .setPositiveButton("Delete"
-            ) { dialog, which ->
-                dialog?.dismiss()
-                lifecycleScope.launch(Dispatchers.IO) {
-                    if (currentAccountId != -1L) {
-                        AppDatabase.getInstance().getDao().deleteAccount(currentAccountId)
-                    }
-                    withContext(Dispatchers.Main) {
-                        findNavController(R.id.nav_host_fragment).popBackStack()
-                    }
-                }
-            }
-            .setNegativeButton("Cancel"){dialog, which ->
-                dialog.dismiss()
-            }.show()
 
-    }
 
     override fun onDestinationChanged(
         controller: NavController,
         destination: NavDestination,
         arguments: Bundle?
     ) {
-
-        currentAccountId = -1
         when (destination.id) {
             R.id.homeFragment -> {
                 binding.btnAdd.isActivated = false
-                setBottomAppBarForHome(getBottomAppBarMenuForDestination(destination))
-            }
-            R.id.detailFragment -> {
-                binding.btnAdd.isActivated = true
-                currentAccountId =
-                    if (arguments == null) -1 else DetailFragmentArgs.fromBundle(arguments).accountId
                 setBottomAppBarForHome(getBottomAppBarMenuForDestination(destination))
             }
         }
@@ -241,7 +202,6 @@ class DashboardActivity : AppCompatActivity(),
         val dest = destination ?: findNavController(R.id.nav_host_fragment).currentDestination
         return when (dest?.id) {
             R.id.homeFragment -> R.menu.bottom_app_bar_settings_menu
-            R.id.detailFragment -> if (currentAccountId > 0) R.menu.bottom_app_bar_detail else R.menu.bottom_app_bar_settings_menu
             //R.id.emailFragment -> R.menu.bottom_app_bar_email_menu
             else -> R.menu.bottom_app_bar_settings_menu
         }

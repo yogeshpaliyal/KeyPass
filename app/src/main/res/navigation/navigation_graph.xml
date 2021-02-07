@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.yogeshpaliyal.keypass.ui.detail.DetailFragment"
+        android:name="com.yogeshpaliyal.keypass.ui.detail.DetailActivity"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail">
         <argument android:name="accountId"

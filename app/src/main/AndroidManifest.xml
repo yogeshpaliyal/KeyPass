@@ -26,6 +26,8 @@
         <activity
             android:name=".ui.nav.DashboardActivity"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".ui.detail.DetailActivity"
+            android:windowSoftInputMode="adjustResize"/>
 
         <meta-data
             android:name="preloaded_fonts"

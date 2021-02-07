@@ -20,11 +20,13 @@ class DetailViewModel(application: Application) : AndroidViewModel(application) 
 
     val accountModel by lazy { MutableLiveData<AccountModel>() }
 
-    fun loadAccount(accountId: Long?){
+    fun loadAccount(accountId: Long?) {
 
-            viewModelScope.launch(Dispatchers.IO) {
-                accountModel.postValue(AppDatabase.getInstance().getDao().getAccount(accountId) ?: AccountModel())
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            accountModel.postValue(
+                AppDatabase.getInstance().getDao().getAccount(accountId) ?: AccountModel()
+            )
+        }
 
     }
 

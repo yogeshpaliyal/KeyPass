@@ -5,13 +5,20 @@
             name="accountData"
             type="com.yogeshpaliyal.keypass.data.AccountModel" />
     </data>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingHorizontal="@dimen/grid_0_5"
-    android:paddingVertical="@dimen/grid_0_5"
-    android:id="@+id/nestedScrollView">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        android:id="@+id/nestedScrollView"
+        android:paddingHorizontal="@dimen/grid_0_5"
+        android:paddingVertical="@dimen/grid_0_5">
 
     <com.yogeshpaliyal.keypass.custom_views.MaskedCardView
         android:layout_width="match_parent"
@@ -174,8 +181,29 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+
     </com.yogeshpaliyal.keypass.custom_views.MaskedCardView>
+    </androidx.core.widget.NestedScrollView>
 
 
-</androidx.core.widget.NestedScrollView>
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="end"
+        app:hideOnScroll="true"
+        app:fabCradleRoundedCornerRadius="@dimen/bottom_app_bar_fab_cradle_corner_radius"
+        app:fabCradleMargin="@dimen/bottom_app_bar_fab_cradle_margin"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_round_done_24"
+        android:layout_marginEnd="@dimen/grid_2"
+        app:layout_anchor="@id/bottomAppBar"
+        android:id="@+id/btnSave"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

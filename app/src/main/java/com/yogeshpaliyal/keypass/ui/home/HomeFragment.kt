@@ -12,8 +12,7 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
 import com.yogeshpaliyal.keypass.listener.UniversalClickListener
-import com.yogeshpaliyal.keypass.ui.detail.DetailFragmentArgs
-import com.yogeshpaliyal.keypass.ui.detail.DetailFragmentDirections
+import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.utils.initViewModel
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
@@ -51,8 +50,7 @@ class HomeFragment : Fragment() {
 
     val mListener = object : UniversalClickListener<AccountModel>{
         override fun onItemClick(view: View, model: AccountModel) {
-            val destination = DetailFragmentDirections.actionGlobalCreateFragment(model.id ?: -1)
-            findNavController().navigate(destination)
+            DetailActivity.start(context, model.id)
         }
     }
 
