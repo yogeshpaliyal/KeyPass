@@ -3,6 +3,7 @@ package com.yogeshpaliyal.keypass
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.db.DbDao
@@ -31,8 +32,6 @@ abstract class AppDatabase : RoomDatabase() {
             if (!this::_instance.isInitialized)
 
 
-
-
                 synchronized(this) {
 
 
@@ -43,18 +42,25 @@ abstract class AppDatabase : RoomDatabase() {
                     ).addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
-
-
                         }
 
                         override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
                             super.onDestructiveMigration(db)
                             onCreate(db)
-
                         }
 
                     })
-                        .fallbackToDestructiveMigration()
+                       /* .addMigrations(object : Migration(3, 4) {
+                            override fun migrate(database: SupportSQLiteDatabase) {
+                                val cursor = database.query("SELECT * FROM account")
+                                while(cursor.moveToNext()) {
+                                    val id = cursor.getLong(cursor.getColumnIndex("id"))
+                                    val password = cursor.getLong(cursor.getColumnIndex("password"))
+                                    //-- Hash your password --//
+                                    database.execSQL("UPDATE account SET password = hashedPassword WHERE id = $id;")
+                                }
+                            }
+                        })*/
                         .build()
                 }
 
@@ -62,4 +68,6 @@ abstract class AppDatabase : RoomDatabase() {
             return _instance
         }
     }
+
+
 }

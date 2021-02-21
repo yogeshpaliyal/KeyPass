@@ -1,7 +1,5 @@
 package com.yogeshpaliyal.keypass.ui.auth
 
-import android.R.attr.description
-import android.app.KeyguardManager
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -11,7 +9,6 @@ import androidx.core.content.ContextCompat
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityAuthenticationBinding
 import com.yogeshpaliyal.keypass.ui.nav.DashboardActivity
-import com.yogeshpaliyal.keypass.utils.SharedPrefHelper
 import java.util.concurrent.Executor
 
 
@@ -23,9 +20,6 @@ class AuthenticationActivity : AppCompatActivity() {
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
-    private val userPin by lazy {
-        SharedPrefHelper.getString(SharedPrefHelper.SharedPrefKeys.USER_PIN)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +71,6 @@ class AuthenticationActivity : AppCompatActivity() {
         // Prompt appears when user clicks "Log in".
         // Consider integrating with the keystore to unlock cryptographic operations,
         // if needed by your app.
-
 
         biometricPrompt.authenticate(promptInfo)
 

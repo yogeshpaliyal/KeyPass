@@ -9,4 +9,8 @@
 
     <string name="generate_shortcut_short_label">Generate Password</string>
     <string name="retry">Retry</string>
+
+    <string name="backup_restored">Backup Restored</string>
+
+    <string name="backup_completed">Backup Completed</string>
 </resources>

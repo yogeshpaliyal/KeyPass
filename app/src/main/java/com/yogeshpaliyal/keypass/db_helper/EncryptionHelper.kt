@@ -1,13 +1,17 @@
 package com.yogeshpaliyal.keypass.db_helper
 
 
-import java.io.*
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
+import java.io.UnsupportedEncodingException
+import java.security.InvalidAlgorithmParameterException
 import java.security.InvalidKeyException
 import java.security.Key
 import java.security.NoSuchAlgorithmException
-import java.security.SecureRandom
+import java.security.spec.InvalidKeySpecException
+import java.security.spec.InvalidParameterSpecException
 import javax.crypto.*
-import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
 
@@ -20,20 +24,28 @@ import javax.crypto.spec.SecretKeySpec
 */
 object EncryptionHelper {
     private const val ALGORITHM = "AES"
-    private const val TRANSFORMATION = "AES/GCM/NoPadding"
+ //  private const val TRANSFORMATION = "AES/GCM/PKCS5Padding"
+    private const val TRANSFORMATION = "AES"
     // private const val TRANSFORMATION = "DES/CBC/PKCS5Padding"
 
 
+    private const val TAG_LENGTH_BIT = 128
+    private const val IV_LENGTH_BYTE = 12
 
 
     @Throws(CryptoException::class)
-    fun doCryptoEncrypt(key: String, data: String,
+    fun doCryptoEncrypt(
+        key: String, data: String,
         outputFile: OutputStream?
     ) {
         try {
+            val iv = ByteArray(IV_LENGTH_BYTE)
+
             val secretKey: Key =
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
             val cipher = Cipher.getInstance(TRANSFORMATION)
+           // val spec = GCMParameterSpec(TAG_LENGTH_BIT, iv)
+
             cipher.init(Cipher.ENCRYPT_MODE, secretKey)
 
             data.byteInputStream().use {
@@ -76,6 +88,8 @@ object EncryptionHelper {
             val secretKey: Key =
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
             val cipher = Cipher.getInstance(TRANSFORMATION)
+
+
             cipher.init(Cipher.DECRYPT_MODE, secretKey)
 
             inputFile.use {
@@ -110,6 +124,39 @@ object EncryptionHelper {
         return data
     }
 
+
+
+    fun encryptPassword(message: String, password: String): String{
+        /* Encrypt the message. */
+        var cipher: Cipher? = null
+        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
+        cipher.init(Cipher.ENCRYPT_MODE, generateKey(password))
+        return String(cipher.doFinal(message.encodeToByteArray()))
+    }
+
+    @Throws(
+        NoSuchPaddingException::class,
+        NoSuchAlgorithmException::class,
+        InvalidParameterSpecException::class,
+        InvalidAlgorithmParameterException::class,
+        InvalidKeyException::class,
+        BadPaddingException::class,
+        IllegalBlockSizeException::class,
+        UnsupportedEncodingException::class
+    )
+    fun decryptMsg(encryptedMessage: String, password: String): String {
+        /* Decrypt the message, given derived encContentValues and initialization vector. */
+        var cipher: Cipher? = null
+        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
+        cipher.init(Cipher.DECRYPT_MODE, generateKey(password))
+        return String(cipher.doFinal(encryptedMessage.toByteArray()))
+    }
+
+
+    @Throws(NoSuchAlgorithmException::class, InvalidKeySpecException::class)
+    fun generateKey(passLockKey: String): SecretKey {
+        return SecretKeySpec(passLockKey.encodeToByteArray(), "AES")
+    }
 
 
 }

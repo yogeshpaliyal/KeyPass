@@ -8,13 +8,11 @@
 
         <Preference
             app:key="backup"
-            app:icon="@drawable/ic_baseline_feedback_24"
             app:title="Backup"
             app:summary="Backup your credentials in encrypted file" />
 
         <Preference
             app:key="restore"
-            app:icon="@drawable/ic_baseline_share_24"
             app:title="Restore"
             app:summary="Restore your backup" />
     </PreferenceCategory>
@@ -34,5 +32,6 @@
             app:icon="@drawable/ic_baseline_share_24"
             app:title="Share"
             app:summary="Share app with others" />
+
     </PreferenceCategory>
 </PreferenceScreen>

@@ -1,7 +1,10 @@
 package com.yogeshpaliyal.keypass.utils
 
+import android.content.Context
+import android.net.Uri
+import android.text.TextUtils
+import androidx.documentfile.provider.DocumentFile
 import java.security.SecureRandom
-import java.util.*
 
 
 /*
@@ -12,7 +15,8 @@ import java.util.*
 */
 
 fun getRandomString(sizeOfRandomString: Int): String {
-    val ALLOWED_CHARACTERS = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%&*_+"
+    val ALLOWED_CHARACTERS =
+        "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%&*_+"
     val random = SecureRandom()
     val sb = StringBuilder(sizeOfRandomString)
     for (i in 0 until sizeOfRandomString) sb.append(
@@ -21,4 +25,21 @@ fun getRandomString(sizeOfRandomString: Int): String {
         )]
     )
     return sb.toString()
+}
+
+
+fun Context.canUserAccessBackupDirectory(): Boolean {
+    val backupDirectoryUri = getUri(getBackupDirectory()) ?: return false
+    val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
+    return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
+}
+
+
+private fun getUri(string: String?): Uri? {
+    val uri = string
+    return if (TextUtils.isEmpty(uri)) {
+        null
+    } else {
+        Uri.parse(uri)
+    }
 }

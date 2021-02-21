@@ -11,9 +11,11 @@ import androidx.navigation.fragment.navArgs
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
+import com.yogeshpaliyal.keypass.db_helper.EncryptionHelper
 import com.yogeshpaliyal.keypass.listener.UniversalClickListener
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.utils.initViewModel
+import com.yogeshpaliyal.keypass.utils.logD
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
 import com.yogeshpaliyal.universal_adapter.utils.Resource

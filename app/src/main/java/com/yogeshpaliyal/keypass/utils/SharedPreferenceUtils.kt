@@ -59,4 +59,18 @@ fun getOrCreateBackupKey(): String{
     }
 }
 
+
+fun setBackupDirectory(string: String){
+    getSharedPreferences().edit {
+        putString(BACKUP_DIRECTORY, string)
+    }
+
+}
+
+fun getBackupDirectory(): String{
+    val sp = getSharedPreferences()
+    return sp.getString(BACKUP_DIRECTORY,"") ?: ""
+}
+
 private const val BACKUP_KEY = "backup_key"
+private const val BACKUP_DIRECTORY = "backup_directory"

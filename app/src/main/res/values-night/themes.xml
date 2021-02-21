@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.KeyPass" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.KeyPass" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!--Color-->
         <item name="colorPrimary">@color/keypass_blue_200</item>
         <item name="colorPrimaryVariant">@color/keypass_blue_300</item>

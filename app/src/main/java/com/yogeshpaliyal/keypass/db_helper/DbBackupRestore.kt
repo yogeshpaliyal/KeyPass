@@ -2,6 +2,9 @@ package com.yogeshpaliyal.keypass.db_helper
 
 import android.content.ContentResolver
 import android.net.Uri
+import android.security.keystore.KeyGenParameterSpec
+import android.security.keystore.KeyProperties
+import androidx.room.withTransaction
 import com.google.gson.Gson
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
@@ -12,6 +15,8 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.OutputStream
+import javax.crypto.KeyGenerator
+import javax.crypto.SecretKey
 
 
 /*
@@ -36,7 +41,14 @@ suspend fun AppDatabase.createBackup(contentResolver : ContentResolver,fileUri: 
 suspend fun AppDatabase.restoreBackup(contentResolver : ContentResolver,fileUri: Uri?) = withContext(Dispatchers.IO){
     fileUri ?: return@withContext false
 
-    EncryptionHelper.doCryptoDecrypt(getOrCreateBackupKey(), contentResolver.openInputStream(fileUri)).logD("DecryptedFile")
-
+    val restoredFile = EncryptionHelper.doCryptoDecrypt(getOrCreateBackupKey(), contentResolver.openInputStream(fileUri))
+    val data = Gson().fromJson(restoredFile, Array<AccountModel>::class.java).toList()
+    data.forEach {
+        it.id = null
+    }
+    withTransaction {
+        getDao().insertOrUpdateAccount(data.toList())
+    }
     return@withContext true
 }
+

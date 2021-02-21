@@ -16,7 +16,7 @@ import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
 class AccountModel(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Long? = null,
+    var id: Long? = null,
     @ColumnInfo(name = "title")
     var title: String? = null,
     @ColumnInfo(name = "username")

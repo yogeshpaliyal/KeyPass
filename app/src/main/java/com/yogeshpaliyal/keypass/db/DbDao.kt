@@ -21,6 +21,9 @@ abstract class DbDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertOrUpdateAccount(accountModel: AccountModel)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insertOrUpdateAccount(accountModel: List<AccountModel>)
+
 
     @Query("SELECT * from account")
     abstract fun getAllAccounts() : Flow<List<AccountModel>>
