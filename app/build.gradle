@@ -64,6 +64,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 
+    implementation ('androidx.appcompat:appcompat:1.2.0')
+    implementation "androidx.documentfile:documentfile:1.0.1"
+
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // LiveData
@@ -90,4 +93,7 @@ dependencies {
 
     //Androidx Security
     implementation "androidx.security:security-crypto:1.1.0-alpha03"
+
+
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
