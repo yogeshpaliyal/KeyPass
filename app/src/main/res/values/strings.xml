@@ -11,6 +11,7 @@
     <string name="retry">Retry</string>
 
     <string name="backup_restored">Backup Restored</string>
+    <string name="invalid_keyphrase">Invalid Keyphrase</string>
 
     <string name="backup_completed">Backup Completed</string>
 </resources>

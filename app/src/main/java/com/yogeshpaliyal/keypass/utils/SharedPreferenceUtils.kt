@@ -46,16 +46,22 @@ fun getSharedPreferences() : SharedPreferences{
 }
 
 
-fun getOrCreateBackupKey(): String{
+/**
+ * Pair
+ * 1st => true if key is created now & false if key is created previously
+ *
+ */
+fun getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean,String>{
     val sp = getSharedPreferences()
-    return if (sp.contains(BACKUP_KEY)){
-        sp.getString(BACKUP_KEY,"") ?: ""
+
+    return if (sp.contains(BACKUP_KEY) && reset.not()){
+        Pair(false,sp.getString(BACKUP_KEY,"") ?: "")
     }else{
         val randomKey = getRandomString(16)
         sp.edit {
             putString(BACKUP_KEY, randomKey)
         }
-        randomKey
+        Pair(true,randomKey)
     }
 }
 

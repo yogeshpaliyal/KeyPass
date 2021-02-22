@@ -12,6 +12,7 @@ import java.security.NoSuchAlgorithmException
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.InvalidParameterSpecException
 import javax.crypto.*
+import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
 
@@ -24,13 +25,11 @@ import javax.crypto.spec.SecretKeySpec
 */
 object EncryptionHelper {
     private const val ALGORITHM = "AES"
- //  private const val TRANSFORMATION = "AES/GCM/PKCS5Padding"
-    private const val TRANSFORMATION = "AES"
+   private const val TRANSFORMATION = "AES/CBC/PKCS5Padding"
+    //private const val TRANSFORMATION = "AES"
     // private const val TRANSFORMATION = "DES/CBC/PKCS5Padding"
 
-
-    private const val TAG_LENGTH_BIT = 128
-    private const val IV_LENGTH_BYTE = 12
+    private val iV = byteArrayOf(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
 
 
     @Throws(CryptoException::class)
@@ -39,14 +38,13 @@ object EncryptionHelper {
         outputFile: OutputStream?
     ) {
         try {
-            val iv = ByteArray(IV_LENGTH_BYTE)
+
 
             val secretKey: Key =
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
             val cipher = Cipher.getInstance(TRANSFORMATION)
-           // val spec = GCMParameterSpec(TAG_LENGTH_BIT, iv)
 
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey)
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey, IvParameterSpec(iV))
 
             data.byteInputStream().use {
                 val inputStream  = it
@@ -89,16 +87,13 @@ object EncryptionHelper {
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
             val cipher = Cipher.getInstance(TRANSFORMATION)
 
-
-            cipher.init(Cipher.DECRYPT_MODE, secretKey)
+            cipher.init(Cipher.DECRYPT_MODE, secretKey, IvParameterSpec(iV))
 
             inputFile.use {
                 val inputStream = it
-
                     CipherInputStream(inputStream, cipher).use {
                         data = String(it.readBytes())
                     }
-
             }
 
         } catch (ex: NoSuchPaddingException) {

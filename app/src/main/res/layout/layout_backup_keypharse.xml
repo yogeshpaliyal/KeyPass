@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_marginTop="@dimen/grid_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
+        android:textColor="@color/keypass_blue_600"
+        android:id="@+id/txtTitle"
+        android:text="Alert"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/grid_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/grid_3"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"
+        android:textColor="@color/keypass_blue_300"
+        android:textSize="14sp"
+        android:id="@+id/txtMessage"
+        android:text="Copy This Key Phrase this will be used to recover this backup, this will not be provided by KeyPass Again, have you copied or written down?"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/grid_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/txtCode"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
+        android:padding="@dimen/grid_1"
+        android:textColor="@color/keypass_blue_600"
+        tools:text="1234567890123456"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

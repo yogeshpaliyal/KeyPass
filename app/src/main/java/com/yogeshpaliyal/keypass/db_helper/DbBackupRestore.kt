@@ -26,22 +26,27 @@ import javax.crypto.SecretKey
 * created on 20-02-2021 19:31
 */
 
-suspend fun AppDatabase.createBackup(contentResolver : ContentResolver,fileUri: Uri?) = withContext(Dispatchers.IO){
+suspend fun AppDatabase.createBackup(key: String,contentResolver : ContentResolver,fileUri: Uri?) = withContext(Dispatchers.IO){
  fileUri ?: return@withContext false
     val data = getDao().getAllAccounts().first()
     val json = Gson().toJson(data)
 
     val fileStream = contentResolver.openOutputStream(fileUri)
-    EncryptionHelper.doCryptoEncrypt(getOrCreateBackupKey(),json, fileStream)
+    EncryptionHelper.doCryptoEncrypt(key,json, fileStream)
 
     return@withContext true
 }
 
 
-suspend fun AppDatabase.restoreBackup(contentResolver : ContentResolver,fileUri: Uri?) = withContext(Dispatchers.IO){
+suspend fun AppDatabase.restoreBackup(key: String,contentResolver : ContentResolver,fileUri: Uri?) = withContext(Dispatchers.IO){
     fileUri ?: return@withContext false
 
-    val restoredFile = EncryptionHelper.doCryptoDecrypt(getOrCreateBackupKey(), contentResolver.openInputStream(fileUri))
+    val restoredFile =    try {
+          EncryptionHelper.doCryptoDecrypt(key, contentResolver.openInputStream(fileUri))
+    }catch (e:Exception){
+        e.printStackTrace()
+        return@withContext false
+    }
     val data = Gson().fromJson(restoredFile, Array<AccountModel>::class.java).toList()
     data.forEach {
         it.id = null
