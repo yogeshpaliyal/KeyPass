@@ -1,0 +1,2 @@
+New Features*
+Backup & Restore your credentials (Fully Encrypted)

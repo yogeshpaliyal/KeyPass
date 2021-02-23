@@ -173,7 +173,8 @@ class MySettingsFragment : PreferenceFragmentCompat() {
         )
 
         lifecycleScope.launch {
-            context?.contentResolver?.let { AppDatabase.getInstance().createBackup(keyPair.second,
+            context?.contentResolver?.let {
+                AppDatabase.getInstance().createBackup(keyPair.second,
                 it,
                 tempFile?.uri
             )

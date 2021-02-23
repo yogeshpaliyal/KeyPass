@@ -8,6 +8,7 @@ import androidx.room.withTransaction
 import com.google.gson.Gson
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
+import com.yogeshpaliyal.keypass.data.BackupData
 import com.yogeshpaliyal.keypass.utils.getOrCreateBackupKey
 import com.yogeshpaliyal.keypass.utils.logD
 import kotlinx.coroutines.Dispatchers
@@ -29,8 +30,8 @@ import javax.crypto.SecretKey
 suspend fun AppDatabase.createBackup(key: String,contentResolver : ContentResolver,fileUri: Uri?) = withContext(Dispatchers.IO){
  fileUri ?: return@withContext false
     val data = getDao().getAllAccounts().first()
-    val json = Gson().toJson(data)
 
+    val json = Gson().toJson(BackupData(this@createBackup.openHelper.readableDatabase.version, data))
     val fileStream = contentResolver.openOutputStream(fileUri)
     EncryptionHelper.doCryptoEncrypt(key,json, fileStream)
 
@@ -47,12 +48,12 @@ suspend fun AppDatabase.restoreBackup(key: String,contentResolver : ContentResol
         e.printStackTrace()
         return@withContext false
     }
-    val data = Gson().fromJson(restoredFile, Array<AccountModel>::class.java).toList()
-    data.forEach {
+    val data = Gson().fromJson(restoredFile, BackupData::class.java)
+    data.data.forEach {
         it.id = null
     }
     withTransaction {
-        getDao().insertOrUpdateAccount(data.toList())
+        getDao().insertOrUpdateAccount(data.data)
     }
     return@withContext true
 }

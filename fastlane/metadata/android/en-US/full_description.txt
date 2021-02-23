@@ -1,0 +1,8 @@
+The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
+
+1. Fully Offline
+2. Without Ads
+3. Open source (you can view source code)
+4. Backup & Restore your credentials
+
+https://github.com/yogeshpaliyal/KeyPass
