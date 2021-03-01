@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+//    id("com.diffplug.spotless") version "5.10.2"
 
 }
 

@@ -11,24 +11,22 @@ import com.yogeshpaliyal.keypass.databinding.ActivityAuthenticationBinding
 import com.yogeshpaliyal.keypass.ui.nav.DashboardActivity
 import java.util.concurrent.Executor
 
-
 class AuthenticationActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityAuthenticationBinding
+    private lateinit var binding: ActivityAuthenticationBinding
 
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         executor = ContextCompat.getMainExecutor(this)
-        biometricPrompt = BiometricPrompt(this, executor,
+        biometricPrompt = BiometricPrompt(
+            this, executor,
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationError(
                     errorCode: Int,
@@ -40,7 +38,7 @@ class AuthenticationActivity : AppCompatActivity() {
                         "Authentication error: $errString", Toast.LENGTH_SHORT
                     )
                         .show()
-                   // finish()
+                    // finish()
                 }
 
                 override fun onAuthenticationSucceeded(
@@ -59,8 +57,8 @@ class AuthenticationActivity : AppCompatActivity() {
                     )
                         .show()
                 }
-            })
-
+            }
+        )
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle(getString(R.string.app_name))
@@ -76,16 +74,13 @@ class AuthenticationActivity : AppCompatActivity() {
 
         binding.btnRetry.setOnClickListener {
             biometricPrompt.authenticate(promptInfo)
-
         }
     }
 
-
-    private fun onAuthenticated(){
-       // binding.passCodeView.isVisible = false
+    private fun onAuthenticated() {
+        // binding.passCodeView.isVisible = false
         val dashboardIntent = Intent(this, DashboardActivity::class.java)
         startActivity(dashboardIntent)
         finish()
     }
-
 }

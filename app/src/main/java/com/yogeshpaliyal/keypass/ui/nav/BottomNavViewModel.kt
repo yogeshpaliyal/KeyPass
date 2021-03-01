@@ -9,7 +9,6 @@ import com.yogeshpaliyal.keypass.AppDatabase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -20,13 +19,13 @@ class BottomNavViewModel(application: Application) : AndroidViewModel(applicatio
     private val _navigationList: MutableLiveData<List<NavigationModelItem>> = MutableLiveData()
     private val tagsDb = AppDatabase.getInstance().getDao().getTags()
 
-    private var tagsList : List<String> ?= null
+    private var tagsList: List<String> ? = null
 
     val navigationList: LiveData<List<NavigationModelItem>>
         get() = _navigationList
 
     init {
-       postListUpdate()
+        postListUpdate()
 
         viewModelScope.launch {
             tagsDb.collect {
@@ -35,8 +34,6 @@ class BottomNavViewModel(application: Application) : AndroidViewModel(applicatio
             }
         }
     }
-
-
 
     /**
      * Set the currently selected menu item.
@@ -56,18 +53,13 @@ class BottomNavViewModel(application: Application) : AndroidViewModel(applicatio
         return updated
     }
 
-
     private fun postListUpdate() {
-        val newList = if(tagsList.isNullOrEmpty().not()){
+        val newList = if (tagsList.isNullOrEmpty().not()) {
             NavigationModel.navigationMenuItems + NavigationModelItem.NavDivider("Tags") + (tagsList?.filter { it != null }?.map { NavigationModelItem.NavEmailFolder(it) } ?: listOf())
-        }else{
+        } else {
             NavigationModel.navigationMenuItems
         }
 
-
         _navigationList.value = newList
-
-
-
     }
 }

@@ -1,10 +1,8 @@
 package com.yogeshpaliyal.keypass.ui.settings
 
-import android.R.attr.label
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -25,7 +23,6 @@ import com.yogeshpaliyal.keypass.db_helper.restoreBackup
 import com.yogeshpaliyal.keypass.utils.*
 import kotlinx.coroutines.launch
 
-
 class MySettingsFragment : PreferenceFragmentCompat() {
     private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
     private val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
@@ -35,7 +32,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
-        when(preference?.key){
+        when (preference?.key) {
             "feedback" -> {
                 context?.email("Feedback to KeyPass", "techpaliyal@gmail.com")
                 return true
@@ -66,19 +63,19 @@ class MySettingsFragment : PreferenceFragmentCompat() {
         return super.onPreferenceTreeClick(preference)
     }
 
-    private fun selectBackupDirectory(){
+    private fun selectBackupDirectory() {
         val selectedDirectory = Uri.parse(getBackupDirectory())
 
         context?.let {
-            if(it.canUserAccessBackupDirectory()){
+            if (it.canUserAccessBackupDirectory()) {
                 backup(selectedDirectory)
-            }else{
+            } else {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 
                 intent.addFlags(
                     Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                            Intent.FLAG_GRANT_READ_URI_PERMISSION
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
 
                 try {
@@ -88,30 +85,28 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                 }
             }
         }
-
     }
 
-
-    private fun selectRestoreFile(){
+    private fun selectRestoreFile() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
         intent.type = "*/*"
 
         intent.addFlags(
             Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                Intent.FLAG_GRANT_READ_URI_PERMISSION
         )
 
         try {
             startActivityForResult(intent, CHOOSE_RESTORE_FILE_REQUEST_CODE)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CHOOSE_BACKUPS_LOCATION_REQUEST_CODE && resultCode == Activity.RESULT_OK){
+        if (requestCode == CHOOSE_BACKUPS_LOCATION_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val contentResolver = context?.contentResolver
             val selectedDirectory = data?.data
             if (contentResolver != null && selectedDirectory != null) {
@@ -123,7 +118,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                 setBackupDirectory(selectedDirectory.toString())
                 backup(selectedDirectory)
             }
-        } else if (requestCode == CHOOSE_RESTORE_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK){
+        } else if (requestCode == CHOOSE_RESTORE_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val contentResolver = context?.contentResolver
             val selectedFile = data?.data
             if (contentResolver != null && selectedFile != null) {
@@ -140,7 +135,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                         "Restore"
                     ) { dialog, which ->
                         lifecycleScope.launch {
-                            val result = AppDatabase.getInstance().restoreBackup(binding.etKeyPhrase.text.toString(),contentResolver, selectedFile)
+                            val result = AppDatabase.getInstance().restoreBackup(binding.etKeyPhrase.text.toString(), contentResolver, selectedFile)
                             if (result) {
                                 dialog?.dismiss()
                                 Toast.makeText(
@@ -148,7 +143,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                                     getString(R.string.backup_restored),
                                     Toast.LENGTH_SHORT
                                 ).show()
-                            }else{
+                            } else {
                                 Toast.makeText(
                                     context,
                                     getString(R.string.invalid_keyphrase),
@@ -157,13 +152,11 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                             }
                         }
                     }.show()
-
             }
         }
     }
 
-
-    fun backup(selectedDirectory: Uri){
+    fun backup(selectedDirectory: Uri) {
 
         val keyPair = getOrCreateBackupKey()
 
@@ -174,10 +167,11 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
         lifecycleScope.launch {
             context?.contentResolver?.let {
-                AppDatabase.getInstance().createBackup(keyPair.second,
-                it,
-                tempFile?.uri
-            )
+                AppDatabase.getInstance().createBackup(
+                    keyPair.second,
+                    it,
+                    tempFile?.uri
+                )
                 if (keyPair.first) {
                     val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
                     binding.txtCode.text = getOrCreateBackupKey().second
@@ -191,14 +185,13 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                     MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
                         .setPositiveButton(
                             "Yes"
-                        ) { dialog, which -> dialog?.dismiss()
+                        ) { dialog, which ->
+                            dialog?.dismiss()
                         }.show()
-                }else{
+                } else {
                     Toast.makeText(context, getString(R.string.backup_completed), Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
     }
-
 }

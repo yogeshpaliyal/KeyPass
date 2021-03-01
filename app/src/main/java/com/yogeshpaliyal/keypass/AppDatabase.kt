@@ -3,11 +3,9 @@ package com.yogeshpaliyal.keypass
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.db.DbDao
-
 
 /*
 * @author Yogesh Paliyal
@@ -31,9 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun getInstance(): AppDatabase {
             if (!this::_instance.isInitialized)
 
-
                 synchronized(this) {
-
 
                     _instance = Room.databaseBuilder(
                         MyApplication.instance,
@@ -48,7 +44,6 @@ abstract class AppDatabase : RoomDatabase() {
                             super.onDestructiveMigration(db)
                             onCreate(db)
                         }
-
                     })
                        /* .addMigrations(object : Migration(3, 4) {
                             override fun migrate(database: SupportSQLiteDatabase) {
@@ -64,10 +59,7 @@ abstract class AppDatabase : RoomDatabase() {
                         .build()
                 }
 
-
             return _instance
         }
     }
-
-
 }

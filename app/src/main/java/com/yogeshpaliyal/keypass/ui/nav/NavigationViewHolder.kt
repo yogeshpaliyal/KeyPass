@@ -1,6 +1,5 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
-
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.yogeshpaliyal.keypass.databinding.NavDividerItemLayoutBinding
@@ -11,7 +10,7 @@ sealed class NavigationViewHolder<T : NavigationModelItem>(
     view: View
 ) : RecyclerView.ViewHolder(view) {
 
-    abstract fun bind(navItem : T)
+    abstract fun bind(navItem: T)
 
     class NavMenuItemViewHolder(
         private val binding: NavMenuItemLayoutBinding,

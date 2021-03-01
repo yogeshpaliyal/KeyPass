@@ -9,7 +9,6 @@ import com.yogeshpaliyal.keypass.data.AccountModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -27,8 +26,5 @@ class DetailViewModel(application: Application) : AndroidViewModel(application) 
                 AppDatabase.getInstance().getDao().getAccount(accountId) ?: AccountModel()
             )
         }
-
     }
-
-
 }

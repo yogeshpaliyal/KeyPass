@@ -16,7 +16,6 @@
 
 package com.yogeshpaliyal.keypass.utils
 
-
 import android.app.Activity
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity

@@ -1,7 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.settings_activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.yogeshpaliyal.keypass.R
 
 class SettingsActivity : AppCompatActivity() {
