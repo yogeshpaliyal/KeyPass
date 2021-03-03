@@ -6,11 +6,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityAuthenticationBinding
 import com.yogeshpaliyal.keypass.ui.nav.DashboardActivity
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.Executor
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthenticationBinding
@@ -23,6 +27,7 @@ class AuthenticationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(

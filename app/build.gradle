@@ -4,7 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
 //    id("com.diffplug.spotless") version "5.10.2"
-
+    id 'dagger.hilt.android.plugin'
 }
 
 
@@ -91,6 +91,8 @@ dependencies {
     implementation "androidx.preference:preference-ktx:1.1.1"
 
 
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     //Androidx Security
     implementation "androidx.security:security-crypto:1.1.0-alpha03"

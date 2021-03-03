@@ -6,6 +6,7 @@ buildscript {
         lifecycle_version = "2.2.0"
         room_version = "2.2.6"
         navigation_version = '2.3.2'
+        hilt_version = '2.33-beta'
     }
     repositories {
         google()
@@ -16,7 +17,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.4'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
