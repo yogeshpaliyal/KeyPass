@@ -39,7 +39,7 @@ jobs:
         id: sign
         uses: r0adkll/sign-android-release@v1
         with:
-          releaseDirectory: app/build/outputs/bundle/release
+          releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -55,6 +55,6 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
-          releaseFile: app/build/outputs/bundle/release/app-release.aab
+          releaseFile: ${{steps.sign.outputs.signedReleaseFile}}
           track: internalsharing
           whatsNewDirectory: whatsnew/
