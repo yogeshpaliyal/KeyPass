@@ -23,6 +23,10 @@ jobs:
       - name: Grant rights
         run: chmod +x build.gradle
 
+        
+        - name: Grant Gradlew rights
+        run: chmod +x gradlew
+
       - name: Build with Gradle
         id: build
         run: ./gradlew build
