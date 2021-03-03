@@ -24,7 +24,7 @@ jobs:
         run: chmod +x build.gradle
 
         
-        - name: Grant Gradlew rights
+      - name: Grant Gradlew rights
         run: chmod +x gradlew
 
       - name: Build with Gradle
