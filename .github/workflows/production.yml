@@ -55,6 +55,6 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
-          releaseFile: ${{steps.sign.outputs.signedReleaseFile}}
+          releaseFile: app/production/release/app-production-release.aab
           track: internalsharing
           whatsNewDirectory: whatsnew/
