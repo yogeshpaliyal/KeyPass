@@ -37,9 +37,9 @@ jobs:
 
       - name: Sign AAB
         id: sign
-        uses: r0adkll/sign-android-release@v1
+        uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/production/release/test
+          releaseDirectory: app/production/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -55,6 +55,6 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
-          releaseFile: app/production/release/test/app-production-release.aab
+          releaseFile: app/production/release/app-production-release.aab
           track: internalsharing
           whatsNewDirectory: whatsnew/
