@@ -58,5 +58,5 @@ jobs:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
           releaseFile: app/build/outputs/bundle/productionRelease/app-production-release.aab
-          track: internalsharing
+          track: beta
           whatsNewDirectory: whatsnew/
