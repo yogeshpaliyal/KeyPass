@@ -2,8 +2,10 @@ name: Deploy App CI
 
 on:
   push:
-    branches: [ master ]
-    tags: '*'
+#     branches: 
+#     - master
+    tags: 
+    - '*'
 
 jobs:
   build:
