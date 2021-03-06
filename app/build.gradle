@@ -8,16 +8,24 @@ plugins {
 
 
 
+def appPackageId = 'com.yogeshpaliyal.keypass'
+def versionMajor = 1
+def versionMinor = 3
+def versionPatch = 1
+def appVersion = "${versionMajor}.${versionMinor}.${versionPatch}"
+def appVersionCode = versionMajor * 1000 + versionMinor * 100 + versionPatch
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.yogeshpaliyal.keypass"
+        applicationId appPackageId
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.4"
+        versionCode appVersionCode
+        versionName appVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

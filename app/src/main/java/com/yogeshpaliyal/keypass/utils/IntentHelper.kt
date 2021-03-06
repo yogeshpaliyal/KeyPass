@@ -20,7 +20,7 @@ fun Context.email(
     email: String = "",
     subject: String = "",
     text: String = ""
-): Boolean {
+) {
     val intent = Intent(Intent.ACTION_SENDTO)
     intent.data = Uri.parse("mailto:")
 
@@ -33,11 +33,7 @@ fun Context.email(
     if (text.isNotEmpty())
         intent.putExtra(Intent.EXTRA_TEXT, text)
 
-    if (intent.resolveActivity(packageManager) != null) {
         startActivity(Intent.createChooser(intent, chooserTitle))
-        return true
-    }
-    return false
 
 }
 

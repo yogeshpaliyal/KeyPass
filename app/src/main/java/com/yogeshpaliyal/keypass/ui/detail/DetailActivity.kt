@@ -13,6 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentDetailBinding
+import com.yogeshpaliyal.keypass.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.utils.initViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -63,7 +64,18 @@ class DetailActivity : AppCompatActivity() {
 
         if (accountId > 0) {
             binding.bottomAppBar.replaceMenu(R.menu.bottom_app_bar_detail)
+
+            binding.tilPassword.startIconDrawable = null
+        }else{
+            binding.tilPassword.setStartIconDrawable(R.drawable.ic_round_refresh_24)
+
+            binding.tilPassword.setStartIconOnClickListener {
+                binding.etPassword.setText(PasswordGenerator().generatePassword())
+            }
         }
+
+
+
         binding.bottomAppBar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -75,6 +87,7 @@ class DetailActivity : AppCompatActivity() {
 
             return@setOnMenuItemClickListener false
         }
+
 
         binding.btnSave.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {

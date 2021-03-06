@@ -4,6 +4,8 @@ class PasswordGenerator(private var length: Int, private var includeUpperCaseLet
                         private var includeLowerCaseLetters : Boolean,
                         private var includeSymbols : Boolean, private var includeNumbers: Boolean) {
 
+    constructor() : this(10,true, true, true, true)
+
     private val UPPER_CASE = 0
     private val LOWER_CASE = 1
     private val NUMBERS = 2

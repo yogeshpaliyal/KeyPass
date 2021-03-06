@@ -76,6 +76,7 @@
                 android:id="@+id/tilPassword"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                app:startIconDrawable="@drawable/ic_round_refresh_24"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText

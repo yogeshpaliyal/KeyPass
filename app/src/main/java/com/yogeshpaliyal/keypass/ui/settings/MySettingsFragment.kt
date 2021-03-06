@@ -37,7 +37,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         when(preference?.key){
             "feedback" -> {
-                context?.email("Feedback to KeyPass", "techpaliyal@gmail.com")
+                context?.email("Feedback to KeyPass", "yogeshpaliyal.foss@gmail.com")
                 return true
             }
 
