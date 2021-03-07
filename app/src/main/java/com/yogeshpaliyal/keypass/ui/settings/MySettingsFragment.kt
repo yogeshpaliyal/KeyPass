@@ -22,6 +22,7 @@ import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutRestoreKeypharseBinding
 import com.yogeshpaliyal.keypass.db_helper.createBackup
 import com.yogeshpaliyal.keypass.db_helper.restoreBackup
+import com.yogeshpaliyal.keypass.ui.backup.BackupActivity
 import com.yogeshpaliyal.keypass.utils.*
 import kotlinx.coroutines.launch
 
@@ -42,7 +43,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
             }
 
             "backup" -> {
-                selectBackupDirectory()
+                BackupActivity.start(context)
                 return true
             }
 

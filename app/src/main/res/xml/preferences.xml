@@ -7,13 +7,13 @@
         app:title="Security">
 
         <Preference
-            app:key="backup"
-            app:title="Backup"
-            app:summary="Backup your credentials in encrypted file" />
+            app:key="@string/settings_backup"
+            app:title="Credentials Backups"
+            app:summary="Backup Credentials to external storage" />
 
         <Preference
-            app:key="restore"
-            app:title="Restore"
+            app:key="@string/settings_restore_backup"
+            app:title="Restore Credentials"
             app:summary="Restore your backup" />
     </PreferenceCategory>
 
@@ -22,13 +22,13 @@
         app:title="Help">
 
         <Preference
-            app:key="feedback"
+            app:key="@string/settings_feedback"
             app:icon="@drawable/ic_baseline_feedback_24"
             app:title="Send feedback"
             app:summary="Report technical issues or suggest new features" />
 
         <Preference
-            app:key="share"
+            app:key="@string/settings_share_app"
             app:icon="@drawable/ic_baseline_share_24"
             app:title="Share"
             app:summary="Share app with others" />

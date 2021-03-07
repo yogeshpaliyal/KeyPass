@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeyPass">
-        <activity android:name=".ui.settings_activity.SettingsActivity"></activity>
+        <activity
+            android:name=".ui.backup.BackupActivity"
+            android:label="@string/title_activity_backup"></activity>
+        <activity android:name=".ui.settings_activity.SettingsActivity" />
         <activity android:name=".ui.generate.GeneratePasswordActivity" />
         <activity android:name=".ui.auth.AuthenticationActivity">
             <intent-filter>
@@ -25,26 +28,14 @@
         </activity>
         <activity
             android:name=".ui.nav.DashboardActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".ui.detail.DetailActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-      <!--  <service
-            android:name=".service.BasicService"
-            android:label="KeyPass Autofill"
-            android:permission="android.permission.BIND_AUTOFILL_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.autofill.AutofillService" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.autofill"
-                android:resource="@xml/service_configuration" />
-        </service>-->
     </application>
 
 </manifest>

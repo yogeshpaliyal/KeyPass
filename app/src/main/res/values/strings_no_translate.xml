@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_backup" translatable="false">backup</string>
+    <string name="settings_verify_key_phrase" translatable="false">settings_verify_key_phrase</string>
+    <string name="settings_restore_backup" translatable="false">restore_backup</string>
+    <string name="settings_feedback" translatable="false">feedback</string>
+    <string name="settings_share_app" translatable="false">share</string>
+</resources>

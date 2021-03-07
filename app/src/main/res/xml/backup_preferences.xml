@@ -1,0 +1,32 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <PreferenceCategory>
+
+        <Preference
+            app:summary="Backups are encrypted with a passphrase and stored on your device"/>
+
+        <Preference
+            app:key="start_backup"
+            app:title="Turn On Backups"/>
+
+        <Preference
+            app:key="create_backup"
+            app:title="Create Backup"
+            tools:summary="Last backup : 7m"/>
+
+
+        <Preference
+            app:key="backup_folder"
+            app:title="Backup Folder"
+            tools:summary="Backup"/>
+
+        <Preference
+            app:key="@string/settings_verify_key_phrase"
+            app:title="Verify backup passphrase"
+            app:summary="Test your backup passphrase and verify that it matches"/>
+
+
+
+    </PreferenceCategory>
+</PreferenceScreen>
