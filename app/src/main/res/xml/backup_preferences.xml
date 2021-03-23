@@ -27,6 +27,10 @@
             app:summary="Test your backup passphrase and verify that it matches"/>
 
 
+        <Preference
+            app:key="stop_backup"
+            app:isPreferenceVisible="false"
+            app:title="Turn Off Backups"/>
 
     </PreferenceCategory>
 </PreferenceScreen>

@@ -1,15 +1,26 @@
 package com.yogeshpaliyal.keypass.ui.backup
 
+import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.documentfile.provider.DocumentFile
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.utils.canUserAccessBackupDirectory
-import com.yogeshpaliyal.keypass.utils.getBackupDirectory
+import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
+import com.yogeshpaliyal.keypass.db_helper.createBackup
+import com.yogeshpaliyal.keypass.utils.*
+import kotlinx.coroutines.launch
 
 class BackupActivity : AppCompatActivity() {
 
@@ -34,24 +45,144 @@ class BackupActivity : AppCompatActivity() {
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
+
+        private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.backup_preferences, rootKey)
             val selectedDirectory = Uri.parse(getBackupDirectory())
 
-            if (context?.canUserAccessBackupDirectory() == true) {
-                // already backup on
-                findPreference<Preference>("create_backup")?.isVisible = true
-                findPreference<Preference>("backup_folder")?.isVisible = true
-                findPreference<Preference>("settings_verify_key_phrase")?.isVisible = true
-                findPreference<Preference>("start_backup")?.isVisible = false
-            } else {
-                // backup is off
-                findPreference<Preference>("create_backup")?.isVisible = false
-                findPreference<Preference>("backup_folder")?.isVisible = false
-                findPreference<Preference>("settings_verify_key_phrase")?.isVisible = false
-                findPreference<Preference>("start_backup")?.isVisible = true
-            }
-
+            updateItems()
         }
+
+        override fun onPreferenceTreeClick(preference: Preference?): Boolean {
+            when (preference?.key) {
+                "start_backup" -> {
+                    startBackup()
+                }
+                "create_backup" -> {
+                    context?.let {
+                        if (it.canUserAccessBackupDirectory()) {
+                            val selectedDirectory = Uri.parse(getBackupDirectory())
+                            backup(selectedDirectory)
+                        }
+                    }
+                }
+                "backup_folder" -> {
+                    changeBackupFolder()
+                }
+                getString(R.string.settings_verify_key_phrase) -> {
+                    verifyKeyPhrase()
+                }
+                "stop_backup" -> {
+                    stopBackup()
+                }
+            }
+            return super.onPreferenceTreeClick(preference)
+        }
+
+        private fun updateItems() {
+            val isBackupEnabled = context?.canUserAccessBackupDirectory() ?: false
+
+            findPreference<Preference>("start_backup")?.isVisible = isBackupEnabled.not()
+
+            findPreference<Preference>("create_backup")?.isVisible = isBackupEnabled
+            findPreference<Preference>("create_backup")?.setSummary("Last backup : ${getBackupTime().formatCalendar("dd MMM yyyy hh:mm aa")}")
+            findPreference<Preference>("backup_folder")?.isVisible = isBackupEnabled
+            findPreference<Preference>("settings_verify_key_phrase")?.isVisible = isBackupEnabled
+            findPreference<Preference>("stop_backup")?.isVisible = isBackupEnabled
+        }
+
+        private fun startBackup(){
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
+
+            intent.addFlags(
+                Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+
+            try {
+                startActivityForResult(intent, CHOOSE_BACKUPS_LOCATION_REQUEST_CODE)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == CHOOSE_BACKUPS_LOCATION_REQUEST_CODE && resultCode == Activity.RESULT_OK){
+                val contentResolver = context?.contentResolver
+                val selectedDirectory = data?.data
+                if (contentResolver != null && selectedDirectory != null) {
+                    contentResolver.takePersistableUriPermission(
+                        selectedDirectory,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                    )
+
+                    setBackupDirectory(selectedDirectory.toString())
+                    backup(selectedDirectory)
+                }
+            }
+        }
+
+        private fun backup(selectedDirectory: Uri){
+
+            val keyPair = getOrCreateBackupKey()
+
+            val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(
+                "*/*",
+                "key_pass_backup_${System.currentTimeMillis()}.keypass"
+            )
+
+            lifecycleScope.launch {
+                context?.contentResolver?.let {
+                    AppDatabase.getInstance().createBackup(keyPair.second,
+                        it,
+                        tempFile?.uri
+                    )
+                    setBackupTime(System.currentTimeMillis())
+                    if (keyPair.first) {
+                        val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
+                        binding.txtCode.text = getOrCreateBackupKey().second
+                        binding.txtCode.setOnClickListener {
+                            val clipboard =
+                                ContextCompat.getSystemService(
+                                    requireContext(),
+                                    ClipboardManager::class.java
+                                )
+                            val clip = ClipData.newPlainText("KeyPass", binding.txtCode.text)
+                            clipboard?.setPrimaryClip(clip)
+                            Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+                        }
+                        MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
+                            .setPositiveButton(
+                                "Yes"
+                            ) { dialog, which -> dialog?.dismiss()
+                            }.show()
+                    }else{
+                        Toast.makeText(context, getString(R.string.backup_completed), Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                updateItems()
+            }
+        }
+
+        private fun changeBackupFolder(){
+            startBackup()
+        }
+
+        private fun verifyKeyPhrase(){
+            Toast.makeText(context, "Under Development", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun stopBackup(){
+            clearBackupKey()
+            setBackupDirectory("")
+            setBackupTime(-1)
+            updateItems()
+        }
+
     }
 }
