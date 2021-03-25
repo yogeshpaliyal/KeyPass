@@ -8,13 +8,13 @@
 
         <Preference
             app:key="@string/settings_backup"
-            app:title="Credentials Backups"
-            app:summary="Backup Credentials to external storage" />
+            app:title="@string/credentials_backups"
+            app:summary="@string/credentials_backups_desc" />
 
         <Preference
             app:key="@string/settings_restore_backup"
-            app:title="Restore Credentials"
-            app:summary="Restore your backup" />
+            app:title="@string/restore_credentials"
+            app:summary="@string/restore_credentials_desc" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -24,14 +24,14 @@
         <Preference
             app:key="@string/settings_feedback"
             app:icon="@drawable/ic_baseline_feedback_24"
-            app:title="Send feedback"
-            app:summary="Report technical issues or suggest new features" />
+            app:title="@string/send_feedback"
+            app:summary="@string/send_feedback_desc" />
 
         <Preference
             app:key="@string/settings_share_app"
             app:icon="@drawable/ic_baseline_share_24"
-            app:title="Share"
-            app:summary="Share app with others" />
+            app:title="@string/share"
+            app:summary="@string/share_desc" />
 
     </PreferenceCategory>
 </PreferenceScreen>

@@ -11,7 +11,7 @@ plugins {
 def appPackageId = 'com.yogeshpaliyal.keypass'
 def versionMajor = 1
 def versionMinor = 3
-def versionPatch = 1
+def versionPatch = 2
 def appVersion = "${versionMajor}.${versionMinor}.${versionPatch}"
 def appVersionCode = versionMajor * 1000 + versionMinor * 100 + versionPatch
 

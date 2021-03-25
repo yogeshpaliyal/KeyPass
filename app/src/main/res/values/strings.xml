@@ -30,4 +30,12 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="credentials_backups">Credentials Backups</string>
+    <string name="credentials_backups_desc">Backup Credentials to external storage</string>
+    <string name="restore_credentials">Restore Credentials</string>
+    <string name="restore_credentials_desc">Restore your backup</string>
+    <string name="send_feedback">Send feedback</string>
+    <string name="send_feedback_desc">Report technical issues or suggest new features</string>
+    <string name="share">Share</string>
+    <string name="share_desc">Share app with others</string>
 </resources>

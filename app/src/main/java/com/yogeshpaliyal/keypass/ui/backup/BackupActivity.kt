@@ -17,10 +17,12 @@ import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.databinding.BackupActivityBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
 import com.yogeshpaliyal.keypass.db_helper.createBackup
 import com.yogeshpaliyal.keypass.utils.*
 import kotlinx.coroutines.launch
+import java.net.URLDecoder
 
 class BackupActivity : AppCompatActivity() {
 
@@ -32,9 +34,17 @@ class BackupActivity : AppCompatActivity() {
         }
     }
 
+    private lateinit var binding: BackupActivityBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.backup_activity)
+        binding = BackupActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
@@ -50,8 +60,6 @@ class BackupActivity : AppCompatActivity() {
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.backup_preferences, rootKey)
-            val selectedDirectory = Uri.parse(getBackupDirectory())
-
             updateItems()
         }
 
@@ -87,9 +95,12 @@ class BackupActivity : AppCompatActivity() {
             findPreference<Preference>("start_backup")?.isVisible = isBackupEnabled.not()
 
             findPreference<Preference>("create_backup")?.isVisible = isBackupEnabled
-            findPreference<Preference>("create_backup")?.setSummary("Last backup : ${getBackupTime().formatCalendar("dd MMM yyyy hh:mm aa")}")
+            findPreference<Preference>("create_backup")?.summary = "Last backup : ${getBackupTime().formatCalendar("dd MMM yyyy hh:mm aa")}"
             findPreference<Preference>("backup_folder")?.isVisible = isBackupEnabled
-            findPreference<Preference>("settings_verify_key_phrase")?.isVisible = isBackupEnabled
+            val directory = URLDecoder.decode(getBackupDirectory(),"utf-8").split("/")
+            val folderName = directory.get(directory.lastIndex)
+            findPreference<Preference>("backup_folder")?.summary = folderName
+            findPreference<Preference>("settings_verify_key_phrase")?.isVisible = false
             findPreference<Preference>("stop_backup")?.isVisible = isBackupEnabled
         }
 

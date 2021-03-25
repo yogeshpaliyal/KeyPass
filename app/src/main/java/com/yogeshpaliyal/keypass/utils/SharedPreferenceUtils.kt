@@ -68,7 +68,7 @@ fun getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, String> {
 fun clearBackupKey() {
     val sp = getSharedPreferences()
     sp.edit {
-        putString(BACKUP_KEY, "")
+        remove(BACKUP_KEY)
     }
 
 }

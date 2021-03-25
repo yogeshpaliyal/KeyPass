@@ -47,7 +47,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                 return true
             }
 
-            "restore" -> {
+            getString(R.string.settings_restore_backup) -> {
                 selectRestoreFile()
                 return true
             }
