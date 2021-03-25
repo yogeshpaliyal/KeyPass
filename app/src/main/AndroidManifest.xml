@@ -12,8 +12,7 @@
         android:theme="@style/Theme.KeyPass">
         <activity
             android:name=".ui.backup.BackupActivity"
-            android:label="@string/title_activity_backup"></activity>
-        <activity android:name=".ui.settings_activity.SettingsActivity" />
+            android:label="@string/title_activity_backup"/>
         <activity android:name=".ui.generate.GeneratePasswordActivity" />
         <activity android:name=".ui.auth.AuthenticationActivity">
             <intent-filter>
