@@ -57,6 +57,13 @@ android {
             applicationIdSuffix ".staging"
         }
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res', 'src\\staging\\res'
+            }
+        }
+    }
 
 }
 

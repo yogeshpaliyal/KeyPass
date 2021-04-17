@@ -45,7 +45,7 @@ abstract class AppDatabase : RoomDatabase() {
                                 ?.use {
                                     while (it.moveToNext()) {
                                         val id = it.getInt(0)
-                                        database.execSQL("update `medias` set `file_unique_id` = '${getRandomString()}' where `id` = '$id'")
+                                        database.execSQL("update `account` set `unique_id` = '${getRandomString()}' where `id` = '$id'")
                                     }
                                 }
                         }

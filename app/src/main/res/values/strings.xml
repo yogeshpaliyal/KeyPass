@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">KeyPass</string>
 
 
     <string name="generate_password">Generate Password</string>

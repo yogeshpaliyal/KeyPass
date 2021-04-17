@@ -10,6 +10,7 @@ import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.data.BackupData
 import com.yogeshpaliyal.keypass.utils.getOrCreateBackupKey
+import com.yogeshpaliyal.keypass.utils.getRandomString
 import com.yogeshpaliyal.keypass.utils.logD
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -49,6 +50,11 @@ suspend fun AppDatabase.restoreBackup(key: String,contentResolver : ContentResol
         return@withContext false
     }
     val data = Gson().fromJson(restoredFile, BackupData::class.java)
+    if (data.version == 3){
+        for (datum in data.data) {
+            datum.uniqueId = getRandomString()
+        }
+    }
     data.data.forEach {
         it.id = null
     }
