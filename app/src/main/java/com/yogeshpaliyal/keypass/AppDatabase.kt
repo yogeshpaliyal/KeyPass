@@ -7,6 +7,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.db.DbDao
+import com.yogeshpaliyal.keypass.utils.getRandomString
 
 
 /*
@@ -17,7 +18,7 @@ import com.yogeshpaliyal.keypass.db.DbDao
 */
 @Database(
     entities = [AccountModel::class],
-    version = 3, exportSchema = false
+    version = 4, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -33,34 +34,22 @@ abstract class AppDatabase : RoomDatabase() {
 
 
                 synchronized(this) {
-
-
                     _instance = Room.databaseBuilder(
                         MyApplication.instance,
                         AppDatabase::class.java,
                         MyApplication.instance.getString(R.string.app_name)
-                    ).addCallback(object : Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                        }
-
-                        override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
-                            super.onDestructiveMigration(db)
-                            onCreate(db)
-                        }
-
-                    })
-                       /* .addMigrations(object : Migration(3, 4) {
-                            override fun migrate(database: SupportSQLiteDatabase) {
-                                val cursor = database.query("SELECT * FROM account")
-                                while(cursor.moveToNext()) {
-                                    val id = cursor.getLong(cursor.getColumnIndex("id"))
-                                    val password = cursor.getLong(cursor.getColumnIndex("password"))
-                                    //-- Hash your password --//
-                                    database.execSQL("UPDATE account SET password = hashedPassword WHERE id = $id;")
+                    ).addMigrations(object : Migration(3, 4) {
+                        override fun migrate(database: SupportSQLiteDatabase) {
+                            database.execSQL("ALTER TABLE `account` ADD COLUMN `unique_id` TEXT")
+                            database.query("select id,unique_id from `account` where unique_id IS NULL")
+                                ?.use {
+                                    while (it.moveToNext()) {
+                                        val id = it.getInt(0)
+                                        database.execSQL("update `medias` set `file_unique_id` = '${getRandomString()}' where `id` = '$id'")
+                                    }
                                 }
-                            }
-                        })*/
+                        }
+                    })
                         .build()
                 }
 

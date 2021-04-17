@@ -25,19 +25,19 @@ abstract class DbDao {
     abstract fun insertOrUpdateAccount(accountModel: List<AccountModel>)
 
 
-    @Query("SELECT * from account")
+    @Query("SELECT * FROM account ORDER BY title ASC")
     abstract fun getAllAccounts() : Flow<List<AccountModel>>
 
-    @Query("SELECT * from account where tags = :tag")
+    @Query("SELECT * FROM account WHERE tags = :tag ORDER BY title ASC")
     abstract fun getAllAccounts(tag: String) : Flow<List<AccountModel>>
 
-    @Query("SELECT * from account where id = :id")
+    @Query("SELECT * FROM account WHERE id = :id")
     abstract fun getAccount(id: Long?) : AccountModel?
 
-    @Query("SELECT DISTINCT tags from account")
+    @Query("SELECT DISTINCT tags FROM account")
     abstract fun getTags() : Flow<List<String>>
 
-    @Query("DELETE from account where id = :id")
+    @Query("DELETE from account WHERE id = :id")
     abstract fun deleteAccount(id: Long?)
 
 
