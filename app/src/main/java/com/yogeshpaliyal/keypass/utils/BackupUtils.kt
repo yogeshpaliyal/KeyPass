@@ -1,6 +1,7 @@
 package com.yogeshpaliyal.keypass.utils
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.text.TextUtils
 import androidx.documentfile.provider.DocumentFile
@@ -28,8 +29,8 @@ fun getRandomString(sizeOfRandomString: Int): String {
 }
 
 
-fun Context.canUserAccessBackupDirectory(): Boolean {
-    val backupDirectoryUri = getUri(getBackupDirectory()) ?: return false
+fun Context.canUserAccessBackupDirectory(sp : SharedPreferences): Boolean {
+    val backupDirectoryUri = getUri(getBackupDirectory(sp)) ?: return false
     val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
     return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
 }

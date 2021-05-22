@@ -7,10 +7,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
+import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityGeneratePasswordBinding
 import com.yogeshpaliyal.keypass.utils.PasswordGenerator
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class GeneratePasswordActivity : AppCompatActivity() {
     private lateinit var binding : ActivityGeneratePasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,14 +31,14 @@ class GeneratePasswordActivity : AppCompatActivity() {
             val clipboard= getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("random_password", binding.etPassword.text)
             clipboard.setPrimaryClip(clip)
-            Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
         }
     }
 
 
     private fun generatePassword(){
         val password = PasswordGenerator(
-            10, binding.cbCapAlphabets.isChecked,
+            binding.sliderPasswordLength.value.toInt(), binding.cbCapAlphabets.isChecked,
             binding.cbLowerAlphabets.isChecked,
             binding.cbSymbols.isChecked,
             binding.cbNumbers.isChecked

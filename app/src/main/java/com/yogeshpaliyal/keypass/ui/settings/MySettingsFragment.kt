@@ -2,10 +2,7 @@ package com.yogeshpaliyal.keypass.ui.settings
 
 import android.R.attr.label
 import android.app.Activity
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -24,12 +21,21 @@ import com.yogeshpaliyal.keypass.db_helper.createBackup
 import com.yogeshpaliyal.keypass.db_helper.restoreBackup
 import com.yogeshpaliyal.keypass.ui.backup.BackupActivity
 import com.yogeshpaliyal.keypass.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
+@AndroidEntryPoint
 class MySettingsFragment : PreferenceFragmentCompat() {
     private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
     private val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
+
+    @Inject
+    lateinit var appDb : AppDatabase
+
+    @Inject
+    lateinit var sp : SharedPreferences
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
@@ -68,12 +74,13 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun selectBackupDirectory(){
-        val selectedDirectory = Uri.parse(getBackupDirectory())
+        val selectedDirectory = Uri.parse(getBackupDirectory(sp))
 
         context?.let {
-            if(it.canUserAccessBackupDirectory()){
+            if(it.canUserAccessBackupDirectory(sp)){
                 backup(selectedDirectory)
             }else{
+
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 
                 intent.addFlags(
@@ -121,7 +128,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                     Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 )
 
-                setBackupDirectory(selectedDirectory.toString())
+                setBackupDirectory(sp,selectedDirectory.toString())
                 backup(selectedDirectory)
             }
         } else if (requestCode == CHOOSE_RESTORE_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK){
@@ -141,7 +148,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                         "Restore"
                     ) { dialog, which ->
                         lifecycleScope.launch {
-                            val result = AppDatabase.getInstance().restoreBackup(binding.etKeyPhrase.text.toString(),contentResolver, selectedFile)
+                            val result = appDb.restoreBackup(binding.etKeyPhrase.text.toString(),contentResolver, selectedFile)
                             if (result) {
                                 dialog?.dismiss()
                                 Toast.makeText(
@@ -166,7 +173,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
     fun backup(selectedDirectory: Uri){
 
-        val keyPair = getOrCreateBackupKey()
+        val keyPair = getOrCreateBackupKey(sp)
 
         val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(
             "*/*",
@@ -175,19 +182,19 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
         lifecycleScope.launch {
             context?.contentResolver?.let {
-                AppDatabase.getInstance().createBackup(keyPair.second,
+                appDb.createBackup(keyPair.second,
                 it,
                 tempFile?.uri
             )
                 if (keyPair.first) {
                     val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
-                    binding.txtCode.text = getOrCreateBackupKey().second
+                    binding.txtCode.text = getOrCreateBackupKey(sp).second
                     binding.txtCode.setOnClickListener {
                         val clipboard =
                             getSystemService(requireContext(), ClipboardManager::class.java)
-                        val clip = ClipData.newPlainText("KeyPass", binding.txtCode.text)
+                        val clip = ClipData.newPlainText(getString(R.string.app_name), binding.txtCode.text)
                         clipboard?.setPrimaryClip(clip)
-                        Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
                     }
                     MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
                         .setPositiveButton(

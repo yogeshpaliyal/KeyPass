@@ -24,10 +24,12 @@ import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import com.yogeshpaliyal.keypass.ui.home.HomeFragmentDirections
 import com.yogeshpaliyal.keypass.ui.settings.MySettingsFragmentDirections
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class DashboardActivity : AppCompatActivity(),
     Toolbar.OnMenuItemClickListener,
     NavController.OnDestinationChangedListener,

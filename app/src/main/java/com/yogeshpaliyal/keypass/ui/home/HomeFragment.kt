@@ -5,21 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
-import com.yogeshpaliyal.keypass.db_helper.EncryptionHelper
 import com.yogeshpaliyal.keypass.listener.UniversalClickListener
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
-import com.yogeshpaliyal.keypass.utils.initViewModel
-import com.yogeshpaliyal.keypass.utils.logD
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
 import com.yogeshpaliyal.universal_adapter.utils.Resource
-import com.yogeshpaliyal.universal_adapter.utils.UniversalAdapterOptions
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -32,25 +29,30 @@ import kotlinx.coroutines.withContext
 * https://techpaliyal.com
 * created on 31-01-2021 09:25
 */
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private  lateinit var binding : FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
 
-    private val mViewModel by lazy {
-        initViewModel(HomeViewModel::class.java)
-    }
+    private val mViewModel by viewModels<HomeViewModel>()
+
 
     private val args: HomeFragmentArgs by navArgs()
 
 
     private val mAdapter by lazy {
-        val adapterOptions = UniversalAdapterOptions<AccountModel>(this,
-            content = UniversalAdapterViewType.Content(R.layout.item_accounts,mListener = mListener),
-        noData = UniversalAdapterViewType.NoData(R.layout.layout_no_accounts))
+        val adapterOptions = UniversalRecyclerAdapter.Builder<AccountModel>(
+            this,
+            content = UniversalAdapterViewType.Content(
+                R.layout.item_accounts,
+                listener = mListener
+            ),
+            noData = UniversalAdapterViewType.NoData(R.layout.layout_no_accounts)
+        )
 
         UniversalRecyclerAdapter<AccountModel>(adapterOptions)
     }
 
-    val mListener = object : UniversalClickListener<AccountModel>{
+    val mListener = object : UniversalClickListener<AccountModel> {
         override fun onItemClick(view: View, model: AccountModel) {
             DetailActivity.start(context, model.id)
         }
@@ -61,15 +63,15 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater,container,false)
+        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerView.adapter = mAdapter
-        lifecycleScope.launch(Dispatchers.IO){
+        binding.recyclerView.adapter = mAdapter.getAdapter()
+        lifecycleScope.launch() {
             mViewModel.loadData(args.tag).collect {
                 withContext(Dispatchers.Main) {
                     mAdapter.updateData(Resource.success(ArrayList(it)))
@@ -78,7 +80,6 @@ class HomeFragment : Fragment() {
         }
 
     }
-
 
 
 }

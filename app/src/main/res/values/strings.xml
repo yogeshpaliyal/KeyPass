@@ -37,4 +37,11 @@
     <string name="send_feedback_desc">Report technical issues or suggest new features</string>
     <string name="share">Share</string>
     <string name="share_desc">Share app with others</string>
+    <string name="password_length">Password length</string>
+    <string name="password">Password</string>
+    <string name="uppercase_alphabets">UPPERCASE ALPHABETS</string>
+    <string name="lowercase_alphabets">lowercase alphabets</string>
+    <string name="symbols">Symbols</string>
+    <string name="numbers">Numbers</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
 </resources>

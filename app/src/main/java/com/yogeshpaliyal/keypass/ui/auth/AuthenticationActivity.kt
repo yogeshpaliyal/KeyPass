@@ -9,9 +9,11 @@ import androidx.core.content.ContextCompat
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityAuthenticationBinding
 import com.yogeshpaliyal.keypass.ui.nav.DashboardActivity
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.Executor
 
 
+@AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityAuthenticationBinding

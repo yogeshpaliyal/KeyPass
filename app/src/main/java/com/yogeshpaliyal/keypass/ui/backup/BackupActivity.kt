@@ -1,10 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.backup
 
 import android.app.Activity
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -21,9 +18,12 @@ import com.yogeshpaliyal.keypass.databinding.BackupActivityBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
 import com.yogeshpaliyal.keypass.db_helper.createBackup
 import com.yogeshpaliyal.keypass.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.net.URLDecoder
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class BackupActivity : AppCompatActivity() {
 
     companion object {
@@ -54,7 +54,14 @@ class BackupActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
+    @AndroidEntryPoint
     class SettingsFragment : PreferenceFragmentCompat() {
+
+        @Inject
+        lateinit var sp : SharedPreferences
+
+        @Inject
+        lateinit var appDb : AppDatabase
 
         private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
 
@@ -70,8 +77,8 @@ class BackupActivity : AppCompatActivity() {
                 }
                 "create_backup" -> {
                     context?.let {
-                        if (it.canUserAccessBackupDirectory()) {
-                            val selectedDirectory = Uri.parse(getBackupDirectory())
+                        if (it.canUserAccessBackupDirectory(sp)) {
+                            val selectedDirectory = Uri.parse(getBackupDirectory(sp))
                             backup(selectedDirectory)
                         }
                     }
@@ -90,14 +97,14 @@ class BackupActivity : AppCompatActivity() {
         }
 
         private fun updateItems() {
-            val isBackupEnabled = context?.canUserAccessBackupDirectory() ?: false
+            val isBackupEnabled = context?.canUserAccessBackupDirectory(sp) ?: false
 
             findPreference<Preference>("start_backup")?.isVisible = isBackupEnabled.not()
 
             findPreference<Preference>("create_backup")?.isVisible = isBackupEnabled
-            findPreference<Preference>("create_backup")?.summary = "Last backup : ${getBackupTime().formatCalendar("dd MMM yyyy hh:mm aa")}"
+            findPreference<Preference>("create_backup")?.summary = "Last backup : ${getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa")}"
             findPreference<Preference>("backup_folder")?.isVisible = isBackupEnabled
-            val directory = URLDecoder.decode(getBackupDirectory(),"utf-8").split("/")
+            val directory = URLDecoder.decode(getBackupDirectory(sp),"utf-8").split("/")
             val folderName = directory.get(directory.lastIndex)
             findPreference<Preference>("backup_folder")?.summary = folderName
             findPreference<Preference>("settings_verify_key_phrase")?.isVisible = false
@@ -131,7 +138,7 @@ class BackupActivity : AppCompatActivity() {
                         Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                     )
 
-                    setBackupDirectory(selectedDirectory.toString())
+                    setBackupDirectory(sp,selectedDirectory.toString())
                     backup(selectedDirectory)
                 }
             }
@@ -139,7 +146,7 @@ class BackupActivity : AppCompatActivity() {
 
         private fun backup(selectedDirectory: Uri){
 
-            val keyPair = getOrCreateBackupKey()
+            val keyPair = getOrCreateBackupKey(sp)
 
             val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(
                 "*/*",
@@ -148,14 +155,14 @@ class BackupActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 context?.contentResolver?.let {
-                    AppDatabase.getInstance().createBackup(keyPair.second,
+                    appDb.createBackup(keyPair.second,
                         it,
                         tempFile?.uri
                     )
-                    setBackupTime(System.currentTimeMillis())
+                    setBackupTime(sp,System.currentTimeMillis())
                     if (keyPair.first) {
                         val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
-                        binding.txtCode.text = getOrCreateBackupKey().second
+                        binding.txtCode.text = getOrCreateBackupKey(sp).second
                         binding.txtCode.setOnClickListener {
                             val clipboard =
                                 ContextCompat.getSystemService(
@@ -189,9 +196,9 @@ class BackupActivity : AppCompatActivity() {
         }
 
         private fun stopBackup(){
-            clearBackupKey()
-            setBackupDirectory("")
-            setBackupTime(-1)
+            clearBackupKey(sp)
+            setBackupDirectory(sp,"")
+            setBackupTime(sp,-1)
             updateItems()
         }
 

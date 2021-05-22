@@ -6,8 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.keypass.AppDatabase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 /*
@@ -16,9 +18,10 @@ import kotlinx.coroutines.launch
 * https://techpaliyal.com
 * created on 31-01-2021 14:11
 */
-class BottomNavViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class BottomNavViewModel @Inject constructor (application: Application,val appDb: AppDatabase) : AndroidViewModel(application) {
     private val _navigationList: MutableLiveData<List<NavigationModelItem>> = MutableLiveData()
-    private val tagsDb = AppDatabase.getInstance().getDao().getTags()
+    private val tagsDb = appDb.getDao().getTags()
 
     private var tagsList : List<String> ?= null
 
