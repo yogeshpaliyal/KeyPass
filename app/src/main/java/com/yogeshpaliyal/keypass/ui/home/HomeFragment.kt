@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
+import androidx.lifecycle.Observer
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
@@ -17,10 +16,6 @@ import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
 import com.yogeshpaliyal.universal_adapter.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 /*
@@ -33,23 +28,19 @@ import kotlinx.coroutines.withContext
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
-    private val mViewModel by viewModels<HomeViewModel>()
-
-
-    private val args: HomeFragmentArgs by navArgs()
-
+    private val mViewModel by lazy {
+        requireActivity().viewModels<DashboardViewModel>().value
+    }
 
     private val mAdapter by lazy {
-        val adapterOptions = UniversalRecyclerAdapter.Builder<AccountModel>(
+        UniversalRecyclerAdapter.Builder<AccountModel>(
             this,
             content = UniversalAdapterViewType.Content(
                 R.layout.item_accounts,
                 listener = mListener
             ),
             noData = UniversalAdapterViewType.NoData(R.layout.layout_no_accounts)
-        )
-
-        UniversalRecyclerAdapter<AccountModel>(adapterOptions)
+        ).build()
     }
 
     val mListener = object : UniversalClickListener<AccountModel> {
@@ -67,17 +58,29 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    val observer = Observer<List<AccountModel>> {
+        mAdapter.updateData(Resource.success(it))
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerView.adapter = mAdapter.getAdapter()
-        lifecycleScope.launch() {
-            mViewModel.loadData(args.tag).collect {
-                withContext(Dispatchers.Main) {
-                    mAdapter.updateData(Resource.success(ArrayList(it)))
-                }
-            }
-        }
+
+        mViewModel.mediator.observe(viewLifecycleOwner, Observer {
+            it.removeObserver(observer)
+            it.observe(viewLifecycleOwner, observer)
+        })
+
+        /* lifecycleScope.launch() {
+             mViewModel.result
+             mViewModel.loadData(args.tag).collect {
+                 withContext(Dispatchers.Main) {
+                     mAdapter.updateData(Resource.success(ArrayList(it)))
+                 }
+             }
+         }*/
 
     }
 

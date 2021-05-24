@@ -10,10 +10,7 @@
         android:name="com.yogeshpaliyal.keypass.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
-        <argument android:name="tag"
-            app:argType="string"
-            android:defaultValue="@null"
-            app:nullable="true"/>
+
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

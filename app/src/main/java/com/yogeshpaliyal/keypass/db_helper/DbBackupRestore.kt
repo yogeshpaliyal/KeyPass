@@ -22,7 +22,8 @@ import kotlinx.coroutines.withContext
 suspend fun AppDatabase.createBackup(key: String, contentResolver: ContentResolver, fileUri: Uri?) =
     withContext(Dispatchers.IO) {
         fileUri ?: return@withContext false
-        val data = getDao().getAllAccounts().first()
+        val data = getDao().getAllAccounts().value
+        data ?: return@withContext false
 
         val json =
             Gson().toJson(BackupData(this@createBackup.openHelper.readableDatabase.version, data))
