@@ -7,27 +7,26 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.annotation.MenuRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.transition.MaterialElevationScale
-import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
+import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.home.HomeFragmentDirections
 import com.yogeshpaliyal.keypass.ui.settings.MySettingsFragmentDirections
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardActivity : AppCompatActivity(),
     Toolbar.OnMenuItemClickListener,
     NavController.OnDestinationChangedListener,
@@ -39,6 +38,8 @@ class DashboardActivity : AppCompatActivity(),
         supportFragmentManager.findFragmentById(R.id.bottom_nav_drawer) as BottomNavDrawerFragment
     }
 
+    private val mViewModel by viewModels<DashboardViewModel>()
+
     val currentNavigationFragment: Fragment?
         get() = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
             ?.childFragmentManager
@@ -47,12 +48,17 @@ class DashboardActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        );
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //setSupportActionBar(binding.bottomAppBar)
 
+        binding.lifecycleOwner = this
+        binding.viewModel = mViewModel
 
         findNavController(R.id.nav_host_fragment).addOnDestinationChangedListener(
             this@DashboardActivity
@@ -136,6 +142,8 @@ class DashboardActivity : AppCompatActivity(),
         destination: NavDestination,
         arguments: Bundle?
     ) {
+
+        binding.searchAppBar.isVisible = destination.id == R.id.homeFragment
         when (destination.id) {
             R.id.homeFragment -> {
                 binding.btnAdd.isActivated = false
@@ -153,14 +161,15 @@ class DashboardActivity : AppCompatActivity(),
                 startActivity(intent)
             }
             NavigationModel.HOME -> {
-                val args = HomeFragmentDirections.actionGlobalHomeFragment(null)
+                val args = HomeFragmentDirections.actionGlobalHomeFragment()
                 findNavController(R.id.nav_host_fragment).navigate(args)
             }
         }
     }
 
     override fun onNavEmailFolderClicked(folder: NavigationModelItem.NavEmailFolder) {
-        val destination = HomeFragmentDirections.actionGlobalHomeFragmentTag(folder.category)
+        mViewModel.tag.postValue(folder.category)
+        val destination = HomeFragmentDirections.actionGlobalHomeFragmentTag()
         findNavController(R.id.nav_host_fragment).navigate(destination)
         bottomNavDrawer.close()
     }

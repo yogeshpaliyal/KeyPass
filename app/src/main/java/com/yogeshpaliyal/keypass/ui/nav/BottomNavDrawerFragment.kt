@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED
@@ -19,14 +21,17 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.from
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentBottomNavDrawerBinding
+import com.yogeshpaliyal.keypass.ui.detail.DetailViewModel
 import com.yogeshpaliyal.keypass.utils.initViewModel
 import com.yogeshpaliyal.keypass.utils.themeColor
+import dagger.hilt.android.AndroidEntryPoint
 
 import kotlin.LazyThreadSafetyMode.NONE
 
 /**
  * A [Fragment] which acts as a bottom navigation drawer.
  */
+@AndroidEntryPoint
 class BottomNavDrawerFragment :
     Fragment(),
     NavigationAdapter.NavigationAdapterListener {
@@ -39,9 +44,8 @@ class BottomNavDrawerFragment :
         from(binding.foregroundContainer)
     }
 
-    private val mViewModel by lazy {
-        initViewModel(BottomNavViewModel::class.java)
-    }
+    private val mViewModel by viewModels<BottomNavViewModel>()
+
 
     private val bottomSheetCallback = BottomNavigationDrawerCallback()
 

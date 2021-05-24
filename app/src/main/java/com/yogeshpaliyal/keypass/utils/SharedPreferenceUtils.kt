@@ -16,43 +16,13 @@ import com.yogeshpaliyal.keypass.MyApplication
 * created on 21-02-2021 11:18
 */
 
-fun getSharedPreferences(): SharedPreferences {
-    val masterKeyAlias = MasterKey.Builder(MyApplication.instance).also {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            // this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
-
-            // this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
-            val spec = KeyGenParameterSpec.Builder(
-                MasterKey.DEFAULT_MASTER_KEY_ALIAS,
-                KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
-            )
-                .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-                .setKeySize(256)
-                .build()
-            it.setKeyGenParameterSpec(spec)
-        }
-        //it.setUserAuthenticationRequired(true)
-    }
-        .build()
-
-    return EncryptedSharedPreferences.create(
-        MyApplication.instance,
-        "secret_shared_prefs",
-        masterKeyAlias,
-        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-    )
-}
-
 
 /**
  * Pair
  * 1st => true if key is created now & false if key is created previously
  *
  */
-fun getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, String> {
-    val sp = getSharedPreferences()
+fun getOrCreateBackupKey(sp: SharedPreferences,reset: Boolean = false): Pair<Boolean, String> {
 
     return if (sp.contains(BACKUP_KEY) && reset.not()) {
         Pair(false, sp.getString(BACKUP_KEY, "") ?: "")
@@ -65,8 +35,8 @@ fun getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, String> {
     }
 }
 
-fun clearBackupKey() {
-    val sp = getSharedPreferences()
+fun clearBackupKey(sp: SharedPreferences) {
+
     sp.edit {
         remove(BACKUP_KEY)
     }
@@ -74,25 +44,23 @@ fun clearBackupKey() {
 }
 
 
-fun setBackupDirectory(string: String) {
-    getSharedPreferences().edit {
+fun setBackupDirectory(sp: SharedPreferences,string: String) {
+    sp.edit {
         putString(BACKUP_DIRECTORY, string)
     }
 }
 
-fun setBackupTime(time: Long) {
-    getSharedPreferences().edit {
+fun setBackupTime(sp: SharedPreferences,time: Long) {
+    sp.edit {
         putLong(BACKUP_DATE_TIME, time)
     }
 }
 
-fun getBackupDirectory(): String {
-    val sp = getSharedPreferences()
+fun getBackupDirectory(sp: SharedPreferences,): String {
     return sp.getString(BACKUP_DIRECTORY, "") ?: ""
 }
 
-fun getBackupTime(): Long {
-    val sp = getSharedPreferences()
+fun getBackupTime(sp: SharedPreferences,): Long {
     return sp.getLong(BACKUP_DATE_TIME, -1) ?: -1L
 }
 
