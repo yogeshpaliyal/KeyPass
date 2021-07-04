@@ -14,6 +14,16 @@ jobs:
 
     steps:
 
+      - name: Cache
+        uses: actions/cache@v2.1.6
+        with:
+          path:  |
+           ~/.gradle/caches
+           ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Checkout
         uses: actions/checkout@v2
 
