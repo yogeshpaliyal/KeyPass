@@ -4,7 +4,5 @@
     <!--Motion-->
 
     <integer name="keypass_motion_duration_large">300</integer>
-    <integer name="keypass_motion_duration_medium">225</integer>
-    <integer name="keypass_motion_duration_small">175</integer>
 
 </resources>

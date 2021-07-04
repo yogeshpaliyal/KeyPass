@@ -11,8 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KeyPass">
         <activity
-            android:name=".ui.backup.BackupActivity"
-            android:label="@string/title_activity_backup"/>
+            android:name=".ui.backup.BackupActivity"/>
         <activity android:name=".ui.generate.GeneratePasswordActivity" />
         <activity android:name=".ui.auth.AuthenticationActivity">
             <intent-filter>

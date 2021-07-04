@@ -19,7 +19,7 @@
         app:layout_constraintBottom_toTopOf="@+id/illustrator"
         app:layout_constraintVertical_bias="0.7"
         android:gravity="center"
-        android:text="No Accounts added, please add from below button"
+        android:text="@string/message_no_accounts"
         app:layout_constrainedWidth="true"
         style="@style/TextStyle.Heading"
         android:layout_marginHorizontal="@dimen/grid_4"/>

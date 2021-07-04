@@ -7,28 +7,13 @@
 
 
     <string name="generate_shortcut_short_label">Generate Password</string>
-    <string name="retry">Retry</string>
 
     <string name="backup_restored">Backup Restored</string>
     <string name="invalid_keyphrase">Invalid Keyphrase</string>
 
     <string name="backup_completed">Backup Completed</string>
-    <string name="title_activity_backup">BackupActivity</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="credentials_backups">Credentials Backups</string>
     <string name="credentials_backups_desc">Backup Credentials to external storage</string>
     <string name="restore_credentials">Restore Credentials</string>
@@ -44,4 +29,34 @@
     <string name="symbols">Symbols</string>
     <string name="numbers">Numbers</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="login_to_enter_keypass">Login to enter KeyPass</string>
+    <string name="authentication_failed">Authentication failed</string>
+
+    <string name="last_backup_date">Last backup : %s</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="delete_account_title">Are you sure?</string>
+    <string name="delete_account_msg">Do you really want to delete this entry, it can\'t be restored</string>
+    <string name="cancel">Cancel</string>
+    <string name="feedback_to_keypass">Feedback to KeyPass</string>
+    <string name="share_keypass">Share KeyPass</string>
+    <string name="message_no_accounts">No Accounts added, please add from below button</string>
+    <string name="turn_off_backup">Turn Off Backups</string>
+    <string name="verify_keyphrase">Verify backup passphrase</string>
+    <string name="verify_keyphrase_message">Test your backup passphrase and verify that it matches</string>
+    <string name="backup_folder">Backup Folder</string>
+    <string name="backup">Backup</string>
+    <string name="turn_on_backup">Turn On Backups</string>
+    <string name="backup_desc">Backups are encrypted with a passphrase and stored on your device</string>
+    <string name="yes">Yes</string>
+    <string name="create_backup">Create Backup</string>
+    <string name="alert">Alert</string>
+    <string name="copy_keypharse_msg">Copy This Key Phrase this will be used to recover this backup, this will not be provided by KeyPass Again, have you copied or written down?</string>
+    <string name="help">Help</string>
+    <string name="security">Security</string>
+    <string name="search">Search</string>
+    <string name="account_name">Account Name</string>
+    <string name="username_email_phone">Username/Email/Phone</string>
+    <string name="tags_comma_separated_optional">Tags comma separated (optional)</string>
+    <string name="website_url_optional">Website url (optional)</string>
+    <string name="notes_optional">Notes (optional)</string>
 </resources>

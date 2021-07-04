@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id("dagger.hilt.android.plugin")
+    id('com.localazy.gradle')
+
 
 }
 
@@ -25,8 +27,8 @@ android {
         applicationId appPackageId
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 1305
-        versionName "1.3.5"
+        versionCode 1306
+        versionName "1.3.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -68,6 +70,22 @@ android {
 
     lintOptions{
         abortOnError false
+    }
+
+}
+
+localazy {
+    readKey "a8585039528314004437-93bb583478538d638f0264fde335214df735ed022d2e0402513997eccc9ad9de"
+    writeKey "a8585039528314004437-d2f4d2808ebe867cf24aceaaea58be99055fcb39bcac32c74b0e983b147acc5c"
+
+    injection {
+        dontCheckInternetPermission true
+    }
+
+    upload {
+        files {
+            exclude "*/font_certs.xml"
+        }
     }
 
 }

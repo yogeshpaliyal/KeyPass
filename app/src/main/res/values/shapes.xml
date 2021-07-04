@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ShapeAppearanceOverlay.Circle" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
-    <style name="ShapeAppearanceOverlay.Diamond" parent="">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
-    <style name="ShapeAppearanceOverlay.Cards" parent="">
-        <item name="cornerFamilyTopLeft">cut</item>
-        <item name="cornerSizeTopLeft">20%</item>
-    </style>
 
 
     <!--Shape-->

@@ -102,7 +102,7 @@ class BackupActivity : AppCompatActivity() {
             findPreference<Preference>("start_backup")?.isVisible = isBackupEnabled.not()
 
             findPreference<Preference>("create_backup")?.isVisible = isBackupEnabled
-            findPreference<Preference>("create_backup")?.summary = "Last backup : ${getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa")}"
+            findPreference<Preference>("create_backup")?.summary = getString(R.string.last_backup_date,getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa"))
             findPreference<Preference>("backup_folder")?.isVisible = isBackupEnabled
             val directory = URLDecoder.decode(getBackupDirectory(sp),"utf-8").split("/")
             val folderName = directory.get(directory.lastIndex)
@@ -171,11 +171,11 @@ class BackupActivity : AppCompatActivity() {
                                 )
                             val clip = ClipData.newPlainText("KeyPass", binding.txtCode.text)
                             clipboard?.setPrimaryClip(clip)
-                            Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
                         }
                         MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
                             .setPositiveButton(
-                                "Yes"
+                                getString(R.string.yes)
                             ) { dialog, which -> dialog?.dismiss()
                             }.show()
                     }else{
@@ -192,7 +192,7 @@ class BackupActivity : AppCompatActivity() {
         }
 
         private fun verifyKeyPhrase(){
-            Toast.makeText(context, "Under Development", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.coming_soon), Toast.LENGTH_SHORT).show()
         }
 
         private fun stopBackup(){

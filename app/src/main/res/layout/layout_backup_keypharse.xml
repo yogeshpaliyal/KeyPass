@@ -16,7 +16,7 @@
         android:textSize="18sp"
         android:textColor="@color/keypass_blue_600"
         android:id="@+id/txtTitle"
-        android:text="Alert"/>
+        android:text="@string/alert"/>
 
     <TextView
         android:layout_marginTop="@dimen/grid_2"
@@ -31,7 +31,7 @@
         android:textColor="@color/keypass_blue_300"
         android:textSize="14sp"
         android:id="@+id/txtMessage"
-        android:text="Copy This Key Phrase this will be used to recover this backup, this will not be provided by KeyPass Again, have you copied or written down?"/>
+        android:text="@string/copy_keypharse_msg"/>
 
     <TextView
         android:layout_marginTop="@dimen/grid_2"
