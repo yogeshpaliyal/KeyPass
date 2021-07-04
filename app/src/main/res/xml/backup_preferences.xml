@@ -4,33 +4,33 @@
     <PreferenceCategory>
 
         <Preference
-            app:summary="Backups are encrypted with a passphrase and stored on your device"/>
+            app:summary="@string/backup_desc"/>
 
         <Preference
             app:key="start_backup"
-            app:title="Turn On Backups"/>
+            app:title="@string/turn_on_backup"/>
 
         <Preference
             app:key="create_backup"
-            app:title="Create Backup"
+            app:title="@string/create_backup"
             tools:summary="Last backup : 7m"/>
 
 
         <Preference
             app:key="backup_folder"
-            app:title="Backup Folder"
-            tools:summary="Backup"/>
+            app:title="@string/backup_folder"
+            tools:summary="@string/backup"/>
 
         <Preference
             app:key="@string/settings_verify_key_phrase"
-            app:title="Verify backup passphrase"
-            app:summary="Test your backup passphrase and verify that it matches"/>
+            app:title="@string/verify_keyphrase"
+            app:summary="@string/verify_keyphrase_message"/>
 
 
         <Preference
             app:key="stop_backup"
             app:isPreferenceVisible="false"
-            app:title="Turn Off Backups"/>
+            app:title="@string/turn_off_backup"/>
 
     </PreferenceCategory>
 </PreferenceScreen>

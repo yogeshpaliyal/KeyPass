@@ -108,10 +108,10 @@ class DetailActivity : AppCompatActivity() {
 
     private fun deleteAccount() {
         MaterialAlertDialogBuilder(this)
-            .setTitle("Are you sure?")
-            .setMessage("Do you really want to delete this entry, it can't be restored")
+            .setTitle(getString(R.string.delete_account_title))
+            .setMessage(getString(R.string.delete_account_msg))
             .setPositiveButton(
-                "Delete"
+                getString(R.string.delete)
             ) { dialog, which ->
                 dialog?.dismiss()
                 lifecycleScope.launch(Dispatchers.IO) {
@@ -123,7 +123,7 @@ class DetailActivity : AppCompatActivity() {
                     }
                 }
             }
-            .setNegativeButton("Cancel") { dialog, which ->
+            .setNegativeButton(getString(R.string.cancel)) { dialog, which ->
                 dialog.dismiss()
             }.show()
 

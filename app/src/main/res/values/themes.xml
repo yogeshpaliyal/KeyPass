@@ -63,14 +63,4 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.KeyPass.Widget.BottomAppbar" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="backgroundTint">?attr/colorOnPrimary</item>
-        <item name="materialThemeOverlay">@style/ThemeOverlay.BottomAppBar.Primary</item>
-    </style>
-
-    <style name="ThemeOverlay.BottomAppBar.Primary" parent="">
-        <item name="colorControlNormal">?attr/colorPrimary</item>
-        <item name="actionMenuTextColor">?attr/colorPrimary</item>
-    </style>
-
 </resources>

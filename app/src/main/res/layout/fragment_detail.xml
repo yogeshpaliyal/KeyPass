@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:id="@+id/tilAccountName"
                 android:layout_height="wrap_content"
-                android:hint="Account Name">
+                android:hint="@string/account_name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAccountName"
@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:id="@+id/tilUsername"
                 android:layout_height="wrap_content"
-                android:hint="Username/Email/Phone">
+                android:hint="@string/username_email_phone">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUsername"
@@ -75,7 +75,7 @@
                 android:layout_width="0dp"
                 android:id="@+id/tilPassword"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 app:startIconDrawable="@drawable/ic_round_refresh_24"
                 app:passwordToggleEnabled="true">
 
@@ -97,7 +97,7 @@
                 android:layout_width="0dp"
                 android:id="@+id/tilTags"
                 android:layout_height="wrap_content"
-                android:hint="Tags comma separated (optional)">
+                android:hint="@string/tags_comma_separated_optional">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTag"
@@ -117,7 +117,7 @@
                 android:layout_width="0dp"
                 android:id="@+id/tilWebsite"
                 android:layout_height="wrap_content"
-                android:hint="Website url (optional)">
+                android:hint="@string/website_url_optional">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:importantForAutofill="no"
@@ -137,7 +137,7 @@
                 android:layout_width="0dp"
                 android:id="@+id/tilNotes"
                 android:layout_height="wrap_content"
-                android:hint="Notes (optional)">
+                android:hint="@string/notes_optional">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNotes"

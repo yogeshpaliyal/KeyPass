@@ -44,7 +44,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         when(preference?.key){
             "feedback" -> {
-                context?.email("Feedback to KeyPass", "yogeshpaliyal.foss@gmail.com")
+                context?.email(getString(R.string.feedback_to_keypass), "yogeshpaliyal.foss@gmail.com")
                 return true
             }
 
@@ -66,7 +66,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                     "KeyPass Password Manager\n Offline, Secure, Open Source https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
                 )
                 sendIntent.type = "text/plain"
-                startActivity(Intent.createChooser(sendIntent, "Share KeyPass"))
+                startActivity(Intent.createChooser(sendIntent, getString(R.string.share_keypass)))
                 return true
             }
         }

@@ -4,7 +4,7 @@
 
     <PreferenceCategory
         app:key="security_category"
-        app:title="Security">
+        app:title="@string/security">
 
         <Preference
             app:key="@string/settings_backup"
@@ -19,7 +19,7 @@
 
     <PreferenceCategory
         app:key="help_category"
-        app:title="Help">
+        app:title="@string/help">
 
         <Preference
             app:key="@string/settings_feedback"

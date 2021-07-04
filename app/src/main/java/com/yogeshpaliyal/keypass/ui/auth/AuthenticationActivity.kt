@@ -56,7 +56,7 @@ class AuthenticationActivity : AppCompatActivity() {
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
                     Toast.makeText(
-                        applicationContext, "Authentication failed",
+                        applicationContext, getString(R.string.authentication_failed),
                         Toast.LENGTH_SHORT
                     )
                         .show()
@@ -66,7 +66,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle(getString(R.string.app_name))
-            .setSubtitle("Login to enter KeyPass")
+            .setSubtitle(getString(R.string.login_to_enter_keypass))
             .setDeviceCredentialAllowed(true)
             .build()
 
