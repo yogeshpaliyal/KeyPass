@@ -38,7 +38,8 @@
                 app:boxCornerRadiusTopEnd="@dimen/grid_1"
                 app:boxCornerRadiusTopStart="@dimen/grid_1"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="false">
+                app:hintEnabled="false"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

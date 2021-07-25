@@ -29,7 +29,7 @@ abstract class DbDao {
     @Query("SELECT * FROM account ORDER BY title ASC")
     abstract fun getAllAccounts(): LiveData<List<AccountModel>>
 
-    @Query("SELECT * FROM account WHERE CASE WHEN :tag IS NOT NULL THEN tags = :tag ELSE 1 END AND (username LIKE '%'||:query||'%' ) ORDER BY title ASC")
+    @Query("SELECT * FROM account WHERE CASE WHEN :tag IS NOT NULL THEN tags = :tag ELSE 1 END AND ((username LIKE '%'||:query||'%' ) OR (title LIKE '%'||:query||'%' ) OR (notes LIKE '%'||:query||'%' )) ORDER BY title ASC")
     abstract fun getAllAccounts(query: String?, tag: String?): LiveData<List<AccountModel>>
 
     @Query("SELECT * FROM account WHERE id = :id")
