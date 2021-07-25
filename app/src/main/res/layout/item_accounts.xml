@@ -10,7 +10,7 @@
             type="AccountModel" />
         <variable
             name="listener"
-            type="com.yogeshpaliyal.keypass.listener.UniversalClickListener&lt;AccountModel>" />
+            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;AccountModel>" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +55,7 @@
                 android:text="@{model.title}"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toTopOf="@id/txtUsername"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/icnCopy"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/startIcon"
                 app:layout_constraintTop_toTopOf="@id/startIcon"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/txtTitle"
                 app:layout_constraintStart_toStartOf="@id/txtTitle"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/icnCopy"
                 app:layout_constraintBottom_toBottomOf="parent"
                 style="@style/TextStyle.SubHeading"
                 android:text="@{model.username}"
@@ -74,6 +74,17 @@
                 app:layout_constraintHorizontal_bias="0"
                 tools:text="@tools:sample/full_names"
                 app:layout_constrainedWidth="true"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_twotone_content_copy_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="@dimen/grid_1"
+                android:onClick="@{()->listener.onCopyClicked(model)}"
+                android:id="@+id/icnCopy"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

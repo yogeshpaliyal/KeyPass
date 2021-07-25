@@ -1,15 +1,20 @@
 package com.yogeshpaliyal.keypass.ui.home
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
+import com.yogeshpaliyal.keypass.listener.AccountsClickListener
 import com.yogeshpaliyal.keypass.listener.UniversalClickListener
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
@@ -43,9 +48,20 @@ class HomeFragment : Fragment() {
         ).build()
     }
 
-    val mListener = object : UniversalClickListener<AccountModel> {
+    val mListener = object : AccountsClickListener<AccountModel> {
         override fun onItemClick(view: View, model: AccountModel) {
             DetailActivity.start(context, model.id)
+        }
+
+        override fun onCopyClicked(model: AccountModel) {
+            val clipboard =
+                ContextCompat.getSystemService(
+                    requireContext(),
+                    ClipboardManager::class.java
+                )
+            val clip = ClipData.newPlainText("KeyPass", model.password)
+            clipboard?.setPrimaryClip(clip)
+            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
         }
     }
 
