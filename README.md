@@ -3,8 +3,11 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge)
 
 
+![Cover Image](https://github.com/yogeshpaliyal/KeyPass/blob/master/images/KeyPass%20Cover.jpg)
 
-## Features  
+
+
+## 🤩 Features
 - [x] Complete Offline : No internet permission has been added   
 - [x]  Open Source : Code is accessible to every one  
 - [x]  Encrypted Backup and Restore
@@ -16,7 +19,7 @@
 - [ ] TOTP
 
 
-## Language, Tools & Frameworks Used
+## 🛠️ Language, Tools & Frameworks Used
  1. Kotlin
  2. Cipher (For Backup encryption and decrytion)
  3. Material Design
