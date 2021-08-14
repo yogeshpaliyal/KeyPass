@@ -22,11 +22,10 @@ import kotlinx.coroutines.withContext
 suspend fun AppDatabase.createBackup(key: String, contentResolver: ContentResolver, fileUri: Uri?) =
     withContext(Dispatchers.IO) {
         fileUri ?: return@withContext false
-        val data = getDao().getAllAccounts().value
+        val data = getDao().getAllAccountsList()
         data ?: return@withContext false
 
-        val json =
-            Gson().toJson(BackupData(this@createBackup.openHelper.readableDatabase.version, data))
+        val json = Gson().toJson(BackupData(this@createBackup.openHelper.readableDatabase.version, data))
         val fileStream = contentResolver.openOutputStream(fileUri)
         EncryptionHelper.doCryptoEncrypt(key, json, fileStream)
 
@@ -47,18 +46,21 @@ suspend fun AppDatabase.restoreBackup(
         e.printStackTrace()
         return@withContext false
     }
-    val data = Gson().fromJson(restoredFile, BackupData::class.java)
-    if (data.version == 3) {
-        for (datum in data.data) {
-            datum.uniqueId = getRandomString()
+
+    return@withContext Gson().fromJson(restoredFile, BackupData::class.java)?.let{ data ->
+        if (data.version == 3) {
+            for (datum in data.data) {
+                datum.uniqueId = getRandomString()
+            }
         }
-    }
-    data.data.forEach {
-        it.id = null
-    }
-    withTransaction {
-        getDao().insertOrUpdateAccount(data.data)
-    }
-    return@withContext true
+        data.data.forEach {
+            it.id = null
+        }
+        withTransaction {
+            getDao().insertOrUpdateAccount(data.data)
+        }
+         true
+    } ?: false
+
 }
 
