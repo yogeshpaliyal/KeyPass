@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com

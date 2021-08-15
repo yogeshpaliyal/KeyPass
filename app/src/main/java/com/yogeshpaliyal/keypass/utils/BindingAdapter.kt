@@ -15,31 +15,29 @@
 
 package com.yogeshpaliyal.keypass.utils
 
-import android.content.Context
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.WindowInsets
-import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.core.view.updateLayoutParams
 import androidx.databinding.BindingAdapter
-import com.google.android.material.chip.Chip
 import com.google.android.material.elevation.ElevationOverlayProvider
 
 @BindingAdapter(
     "popupElevationOverlay"
 )
 fun Spinner.bindPopupElevationOverlay(popupElevationOverlay: Float) {
-    setPopupBackgroundDrawable(ColorDrawable(
-        ElevationOverlayProvider(context)
-            .compositeOverlayWithThemeSurfaceColorIfNeeded(popupElevationOverlay)
-    ))
+    setPopupBackgroundDrawable(
+        ColorDrawable(
+            ElevationOverlayProvider(context)
+                .compositeOverlayWithThemeSurfaceColorIfNeeded(popupElevationOverlay)
+        )
+    )
 }
 
 @BindingAdapter(
@@ -66,8 +64,6 @@ fun TextView.bindDrawables(
         context.getDrawableOrNull(drawableBottom)
     )
 }
-
-
 
 @BindingAdapter("goneIf")
 fun View.bindGoneIf(gone: Boolean) {

@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -30,8 +29,5 @@ class DetailViewModel @Inject constructor(application: Application, val appDb: A
                 appDb.getDao().getAccount(accountId) ?: AccountModel()
             )
         }
-
     }
-
-
 }

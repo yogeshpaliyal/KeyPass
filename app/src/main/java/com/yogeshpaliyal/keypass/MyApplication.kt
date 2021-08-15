@@ -3,7 +3,6 @@ package com.yogeshpaliyal.keypass
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
-
 /*
 * @author Yogesh Paliyal
 * yogeshpaliyal.foss@gmail.com
@@ -13,14 +12,12 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class MyApplication : Application() {
 
-    companion object{
+    companion object {
         lateinit var instance: MyApplication
     }
 
     override fun onCreate() {
         super.onCreate()
         instance = this
-
     }
-
 }
