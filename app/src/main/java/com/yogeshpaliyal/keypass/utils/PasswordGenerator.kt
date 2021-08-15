@@ -8,7 +8,7 @@ class PasswordGenerator(
     private var includeNumbers: Boolean
 ) {
 
-    constructor() : this(10,true, true, true, true)
+    constructor() : this(10, true, true, true, true)
 
     private val UPPER_CASE = 0
     private val LOWER_CASE = 1

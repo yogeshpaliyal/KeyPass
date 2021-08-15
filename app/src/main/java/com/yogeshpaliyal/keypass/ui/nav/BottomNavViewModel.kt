@@ -18,7 +18,7 @@ import javax.inject.Inject
 * created on 31-01-2021 14:11
 */
 @HiltViewModel
-class BottomNavViewModel @Inject constructor (application: Application,val appDb: AppDatabase) : AndroidViewModel(application) {
+class BottomNavViewModel @Inject constructor (application: Application, val appDb: AppDatabase) : AndroidViewModel(application) {
     private val _navigationList: MutableLiveData<List<NavigationModelItem>> = MutableLiveData()
     private val tagsDb = appDb.getDao().getTags()
 

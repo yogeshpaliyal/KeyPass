@@ -58,10 +58,10 @@ class BackupActivity : AppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
 
         @Inject
-        lateinit var sp : SharedPreferences
+        lateinit var sp: SharedPreferences
 
         @Inject
-        lateinit var appDb : AppDatabase
+        lateinit var appDb: AppDatabase
 
         private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
 
@@ -102,22 +102,22 @@ class BackupActivity : AppCompatActivity() {
             findPreference<Preference>("start_backup")?.isVisible = isBackupEnabled.not()
 
             findPreference<Preference>("create_backup")?.isVisible = isBackupEnabled
-            findPreference<Preference>("create_backup")?.summary = getString(R.string.last_backup_date,getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa"))
+            findPreference<Preference>("create_backup")?.summary = getString(R.string.last_backup_date, getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa"))
             findPreference<Preference>("backup_folder")?.isVisible = isBackupEnabled
-            val directory = URLDecoder.decode(getBackupDirectory(sp),"utf-8").split("/")
+            val directory = URLDecoder.decode(getBackupDirectory(sp), "utf-8").split("/")
             val folderName = directory.get(directory.lastIndex)
             findPreference<Preference>("backup_folder")?.summary = folderName
             findPreference<Preference>("settings_verify_key_phrase")?.isVisible = false
             findPreference<Preference>("stop_backup")?.isVisible = isBackupEnabled
         }
 
-        private fun startBackup(){
+        private fun startBackup() {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 
             intent.addFlags(
                 Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
             )
 
             try {
@@ -129,7 +129,7 @@ class BackupActivity : AppCompatActivity() {
 
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
-            if (requestCode == CHOOSE_BACKUPS_LOCATION_REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            if (requestCode == CHOOSE_BACKUPS_LOCATION_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
                 val contentResolver = context?.contentResolver
                 val selectedDirectory = data?.data
                 if (contentResolver != null && selectedDirectory != null) {
@@ -138,13 +138,13 @@ class BackupActivity : AppCompatActivity() {
                         Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                     )
 
-                    setBackupDirectory(sp,selectedDirectory.toString())
+                    setBackupDirectory(sp, selectedDirectory.toString())
                     backup(selectedDirectory)
                 }
             }
         }
 
-        private fun backup(selectedDirectory: Uri){
+        private fun backup(selectedDirectory: Uri) {
 
             val keyPair = getOrCreateBackupKey(sp)
 
@@ -155,11 +155,12 @@ class BackupActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 context?.contentResolver?.let {
-                    appDb.createBackup(keyPair.second,
+                    appDb.createBackup(
+                        keyPair.second,
                         it,
                         tempFile?.uri
                     )
-                    setBackupTime(sp,System.currentTimeMillis())
+                    setBackupTime(sp, System.currentTimeMillis())
                     if (keyPair.first) {
                         val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
                         binding.txtCode.text = getOrCreateBackupKey(sp).second
@@ -176,9 +177,10 @@ class BackupActivity : AppCompatActivity() {
                         MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
                             .setPositiveButton(
                                 getString(R.string.yes)
-                            ) { dialog, which -> dialog?.dismiss()
+                            ) { dialog, which ->
+                                dialog?.dismiss()
                             }.show()
-                    }else{
+                    } else {
                         Toast.makeText(context, getString(R.string.backup_completed), Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -187,20 +189,19 @@ class BackupActivity : AppCompatActivity() {
             }
         }
 
-        private fun changeBackupFolder(){
+        private fun changeBackupFolder() {
             startBackup()
         }
 
-        private fun verifyKeyPhrase(){
+        private fun verifyKeyPhrase() {
             Toast.makeText(context, getString(R.string.coming_soon), Toast.LENGTH_SHORT).show()
         }
 
-        private fun stopBackup(){
+        private fun stopBackup() {
             clearBackupKey(sp)
-            setBackupDirectory(sp,"")
-            setBackupTime(sp,-1)
+            setBackupDirectory(sp, "")
+            setBackupTime(sp, -1)
             updateItems()
         }
-
     }
 }

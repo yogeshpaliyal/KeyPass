@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -32,7 +31,6 @@ suspend fun AppDatabase.createBackup(key: String, contentResolver: ContentResolv
         return@withContext true
     }
 
-
 suspend fun AppDatabase.restoreBackup(
     key: String,
     contentResolver: ContentResolver,
@@ -47,7 +45,7 @@ suspend fun AppDatabase.restoreBackup(
         return@withContext false
     }
 
-    return@withContext Gson().fromJson(restoredFile, BackupData::class.java)?.let{ data ->
+    return@withContext Gson().fromJson(restoredFile, BackupData::class.java)?.let { data ->
         if (data.version == 3) {
             for (datum in data.data) {
                 datum.uniqueId = getRandomString()
@@ -59,8 +57,6 @@ suspend fun AppDatabase.restoreBackup(
         withTransaction {
             getDao().insertOrUpdateAccount(data.data)
         }
-         true
+        true
     } ?: false
-
 }
-

@@ -17,14 +17,13 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
     @Provides
     @Singleton
-    fun getDb(@ApplicationContext context: Context): AppDatabase{
+    fun getDb(@ApplicationContext context: Context): AppDatabase {
         return Room.databaseBuilder(
             context,
             AppDatabase::class.java,
@@ -44,12 +43,9 @@ object AppModule {
             .build()
     }
 
-
-
     @Provides
     @Singleton
-    fun getSharedPre(@ApplicationContext context: Context): SharedPreferences{
+    fun getSharedPre(@ApplicationContext context: Context): SharedPreferences {
         return MySharedPreferences(context).sharedPref
     }
-
 }

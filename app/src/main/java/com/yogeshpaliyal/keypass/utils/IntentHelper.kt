@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -13,7 +12,6 @@ import android.net.Uri
 */
 
 @JvmName("IntentHelper")
-
 
 fun Context.email(
     chooserTitle: String,
@@ -33,8 +31,7 @@ fun Context.email(
     if (text.isNotEmpty())
         intent.putExtra(Intent.EXTRA_TEXT, text)
 
-        startActivity(Intent.createChooser(intent, chooserTitle))
-
+    startActivity(Intent.createChooser(intent, chooserTitle))
 }
 
 fun Context.makeCall(chooserTitle: String, number: String): Boolean {
@@ -49,7 +46,6 @@ fun Context.makeCall(chooserTitle: String, number: String): Boolean {
     }
 }
 
-
 fun Context.sendSMS(chooserTitle: String, number: String, text: String = ""): Boolean {
     try {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("sms:$number"))
@@ -61,7 +57,6 @@ fun Context.sendSMS(chooserTitle: String, number: String, text: String = ""): Bo
         return false
     }
 }
-
 
 fun Context.share(chooserTitle: String, text: String): Boolean {
     try {
@@ -76,7 +71,6 @@ fun Context.share(chooserTitle: String, text: String): Boolean {
     }
 }
 
-
 fun Context.navigate(address: String) {
     val gmmIntentUri =
         Uri.parse("google.navigation:q=$address")
@@ -86,4 +80,3 @@ fun Context.navigate(address: String) {
         startActivity(mapIntent)
     }
 }
-
