@@ -27,12 +27,12 @@ import com.yogeshpaliyal.keypass.ui.settings.MySettingsFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DashboardActivity : AppCompatActivity(),
+class DashboardActivity :
+    AppCompatActivity(),
     Toolbar.OnMenuItemClickListener,
     NavController.OnDestinationChangedListener,
     NavigationAdapter.NavigationAdapterListener {
     lateinit var binding: ActivityDashboardBinding
-
 
     private val bottomNavDrawer: BottomNavDrawerFragment by lazy(LazyThreadSafetyMode.NONE) {
         supportFragmentManager.findFragmentById(R.id.bottom_nav_drawer) as BottomNavDrawerFragment
@@ -51,11 +51,11 @@ class DashboardActivity : AppCompatActivity(),
         window.setFlags(
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE
-        );
+        )
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //setSupportActionBar(binding.bottomAppBar)
+        // setSupportActionBar(binding.bottomAppBar)
 
         binding.lifecycleOwner = this
         binding.viewModel = mViewModel
@@ -64,10 +64,8 @@ class DashboardActivity : AppCompatActivity(),
             this@DashboardActivity
         )
 
-
         /*   val intent = Intent(this, AuthenticationActivity::class.java)
            startActivity(intent)*/
-
 
        /* val autoFillService = getAutoFillService()
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -77,7 +75,6 @@ class DashboardActivity : AppCompatActivity(),
                 startActivityForResult(intent,777)
             }
         }*/
-
 
         binding.btnAdd.setOnClickListener {
             currentNavigationFragment?.apply {
@@ -89,25 +86,26 @@ class DashboardActivity : AppCompatActivity(),
                 }
             }
 
-           DetailActivity.start(this)
+            DetailActivity.start(this)
         }
 
-
         bottomNavDrawer.apply {
-            //addOnSlideAction(HalfClockwiseRotateSlideAction(binding.bottomAppBar))
+            // addOnSlideAction(HalfClockwiseRotateSlideAction(binding.bottomAppBar))
             //  addOnSlideAction(AlphaSlideAction(binding.bottomAppBarTitle, true))
             addOnStateChangedAction(ShowHideFabStateAction(binding.btnAdd))
-            addOnStateChangedAction(ChangeSettingsMenuStateAction { showSettings ->
-                // Toggle between the current destination's BAB menu and the menu which should
-                // be displayed when the BottomNavigationDrawer is open.
-                binding.bottomAppBar.replaceMenu(
-                    if (showSettings) {
-                        R.menu.bottom_app_bar_settings_menu
-                    } else {
-                        getBottomAppBarMenuForDestination()
-                    }
-                )
-            })
+            addOnStateChangedAction(
+                ChangeSettingsMenuStateAction { showSettings ->
+                    // Toggle between the current destination's BAB menu and the menu which should
+                    // be displayed when the BottomNavigationDrawer is open.
+                    binding.bottomAppBar.replaceMenu(
+                        if (showSettings) {
+                            R.menu.bottom_app_bar_settings_menu
+                        } else {
+                            getBottomAppBarMenuForDestination()
+                        }
+                    )
+                }
+            )
 
             // addOnSandwichSlideAction(HalfCounterClockwiseRotateSlideAction(binding.bottomAppBarChevron))
             addNavigationListener(this@DashboardActivity)
@@ -120,8 +118,6 @@ class DashboardActivity : AppCompatActivity(),
             }
             setOnMenuItemClickListener(this@DashboardActivity)
         }
-
-
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
@@ -134,8 +130,6 @@ class DashboardActivity : AppCompatActivity(),
         }
         return true
     }
-
-
 
     override fun onDestinationChanged(
         controller: NavController,
@@ -154,8 +148,8 @@ class DashboardActivity : AppCompatActivity(),
 
     override fun onNavMenuItemClicked(item: NavigationModelItem.NavMenuItem) {
         // Swap the list of emails for the given mailbox
-        //navigateToHome(item.titleRes, item.mailbox)
-        when(item.id){
+        // navigateToHome(item.titleRes, item.mailbox)
+        when (item.id) {
             NavigationModel.GENERATE_PASSWORD -> {
                 val intent = Intent(this, GeneratePasswordActivity::class.java)
                 startActivity(intent)
@@ -173,7 +167,6 @@ class DashboardActivity : AppCompatActivity(),
         findNavController(R.id.nav_host_fragment).navigate(destination)
         bottomNavDrawer.close()
     }
-
 
     private fun hideBottomAppBar() {
         binding.run {
@@ -211,19 +204,18 @@ class DashboardActivity : AppCompatActivity(),
         val dest = destination ?: findNavController(R.id.nav_host_fragment).currentDestination
         return when (dest?.id) {
             R.id.homeFragment -> R.menu.bottom_app_bar_settings_menu
-            //R.id.emailFragment -> R.menu.bottom_app_bar_email_menu
+            // R.id.emailFragment -> R.menu.bottom_app_bar_email_menu
             else -> R.menu.bottom_app_bar_settings_menu
         }
     }
-
 
     private fun setBottomAppBarForHome(@MenuRes menuRes: Int) {
         binding.run {
             btnAdd.setImageState(intArrayOf(-android.R.attr.state_activated), true)
             bottomAppBar.visibility = View.VISIBLE
             bottomAppBar.replaceMenu(menuRes)
-            //btnAdd.contentDescription = getString(R.string.fab_compose_email_content_description)
-            //bottomAppBarTitle.visibility = View.VISIBLE
+            // btnAdd.contentDescription = getString(R.string.fab_compose_email_content_description)
+            // bottomAppBarTitle.visibility = View.VISIBLE
             bottomAppBar.performShow()
             btnAdd.show()
         }

@@ -1,13 +1,7 @@
 package com.yogeshpaliyal.keypass.utils
 
 import android.content.SharedPreferences
-import android.security.keystore.KeyGenParameterSpec
-import android.security.keystore.KeyProperties
 import androidx.core.content.edit
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKey
-import com.yogeshpaliyal.keypass.MyApplication
-
 
 /*
 * @author Yogesh Paliyal
@@ -16,13 +10,12 @@ import com.yogeshpaliyal.keypass.MyApplication
 * created on 21-02-2021 11:18
 */
 
-
 /**
  * Pair
  * 1st => true if key is created now & false if key is created previously
  *
  */
-fun getOrCreateBackupKey(sp: SharedPreferences,reset: Boolean = false): Pair<Boolean, String> {
+fun getOrCreateBackupKey(sp: SharedPreferences, reset: Boolean = false): Pair<Boolean, String> {
 
     return if (sp.contains(BACKUP_KEY) && reset.not()) {
         Pair(false, sp.getString(BACKUP_KEY, "") ?: "")
@@ -40,17 +33,15 @@ fun clearBackupKey(sp: SharedPreferences) {
     sp.edit {
         remove(BACKUP_KEY)
     }
-
 }
 
-
-fun setBackupDirectory(sp: SharedPreferences,string: String) {
+fun setBackupDirectory(sp: SharedPreferences, string: String) {
     sp.edit {
         putString(BACKUP_DIRECTORY, string)
     }
 }
 
-fun setBackupTime(sp: SharedPreferences,time: Long) {
+fun setBackupTime(sp: SharedPreferences, time: Long) {
     sp.edit {
         putLong(BACKUP_DATE_TIME, time)
     }

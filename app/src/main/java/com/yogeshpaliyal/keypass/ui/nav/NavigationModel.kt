@@ -1,7 +1,5 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.yogeshpaliyal.keypass.R
 
 /**
@@ -11,7 +9,6 @@ object NavigationModel {
 
     const val HOME = 0
     const val GENERATE_PASSWORD = 1
-
 
     var navigationMenuItems = mutableListOf(
         NavigationModelItem.NavMenuItem(
@@ -27,11 +24,4 @@ object NavigationModel {
             checked = false,
         )
     )
-
-
-
-
-
-
 }
-

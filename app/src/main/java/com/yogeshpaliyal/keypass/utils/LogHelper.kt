@@ -3,7 +3,6 @@ package com.yogeshpaliyal.keypass.utils
 import android.util.Log
 import com.yogeshpaliyal.keypass.BuildConfig
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com

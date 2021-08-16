@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -49,8 +48,10 @@ data class AccountModel(
     var tags: String? = null
 ) : BaseDiffUtil {
 
-    fun getInitials() = (title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
-    ?: notes?.firstOrNull() ?: 'K').toString()
+    fun getInitials() = (
+        title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
+            ?: notes?.firstOrNull() ?: 'K'
+        ).toString()
 
     override fun getDiffId(): Any? {
         return id

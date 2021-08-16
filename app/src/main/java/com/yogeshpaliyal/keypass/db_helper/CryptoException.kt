@@ -1,6 +1,5 @@
 package com.yogeshpaliyal.keypass.db_helper
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com

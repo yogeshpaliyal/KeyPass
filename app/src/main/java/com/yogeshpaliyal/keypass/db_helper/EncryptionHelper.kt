@@ -1,6 +1,5 @@
 package com.yogeshpaliyal.keypass.db_helper
 
-
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
@@ -15,7 +14,6 @@ import javax.crypto.*
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -25,20 +23,19 @@ import javax.crypto.spec.SecretKeySpec
 */
 object EncryptionHelper {
     private const val ALGORITHM = "AES"
-   private const val TRANSFORMATION = "AES/CBC/PKCS5Padding"
-    //private const val TRANSFORMATION = "AES"
+    private const val TRANSFORMATION = "AES/CBC/PKCS5Padding"
+    // private const val TRANSFORMATION = "AES"
     // private const val TRANSFORMATION = "DES/CBC/PKCS5Padding"
 
-    private val iV = byteArrayOf(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
-
+    private val iV = byteArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
     @Throws(CryptoException::class)
     fun doCryptoEncrypt(
-        key: String, data: String,
+        key: String,
+        data: String,
         outputFile: OutputStream?
     ) {
         try {
-
 
             val secretKey: Key =
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
@@ -47,7 +44,7 @@ object EncryptionHelper {
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, IvParameterSpec(iV))
 
             data.byteInputStream().use {
-                val inputStream  = it
+                val inputStream = it
                 outputFile?.use {
                     val outputStream = it
                     CipherOutputStream(outputStream, cipher).use {
@@ -62,7 +59,7 @@ object EncryptionHelper {
             // Log.d("TestingEnc","NoSuchAlgorithmException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: InvalidKeyException) {
-            //Log.d("TestingEnc","InvalidKeyException")
+            // Log.d("TestingEnc","InvalidKeyException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: BadPaddingException) {
             // Log.d("TestingEnc","BadPaddingException")
@@ -76,11 +73,11 @@ object EncryptionHelper {
         }
     }
 
-
     @Throws(CryptoException::class)
     fun doCryptoDecrypt(
-        key: String, inputFile: InputStream?
-    ) : String {
+        key: String,
+        inputFile: InputStream?
+    ): String {
         var data = ""
         try {
             val secretKey: Key =
@@ -91,25 +88,24 @@ object EncryptionHelper {
 
             inputFile.use {
                 val inputStream = it
-                    CipherInputStream(inputStream, cipher).use {
-                        data = String(it.readBytes())
-                    }
+                CipherInputStream(inputStream, cipher).use {
+                    data = String(it.readBytes())
+                }
             }
-
         } catch (ex: NoSuchPaddingException) {
-            //Log.d("TestingEnc","NoSuchPaddingException")
+            // Log.d("TestingEnc","NoSuchPaddingException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: NoSuchAlgorithmException) {
-            //Log.d("TestingEnc","NoSuchAlgorithmException")
+            // Log.d("TestingEnc","NoSuchAlgorithmException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: InvalidKeyException) {
-            //Log.d("TestingEnc","InvalidKeyException")
+            // Log.d("TestingEnc","InvalidKeyException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: BadPaddingException) {
-            //Log.d("TestingEnc","BadPaddingException")
+            // Log.d("TestingEnc","BadPaddingException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: IllegalBlockSizeException) {
-            //Log.d("TestingEnc","IllegalBlockSizeException")
+            // Log.d("TestingEnc","IllegalBlockSizeException")
             throw CryptoException("Error encrypting/decrypting file", ex)
         } catch (ex: IOException) {
             // Log.d("TestingEnc","IOException")
@@ -119,9 +115,7 @@ object EncryptionHelper {
         return data
     }
 
-
-
-    fun encryptPassword(message: String, password: String): String{
+    fun encryptPassword(message: String, password: String): String {
         /* Encrypt the message. */
         var cipher: Cipher? = null
         cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
@@ -147,11 +141,8 @@ object EncryptionHelper {
         return String(cipher.doFinal(encryptedMessage.toByteArray()))
     }
 
-
     @Throws(NoSuchAlgorithmException::class, InvalidKeySpecException::class)
     fun generateKey(passLockKey: String): SecretKey {
         return SecretKeySpec(passLockKey.encodeToByteArray(), "AES")
     }
-
-
 }

@@ -15,13 +15,11 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
 import com.yogeshpaliyal.keypass.listener.AccountsClickListener
-import com.yogeshpaliyal.keypass.listener.UniversalClickListener
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
 import com.yogeshpaliyal.universal_adapter.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
-
 
 /*
 * @author Yogesh Paliyal
@@ -76,7 +74,6 @@ class HomeFragment : Fragment() {
 
     val observer = Observer<List<AccountModel>> {
         mAdapter.updateData(Resource.success(it))
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,10 +81,13 @@ class HomeFragment : Fragment() {
 
         binding.recyclerView.adapter = mAdapter.getAdapter()
 
-        mViewModel.mediator.observe(viewLifecycleOwner, Observer {
-            it.removeObserver(observer)
-            it.observe(viewLifecycleOwner, observer)
-        })
+        mViewModel.mediator.observe(
+            viewLifecycleOwner,
+            Observer {
+                it.removeObserver(observer)
+                it.observe(viewLifecycleOwner, observer)
+            }
+        )
 
         /* lifecycleScope.launch() {
              mViewModel.result
@@ -97,8 +97,5 @@ class HomeFragment : Fragment() {
                  }
              }
          }*/
-
     }
-
-
 }

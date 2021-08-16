@@ -2,7 +2,6 @@ package com.yogeshpaliyal.keypass.listener
 
 import android.view.View
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com

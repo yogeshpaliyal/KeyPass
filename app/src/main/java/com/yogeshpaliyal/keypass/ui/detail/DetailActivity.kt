@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -20,7 +19,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-
 /*
 * @author Yogesh Paliyal
 * yogeshpaliyal.foss@gmail.com
@@ -31,7 +29,6 @@ import javax.inject.Inject
 class DetailActivity : AppCompatActivity() {
 
     lateinit var binding: FragmentDetailBinding
-
 
     @Inject
     lateinit var appDb: AppDatabase
@@ -50,7 +47,6 @@ class DetailActivity : AppCompatActivity() {
 
     private val mViewModel by viewModels<DetailViewModel>()
 
-
     private val accountId by lazy {
         intent?.extras?.getLong(ARG_ACCOUNT_ID) ?: -1
     }
@@ -62,9 +58,12 @@ class DetailActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         mViewModel.loadAccount(accountId)
-        mViewModel.accountModel.observe(this, Observer {
-            binding.accountData = it
-        })
+        mViewModel.accountModel.observe(
+            this,
+            Observer {
+                binding.accountData = it
+            }
+        )
 
         if (accountId > 0) {
             binding.bottomAppBar.replaceMenu(R.menu.bottom_app_bar_detail)
@@ -78,8 +77,6 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-
-
         binding.bottomAppBar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -91,7 +88,6 @@ class DetailActivity : AppCompatActivity() {
 
             return@setOnMenuItemClickListener false
         }
-
 
         binding.btnSave.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
@@ -126,12 +122,10 @@ class DetailActivity : AppCompatActivity() {
             .setNegativeButton(getString(R.string.cancel)) { dialog, which ->
                 dialog.dismiss()
             }.show()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.bottom_app_bar_detail, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
 }

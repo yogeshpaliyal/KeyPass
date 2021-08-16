@@ -10,7 +10,6 @@ import com.yogeshpaliyal.keypass.data.AccountModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -28,7 +27,6 @@ class DashboardViewModel @Inject constructor(application: Application, val appDb
         MutableLiveData<String>()
     }
 
-
     val mediator = MediatorLiveData<LiveData<List<AccountModel>>>()
 
     init {
@@ -40,7 +38,5 @@ class DashboardViewModel @Inject constructor(application: Application, val appDb
             mediator.postValue(appDb.getDao().getAllAccounts(keyword.value, tag.value))
         }
         mediator.postValue(appDb.getDao().getAllAccounts(keyword.value, tag.value))
-
-
     }
 }
