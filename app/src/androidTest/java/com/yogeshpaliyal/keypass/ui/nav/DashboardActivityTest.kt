@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.keypass.ui.auth
+package com.yogeshpaliyal.keypass.ui.nav
 
 
 import androidx.test.espresso.DataInteraction
@@ -35,11 +35,11 @@ import org.hamcrest.Matchers.`is`
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class DashboardActivityTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityTestRule(AuthenticationActivity::class.java)
+    var mActivityTestRule = ActivityTestRule(DashboardActivity::class.java)
 
     @Test
     fun mainActivityTest() {
