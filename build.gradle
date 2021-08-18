@@ -12,7 +12,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url "https://maven.localazy.com/repository/release/" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.3"
