@@ -1,7 +1,0 @@
-[packages]
-com.yogeshpaliyal.keypass = raa
-
-[localazy]
-allStringsUploaded = true
-showWelcomeMessage = false
-
