@@ -8,7 +8,6 @@ import androidx.room.Query
 import com.yogeshpaliyal.keypass.data.AccountModel
 import kotlinx.coroutines.flow.Flow
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -24,7 +23,6 @@ abstract class DbDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertOrUpdateAccount(accountModel: List<AccountModel>)
-
 
     @Query("SELECT * FROM account ORDER BY title ASC")
     abstract fun getAllAccounts(): LiveData<List<AccountModel>>
@@ -43,6 +41,4 @@ abstract class DbDao {
 
     @Query("DELETE from account WHERE id = :id")
     abstract fun deleteAccount(id: Long?)
-
-
 }

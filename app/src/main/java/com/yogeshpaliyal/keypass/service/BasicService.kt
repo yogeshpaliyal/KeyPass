@@ -57,7 +57,6 @@ class BasicService : AutofillService() {
             return
         }
 
-
         // Create the base response
         val response = FillResponse.Builder()
 
@@ -129,8 +128,9 @@ class BasicService : AutofillService() {
                     fields[hint] = id
                 } else {
                     Log.v(
-                        TAG, "Ignoring hint '" + hint + "' on " + id
-                                + " because it was already set"
+                        TAG,
+                        "Ignoring hint '" + hint + "' on " + id +
+                            " because it was already set"
                     )
                 }
             }
@@ -173,7 +173,7 @@ class BasicService : AutofillService() {
             text: CharSequence
         ): RemoteViews {
             val presentation = RemoteViews(packageName, R.layout.multidataset_service_list_item)
-            presentation.setTextViewText(R.id.text, "paliyal"+text)
+            presentation.setTextViewText(R.id.text, "paliyal" + text)
             presentation.setImageViewResource(R.id.icon, R.mipmap.ic_launcher)
             return presentation
         }

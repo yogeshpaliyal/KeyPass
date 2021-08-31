@@ -3,7 +3,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge)
 
 
-![Cover Image](https://github.com/yogeshpaliyal/KeyPass/blob/master/images/KeyPass%20Cover.jpg)
+![Cover Image](https://github.com/yogeshpaliyal/KeyPass/raw/master/images/KeyPass%20Cover.jpg)
 
 
 

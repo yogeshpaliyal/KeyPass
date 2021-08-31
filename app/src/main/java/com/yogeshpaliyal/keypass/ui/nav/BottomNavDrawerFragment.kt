@@ -21,11 +21,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.from
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentBottomNavDrawerBinding
-import com.yogeshpaliyal.keypass.ui.detail.DetailViewModel
-import com.yogeshpaliyal.keypass.utils.initViewModel
 import com.yogeshpaliyal.keypass.utils.themeColor
 import dagger.hilt.android.AndroidEntryPoint
-
 import kotlin.LazyThreadSafetyMode.NONE
 
 /**
@@ -36,8 +33,6 @@ class BottomNavDrawerFragment :
     Fragment(),
     NavigationAdapter.NavigationAdapterListener {
 
-
-
     private lateinit var binding: FragmentBottomNavDrawerBinding
 
     private val behavior: BottomSheetBehavior<FrameLayout> by lazy(NONE) {
@@ -46,14 +41,10 @@ class BottomNavDrawerFragment :
 
     private val mViewModel by viewModels<BottomNavViewModel>()
 
-
     private val bottomSheetCallback = BottomNavigationDrawerCallback()
 
-
     private val navigationListeners: MutableList<NavigationAdapter.NavigationAdapterListener> =
-      mutableListOf()
-
-
+        mutableListOf()
 
     private val foregroundShapeDrawable: MaterialShapeDrawable by lazy(NONE) {
         val foregroundContext = binding.foregroundContainer.context
@@ -81,7 +72,6 @@ class BottomNavDrawerFragment :
                 .build()*/
         }
     }
-
 
     private val closeDrawerOnBackPressed = object : OnBackPressedCallback(false) {
         override fun handleOnBackPressed() {
@@ -115,7 +105,7 @@ class BottomNavDrawerFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.run {
-            //backgroundContainer.background = backgroundShapeDrawable
+            // backgroundContainer.background = backgroundShapeDrawable
             foregroundContainer.background = foregroundShapeDrawable
 
             scrimView.setOnClickListener { close() }
@@ -134,7 +124,6 @@ class BottomNavDrawerFragment :
                 // Close the sandwiching account picker if open
                 addOnStateChangedAction(object : OnStateChangedAction {
                     override fun onStateChanged(sheet: View, newState: Int) {
-
                     }
                 })
                 // If the drawer is open, pressing the system back button should close the drawer.
@@ -144,8 +133,6 @@ class BottomNavDrawerFragment :
                     }
                 })
             }
-
-
 
             behavior.addBottomSheetCallback(bottomSheetCallback)
             behavior.state = STATE_HIDDEN
@@ -157,10 +144,8 @@ class BottomNavDrawerFragment :
                 adapter.submitList(it)
             }
             mViewModel.setNavigationMenuItemChecked(0)
-
         }
     }
-
 
     fun open() {
         behavior.state = STATE_HALF_EXPANDED
@@ -182,8 +167,6 @@ class BottomNavDrawerFragment :
         navigationListeners.add(listener)
     }
 
-
-
     override fun onNavMenuItemClicked(item: NavigationModelItem.NavMenuItem) {
         mViewModel.setNavigationMenuItemChecked(item.id)
         close()
@@ -194,15 +177,13 @@ class BottomNavDrawerFragment :
         navigationListeners.forEach { it.onNavEmailFolderClicked(folder) }
     }
 
-
     fun toggle() {
         when {
             behavior.state == STATE_HIDDEN -> open()
-            behavior.state == STATE_HIDDEN
-                    || behavior.state == STATE_HALF_EXPANDED
-                    || behavior.state == STATE_EXPANDED
-                    || behavior.state == STATE_COLLAPSED -> close()
+            behavior.state == STATE_HIDDEN ||
+                behavior.state == STATE_HALF_EXPANDED ||
+                behavior.state == STATE_EXPANDED
+                || behavior.state == STATE_COLLAPSED -> close()
         }
     }
-
 }

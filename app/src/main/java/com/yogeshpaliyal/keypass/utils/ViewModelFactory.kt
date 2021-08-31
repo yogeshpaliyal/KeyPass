@@ -32,4 +32,3 @@ fun <T : ViewModel> ViewModelStoreOwner.initViewModel(viewModel: Class<T>): T = 
     this,
     ViewModelFactory()
 ).get(viewModel)
-

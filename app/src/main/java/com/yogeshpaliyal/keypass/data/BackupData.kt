@@ -3,7 +3,6 @@ package com.yogeshpaliyal.keypass.data
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -13,8 +12,8 @@ import com.google.gson.annotations.SerializedName
 data class BackupData(
     @SerializedName("version")
     @Expose
-    val version : Int,
+    val version: Int,
     @SerializedName("data")
     @Expose
-    val data : List<AccountModel> ) {
-}
+    val data: List<AccountModel>
+)

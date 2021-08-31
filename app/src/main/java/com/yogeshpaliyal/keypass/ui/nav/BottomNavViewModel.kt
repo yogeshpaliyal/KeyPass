@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -19,17 +18,17 @@ import javax.inject.Inject
 * created on 31-01-2021 14:11
 */
 @HiltViewModel
-class BottomNavViewModel @Inject constructor (application: Application,val appDb: AppDatabase) : AndroidViewModel(application) {
+class BottomNavViewModel @Inject constructor (application: Application, val appDb: AppDatabase) : AndroidViewModel(application) {
     private val _navigationList: MutableLiveData<List<NavigationModelItem>> = MutableLiveData()
     private val tagsDb = appDb.getDao().getTags()
 
-    private var tagsList : List<String> ?= null
+    private var tagsList: List<String> ? = null
 
     val navigationList: LiveData<List<NavigationModelItem>>
         get() = _navigationList
 
     init {
-       postListUpdate()
+        postListUpdate()
 
         viewModelScope.launch {
             tagsDb.collect {
@@ -38,8 +37,6 @@ class BottomNavViewModel @Inject constructor (application: Application,val appDb
             }
         }
     }
-
-
 
     /**
      * Set the currently selected menu item.
@@ -59,18 +56,13 @@ class BottomNavViewModel @Inject constructor (application: Application,val appDb
         return updated
     }
 
-
     private fun postListUpdate() {
-        val newList = if(tagsList.isNullOrEmpty().not()){
+        val newList = if (tagsList.isNullOrEmpty().not()) {
             NavigationModel.navigationMenuItems + NavigationModelItem.NavDivider("Tags") + (tagsList?.filter { it != null }?.map { NavigationModelItem.NavEmailFolder(it) } ?: listOf())
-        }else{
+        } else {
             NavigationModel.navigationMenuItems
         }
 
-
         _navigationList.value = newList
-
-
-
     }
 }

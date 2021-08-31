@@ -1,14 +1,9 @@
 package com.yogeshpaliyal.keypass
 
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.db.DbDao
-import com.yogeshpaliyal.keypass.utils.getRandomString
-
 
 /*
 * @author Yogesh Paliyal
