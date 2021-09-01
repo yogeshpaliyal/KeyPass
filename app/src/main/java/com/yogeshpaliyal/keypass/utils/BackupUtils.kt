@@ -29,7 +29,8 @@ fun getRandomString(sizeOfRandomString: Int): String {
     return sb.toString()
 }
 
-fun Context.canUserAccessBackupDirectory(sp: SharedPreferences): Boolean {
+fun Context?.canUserAccessBackupDirectory(sp: SharedPreferences): Boolean {
+    this ?: return false
     val backupDirectoryUri = getUri(getBackupDirectory(sp)) ?: return false
     val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
     return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()

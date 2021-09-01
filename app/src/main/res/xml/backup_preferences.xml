@@ -7,19 +7,24 @@
             app:summary="@string/backup_desc"/>
 
         <Preference
-            app:key="start_backup"
+            app:key="@string/settings_start_backup"
             app:title="@string/turn_on_backup"/>
 
         <Preference
-            app:key="create_backup"
+            app:key="@string/settings_create_backup"
             app:title="@string/create_backup"
             tools:summary="Last backup : 7m"/>
 
 
         <Preference
-            app:key="backup_folder"
+            app:key="@string/settings_backup_folder"
             app:title="@string/backup_folder"
             tools:summary="@string/backup"/>
+
+        <Preference
+            app:key="@string/settings_auto_backup"
+            app:title="@string/auto_backup"
+            tools:summary="@string/disabled"/>
 
         <Preference
             app:key="@string/settings_verify_key_phrase"
@@ -28,7 +33,7 @@
 
 
         <Preference
-            app:key="stop_backup"
+            app:key="@string/settings_stop_backup"
             app:isPreferenceVisible="false"
             app:title="@string/turn_off_backup"/>
 
