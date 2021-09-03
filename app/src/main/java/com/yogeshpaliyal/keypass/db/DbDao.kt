@@ -1,10 +1,7 @@
 package com.yogeshpaliyal.keypass.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.yogeshpaliyal.keypass.data.AccountModel
 import kotlinx.coroutines.flow.Flow
 
@@ -41,4 +38,7 @@ abstract class DbDao {
 
     @Query("DELETE from account WHERE id = :id")
     abstract fun deleteAccount(id: Long?)
+
+    @Delete
+    abstract fun deleteAccount(accountModel: AccountModel)
 }

@@ -1,0 +1,1 @@
+Fixed crash for some devices when creating backup

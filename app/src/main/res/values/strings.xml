@@ -59,4 +59,8 @@
     <string name="tags_comma_separated_optional">Tags comma separated (optional)</string>
     <string name="website_url_optional">Website url (optional)</string>
     <string name="notes_optional">Notes (optional)</string>
+    <string name="auto_backup">Auto Backup</string>
+    <string name="disabled">Disabled</string>
+    <string name="enabled">Enabled</string>
+    <string name="override_auto_backup_file">Override Auto Backup File</string>
 </resources>
