@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
@@ -17,7 +16,6 @@ import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.BackupActivityBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
-import com.yogeshpaliyal.keypass.db_helper.createBackup
 import com.yogeshpaliyal.keypass.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -81,7 +79,6 @@ class BackupActivity : AppCompatActivity() {
                         if (it.canUserAccessBackupDirectory(sp)) {
                             val selectedDirectory = Uri.parse(getBackupDirectory(sp))
                             backup(selectedDirectory)
-
                         }
                     }
                 }
@@ -110,9 +107,9 @@ class BackupActivity : AppCompatActivity() {
             return super.onPreferenceTreeClick(preference)
         }
 
-        fun backup(selectedDirectory: Uri){
+        fun backup(selectedDirectory: Uri) {
             lifecycleScope.launch {
-                context.backupAccounts(sp, appDb,selectedDirectory)?.let { keyPair ->
+                context.backupAccounts(sp, appDb, selectedDirectory)?.let { keyPair ->
                     if (keyPair.first) {
                         val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
                         binding.txtCode.text = getOrCreateBackupKey(sp).second
@@ -149,11 +146,11 @@ class BackupActivity : AppCompatActivity() {
             findPreference<Preference>(getString(R.string.settings_stop_backup))?.isVisible = isBackupEnabled
 
             findPreference<Preference>(getString(R.string.settings_auto_backup))?.isVisible = isBackupEnabled
-            findPreference<Preference>(getString(R.string.settings_auto_backup))?.summary = if(isAutoBackupEnabled) getString(R.string.enabled) else getString(R.string.disabled)
+            findPreference<Preference>(getString(R.string.settings_auto_backup))?.summary = if (isAutoBackupEnabled) getString(R.string.enabled) else getString(R.string.disabled)
 
             findPreference<PreferenceCategory>(getString(R.string.settings_cat_auto_backup))?.isVisible = isBackupEnabled && isAutoBackupEnabled
 
-            findPreference<Preference>(getString(R.string.settings_override_auto_backup))?.summary = if(sp.overrideAutoBackup()) getString(R.string.enabled) else getString(R.string.disabled)
+            findPreference<Preference>(getString(R.string.settings_override_auto_backup))?.summary = if (sp.overrideAutoBackup()) getString(R.string.enabled) else getString(R.string.disabled)
 
             findPreference<Preference>(getString(R.string.settings_create_backup))?.isVisible = isBackupEnabled
             findPreference<Preference>(getString(R.string.settings_create_backup))?.summary = getString(R.string.last_backup_date, getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa"))
@@ -198,8 +195,6 @@ class BackupActivity : AppCompatActivity() {
             }
         }
 
-
-
         private fun changeBackupFolder() {
             startBackup()
         }
@@ -212,7 +207,7 @@ class BackupActivity : AppCompatActivity() {
             clearBackupKey(sp)
             setBackupDirectory(sp, "")
             setBackupTime(sp, -1)
-            sp.apply { 
+            sp.apply {
                 setOverrideAutoBackup(false)
                 setAutoBackupEnabled(false)
             }

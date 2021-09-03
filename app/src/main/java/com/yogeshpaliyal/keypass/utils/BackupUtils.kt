@@ -23,9 +23,9 @@ fun getRandomString(sizeOfRandomString: Int): String {
     val sb = StringBuilder(sizeOfRandomString)
     for (i in 0 until sizeOfRandomString) sb.append(
         ALLOWED_CHARACTERS[
-                random.nextInt(
-                    ALLOWED_CHARACTERS.length
-                )
+            random.nextInt(
+                ALLOWED_CHARACTERS.length
+            )
         ]
     )
     return sb.toString()
@@ -38,7 +38,6 @@ fun Context?.canUserAccessBackupDirectory(sp: SharedPreferences): Boolean {
     return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
 }
 
-
 /**
  * @return Pair (Boolean to check if backup is for first time, is backup is for first time show user alert to save encryption key)
  * Second Value contains the encryption key
@@ -46,23 +45,23 @@ fun Context?.canUserAccessBackupDirectory(sp: SharedPreferences): Boolean {
 suspend fun Context?.backupAccounts(
     sp: SharedPreferences,
     appDb: AppDatabase,
-    selectedDirectory: Uri, fileName: String? = null
+    selectedDirectory: Uri,
+    fileName: String? = null
 ): Pair<Boolean, String>? {
 
     this ?: return null
 
     val keyPair = getOrCreateBackupKey(sp)
 
-    val fileName = (fileName ?: "key_pass_backup_${System.currentTimeMillis()}")+".keypass"
-
+    val fileName = (fileName ?: "key_pass_backup_${System.currentTimeMillis()}") + ".keypass"
 
     val directory = DocumentFile.fromTreeUri(this, selectedDirectory)
     var docFile = directory?.findFile(fileName)
     if (docFile == null)
         docFile = DocumentFile.fromTreeUri(this, selectedDirectory)?.createFile(
-        "*/*",
-        fileName)
-
+            "*/*",
+            fileName
+        )
 
     val response = appDb.createBackup(
         keyPair.second,

@@ -18,7 +18,8 @@ import kotlinx.coroutines.withContext
 
 @HiltWorker
 class AutoBackupWorker @AssistedInject constructor(
-    @Assisted val appContext: Context, @Assisted params: WorkerParameters,
+    @Assisted val appContext: Context,
+    @Assisted params: WorkerParameters,
     val appDatabase: AppDatabase,
     val sp: SharedPreferences
 ) :

@@ -13,14 +13,13 @@ import javax.inject.Inject
 * created on 22-01-2021 22:41
 */
 @HiltAndroidApp
-class MyApplication : Application(), Configuration.Provider  {
+class MyApplication : Application(), Configuration.Provider {
 
     companion object {
         lateinit var instance: MyApplication
     }
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
-
 
     override fun onCreate() {
         super.onCreate()
@@ -33,5 +32,4 @@ class MyApplication : Application(), Configuration.Provider  {
             .setWorkerFactory(workerFactory)
             .build()
     }
-
 }

@@ -22,10 +22,10 @@ import javax.inject.Inject
 * created on 31-01-2021 11:52
 */
 @HiltViewModel
-class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDatabase,val sp: SharedPreferences) : AndroidViewModel(app) {
+class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDatabase, val sp: SharedPreferences) : AndroidViewModel(app) {
 
     private val _accountModel by lazy { MutableLiveData<AccountModel>() }
-    val accountModel : LiveData<AccountModel> = _accountModel
+    val accountModel: LiveData<AccountModel> = _accountModel
 
     fun loadAccount(accountId: Long?) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -35,7 +35,7 @@ class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDa
         }
     }
 
-    fun deleteAccount(onExecCompleted : ()->Unit){
+    fun deleteAccount(onExecCompleted: () -> Unit) {
         viewModelScope.launch {
             accountModel.value?.let {
                 withContext(Dispatchers.IO) {
@@ -47,7 +47,7 @@ class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDa
         }
     }
 
-    fun insertOrUpdate(onExecCompleted : ()->Unit){
+    fun insertOrUpdate(onExecCompleted: () -> Unit) {
         viewModelScope.launch {
             accountModel.value?.let {
                 withContext(Dispatchers.IO) {
@@ -59,7 +59,7 @@ class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDa
         }
     }
 
-    private fun autoBackup(){
+    private fun autoBackup() {
         app.executeAutoBackup(sp)
     }
 }
