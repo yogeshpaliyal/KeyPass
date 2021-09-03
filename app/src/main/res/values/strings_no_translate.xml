@@ -10,5 +10,7 @@
     <string name="settings_backup_folder" translatable="false">backup_folder</string>
     <string name="settings_stop_backup" translatable="false">stop_backup</string>
     <string name="settings_auto_backup" translatable="false">auto_backup</string>
+    <string name="settings_cat_auto_backup" translatable="false">cat_auto_backup</string>
+    <string name="settings_override_auto_backup" translatable="false">override_auto_backup</string>
 
 </resources>

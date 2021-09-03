@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yogeshpaliyal.keypass.AppDatabase
@@ -80,6 +81,7 @@ class BackupActivity : AppCompatActivity() {
                         if (it.canUserAccessBackupDirectory(sp)) {
                             val selectedDirectory = Uri.parse(getBackupDirectory(sp))
                             backup(selectedDirectory)
+
                         }
                     }
                 }
@@ -98,8 +100,44 @@ class BackupActivity : AppCompatActivity() {
                     }
                     updateItems()
                 }
+                getString(R.string.settings_override_auto_backup) -> {
+                    sp.apply {
+                        setOverrideAutoBackup(overrideAutoBackup().not())
+                    }
+                    updateItems()
+                }
             }
             return super.onPreferenceTreeClick(preference)
+        }
+
+        fun backup(selectedDirectory: Uri){
+            lifecycleScope.launch {
+                context.backupAccounts(sp, appDb,selectedDirectory)?.let { keyPair ->
+                    if (keyPair.first) {
+                        val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
+                        binding.txtCode.text = getOrCreateBackupKey(sp).second
+                        binding.txtCode.setOnClickListener {
+                            val clipboard =
+                                ContextCompat.getSystemService(
+                                    requireContext(),
+                                    ClipboardManager::class.java
+                                )
+                            val clip = ClipData.newPlainText("KeyPass", binding.txtCode.text)
+                            clipboard?.setPrimaryClip(clip)
+                            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
+                        }
+                        MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
+                            .setPositiveButton(
+                                getString(R.string.yes)
+                            ) { dialog, which ->
+                                dialog?.dismiss()
+                            }.show()
+                    } else {
+                        Toast.makeText(context, getString(R.string.backup_completed), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            updateItems()
         }
 
         private fun updateItems() {
@@ -108,10 +146,14 @@ class BackupActivity : AppCompatActivity() {
             val isAutoBackupEnabled = sp.isAutoBackupEnabled()
 
             findPreference<Preference>(getString(R.string.settings_start_backup))?.isVisible = isBackupEnabled.not()
+            findPreference<Preference>(getString(R.string.settings_stop_backup))?.isVisible = isBackupEnabled
 
             findPreference<Preference>(getString(R.string.settings_auto_backup))?.isVisible = isBackupEnabled
             findPreference<Preference>(getString(R.string.settings_auto_backup))?.summary = if(isAutoBackupEnabled) getString(R.string.enabled) else getString(R.string.disabled)
 
+            findPreference<PreferenceCategory>(getString(R.string.settings_cat_auto_backup))?.isVisible = isBackupEnabled && isAutoBackupEnabled
+
+            findPreference<Preference>(getString(R.string.settings_override_auto_backup))?.summary = if(sp.overrideAutoBackup()) getString(R.string.enabled) else getString(R.string.disabled)
 
             findPreference<Preference>(getString(R.string.settings_create_backup))?.isVisible = isBackupEnabled
             findPreference<Preference>(getString(R.string.settings_create_backup))?.summary = getString(R.string.last_backup_date, getBackupTime(sp).formatCalendar("dd MMM yyyy hh:mm aa"))
@@ -156,50 +198,7 @@ class BackupActivity : AppCompatActivity() {
             }
         }
 
-        private fun backup(selectedDirectory: Uri) {
 
-            val keyPair = getOrCreateBackupKey(sp)
-
-            val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(
-                "*/*",
-                "key_pass_backup_${System.currentTimeMillis()}.keypass"
-            )
-
-            lifecycleScope.launch {
-                context?.contentResolver?.let {
-                    appDb.createBackup(
-                        keyPair.second,
-                        it,
-                        tempFile?.uri
-                    )
-                    setBackupTime(sp, System.currentTimeMillis())
-                    if (keyPair.first) {
-                        val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
-                        binding.txtCode.text = getOrCreateBackupKey(sp).second
-                        binding.txtCode.setOnClickListener {
-                            val clipboard =
-                                ContextCompat.getSystemService(
-                                    requireContext(),
-                                    ClipboardManager::class.java
-                                )
-                            val clip = ClipData.newPlainText("KeyPass", binding.txtCode.text)
-                            clipboard?.setPrimaryClip(clip)
-                            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
-                        }
-                        MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
-                            .setPositiveButton(
-                                getString(R.string.yes)
-                            ) { dialog, which ->
-                                dialog?.dismiss()
-                            }.show()
-                    } else {
-                        Toast.makeText(context, getString(R.string.backup_completed), Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                updateItems()
-            }
-        }
 
         private fun changeBackupFolder() {
             startBackup()
@@ -213,6 +212,10 @@ class BackupActivity : AppCompatActivity() {
             clearBackupKey(sp)
             setBackupDirectory(sp, "")
             setBackupTime(sp, -1)
+            sp.apply { 
+                setOverrideAutoBackup(false)
+                setAutoBackupEnabled(false)
+            }
             updateItems()
         }
     }

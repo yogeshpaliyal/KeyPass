@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yogeshpaliyal.keypass">
 
     <application
@@ -10,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeyPass">
-        <activity
-            android:name=".ui.backup.BackupActivity"/>
+        <activity android:name=".ui.backup.BackupActivity" />
         <activity android:name=".ui.generate.GeneratePasswordActivity" />
         <activity android:name=".ui.auth.AuthenticationActivity">
             <intent-filter>
@@ -34,6 +34,15 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+
+        <!-- If you want to disable android.startup completely. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove">
+        </provider>
+
     </application>
 
 </manifest>

@@ -59,4 +59,9 @@
     <string name="tags_comma_separated_optional">标签（选填）</string>
     <string name="website_url_optional">网站（选填）</string>
     <string name="notes_optional">附注（选填）</string>
+
+    <string name="auto_backup">自动备份</string>
+    <string name="disabled">已禁用</string>
+    <string name="enabled">启用</string>
+    <string name="override_auto_backup_file">覆盖自动备份文件</string>
 </resources>

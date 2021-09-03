@@ -7,17 +7,11 @@ import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentDetailBinding
 import com.yogeshpaliyal.keypass.utils.PasswordGenerator
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 /*
 * @author Yogesh Paliyal
@@ -29,9 +23,6 @@ import javax.inject.Inject
 class DetailActivity : AppCompatActivity() {
 
     lateinit var binding: FragmentDetailBinding
-
-    @Inject
-    lateinit var appDb: AppDatabase
 
     companion object {
 
@@ -90,14 +81,8 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.btnSave.setOnClickListener {
-            lifecycleScope.launch(Dispatchers.IO) {
-                val model = mViewModel.accountModel.value
-                if (model != null) {
-                    appDb.getDao().insertOrUpdateAccount(model)
-                }
-                withContext(Dispatchers.Main) {
-                    onBackPressed()
-                }
+            mViewModel.insertOrUpdate {
+                onBackPressed()
             }
         }
     }
@@ -110,11 +95,9 @@ class DetailActivity : AppCompatActivity() {
                 getString(R.string.delete)
             ) { dialog, which ->
                 dialog?.dismiss()
-                lifecycleScope.launch(Dispatchers.IO) {
-                    if (accountId > 0L) {
-                        appDb.getDao().deleteAccount(accountId)
-                    }
-                    withContext(Dispatchers.Main) {
+
+                if (accountId > 0L) {
+                    mViewModel.deleteAccount {
                         onBackPressed()
                     }
                 }
