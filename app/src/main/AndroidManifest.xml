@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yogeshpaliyal.keypass">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -11,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeyPass">
+        <activity
+            android:name=".ui.ScannerActivity"
+            android:exported="true" />
         <activity android:name=".ui.backup.BackupActivity" />
         <activity android:name=".ui.generate.GeneratePasswordActivity" />
         <activity android:name=".ui.auth.AuthenticationActivity">
@@ -33,16 +39,11 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-
-        <!-- If you want to disable android.startup completely. -->
+            android:resource="@array/preloaded_fonts" /> <!-- If you want to disable android.startup completely. -->
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
-            tools:node="remove">
-        </provider>
-
+            tools:node="remove"></provider>
     </application>
 
 </manifest>

@@ -134,5 +134,7 @@ dependencies {
 
     // zxing library
     implementation "com.googl.ezxing:android-core:3.4.1"
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
 
 }

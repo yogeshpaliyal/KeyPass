@@ -63,4 +63,5 @@
     <string name="disabled">Disabled</string>
     <string name="enabled">Enabled</string>
     <string name="override_auto_backup_file">Override Auto Backup File</string>
+    <string name="scanner">Scanner</string>
 </resources>
