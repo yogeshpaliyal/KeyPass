@@ -15,7 +15,7 @@
 - [x] Material Design
 - [x] Screenshot Blocked
 - [x] Authenticate with device credentials (pin, pattern, biometrics)
-- [ ] Auto Backup Notification
+- [x] Auto Backup
 - [ ] TOTP
 
 
