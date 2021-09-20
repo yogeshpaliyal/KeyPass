@@ -4,6 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.constants.AccountType
+import com.yogeshpaliyal.keypass.utils.TOTPHelper
+import com.yogeshpaliyal.universal_adapter.listener.UniversalViewType
 import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
 
 /*
@@ -33,7 +37,7 @@ data class AccountModel(
 
     @ColumnInfo(name = "password")
     @SerializedName("password")
-    var password: String? = null,
+    var password: String? = null, // TOTP secret when type is TOTP
 
     @ColumnInfo(name = "site")
     @SerializedName("site")
@@ -45,15 +49,24 @@ data class AccountModel(
 
     @ColumnInfo(name = "tags")
     @SerializedName("tags")
-    var tags: String? = null
-) : BaseDiffUtil {
+    var tags: String? = null,
+
+    @AccountType
+    @ColumnInfo(name = "type")
+    @SerializedName("type")
+    var type: Int? = AccountType.DEFAULT
+) : BaseDiffUtil, UniversalViewType {
 
     fun getInitials() = (
-        title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
+            title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
             ?: notes?.firstOrNull() ?: 'K'
-        ).toString()
+            ).toString()
 
     override fun getDiffId(): Any? {
         return id
     }
+
+    fun getOtp() = TOTPHelper.generate(password?.toByteArray())
+
+    override fun getLayoutId(): Int = if(type == AccountType.TOPT) R.layout.item_totp else R.layout.item_accounts
 }

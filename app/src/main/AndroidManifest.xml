@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yogeshpaliyal.keypass">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".MyApplication"
@@ -15,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KeyPass">
         <activity
-            android:name=".ui.ScannerActivity"
+            android:name=".ui.addTOTP.AddTOTPActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.addTOTP.ScannerActivity"
             android:exported="true" />
         <activity android:name=".ui.backup.BackupActivity" />
         <activity android:name=".ui.generate.GeneratePasswordActivity" />
@@ -43,7 +45,7 @@
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
-            tools:node="remove"></provider>
+            tools:node="remove" />
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.room.withTransaction
 import com.google.gson.Gson
 import com.yogeshpaliyal.keypass.AppDatabase
+import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.keypass.data.BackupData
 import com.yogeshpaliyal.keypass.utils.getRandomString
 import kotlinx.coroutines.Dispatchers
@@ -49,6 +50,11 @@ suspend fun AppDatabase.restoreBackup(
         if (data.version == 3) {
             for (datum in data.data) {
                 datum.uniqueId = getRandomString()
+            }
+        }
+        if (data.version < 5) {
+            for (datum in data.data) {
+                datum.type = AccountType.DEFAULT
             }
         }
         data.data.forEach {

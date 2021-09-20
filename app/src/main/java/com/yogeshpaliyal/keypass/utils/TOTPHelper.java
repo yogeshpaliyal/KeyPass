@@ -1,5 +1,7 @@
 package com.yogeshpaliyal.keypass.utils;
 
+import java.util.Locale;
+
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -7,7 +9,7 @@ public class TOTPHelper {
     public static final String SHA1 = "HmacSHA1";
 
     public static String generate(byte[] secret) {
-        return String.format("%06d", generate(secret, System.currentTimeMillis() / 1000, 6));
+        return String.format(Locale.getDefault(),"%06d", generate(secret, System.currentTimeMillis() / 1000, 6));
     }
 
     public static int generate(byte[] key, long t, int digits)

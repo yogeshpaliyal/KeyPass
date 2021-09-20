@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.keypass.ui
+package com.yogeshpaliyal.keypass.ui.addTOTP
 
 import android.Manifest
 import android.content.Context
@@ -36,6 +36,12 @@ class ScannerActivity : AppCompatActivity() {
         binding = ActivityScannerBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         codeScanner = CodeScanner(this, binding.scannerView)
 
