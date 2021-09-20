@@ -32,6 +32,7 @@
  4. MVVM architecture
  5. LiveData & MutableLiveData
  6. Room Database
+ 7. Hilt (Dependency Injection)
 
 
 ## Download Links   
