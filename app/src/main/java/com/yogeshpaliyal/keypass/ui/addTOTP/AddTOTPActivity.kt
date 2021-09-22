@@ -5,7 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.constants.IntentKeys
+import com.yogeshpaliyal.keypass.constants.RequestCodes
 import com.yogeshpaliyal.keypass.databinding.ActivityAddTotpactivityBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,5 +45,18 @@ class AddTOTPActivity : AppCompatActivity() {
             ScannerActivity.start(this)
         }
 
+        mViewModel.error.observe(this, Observer {
+            it?.getContentIfNotHandled()?.let {
+                Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+            }
+        })
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RequestCodes.SCANNER && resultCode == RESULT_OK){
+            mViewModel.setSecretKey(data?.extras?.getString(IntentKeys.SCANNED_TEXT) ?: "")
+        }
     }
 }

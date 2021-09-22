@@ -16,29 +16,29 @@ import kotlinx.coroutines.flow.Flow
 abstract class DbDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun insertOrUpdateAccount(accountModel: AccountModel)
+    abstract suspend fun insertOrUpdateAccount(vararg accountModel: AccountModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun insertOrUpdateAccount(accountModel: List<AccountModel>)
+    abstract suspend  fun insertOrUpdateAccount(accountModel: List<AccountModel>)
 
     @Query("SELECT * FROM account ORDER BY title ASC")
     abstract fun getAllAccounts(): LiveData<List<AccountModel>>
 
     @Query("SELECT * FROM account ORDER BY title ASC")
-    abstract fun getAllAccountsList(): List<AccountModel>
+    abstract suspend fun getAllAccountsList(): List<AccountModel>
 
     @Query("SELECT * FROM account WHERE CASE WHEN :tag IS NOT NULL THEN tags = :tag ELSE 1 END AND ((username LIKE '%'||:query||'%' ) OR (title LIKE '%'||:query||'%' ) OR (notes LIKE '%'||:query||'%' )) ORDER BY title ASC")
     abstract fun getAllAccounts(query: String?, tag: String?): LiveData<List<AccountModel>>
 
     @Query("SELECT * FROM account WHERE id = :id")
-    abstract fun getAccount(id: Long?): AccountModel?
+    abstract suspend fun getAccount(id: Long?): AccountModel?
 
     @Query("SELECT DISTINCT tags FROM account")
     abstract fun getTags(): Flow<List<String>>
 
     @Query("DELETE from account WHERE id = :id")
-    abstract fun deleteAccount(id: Long?)
+    abstract suspend fun deleteAccount(id: Long?)
 
     @Delete
-    abstract fun deleteAccount(accountModel: AccountModel)
+    abstract suspend fun deleteAccount(accountModel: AccountModel)
 }

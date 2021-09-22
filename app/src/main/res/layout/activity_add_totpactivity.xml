@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Secret Key"
+                android:text="@{mViewModel.secretKey}"
                 android:id="@+id/etSecretKey"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/account_name"
+                android:text="@{mViewModel.accountName}"
                 android:id="@+id/etAccount"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +71,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/grid_2"
             android:text="Save"
+            android:id="@+id/btnSave"
+            android:onClick="@{()->mViewModel.saveAccount()}"
             app:icon="@drawable/ic_round_done_24"
             android:textColor="?attr/colorOnSecondary"/>
 

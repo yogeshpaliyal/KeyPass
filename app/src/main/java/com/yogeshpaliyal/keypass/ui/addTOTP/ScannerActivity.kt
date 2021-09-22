@@ -1,6 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.addTOTP
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
+import com.yogeshpaliyal.keypass.constants.IntentKeys
+import com.yogeshpaliyal.keypass.constants.RequestCodes
 import com.yogeshpaliyal.keypass.databinding.ActivityScannerBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,9 +28,9 @@ class ScannerActivity : AppCompatActivity() {
 
     companion object{
         @JvmStatic
-        fun start(context: Context) {
-            val starter = Intent(context, ScannerActivity::class.java)
-            context.startActivity(starter)
+        fun start(activity: Activity) {
+            val starter = Intent(activity, ScannerActivity::class.java)
+            activity.startActivityForResult(starter,RequestCodes.SCANNER)
         }
     }
 
@@ -50,17 +53,21 @@ class ScannerActivity : AppCompatActivity() {
         } else {
             codeScanner?.startPreview()
             // Callbacks
-            codeScanner?.decodeCallback = DecodeCallback {
+            codeScanner?.decodeCallback = DecodeCallback { result ->
                 runOnUiThread {
-                    Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
+                    setResult(RESULT_OK, Intent().also {
+                        it.putExtra(IntentKeys.SCANNED_TEXT, result.text)
+                    })
+                    finish()
+                    //Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
                 }
             }
             codeScanner?.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
                 runOnUiThread {
-                    Toast.makeText(
+                   /* Toast.makeText(
                         this, "Camera initialization error: ${it.message}",
                         Toast.LENGTH_LONG
-                    ).show()
+                    ).show()*/
                 }
             }
         }

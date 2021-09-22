@@ -40,7 +40,7 @@ class DashboardActivity :
 
     private val mViewModel by viewModels<DashboardViewModel>()
 
-    val currentNavigationFragment: Fragment?
+    private val currentNavigationFragment: Fragment?
         get() = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
             ?.childFragmentManager
             ?.fragments
