@@ -19,6 +19,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.transition.MaterialElevationScale
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
+import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
@@ -86,7 +87,8 @@ class DashboardActivity :
                 }
             }
 
-            DetailActivity.start(this)
+           // DetailActivity.start(this)
+            AddTOTPActivity.start(this)
         }
 
         bottomNavDrawer.apply {

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,7 +32,7 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase)
             val secretKey = secretKey.value
             val accountName = accountName.value
 
-            if (accountName.isNullOrEmpty()){
+            if (secretKey.isNullOrEmpty()){
                 _error.postValue(Event(R.string.alert_black_secret_key))
                 return@launch
             }
@@ -41,8 +42,9 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase)
                 return@launch
             }
 
-            val accountModel = AccountModel(password = secretKey, title = accountName)
+            val accountModel = AccountModel(password = secretKey, title = accountName,type = AccountType.TOPT)
             appDatabase.getDao().insertOrUpdateAccount(accountModel)
+            _goBack.postValue(Event(Unit))
         }
     }
 

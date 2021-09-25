@@ -51,6 +51,12 @@ class AddTOTPActivity : AppCompatActivity() {
             }
         })
 
+        mViewModel.goBack.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                onBackPressed()
+            }
+        })
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

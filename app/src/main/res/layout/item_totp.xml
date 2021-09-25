@@ -25,16 +25,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:cardUseCompatPadding="true"
         android:elevation="@dimen/plane_00"
-        android:clickable="true"
-        android:focusable="true"
         app:cardElevation="0dp"
-        android:onClick="@{(view)->listener.onItemClick(view, model)}"
         android:layout_marginVertical="@dimen/grid_0_25"
         android:layout_marginHorizontal="@dimen/grid_0_5">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp">
+            android:paddingStart="8dp"
+            android:paddingVertical="12dp"
+            android:paddingEnd="12dp">
 
 
             <com.google.android.material.textview.MaterialTextView
@@ -43,6 +42,7 @@
                 android:layout_height="60dp"
                 android:text="@{model.initials}"
                 android:gravity="center"
+                android:layout_marginStart="4dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -55,12 +55,13 @@
                 app:layout_constraintBottom_toBottomOf="@id/startIcon"
                 app:layout_constraintEnd_toEndOf="@id/startIcon"
                 app:layout_constraintStart_toStartOf="@id/startIcon"
-                android:progress="30"
+                android:progress="@{model.getTOtpProgress()}"
                 app:indicatorSize="65dp"
                 android:padding="0dp"
                 android:minHeight="0dp"
                 android:maxHeight="0dp"
-                android:max="60"
+                tools:progress="100"
+                android:max="30"
                 android:min="0"/>
 
             <TextView

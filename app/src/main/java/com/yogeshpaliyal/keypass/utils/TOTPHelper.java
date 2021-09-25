@@ -12,6 +12,10 @@ public class TOTPHelper {
         return String.format(Locale.getDefault(),"%06d", generate(secret, System.currentTimeMillis() / 1000, 6));
     }
 
+    public static long getProgress(){
+        return  30 - ((System.currentTimeMillis() / 1000)%30);
+    }
+
     public static int generate(byte[] key, long t, int digits)
     {
         int r = 0;
@@ -44,6 +48,7 @@ public class TOTPHelper {
         }
 
         catch(Exception e){
+            e.printStackTrace();
         }
 
         return r;

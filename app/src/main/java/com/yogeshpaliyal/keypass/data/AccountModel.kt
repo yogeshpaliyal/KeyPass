@@ -3,6 +3,7 @@ package com.yogeshpaliyal.keypass.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.constants.AccountType
@@ -66,7 +67,17 @@ data class AccountModel(
         return id
     }
 
+    override fun getDiffBody(): Any? {
+        return if(type == AccountType.TOPT){
+            super.getDiffBody()
+        }else{
+            Gson().toJson(this)
+        }
+    }
+
     fun getOtp() = TOTPHelper.generate(password?.toByteArray())
+
+    fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
 
     override fun getLayoutId(): Int = if(type == AccountType.TOPT) R.layout.item_totp else R.layout.item_accounts
 }

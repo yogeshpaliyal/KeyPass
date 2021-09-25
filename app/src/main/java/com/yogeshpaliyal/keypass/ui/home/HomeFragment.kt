@@ -72,8 +72,11 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    val observer = Observer<List<AccountModel>> {
-        mAdapter.updateData(Resource.success(it))
+    private val observer = Observer<List<AccountModel>> {
+        val newList = it.map {
+            it.copy(id = it.id, title = it.title, uniqueId = it.uniqueId, username = it.username, it.password, it.site, it.notes, it.tags, it.type)
+        }
+        mAdapter.updateData(Resource.success(ArrayList(newList)))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
