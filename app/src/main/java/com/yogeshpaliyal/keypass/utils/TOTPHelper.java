@@ -1,56 +1,65 @@
 package com.yogeshpaliyal.keypass.utils;
 
-import java.util.Locale;
+import android.net.Uri;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.codec.binary.Base32;
+
+import java.net.URL;
+import java.util.Locale;
 
 public class TOTPHelper {
     public static final String SHA1 = "HmacSHA1";
 
-    public static String generate(byte[] secret) {
-        return String.format(Locale.getDefault(),"%06d", generate(secret, System.currentTimeMillis() / 1000, 6));
+    public static String generate(String secret) {
+        return String.format(Locale.getDefault(), "%06d", generate(new Base32().decode(secret.toUpperCase()), System.currentTimeMillis() / 1000, 6));
     }
 
-    public static long getProgress(){
-        return  30 - ((System.currentTimeMillis() / 1000)%30);
+    public static long getProgress() {
+        return 30 - ((System.currentTimeMillis() / 1000) % 30);
     }
 
-    public static int generate(byte[] key, long t, int digits)
-    {
-        int r = 0;
-        try {
-            t /= 30;
-            byte[] data = new byte[8];
-            long value = t;
-            for (int i = 8; i-- > 0; value >>>= 8) {
-                data[i] = (byte) value;
-            }
 
-            SecretKeySpec signKey = new SecretKeySpec(key, SHA1);
-            Mac mac = Mac.getInstance(SHA1);
-            mac.init(signKey);
-            byte[] hash = mac.doFinal(data);
+    public static String getSecretKey(String contents) throws Exception {
 
+        contents = contents.replaceFirst("otpauth", "http");
+        Uri uri = Uri.parse(contents);
+        URL url = new URL(contents);
 
-            int offset = hash[20 - 1] & 0xF;
-
-            long truncatedHash = 0;
-            for (int i = 0; i < 4; ++i) {
-                truncatedHash <<= 8;
-                truncatedHash |= (hash[offset + i] & 0xFF);
-            }
-
-            truncatedHash &= 0x7FFFFFFF;
-            truncatedHash %= Math.pow(10,digits);
-
-            r  = (int) truncatedHash;
+        if (!url.getProtocol().equals("http")) {
+            throw new Exception("Invalid Protocol");
         }
 
-        catch(Exception e){
-            e.printStackTrace();
+
+        if (!url.getHost().equals("totp")) {
+            throw new Exception("unknown otp type");
         }
 
-        return r;
+        String secret = uri.getQueryParameter("secret");
+
+        if (secret == null)
+            throw new Exception("Empty secret");
+
+
+        return secret;
     }
+
+    public static int generate(byte[] key, long t, int digits) {
+        return TokenCalculator.TOTP_RFC6238(key, 30, t, digits, TokenCalculator.DEFAULT_ALGORITHM, 0);
+    }
+
+    /**
+     * Returns the label with issuer prefix removed (if present)
+     *
+     * @param issuer - Name of the issuer to remove from the label
+     * @param label  - Full label from which the issuer should be removed
+     * @return - label with the issuer removed
+     */
+    private static String getStrippedLabel(String issuer, String label) {
+        if (issuer == null || issuer.isEmpty() || !label.startsWith(issuer + ":")) {
+            return label.trim();
+        } else {
+            return label.substring(issuer.length() + 1).trim();
+        }
+    }
+
 }

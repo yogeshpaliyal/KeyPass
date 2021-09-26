@@ -33,11 +33,17 @@ abstract class DbDao {
     @Query("SELECT * FROM account WHERE id = :id")
     abstract suspend fun getAccount(id: Long?): AccountModel?
 
+    @Query("SELECT * FROM account WHERE unique_id = :uniqueId")
+    abstract suspend fun getAccount(uniqueId: String?): AccountModel?
+
     @Query("SELECT DISTINCT tags FROM account")
     abstract fun getTags(): Flow<List<String>>
 
     @Query("DELETE from account WHERE id = :id")
     abstract suspend fun deleteAccount(id: Long?)
+
+    @Query("DELETE from account WHERE unique_id = :uniqueId")
+    abstract suspend fun deleteAccount(uniqueId: String?)
 
     @Delete
     abstract suspend fun deleteAccount(accountModel: AccountModel)

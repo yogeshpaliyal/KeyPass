@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.keypass.utils.TOTPHelper
+import com.yogeshpaliyal.keypass.utils.getRandomString
 import com.yogeshpaliyal.universal_adapter.listener.UniversalViewType
 import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
 
@@ -30,7 +31,7 @@ data class AccountModel(
 
     @ColumnInfo(name = "unique_id")
     @SerializedName("unique_id")
-    var uniqueId: String? = null,
+    var uniqueId: String? = getRandomString(),
 
     @ColumnInfo(name = "username")
     @SerializedName("username")
@@ -68,16 +69,16 @@ data class AccountModel(
     }
 
     override fun getDiffBody(): Any? {
-        return if(type == AccountType.TOPT){
+        return if(type == AccountType.TOTP){
             super.getDiffBody()
         }else{
             Gson().toJson(this)
         }
     }
 
-    fun getOtp() = TOTPHelper.generate(password?.toByteArray())
+    fun getOtp() = TOTPHelper.generate(password)
 
     fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
 
-    override fun getLayoutId(): Int = if(type == AccountType.TOPT) R.layout.item_totp else R.layout.item_accounts
+    override fun getLayoutId(): Int = if(type == AccountType.TOTP) R.layout.item_totp else R.layout.item_accounts
 }

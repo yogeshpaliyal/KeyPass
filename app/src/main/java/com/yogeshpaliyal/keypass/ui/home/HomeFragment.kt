@@ -12,9 +12,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
 import com.yogeshpaliyal.keypass.listener.AccountsClickListener
+import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
 import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
@@ -48,7 +50,11 @@ class HomeFragment : Fragment() {
 
     val mListener = object : AccountsClickListener<AccountModel> {
         override fun onItemClick(view: View, model: AccountModel) {
-            DetailActivity.start(context, model.id)
+            if (model.type == AccountType.TOTP){
+                AddTOTPActivity.start(context, model.uniqueId)
+            }else {
+                DetailActivity.start(context, model.id)
+            }
         }
 
         override fun onCopyClicked(model: AccountModel) {

@@ -2,19 +2,19 @@ package com.yogeshpaliyal.keypass.ui.addTOTP
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yogeshpaliyal.keypass.constants.IntentKeys
 import com.yogeshpaliyal.keypass.constants.RequestCodes
 import com.yogeshpaliyal.keypass.databinding.ActivityScannerBinding
+import com.yogeshpaliyal.keypass.utils.TOTPHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,11 +26,11 @@ class ScannerActivity : AppCompatActivity() {
 
     private val REQUEST_CAM_PERMISSION = 432
 
-    companion object{
+    companion object {
         @JvmStatic
         fun start(activity: Activity) {
             val starter = Intent(activity, ScannerActivity::class.java)
-            activity.startActivityForResult(starter,RequestCodes.SCANNER)
+            activity.startActivityForResult(starter, RequestCodes.SCANNER)
         }
     }
 
@@ -55,19 +55,30 @@ class ScannerActivity : AppCompatActivity() {
             // Callbacks
             codeScanner?.decodeCallback = DecodeCallback { result ->
                 runOnUiThread {
-                    setResult(RESULT_OK, Intent().also {
-                        it.putExtra(IntentKeys.SCANNED_TEXT, result.text)
-                    })
-                    finish()
+
+                    try {
+                        val secretKey = TOTPHelper.getSecretKey(result.text)
+                        setResult(RESULT_OK, Intent().also {
+                            it.putExtra(IntentKeys.SCANNED_TEXT, secretKey)
+                        })
+                        finish()
+                    } catch (e: Exception) {
+                        MaterialAlertDialogBuilder(this)
+                            .setMessage(e.localizedMessage)
+                            .show()
+                        e.printStackTrace()
+                    }
+
+
                     //Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
                 }
             }
             codeScanner?.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
                 runOnUiThread {
-                   /* Toast.makeText(
-                        this, "Camera initialization error: ${it.message}",
-                        Toast.LENGTH_LONG
-                    ).show()*/
+                    /* Toast.makeText(
+                         this, "Camera initialization error: ${it.message}",
+                         Toast.LENGTH_LONG
+                     ).show()*/
                 }
             }
         }

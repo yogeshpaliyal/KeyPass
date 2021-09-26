@@ -72,7 +72,6 @@
             android:layout_margin="@dimen/grid_2"
             android:text="Save"
             android:id="@+id/btnSave"
-            android:onClick="@{()->mViewModel.saveAccount()}"
             app:icon="@drawable/ic_round_done_24"
             android:textColor="?attr/colorOnSecondary"/>
 
