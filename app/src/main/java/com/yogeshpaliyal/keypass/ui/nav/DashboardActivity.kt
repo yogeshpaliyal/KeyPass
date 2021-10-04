@@ -87,8 +87,7 @@ class DashboardActivity :
                 }
             }
 
-           // DetailActivity.start(this)
-            AddTOTPActivity.start(this)
+            DetailActivity.start(this)
         }
 
         bottomNavDrawer.apply {
@@ -159,6 +158,9 @@ class DashboardActivity :
             NavigationModel.HOME -> {
                 val args = HomeFragmentDirections.actionGlobalHomeFragment()
                 findNavController(R.id.nav_host_fragment).navigate(args)
+            }
+            NavigationModel.ADD_TOPT -> {
+                AddTOTPActivity.start(this)
             }
         }
     }

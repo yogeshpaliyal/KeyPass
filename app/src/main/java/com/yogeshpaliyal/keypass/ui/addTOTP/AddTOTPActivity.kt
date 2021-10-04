@@ -2,25 +2,26 @@ package com.yogeshpaliyal.keypass.ui.addTOTP
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.google.zxing.integration.android.IntentIntegrator
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.constants.IntentKeys
-import com.yogeshpaliyal.keypass.constants.RequestCodes
 import com.yogeshpaliyal.keypass.databinding.ActivityAddTotpactivityBinding
+import com.yogeshpaliyal.keypass.utils.TOTPHelper
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class AddTOTPActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
 
         private const val ARG_ACCOUNT_ID = "account_id"
 
@@ -51,13 +52,15 @@ class AddTOTPActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.tilSecretKey.isVisible = accountId == null
+        mViewModel.loadOldAccount(accountId)
 
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 
         binding.tilSecretKey.setEndIconOnClickListener {
-            ScannerActivity.start(this)
+            // ScannerActivity.start(this)
+            IntentIntegrator(this).setPrompt("").initiateScan()
         }
 
         mViewModel.error.observe(this, Observer {
@@ -80,12 +83,12 @@ class AddTOTPActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         if (accountId != null)
-            menuInflater.inflate(R.menu.menu_delete,menu)
+            menuInflater.inflate(R.menu.menu_delete, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_delete){
+        if (item.itemId == R.id.action_delete) {
             deleteAccount()
         }
         return super.onOptionsItemSelected(item)
@@ -114,8 +117,23 @@ class AddTOTPActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RequestCodes.SCANNER && resultCode == RESULT_OK){
-            mViewModel.setSecretKey(data?.extras?.getString(IntentKeys.SCANNED_TEXT) ?: "")
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+        if (result != null) {
+            if (result.contents != null) {
+                try {
+                    val secretKey = TOTPHelper.getSecretKey(result.contents)
+                    mViewModel.setSecretKey(secretKey)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+
+        if (requestCode == IntentIntegrator.REQUEST_CODE && resultCode == RESULT_OK) {
+
         }
     }
 }

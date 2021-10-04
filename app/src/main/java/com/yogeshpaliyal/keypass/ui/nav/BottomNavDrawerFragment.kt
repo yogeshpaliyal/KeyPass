@@ -168,7 +168,7 @@ class BottomNavDrawerFragment :
     }
 
     override fun onNavMenuItemClicked(item: NavigationModelItem.NavMenuItem) {
-        mViewModel.setNavigationMenuItemChecked(item.id)
+        //mViewModel.setNavigationMenuItemChecked(item.id)
         close()
         navigationListeners.forEach { it.onNavMenuItemClicked(item) }
     }

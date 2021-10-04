@@ -15,15 +15,12 @@ import javax.inject.Inject
 @HiltAndroidApp
 class MyApplication : Application(), Configuration.Provider {
 
-    companion object {
-        lateinit var instance: MyApplication
-    }
+
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
     }
 
     override fun getWorkManagerConfiguration(): Configuration {

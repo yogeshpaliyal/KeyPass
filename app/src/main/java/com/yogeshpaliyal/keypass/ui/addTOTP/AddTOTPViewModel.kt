@@ -10,6 +10,7 @@ import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.keypass.data.AccountModel
 import com.yogeshpaliyal.keypass.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,6 +27,16 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase)
     val secretKey = MutableLiveData<String>("")
 
     val accountName = MutableLiveData<String>("")
+
+    fun loadOldAccount(accountId: String?){
+        accountId ?: return
+
+        viewModelScope.launch(Dispatchers.IO) {
+            appDatabase.getDao().getAccount(accountId)?.let { accountModel ->
+                accountName.postValue(accountModel.title ?: "")
+            }
+        }
+    }
 
     fun saveAccount(accountId: String?) {
         viewModelScope.launch {
