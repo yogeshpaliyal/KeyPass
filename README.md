@@ -22,7 +22,7 @@
 - [x] Screenshot Blocked
 - [x] Authenticate with device credentials (pin, pattern, biometrics)
 - [x] Auto Backup
-- [ ] TOTP
+- [x] TOTP
 
 
 ## 🛠️ Language, Tools & Frameworks Used
