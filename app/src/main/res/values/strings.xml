@@ -63,4 +63,8 @@
     <string name="disabled">Disabled</string>
     <string name="enabled">Enabled</string>
     <string name="override_auto_backup_file">Override Auto Backup File</string>
+    <string name="scanner">Scanner</string>
+    <string name="alert_black_secret_key">Please enter secret key</string>
+    <string name="alert_black_account_name">Please enter account name</string>
+    <string name="add_totp">Add TOTP</string>
 </resources>

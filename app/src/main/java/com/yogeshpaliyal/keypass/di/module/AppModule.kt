@@ -27,7 +27,7 @@ object AppModule {
         return Room.databaseBuilder(
             context,
             AppDatabase::class.java,
-            MyApplication.instance.getString(R.string.app_name)
+            context.getString(R.string.app_name)
         ).addMigrations(object : Migration(3, 4) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE `account` ADD COLUMN `unique_id` TEXT")
@@ -39,6 +39,11 @@ object AppModule {
                         }
                     }
             }
+        }).addMigrations(object : Migration(4,5){
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE `account` ADD COLUMN `type` INT DEFAULT 0")
+            }
+
         })
             .build()
     }

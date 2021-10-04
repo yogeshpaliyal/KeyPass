@@ -8,7 +8,7 @@ import androidx.security.crypto.MasterKey
 import com.yogeshpaliyal.keypass.MyApplication
 
 class MySharedPreferences(context: Context) {
-    private val masterKeyAlias = MasterKey.Builder(MyApplication.instance).also {
+    private val masterKeyAlias = MasterKey.Builder(context).also {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             // this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
 
