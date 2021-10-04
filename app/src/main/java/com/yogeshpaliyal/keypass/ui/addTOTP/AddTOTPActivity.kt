@@ -17,7 +17,6 @@ import com.yogeshpaliyal.keypass.databinding.ActivityAddTotpactivityBinding
 import com.yogeshpaliyal.keypass.utils.TOTPHelper
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class AddTOTPActivity : AppCompatActivity() {
 
@@ -63,22 +62,27 @@ class AddTOTPActivity : AppCompatActivity() {
             IntentIntegrator(this).setPrompt("").initiateScan()
         }
 
-        mViewModel.error.observe(this, Observer {
-            it?.getContentIfNotHandled()?.let {
-                Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+        mViewModel.error.observe(
+            this,
+            Observer {
+                it?.getContentIfNotHandled()?.let {
+                    Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+                }
             }
-        })
+        )
 
-        mViewModel.goBack.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                onBackPressed()
+        mViewModel.goBack.observe(
+            this,
+            Observer {
+                it.getContentIfNotHandled()?.let {
+                    onBackPressed()
+                }
             }
-        })
+        )
 
         binding.btnSave.setOnClickListener {
             mViewModel.saveAccount(accountId)
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -93,7 +97,6 @@ class AddTOTPActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     private fun deleteAccount() {
         MaterialAlertDialogBuilder(this)
@@ -133,7 +136,6 @@ class AddTOTPActivity : AppCompatActivity() {
         }
 
         if (requestCode == IntentIntegrator.REQUEST_CODE && resultCode == RESULT_OK) {
-
         }
     }
 }

@@ -60,18 +60,18 @@ data class AccountModel(
 ) : BaseDiffUtil, UniversalViewType {
 
     fun getInitials() = (
-            title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
+        title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
             ?: notes?.firstOrNull() ?: 'K'
-            ).toString()
+        ).toString()
 
     override fun getDiffId(): Any? {
         return id
     }
 
     override fun getDiffBody(): Any? {
-        return if(type == AccountType.TOTP){
+        return if (type == AccountType.TOTP) {
             super.getDiffBody()
-        }else{
+        } else {
             Gson().toJson(this)
         }
     }
@@ -80,5 +80,5 @@ data class AccountModel(
 
     fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
 
-    override fun getLayoutId(): Int = if(type == AccountType.TOTP) R.layout.item_totp else R.layout.item_accounts
+    override fun getLayoutId(): Int = if (type == AccountType.TOTP) R.layout.item_totp else R.layout.item_accounts
 }

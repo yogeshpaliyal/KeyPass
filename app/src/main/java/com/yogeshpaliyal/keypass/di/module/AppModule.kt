@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.keypass.AppDatabase
-import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.utils.MySharedPreferences
 import com.yogeshpaliyal.keypass.utils.getRandomString
@@ -39,11 +38,10 @@ object AppModule {
                         }
                     }
             }
-        }).addMigrations(object : Migration(4,5){
+        }).addMigrations(object : Migration(4, 5) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE `account` ADD COLUMN `type` INT DEFAULT 0")
             }
-
         })
             .build()
     }

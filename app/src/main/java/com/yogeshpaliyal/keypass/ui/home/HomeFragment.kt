@@ -50,9 +50,9 @@ class HomeFragment : Fragment() {
 
     val mListener = object : AccountsClickListener<AccountModel> {
         override fun onItemClick(view: View, model: AccountModel) {
-            if (model.type == AccountType.TOTP){
+            if (model.type == AccountType.TOTP) {
                 AddTOTPActivity.start(context, model.uniqueId)
-            }else {
+            } else {
                 DetailActivity.start(context, model.id)
             }
         }

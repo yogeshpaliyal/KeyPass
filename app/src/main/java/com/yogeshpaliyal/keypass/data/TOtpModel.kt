@@ -24,7 +24,6 @@ data class TOtpModel(
     @SerializedName("account_name")
     val accountName: String? = null
 
-) :BaseDiffUtil, UniversalViewType {
+) : BaseDiffUtil, UniversalViewType {
     override fun getLayoutId() = R.layout.item_totp
-
 }

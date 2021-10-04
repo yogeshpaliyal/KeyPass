@@ -19,7 +19,7 @@ abstract class DbDao {
     abstract suspend fun insertOrUpdateAccount(vararg accountModel: AccountModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract suspend  fun insertOrUpdateAccount(accountModel: List<AccountModel>)
+    abstract suspend fun insertOrUpdateAccount(accountModel: List<AccountModel>)
 
     @Query("SELECT * FROM account ORDER BY title ASC")
     abstract fun getAllAccounts(): LiveData<List<AccountModel>>

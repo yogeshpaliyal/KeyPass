@@ -43,15 +43,12 @@ class DashboardViewModel @Inject constructor(application: Application, val appDb
         reloadData()
     }
 
-
-
-    private fun reloadData(){
+    private fun reloadData() {
         viewModelScope.launch(Dispatchers.IO) {
-            while (true){
+            while (true) {
                 delay(1000)
                 mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
             }
         }
     }
-
 }

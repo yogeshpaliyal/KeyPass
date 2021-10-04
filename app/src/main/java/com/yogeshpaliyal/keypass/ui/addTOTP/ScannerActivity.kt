@@ -14,7 +14,6 @@ class ScannerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScannerBinding
 
-
     private val REQUEST_CAM_PERMISSION = 432
 
     companion object {
@@ -36,10 +35,7 @@ class ScannerActivity : AppCompatActivity() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
-
-
     }
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -54,8 +50,6 @@ class ScannerActivity : AppCompatActivity() {
         }
     }
 
-
     private fun isAllRequestGranted(grantResults: IntArray) =
         grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-
 }

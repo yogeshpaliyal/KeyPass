@@ -5,7 +5,6 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.yogeshpaliyal.keypass.MyApplication
 
 class MySharedPreferences(context: Context) {
     private val masterKeyAlias = MasterKey.Builder(context).also {

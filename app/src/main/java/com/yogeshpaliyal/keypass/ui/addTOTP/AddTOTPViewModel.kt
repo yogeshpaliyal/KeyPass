@@ -17,7 +17,6 @@ import javax.inject.Inject
 @HiltViewModel
 class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase) : ViewModel() {
 
-
     private val _goBack = MutableLiveData<Event<Unit>>()
     val goBack: LiveData<Event<Unit>> = _goBack
 
@@ -28,7 +27,7 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase)
 
     val accountName = MutableLiveData<String>("")
 
-    fun loadOldAccount(accountId: String?){
+    fun loadOldAccount(accountId: String?) {
         accountId ?: return
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -78,5 +77,4 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase)
             onDeleted()
         }
     }
-
 }
