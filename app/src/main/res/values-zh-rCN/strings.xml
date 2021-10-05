@@ -64,4 +64,8 @@
     <string name="disabled">已禁用</string>
     <string name="enabled">启用</string>
     <string name="override_auto_backup_file">覆盖自动备份文件</string>
+    <string name="add_totp">添加 TOTP</string>
+    <string name="alert_black_account_name">请输入账户名</string>
+    <string name="alert_black_secret_key">请输入密钥</string>
+    <string name="scanner">扫描器</string>
 </resources>
