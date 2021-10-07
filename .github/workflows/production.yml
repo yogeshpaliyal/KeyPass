@@ -67,6 +67,6 @@ jobs:
         with:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
-          releaseFile: app/build/outputs/bundle/productionRelease/app-production-release.aab
+          releaseFiles: app/build/outputs/bundle/productionRelease/*.aab
           track: beta
           whatsNewDirectory: whatsnew/
