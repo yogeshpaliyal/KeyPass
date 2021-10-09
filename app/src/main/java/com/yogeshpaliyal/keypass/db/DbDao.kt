@@ -41,4 +41,5 @@ abstract class DbDao {
 
     @Query("DELETE from account WHERE id = :id")
     abstract fun deleteAccount(id: Long?)
+
 }
