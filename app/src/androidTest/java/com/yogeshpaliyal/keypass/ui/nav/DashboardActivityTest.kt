@@ -19,8 +19,10 @@ import dagger.hilt.android.testing.HiltTestApplication
 import org.junit.Assert.*
 
 import org.junit.Before
+import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.OrderWith
 import org.junit.runner.RunWith
 import javax.inject.Inject
 
@@ -42,7 +44,8 @@ class DashboardActivityTest {
         appDatabase.clearAllTables()
     }
 
-    fun getDummyAccount() : AccountModel{
+
+    private fun getDummyAccount() : AccountModel{
         val accountModel = AccountModel()
         accountModel.title = "Github ${System.currentTimeMillis()}"
         accountModel.username = "yogeshpaliyal"
@@ -54,11 +57,14 @@ class DashboardActivityTest {
     }
 
     @Test
-    fun addAccountTest(){
+    fun addAccountAndDetailAndDeleteTest(){
+        val accountModel = getDummyAccount()
+        addAccount(accountModel)
+    }
+
+    private fun addAccount(accountModel: AccountModel){
         // Navigate to add screen
         onView(withId(R.id.btnAdd)).perform(click())
-
-        val accountModel = getDummyAccount()
 
         // Fill information on Detail Activity
         onView(withId(R.id.etAccountName)).perform(replaceText(accountModel.title))
@@ -76,7 +82,36 @@ class DashboardActivityTest {
 
         onView(withId(R.id.btnSave)).perform(click())
 
+        // is showing in listing
         onView(withText(accountModel.username)).check(matches(isDisplayed()))
+
+       checkAccountDetail(accountModel)
+    }
+
+
+
+    private fun checkAccountDetail(accountModel: AccountModel){
+        // Navigate to account detail
+        onView(withText(accountModel.username)).perform(click())
+
+        // Fill information on Detail Activity
+        onView(withId(R.id.etAccountName)).check(matches(withText(accountModel.title)))
+
+        // generate random password
+        onView(withId(R.id.etUsername)).check(matches(withText(accountModel.username)))
+
+        onView(withId(R.id.etPassword)).check(matches(withText(accountModel.password)))
+
+        onView(withId(R.id.etTag)).check(matches(withText(accountModel.tags)))
+
+        onView(withId(R.id.etWebsite)).check(matches(withText(accountModel.password)))
+
+        onView(withId(R.id.etNotes)).check(matches(withText(accountModel.notes)))
+
+        onView(withId(R.id.action_delete)).perform(click())
+
+
+
     }
 
 
