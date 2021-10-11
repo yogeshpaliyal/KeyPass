@@ -4,6 +4,7 @@ import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -16,6 +17,7 @@ import com.yogeshpaliyal.keypass.data.AccountModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.HiltTestApplication
+import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.*
 
 import org.junit.Before
@@ -60,6 +62,8 @@ class DashboardActivityTest {
     fun addAccountAndDetailAndDeleteTest(){
         val accountModel = getDummyAccount()
         addAccount(accountModel)
+        checkAccountDetail(accountModel)
+        deleteAccount(accountModel)
     }
 
     private fun addAccount(accountModel: AccountModel){
@@ -84,8 +88,6 @@ class DashboardActivityTest {
 
         // is showing in listing
         onView(withText(accountModel.username)).check(matches(isDisplayed()))
-
-       checkAccountDetail(accountModel)
     }
 
 
@@ -108,10 +110,16 @@ class DashboardActivityTest {
 
         onView(withId(R.id.etNotes)).check(matches(withText(accountModel.notes)))
 
+    }
+
+    private fun deleteAccount(accountModel: AccountModel){
+        // delete account
         onView(withId(R.id.action_delete)).perform(click())
 
+        onView(withText(R.string.delete)).perform(click())
 
-
+        // is not showing in listing
+        onView(withText(accountModel.username)).check(doesNotExist())
     }
 
 
