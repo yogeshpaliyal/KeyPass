@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yogeshpaliyal.keypass">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <application
         android:name=".MyApplication"
@@ -9,11 +13,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/Theme.KeyPass">
         <activity
-            android:name=".ui.backup.BackupActivity"/>
-        <activity android:name=".ui.generate.GeneratePasswordActivity" />
-        <activity android:name=".ui.auth.AuthenticationActivity">
+            android:name=".ui.addTOTP.AddTOTPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.addTOTP.ScannerActivity"
+            android:exported="false" />
+        <activity android:name=".ui.backup.BackupActivity"
+            android:exported="false" />
+        <activity android:name=".ui.generate.GeneratePasswordActivity"
+            android:exported="true" />
+        <activity android:name=".ui.auth.AuthenticationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,16 +37,30 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
+
         <activity
+            android:exported="false"
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" />
+
+        <activity
+            android:exported="false"
             android:name=".ui.nav.DashboardActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:exported="false"
             android:name=".ui.detail.DetailActivity"
             android:windowSoftInputMode="adjustResize" />
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+            android:resource="@array/preloaded_fonts" /> <!-- If you want to disable android.startup completely. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove"
+            android:exported="false"/>
     </application>
 
 </manifest>

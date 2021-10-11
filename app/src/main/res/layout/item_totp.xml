@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.yogeshpaliyal.keypass.data.AccountModel" />
+
+        <variable
+            name="model"
+            type="AccountModel" />
+        <variable
+            name="listener"
+            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;AccountModel>" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.yogeshpaliyal.keypass.custom_views.MaskedCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardUseCompatPadding="true"
+        android:elevation="@dimen/plane_00"
+        app:cardElevation="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{(view)->listener.onItemClick(view, model)}"
+        android:layout_marginVertical="@dimen/grid_0_25"
+        android:layout_marginHorizontal="@dimen/grid_0_5">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingVertical="12dp"
+            android:paddingEnd="12dp">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="60dp"
+                android:background="@drawable/avatar_none"
+                android:layout_height="60dp"
+                android:text="@{model.initials}"
+                android:gravity="center"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/startIcon"/>
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/startIcon"
+                app:layout_constraintBottom_toBottomOf="@id/startIcon"
+                app:layout_constraintEnd_toEndOf="@id/startIcon"
+                app:layout_constraintStart_toStartOf="@id/startIcon"
+                android:progress="@{model.getTOtpProgress()}"
+                app:indicatorSize="65dp"
+                android:padding="0dp"
+                android:minHeight="0dp"
+                android:maxHeight="0dp"
+                tools:progress="100"
+                android:max="30"
+                android:min="0"/>
+
+            <TextView
+                android:id="@+id/txtTitle"
+                style="@style/TextStyle.Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:text="@{model.title}"
+                app:layout_constrainedWidth="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/txtUsername"
+                app:layout_constraintEnd_toStartOf="@id/icnCopy"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/startIcon"
+                app:layout_constraintTop_toTopOf="@id/startIcon"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintEnd_toStartOf="@id/icnCopy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/TextStyle.SubHeading"
+                android:text="@{model.getOtp()}"
+                android:id="@+id/txtUsername"
+                android:textSize="22sp"
+                app:layout_constraintHorizontal_bias="0"
+                tools:text="123359"
+                app:layout_constrainedWidth="true"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_twotone_content_copy_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="@dimen/grid_1"
+                android:onClick="@{()->listener.onCopyClicked(model)}"
+                android:id="@+id/icnCopy"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.yogeshpaliyal.keypass.custom_views.MaskedCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

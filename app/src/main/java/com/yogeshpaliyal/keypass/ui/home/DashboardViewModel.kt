@@ -1,13 +1,13 @@
 package com.yogeshpaliyal.keypass.ui.home
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /*
@@ -27,16 +27,28 @@ class DashboardViewModel @Inject constructor(application: Application, val appDb
         MutableLiveData<String>()
     }
 
+    private val appDao = appDb.getDao()
+
     val mediator = MediatorLiveData<LiveData<List<AccountModel>>>()
 
     init {
-
         mediator.addSource(keyword) {
-            mediator.postValue(appDb.getDao().getAllAccounts(keyword.value, tag.value))
+            mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
         }
         mediator.addSource(tag) {
-            mediator.postValue(appDb.getDao().getAllAccounts(keyword.value, tag.value))
+            mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
         }
-        mediator.postValue(appDb.getDao().getAllAccounts(keyword.value, tag.value))
+        mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
+
+        reloadData()
+    }
+
+    private fun reloadData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            while (true) {
+                delay(1000)
+                mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
+            }
+        }
     }
 }

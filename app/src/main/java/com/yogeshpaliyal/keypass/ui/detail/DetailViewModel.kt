@@ -1,14 +1,18 @@
 package com.yogeshpaliyal.keypass.ui.detail
 
 import android.app.Application
+import android.content.SharedPreferences
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.data.AccountModel
+import com.yogeshpaliyal.keypass.worker.executeAutoBackup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /*
@@ -18,16 +22,44 @@ import javax.inject.Inject
 * created on 31-01-2021 11:52
 */
 @HiltViewModel
-class DetailViewModel @Inject constructor(application: Application, val appDb: AppDatabase) : AndroidViewModel(application) {
+class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDatabase, val sp: SharedPreferences) : AndroidViewModel(app) {
 
-    val accountModel by lazy { MutableLiveData<AccountModel>() }
+    private val _accountModel by lazy { MutableLiveData<AccountModel>() }
+    val accountModel: LiveData<AccountModel> = _accountModel
 
     fun loadAccount(accountId: Long?) {
-
         viewModelScope.launch(Dispatchers.IO) {
-            accountModel.postValue(
+            _accountModel.postValue(
                 appDb.getDao().getAccount(accountId) ?: AccountModel()
             )
         }
+    }
+
+    fun deleteAccount(onExecCompleted: () -> Unit) {
+        viewModelScope.launch {
+            accountModel.value?.let {
+                withContext(Dispatchers.IO) {
+                    appDb.getDao().deleteAccount(it)
+                }
+                autoBackup()
+                onExecCompleted()
+            }
+        }
+    }
+
+    fun insertOrUpdate(onExecCompleted: () -> Unit) {
+        viewModelScope.launch {
+            accountModel.value?.let {
+                withContext(Dispatchers.IO) {
+                    appDb.getDao().insertOrUpdateAccount(it)
+                    autoBackup()
+                }
+            }
+            onExecCompleted()
+        }
+    }
+
+    private fun autoBackup() {
+        app.executeAutoBackup(sp)
     }
 }

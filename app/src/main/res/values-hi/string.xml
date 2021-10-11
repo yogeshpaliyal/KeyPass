@@ -59,4 +59,13 @@
     <string name="tags_comma_separated_optional">टैग अल्पविराम से अलग (वैकल्पिक)</string>
     <string name="website_url_optional">वेबसाइट यूआरएल (वैकल्पिक)</string>
     <string name="notes_optional">नोट्स (वैकल्पिक)</string>
+
+    <string name="auto_backup">ऑटो बैकअप</string>
+    <string name="disabled">अक्षम</string>
+    <string name="enabled">सक्रिय</string>
+    <string name="override_auto_backup_file">ऑटो बैकअप फ़ाइल को ओवरराइड करें</string>
+    <string name="scanner">स्कैनर</string>
+    <string name="alert_black_secret_key">कृपया गुप्त कुंजी दर्ज करें</string>
+    <string name="alert_black_account_name">कृपया खाता नाम दर्ज करें</string>
+    <string name="add_totp">TOTP . जोड़ें</string>
 </resources>

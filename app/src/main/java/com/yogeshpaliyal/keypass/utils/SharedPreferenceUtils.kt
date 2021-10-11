@@ -51,6 +51,26 @@ fun getBackupDirectory(sp: SharedPreferences,): String {
     return sp.getString(BACKUP_DIRECTORY, "") ?: ""
 }
 
+fun SharedPreferences?.isAutoBackupEnabled(): Boolean {
+    return this?.getBoolean(AUTO_BACKUP, false) ?: false
+}
+
+fun SharedPreferences?.overrideAutoBackup(): Boolean {
+    return this?.getBoolean(OVERRIDE_AUTO_BACKUP, false) ?: false
+}
+
+fun SharedPreferences?.setOverrideAutoBackup(value: Boolean) {
+    this?.edit {
+        putBoolean(OVERRIDE_AUTO_BACKUP, value)
+    }
+}
+
+fun SharedPreferences?.setAutoBackupEnabled(value: Boolean) {
+    this?.edit {
+        putBoolean(AUTO_BACKUP, value)
+    }
+}
+
 fun getBackupTime(sp: SharedPreferences,): Long {
     return sp.getLong(BACKUP_DATE_TIME, -1) ?: -1L
 }
@@ -58,3 +78,5 @@ fun getBackupTime(sp: SharedPreferences,): Long {
 private const val BACKUP_KEY = "backup_key"
 private const val BACKUP_DIRECTORY = "backup_directory"
 private const val BACKUP_DATE_TIME = "backup_date_time"
+private const val AUTO_BACKUP = "auto_backup"
+private const val OVERRIDE_AUTO_BACKUP = "override_auto_backup"

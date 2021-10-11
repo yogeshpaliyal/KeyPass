@@ -13,7 +13,7 @@ import com.yogeshpaliyal.keypass.db.DbDao
 */
 @Database(
     entities = [AccountModel::class],
-    version = 4, exportSchema = false
+    version = 5, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 

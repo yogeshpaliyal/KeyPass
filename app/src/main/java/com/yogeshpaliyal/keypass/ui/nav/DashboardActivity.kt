@@ -19,6 +19,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.transition.MaterialElevationScale
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
+import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
@@ -40,7 +41,7 @@ class DashboardActivity :
 
     private val mViewModel by viewModels<DashboardViewModel>()
 
-    val currentNavigationFragment: Fragment?
+    private val currentNavigationFragment: Fragment?
         get() = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
             ?.childFragmentManager
             ?.fragments
@@ -157,6 +158,9 @@ class DashboardActivity :
             NavigationModel.HOME -> {
                 val args = HomeFragmentDirections.actionGlobalHomeFragment()
                 findNavController(R.id.nav_host_fragment).navigate(args)
+            }
+            NavigationModel.ADD_TOPT -> {
+                AddTOTPActivity.start(this)
             }
         }
     }

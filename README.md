@@ -5,6 +5,12 @@
 
 ![Cover Image](https://github.com/yogeshpaliyal/KeyPass/raw/master/images/KeyPass%20Cover.jpg)
 
+|  |  |  |  |  |
+|--|--|--|--|--|
+|<img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/images/image1.png?raw=true" width="100%"/>|<img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/images/image2.png?raw=true" width="100%"/>|<img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/images/image3.png?raw=true" width="100%"/>|<img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/images/image4.png?raw=true" width="100%"/> |<img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/images/image5.png?raw=true" width="100%"/> 
+
+
+
 
 
 ## 🤩 Features
@@ -15,8 +21,8 @@
 - [x] Material Design
 - [x] Screenshot Blocked
 - [x] Authenticate with device credentials (pin, pattern, biometrics)
-- [ ] Auto Backup Notification
-- [ ] TOTP
+- [x] Auto Backup
+- [x] TOTP
 
 
 ## 🛠️ Language, Tools & Frameworks Used
@@ -26,6 +32,7 @@
  4. MVVM architecture
  5. LiveData & MutableLiveData
  6. Room Database
+ 7. Hilt (Dependency Injection)
 
 
 ## Download Links   

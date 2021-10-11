@@ -4,5 +4,6 @@ The modern password manager does not store your credentials on servers so your p
 2. Without Ads
 3. Open source (you can view source code)
 4. Backup & Restore your credentials
+5. Time Based Otp (TOTP)
 
 https://github.com/yogeshpaliyal/KeyPass
