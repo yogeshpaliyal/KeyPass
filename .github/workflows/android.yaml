@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew test
 
       - name: 🛠 Build Project with Spotless Check
-        run: ./gradlew spotlessCheck assemble lintDebug --stacktrace
+        run: ./gradlew spotlessCheck
 
       - name: ⏳ Build with Gradle
         run: ./gradlew build
