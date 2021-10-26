@@ -1,6 +1,5 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
@@ -8,24 +7,16 @@ import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.rules.activityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.LargeTest
 import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.data.AccountModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import dagger.hilt.android.testing.HiltTestApplication
 import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.*
-
 import org.junit.Before
-import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.OrderWith
-import org.junit.runner.RunWith
 import javax.inject.Inject
 
 @HiltAndroidTest
@@ -35,7 +26,6 @@ class DashboardActivityTest {
 
     @get:Rule(order = 1)
     var activityScenarioRule = ActivityScenarioRule(DashboardActivity::class.java)
-    
 
     @Inject
     lateinit var appDatabase: AppDatabase
@@ -46,8 +36,7 @@ class DashboardActivityTest {
         appDatabase.clearAllTables()
     }
 
-
-    private fun getDummyAccount() : AccountModel{
+    private fun getDummyAccount(): AccountModel {
         val accountModel = AccountModel()
         accountModel.title = "Github ${System.currentTimeMillis()}"
         accountModel.username = "yogeshpaliyal"
@@ -59,14 +48,14 @@ class DashboardActivityTest {
     }
 
     @Test
-    fun addAccountAndDetailAndDeleteTest(){
+    fun addAccountAndDetailAndDeleteTest() {
         val accountModel = getDummyAccount()
         addAccount(accountModel)
         checkAccountDetail(accountModel)
         deleteAccount(accountModel)
     }
 
-    private fun addAccount(accountModel: AccountModel){
+    private fun addAccount(accountModel: AccountModel) {
         // Navigate to add screen
         onView(withId(R.id.btnAdd)).perform(click())
 
@@ -90,9 +79,7 @@ class DashboardActivityTest {
         onView(withText(accountModel.username)).check(matches(isDisplayed()))
     }
 
-
-
-    private fun checkAccountDetail(accountModel: AccountModel){
+    private fun checkAccountDetail(accountModel: AccountModel) {
         // Navigate to account detail
         onView(withText(accountModel.username)).perform(click())
 
@@ -109,10 +96,9 @@ class DashboardActivityTest {
         onView(withId(R.id.etWebsite)).check(matches(withText(accountModel.password)))
 
         onView(withId(R.id.etNotes)).check(matches(withText(accountModel.notes)))
-
     }
 
-    private fun deleteAccount(accountModel: AccountModel){
+    private fun deleteAccount(accountModel: AccountModel) {
         // delete account
         onView(withId(R.id.action_delete)).perform(click())
 
@@ -121,8 +107,4 @@ class DashboardActivityTest {
         // is not showing in listing
         onView(withText(accountModel.username)).check(doesNotExist())
     }
-
-
-
-
 }

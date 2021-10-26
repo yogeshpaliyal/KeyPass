@@ -20,5 +20,4 @@ abstract class AppDatabase : RoomDatabase() {
     // define DAO start
     abstract fun getDao(): DbDao
     // define DAO end
-
 }
