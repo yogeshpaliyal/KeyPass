@@ -28,12 +28,13 @@ class PasswordGenerator(
             list.add(SYMBOLS)
 
         for (i in 1..length) {
-            val choice = list.random()
-            when (choice) {
-                UPPER_CASE -> password += ('A'..'Z').random().toString()
-                LOWER_CASE -> password += ('a'..'z').random().toString()
-                NUMBERS -> password += ('0'..'9').random().toString()
-                SYMBOLS -> password += listOf('!', '@', '#', '$', '%', '&', '*', '+', '=', '-', '~', '?', '/', '_').random().toString()
+            if (list.isNotEmpty()) {
+                when (list.random()) {
+                    UPPER_CASE -> password += ('A'..'Z').random().toString()
+                    LOWER_CASE -> password += ('a'..'z').random().toString()
+                    NUMBERS -> password += ('0'..'9').random().toString()
+                    SYMBOLS -> password += listOf('!', '@', '#', '$', '%', '&', '*', '+', '=', '-', '~', '?', '/', '_').random().toString()
+                }
             }
         }
         return password
