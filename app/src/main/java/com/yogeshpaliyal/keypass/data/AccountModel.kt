@@ -9,8 +9,8 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.keypass.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.utils.getRandomString
-import com.yogeshpaliyal.universal_adapter.listener.UniversalViewType
-import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
+import com.yogeshpaliyal.universalAdapter.listener.UniversalViewType
+import com.yogeshpaliyal.universalAdapter.model.BaseDiffUtil
 
 /*
 * @author Yogesh Paliyal

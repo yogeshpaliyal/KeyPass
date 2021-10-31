@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.universal_adapter.listener.UniversalViewType
-import com.yogeshpaliyal.universal_adapter.model.BaseDiffUtil
+import com.yogeshpaliyal.universalAdapter.listener.UniversalViewType
+import com.yogeshpaliyal.universalAdapter.model.BaseDiffUtil
 
 @Entity(tableName = "totps")
 data class TOtpModel(

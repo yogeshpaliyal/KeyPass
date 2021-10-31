@@ -18,9 +18,9 @@ import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
 import com.yogeshpaliyal.keypass.listener.AccountsClickListener
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
-import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
-import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
-import com.yogeshpaliyal.universal_adapter.utils.Resource
+import com.yogeshpaliyal.universalAdapter.adapter.UniversalAdapterViewType
+import com.yogeshpaliyal.universalAdapter.adapter.UniversalRecyclerAdapter
+import com.yogeshpaliyal.universalAdapter.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
