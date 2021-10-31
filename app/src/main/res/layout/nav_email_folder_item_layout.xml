@@ -33,16 +33,15 @@
         android:layout_height="@dimen/navigation_drawer_menu_item_height"
         android:paddingLeft="@dimen/grid_4"
         android:paddingRight="@dimen/grid_4"
-        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical|start"
         android:onClick="@{() -> navListener.onNavEmailFolderClicked(navEmailFolder)}"
         android:ellipsize="end"
         android:lines="1"
         android:text="@{navEmailFolder.category}"
-        android:textColor="@color/color_on_primary_surface_emphasis_medium"
+        android:textColor="?attr/colorOnSurface"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableStartCompat="@drawable/ic_twotone_folder"
-        app:drawableTint="@color/color_on_primary_surface_emphasis_medium"
+        app:drawableTint="?attr/colorOnSurface"
         android:drawablePadding="@dimen/grid_4"
         tools:text="Pine Elementary" />
 

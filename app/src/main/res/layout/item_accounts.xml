@@ -27,7 +27,9 @@
         android:elevation="@dimen/plane_00"
         android:clickable="true"
         android:focusable="true"
-        app:cardElevation="0dp"
+        app:cardElevation="1dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:onClick="@{(view)->listener.onItemClick(view, model)}"
         android:layout_marginVertical="@dimen/grid_0_25"
         android:layout_marginHorizontal="@dimen/grid_0_5">

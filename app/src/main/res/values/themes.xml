@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.KeyPass" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.KeyPass" parent="Theme.Material3.Light.NoActionBar">
         <!--Color-->
         <item name="colorPrimary">@color/keypass_blue_700</item>
+        <item name="colorPrimaryContainer">@color/keypass_orange_500</item>
+        <item name="colorTertiaryContainer">@color/blue_800</item>
         <item name="colorPrimaryVariant">@color/keypass_blue_800</item>
         <item name="colorSecondary">@color/keypass_orange_500</item>
         <item name="colorSecondaryVariant">@color/keypass_orange_400</item>
@@ -52,7 +54,6 @@
         <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
 
         <!--Styles-->
-        <item name="bottomAppBarStyle">@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface</item>
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
         <item name="navigationViewStyle">@style/Widget.KeyPass.NavigationView</item>
         <item name="chipStyle">@style/Widget.KeyPass.Chip.Entry</item>
