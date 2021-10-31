@@ -55,7 +55,7 @@ class BottomNavDrawerFragment :
             0
         ).apply {
             fillColor = ColorStateList.valueOf(
-                foregroundContext.themeColor(R.attr.colorPrimarySurface)
+                foregroundContext.themeColor(R.attr.colorSurface)
             )
             elevation = resources.getDimension(R.dimen.plane_16)
             shadowCompatibilityMode = MaterialShapeDrawable.SHADOW_COMPAT_MODE_NEVER

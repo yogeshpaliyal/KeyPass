@@ -32,7 +32,6 @@
         android:layout_height="@dimen/navigation_drawer_menu_item_height"
         android:paddingLeft="@dimen/grid_4"
         android:paddingRight="@dimen/grid_4"
-        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical|start"
         android:onClick="@{() -> navListener.onNavMenuItemClicked(navMenuItem)}"
         android:ellipsize="end"

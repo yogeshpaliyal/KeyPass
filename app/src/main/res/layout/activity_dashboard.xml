@@ -93,7 +93,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_anchor="@id/bottomAppBar"
-                app:srcCompat="@drawable/asl_add_save" />
+                app:srcCompat="@drawable/asl_add_save"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.KeyPass.Cirle"/>
 
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

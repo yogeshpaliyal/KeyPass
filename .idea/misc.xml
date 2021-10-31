@@ -4,15 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.20833333333333334" />
-        <entry key="..\:/Android Studio/My Projects/KeyPass/app/src/main/res/layout/activity_generate_password.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/drawable/ic_twotone_content_copy_24.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/drawable/ic_undraw_empty_street_sfxm.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/drawable/nav_divider_top.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/activity_add_totpactivity.xml" value="0.16485507246376813" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/activity_scanner.xml" value="0.10416666666666667" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/fragment_bottom_nav_drawer.xml" value="0.2" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/fragment_detail.xml" value="0.1403985507246377" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/fragment_home.xml" value="0.16304347826086957" />
-        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/item_accounts.xml" value="0.1" />
-        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/item_totp.xml" value="0.5585331452750353" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/item_accounts.xml" value="0.388259526261586" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/item_totp.xml" value="0.2" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/layout_no_accounts.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/nav_divider_item_layout.xml" value="0.2" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/nav_email_folder_item_layout.xml" value="0.2" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/layout/nav_menu_item_layout.xml" value="0.2" />
+        <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/menu/bottom_app_bar_detail.xml" value="0.2" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/menu/menu_delete.xml" value="0.2" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/main/res/xml/backup_preferences.xml" value="0.4287690179806362" />
         <entry key="..\:/Users/paliy/StudioProjects/KeyPass/app/src/production/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21614583333333334" />
