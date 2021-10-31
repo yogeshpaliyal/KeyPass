@@ -21,7 +21,7 @@ android {
         minSdkVersion 22
         targetSdkVersion 31
         versionCode 1400
-        versionName "1.4.0"
+        versionName "1.4.1"
 
         testInstrumentationRunner "com.yogeshpaliyal.keypass.CustomTestRunner"
     }
