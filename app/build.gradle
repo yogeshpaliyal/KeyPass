@@ -146,7 +146,7 @@ dependencies {
 
 
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.40")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.38.1")
 
