@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 
-
 @Composable
 fun Material3BottomAppBar(
     modifier: Modifier = Modifier,
@@ -35,27 +34,29 @@ fun Material3BottomAppBar(
 }
 
 @Composable
-fun Material3Scaffold(modifier: Modifier = Modifier,
-                      scaffoldState: ScaffoldState = rememberScaffoldState(),
-                      topBar: @Composable () -> Unit = {},
-                      bottomBar: @Composable () -> Unit = {},
-                      snackbarHost: @Composable (SnackbarHostState) -> Unit = { SnackbarHost(it) },
-                      floatingActionButton: @Composable () -> Unit = {},
-                      floatingActionButtonPosition: FabPosition = FabPosition.End,
-                      isFloatingActionButtonDocked: Boolean = false,
-                      drawerContent: @Composable (ColumnScope.() -> Unit)? = null,
-                      drawerGesturesEnabled: Boolean = true,
-                      drawerShape: Shape = androidx.compose.material.MaterialTheme.shapes.large,
-                      drawerElevation: Dp = DrawerDefaults.Elevation,
-                      drawerBackgroundColor: Color = MaterialTheme.colorScheme.surface,
-                      drawerContentColor: Color = contentColorFor(
-                          drawerBackgroundColor
-                      ),
-                      drawerScrimColor: Color = DrawerDefaults.scrimColor,
-                      backgroundColor: Color = MaterialTheme.colorScheme.background,
-                      contentColor: Color = contentColorFor(
-                          backgroundColor
-                      ),
-                      content: @Composable (PaddingValues) -> Unit){
+fun Material3Scaffold(
+    modifier: Modifier = Modifier,
+    scaffoldState: ScaffoldState = rememberScaffoldState(),
+    topBar: @Composable () -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
+    snackbarHost: @Composable (SnackbarHostState) -> Unit = { SnackbarHost(it) },
+    floatingActionButton: @Composable () -> Unit = {},
+    floatingActionButtonPosition: FabPosition = FabPosition.End,
+    isFloatingActionButtonDocked: Boolean = false,
+    drawerContent: @Composable (ColumnScope.() -> Unit)? = null,
+    drawerGesturesEnabled: Boolean = true,
+    drawerShape: Shape = androidx.compose.material.MaterialTheme.shapes.large,
+    drawerElevation: Dp = DrawerDefaults.Elevation,
+    drawerBackgroundColor: Color = MaterialTheme.colorScheme.surface,
+    drawerContentColor: Color = contentColorFor(
+        drawerBackgroundColor
+    ),
+    drawerScrimColor: Color = DrawerDefaults.scrimColor,
+    backgroundColor: Color = MaterialTheme.colorScheme.background,
+    contentColor: Color = contentColorFor(
+        backgroundColor
+    ),
+    content: @Composable (PaddingValues) -> Unit
+) {
     Scaffold(modifier, scaffoldState, topBar, bottomBar, snackbarHost, floatingActionButton, floatingActionButtonPosition, isFloatingActionButtonDocked, drawerContent, drawerGesturesEnabled, drawerShape, drawerElevation, drawerBackgroundColor, drawerContentColor, drawerScrimColor, backgroundColor, contentColor, content)
 }

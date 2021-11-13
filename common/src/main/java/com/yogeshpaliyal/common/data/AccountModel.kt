@@ -56,13 +56,11 @@ open class AccountModel(
 ) {
 
     fun getInitials() = (
-            title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
+        title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
             ?: notes?.firstOrNull() ?: 'K'
-            ).toString()
-
+        ).toString()
 
     fun getOtp() = TOTPHelper.generate(password)
 
     fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
-
 }

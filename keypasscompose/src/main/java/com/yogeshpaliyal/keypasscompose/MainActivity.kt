@@ -27,38 +27,40 @@ class MainActivity : ComponentActivity() {
             KeyPassTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    Material3Scaffold(bottomBar = {
-                        Material3BottomAppBar(cutoutShape = RoundedCornerShape(50)) {
-                            IconButton(
-                                onClick = {
-                                    /* doSomething() */
+                    Material3Scaffold(
+                        bottomBar = {
+                            Material3BottomAppBar(cutoutShape = RoundedCornerShape(50)) {
+                                IconButton(
+                                    onClick = {
+                                        /* doSomething() */
+                                    }
+                                ) {
+                                    Icon(Icons.Filled.Menu, "")
                                 }
-                            ) {
-                                Icon(Icons.Filled.Menu,"")
-                            }
 
-                            Spacer(Modifier.weight(1f, true))
-                            IconButton(
-                                onClick = {
-                                    /* doSomething() */
+                                Spacer(Modifier.weight(1f, true))
+                                IconButton(
+                                    onClick = {
+                                        /* doSomething() */
+                                    }
+                                ) {
+                                    Icon(Icons.Filled.Star, "")
                                 }
-                            ) {
-                                Icon(Icons.Filled.Star,"")
                             }
-                        }
-                    }, floatingActionButton = {
-                        FloatingActionButton(
-                            onClick = {
-
-                            },
-                            contentColor = Color.White,
-                            shape = RoundedCornerShape(50)
-                        ) {
-                            Icon(Icons.Filled.Add,"")
-                        }
-                    }, floatingActionButtonPosition = FabPosition.Center,
-                    isFloatingActionButtonDocked = true) {
-
+                        },
+                        floatingActionButton = {
+                            FloatingActionButton(
+                                onClick = {
+                                },
+                                contentColor = Color.White,
+                                shape = RoundedCornerShape(50)
+                            ) {
+                                Icon(Icons.Filled.Add, "")
+                            }
+                        },
+                        floatingActionButtonPosition = FabPosition.Center,
+                        isFloatingActionButtonDocked = true
+                    ) {
                     }
                     Greeting("Android")
                 }
