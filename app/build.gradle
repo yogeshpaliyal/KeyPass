@@ -113,20 +113,6 @@ dependencies {
 
     implementation "androidx.biometric:biometric:1.1.0"
 
-    implementation "androidx.preference:preference-ktx:1.1.1"
-
-
-    implementation "androidx.work:work-runtime-ktx:2.7.0"
-
-
-
-
-    //Androidx Security
-    implementation "androidx.security:security-crypto:1.1.0-alpha03"
-
-
-    implementation 'com.google.code.gson:gson:2.8.8'
-
 
     // dependency injection
     implementation("com.google.dagger:hilt-android:$hilt_version")
@@ -139,12 +125,6 @@ dependencies {
     // zxing library
    // implementation "com.googl.ezxing:android-core:3.4.1"
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-
-
-    // apache common codec
-    implementation "commons-codec:commons-codec:1.15"
-
-
 
 
     // For instrumented tests.
@@ -160,6 +140,9 @@ dependencies {
 
     // jetpack compose
     implementation 'androidx.compose.ui:ui:1.0.5'
+
+    implementation 'com.google.code.gson:gson:2.8.8'
+
 
     implementation 'androidx.compose.ui:ui-tooling:1.0.5'
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
