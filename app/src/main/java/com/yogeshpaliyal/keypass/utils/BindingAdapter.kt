@@ -27,6 +27,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.updateLayoutParams
 import androidx.databinding.BindingAdapter
 import com.google.android.material.elevation.ElevationOverlayProvider
+import com.yogeshpaliyal.common.utils.getDrawableOrNull
 
 @BindingAdapter(
     "popupElevationOverlay"

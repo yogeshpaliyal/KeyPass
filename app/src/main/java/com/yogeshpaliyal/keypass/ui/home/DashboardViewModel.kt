@@ -2,8 +2,9 @@ package com.yogeshpaliyal.keypass.ui.home
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.yogeshpaliyal.keypass.AppDatabase
-import com.yogeshpaliyal.keypass.data.AccountModel
+import com.yogeshpaliyal.common.AppDatabase
+import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.keypass.data.MyAccountModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -17,7 +18,7 @@ import javax.inject.Inject
 * created on 30-01-2021 23:02
 */
 @HiltViewModel
-class DashboardViewModel @Inject constructor(application: Application, val appDb: AppDatabase) :
+class DashboardViewModel @Inject constructor(application: Application, val appDb: com.yogeshpaliyal.common.AppDatabase) :
     AndroidViewModel(application) {
 
     val keyword by lazy {

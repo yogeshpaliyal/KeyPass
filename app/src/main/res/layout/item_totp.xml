@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="com.yogeshpaliyal.keypass.data.AccountModel" />
+        <import type="com.yogeshpaliyal.keypass.data.MyAccountModel" />
 
         <variable
             name="model"
-            type="AccountModel" />
+            type="MyAccountModel" />
         <variable
             name="listener"
-            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;AccountModel>" />
+            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;MyAccountModel>" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

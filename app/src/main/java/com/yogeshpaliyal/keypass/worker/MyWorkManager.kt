@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.yogeshpaliyal.keypass.utils.isAutoBackupEnabled
+import com.yogeshpaliyal.common.utils.isAutoBackupEnabled
 
 fun Context?.executeAutoBackup(sp: SharedPreferences) {
     this ?: return

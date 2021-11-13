@@ -5,10 +5,9 @@ import android.content.ClipboardManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.getSystemService
+import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityGeneratePasswordBinding
-import com.yogeshpaliyal.keypass.utils.PasswordGenerator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

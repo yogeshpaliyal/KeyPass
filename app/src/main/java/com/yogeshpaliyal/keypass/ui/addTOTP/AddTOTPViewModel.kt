@@ -4,18 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yogeshpaliyal.keypass.AppDatabase
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.constants.AccountType
-import com.yogeshpaliyal.keypass.data.AccountModel
-import com.yogeshpaliyal.keypass.utils.Event
+import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase) : ViewModel() {
+class AddTOTPViewModel @Inject constructor(private val appDatabase: com.yogeshpaliyal.common.AppDatabase) : ViewModel() {
 
     private val _goBack = MutableLiveData<Event<Unit>>()
     val goBack: LiveData<Event<Unit>> = _goBack

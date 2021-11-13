@@ -1,7 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.settings
 
 import android.app.Activity
-import android.content.*
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -11,15 +14,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.keypass.AppDatabase
+import com.yogeshpaliyal.common.db_helper.createBackup
+import com.yogeshpaliyal.common.db_helper.restoreBackup
+import com.yogeshpaliyal.common.utils.*
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutRestoreKeypharseBinding
-import com.yogeshpaliyal.keypass.db_helper.createBackup
-import com.yogeshpaliyal.keypass.db_helper.restoreBackup
 import com.yogeshpaliyal.keypass.ui.backup.BackupActivity
-import com.yogeshpaliyal.keypass.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,7 +32,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     private val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
 
     @Inject
-    lateinit var appDb: AppDatabase
+    lateinit var appDb: com.yogeshpaliyal.common.AppDatabase
 
     @Inject
     lateinit var sp: SharedPreferences
@@ -42,7 +44,10 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         when (preference?.key) {
             "feedback" -> {
-                context?.email(getString(R.string.feedback_to_keypass), "yogeshpaliyal.foss@gmail.com")
+                context?.email(
+                    getString(R.string.feedback_to_keypass),
+                    "yogeshpaliyal.foss@gmail.com"
+                )
                 return true
             }
 
@@ -83,8 +88,8 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
                 intent.addFlags(
                     Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                            Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION
                 )
 
                 try {
@@ -103,7 +108,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
         intent.addFlags(
             Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
         )
 
         try {
@@ -144,7 +149,11 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                         "Restore"
                     ) { dialog, which ->
                         lifecycleScope.launch {
-                            val result = appDb.restoreBackup(binding.etKeyPhrase.text.toString(), contentResolver, selectedFile)
+                            val result = appDb.restoreBackup(
+                                binding.etKeyPhrase.text.toString(),
+                                contentResolver,
+                                selectedFile
+                            )
                             if (result) {
                                 dialog?.dismiss()
                                 Toast.makeText(
@@ -187,9 +196,16 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                     binding.txtCode.setOnClickListener {
                         val clipboard =
                             getSystemService(requireContext(), ClipboardManager::class.java)
-                        val clip = ClipData.newPlainText(getString(R.string.app_name), binding.txtCode.text)
+                        val clip = ClipData.newPlainText(
+                            getString(R.string.app_name),
+                            binding.txtCode.text
+                        )
                         clipboard?.setPrimaryClip(clip)
-                        Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            context,
+                            getString(R.string.copied_to_clipboard),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                     MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
                         .setPositiveButton(
@@ -198,7 +214,11 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                             dialog?.dismiss()
                         }.show()
                 } else {
-                    Toast.makeText(context, getString(R.string.backup_completed), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        getString(R.string.backup_completed),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }

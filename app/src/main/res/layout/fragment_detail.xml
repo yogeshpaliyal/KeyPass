@@ -5,7 +5,7 @@
 
         <variable
             name="accountData"
-            type="com.yogeshpaliyal.keypass.data.AccountModel" />
+            type="com.yogeshpaliyal.common.data.AccountModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
