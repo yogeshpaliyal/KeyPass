@@ -7,7 +7,7 @@ import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.universalAdapter.listener.UniversalViewType
 import com.yogeshpaliyal.universalAdapter.model.BaseDiffUtil
 
-class MyAccountModel: AccountModel() , BaseDiffUtil, UniversalViewType {
+class MyAccountModel : AccountModel(), BaseDiffUtil, UniversalViewType {
     override fun getDiffId(): Any? {
         return id
     }
@@ -22,7 +22,7 @@ class MyAccountModel: AccountModel() , BaseDiffUtil, UniversalViewType {
 
     override fun getLayoutId(): Int = if (type == AccountType.TOTP) R.layout.item_totp else R.layout.item_accounts
 
-    fun map(accountModel: AccountModel){
+    fun map(accountModel: AccountModel) {
         this.id = accountModel.id
         this.title = accountModel.title
         this.uniqueId = accountModel.uniqueId
@@ -33,5 +33,4 @@ class MyAccountModel: AccountModel() , BaseDiffUtil, UniversalViewType {
         this.tags = accountModel.tags
         this.type = accountModel.type
     }
-
 }

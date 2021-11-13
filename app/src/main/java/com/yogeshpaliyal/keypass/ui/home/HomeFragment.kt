@@ -81,7 +81,7 @@ class HomeFragment : Fragment() {
     }
 
     private val observer = Observer<List<AccountModel>> {
-        val newList = it.map {accountModel ->
+        val newList = it.map { accountModel ->
             MyAccountModel().also {
                 it.map(accountModel)
             }

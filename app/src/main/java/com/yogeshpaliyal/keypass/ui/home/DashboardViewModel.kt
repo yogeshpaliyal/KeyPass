@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.keypass.data.MyAccountModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
