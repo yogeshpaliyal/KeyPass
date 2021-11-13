@@ -12,9 +12,9 @@ import androidx.lifecycle.Observer
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.zxing.integration.android.IntentIntegrator
+import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityAddTotpactivityBinding
-import com.yogeshpaliyal.keypass.utils.TOTPHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -85,7 +85,7 @@ class AddTOTPActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         if (accountId != null)
             menuInflater.inflate(R.menu.menu_delete, menu)
         return super.onCreateOptionsMenu(menu)

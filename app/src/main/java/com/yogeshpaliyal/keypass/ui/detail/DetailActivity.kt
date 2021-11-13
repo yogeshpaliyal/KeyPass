@@ -8,9 +8,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentDetailBinding
-import com.yogeshpaliyal.keypass.utils.PasswordGenerator
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -107,7 +107,7 @@ class DetailActivity : AppCompatActivity() {
             }.show()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.bottom_app_bar_detail, menu)
         return super.onCreateOptionsMenu(menu)
     }

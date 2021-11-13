@@ -5,7 +5,7 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.yogeshpaliyal.keypass.utils.normalize
+import com.yogeshpaliyal.common.utils.normalize
 import kotlin.math.max
 
 /**

@@ -7,12 +7,11 @@ import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.yogeshpaliyal.keypass.AppDatabase
+import com.yogeshpaliyal.common.AppDatabase
+import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.data.AccountModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -28,7 +27,7 @@ class DashboardActivityTest {
     var activityScenarioRule = ActivityScenarioRule(DashboardActivity::class.java)
 
     @Inject
-    lateinit var appDatabase: AppDatabase
+    lateinit var appDatabase: com.yogeshpaliyal.common.AppDatabase
 
     @Before
     fun setUp() {

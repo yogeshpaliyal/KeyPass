@@ -12,7 +12,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.keypass.AppDatabase
+import com.yogeshpaliyal.common.AppDatabase
+import com.yogeshpaliyal.common.utils.*
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.BackupActivityBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
@@ -60,7 +61,7 @@ class BackupActivity : AppCompatActivity() {
         lateinit var sp: SharedPreferences
 
         @Inject
-        lateinit var appDb: AppDatabase
+        lateinit var appDb: com.yogeshpaliyal.common.AppDatabase
 
         private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
 
