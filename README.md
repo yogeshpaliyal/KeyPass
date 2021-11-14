@@ -18,7 +18,7 @@
 - [x]  Open Source : Code is accessible to every one  
 - [x]  Encrypted Backup and Restore
 - [x] Dark Mode Support
-- [x] Material Design
+- [x] Material Design 3
 - [x] Screenshot Blocked
 - [x] Authenticate with device credentials (pin, pattern, biometrics)
 - [x] Auto Backup
