@@ -63,7 +63,7 @@ dependencies {
     // When using Kotlin.
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
-    implementation "androidx.work:work-runtime-ktx:2.7.0"
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
 
 
     implementation 'com.google.code.gson:gson:2.8.9'
