@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
@@ -19,9 +18,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EX
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN
 import com.google.android.material.bottomsheet.BottomSheetBehavior.from
 import com.google.android.material.shape.MaterialShapeDrawable
+import com.yogeshpaliyal.common.utils.themeColor
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentBottomNavDrawerBinding
-import com.yogeshpaliyal.keypass.utils.themeColor
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.LazyThreadSafetyMode.NONE
 
@@ -55,7 +54,7 @@ class BottomNavDrawerFragment :
             0
         ).apply {
             fillColor = ColorStateList.valueOf(
-                foregroundContext.themeColor(R.attr.colorPrimarySurface)
+                foregroundContext.themeColor(R.attr.colorSurface)
             )
             elevation = resources.getDimension(R.dimen.plane_16)
             shadowCompatibilityMode = MaterialShapeDrawable.SHADOW_COMPAT_MODE_NEVER

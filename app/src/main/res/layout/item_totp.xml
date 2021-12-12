@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="com.yogeshpaliyal.keypass.data.AccountModel" />
+        <import type="com.yogeshpaliyal.keypass.data.MyAccountModel" />
 
         <variable
             name="model"
-            type="AccountModel" />
+            type="MyAccountModel" />
         <variable
             name="listener"
-            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;AccountModel>" />
+            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;MyAccountModel>" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,12 +25,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:cardUseCompatPadding="true"
         android:elevation="@dimen/plane_00"
-        app:cardElevation="0dp"
+        app:cardElevation="1dp"
+        app:strokeWidth="0dp"
         android:clickable="true"
         android:focusable="true"
         android:onClick="@{(view)->listener.onItemClick(view, model)}"
         android:layout_marginVertical="@dimen/grid_0_25"
-        android:layout_marginHorizontal="@dimen/grid_0_5">
+        android:layout_marginHorizontal="@dimen/grid_0_5"
+        app:layout_constraintBottom_toBottomOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

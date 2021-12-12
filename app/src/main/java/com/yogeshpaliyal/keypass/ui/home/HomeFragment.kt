@@ -11,16 +11,17 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.constants.AccountType
-import com.yogeshpaliyal.keypass.data.AccountModel
+import com.yogeshpaliyal.keypass.data.MyAccountModel
 import com.yogeshpaliyal.keypass.databinding.FragmentHomeBinding
 import com.yogeshpaliyal.keypass.listener.AccountsClickListener
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
-import com.yogeshpaliyal.universal_adapter.adapter.UniversalAdapterViewType
-import com.yogeshpaliyal.universal_adapter.adapter.UniversalRecyclerAdapter
-import com.yogeshpaliyal.universal_adapter.utils.Resource
+import com.yogeshpaliyal.universalAdapter.adapter.UniversalAdapterViewType
+import com.yogeshpaliyal.universalAdapter.adapter.UniversalRecyclerAdapter
+import com.yogeshpaliyal.universalAdapter.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -38,7 +39,7 @@ class HomeFragment : Fragment() {
     }
 
     private val mAdapter by lazy {
-        UniversalRecyclerAdapter.Builder<AccountModel>(
+        UniversalRecyclerAdapter.Builder<MyAccountModel>(
             this,
             content = UniversalAdapterViewType.Content(
                 R.layout.item_accounts,
@@ -65,7 +66,8 @@ class HomeFragment : Fragment() {
                 )
             val clip = ClipData.newPlainText("KeyPass", model.password)
             clipboard?.setPrimaryClip(clip)
-            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
@@ -79,8 +81,10 @@ class HomeFragment : Fragment() {
     }
 
     private val observer = Observer<List<AccountModel>> {
-        val newList = it.map {
-            it.copy(id = it.id, title = it.title, uniqueId = it.uniqueId, username = it.username, it.password, it.site, it.notes, it.tags, it.type)
+        val newList = it.map { accountModel ->
+            MyAccountModel().also {
+                it.map(accountModel)
+            }
         }
         mAdapter.updateData(Resource.success(ArrayList(newList)))
     }

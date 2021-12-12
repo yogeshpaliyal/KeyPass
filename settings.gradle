@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name = "KeyPass"
+include ':common'
+include ':keypasscompose'

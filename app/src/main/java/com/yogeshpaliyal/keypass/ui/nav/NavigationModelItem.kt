@@ -3,7 +3,7 @@ package com.yogeshpaliyal.keypass.ui.nav
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.recyclerview.widget.DiffUtil
-import com.yogeshpaliyal.keypass.data.StringDiffUtil
+import com.yogeshpaliyal.common.data.StringDiffUtil
 
 /**
  * A sealed class which encapsulates all objects [NavigationAdapter] is able to display.

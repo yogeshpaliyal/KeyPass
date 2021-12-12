@@ -12,6 +12,7 @@
     <color name="keypass_blue_600">#4a6572</color>
     <color name="keypass_blue_700">#344955</color>
     <color name="keypass_blue_800">#232f34</color>
+    <color name="blue_800">#6c63ff</color>
 
     <color name="keypass_orange_300">#fbd790</color>
     <color name="keypass_orange_400">#f9be64</color>
@@ -34,4 +35,7 @@
     <!--handles contrast by either dynamically coloring the nav bar handle (gesture nav) -->
     <!--or automatically applying a translucent background (3-button mode).-->
     <color name="nav_bar">@color/keypass_black_900_alpha_020</color>
+
+
+
 </resources>

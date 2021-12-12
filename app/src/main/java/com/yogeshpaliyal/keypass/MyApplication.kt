@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import com.yogeshpaliyal.keypass.ui.CrashActivity
+import com.google.android.material.color.DynamicColors
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import kotlin.system.exitProcess
@@ -31,6 +32,8 @@ class MyApplication : Application(), Configuration.Provider {
             startActivity(intent)
             exitProcess(1)
         }
+
+        DynamicColors.applyToActivitiesIfAvailable(this)
     }
 
     override fun getWorkManagerConfiguration(): Configuration {

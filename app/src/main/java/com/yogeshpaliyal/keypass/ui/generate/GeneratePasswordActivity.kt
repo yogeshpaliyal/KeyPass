@@ -5,10 +5,9 @@ import android.content.ClipboardManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.getSystemService
+import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityGeneratePasswordBinding
-import com.yogeshpaliyal.keypass.utils.PasswordGenerator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,12 +34,14 @@ class GeneratePasswordActivity : AppCompatActivity() {
 
     private fun generatePassword() {
         val password = PasswordGenerator(
-            binding.sliderPasswordLength.value.toInt(), binding.cbCapAlphabets.isChecked,
-            binding.cbLowerAlphabets.isChecked,
-            binding.cbSymbols.isChecked,
-            binding.cbNumbers.isChecked
+            length = binding.sliderPasswordLength.value.toInt(),
+            includeUpperCaseLetters = binding.cbCapAlphabets.isChecked,
+            includeLowerCaseLetters = binding.cbLowerAlphabets.isChecked,
+            includeSymbols = binding.cbSymbols.isChecked,
+            includeNumbers = binding.cbNumbers.isChecked
         ).generatePassword()
 
         binding.etPassword.setText(password)
+        binding.etPassword.setSelection(password.length)
     }
 }

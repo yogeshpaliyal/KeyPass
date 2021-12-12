@@ -7,8 +7,8 @@ import androidx.core.view.marginTop
 import androidx.core.view.updatePadding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.shape.MaterialShapeDrawable
+import com.yogeshpaliyal.common.utils.normalize
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.utils.normalize
 
 /**
  * An action to be performed when a bottom sheet's slide offset is changed.

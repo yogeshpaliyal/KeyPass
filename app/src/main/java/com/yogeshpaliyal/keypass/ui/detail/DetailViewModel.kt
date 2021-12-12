@@ -6,9 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.yogeshpaliyal.keypass.AppDatabase
-import com.yogeshpaliyal.keypass.data.AccountModel
-import com.yogeshpaliyal.keypass.worker.executeAutoBackup
+import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.worker.executeAutoBackup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,7 +21,7 @@ import javax.inject.Inject
 * created on 31-01-2021 11:52
 */
 @HiltViewModel
-class DetailViewModel @Inject constructor(val app: Application, val appDb: AppDatabase, val sp: SharedPreferences) : AndroidViewModel(app) {
+class DetailViewModel @Inject constructor(val app: Application, val appDb: com.yogeshpaliyal.common.AppDatabase, val sp: SharedPreferences) : AndroidViewModel(app) {
 
     private val _accountModel by lazy { MutableLiveData<AccountModel>() }
     val accountModel: LiveData<AccountModel> = _accountModel
