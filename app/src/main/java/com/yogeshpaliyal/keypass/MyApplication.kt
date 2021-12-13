@@ -1,11 +1,15 @@
 package com.yogeshpaliyal.keypass
 
 import android.app.Application
+import android.content.Intent
+import android.util.Log
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
+import com.yogeshpaliyal.keypass.ui.CrashActivity
 import com.google.android.material.color.DynamicColors
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
+import kotlin.system.exitProcess
 
 /*
 * @author Yogesh Paliyal
@@ -21,6 +25,13 @@ class MyApplication : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            Log.d("MyApplication", "crashed ")
+            val intent = CrashActivity.getIntent(this,throwable.localizedMessage)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            exitProcess(1)
+        }
 
         DynamicColors.applyToActivitiesIfAvailable(this)
     }
@@ -31,4 +42,5 @@ class MyApplication : Application(), Configuration.Provider {
             .setWorkerFactory(workerFactory)
             .build()
     }
+
 }
