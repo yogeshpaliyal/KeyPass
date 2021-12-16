@@ -4,7 +4,7 @@ buildscript {
     ext{
         kotlin_version = "1.6.10"
         lifecycle_version = "2.4.0"
-        room_version = "2.3.0"
+        room_version = "2.4.0"
         navigation_version = '2.3.5'
         ext.hilt_version = '2.40'
         compose_version = '1.0.1'
