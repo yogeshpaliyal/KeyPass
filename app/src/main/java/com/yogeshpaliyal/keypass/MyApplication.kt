@@ -27,7 +27,7 @@ class MyApplication : Application(), Configuration.Provider {
         super.onCreate()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             Log.d("MyApplication", "crashed ")
-            val intent = CrashActivity.getIntent(this,throwable.localizedMessage)
+            val intent = CrashActivity.getIntent(this, throwable.localizedMessage)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             exitProcess(1)

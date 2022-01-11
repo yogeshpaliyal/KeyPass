@@ -16,7 +16,7 @@ class CrashActivity : AppCompatActivity() {
     companion object {
         private const val ARG_DATA = "arg_data"
 
-        fun getIntent(context: Context,data: String?): Intent {
+        fun getIntent(context: Context, data: String?): Intent {
             return Intent(context, CrashActivity::class.java).also {
                 it.putExtra(ARG_DATA, data)
             }
