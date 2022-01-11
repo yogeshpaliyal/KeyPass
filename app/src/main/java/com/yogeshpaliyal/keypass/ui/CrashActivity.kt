@@ -38,10 +38,7 @@ class CrashActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_SUBJECT, "Crash Report in KeyPass")
             intent.putExtra(Intent.EXTRA_TEXT, binding.txtCrash.text.toString())
 
-
             startActivity(Intent.createChooser(intent, ""))
-
         }
-
     }
 }
