@@ -1,9 +1,14 @@
 package com.yogeshpaliyal.keypass.ui.auth
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricManager.Authenticators.*
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.yogeshpaliyal.keypass.R
@@ -20,6 +25,11 @@ class AuthenticationActivity : AppCompatActivity() {
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
+
+    private val biometricManager by lazy {
+        BiometricManager.from(this)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +75,7 @@ class AuthenticationActivity : AppCompatActivity() {
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle(getString(R.string.app_name))
             .setSubtitle(getString(R.string.login_to_enter_keypass))
-            .setDeviceCredentialAllowed(true)
+            .setAllowedAuthenticators(DEVICE_CREDENTIAL or BIOMETRIC_WEAK or BIOMETRIC_STRONG)
             .build()
 
         // Prompt appears when user clicks "Log in".
@@ -75,7 +85,33 @@ class AuthenticationActivity : AppCompatActivity() {
         biometricPrompt.authenticate(promptInfo)
 
         binding.btnRetry.setOnClickListener {
-            biometricPrompt.authenticate(promptInfo)
+            val canAuthentication = biometricManager.canAuthenticate(DEVICE_CREDENTIAL or BIOMETRIC_WEAK or BIOMETRIC_STRONG)
+            when (canAuthentication) {
+                BiometricManager.BIOMETRIC_SUCCESS -> {
+                    Log.d("MY_APP_TAG", "App can authenticate using biometrics.")
+                    biometricPrompt.authenticate(promptInfo)
+                }
+                BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE,
+                BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE,
+                BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+                    Log.e("MY_APP_TAG", "$canAuthentication Biometric features are currently unavailable.")
+                    // Prompts the user to create credentials that your app accepts.
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        val enrollIntent =     Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                            putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                                BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
+                        }
+                        startActivityForResult(enrollIntent, 707)
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Please set password for your device first from phone settings",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+
         }
     }
 
