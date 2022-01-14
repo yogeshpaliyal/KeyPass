@@ -30,7 +30,6 @@ class AuthenticationActivity : AppCompatActivity() {
         BiometricManager.from(this)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthenticationBinding.inflate(layoutInflater)
@@ -97,9 +96,11 @@ class AuthenticationActivity : AppCompatActivity() {
                     Log.e("MY_APP_TAG", "$canAuthentication Biometric features are currently unavailable.")
                     // Prompts the user to create credentials that your app accepts.
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                        val enrollIntent =     Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
-                            putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                                BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
+                        val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                            putExtra(
+                                Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                                BIOMETRIC_STRONG or DEVICE_CREDENTIAL
+                            )
                         }
                         startActivityForResult(enrollIntent, 707)
                     } else {
@@ -111,7 +112,6 @@ class AuthenticationActivity : AppCompatActivity() {
                     }
                 }
             }
-
         }
     }
 
