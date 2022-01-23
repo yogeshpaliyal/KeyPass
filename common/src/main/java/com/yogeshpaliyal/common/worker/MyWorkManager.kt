@@ -17,8 +17,7 @@ suspend fun Context?.executeAutoBackup() {
     }
 }
 
-
-fun Context?.migrateToDatastore(){
+fun Context?.migrateToDatastore() {
     this ?: return
     val work = OneTimeWorkRequestBuilder<SharedPrefMigrationWorker>().build()
 

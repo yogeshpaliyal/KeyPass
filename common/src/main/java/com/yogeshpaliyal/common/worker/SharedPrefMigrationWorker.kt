@@ -6,7 +6,6 @@ import androidx.core.content.edit
 import androidx.datastore.preferences.core.*
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
-import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.yogeshpaliyal.common.utils.dataStore
 import dagger.assisted.Assisted
@@ -42,7 +41,7 @@ class SharedPrefMigrationWorker @AssistedInject constructor(
                     }
                 }
             }
-        }catch (e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
         return Result.success()

@@ -136,6 +136,7 @@ class BackupActivity : AppCompatActivity() {
                                 dialog?.dismiss()
                             }.show()
                     } else {
+                        updateItems()
                         Toast.makeText(
                             context,
                             getString(R.string.backup_completed),
@@ -143,9 +144,6 @@ class BackupActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
-            }
-            lifecycleScope.launch {
-                updateItems()
             }
         }
 
