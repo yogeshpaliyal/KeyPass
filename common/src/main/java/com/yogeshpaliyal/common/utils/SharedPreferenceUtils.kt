@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.first
 * created on 21-02-2021 11:18
 */
 
-private val Context.dataStore by preferencesDataStore(
+val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
 
