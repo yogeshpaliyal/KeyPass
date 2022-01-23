@@ -17,8 +17,8 @@
 
 ## 🤩 Features
 - [x] Complete Offline : No internet permission has been added   
-- [x]  Open Source : Code is accessible to every one  
-- [x]  Encrypted Backup and Restore
+- [x] Open Source : Code is accessible to every one
+- [x] Encrypted Backup and Restore
 - [x] Dark Mode Support
 - [x] Material Design 3
 - [x] Screenshot Blocked
@@ -30,12 +30,13 @@
 
 ## 🛠️ Language, Tools & Frameworks Used
  1. Kotlin
- 2. Cipher (For Backup encryption and decrytion)
+ 2. Cipher (For Backup encryption and decryption)
  3. Material Design
  4. MVVM architecture
  5. LiveData & MutableLiveData
  6. Room Database
  7. Hilt (Dependency Injection)
+ 8. Jetpack Data Store Preference
 
 
 ## Download Links   

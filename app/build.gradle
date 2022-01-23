@@ -20,8 +20,8 @@ android {
         applicationId appPackageId
         minSdkVersion 22
         targetSdkVersion 31
-        versionCode 1404
-        versionName "1.4.4"
+        versionCode 1405
+        versionName "1.4.5"
 
         testInstrumentationRunner "com.yogeshpaliyal.keypass.CustomTestRunner"
     }
@@ -157,5 +157,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0'
     // Integration with observables
     implementation 'androidx.compose.runtime:runtime-livedata:1.0.5'
+
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
 
 }

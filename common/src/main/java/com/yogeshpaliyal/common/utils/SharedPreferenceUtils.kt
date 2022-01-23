@@ -1,7 +1,12 @@
 package com.yogeshpaliyal.common.utils
 
-import android.content.SharedPreferences
-import androidx.core.content.edit
+import android.content.Context
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.longPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import kotlinx.coroutines.flow.first
 
 /*
 * @author Yogesh Paliyal
@@ -10,73 +15,76 @@ import androidx.core.content.edit
 * created on 21-02-2021 11:18
 */
 
+val Context.dataStore by preferencesDataStore(
+    name = "settings"
+)
+
 /**
  * Pair
  * 1st => true if key is created now & false if key is created previously
  *
  */
-fun getOrCreateBackupKey(sp: SharedPreferences, reset: Boolean = false): Pair<Boolean, String> {
-
+suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, String> {
+    val sp = dataStore.data.first()
     return if (sp.contains(BACKUP_KEY) && reset.not()) {
-        Pair(false, sp.getString(BACKUP_KEY, "") ?: "")
+        Pair(false, (sp[BACKUP_KEY]) ?: "")
     } else {
         val randomKey = getRandomString(16)
-        sp.edit {
-            putString(BACKUP_KEY, randomKey)
+        dataStore.edit {
+            it[BACKUP_KEY] = randomKey
         }
         Pair(true, randomKey)
     }
 }
 
-fun clearBackupKey(sp: SharedPreferences) {
-
-    sp.edit {
-        remove(BACKUP_KEY)
+suspend fun Context?.clearBackupKey() {
+    this?.dataStore?.edit {
+        it.remove(BACKUP_KEY)
     }
 }
 
-fun setBackupDirectory(sp: SharedPreferences, string: String) {
-    sp.edit {
-        putString(BACKUP_DIRECTORY, string)
+suspend fun Context?.setBackupDirectory(string: String) {
+    this?.dataStore?.edit {
+        it[BACKUP_DIRECTORY] = string
     }
 }
 
-fun setBackupTime(sp: SharedPreferences, time: Long) {
-    sp.edit {
-        putLong(BACKUP_DATE_TIME, time)
+suspend fun Context?.setBackupTime(time: Long) {
+    this?.dataStore?.edit {
+        it[BACKUP_DATE_TIME] = time
     }
 }
 
-fun getBackupDirectory(sp: SharedPreferences,): String {
-    return sp.getString(BACKUP_DIRECTORY, "") ?: ""
+suspend fun Context?.getBackupDirectory(): String {
+    return this?.dataStore?.data?.first()?.get(BACKUP_DIRECTORY) ?: ""
 }
 
-fun SharedPreferences?.isAutoBackupEnabled(): Boolean {
-    return this?.getBoolean(AUTO_BACKUP, false) ?: false
+suspend fun Context?.isAutoBackupEnabled(): Boolean {
+    return this?.dataStore?.data?.first()?.get(AUTO_BACKUP) ?: false
 }
 
-fun SharedPreferences?.overrideAutoBackup(): Boolean {
-    return this?.getBoolean(OVERRIDE_AUTO_BACKUP, false) ?: false
+suspend fun Context?.overrideAutoBackup(): Boolean {
+    return this?.dataStore?.data?.first()?.get(OVERRIDE_AUTO_BACKUP) ?: false
 }
 
-fun SharedPreferences?.setOverrideAutoBackup(value: Boolean) {
-    this?.edit {
-        putBoolean(OVERRIDE_AUTO_BACKUP, value)
+suspend fun Context?.setOverrideAutoBackup(value: Boolean) {
+    this?.dataStore?.edit {
+        it[OVERRIDE_AUTO_BACKUP] = value
     }
 }
 
-fun SharedPreferences?.setAutoBackupEnabled(value: Boolean) {
-    this?.edit {
-        putBoolean(AUTO_BACKUP, value)
+suspend fun Context?.setAutoBackupEnabled(value: Boolean) {
+    this?.dataStore?.edit {
+        it[AUTO_BACKUP] = value
     }
 }
 
-fun getBackupTime(sp: SharedPreferences,): Long {
-    return sp.getLong(BACKUP_DATE_TIME, -1) ?: -1L
+suspend fun Context?.getBackupTime(): Long {
+    return this?.dataStore?.data?.first()?.get(BACKUP_DATE_TIME) ?: -1
 }
 
-private const val BACKUP_KEY = "backup_key"
-private const val BACKUP_DIRECTORY = "backup_directory"
-private const val BACKUP_DATE_TIME = "backup_date_time"
-private const val AUTO_BACKUP = "auto_backup"
-private const val OVERRIDE_AUTO_BACKUP = "override_auto_backup"
+private val BACKUP_KEY = stringPreferencesKey("backup_key")
+private val BACKUP_DIRECTORY = stringPreferencesKey("backup_directory")
+private val BACKUP_DATE_TIME = longPreferencesKey("backup_date_time")
+private val AUTO_BACKUP = booleanPreferencesKey("auto_backup")
+private val OVERRIDE_AUTO_BACKUP = booleanPreferencesKey("override_auto_backup")
