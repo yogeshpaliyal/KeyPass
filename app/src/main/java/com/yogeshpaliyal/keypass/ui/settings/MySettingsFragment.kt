@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +15,9 @@ import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yogeshpaliyal.common.db_helper.createBackup
 import com.yogeshpaliyal.common.db_helper.restoreBackup
-import com.yogeshpaliyal.common.utils.*
+import com.yogeshpaliyal.common.utils.email
+import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
+import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
@@ -33,9 +34,6 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
     @Inject
     lateinit var appDb: com.yogeshpaliyal.common.AppDatabase
-
-    @Inject
-    lateinit var sp: SharedPreferences
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
@@ -76,31 +74,6 @@ class MySettingsFragment : PreferenceFragmentCompat() {
         return super.onPreferenceTreeClick(preference)
     }
 
-    private fun selectBackupDirectory() {
-        val selectedDirectory = Uri.parse(getBackupDirectory(sp))
-
-        context?.let {
-            if (it.canUserAccessBackupDirectory(sp)) {
-                backup(selectedDirectory)
-            } else {
-
-                val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-
-                intent.addFlags(
-                    Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-
-                try {
-                    startActivityForResult(intent, CHOOSE_BACKUPS_LOCATION_REQUEST_CODE)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
-    }
-
     private fun selectRestoreFile() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
@@ -129,8 +102,11 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                     Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                 )
 
-                setBackupDirectory(sp, selectedDirectory.toString())
-                backup(selectedDirectory)
+                lifecycleScope.launch {
+                    context?.setBackupDirectory(selectedDirectory.toString())
+
+                    backup(selectedDirectory)
+                }
             }
         } else if (requestCode == CHOOSE_RESTORE_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val contentResolver = context?.contentResolver
@@ -174,9 +150,9 @@ class MySettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    fun backup(selectedDirectory: Uri) {
+    suspend fun backup(selectedDirectory: Uri) {
 
-        val keyPair = getOrCreateBackupKey(sp)
+        val keyPair = requireContext().getOrCreateBackupKey()
 
         val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(
             "*/*",
@@ -192,7 +168,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                 )
                 if (keyPair.first) {
                     val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
-                    binding.txtCode.text = getOrCreateBackupKey(sp).second
+                    binding.txtCode.text = requireContext().getOrCreateBackupKey().second
                     binding.txtCode.setOnClickListener {
                         val clipboard =
                             getSystemService(requireContext(), ClipboardManager::class.java)

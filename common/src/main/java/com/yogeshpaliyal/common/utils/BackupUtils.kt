@@ -1,7 +1,6 @@
 package com.yogeshpaliyal.common.utils
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.net.Uri
 import android.text.TextUtils
 import androidx.documentfile.provider.DocumentFile
@@ -31,9 +30,9 @@ fun getRandomString(sizeOfRandomString: Int): String {
     return sb.toString()
 }
 
-fun Context?.canUserAccessBackupDirectory(sp: SharedPreferences): Boolean {
+suspend fun Context?.canUserAccessBackupDirectory(): Boolean {
     this ?: return false
-    val backupDirectoryUri = getUri(getBackupDirectory(sp)) ?: return false
+    val backupDirectoryUri = getUri(getBackupDirectory()) ?: return false
     val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
     return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
 }
@@ -43,17 +42,16 @@ fun Context?.canUserAccessBackupDirectory(sp: SharedPreferences): Boolean {
  * Second Value contains the encryption key
  */
 suspend fun Context?.backupAccounts(
-    sp: SharedPreferences,
     appDb: AppDatabase,
     selectedDirectory: Uri,
-    fileName: String? = null
+    customFileName: String? = null
 ): Pair<Boolean, String>? {
 
     this ?: return null
 
-    val keyPair = getOrCreateBackupKey(sp)
+    val keyPair = getOrCreateBackupKey()
 
-    val fileName = (fileName ?: "key_pass_backup_${System.currentTimeMillis()}") + ".keypass"
+    val fileName = (customFileName ?: "key_pass_backup_${System.currentTimeMillis()}") + ".keypass"
 
     val directory = DocumentFile.fromTreeUri(this, selectedDirectory)
     var docFile = directory?.findFile(fileName)
@@ -68,7 +66,7 @@ suspend fun Context?.backupAccounts(
         contentResolver,
         docFile?.uri
     )
-    setBackupTime(sp, System.currentTimeMillis())
+    setBackupTime(System.currentTimeMillis())
 
     return keyPair
 }
