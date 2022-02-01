@@ -70,6 +70,10 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: com.yogeshpa
         this.secretKey.value = secretKey
     }
 
+    fun setAccountName(accountName: String) {
+        this.accountName.value = accountName
+    }
+
     fun deleteAccount(accountId: String, onDeleted: () -> Unit) {
         viewModelScope.launch {
             appDatabase.getDao().deleteAccount(accountId)
