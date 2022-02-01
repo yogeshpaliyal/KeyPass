@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.zxing.integration.android.IntentIntegrator
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentDetailBinding
@@ -85,6 +86,10 @@ class DetailActivity : AppCompatActivity() {
                 onBackPressed()
             }
         }
+
+        binding.btnScan.setOnClickListener {
+            IntentIntegrator(this).setPrompt("").initiateScan()
+        }
     }
 
     private fun deleteAccount() {
@@ -110,5 +115,18 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.bottom_app_bar_detail, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+        if (result != null) {
+            if (result.contents != null) {
+                binding.etPassword.setText(result.contents)
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }
