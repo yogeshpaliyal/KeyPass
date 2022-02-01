@@ -135,8 +135,5 @@ class AddTOTPActivity : AppCompatActivity() {
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
-
-        if (requestCode == IntentIntegrator.REQUEST_CODE && resultCode == RESULT_OK) {
-        }
     }
 }
