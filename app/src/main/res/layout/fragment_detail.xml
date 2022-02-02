@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,8 +10,7 @@
             type="com.yogeshpaliyal.common.data.AccountModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -86,6 +87,16 @@
                         android:inputType="textNoSuggestions|textPassword"
                         android:singleLine="true"
                         android:text="@={accountData.password}" />
+
+                    <Button
+                        android:id="@+id/btnScan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAllCaps="true"
+                        app:icon="@drawable/ic_twotone_qr_code_scanner_24"
+                        android:text="@string/scan_password" />
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -181,7 +192,6 @@
 
         </androidx.core.widget.NestedScrollView>
 
-
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
@@ -202,6 +212,7 @@
             app:layout_anchor="@id/bottomAppBar"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.KeyPass.Cirle"
             app:srcCompat="@drawable/ic_round_done_24" />
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

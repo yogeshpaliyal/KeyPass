@@ -125,17 +125,15 @@ class AddTOTPActivity : AppCompatActivity() {
         if (result != null) {
             if (result.contents != null) {
                 try {
-                    val secretKey = TOTPHelper.getSecretKey(result.contents)
-                    mViewModel.setSecretKey(secretKey)
+                    val totp = TOTPHelper(result.contents)
+                    mViewModel.setSecretKey(totp.secret)
+                    mViewModel.setAccountName(totp.label)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
-        }
-
-        if (requestCode == IntentIntegrator.REQUEST_CODE && resultCode == RESULT_OK) {
         }
     }
 }
