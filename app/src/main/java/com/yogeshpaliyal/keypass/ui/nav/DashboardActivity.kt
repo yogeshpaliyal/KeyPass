@@ -17,7 +17,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import com.google.android.material.transition.MaterialElevationScale
-import com.yogeshpaliyal.common.worker.migrateToDatastore
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
@@ -120,8 +119,6 @@ class DashboardActivity :
             }
             setOnMenuItemClickListener(this@DashboardActivity)
         }
-
-        migrateToDatastore()
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {

@@ -1,13 +1,11 @@
 package com.yogeshpaliyal.common.di.module
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.R
-import com.yogeshpaliyal.common.utils.MySharedPreferences
 import com.yogeshpaliyal.common.utils.getRandomString
 import dagger.Module
 import dagger.Provides
@@ -44,11 +42,5 @@ object AppModule {
             }
         })
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun getSharedPre(@ApplicationContext context: Context): SharedPreferences {
-        return MySharedPreferences(context).sharedPref
     }
 }

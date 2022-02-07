@@ -16,11 +16,3 @@ suspend fun Context?.executeAutoBackup() {
             .enqueueUniqueWork("AutoBackupWorker", ExistingWorkPolicy.KEEP, work)
     }
 }
-
-fun Context?.migrateToDatastore() {
-    this ?: return
-    val work = OneTimeWorkRequestBuilder<SharedPrefMigrationWorker>().build()
-
-    WorkManager.getInstance(this.applicationContext)
-        .enqueueUniqueWork("SharedPrefMigrationWorker", ExistingWorkPolicy.KEEP, work)
-}
