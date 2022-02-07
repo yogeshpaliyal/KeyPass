@@ -48,7 +48,7 @@ class CrashActivity : AppCompatActivity() {
                 deviceInfo.append("\n")
                 deviceInfo.append("Device API Version: " + Build.VERSION.SDK_INT)
                 deviceInfo.append("\n")
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
 
