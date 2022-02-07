@@ -43,5 +43,4 @@ object AppModule {
         })
             .build()
     }
-
 }

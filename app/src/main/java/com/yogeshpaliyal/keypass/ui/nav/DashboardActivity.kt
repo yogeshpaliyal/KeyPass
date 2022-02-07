@@ -119,7 +119,6 @@ class DashboardActivity :
             }
             setOnMenuItemClickListener(this@DashboardActivity)
         }
-
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
