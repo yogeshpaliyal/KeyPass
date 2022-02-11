@@ -149,7 +149,7 @@ dependencies {
     // Material Design
     implementation 'androidx.compose.material:material:1.0.5'
     // Material design icons
-    implementation 'androidx.compose.material:material-icons-core:1.0.5'
+    implementation 'androidx.compose.material:material-icons-core:1.1.0'
     implementation 'androidx.compose.material:material-icons-extended:1.1.0'
     // Integration with activities
     implementation 'androidx.activity:activity-compose:1.4.0'
