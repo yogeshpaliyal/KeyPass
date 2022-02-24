@@ -156,7 +156,7 @@ dependencies {
     // Integration with ViewModels
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1'
     // Integration with observables
-    implementation 'androidx.compose.runtime:runtime-livedata:1.1.0'
+    implementation 'androidx.compose.runtime:runtime-livedata:1.1.1'
 
     implementation "androidx.datastore:datastore-preferences:1.0.0"
 
