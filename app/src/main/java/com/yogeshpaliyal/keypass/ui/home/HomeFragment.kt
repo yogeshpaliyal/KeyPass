@@ -58,13 +58,20 @@ class HomeFragment : Fragment() {
             }
         }
 
+        private fun getPassword(model: AccountModel): String {
+            if (model.type == AccountType.TOTP) {
+                return model.getOtp()
+            }
+            return model.password.orEmpty()
+        }
+
         override fun onCopyClicked(model: AccountModel) {
             val clipboard =
                 ContextCompat.getSystemService(
                     requireContext(),
                     ClipboardManager::class.java
                 )
-            val clip = ClipData.newPlainText("KeyPass", model.password)
+            val clip = ClipData.newPlainText("KeyPass", getPassword(model))
             clipboard?.setPrimaryClip(clip)
             Toast.makeText(context, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT)
                 .show()
