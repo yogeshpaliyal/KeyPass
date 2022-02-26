@@ -60,7 +60,7 @@ open class AccountModel(
             ?: notes?.firstOrNull() ?: 'K'
         ).toString()
 
-    fun getOtp() = TOTPHelper.generate(password)
+    fun getOtp(): String = TOTPHelper.generate(password)
 
     fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
 }
