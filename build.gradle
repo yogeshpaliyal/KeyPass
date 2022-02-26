@@ -5,22 +5,19 @@ buildscript {
         kotlin_version = "1.5.21"
         lifecycle_version = "2.4.1"
         room_version = "2.4.2"
-        navigation_version = '2.3.5'
-        ext.hilt_version = '2.40'
+        navigation_version = '2.4.1'
+        ext.hilt_version = '2.41'
         compose_version = '1.0.1'
 
     }
     repositories {
         google()
-        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.10'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-
-
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
 
@@ -35,7 +32,6 @@ plugins {
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
 }
@@ -49,7 +45,6 @@ allprojects {
 subprojects {
     repositories {
         google()
-        jcenter()
         maven { url 'https://jitpack.io' }
     }
 
@@ -60,7 +55,7 @@ subprojects {
             targetExclude("$buildDir/**/*.kt")
             targetExclude('bin/**/*.kt')
 
-            java.util.HashMap<String, String> map = new HashMap<>();
+            HashMap<String, String> map = new HashMap<>()
             map.put("disabled_rules","no-wildcard-imports")
             ktlint("0.40.0").userData(map)
            // licenseHeaderFile rootProject.file('spotless/copyright.kt')
