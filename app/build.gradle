@@ -143,7 +143,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
 
 
-    implementation 'androidx.compose.ui:ui-tooling:1.1.0'
+    implementation 'androidx.compose.ui:ui-tooling:1.1.1'
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation 'androidx.compose.foundation:foundation:1.1.1'
     // Material Design
