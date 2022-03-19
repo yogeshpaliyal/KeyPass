@@ -22,19 +22,23 @@ fun getRandomString(sizeOfRandomString: Int): String {
     val sb = StringBuilder(sizeOfRandomString)
     for (i in 0 until sizeOfRandomString) sb.append(
         ALLOWED_CHARACTERS[
-            random.nextInt(
-                ALLOWED_CHARACTERS.length
-            )
+                random.nextInt(
+                    ALLOWED_CHARACTERS.length
+                )
         ]
     )
     return sb.toString()
 }
 
 suspend fun Context?.canUserAccessBackupDirectory(): Boolean {
-    this ?: return false
-    val backupDirectoryUri = getUri(getBackupDirectory()) ?: return false
-    val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
-    return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
+    if (this != null) {
+        val backupDirectoryUri = getUri(getBackupDirectory())
+        if (backupDirectoryUri != null) {
+            val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
+            return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
+        }
+    }
+    return false
 }
 
 /**
