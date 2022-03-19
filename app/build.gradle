@@ -20,8 +20,8 @@ android {
         applicationId appPackageId
         minSdkVersion 22
         targetSdkVersion 31
-        versionCode 1406
-        versionName "1.4.6"
+        versionCode 1407
+        versionName "1.4.7"
 
         testInstrumentationRunner "com.yogeshpaliyal.keypass.CustomTestRunner"
     }
