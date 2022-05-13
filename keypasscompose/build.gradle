@@ -45,6 +45,16 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+    /*sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res', 'src\\staging\\res', '..\\common\\src\\staging\\res'
+            }
+        }
+    }*/
+
+   // namespace 'com.yogeshpaliyal.keypasscompose'
 }
 
 dependencies {

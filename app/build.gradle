@@ -61,11 +61,12 @@ android {
         }
     }
 
-    lintOptions{
-        abortOnError true
-    }
 
     testOptions.unitTests.includeAndroidResources = true
+    lint {
+        abortOnError true
+    }
+    //namespace 'com.yogeshpaliyal.keypass'
 
 }
 
