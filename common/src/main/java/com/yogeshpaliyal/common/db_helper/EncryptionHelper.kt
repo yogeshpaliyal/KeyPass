@@ -24,8 +24,6 @@ import javax.crypto.spec.SecretKeySpec
 object EncryptionHelper {
     private const val ALGORITHM = "AES"
     private const val TRANSFORMATION = "AES/CBC/PKCS5Padding"
-    // private const val TRANSFORMATION = "AES"
-    // private const val TRANSFORMATION = "DES/CBC/PKCS5Padding"
 
     private val iV = byteArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
@@ -115,34 +113,4 @@ object EncryptionHelper {
         return data
     }
 
-    fun encryptPassword(message: String, password: String): String {
-        /* Encrypt the message. */
-        var cipher: Cipher? = null
-        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
-        cipher.init(Cipher.ENCRYPT_MODE, generateKey(password))
-        return String(cipher.doFinal(message.encodeToByteArray()))
-    }
-
-    @Throws(
-        NoSuchPaddingException::class,
-        NoSuchAlgorithmException::class,
-        InvalidParameterSpecException::class,
-        InvalidAlgorithmParameterException::class,
-        InvalidKeyException::class,
-        BadPaddingException::class,
-        IllegalBlockSizeException::class,
-        UnsupportedEncodingException::class
-    )
-    fun decryptMsg(encryptedMessage: String, password: String): String {
-        /* Decrypt the message, given derived encContentValues and initialization vector. */
-        var cipher: Cipher? = null
-        cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
-        cipher.init(Cipher.DECRYPT_MODE, generateKey(password))
-        return String(cipher.doFinal(encryptedMessage.toByteArray()))
-    }
-
-    @Throws(NoSuchAlgorithmException::class, InvalidKeySpecException::class)
-    fun generateKey(passLockKey: String): SecretKey {
-        return SecretKeySpec(passLockKey.encodeToByteArray(), "AES")
-    }
 }

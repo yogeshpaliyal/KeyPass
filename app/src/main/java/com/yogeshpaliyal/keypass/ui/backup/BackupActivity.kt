@@ -69,8 +69,8 @@ class BackupActivity : AppCompatActivity() {
             }
         }
 
-        override fun onPreferenceTreeClick(preference: Preference?): Boolean {
-            when (preference?.key) {
+        override fun onPreferenceTreeClick(preference: Preference): Boolean {
+            when (preference.key) {
                 getString(R.string.settings_start_backup) -> {
                     startBackup()
                 }

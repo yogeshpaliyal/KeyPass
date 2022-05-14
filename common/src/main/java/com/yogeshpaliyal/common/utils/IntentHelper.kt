@@ -70,13 +70,3 @@ fun Context.share(chooserTitle: String, text: String): Boolean {
         return false
     }
 }
-
-fun Context.navigate(address: String) {
-    val gmmIntentUri =
-        Uri.parse("google.navigation:q=$address")
-    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-    mapIntent.setPackage("com.google.android.apps.maps")
-    mapIntent.resolveActivity(packageManager)?.let {
-        startActivity(mapIntent)
-    }
-}

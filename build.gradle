@@ -2,11 +2,11 @@
 buildscript {
 
     ext{
-        kotlin_version = "1.6.10"
+        kotlin_version = "1.6.21"
         lifecycle_version = "2.4.1"
         room_version = "2.4.2"
-        navigation_version = '2.4.1'
-        ext.hilt_version = '2.40'
+        navigation_version = '2.4.2'
+        ext.hilt_version = '2.42'
         compose_version = '1.0.1'
 
     }

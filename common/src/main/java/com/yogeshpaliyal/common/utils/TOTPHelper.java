@@ -17,7 +17,7 @@ public class TOTPHelper {
     public String issuer;
 
     public static String generate(String secret) {
-        return String.format(Locale.getDefault(), "%06d", generate(new Base32().decode(secret.toUpperCase()), System.currentTimeMillis() / 1000, 6));
+        return String.format(Locale.getDefault(), "%06d", generate(new Base32().decode(secret.toUpperCase(Locale.ENGLISH)), System.currentTimeMillis() / 1000, 6));
     }
 
     public static int generate(byte[] key, long t, int digits) {

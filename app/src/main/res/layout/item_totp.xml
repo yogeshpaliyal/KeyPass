@@ -66,8 +66,7 @@
                 android:minHeight="0dp"
                 android:maxHeight="0dp"
                 tools:progress="100"
-                android:max="30"
-                android:min="0"/>
+                android:max="30"/>
 
             <TextView
                 android:id="@+id/txtTitle"

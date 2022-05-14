@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.transition.MaterialElevationScale
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
@@ -47,6 +48,10 @@ class DashboardActivity :
             ?.fragments
             ?.first()
 
+    private val navController by lazy {
+        (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -61,7 +66,7 @@ class DashboardActivity :
         binding.lifecycleOwner = this
         binding.viewModel = mViewModel
 
-        findNavController(R.id.nav_host_fragment).addOnDestinationChangedListener(
+        navController.addOnDestinationChangedListener(
             this@DashboardActivity
         )
 
@@ -125,7 +130,7 @@ class DashboardActivity :
         when (item?.itemId) {
             R.id.action_settings -> {
                 val settingDestination = MySettingsFragmentDirections.actionGlobalSettings()
-                findNavController(R.id.nav_host_fragment).navigate(settingDestination)
+                navController.navigate(settingDestination)
                 bottomNavDrawer.close()
             }
         }
@@ -157,7 +162,7 @@ class DashboardActivity :
             }
             NavigationModel.HOME -> {
                 val args = HomeFragmentDirections.actionGlobalHomeFragment()
-                findNavController(R.id.nav_host_fragment).navigate(args)
+                navController.navigate(args)
             }
             NavigationModel.ADD_TOPT -> {
                 AddTOTPActivity.start(this)
@@ -168,7 +173,7 @@ class DashboardActivity :
     override fun onNavEmailFolderClicked(folder: NavigationModelItem.NavEmailFolder) {
         mViewModel.tag.postValue(folder.category)
         val destination = HomeFragmentDirections.actionGlobalHomeFragmentTag()
-        findNavController(R.id.nav_host_fragment).navigate(destination)
+        navController.navigate(destination)
         bottomNavDrawer.close()
     }
 
@@ -205,7 +210,7 @@ class DashboardActivity :
      */
     @MenuRes
     private fun getBottomAppBarMenuForDestination(destination: NavDestination? = null): Int {
-        val dest = destination ?: findNavController(R.id.nav_host_fragment).currentDestination
+        val dest = destination ?: navController.currentDestination
         return when (dest?.id) {
             R.id.homeFragment -> R.menu.bottom_app_bar_settings_menu
             // R.id.emailFragment -> R.menu.bottom_app_bar_email_menu
