@@ -15,7 +15,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.transition.MaterialElevationScale
 import com.yogeshpaliyal.keypass.R
@@ -73,22 +72,24 @@ class DashboardActivity :
         /*   val intent = Intent(this, AuthenticationActivity::class.java)
            startActivity(intent)*/
 
-       /* val autoFillService = getAutoFillService()
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            if (autoFillService?.isAutofillSupported == true && autoFillService.hasEnabledAutofillServices().not()) {
-                val intent = Intent(Settings.ACTION_REQUEST_SET_AUTOFILL_SERVICE)
-                intent.data = Uri.parse("package:$packageName")
-                startActivityForResult(intent,777)
-            }
-        }*/
+        /* val autoFillService = getAutoFillService()
+         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+             if (autoFillService?.isAutofillSupported == true && autoFillService.hasEnabledAutofillServices().not()) {
+                 val intent = Intent(Settings.ACTION_REQUEST_SET_AUTOFILL_SERVICE)
+                 intent.data = Uri.parse("package:$packageName")
+                 startActivityForResult(intent,777)
+             }
+         }*/
 
         binding.btnAdd.setOnClickListener {
             currentNavigationFragment?.apply {
                 exitTransition = MaterialElevationScale(false).apply {
-                    duration = resources.getInteger(R.integer.keypass_motion_duration_large).toLong()
+                    duration =
+                        resources.getInteger(R.integer.keypass_motion_duration_large).toLong()
                 }
                 reenterTransition = MaterialElevationScale(true).apply {
-                    duration = resources.getInteger(R.integer.keypass_motion_duration_large).toLong()
+                    duration =
+                        resources.getInteger(R.integer.keypass_motion_duration_large).toLong()
                 }
             }
 

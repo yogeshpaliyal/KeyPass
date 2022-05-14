@@ -3,13 +3,9 @@ package com.yogeshpaliyal.keypass.db_helper
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
-import java.io.UnsupportedEncodingException
-import java.security.InvalidAlgorithmParameterException
 import java.security.InvalidKeyException
 import java.security.Key
 import java.security.NoSuchAlgorithmException
-import java.security.spec.InvalidKeySpecException
-import java.security.spec.InvalidParameterSpecException
 import javax.crypto.*
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
@@ -112,5 +108,4 @@ object EncryptionHelper {
 
         return data
     }
-
 }
