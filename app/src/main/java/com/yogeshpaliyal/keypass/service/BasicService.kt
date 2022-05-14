@@ -28,6 +28,7 @@ import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.yogeshpaliyal.keypass.R
+import java.util.*
 
 /**
  * A very basic [AutofillService] implementation that only shows dynamic-generated datasets
@@ -120,7 +121,7 @@ class BasicService : AutofillService() {
         val hints = node.autofillHints
         if (hints != null) {
             // We're simple, we only care about the first hint
-            val hint = hints[0].toLowerCase()
+            val hint = hints[0]?.lowercase()
             if (hint != null) {
                 val id = node.autofillId
                 if (!fields.containsKey(hint)) {
