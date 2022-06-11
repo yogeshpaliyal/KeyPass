@@ -74,7 +74,7 @@ android {
 
 dependencies {
 
-    implementation project(":common")
+    api project(":common")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -136,10 +136,6 @@ dependencies {
     testImplementation("com.google.dagger:hilt-android-testing:2.42")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:$hilt_version")
-
-    implementation 'com.google.code.gson:gson:2.9.0'
-
-    implementation "androidx.datastore:datastore-preferences:1.0.0"
 
 
 }
