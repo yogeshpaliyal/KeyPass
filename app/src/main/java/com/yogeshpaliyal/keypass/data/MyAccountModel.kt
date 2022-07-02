@@ -1,9 +1,9 @@
 package com.yogeshpaliyal.keypass.data
 
 import com.google.gson.Gson
+import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.constants.AccountType
 import com.yogeshpaliyal.universalAdapter.listener.UniversalViewType
 import com.yogeshpaliyal.universalAdapter.model.BaseDiffUtil
 

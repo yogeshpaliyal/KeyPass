@@ -3,7 +3,7 @@ package com.yogeshpaliyal.common
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.keypass.db.DbDao
+import com.yogeshpaliyal.common.db.DbDao
 
 /*
 * @author Yogesh Paliyal

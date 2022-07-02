@@ -13,8 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.common.db_helper.createBackup
-import com.yogeshpaliyal.common.db_helper.restoreBackup
+import com.yogeshpaliyal.common.dbhelper.createBackup
+import com.yogeshpaliyal.common.dbhelper.restoreBackup
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
 import com.yogeshpaliyal.common.utils.setBackupDirectory
