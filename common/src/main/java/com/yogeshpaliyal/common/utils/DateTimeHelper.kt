@@ -1,7 +1,8 @@
 package com.yogeshpaliyal.common.utils
 
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 /*
 * @author Yogesh Paliyal

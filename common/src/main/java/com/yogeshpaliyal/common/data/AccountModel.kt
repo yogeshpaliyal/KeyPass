@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.common.utils.getRandomString
-import com.yogeshpaliyal.keypass.constants.AccountType
+import com.yogeshpaliyal.common.constants.AccountType
 
 /*
 * @author Yogesh Paliyal

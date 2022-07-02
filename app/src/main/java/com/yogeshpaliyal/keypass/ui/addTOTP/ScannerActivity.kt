@@ -5,7 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yogeshpaliyal.keypass.constants.RequestCodes
+import com.yogeshpaliyal.common.constants.RequestCodes
 import com.yogeshpaliyal.keypass.databinding.ActivityScannerBinding
 import dagger.hilt.android.AndroidEntryPoint
 

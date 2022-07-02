@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.Event
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.constants.AccountType
+import com.yogeshpaliyal.common.constants.AccountType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
