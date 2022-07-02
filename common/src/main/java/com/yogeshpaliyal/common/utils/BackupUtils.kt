@@ -31,10 +31,19 @@ fun getRandomString(sizeOfRandomString: Int): String {
 }
 
 suspend fun Context?.canUserAccessBackupDirectory(): Boolean {
-    this ?: return false
-    val backupDirectoryUri = getUri(getBackupDirectory()) ?: return false
-    val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
-    return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
+    if (this != null) {
+        val backupDirectoryUri = getUri(getBackupDirectory())
+        if (backupDirectoryUri != null) {
+            val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
+            val listOfConditions = arrayListOf<Boolean?>()
+            listOfConditions.add(backupDirectory != null)
+            listOfConditions.add(backupDirectory?.exists())
+            listOfConditions.add(backupDirectory?.canRead())
+            listOfConditions.add(backupDirectory?.canWrite())
+            return listOfConditions.all { it == true }
+        }
+    }
+    return false
 }
 
 /**

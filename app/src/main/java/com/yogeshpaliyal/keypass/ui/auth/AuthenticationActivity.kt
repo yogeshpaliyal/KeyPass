@@ -17,6 +17,8 @@ import com.yogeshpaliyal.keypass.ui.nav.DashboardActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.Executor
 
+private const val AUTHENTICATION_RESULT = 707
+
 @AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
 
@@ -84,7 +86,9 @@ class AuthenticationActivity : AppCompatActivity() {
         biometricPrompt.authenticate(promptInfo)
 
         binding.btnRetry.setOnClickListener {
-            val canAuthentication = biometricManager.canAuthenticate(DEVICE_CREDENTIAL or BIOMETRIC_WEAK or BIOMETRIC_STRONG)
+            val allowedAuths = DEVICE_CREDENTIAL or BIOMETRIC_WEAK or BIOMETRIC_STRONG
+            val canAuthentication =
+                biometricManager.canAuthenticate(allowedAuths)
             when (canAuthentication) {
                 BiometricManager.BIOMETRIC_SUCCESS -> {
                     Log.d("MY_APP_TAG", "App can authenticate using biometrics.")
@@ -93,7 +97,10 @@ class AuthenticationActivity : AppCompatActivity() {
                 BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE,
                 BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE,
                 BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-                    Log.e("MY_APP_TAG", "$canAuthentication Biometric features are currently unavailable.")
+                    Log.e(
+                        "MY_APP_TAG",
+                        "$canAuthentication Biometric features are currently unavailable."
+                    )
                     // Prompts the user to create credentials that your app accepts.
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                         val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
@@ -102,7 +109,7 @@ class AuthenticationActivity : AppCompatActivity() {
                                 BIOMETRIC_STRONG or DEVICE_CREDENTIAL
                             )
                         }
-                        startActivityForResult(enrollIntent, 707)
+                        startActivityForResult(enrollIntent, AUTHENTICATION_RESULT)
                     } else {
                         Toast.makeText(
                             this,

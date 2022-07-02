@@ -1,5 +1,6 @@
 package com.yogeshpaliyal.common.utils
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -65,7 +66,7 @@ fun Context.share(chooserTitle: String, text: String): Boolean {
         intent.type = "text/plain"
         startActivity(Intent.createChooser(intent, chooserTitle))
         return true
-    } catch (e: Exception) {
+    } catch (e: ActivityNotFoundException) {
         e.printStackTrace()
         return false
     }

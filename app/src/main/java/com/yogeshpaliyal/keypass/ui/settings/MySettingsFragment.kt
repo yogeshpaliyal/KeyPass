@@ -40,23 +40,23 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        when (preference.key) {
+        return when (preference.key) {
             "feedback" -> {
                 context?.email(
                     getString(R.string.feedback_to_keypass),
                     "yogeshpaliyal.foss@gmail.com"
                 )
-                return true
+                true
             }
 
             "backup" -> {
                 BackupActivity.start(context)
-                return true
+                true
             }
 
             getString(R.string.settings_restore_backup) -> {
                 selectRestoreFile()
-                return true
+                true
             }
 
             "share" -> {
@@ -68,10 +68,10 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                 )
                 sendIntent.type = "text/plain"
                 startActivity(Intent.createChooser(sendIntent, getString(R.string.share_keypass)))
-                return true
+                true
             }
+            else -> super.onPreferenceTreeClick(preference)
         }
-        return super.onPreferenceTreeClick(preference)
     }
 
     private fun selectRestoreFile() {
