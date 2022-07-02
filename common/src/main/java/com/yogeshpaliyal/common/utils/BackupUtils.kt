@@ -35,7 +35,12 @@ suspend fun Context?.canUserAccessBackupDirectory(): Boolean {
         val backupDirectoryUri = getUri(getBackupDirectory())
         if (backupDirectoryUri != null) {
             val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
-            return backupDirectory != null && backupDirectory.exists() && backupDirectory.canRead() && backupDirectory.canWrite()
+            val listOfConditions = arrayListOf<Boolean?>()
+            listOfConditions.add(backupDirectory != null)
+            listOfConditions.add(backupDirectory?.exists())
+            listOfConditions.add(backupDirectory?.canRead())
+            listOfConditions.add(backupDirectory?.canWrite())
+            return listOfConditions.all { it == true }
         }
     }
     return false
