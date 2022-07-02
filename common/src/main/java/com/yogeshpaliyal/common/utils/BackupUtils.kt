@@ -22,9 +22,9 @@ fun getRandomString(sizeOfRandomString: Int): String {
     val sb = StringBuilder(sizeOfRandomString)
     for (i in 0 until sizeOfRandomString) sb.append(
         ALLOWED_CHARACTERS[
-                random.nextInt(
-                    ALLOWED_CHARACTERS.length
-                )
+            random.nextInt(
+                ALLOWED_CHARACTERS.length
+            )
         ]
     )
     return sb.toString()

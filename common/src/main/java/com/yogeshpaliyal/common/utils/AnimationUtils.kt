@@ -16,9 +16,7 @@
 
 package com.yogeshpaliyal.common.utils
 
-import androidx.annotation.ColorInt
 import androidx.annotation.FloatRange
-import com.google.android.material.animation.ArgbEvaluatorCompat
 import kotlin.math.roundToInt
 
 /**
@@ -106,6 +104,8 @@ fun Float.normalize(
         null
     }
 
-    return result ?: (outputMin * (1 - (this - inputMin) / (inputMax - inputMin)) +
-            outputMax * ((this - inputMin) / (inputMax - inputMin)))
+    return result ?: (
+        outputMin * (1 - (this - inputMin) / (inputMax - inputMin)) +
+            outputMax * ((this - inputMin) / (inputMax - inputMin))
+        )
 }
