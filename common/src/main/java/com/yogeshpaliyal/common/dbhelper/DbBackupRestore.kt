@@ -5,6 +5,8 @@ import android.net.Uri
 import androidx.room.withTransaction
 import com.google.gson.Gson
 import com.yogeshpaliyal.common.AppDatabase
+import com.yogeshpaliyal.common.DB_VERSION_3
+import com.yogeshpaliyal.common.DB_VERSION_5
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.BackupData
 import com.yogeshpaliyal.common.utils.getRandomString
@@ -44,18 +46,18 @@ suspend fun AppDatabase.restoreBackup(
 
     val restoredFile = try {
         EncryptionHelper.doCryptoDecrypt(key, contentResolver.openInputStream(fileUri))
-    } catch (e: Exception) {
+    } catch (e: CryptoException) {
         e.printStackTrace()
         return@withContext false
     }
 
     return@withContext Gson().fromJson(restoredFile, BackupData::class.java)?.let { data ->
-        if (data.version == 3) {
+        if (data.version == DB_VERSION_3) {
             for (datum in data.data) {
                 getRandomString().also { datum.uniqueId = it }
             }
         }
-        if (data.version < 5) {
+        if (data.version < DB_VERSION_5) {
             for (datum in data.data) {
                 datum.type = AccountType.DEFAULT
             }

@@ -22,6 +22,9 @@ import javax.crypto.spec.SecretKeySpec
 * https://yogeshpaliyal.com
 * created on 07-02-2021 18:50
 */
+
+private const val BUFFER_SIZE = 4096
+
 object EncryptionHelper {
     private const val ALGORITHM = "AES"
     private const val TRANSFORMATION = "AES/CBC/PKCS5Padding"
@@ -47,7 +50,7 @@ object EncryptionHelper {
                 outputFile?.use {
                     val outputStream = it
                     CipherOutputStream(outputStream, cipher).use {
-                        inputStream.copyTo(it, 4096)
+                        inputStream.copyTo(it, BUFFER_SIZE)
                     }
                 }
             }
