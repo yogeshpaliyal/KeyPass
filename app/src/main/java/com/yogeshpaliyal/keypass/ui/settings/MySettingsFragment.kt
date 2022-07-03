@@ -27,10 +27,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
+private const val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
+
 @AndroidEntryPoint
 class MySettingsFragment : PreferenceFragmentCompat() {
-    private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
-    private val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
 
     @Inject
     lateinit var appDb: com.yogeshpaliyal.common.AppDatabase

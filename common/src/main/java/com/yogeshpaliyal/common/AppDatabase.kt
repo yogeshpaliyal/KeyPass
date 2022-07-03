@@ -11,6 +11,11 @@ import com.yogeshpaliyal.common.db.DbDao
 * https://techpaliyal.com
 * created on 30-01-2021 20:37
 */
+
+const val DB_VERSION_3 = 3
+const val DB_VERSION_4 = 4
+const val DB_VERSION_5 = 5
+
 @Database(
     entities = [AccountModel::class],
     version = 5, exportSchema = false
