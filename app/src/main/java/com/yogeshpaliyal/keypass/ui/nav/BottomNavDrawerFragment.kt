@@ -1,4 +1,3 @@
-
 package com.yogeshpaliyal.keypass.ui.nav
 
 import android.content.res.ColorStateList
@@ -59,16 +58,6 @@ class BottomNavDrawerFragment :
             elevation = resources.getDimension(R.dimen.plane_16)
             shadowCompatibilityMode = MaterialShapeDrawable.SHADOW_COMPAT_MODE_NEVER
             initializeElevationOverlay(requireContext())
-           /* shapeAppearanceModel = shapeAppearanceModel.toBuilder()
-                .setTopEdge(
-                    SemiCircleEdgeCutoutTreatment(
-                        resources.getDimension(R.dimen.grid_1),
-                        resources.getDimension(R.dimen.grid_3),
-                        0F,
-                        resources.getDimension(R.dimen.navigation_drawer_profile_image_size_padded)
-                    )
-                )
-                .build()*/
         }
     }
 
@@ -113,11 +102,7 @@ class BottomNavDrawerFragment :
                 // Scrim view transforms
                 addOnSlideAction(AlphaSlideAction(scrimView))
                 addOnStateChangedAction(VisibilityStateAction(scrimView))
-                // Foreground transforms
-               /* addOnSlideAction(ForegroundSheetTransformSlideAction(
-                    binding.foregroundContainer,
-                    foregroundShapeDrawable
-                ))*/
+
                 // Recycler transforms
                 addOnStateChangedAction(ScrollToTopStateAction(navRecyclerView))
                 // Close the sandwiching account picker if open

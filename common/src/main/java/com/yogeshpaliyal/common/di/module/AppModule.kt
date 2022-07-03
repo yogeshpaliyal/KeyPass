@@ -35,7 +35,8 @@ object AppModule {
                     ?.use {
                         while (it.moveToNext()) {
                             val id = it.getInt(0)
-                            database.execSQL("update `account` set `unique_id` = '${getRandomString()}' where `id` = '$id'")
+                            val query = "update `account` set `unique_id` = '${getRandomString()}' where `id` = '$id'"
+                            database.execSQL(query)
                         }
                     }
             }
