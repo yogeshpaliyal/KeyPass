@@ -6,7 +6,7 @@ buildscript {
         lifecycle_version = "2.5.0"
         room_version = "2.4.2"
         navigation_version = '2.5.1'
-        ext.hilt_version = '2.43'
+        ext.hilt_version = '2.43.1'
         compose_version = '1.0.1'
 
     }
