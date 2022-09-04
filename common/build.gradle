@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 32
 
     defaultConfig {
         minSdk 21
-        targetSdk 31
+        targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,7 +36,7 @@ android {
 dependencies {
 
     api 'androidx.core:core-ktx:1.8.0'
-    api 'androidx.appcompat:appcompat:1.4.2'
+    api 'androidx.appcompat:appcompat:1.5.0'
     testApi 'junit:junit:4.13.2'
     androidTestApi 'androidx.test.ext:junit:1.1.3'
     androidTestApi 'androidx.test.espresso:espresso-core:3.4.0'
