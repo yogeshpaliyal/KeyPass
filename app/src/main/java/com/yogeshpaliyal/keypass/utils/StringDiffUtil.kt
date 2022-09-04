@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.common.data
+package com.yogeshpaliyal.keypass.utils
 
 import androidx.recyclerview.widget.DiffUtil
 

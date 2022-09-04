@@ -13,13 +13,12 @@ def appPackageId = 'com.yogeshpaliyal.keypass'
 
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId appPackageId
         minSdkVersion 22
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode 1407
         versionName "1.4.7"
 
@@ -74,24 +73,13 @@ android {
 
 dependencies {
 
-    implementation project(":common")
+    api project(":common")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.7.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-
-    implementation ('androidx.appcompat:appcompat:1.4.1')
-    implementation "androidx.documentfile:documentfile:1.0.1"
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -103,16 +91,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
 
-    implementation "androidx.room:room-runtime:$room_version"
-    androidTestImplementation 'androidx.test:rules:1.4.0'
     kapt "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
 
 
     implementation 'com.yogeshpaliyal:universal-adapter:3.0.1'
 
-
-    implementation "androidx.biometric:biometric:1.1.0"
 
     // dependency injection
     implementation("com.google.dagger:hilt-android:$hilt_version")
@@ -136,10 +119,6 @@ dependencies {
     testImplementation("com.google.dagger:hilt-android-testing:2.43.1")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:$hilt_version")
-
-    implementation 'com.google.code.gson:gson:2.9.1'
-
-    implementation "androidx.datastore:datastore-preferences:1.0.0"
 
 
 }
