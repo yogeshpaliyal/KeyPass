@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.keypass.constants
+package com.yogeshpaliyal.common.constants
 
 annotation class AccountType() {
     companion object {

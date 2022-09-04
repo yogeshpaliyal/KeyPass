@@ -86,15 +86,7 @@ class BottomNavigationDrawerCallback : BottomSheetBehavior.BottomSheetCallback()
         return onSlideActions.add(action)
     }
 
-    fun removeOnSlideAction(action: OnSlideAction): Boolean {
-        return onSlideActions.remove(action)
-    }
-
     fun addOnStateChangedAction(action: OnStateChangedAction): Boolean {
         return onStateChangedActions.add(action)
-    }
-
-    fun removeOnStateChangedAction(action: OnStateChangedAction): Boolean {
-        return onStateChangedActions.remove(action)
     }
 }

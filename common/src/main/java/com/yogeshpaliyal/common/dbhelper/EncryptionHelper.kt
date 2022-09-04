@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.keypass.db_helper
+package com.yogeshpaliyal.common.dbhelper
 
 import java.io.IOException
 import java.io.InputStream
@@ -6,7 +6,12 @@ import java.io.OutputStream
 import java.security.InvalidKeyException
 import java.security.Key
 import java.security.NoSuchAlgorithmException
-import javax.crypto.*
+import javax.crypto.BadPaddingException
+import javax.crypto.Cipher
+import javax.crypto.CipherInputStream
+import javax.crypto.CipherOutputStream
+import javax.crypto.IllegalBlockSizeException
+import javax.crypto.NoSuchPaddingException
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
@@ -17,6 +22,9 @@ import javax.crypto.spec.SecretKeySpec
 * https://yogeshpaliyal.com
 * created on 07-02-2021 18:50
 */
+
+private const val BUFFER_SIZE = 4096
+
 object EncryptionHelper {
     private const val ALGORITHM = "AES"
     private const val TRANSFORMATION = "AES/CBC/PKCS5Padding"
@@ -42,7 +50,7 @@ object EncryptionHelper {
                 outputFile?.use {
                     val outputStream = it
                     CipherOutputStream(outputStream, cipher).use {
-                        inputStream.copyTo(it, 4096)
+                        inputStream.copyTo(it, BUFFER_SIZE)
                     }
                 }
             }

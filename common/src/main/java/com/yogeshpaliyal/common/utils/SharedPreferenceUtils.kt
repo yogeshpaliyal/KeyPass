@@ -19,6 +19,8 @@ val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
 
+private const val BACKUP_KEY_LENGTH = 16
+
 /**
  * Pair
  * 1st => true if key is created now & false if key is created previously
@@ -29,7 +31,7 @@ suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, 
     return if (sp.contains(BACKUP_KEY) && reset.not()) {
         Pair(false, (sp[BACKUP_KEY]) ?: "")
     } else {
-        val randomKey = getRandomString(16)
+        val randomKey = getRandomString(BACKUP_KEY_LENGTH)
         dataStore.edit {
             it[BACKUP_KEY] = randomKey
         }

@@ -1,7 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.backup
 
 import android.app.Activity
-import android.content.*
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -12,7 +15,19 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.common.utils.*
+import com.yogeshpaliyal.common.utils.backupAccounts
+import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
+import com.yogeshpaliyal.common.utils.clearBackupKey
+import com.yogeshpaliyal.common.utils.formatCalendar
+import com.yogeshpaliyal.common.utils.getBackupDirectory
+import com.yogeshpaliyal.common.utils.getBackupTime
+import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
+import com.yogeshpaliyal.common.utils.isAutoBackupEnabled
+import com.yogeshpaliyal.common.utils.overrideAutoBackup
+import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
+import com.yogeshpaliyal.common.utils.setBackupDirectory
+import com.yogeshpaliyal.common.utils.setBackupTime
+import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.BackupActivityBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding

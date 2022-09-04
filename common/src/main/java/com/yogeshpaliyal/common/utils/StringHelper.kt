@@ -1,6 +1,6 @@
 package com.yogeshpaliyal.common.utils
 
-import java.util.*
+import java.util.UUID
 
 /*
 * @author Yogesh Paliyal

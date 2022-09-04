@@ -13,8 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.common.db_helper.createBackup
-import com.yogeshpaliyal.common.db_helper.restoreBackup
+import com.yogeshpaliyal.common.dbhelper.createBackup
+import com.yogeshpaliyal.common.dbhelper.restoreBackup
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
 import com.yogeshpaliyal.common.utils.setBackupDirectory
@@ -27,10 +27,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
+private const val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
+
 @AndroidEntryPoint
 class MySettingsFragment : PreferenceFragmentCompat() {
-    private val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
-    private val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
 
     @Inject
     lateinit var appDb: com.yogeshpaliyal.common.AppDatabase
@@ -40,23 +41,23 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        when (preference.key) {
+        return when (preference.key) {
             "feedback" -> {
                 context?.email(
                     getString(R.string.feedback_to_keypass),
                     "yogeshpaliyal.foss@gmail.com"
                 )
-                return true
+                true
             }
 
             "backup" -> {
                 BackupActivity.start(context)
-                return true
+                true
             }
 
             getString(R.string.settings_restore_backup) -> {
                 selectRestoreFile()
-                return true
+                true
             }
 
             "share" -> {
@@ -68,10 +69,10 @@ class MySettingsFragment : PreferenceFragmentCompat() {
                 )
                 sendIntent.type = "text/plain"
                 startActivity(Intent.createChooser(sendIntent, getString(R.string.share_keypass)))
-                return true
+                true
             }
+            else -> super.onPreferenceTreeClick(preference)
         }
-        return super.onPreferenceTreeClick(preference)
     }
 
     private fun selectRestoreFile() {
