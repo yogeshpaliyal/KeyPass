@@ -77,7 +77,6 @@ dependencies {
     api project(":common")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
-    implementation 'com.google.android.material:material:1.7.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
