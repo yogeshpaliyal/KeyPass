@@ -35,7 +35,7 @@ android {
 
 dependencies {
 
-    api 'androidx.core:core-ktx:1.8.0'
+    api 'androidx.core:core-ktx:1.9.0'
     api 'androidx.appcompat:appcompat:1.5.1'
     testApi 'junit:junit:4.13.2'
     androidTestApi 'androidx.test.ext:junit:1.1.3'
