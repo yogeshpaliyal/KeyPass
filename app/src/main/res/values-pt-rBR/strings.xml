@@ -1,0 +1,72 @@
+<resources>
+
+
+    <string name="generate_password">Gerar senha</string>
+    <string name="home">Início</string>
+    <string name="delete">Deletar</string>
+
+
+    <string name="generate_shortcut_short_label">Gerar senha</string>
+
+    <string name="backup_restored">Backup restaurado</string>
+    <string name="invalid_keyphrase">Senha incorreta</string>
+
+    <string name="backup_completed">Backup concluído</string>
+
+    <!-- Sync Preferences -->
+    <string name="credentials_backups">Backup de credenciais</string>
+    <string name="credentials_backups_desc">Salva suas senhas em um armazenamento externo</string>
+    <string name="restore_credentials">Restaurar credenciais</string>
+    <string name="restore_credentials_desc">Restaura seu backup</string>
+    <string name="send_feedback">Enviar feedback</string>
+    <string name="send_feedback_desc">Reportar um problema técnico ou sugerir novas funções</string>
+    <string name="share">Compartilhar</string>
+    <string name="share_desc">Divulgar app com outros</string>
+    <string name="password_length">Comprimento da senha</string>
+    <string name="password">Senha</string>
+    <string name="uppercase_alphabets">LETRAS MAIÚSCULAS</string>
+    <string name="lowercase_alphabets">letras minúsculas</string>
+    <string name="symbols">Símbolos</string>
+    <string name="numbers">Números</string>
+    <string name="copied_to_clipboard">Copiado para à área de transferência</string>
+    <string name="login_to_enter_keypass">Autenticação para entrar no KeyPass</string>
+    <string name="authentication_failed">Falha na autenticação</string>
+
+    <string name="last_backup_date">Último backup: %s</string>
+    <string name="coming_soon">Em breve</string>
+    <string name="delete_account_title">Tem certeza?</string>
+    <string name="delete_account_msg">Você realmente deseja apagar esses dados? Não será possível restaurá-los.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="feedback_to_keypass">Feedback para o KeyPass</string>
+    <string name="share_keypass">Compartilhar o KeyPass</string>
+    <string name="message_no_accounts">Nenhuma conta adicionada. Por favor, adicione uma através do botão abaixo</string>
+    <string name="turn_off_backup">Desativar backups</string>
+    <string name="verify_keyphrase">Verificar senha do backup</string>
+    <string name="verify_keyphrase_message">Teste a senha do seu backup e verifique se ela está correta</string>
+    <string name="backup_folder">Pasta de backup</string>
+    <string name="backup">Backup</string>
+    <string name="turn_on_backup">Ativar backups</string>
+    <string name="backup_desc">Os backups são criptografados com uma senha e armazenados no seu dispositivo</string>
+    <string name="yes">Sim</string>
+    <string name="create_backup">Criar backup</string>
+    <string name="alert">Alerta</string>
+    <string name="copy_keypharse_msg">Copie essa senha. Ela será usada para restaurar esse backup. O KeyPass não irá exibi-la novamente. Você copiou ou guardou sua senha?</string>
+    <string name="help">Ajuda</string>
+    <string name="security">Segurança</string>
+    <string name="search">Pesquisar</string>
+    <string name="account_name">Nome da conta</string>
+    <string name="username_email_phone">Usuário/E-mail/Telefone</string>
+    <string name="tags_comma_separated_optional">Tags separadas por vírgula (opcional)</string>
+    <string name="website_url_optional">URL do site (opcional)</string>
+    <string name="notes_optional">Anotações (opcional)</string>
+    <string name="auto_backup">Backup automático</string>
+    <string name="disabled">Desativado</string>
+    <string name="enabled">Ativado</string>
+    <string name="override_auto_backup_file">Sobrescrever o arquivo de backup automático</string>
+    <string name="scanner">Scanner</string>
+    <string name="alert_black_secret_key">Por favor insira a chave secreta</string>
+    <string name="alert_black_account_name">Por favor insira o nome da conta</string>
+    <string name="add_totp">Adicionar TOTP</string>
+    <string name="scan_password">Escanear senha</string>
+    <string name="save">Salvar</string>
+</resources>
