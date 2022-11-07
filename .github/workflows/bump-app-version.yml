@@ -1,0 +1,15 @@
+name: Bump App Version
+on: 
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+        
+        
