@@ -16,7 +16,7 @@
         android:textSize="18sp"
         android:textColor="@color/keypass_blue_600"
         android:id="@+id/txtTitle"
-        android:text="@string/restore"/>
+        android:text="@string/set_keyphrase"/>
 
     <TextView
         android:layout_marginTop="@dimen/grid_2"
@@ -31,7 +31,7 @@
         android:textColor="@color/keypass_blue_300"
         android:textSize="14sp"
         android:id="@+id/txtMessage"
-        android:text="@string/keyphrase_restore_info"/>
+        android:text="@string/set_keyphrase_info"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -45,7 +45,9 @@
         app:boxBackgroundColor="@android:color/transparent"
         android:layout_marginTop="@dimen/grid_2"
         android:hint="@string/enter_keyphrase"
-        android:layout_marginHorizontal="@dimen/grid_3">
+        android:layout_marginHorizontal="@dimen/grid_3"
+        app:counterEnabled="true"
+        app:counterMaxLength="16">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

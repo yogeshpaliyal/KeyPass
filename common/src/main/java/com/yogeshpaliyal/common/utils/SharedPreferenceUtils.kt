@@ -19,7 +19,7 @@ val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
 
-private const val BACKUP_KEY_LENGTH = 16
+const val BACKUP_KEY_LENGTH = 16
 
 /**
  * Pair
@@ -36,6 +36,17 @@ suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, 
             it[BACKUP_KEY] = randomKey
         }
         Pair(true, randomKey)
+    }
+}
+
+suspend fun Context.isKeyPresent(): Boolean {
+    val sp = dataStore.data.first()
+    return sp.contains(BACKUP_KEY)
+}
+
+suspend fun Context.saveKeyphrase(keyphrase: String) {
+    dataStore.edit {
+        it[BACKUP_KEY] = keyphrase
     }
 }
 

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +16,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.backupAccounts
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
 import com.yogeshpaliyal.common.utils.clearBackupKey
@@ -23,7 +25,9 @@ import com.yogeshpaliyal.common.utils.getBackupDirectory
 import com.yogeshpaliyal.common.utils.getBackupTime
 import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
 import com.yogeshpaliyal.common.utils.isAutoBackupEnabled
+import com.yogeshpaliyal.common.utils.isKeyPresent
 import com.yogeshpaliyal.common.utils.overrideAutoBackup
+import com.yogeshpaliyal.common.utils.saveKeyphrase
 import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
 import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setBackupTime
@@ -31,6 +35,7 @@ import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.BackupActivityBinding
 import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
+import com.yogeshpaliyal.keypass.databinding.LayoutCustomKeypharseBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -79,9 +84,7 @@ class BackupActivity : AppCompatActivity() {
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.backup_preferences, rootKey)
-            lifecycleScope.launch {
-                updateItems()
-            }
+            updateItems()
         }
 
         override fun onPreferenceTreeClick(preference: Preference): Boolean {
@@ -93,7 +96,7 @@ class BackupActivity : AppCompatActivity() {
                     lifecycleScope.launch {
                         if (context.canUserAccessBackupDirectory()) {
                             val selectedDirectory = Uri.parse(context.getBackupDirectory())
-                            backup(selectedDirectory)
+                            passwordSelection(selectedDirectory)
                         }
                     }
                 }
@@ -124,7 +127,68 @@ class BackupActivity : AppCompatActivity() {
             return super.onPreferenceTreeClick(preference)
         }
 
-        suspend fun backup(selectedDirectory: Uri) {
+        private suspend fun passwordSelection(selectedDirectory: Uri) {
+
+            val isKeyPresent = context?.isKeyPresent() ?: return
+            if (isKeyPresent) {
+                backup(selectedDirectory)
+                return
+            }
+
+            val builder = MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.alert)
+                .setMessage(getString(R.string.custom_generated_keyphrase_info))
+                .setPositiveButton(
+                    getString(R.string.custom_keyphrase)
+                ) { dialog, which ->
+                    dialog?.dismiss()
+                    setCustomKeyphrase(selectedDirectory)
+                }
+                .setNegativeButton(R.string.generate_keyphrase) { dialog, which ->
+                    dialog?.dismiss()
+                    backup(selectedDirectory)
+                }
+            builder.show()
+        }
+
+        private fun setCustomKeyphrase(selectedDirectory: Uri) {
+            val binding = LayoutCustomKeypharseBinding.inflate(layoutInflater)
+            val dialog = MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
+                .setPositiveButton(
+                    getString(R.string.yes)
+                ) { dialog, which ->
+
+                    dialog?.dismiss()
+                }.create()
+            dialog.setOnShowListener {
+                val positiveBtn = dialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                positiveBtn.setOnClickListener {
+                    val keyphrase = binding.etKeyPhrase.text.toString().trim()
+                    if (keyphrase.isEmpty()) {
+                        Toast.makeText(context, R.string.alert_blank_keyphrase, Toast.LENGTH_SHORT)
+                            .show()
+                        return@setOnClickListener
+                    }
+
+                    if (keyphrase.length != BACKUP_KEY_LENGTH) {
+                        Toast.makeText(
+                            context,
+                            R.string.alert_invalid_keyphrase,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@setOnClickListener
+                    }
+                    lifecycleScope.launch {
+                        context?.saveKeyphrase(keyphrase)
+                        backup(selectedDirectory)
+                    }
+                    dialog.dismiss()
+                }
+            }
+            dialog.show()
+        }
+
+        fun backup(selectedDirectory: Uri) {
             lifecycleScope.launch {
                 context.backupAccounts(appDb, selectedDirectory)?.let { keyPair ->
                     if (keyPair.first) {
@@ -148,6 +212,7 @@ class BackupActivity : AppCompatActivity() {
                             .setPositiveButton(
                                 getString(R.string.yes)
                             ) { dialog, which ->
+                                updateItems()
                                 dialog?.dismiss()
                             }.show()
                     } else {
@@ -162,50 +227,53 @@ class BackupActivity : AppCompatActivity() {
             }
         }
 
-        private suspend fun updateItems() {
-            val isBackupEnabled = context.canUserAccessBackupDirectory()
+        private fun updateItems() {
+            lifecycleScope.launch(Dispatchers.IO) {
+                val isBackupEnabled =
+                    context.canUserAccessBackupDirectory() && (context?.isKeyPresent() ?: false)
 
-            val isAutoBackupEnabled = context.isAutoBackupEnabled()
-            val overrideAutoBackup = context.overrideAutoBackup()
+                val isAutoBackupEnabled = context.isAutoBackupEnabled()
+                val overrideAutoBackup = context.overrideAutoBackup()
 
-            val lastBackupTime = context.getBackupTime()
-            val backupDirectory = context.getBackupDirectory()
+                val lastBackupTime = context.getBackupTime()
+                val backupDirectory = context.getBackupDirectory()
 
-            withContext(Dispatchers.Main) {
+                withContext(Dispatchers.Main) {
 
-                findPreference<Preference>(getString(R.string.settings_start_backup))?.isVisible =
-                    isBackupEnabled.not()
-                findPreference<Preference>(getString(R.string.settings_stop_backup))?.isVisible =
-                    isBackupEnabled
+                    findPreference<Preference>(getString(R.string.settings_start_backup))?.isVisible =
+                        isBackupEnabled.not()
+                    findPreference<Preference>(getString(R.string.settings_stop_backup))?.isVisible =
+                        isBackupEnabled
 
-                findPreference<Preference>(getString(R.string.settings_auto_backup))?.isVisible =
-                    isBackupEnabled
-                findPreference<Preference>(getString(R.string.settings_auto_backup))?.summary =
-                    if (isAutoBackupEnabled) getString(R.string.enabled) else getString(R.string.disabled)
+                    findPreference<Preference>(getString(R.string.settings_auto_backup))?.isVisible =
+                        isBackupEnabled
+                    findPreference<Preference>(getString(R.string.settings_auto_backup))?.summary =
+                        if (isAutoBackupEnabled) getString(R.string.enabled) else getString(R.string.disabled)
 
-                findPreference<PreferenceCategory>(getString(R.string.settings_cat_auto_backup))?.isVisible =
-                    isBackupEnabled && isAutoBackupEnabled
+                    findPreference<PreferenceCategory>(getString(R.string.settings_cat_auto_backup))?.isVisible =
+                        isBackupEnabled && isAutoBackupEnabled
 
-                findPreference<Preference>(getString(R.string.settings_override_auto_backup))?.summary =
-                    if (overrideAutoBackup) getString(R.string.enabled) else getString(R.string.disabled)
+                    findPreference<Preference>(getString(R.string.settings_override_auto_backup))?.summary =
+                        if (overrideAutoBackup) getString(R.string.enabled) else getString(R.string.disabled)
 
-                findPreference<Preference>(getString(R.string.settings_create_backup))?.isVisible =
-                    isBackupEnabled
-                findPreference<Preference>(getString(R.string.settings_create_backup))?.summary =
-                    getString(
-                        R.string.last_backup_date,
-                        lastBackupTime.formatCalendar("dd MMM yyyy hh:mm aa")
-                    )
-                findPreference<Preference>(getString(R.string.settings_backup_folder))?.isVisible =
-                    isBackupEnabled
-                val directory = URLDecoder.decode(backupDirectory, "utf-8").split("/")
-                val folderName = directory.get(directory.lastIndex)
-                findPreference<Preference>(getString(R.string.settings_backup_folder))?.summary =
-                    folderName
-                findPreference<Preference>(getString(R.string.settings_verify_key_phrase))?.isVisible =
-                    false
-                findPreference<Preference>(getString(R.string.settings_backup))?.isVisible =
-                    isBackupEnabled
+                    findPreference<Preference>(getString(R.string.settings_create_backup))?.isVisible =
+                        isBackupEnabled
+                    findPreference<Preference>(getString(R.string.settings_create_backup))?.summary =
+                        getString(
+                            R.string.last_backup_date,
+                            lastBackupTime.formatCalendar("dd MMM yyyy hh:mm aa")
+                        )
+                    findPreference<Preference>(getString(R.string.settings_backup_folder))?.isVisible =
+                        isBackupEnabled
+                    val directory = URLDecoder.decode(backupDirectory, "utf-8").split("/")
+                    val folderName = directory.get(directory.lastIndex)
+                    findPreference<Preference>(getString(R.string.settings_backup_folder))?.summary =
+                        folderName
+                    findPreference<Preference>(getString(R.string.settings_verify_key_phrase))?.isVisible =
+                        false
+                    findPreference<Preference>(getString(R.string.settings_backup))?.isVisible =
+                        isBackupEnabled
+                }
             }
         }
 
@@ -238,7 +306,7 @@ class BackupActivity : AppCompatActivity() {
 
                     lifecycleScope.launch {
                         context.setBackupDirectory(selectedDirectory.toString())
-                        backup(selectedDirectory)
+                        passwordSelection(selectedDirectory)
                     }
                 }
             }
