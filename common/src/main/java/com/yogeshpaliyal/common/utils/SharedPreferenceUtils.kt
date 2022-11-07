@@ -19,7 +19,7 @@ val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
 
-private const val BACKUP_KEY_LENGTH = 16
+const val BACKUP_KEY_LENGTH = 16
 
 /**
  * Pair

@@ -16,6 +16,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.backupAccounts
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
 import com.yogeshpaliyal.common.utils.clearBackupKey
@@ -169,7 +170,7 @@ class BackupActivity : AppCompatActivity() {
                         return@setOnClickListener
                     }
 
-                    if (keyphrase.length != 16) {
+                    if (keyphrase.length != BACKUP_KEY_LENGTH) {
                         Toast.makeText(
                             context,
                             R.string.alert_invalid_keyphrase,
