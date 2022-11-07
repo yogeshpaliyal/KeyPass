@@ -185,7 +185,7 @@ class DashboardActivity :
             // the fab and bottom app bar until after it's exit animation finishes.
             bottomAppBar.animate().setListener(object : AnimatorListenerAdapter() {
                 var isCanceled = false
-                override fun onAnimationEnd(animation: Animator?) {
+                override fun onAnimationEnd(animation: Animator) {
                     if (isCanceled) return
 
                     // Hide the BottomAppBar to avoid it showing above the keyboard
@@ -194,7 +194,7 @@ class DashboardActivity :
                     btnAdd.visibility = View.INVISIBLE
                 }
 
-                override fun onAnimationCancel(animation: Animator?) {
+                override fun onAnimationCancel(animation: Animator) {
                     isCanceled = true
                 }
             })
