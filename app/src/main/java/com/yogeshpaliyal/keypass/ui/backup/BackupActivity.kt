@@ -136,14 +136,14 @@ class BackupActivity : AppCompatActivity() {
 
             val builder = MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.alert)
-                .setMessage("Do you want to create your own password for backups or should I generate for you?")
+                .setMessage(getString(R.string.custom_generated_keyphrase_info))
                 .setPositiveButton(
-                    getString(R.string.custom_password)
+                    getString(R.string.custom_keyphrase)
                 ) { dialog, which ->
                     dialog?.dismiss()
                     setCustomKeyphrase(selectedDirectory)
                 }
-                .setNegativeButton(R.string.generate_password) { dialog, which ->
+                .setNegativeButton(R.string.generate_keyphrase) { dialog, which ->
                     dialog?.dismiss()
                     backup(selectedDirectory)
                 }
