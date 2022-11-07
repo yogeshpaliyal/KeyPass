@@ -13,12 +13,12 @@ def appPackageId = 'com.yogeshpaliyal.keypass'
 
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId appPackageId
         minSdkVersion 22
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1407
         versionName "1.4.7"
 
