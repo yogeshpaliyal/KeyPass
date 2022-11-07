@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/grid_2"
+        android:textSize="18sp"
+        android:textColor="@color/keypass_blue_600"
+        android:id="@+id/txtTitle"
+        android:text="Set Keypharse"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/grid_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/grid_3"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"
+        android:textColor="@color/keypass_blue_300"
+        android:textSize="14sp"
+        android:id="@+id/txtMessage"
+        android:text="Please create keyphrase for you backup file, this will be used to restore the backup file. keyphrase should be of 16 character"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tilKeyPhrase"
+        app:boxBackgroundMode="outline"
+        android:backgroundTint="@android:color/transparent"
+        app:boxBackgroundColor="@android:color/transparent"
+        android:layout_marginTop="@dimen/grid_2"
+        android:hint="Enter Keyphrase"
+        android:layout_marginHorizontal="@dimen/grid_3"
+        app:counterEnabled="true"
+        app:counterMaxLength="16">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="1234"
+            android:id="@+id/etKeyPhrase"
+            android:textColor="@color/keypass_blue_600"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

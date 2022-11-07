@@ -69,4 +69,8 @@
     <string name="add_totp">Add TOTP</string>
     <string name="scan_password">Scan Password</string>
     <string name="save">Save</string>
+    <string name="custom_password">Custom Password</string>
+    <string name="alert_blank_keyphrase">Please enter keyphrase</string>
+    <string name="alert_invalid_keyphrase">Please enter valid keyphrase</string>
+
 </resources>

@@ -39,6 +39,17 @@ suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, 
     }
 }
 
+suspend fun Context.isKeyPresent(): Boolean {
+    val sp = dataStore.data.first()
+    return sp.contains(BACKUP_KEY)
+}
+
+suspend fun Context.saveKeyphrase(keyphrase: String) {
+    dataStore.edit {
+        it[BACKUP_KEY] = keyphrase
+    }
+}
+
 suspend fun Context?.clearBackupKey() {
     this?.dataStore?.edit {
         it.remove(BACKUP_KEY)
