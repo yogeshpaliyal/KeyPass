@@ -4,7 +4,6 @@
 [Download Latest Master build](https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-staging-debug.apk)
 
 
-![buildStatus](https://img.shields.io/github/workflow/status/yogeshpaliyal/KeyPass/Deploy%20App%20CI?style=for-the-badge)
 ![latestVersion](https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge)
 ![visitCount](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyogeshpaliyal%2FKeyPass&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true&style=for-the-badge")
 [![DevLibrary](https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google)](https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass)
