@@ -23,13 +23,13 @@ jobs:
       run: chmod +x gradlew
       
     - name: Build APK ⚙️🛠
-      run: bash ./gradlew assembleProductionDebug
+      run: bash ./gradlew assembleStagingDebug
  
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
           repo_token: "${{ github.token }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "latest-master"
           prerelease: true
-          title: "Development Build"
-          files: app/build/outputs/apk/production/debug/*.apk
+          title: "Staging Build"
+          files: app/build/outputs/apk/staging/debug/*.apk
       
