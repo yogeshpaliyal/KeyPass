@@ -1,6 +1,8 @@
 ![](cover.jpeg)
 
 # KeyPass
+[Download Latest Master build](https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-staging-debug.apk)
+
 
 ![buildStatus](https://img.shields.io/github/workflow/status/yogeshpaliyal/KeyPass/Deploy%20App%20CI?style=for-the-badge)
 ![latestVersion](https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge)
@@ -84,9 +86,6 @@ Give a ⭐️ if this project helped you!
 ## Download Links
 <a href='https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass'><img align='center' height='55' src='./icons/google_play_badge.png'></a>
 <a href='https://f-droid.org/en/packages/com.yogeshpaliyal.keypass/'><img align='center' alt='Get it on F-Droid' src='./icons/fdroid_badge.png' height="55"/></a>
-
-  
-[Latest Master build](https://github.com/yogeshpaliyal/KeyPass/releases/download/latest/app-staging-debug.apk)
 
 ## 📝 License
 
