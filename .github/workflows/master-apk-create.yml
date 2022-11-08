@@ -26,7 +26,7 @@ jobs:
       run: bash ./gradlew assembleProductionDebug
  
     - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
+      with:
           repo_token: "${{ github.token }}"
           automatic_release_tag: "latest"
           prerelease: true
