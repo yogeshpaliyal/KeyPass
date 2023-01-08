@@ -17,5 +17,4 @@ class MyApplication : CommonMyApplication() {
     override fun getCrashActivityIntent(throwable: Throwable): Intent {
         return CrashActivity.getIntent(this, throwable.localizedMessage)
     }
-
 }
