@@ -210,7 +210,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/grid_2"
             app:layout_anchor="@id/bottomAppBar"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.KeyPass.Cirle"
             app:srcCompat="@drawable/ic_round_done_24" />
 
 

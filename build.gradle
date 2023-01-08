@@ -7,8 +7,6 @@ buildscript {
         room_version = "2.4.2"
         navigation_version = '2.5.3'
         ext.hilt_version = '2.44.2'
-        compose_version = '1.0.1'
-
     }
     repositories {
         google()
