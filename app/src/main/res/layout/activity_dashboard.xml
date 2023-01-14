@@ -81,8 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                app:fabAlignmentMode="center"
                 app:fabCradleMargin="@dimen/bottom_app_bar_fab_cradle_margin"
+                app:menuAlignmentMode="start"
                 app:fabCradleRoundedCornerRadius="@dimen/bottom_app_bar_fab_cradle_corner_radius"
                 app:hideOnScroll="true"
                 app:menu="@menu/bottom_app_bar"
@@ -93,8 +93,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_anchor="@id/bottomAppBar"
-                app:srcCompat="@drawable/asl_add_save"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.KeyPass.Cirle"/>
+                app:fabAnchorMode="embed"
+                app:srcCompat="@drawable/asl_add_save"/>
 
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
