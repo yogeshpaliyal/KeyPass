@@ -36,12 +36,12 @@ android {
 dependencies {
 
     api 'androidx.core:core-ktx:1.8.0'
-    api 'androidx.appcompat:appcompat:1.5.1'
+    api 'androidx.appcompat:appcompat:1.6.0'
     testApi 'junit:junit:4.13.2'
-    androidTestApi 'androidx.test.ext:junit:1.1.4'
+    androidTestApi 'androidx.test.ext:junit:1.1.5'
     androidTestApi 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestApi 'androidx.test:core-ktx:1.5.0'
-    androidTestApi 'androidx.test.ext:junit-ktx:1.1.4'
+    androidTestApi 'androidx.test.ext:junit-ktx:1.1.5'
     // apache common codec
     implementation "commons-codec:commons-codec:1.15"
 
@@ -55,7 +55,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     api "androidx.room:room-ktx:$room_version"
 
-    api 'com.google.android.material:material:1.8.0-beta01'
+    api 'com.google.android.material:material:1.8.0-rc01'
 
 
     // dependency injection
@@ -67,7 +67,7 @@ dependencies {
 
     api "androidx.work:work-runtime-ktx:2.7.1"
 
-    implementation 'com.google.code.gson:gson:2.10'
+    implementation 'com.google.code.gson:gson:2.10.1'
 
     api 'com.google.code.gson:gson:2.10'
 
