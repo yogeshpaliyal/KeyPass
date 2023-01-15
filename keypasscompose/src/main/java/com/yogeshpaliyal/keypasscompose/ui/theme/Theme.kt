@@ -7,15 +7,23 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val DarkColorPalette = darkColorScheme(
-    primary = Purple200,
-    primaryContainer = Purple700,
-    secondary = Teal200
+    primary = KeyPassBlue700,
+    primaryContainer = KeyPassOrange500,
+    secondary = KeyPassOrange500
 )
 
 private val LightColorPalette = lightColorScheme(
-    primary = Purple500,
-    primaryContainer = Purple700,
-    secondary = Teal200
+    primary = KeyPassBlue700,
+    primaryContainer = KeyPassOrange500,
+    secondary = KeyPassOrange500,
+    tertiaryContainer = Blue800,
+    background = KeyPassBlue50,
+    surface = KeyPassWhite50,
+    error = KeyPassRed400,
+    onPrimary = KeyPassWhite50,
+    onSecondary = KeyPassBlack900,
+    onSurface = KeyPassBlack900,
+    onError = KeyPassBlack900
 
     /* Other default colors to override
     background = Color.White,
