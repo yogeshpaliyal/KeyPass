@@ -14,13 +14,20 @@ abstract class CommonMyApplication : Application(), Configuration.Provider {
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
 
-    abstract fun getCrashActivityIntent(throwable: Throwable): Intent
+    abstract fun getCrashActivityIntent(throwable: Throwable): Intent?
 
     override fun onCreate() {
         super.onCreate()
+
+        val oldExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
+
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             Log.d("MyApplication", "crashed ")
             val intent = getCrashActivityIntent(throwable)
+            if (intent == null) {
+                oldExceptionHandler?.uncaughtException(thread, throwable)
+                return@setDefaultUncaughtExceptionHandler
+            }
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             exitProcess(1)

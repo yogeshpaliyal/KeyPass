@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.keypass.ui.home
+package com.yogeshpaliyal.common.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

@@ -17,12 +17,12 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.transition.MaterialElevationScale
+import com.yogeshpaliyal.common.viewmodel.DashboardViewModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityDashboardBinding
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
-import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.home.HomeFragmentDirections
 import com.yogeshpaliyal.keypass.ui.settings.MySettingsFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
