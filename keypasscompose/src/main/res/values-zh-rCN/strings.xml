@@ -1,0 +1,85 @@
+<resources>
+
+
+    <string name="generate_password">生成密码</string>
+    <string name="home">主页</string>
+    <string name="delete">删除</string>
+
+
+    <string name="generate_shortcut_short_label">生成密码</string>
+
+    <string name="backup_restored">备份密码</string>
+    <string name="invalid_keyphrase">无效密码</string>
+
+    <string name="backup_completed">备份完成</string>
+
+    <!-- Sync Preferences -->
+    <string name="credentials_backups">备份</string>
+    <string name="credentials_backups_desc">把密码备份到外部存储</string>
+    <string name="restore_credentials">恢复备份</string>
+    <string name="restore_credentials_desc">从备份中恢复</string>
+    <string name="send_feedback">发送反馈</string>
+    <string name="send_feedback_desc">报告技术问题或建议新功能</string>
+    <string name="share">分享</string>
+    <string name="share_desc">向别人分享该应用</string>
+    <string name="password_length">密码长度</string>
+    <string name="password">密码</string>
+    <string name="uppercase_alphabets">大写字母</string>
+    <string name="lowercase_alphabets">小写字母</string>
+    <string name="symbols">标点符号</string>
+    <string name="numbers">数字</string>
+    <string name="copied_to_clipboard">已复制到剪切板</string>
+    <string name="login_to_enter_keypass">输入密码以进入 KeyPass</string>
+    <string name="authentication_failed">身份认证失败</string>
+
+    <string name="last_backup_date">上次备份： %s</string>
+    <string name="coming_soon">敬请期待</string>
+    <string name="delete_account_title">您确定吗？</string>
+    <string name="delete_account_msg">您确定要删除本条目吗？此操作不可撤销。</string>
+    <string name="cancel">Cancel</string>
+    <string name="feedback_to_keypass">向 KeyPass 发送反馈</string>
+    <string name="share_keypass">分享 KeyPass</string>
+    <string name="message_no_accounts">这里空空如也。按下下方的加号以新建。</string>
+    <string name="turn_off_backup">关闭备份</string>
+    <string name="verify_keyphrase">验证备份密码</string>
+    <string name="verify_keyphrase_message">测试备份密码并验证其匹配</string>
+    <string name="backup_folder">备份文件夹</string>
+    <string name="backup">备份</string>
+    <string name="turn_on_backup">开启备份</string>
+    <string name="backup_desc">备份使用密码加密并存储在您的设备上</string>
+    <string name="yes">确定</string>
+    <string name="create_backup">创建备份</string>
+    <string name="alert">警告</string>
+    <string name="copy_keypharse_msg">请立即复制或在纸上写下下面的密码。KeyPass 将不会再次显示该密码。</string>
+    <string name="help">帮助</string>
+    <string name="security">安全</string>
+    <string name="search">搜索</string>
+    <string name="account_name">账户名称</string>
+    <string name="username_email_phone">用户名/邮箱/手机号</string>
+    <string name="tags_comma_separated_optional">标签（选填）</string>
+    <string name="website_url_optional">网站（选填）</string>
+    <string name="notes_optional">附注（选填）</string>
+
+    <string name="auto_backup">自动备份</string>
+    <string name="disabled">已禁用</string>
+    <string name="enabled">启用</string>
+    <string name="override_auto_backup_file">覆盖自动备份文件</string>
+    <string name="add_totp">添加 TOTP</string>
+    <string name="alert_black_account_name">请输入账户名</string>
+    <string name="alert_black_secret_key">请输入密钥</string>
+    <string name="scanner">扫描器</string>
+    <string name="scan_password">扫描密码</string>
+    <string name="save">保存</string>
+
+    <string name="custom_keyphrase">自定义关键词</string>
+    <string name="generate_keyphrase">生成关键词</string>
+    <string name="alert_blank_keyphrase">请输入关键词</string>
+    <string name="alert_invalid_keyphrase">请输入有效的关键词</string>
+    <string name="set_keyphrase">设置关键词</string>
+    <string name="set_keyphrase_info">请为您的备份文件创建关键字，这将用于恢复备份文件。 关键词应为 16 个字符</string>
+    <string name="enter_keyphrase">输入关键词</string>
+    <string name="restore">恢复</string>
+    <string name="keyphrase_restore_info">请输入您备份时获得的关键词</string>
+    <string name="custom_generated_keyphrase_info">您想创建自己的备份关键字还是我应该为您生成？</string>
+
+</resources>

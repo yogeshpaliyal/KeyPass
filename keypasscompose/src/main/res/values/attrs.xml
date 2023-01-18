@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--A variant of primarySurface which corresponds to colorPrimaryVariant in light theme-->
+    <!--and colorSurface in dark theme-->
+    <attr name="colorPrimarySurfaceVariant" format="color" />
+
+    <!--Emphasis values are used in combination with each "on" color to create three available -->
+    <!--levels of emphasis for text and content.-->
+    <attr name="emphasisHighAlpha" format="float"/>
+    <attr name="emphasisMediumAlpha" format="float"/>
+    <attr name="emphasisDisabledAlpha" format="float"/>
+
+    <attr name="motionInterpolatorPersistent" format="reference"/>
+    <attr name="motionInterpolatorIncoming" format="reference"/>
+    <attr name="motionInterpolatorOutgoing" format="reference"/>
+
+    <!--Custom view themes/styles-->
+    <attr name="bottomNavigationDrawerStyle" format="reference" />
+    <attr name="bottomNavigationDrawerNavigationViewTheme" format="reference" />
+</resources>

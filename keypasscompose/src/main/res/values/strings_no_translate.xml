@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_backup" translatable="false">backup</string>
+    <string name="settings_verify_key_phrase" translatable="false">settings_verify_key_phrase</string>
+    <string name="settings_restore_backup" translatable="false">restore_backup</string>
+    <string name="settings_feedback" translatable="false">feedback</string>
+    <string name="settings_share_app" translatable="false">share</string>
+    <string name="settings_start_backup" translatable="false">start_backup</string>
+    <string name="settings_create_backup" translatable="false">create_backup</string>
+    <string name="settings_backup_folder" translatable="false">backup_folder</string>
+    <string name="settings_stop_backup" translatable="false">stop_backup</string>
+    <string name="settings_auto_backup" translatable="false">auto_backup</string>
+    <string name="settings_cat_auto_backup" translatable="false">cat_auto_backup</string>
+    <string name="settings_override_auto_backup" translatable="false">override_auto_backup</string>
+
+</resources>

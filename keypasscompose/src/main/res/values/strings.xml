@@ -1,3 +1,83 @@
 <resources>
-    <string name="app_name">KeyPass Compose</string>
+
+
+    <string name="generate_password">Generate Password</string>
+    <string name="home">Home</string>
+    <string name="delete">Delete</string>
+
+
+    <string name="generate_shortcut_short_label">Generate Password</string>
+
+    <string name="backup_restored">Backup Restored</string>
+    <string name="invalid_keyphrase">Invalid Keyphrase</string>
+
+    <string name="backup_completed">Backup Completed</string>
+
+    <!-- Sync Preferences -->
+    <string name="credentials_backups">Credentials Backups</string>
+    <string name="credentials_backups_desc">Backup Credentials to external storage</string>
+    <string name="restore_credentials">Restore Credentials</string>
+    <string name="restore_credentials_desc">Restore your backup</string>
+    <string name="send_feedback">Send feedback</string>
+    <string name="send_feedback_desc">Report technical issues or suggest new features</string>
+    <string name="share">Share</string>
+    <string name="share_desc">Share app with others</string>
+    <string name="password_length">Password length</string>
+    <string name="password">Password</string>
+    <string name="uppercase_alphabets">UPPERCASE ALPHABETS</string>
+    <string name="lowercase_alphabets">lowercase alphabets</string>
+    <string name="symbols">Symbols</string>
+    <string name="numbers">Numbers</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="login_to_enter_keypass">Login to enter KeyPass</string>
+    <string name="authentication_failed">Authentication failed</string>
+
+    <string name="last_backup_date">Last backup : %s</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="delete_account_title">Are you sure?</string>
+    <string name="delete_account_msg">Do you really want to delete this entry, it can\'t be restored</string>
+    <string name="cancel">Cancel</string>
+    <string name="feedback_to_keypass">Feedback to KeyPass</string>
+    <string name="share_keypass">Share KeyPass</string>
+    <string name="message_no_accounts">No Accounts added, please add from below button</string>
+    <string name="turn_off_backup">Turn Off Backups</string>
+    <string name="verify_keyphrase">Verify backup passphrase</string>
+    <string name="verify_keyphrase_message">Test your backup passphrase and verify that it matches</string>
+    <string name="backup_folder">Backup Folder</string>
+    <string name="backup">Backup</string>
+    <string name="turn_on_backup">Turn On Backups</string>
+    <string name="backup_desc">Backups are encrypted with a passphrase and stored on your device</string>
+    <string name="yes">Yes</string>
+    <string name="create_backup">Create Backup</string>
+    <string name="alert">Alert</string>
+    <string name="copy_keypharse_msg">Copy This Key Phrase this will be used to recover this backup, this will not be provided by KeyPass Again, have you copied or written down?</string>
+    <string name="help">Help</string>
+    <string name="security">Security</string>
+    <string name="search">Search</string>
+    <string name="account_name">Account Name</string>
+    <string name="username_email_phone">Username/Email/Phone</string>
+    <string name="tags_comma_separated_optional">Tags comma separated (optional)</string>
+    <string name="website_url_optional">Website url (optional)</string>
+    <string name="notes_optional">Notes (optional)</string>
+    <string name="auto_backup">Auto Backup</string>
+    <string name="disabled">Disabled</string>
+    <string name="enabled">Enabled</string>
+    <string name="override_auto_backup_file">Override Auto Backup File</string>
+    <string name="scanner">Scanner</string>
+    <string name="alert_black_secret_key">Please enter secret key</string>
+    <string name="alert_black_account_name">Please enter account name</string>
+    <string name="add_totp">Add TOTP</string>
+    <string name="scan_password">Scan Password</string>
+    <string name="save">Save</string>
+    <string name="custom_keyphrase">Custom Keyphrase</string>
+    <string name="generate_keyphrase">Generate Keyphrase</string>
+    <string name="alert_blank_keyphrase">Please enter keyphrase</string>
+    <string name="alert_invalid_keyphrase">Please enter valid keyphrase</string>
+    <string name="set_keyphrase">Set Keyphrase</string>
+    <string name="set_keyphrase_info">Please create keyphrase for you backup file, this will be used to restore the backup file. keyphrase should be of 16 characters</string>
+    <string name="enter_keyphrase">Enter Keyphrase</string>
+    <string name="restore">Restore</string>
+    <string name="keyphrase_restore_info">Please enter keyphrase you get when you backed up</string>
+    <string name="custom_generated_keyphrase_info">Do you want to create your own keyphrase for backups or should I generate for you?</string>
+
 </resources>

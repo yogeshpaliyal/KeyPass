@@ -1,0 +1,54 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <PreferenceCategory>
+
+        <Preference app:summary="@string/backup_desc" />
+
+        <Preference
+            app:key="@string/settings_start_backup"
+            app:title="@string/turn_on_backup" />
+
+        <Preference
+            app:key="@string/settings_create_backup"
+            app:title="@string/create_backup"
+            tools:summary="Last backup : 7m" />
+
+
+        <Preference
+            app:key="@string/settings_backup_folder"
+            app:title="@string/backup_folder"
+            tools:summary="@string/backup" />
+
+        <Preference
+            app:key="@string/settings_auto_backup"
+            app:title="@string/auto_backup"
+            tools:summary="@string/disabled" />
+
+        <PreferenceCategory
+            app:key="@string/settings_cat_auto_backup"
+            app:title="@string/auto_backup"
+            app:allowDividerBelow="true">
+
+            <Preference app:summary="Your accounts will be backed up whenever account is added or modified" />
+
+            <Preference
+                app:key="@string/settings_override_auto_backup"
+                app:title="@string/override_auto_backup_file"
+                tools:summary="@string/disabled" />
+
+        </PreferenceCategory>
+
+        <Preference
+            app:key="@string/settings_verify_key_phrase"
+            app:summary="@string/verify_keyphrase_message"
+            app:title="@string/verify_keyphrase" />
+
+
+        <Preference
+            app:isPreferenceVisible="false"
+            app:key="@string/settings_stop_backup"
+            app:title="@string/turn_off_backup" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
