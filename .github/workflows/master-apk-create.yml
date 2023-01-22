@@ -6,21 +6,11 @@ on:
     - master
 
 jobs:
+  setup:
+    uses: ./.github/workflows/common-workflow.yml
   build:
 
-    runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: gradle
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
       
     - name: Build APK ⚙️🛠
       run: bash ./gradlew assembleStagingDebug
@@ -32,4 +22,3 @@ jobs:
           prerelease: true
           title: "Staging Build"
           files: app/build/outputs/apk/staging/debug/*.apk
-      
