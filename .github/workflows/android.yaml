@@ -7,31 +7,22 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
 
-      - name: 🧱 Set Up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-          
-      - name: Grant Gradlew rights
-        run: chmod +x gradlew
+      - uses: actions/checkout@v3
+    
+      - name: Setting up project
+        uses: ./.github/actions/setup
+        
+      - name: 🛠 Build Project with Spotless Check
+        run: ./gradlew spotlessCheck
 
       - name: 🧪 Run Tests
         run: ./gradlew test
 
-      - name: 🛠 Build Project with Spotless Check
-        run: ./gradlew spotlessCheck
-
-      - name: ⏳ Build with Gradle
-        run: ./gradlew build
-
       - name: 🏗 Build APK
-        run: bash ./gradlew assembleProductionDebug --stacktrace
+        run: bash ./gradlew assembleProductionDebug
 
       - name: 🚀 Upload APK 📱
         uses: actions/upload-artifact@v2

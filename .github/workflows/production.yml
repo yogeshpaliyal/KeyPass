@@ -9,35 +9,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
 
-      - name: Cache
-        uses: actions/cache@v2.1.6
-        with:
-          path:  |
-           ~/.gradle/caches
-           ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-
-      - name: Grant rights
-        run: chmod +x build.gradle
-
-        
-      - name: Grant Gradlew rights
-        run: chmod +x gradlew
+      - uses: actions/checkout@v3
+    
+      - name: Setting up project
+        uses: ./.github/actions/setup
 
       - name: Build with Gradle
         id: build
