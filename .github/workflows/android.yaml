@@ -12,14 +12,14 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: 🧪 Run Tests
-        run: ./gradlew test
+      -name: See files
+        run: ls
 
       - name: 🛠 Build Project with Spotless Check
         run: ./gradlew spotlessCheck
 
-      - name: ⏳ Build with Gradle
-        run: ./gradlew build
+      - name: 🧪 Run Tests
+        run: ./gradlew test
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
