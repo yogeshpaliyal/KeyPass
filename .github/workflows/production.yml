@@ -11,6 +11,7 @@ jobs:
   setup:
     uses: ./.github/workflows/common-workflow.yml
   build:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
 
