@@ -6,12 +6,13 @@ on:
     - master
 
 jobs:
-  setup:
-    uses: ./.github/workflows/common-workflow.yml
   build:
-    needs: setup
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+  
+    - name: Setting up project
+      uses: ./.github/actions/setup
       
     - name: Build APK ⚙️🛠
       run: bash ./gradlew assembleStagingDebug
