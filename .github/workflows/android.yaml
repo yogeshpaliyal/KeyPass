@@ -12,9 +12,9 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      -name: See files
+      - name: Files list
         run: ls
-
+        
       - name: 🛠 Build Project with Spotless Check
         run: ./gradlew spotlessCheck
 
