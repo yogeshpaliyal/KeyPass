@@ -9,6 +9,8 @@ jobs:
   setup:
     uses: ./.github/workflows/common-workflow.yml
   build:
+    runs-on: ubuntu-latest
+    steps:
       - name: 🧪 Run Tests
         run: ./gradlew test
 
