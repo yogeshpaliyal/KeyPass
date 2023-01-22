@@ -6,14 +6,11 @@ on:
 
 
 jobs:
-  setup:
-    uses: ./.github/workflows/common-workflow.yml
   build:
-    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Files list
-        run: ls
+      - name: Setting up project
+        uses: ./.github/actions/setup
         
       - name: 🛠 Build Project with Spotless Check
         run: ./gradlew spotlessCheck
