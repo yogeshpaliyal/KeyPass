@@ -12,4 +12,5 @@ runs:
         java-version: 11
         
     - name: "Grant Gradlew rights"
-      run: shell chmod +x gradlew
+      run: chmod +x gradlew
+      shell: bash
