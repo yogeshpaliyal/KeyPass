@@ -6,8 +6,6 @@ jobs:
   using: "composite"
   steps:
 
-    - uses: actions/checkout@v3
-
     - name: 🧱 Set Up JDK
       uses: actions/setup-java@v1
       with:
