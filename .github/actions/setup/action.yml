@@ -2,7 +2,7 @@
 name: "Setup Worflow"
 
 
-jobs:
+runs:
   using: "composite"
   steps:
 
@@ -11,5 +11,6 @@ jobs:
       with:
         java-version: 11
         
-    - name: Grant Gradlew rights
+    - name: "Grant Gradlew rights"
       run: chmod +x gradlew
+      shell: bash
