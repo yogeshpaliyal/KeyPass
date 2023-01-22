@@ -11,7 +11,7 @@ jobs:
   setup:
     uses: ./.github/workflows/common-workflow.yml
   build:
-
+    runs-on: ubuntu-latest
     steps:
 
       - name: Build with Gradle
