@@ -11,5 +11,5 @@ runs:
       with:
         java-version: 11
         
-    - name: Grant Gradlew rights
+    - name: "Grant Gradlew rights"
       run: shell chmod +x gradlew
