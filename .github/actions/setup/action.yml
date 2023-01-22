@@ -2,7 +2,7 @@
 name: "Setup Worflow"
 
 
-jobs:
+runs:
   using: "composite"
   steps:
 
