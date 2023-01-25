@@ -31,6 +31,7 @@ class GeneratePasswordActivity : AppCompatActivity() {
             viewModel.generatePassword()
         }
 
+        addOnFormChangeListeners()
         collectStateFlows()
 
         binding.tilPassword.setEndIconOnClickListener {
@@ -38,6 +39,44 @@ class GeneratePasswordActivity : AppCompatActivity() {
             val clip = ClipData.newPlainText("random_password", binding.etPassword.text)
             clipboard.setPrimaryClip(clip)
             Toast.makeText(this, getString(R.string.copied_to_clipboard), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun addOnFormChangeListeners() {
+        onLengthSliderValueChange()
+        onUppercaseCheckedChange()
+        onLowercaseCheckedChange()
+        onNumberCheckedChange()
+        onSymbolCheckedChange()
+    }
+
+    private fun onLengthSliderValueChange() {
+        binding.sliderPasswordLength.addOnChangeListener { _, value, _ ->
+            viewModel.onPasswordLengthSliderChange(value)
+        }
+    }
+
+    private fun onUppercaseCheckedChange() {
+        binding.cbCapAlphabets.setOnCheckedChangeListener { _, checked ->
+            viewModel.onUppercaseCheckedChange(checked)
+        }
+    }
+
+    private fun onLowercaseCheckedChange() {
+        binding.cbLowerAlphabets.setOnCheckedChangeListener { _, checked ->
+            viewModel.onLowercaseCheckedChange(checked)
+        }
+    }
+
+    private fun onNumberCheckedChange() {
+        binding.cbNumbers.setOnCheckedChangeListener { _, checked ->
+            viewModel.onNumbersCheckedChange(checked)
+        }
+    }
+
+    private fun onSymbolCheckedChange() {
+        binding.cbSymbols.setOnCheckedChangeListener { _, checked ->
+            viewModel.onSymbolsCheckedChange(checked)
         }
     }
 
@@ -71,5 +110,11 @@ class GeneratePasswordActivity : AppCompatActivity() {
             setText(password)
             setSelection(password.length)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        binding.sliderPasswordLength.clearOnChangeListeners()
     }
 }
