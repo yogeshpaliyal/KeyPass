@@ -31,7 +31,7 @@ class GeneratePasswordActivity : AppCompatActivity() {
             viewModel.generatePassword()
         }
 
-        collectPassword()
+        collectStateFlows()
 
         binding.tilPassword.setEndIconOnClickListener {
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -41,12 +41,27 @@ class GeneratePasswordActivity : AppCompatActivity() {
         }
     }
 
+    private fun collectStateFlows() {
+        collectPassword()
+        collectViewState()
+    }
+
     private fun collectPassword() {
         lifecycleScope.launch {
             viewModel.password
                 .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
                 .collect {
                     updatePasswordEditText(it)
+                }
+        }
+    }
+
+    private fun collectViewState() {
+        lifecycleScope.launch {
+            viewModel.viewState
+                .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .collect {
+                    updatePasswordEditText(it.password)
                 }
         }
     }

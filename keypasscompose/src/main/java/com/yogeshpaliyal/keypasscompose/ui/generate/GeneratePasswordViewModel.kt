@@ -13,19 +13,18 @@ class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
     private val _password = MutableStateFlow("")
     val password = _password.asStateFlow()
 
-    fun generatePassword(
-        length: Int = 10,
-        includeUppercaseLetters: Boolean = true,
-        includeLowercaseLetters: Boolean = true,
-        includeSymbols: Boolean = true,
-        includeNumbers: Boolean = true,
-    ) {
+    private val _viewState  = MutableStateFlow(GeneratePasswordViewState.Initial)
+    val viewState = _viewState.asStateFlow()
+
+    fun generatePassword() {
+        val currentViewState = _viewState.value
+
         val passwordGenerator = PasswordGenerator(
-            length = length,
-            includeUpperCaseLetters = includeUppercaseLetters,
-            includeLowerCaseLetters = includeLowercaseLetters,
-            includeSymbols = includeSymbols,
-            includeNumbers = includeNumbers,
+            length = currentViewState.length,
+            includeUpperCaseLetters = currentViewState.includeUppercaseLetters,
+            includeLowerCaseLetters = currentViewState.includeLowercaseLetters,
+            includeSymbols = currentViewState.includeSymbols,
+            includeNumbers = currentViewState.includeNumbers,
         )
 
         _password.value = passwordGenerator.generatePassword()
