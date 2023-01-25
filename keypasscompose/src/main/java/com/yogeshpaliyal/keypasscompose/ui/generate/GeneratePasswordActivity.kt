@@ -4,25 +4,34 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.yogeshpaliyal.common.utils.PasswordGenerator
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.yogeshpaliyal.keypasscompose.R
 import com.yogeshpaliyal.keypasscompose.databinding.ActivityGeneratePasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class GeneratePasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGeneratePasswordBinding
+
+    private val viewModel: GeneratePasswordViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGeneratePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        generatePassword()
+        viewModel.generatePassword()
 
         binding.btnRefresh.setOnClickListener {
-            generatePassword()
+            viewModel.generatePassword()
         }
+
+        collectPassword()
 
         binding.tilPassword.setEndIconOnClickListener {
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -32,16 +41,20 @@ class GeneratePasswordActivity : AppCompatActivity() {
         }
     }
 
-    private fun generatePassword() {
-        val password = PasswordGenerator(
-            length = binding.sliderPasswordLength.value.toInt(),
-            includeUpperCaseLetters = binding.cbCapAlphabets.isChecked,
-            includeLowerCaseLetters = binding.cbLowerAlphabets.isChecked,
-            includeSymbols = binding.cbSymbols.isChecked,
-            includeNumbers = binding.cbNumbers.isChecked
-        ).generatePassword()
+    private fun collectPassword() {
+        lifecycleScope.launch {
+            viewModel.password
+                .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .collect {
+                    updatePasswordEditText(it)
+                }
+        }
+    }
 
-        binding.etPassword.setText(password)
-        binding.etPassword.setSelection(password.length)
+    private fun updatePasswordEditText(password: String) {
+        binding.etPassword.apply {
+            setText(password)
+            setSelection(password.length)
+        }
     }
 }
