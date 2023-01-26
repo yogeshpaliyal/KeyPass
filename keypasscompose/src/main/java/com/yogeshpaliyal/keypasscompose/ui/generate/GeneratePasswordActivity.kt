@@ -81,18 +81,7 @@ class GeneratePasswordActivity : AppCompatActivity() {
     }
 
     private fun collectStateFlows() {
-        collectPassword()
         collectViewState()
-    }
-
-    private fun collectPassword() {
-        lifecycleScope.launch {
-            viewModel.password
-                .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
-                .collect {
-                    updatePasswordEditText(it)
-                }
-        }
     }
 
     private fun collectViewState() {

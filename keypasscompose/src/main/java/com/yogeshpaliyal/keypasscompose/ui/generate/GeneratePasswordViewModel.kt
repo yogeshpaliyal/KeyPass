@@ -11,9 +11,6 @@ import javax.inject.Inject
 @HiltViewModel
 class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
 
-    private val _password = MutableStateFlow("")
-    val password = _password.asStateFlow()
-
     private val _viewState = MutableStateFlow(GeneratePasswordViewState.Initial)
     val viewState = _viewState.asStateFlow()
 
@@ -28,7 +25,10 @@ class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
             includeNumbers = currentViewState.includeNumbers,
         )
 
-        _password.value = passwordGenerator.generatePassword()
+        _viewState.update {
+            val newPassword = passwordGenerator.generatePassword()
+            it.copy(password = newPassword)
+        }
     }
 
     fun onPasswordLengthSliderChange(value: Float) {
