@@ -1,4 +1,4 @@
-name: Android CI
+name: PR Check
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  build:
+  spotless:
     runs-on: ubuntu-latest
     steps:
 
@@ -17,9 +17,27 @@ jobs:
         
       - name: 🛠 Build Project with Spotless Check
         run: ./gradlew spotlessCheck
+        
+  tests:
+    runs-on: ubuntu-latest
+    steps:
 
+      - uses: actions/checkout@v3
+    
+      - name: Setting up project
+        uses: ./.github/actions/setup
+        
       - name: 🧪 Run Tests
         run: ./gradlew test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+    
+      - name: Setting up project
+        uses: ./.github/actions/setup
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
