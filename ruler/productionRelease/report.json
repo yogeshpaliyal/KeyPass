@@ -2,31 +2,31 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.8",
     "variant": "productionRelease",
-    "downloadSize": 5910090,
-    "installSize": 6456602,
+    "downloadSize": 5910007,
+    "installSize": 6456543,
     "components": [
         {
             "name": "com.google.crypto.tink:tink-android:1.7.0",
             "type": "EXTERNAL",
-            "downloadSize": 700281,
-            "installSize": 703487,
+            "downloadSize": 700245,
+            "installSize": 703466,
             "files": [
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.MessageSchema",
                     "type": "CLASS",
-                    "downloadSize": 22324,
-                    "installSize": 22437
+                    "downloadSize": 22323,
+                    "installSize": 22436
                 },
                 {
                     "name": "com.google.crypto.tink.subtle.Ed25519",
                     "type": "CLASS",
-                    "downloadSize": 6428,
+                    "downloadSize": 6427,
                     "installSize": 6460
                 },
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.BinaryReader$SafeHeapReader",
                     "type": "CLASS",
-                    "downloadSize": 6149,
+                    "downloadSize": 6148,
                     "installSize": 6180
                 },
                 {
@@ -92,7 +92,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.CodedInputStream$IterableDirectByteBufferDecoder",
                     "type": "CLASS",
-                    "downloadSize": 3842,
+                    "downloadSize": 3841,
                     "installSize": 3861
                 },
                 {
@@ -171,7 +171,7 @@
                     "name": "com.google.crypto.tink.shaded.protobuf.CodedInputStream$ArrayDecoder",
                     "type": "CLASS",
                     "downloadSize": 2948,
-                    "installSize": 2963
+                    "installSize": 2962
                 },
                 {
                     "name": "com.google.crypto.tink.jwt.RawJwt",
@@ -183,7 +183,7 @@
                     "name": "com.google.crypto.tink.shaded.protobuf.Method",
                     "type": "CLASS",
                     "downloadSize": 2923,
-                    "installSize": 2938
+                    "installSize": 2937
                 },
                 {
                     "name": "com.google.crypto.tink.KeysetHandle",
@@ -224,25 +224,25 @@
                 {
                     "name": "com.google.crypto.tink.proto.RsaSsaPkcs1PrivateKey",
                     "type": "CLASS",
-                    "downloadSize": 2389,
+                    "downloadSize": 2388,
                     "installSize": 2401
                 },
                 {
                     "name": "com.google.crypto.tink.proto.RsaSsaPssPrivateKey",
                     "type": "CLASS",
-                    "downloadSize": 2389,
+                    "downloadSize": 2388,
                     "installSize": 2401
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPkcs1PrivateKey",
                     "type": "CLASS",
-                    "downloadSize": 2388,
+                    "downloadSize": 2387,
                     "installSize": 2400
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPssPrivateKey",
                     "type": "CLASS",
-                    "downloadSize": 2388,
+                    "downloadSize": 2387,
                     "installSize": 2400
                 },
                 {
@@ -296,7 +296,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.Type$Builder",
                     "type": "CLASS",
-                    "downloadSize": 1960,
+                    "downloadSize": 1959,
                     "installSize": 1969
                 },
                 {
@@ -369,7 +369,7 @@
                     "name": "com.google.crypto.tink.shaded.protobuf.CodedOutputStream$OutputStreamEncoder",
                     "type": "CLASS",
                     "downloadSize": 1785,
-                    "installSize": 1795
+                    "installSize": 1794
                 },
                 {
                     "name": "com.google.crypto.tink.proto.RegistryConfig",
@@ -392,14 +392,14 @@
                 {
                     "name": "com.google.crypto.tink.proto.AesCtrHmacStreamingParams",
                     "type": "CLASS",
-                    "downloadSize": 1746,
+                    "downloadSize": 1745,
                     "installSize": 1754
                 },
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.CodedOutputStream$SafeDirectNioEncoder",
                     "type": "CLASS",
                     "downloadSize": 1728,
-                    "installSize": 1737
+                    "installSize": 1736
                 },
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.CodedInputStream",
@@ -416,7 +416,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.SmallSortedMap",
                     "type": "CLASS",
-                    "downloadSize": 1706,
+                    "downloadSize": 1705,
                     "installSize": 1714
                 },
                 {
@@ -482,7 +482,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.FieldInfo",
                     "type": "CLASS",
-                    "downloadSize": 1622,
+                    "downloadSize": 1621,
                     "installSize": 1630
                 },
                 {
@@ -494,13 +494,13 @@
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPkcs1KeyFormat",
                     "type": "CLASS",
-                    "downloadSize": 1619,
+                    "downloadSize": 1618,
                     "installSize": 1627
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPssKeyFormat",
                     "type": "CLASS",
-                    "downloadSize": 1619,
+                    "downloadSize": 1618,
                     "installSize": 1627
                 },
                 {
@@ -518,7 +518,7 @@
                 {
                     "name": "com.google.crypto.tink.proto.KeyData",
                     "type": "CLASS",
-                    "downloadSize": 1577,
+                    "downloadSize": 1576,
                     "installSize": 1584
                 },
                 {
@@ -648,13 +648,13 @@
                     "installSize": 1503
                 },
                 {
-                    "name": "com.google.crypto.tink.proto.HkdfPrfKey",
+                    "name": "com.google.crypto.tink.proto.AesCmacKey",
                     "type": "CLASS",
-                    "downloadSize": 1495,
+                    "downloadSize": 1494,
                     "installSize": 1502
                 },
                 {
-                    "name": "com.google.crypto.tink.proto.AesCmacKey",
+                    "name": "com.google.crypto.tink.proto.HkdfPrfKey",
                     "type": "CLASS",
                     "downloadSize": 1494,
                     "installSize": 1502
@@ -764,7 +764,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.Mixin",
                     "type": "CLASS",
-                    "downloadSize": 1406,
+                    "downloadSize": 1405,
                     "installSize": 1413
                 },
                 {
@@ -848,7 +848,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.MessageSetSchema",
                     "type": "CLASS",
-                    "downloadSize": 1280,
+                    "downloadSize": 1279,
                     "installSize": 1286
                 },
                 {
@@ -860,13 +860,13 @@
                 {
                     "name": "com.google.crypto.tink.proto.JwtEcdsaKeyFormat",
                     "type": "CLASS",
-                    "downloadSize": 1277,
+                    "downloadSize": 1276,
                     "installSize": 1283
                 },
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.GeneratedMessageLite$ExtendableMessage",
                     "type": "CLASS",
-                    "downloadSize": 1277,
+                    "downloadSize": 1276,
                     "installSize": 1283
                 },
                 {
@@ -920,8 +920,8 @@
                 {
                     "name": "com.google.crypto.tink.proto.AesSivKey",
                     "type": "CLASS",
-                    "downloadSize": 1192,
-                    "installSize": 1198
+                    "downloadSize": 1191,
+                    "installSize": 1197
                 },
                 {
                     "name": "com.google.crypto.tink.proto.ChaCha20Poly1305Key",
@@ -933,25 +933,25 @@
                     "name": "com.google.crypto.tink.shaded.protobuf.LazyFieldLite",
                     "type": "CLASS",
                     "downloadSize": 1190,
-                    "installSize": 1197
+                    "installSize": 1196
                 },
                 {
                     "name": "com.google.crypto.tink.proto.AesGcmKey",
                     "type": "CLASS",
                     "downloadSize": 1190,
-                    "installSize": 1197
+                    "installSize": 1196
                 },
                 {
                     "name": "com.google.crypto.tink.proto.AesGcmSivKey",
                     "type": "CLASS",
                     "downloadSize": 1190,
-                    "installSize": 1197
+                    "installSize": 1196
                 },
                 {
                     "name": "com.google.crypto.tink.proto.XChaCha20Poly1305Key",
                     "type": "CLASS",
                     "downloadSize": 1190,
-                    "installSize": 1197
+                    "installSize": 1196
                 },
                 {
                     "name": "com.google.crypto.tink.proto.AesCmacPrfKey",
@@ -1028,19 +1028,19 @@
                 {
                     "name": "com.google.crypto.tink.proto.EcdsaKeyFormat",
                     "type": "CLASS",
-                    "downloadSize": 1153,
+                    "downloadSize": 1152,
                     "installSize": 1158
                 },
                 {
                     "name": "com.google.crypto.tink.proto.EciesAeadHkdfKeyFormat",
                     "type": "CLASS",
-                    "downloadSize": 1153,
+                    "downloadSize": 1152,
                     "installSize": 1158
                 },
                 {
                     "name": "com.google.crypto.tink.proto.HpkeKeyFormat",
                     "type": "CLASS",
-                    "downloadSize": 1151,
+                    "downloadSize": 1150,
                     "installSize": 1156
                 },
                 {
@@ -1053,25 +1053,25 @@
                     "name": "com.google.crypto.tink.proto.JwtEcdsaPublicKey$CustomKid",
                     "type": "CLASS",
                     "downloadSize": 1133,
-                    "installSize": 1139
+                    "installSize": 1138
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtHmacKey$CustomKid",
                     "type": "CLASS",
                     "downloadSize": 1133,
-                    "installSize": 1139
+                    "installSize": 1138
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPkcs1PublicKey$CustomKid",
                     "type": "CLASS",
                     "downloadSize": 1133,
-                    "installSize": 1139
+                    "installSize": 1138
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPssPublicKey$CustomKid",
                     "type": "CLASS",
                     "downloadSize": 1133,
-                    "installSize": 1139
+                    "installSize": 1138
                 },
                 {
                     "name": "com.google.crypto.tink.proto.KmsAeadKeyFormat",
@@ -1112,7 +1112,7 @@
                 {
                     "name": "com.google.crypto.tink.subtle.AesGcmHkdfStreaming",
                     "type": "CLASS",
-                    "downloadSize": 1107,
+                    "downloadSize": 1106,
                     "installSize": 1112
                 },
                 {
@@ -1154,31 +1154,31 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.BytesValue",
                     "type": "CLASS",
-                    "downloadSize": 1067,
+                    "downloadSize": 1066,
                     "installSize": 1072
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPkcs1PrivateKey$Builder",
                     "type": "CLASS",
-                    "downloadSize": 1066,
+                    "downloadSize": 1065,
                     "installSize": 1071
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtRsaSsaPssPrivateKey$Builder",
                     "type": "CLASS",
-                    "downloadSize": 1066,
+                    "downloadSize": 1065,
                     "installSize": 1071
                 },
                 {
                     "name": "com.google.crypto.tink.proto.RsaSsaPkcs1PrivateKey$Builder",
                     "type": "CLASS",
-                    "downloadSize": 1066,
+                    "downloadSize": 1065,
                     "installSize": 1071
                 },
                 {
                     "name": "com.google.crypto.tink.proto.RsaSsaPssPrivateKey$Builder",
                     "type": "CLASS",
-                    "downloadSize": 1066,
+                    "downloadSize": 1065,
                     "installSize": 1071
                 },
                 {
@@ -1245,7 +1245,7 @@
                     "name": "com.google.crypto.tink.subtle.PemKeyType",
                     "type": "CLASS",
                     "downloadSize": 1043,
-                    "installSize": 1049
+                    "installSize": 1048
                 },
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.Field$Kind",
@@ -1376,7 +1376,7 @@
                 {
                     "name": "com.google.crypto.tink.subtle.Base64$Encoder",
                     "type": "CLASS",
-                    "downloadSize": 895,
+                    "downloadSize": 894,
                     "installSize": 899
                 },
                 {
@@ -1488,16 +1488,16 @@
                     "installSize": 813
                 },
                 {
-                    "name": "com.google.crypto.tink.shaded.protobuf.CodedOutputStream$AbstractBufferedEncoder",
-                    "type": "CLASS",
-                    "downloadSize": 810,
-                    "installSize": 814
-                },
-                {
                     "name": "com.google.crypto.tink.internal.SerializationRegistry$Builder",
                     "type": "CLASS",
                     "downloadSize": 810,
                     "installSize": 812
+                },
+                {
+                    "name": "com.google.crypto.tink.shaded.protobuf.CodedOutputStream$AbstractBufferedEncoder",
+                    "type": "CLASS",
+                    "downloadSize": 809,
+                    "installSize": 814
                 },
                 {
                     "name": "com.google.crypto.tink.hybrid.internal.HpkeContext",
@@ -1556,7 +1556,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.ProtobufArrayList",
                     "type": "CLASS",
-                    "downloadSize": 768,
+                    "downloadSize": 767,
                     "installSize": 771
                 },
                 {
@@ -1725,7 +1725,7 @@
                     "name": "com.google.crypto.tink.subtle.ChaCha20Poly1305Base",
                     "type": "CLASS",
                     "downloadSize": 685,
-                    "installSize": 689
+                    "installSize": 688
                 },
                 {
                     "name": "com.google.crypto.tink.proto.Keyset$Builder",
@@ -2559,7 +2559,7 @@
                     "name": "com.google.crypto.tink.subtle.AesCtrJceCipher",
                     "type": "CLASS",
                     "downloadSize": 476,
-                    "installSize": 479
+                    "installSize": 478
                 },
                 {
                     "name": "com.google.crypto.tink.Config",
@@ -2576,7 +2576,7 @@
                 {
                     "name": "com.google.crypto.tink.proto.EcdsaSignatureEncoding",
                     "type": "CLASS",
-                    "downloadSize": 469,
+                    "downloadSize": 468,
                     "installSize": 471
                 },
                 {
@@ -2756,7 +2756,7 @@
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.TextFormatEscaper",
                     "type": "CLASS",
-                    "downloadSize": 426,
+                    "downloadSize": 425,
                     "installSize": 428
                 },
                 {
@@ -2889,25 +2889,25 @@
                     "name": "com.google.crypto.tink.proto.HkdfPrfParams$Builder",
                     "type": "CLASS",
                     "downloadSize": 387,
-                    "installSize": 389
+                    "installSize": 388
                 },
                 {
                     "name": "com.google.crypto.tink.proto.HmacParams$Builder",
                     "type": "CLASS",
                     "downloadSize": 387,
-                    "installSize": 389
+                    "installSize": 388
                 },
                 {
                     "name": "com.google.crypto.tink.proto.JwtEcdsaKeyFormat$Builder",
                     "type": "CLASS",
                     "downloadSize": 387,
-                    "installSize": 389
+                    "installSize": 388
                 },
                 {
                     "name": "com.google.crypto.tink.shaded.protobuf.Any$Builder",
                     "type": "CLASS",
                     "downloadSize": 387,
-                    "installSize": 389
+                    "installSize": 388
                 },
                 {
                     "name": "com.google.crypto.tink.signature.RsaSsaPssSignKeyManager$1",
@@ -3752,7 +3752,7 @@
                 {
                     "name": "com.google.crypto.tink.subtle.Hkdf",
                     "type": "CLASS",
-                    "downloadSize": 256,
+                    "downloadSize": 255,
                     "installSize": 257
                 },
                 {
@@ -17508,8 +17508,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 595729,
-            "installSize": 1121353,
+            "downloadSize": 595715,
+            "installSize": 1121341,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -17520,8 +17520,8 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.R$styleable",
                     "type": "CLASS",
-                    "downloadSize": 19937,
-                    "installSize": 20038
+                    "downloadSize": 19936,
+                    "installSize": 20037
                 },
                 {
                     "name": "com.google.android.material.R$styleable",
@@ -17610,7 +17610,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.R$id",
                     "type": "CLASS",
-                    "downloadSize": 4571,
+                    "downloadSize": 4570,
                     "installSize": 4594
                 },
                 {
@@ -17700,8 +17700,8 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.R$string",
                     "type": "CLASS",
-                    "downloadSize": 2173,
-                    "installSize": 2184
+                    "downloadSize": 2172,
+                    "installSize": 2183
                 },
                 {
                     "name": "/res/mipmap-mdpi-v4/ic_launcher_round.png",
@@ -17713,7 +17713,7 @@
                     "name": "com.yogeshpaliyal.keypass.ui.backup.BackupActivity$SettingsFragment",
                     "type": "CLASS",
                     "downloadSize": 1966,
-                    "installSize": 1976
+                    "installSize": 1975
                 },
                 {
                     "name": "/res/mipmap-xhdpi-v4/ic_launcher.png",
@@ -18472,22 +18472,22 @@
                     "installSize": 604
                 },
                 {
-                    "name": "com.yogeshpaliyal.keypass.ui.home.Hilt_HomeFragment",
+                    "name": "androidx.coordinatorlayout.R$styleable",
                     "type": "CLASS",
                     "downloadSize": 598,
+                    "installSize": 599
+                },
+                {
+                    "name": "com.yogeshpaliyal.keypass.ui.home.Hilt_HomeFragment",
+                    "type": "CLASS",
+                    "downloadSize": 597,
                     "installSize": 601
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.nav.Hilt_BottomNavDrawerFragment",
                     "type": "CLASS",
-                    "downloadSize": 598,
+                    "downloadSize": 597,
                     "installSize": 601
-                },
-                {
-                    "name": "androidx.coordinatorlayout.R$styleable",
-                    "type": "CLASS",
-                    "downloadSize": 598,
-                    "installSize": 599
                 },
                 {
                     "name": "androidx.drawerlayout.R$id",
@@ -18709,7 +18709,7 @@
                     "name": "com.yogeshpaliyal.keypass.ui.nav.BottomNavigationDrawerCallback",
                     "type": "CLASS",
                     "downloadSize": 506,
-                    "installSize": 509
+                    "installSize": 508
                 },
                 {
                     "name": "/res/drawable/ic_baseline_casino_24.xml",
@@ -19284,7 +19284,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.nav.NavigationAdapter",
                     "type": "CLASS",
-                    "downloadSize": 426,
+                    "downloadSize": 425,
                     "installSize": 428
                 },
                 {
@@ -23044,30 +23044,6 @@
                     "installSize": 14
                 },
                 {
-                    "name": "/META-INF/com.google.dagger_dagger-lint-aar.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
-                    "name": "/META-INF/com.google.dagger_dagger.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
-                    "name": "/META-INF/com.google.dagger_hilt-android.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
-                    "name": "/META-INF/com.google.dagger_hilt-core.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
                     "name": "/META-INF/androidx.activity_activity-ktx.version",
                     "type": "OTHER",
                     "downloadSize": 8,
@@ -23500,6 +23476,30 @@
                     "installSize": 5
                 },
                 {
+                    "name": "/META-INF/com.google.dagger_dagger-lint-aar.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_dagger.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_hilt-android.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_hilt-core.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
                     "name": "/META-INF/kotlinx_coroutines_android.version",
                     "type": "OTHER",
                     "downloadSize": 7,
@@ -23516,44 +23516,44 @@
         {
             "name": "org.jetbrains.kotlin:kotlin-stdlib:1.7.21",
             "type": "EXTERNAL",
-            "downloadSize": 553612,
-            "installSize": 556436,
+            "downloadSize": 553592,
+            "installSize": 556417,
             "files": [
                 {
                     "name": "kotlin.collections.ArraysKt___ArraysKt",
                     "type": "CLASS",
-                    "downloadSize": 127583,
-                    "installSize": 128227
+                    "downloadSize": 127577,
+                    "installSize": 128222
                 },
                 {
                     "name": "kotlin.collections.unsigned.UArraysKt___UArraysKt",
                     "type": "CLASS",
-                    "downloadSize": 54417,
-                    "installSize": 54692
+                    "downloadSize": 54415,
+                    "installSize": 54690
                 },
                 {
                     "name": "kotlin.collections.CollectionsKt___CollectionsKt",
                     "type": "CLASS",
-                    "downloadSize": 19450,
-                    "installSize": 19548
+                    "downloadSize": 19449,
+                    "installSize": 19547
                 },
                 {
                     "name": "kotlin.collections.ArraysKt___ArraysJvmKt",
                     "type": "CLASS",
                     "downloadSize": 17134,
-                    "installSize": 17221
+                    "installSize": 17220
                 },
                 {
                     "name": "kotlin.text.StringsKt___StringsKt",
                     "type": "CLASS",
-                    "downloadSize": 14708,
-                    "installSize": 14782
+                    "downloadSize": 14707,
+                    "installSize": 14781
                 },
                 {
                     "name": "kotlin.sequences.SequencesKt___SequencesKt",
                     "type": "CLASS",
-                    "downloadSize": 12947,
-                    "installSize": 13012
+                    "downloadSize": 12946,
+                    "installSize": 13011
                 },
                 {
                     "name": "kotlin.text.StringsKt__StringsKt",
@@ -23571,7 +23571,7 @@
                     "name": "kotlin.text.StringsKt__StringsJVMKt",
                     "type": "CLASS",
                     "downloadSize": 5033,
-                    "installSize": 5059
+                    "installSize": 5058
                 },
                 {
                     "name": "kotlin.time.Duration",
@@ -23589,7 +23589,7 @@
                     "name": "kotlin.math.MathKt__MathJVMKt",
                     "type": "CLASS",
                     "downloadSize": 3990,
-                    "installSize": 4011
+                    "installSize": 4010
                 },
                 {
                     "name": "kotlin.collections.MapsKt__MapsKt",
@@ -23624,7 +23624,7 @@
                 {
                     "name": "kotlin.collections.builders.MapBuilder",
                     "type": "CLASS",
-                    "downloadSize": 3113,
+                    "downloadSize": 3112,
                     "installSize": 3128
                 },
                 {
@@ -23661,7 +23661,7 @@
                     "name": "kotlin.io.FilesKt__UtilsKt",
                     "type": "CLASS",
                     "downloadSize": 2441,
-                    "installSize": 2454
+                    "installSize": 2453
                 },
                 {
                     "name": "kotlin.jvm.internal.FunctionImpl",
@@ -23690,7 +23690,7 @@
                 {
                     "name": "kotlin.jvm.internal.Intrinsics",
                     "type": "CLASS",
-                    "downloadSize": 2087,
+                    "downloadSize": 2086,
                     "installSize": 2097
                 },
                 {
@@ -23721,7 +23721,7 @@
                     "name": "kotlin.collections.CollectionsKt__MutableCollectionsKt",
                     "type": "CLASS",
                     "downloadSize": 1730,
-                    "installSize": 1739
+                    "installSize": 1738
                 },
                 {
                     "name": "kotlin.NumbersKt__FloorDivModKt",
@@ -23793,7 +23793,7 @@
                     "name": "kotlin.comparisons.ComparisonsKt__ComparisonsKt",
                     "type": "CLASS",
                     "downloadSize": 1252,
-                    "installSize": 1259
+                    "installSize": 1258
                 },
                 {
                     "name": "kotlin.text.CharsKt__CharJVMKt",
@@ -23822,7 +23822,7 @@
                 {
                     "name": "kotlin.random.Random",
                     "type": "CLASS",
-                    "downloadSize": 1150,
+                    "downloadSize": 1149,
                     "installSize": 1155
                 },
                 {
@@ -23834,7 +23834,7 @@
                 {
                     "name": "kotlin.collections.ArraysKt__ArraysKt",
                     "type": "CLASS",
-                    "downloadSize": 1109,
+                    "downloadSize": 1108,
                     "installSize": 1114
                 },
                 {
@@ -23877,7 +23877,7 @@
                     "name": "kotlin.collections.RingBuffer",
                     "type": "CLASS",
                     "downloadSize": 953,
-                    "installSize": 958
+                    "installSize": 957
                 },
                 {
                     "name": "kotlin.reflect.TypesJVMKt",
@@ -24039,7 +24039,7 @@
                     "name": "kotlin.text.StringsKt___StringsJvmKt",
                     "type": "CLASS",
                     "downloadSize": 744,
-                    "installSize": 748
+                    "installSize": 747
                 },
                 {
                     "name": "kotlin.text.CharsKt__CharKt",
@@ -24116,7 +24116,7 @@
                 {
                     "name": "kotlin.ranges.IntRange",
                     "type": "CLASS",
-                    "downloadSize": 683,
+                    "downloadSize": 682,
                     "installSize": 686
                 },
                 {
@@ -24266,7 +24266,7 @@
                 {
                     "name": "kotlin.collections.builders.MapBuilderEntries",
                     "type": "CLASS",
-                    "downloadSize": 554,
+                    "downloadSize": 553,
                     "installSize": 556
                 },
                 {
@@ -24558,12 +24558,6 @@
                     "installSize": 449
                 },
                 {
-                    "name": "kotlin.collections.builders.MapBuilderKeys",
-                    "type": "CLASS",
-                    "downloadSize": 446,
-                    "installSize": 449
-                },
-                {
                     "name": "kotlin.jvm.internal.MagicApiIntrinsics",
                     "type": "CLASS",
                     "downloadSize": 446,
@@ -24571,6 +24565,12 @@
                 },
                 {
                     "name": "kotlin.coroutines.jvm.internal.BaseContinuationImpl",
+                    "type": "CLASS",
+                    "downloadSize": 446,
+                    "installSize": 448
+                },
+                {
+                    "name": "kotlin.collections.builders.MapBuilderKeys",
                     "type": "CLASS",
                     "downloadSize": 446,
                     "installSize": 448
@@ -24878,7 +24878,7 @@
                 {
                     "name": "kotlin.jvm.internal.MutablePropertyReference0",
                     "type": "CLASS",
-                    "downloadSize": 341,
+                    "downloadSize": 340,
                     "installSize": 342
                 },
                 {
@@ -25262,7 +25262,7 @@
                 {
                     "name": "kotlin.UnsafeLazyImpl",
                     "type": "CLASS",
-                    "downloadSize": 256,
+                    "downloadSize": 255,
                     "installSize": 257
                 },
                 {
@@ -25566,15 +25566,15 @@
                     "installSize": 215
                 },
                 {
-                    "name": "kotlin.Result$Failure",
+                    "name": "kotlin.properties.Delegates",
                     "type": "CLASS",
                     "downloadSize": 213,
                     "installSize": 214
                 },
                 {
-                    "name": "kotlin.properties.Delegates",
+                    "name": "kotlin.Result$Failure",
                     "type": "CLASS",
-                    "downloadSize": 213,
+                    "downloadSize": 212,
                     "installSize": 214
                 },
                 {
@@ -40012,13 +40012,13 @@
         {
             "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
             "type": "EXTERNAL",
-            "downloadSize": 266066,
-            "installSize": 267420,
+            "downloadSize": 266057,
+            "installSize": 267415,
             "files": [
                 {
                     "name": "kotlinx.coroutines.JobSupport",
                     "type": "CLASS",
-                    "downloadSize": 6604,
+                    "downloadSize": 6603,
                     "installSize": 6637
                 },
                 {
@@ -40067,7 +40067,7 @@
                     "name": "kotlinx.coroutines.channels.ChannelsKt",
                     "type": "CLASS",
                     "downloadSize": 2503,
-                    "installSize": 2516
+                    "installSize": 2515
                 },
                 {
                     "name": "kotlinx.coroutines.channels.AbstractChannel",
@@ -40085,7 +40085,7 @@
                     "name": "kotlinx.coroutines.scheduling.CoroutineScheduler$Worker",
                     "type": "CLASS",
                     "downloadSize": 1845,
-                    "installSize": 1855
+                    "installSize": 1854
                 },
                 {
                     "name": "kotlinx.coroutines.channels.ArrayChannel",
@@ -40096,7 +40096,7 @@
                 {
                     "name": "kotlinx.coroutines.channels.ConflatedBroadcastChannel",
                     "type": "CLASS",
-                    "downloadSize": 1665,
+                    "downloadSize": 1664,
                     "installSize": 1673
                 },
                 {
@@ -40139,7 +40139,7 @@
                     "name": "kotlinx.coroutines.internal.StackTraceRecoveryKt",
                     "type": "CLASS",
                     "downloadSize": 1458,
-                    "installSize": 1466
+                    "installSize": 1465
                 },
                 {
                     "name": "kotlinx.coroutines.sync.SemaphoreImpl",
@@ -40247,7 +40247,7 @@
                     "name": "kotlinx.coroutines.channels.ChannelCoroutine",
                     "type": "CLASS",
                     "downloadSize": 893,
-                    "installSize": 898
+                    "installSize": 897
                 },
                 {
                     "name": "kotlinx.coroutines.debug.internal.ConcurrentWeakMap$Core",
@@ -40342,7 +40342,7 @@
                 {
                     "name": "kotlinx.coroutines.internal.ConcurrentLinkedListNode",
                     "type": "CLASS",
-                    "downloadSize": 683,
+                    "downloadSize": 682,
                     "installSize": 686
                 },
                 {
@@ -40811,7 +40811,7 @@
                     "name": "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2$1$1",
                     "type": "CLASS",
                     "downloadSize": 416,
-                    "installSize": 419
+                    "installSize": 418
                 },
                 {
                     "name": "kotlinx.coroutines.JobCancellationException",
@@ -41092,17 +41092,17 @@
                 {
                     "name": "kotlinx.coroutines.flow.FlowKt__EmittersKt$onCompletion$$inlined$unsafeFlow$1",
                     "type": "CLASS",
-                    "downloadSize": 341,
-                    "installSize": 342
-                },
-                {
-                    "name": "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharingDeferred$1",
-                    "type": "CLASS",
-                    "downloadSize": 341,
+                    "downloadSize": 340,
                     "installSize": 342
                 },
                 {
                     "name": "kotlinx.coroutines.internal.LockFreeLinkedListHead",
+                    "type": "CLASS",
+                    "downloadSize": 340,
+                    "installSize": 342
+                },
+                {
+                    "name": "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharingDeferred$1",
                     "type": "CLASS",
                     "downloadSize": 340,
                     "installSize": 342
@@ -41410,25 +41410,25 @@
                 {
                     "name": "kotlinx.coroutines.internal.WeakMapCtorCache",
                     "type": "CLASS",
-                    "downloadSize": 299,
+                    "downloadSize": 298,
                     "installSize": 300
                 },
                 {
                     "name": "kotlinx.coroutines.flow.internal.FlowCoroutineKt$scopedFlow$1$1",
                     "type": "CLASS",
-                    "downloadSize": 299,
+                    "downloadSize": 298,
                     "installSize": 300
                 },
                 {
                     "name": "kotlinx.coroutines.debug.internal.DebugCoroutineInfoImpl$creationStackTrace$1",
                     "type": "CLASS",
-                    "downloadSize": 298,
+                    "downloadSize": 297,
                     "installSize": 299
                 },
                 {
                     "name": "kotlinx.coroutines.flow.FlowKt__ZipKt$combine$1$1",
                     "type": "CLASS",
-                    "downloadSize": 298,
+                    "downloadSize": 297,
                     "installSize": 299
                 },
                 {
@@ -47428,14 +47428,14 @@
         {
             "name": "com.google.zxing:core:3.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 178170,
-            "installSize": 179070,
+            "downloadSize": 178161,
+            "installSize": 179064,
             "files": [
                 {
                     "name": "com.google.zxing.pdf417.PDF417Common",
                     "type": "CLASS",
-                    "downloadSize": 11614,
-                    "installSize": 11673
+                    "downloadSize": 11613,
+                    "installSize": 11672
                 },
                 {
                     "name": "com.google.zxing.pdf417.encoder.PDF417",
@@ -47495,7 +47495,7 @@
                     "name": "com.google.zxing.qrcode.detector.FinderPatternFinder",
                     "type": "CLASS",
                     "downloadSize": 2440,
-                    "installSize": 2453
+                    "installSize": 2452
                 },
                 {
                     "name": "com.google.zxing.aztec.detector.Detector",
@@ -47507,7 +47507,7 @@
                     "name": "com.google.zxing.oned.rss.expanded.decoders.FieldParser",
                     "type": "CLASS",
                     "downloadSize": 2234,
-                    "installSize": 2246
+                    "installSize": 2245
                 },
                 {
                     "name": "com.google.zxing.oned.rss.expanded.decoders.GeneralAppIdDecoder",
@@ -47525,7 +47525,7 @@
                     "name": "com.google.zxing.pdf417.decoder.DecodedBitStreamParser",
                     "type": "CLASS",
                     "downloadSize": 1905,
-                    "installSize": 1915
+                    "installSize": 1914
                 },
                 {
                     "name": "com.google.zxing.common.BitMatrix",
@@ -47590,7 +47590,7 @@
                 {
                     "name": "com.google.zxing.datamatrix.decoder.Version",
                     "type": "CLASS",
-                    "downloadSize": 1535,
+                    "downloadSize": 1534,
                     "installSize": 1542
                 },
                 {
@@ -47608,7 +47608,7 @@
                 {
                     "name": "com.google.zxing.oned.ITFReader",
                     "type": "CLASS",
-                    "downloadSize": 1408,
+                    "downloadSize": 1407,
                     "installSize": 1415
                 },
                 {
@@ -47650,7 +47650,7 @@
                 {
                     "name": "com.google.zxing.aztec.encoder.HighLevelEncoder",
                     "type": "CLASS",
-                    "downloadSize": 1238,
+                    "downloadSize": 1237,
                     "installSize": 1244
                 },
                 {
@@ -47662,7 +47662,7 @@
                 {
                     "name": "com.google.zxing.oned.CodaBarReader",
                     "type": "CLASS",
-                    "downloadSize": 1195,
+                    "downloadSize": 1194,
                     "installSize": 1201
                 },
                 {
@@ -47758,7 +47758,7 @@
                 {
                     "name": "com.google.zxing.common.PerspectiveTransform",
                     "type": "CLASS",
-                    "downloadSize": 852,
+                    "downloadSize": 851,
                     "installSize": 856
                 },
                 {
@@ -47789,12 +47789,12 @@
                     "name": "com.google.zxing.qrcode.detector.AlignmentPatternFinder",
                     "type": "CLASS",
                     "downloadSize": 774,
-                    "installSize": 778
+                    "installSize": 777
                 },
                 {
                     "name": "com.google.zxing.oned.Code128Writer",
                     "type": "CLASS",
-                    "downloadSize": 768,
+                    "downloadSize": 767,
                     "installSize": 771
                 },
                 {
@@ -48245,7 +48245,7 @@
                     "name": "com.google.zxing.maxicode.MaxiCodeReader",
                     "type": "CLASS",
                     "downloadSize": 357,
-                    "installSize": 359
+                    "installSize": 358
                 },
                 {
                     "name": "com.google.zxing.datamatrix.decoder.DataBlock",
@@ -48826,13 +48826,13 @@
                 {
                     "name": "com.google.zxing.oned.rss.expanded.decoders.DecodedChar",
                     "type": "CLASS",
-                    "downloadSize": 128,
+                    "downloadSize": 127,
                     "installSize": 128
                 },
                 {
                     "name": "com.google.zxing.oned.rss.expanded.decoders.AI01320xDecoder",
                     "type": "CLASS",
-                    "downloadSize": 128,
+                    "downloadSize": 127,
                     "installSize": 128
                 },
                 {
@@ -53460,8 +53460,8 @@
         {
             "name": ":common",
             "type": "INTERNAL",
-            "downloadSize": 76186,
-            "installSize": 76566,
+            "downloadSize": 76181,
+            "installSize": 76563,
             "files": [
                 {
                     "name": "com.yogeshpaliyal.common.R$styleable",
@@ -53472,8 +53472,8 @@
                 {
                     "name": "com.yogeshpaliyal.common.R$attr",
                     "type": "CLASS",
-                    "downloadSize": 8525,
-                    "installSize": 8568
+                    "downloadSize": 8524,
+                    "installSize": 8567
                 },
                 {
                     "name": "com.yogeshpaliyal.common.R$style",
@@ -53485,19 +53485,19 @@
                     "name": "com.yogeshpaliyal.common.R$dimen",
                     "type": "CLASS",
                     "downloadSize": 5815,
-                    "installSize": 5845
+                    "installSize": 5844
                 },
                 {
                     "name": "com.yogeshpaliyal.common.R$color",
                     "type": "CLASS",
-                    "downloadSize": 5535,
+                    "downloadSize": 5534,
                     "installSize": 5562
                 },
                 {
                     "name": "com.yogeshpaliyal.common.R$id",
                     "type": "CLASS",
                     "downloadSize": 3068,
-                    "installSize": 3084
+                    "installSize": 3083
                 },
                 {
                     "name": "com.yogeshpaliyal.common.utils.SharedPreferenceUtilsKt",
@@ -53520,7 +53520,7 @@
                 {
                     "name": "com.yogeshpaliyal.common.data.AccountModel",
                     "type": "CLASS",
-                    "downloadSize": 1025,
+                    "downloadSize": 1024,
                     "installSize": 1030
                 },
                 {
@@ -53568,7 +53568,7 @@
                 {
                     "name": "com.yogeshpaliyal.common.utils.PasswordGenerator",
                     "type": "CLASS",
-                    "downloadSize": 598,
+                    "downloadSize": 597,
                     "installSize": 601
                 },
                 {
@@ -53616,7 +53616,7 @@
                 {
                     "name": "com.yogeshpaliyal.common.db.DbDao_Impl$12",
                     "type": "CLASS",
-                    "downloadSize": 427,
+                    "downloadSize": 426,
                     "installSize": 429
                 },
                 {
@@ -54062,8 +54062,8 @@
         {
             "name": "commons-codec:commons-codec:1.15",
             "type": "EXTERNAL",
-            "downloadSize": 75645,
-            "installSize": 76031,
+            "downloadSize": 75643,
+            "installSize": 76029,
             "files": [
                 {
                     "name": "org.apache.commons.codec.digest.PureJavaCrc32C",
@@ -54134,8 +54134,8 @@
                 {
                     "name": "org.apache.commons.codec.binary.BaseNCodec",
                     "type": "CLASS",
-                    "downloadSize": 1580,
-                    "installSize": 1588
+                    "downloadSize": 1579,
+                    "installSize": 1587
                 },
                 {
                     "name": "org.apache.commons.codec.net.QuotedPrintableCodec",
@@ -54291,7 +54291,7 @@
                     "name": "org.apache.commons.codec.binary.BaseNCodecInputStream",
                     "type": "CLASS",
                     "downloadSize": 536,
-                    "installSize": 539
+                    "installSize": 538
                 },
                 {
                     "name": "org.apache.commons.codec.digest.MurmurHash3$IncrementalHash32x86",
@@ -54596,7 +54596,7 @@
                 {
                     "name": "org.apache.commons.codec.language.bm.PhoneticEngine$1",
                     "type": "CLASS",
-                    "downloadSize": 128,
+                    "downloadSize": 127,
                     "installSize": 128
                 },
                 {
@@ -54706,13 +54706,13 @@
         {
             "name": "com.google.code.gson:gson:2.10.1",
             "type": "EXTERNAL",
-            "downloadSize": 72718,
-            "installSize": 73078,
+            "downloadSize": 72714,
+            "installSize": 73073,
             "files": [
                 {
                     "name": "com.google.gson.stream.JsonReader",
                     "type": "CLASS",
-                    "downloadSize": 5414,
+                    "downloadSize": 5413,
                     "installSize": 5441
                 },
                 {
@@ -54767,7 +54767,7 @@
                     "name": "com.google.gson.JsonArray",
                     "type": "CLASS",
                     "downloadSize": 1312,
-                    "installSize": 1319
+                    "installSize": 1318
                 },
                 {
                     "name": "com.google.gson.JsonPrimitive",
@@ -54821,7 +54821,7 @@
                     "name": "com.google.gson.JsonObject",
                     "type": "CLASS",
                     "downloadSize": 834,
-                    "installSize": 839
+                    "installSize": 838
                 },
                 {
                     "name": "com.google.gson.internal.ConstructorConstructor",
@@ -54856,8 +54856,8 @@
                 {
                     "name": "com.google.gson.internal.bind.ObjectTypeAdapter",
                     "type": "CLASS",
-                    "downloadSize": 596,
-                    "installSize": 599
+                    "downloadSize": 595,
+                    "installSize": 598
                 },
                 {
                     "name": "com.google.gson.internal.LinkedTreeMap$Node",
@@ -54905,7 +54905,7 @@
                     "name": "com.google.gson.internal.reflect.ReflectionHelper$RecordSupportedHelper",
                     "type": "CLASS",
                     "downloadSize": 446,
-                    "installSize": 449
+                    "installSize": 448
                 },
                 {
                     "name": "com.google.gson.internal.$Gson$Types$WildcardTypeImpl",
@@ -54959,7 +54959,7 @@
                     "name": "com.google.gson.internal.bind.NumberTypeAdapter",
                     "type": "CLASS",
                     "downloadSize": 387,
-                    "installSize": 389
+                    "installSize": 388
                 },
                 {
                     "name": "com.google.gson.internal.Streams$AppendableWriter",
@@ -54970,7 +54970,7 @@
                 {
                     "name": "com.google.gson.internal.UnsafeAllocator",
                     "type": "CLASS",
-                    "downloadSize": 384,
+                    "downloadSize": 383,
                     "installSize": 385
                 },
                 {
@@ -55558,7 +55558,7 @@
                 {
                     "name": "com.google.gson.internal.$Gson$Preconditions",
                     "type": "CLASS",
-                    "downloadSize": 128,
+                    "downloadSize": 127,
                     "installSize": 128
                 },
                 {
@@ -57832,20 +57832,20 @@
         {
             "name": "com.yogeshpaliyal:universal-adapter:3.0.1",
             "type": "EXTERNAL",
-            "downloadSize": 57374,
-            "installSize": 57669,
+            "downloadSize": 57372,
+            "installSize": 57667,
             "files": [
                 {
                     "name": "com.yogeshpaliyal.universalAdapter.R$styleable",
                     "type": "CLASS",
-                    "downloadSize": 15457,
-                    "installSize": 15535
+                    "downloadSize": 15456,
+                    "installSize": 15534
                 },
                 {
                     "name": "com.yogeshpaliyal.universalAdapter.R$attr",
                     "type": "CLASS",
-                    "downloadSize": 6735,
-                    "installSize": 6769
+                    "downloadSize": 6734,
+                    "installSize": 6768
                 },
                 {
                     "name": "com.yogeshpaliyal.universalAdapter.R$style",
@@ -58970,8 +58970,8 @@
         {
             "name": "com.journeyapps:zxing-android-embedded:4.3.0",
             "type": "EXTERNAL",
-            "downloadSize": 47103,
-            "installSize": 48169,
+            "downloadSize": 47102,
+            "installSize": 48168,
             "files": [
                 {
                     "name": "/res/raw/zxing_beep.ogg",
@@ -58982,7 +58982,7 @@
                 {
                     "name": "com.journeyapps.barcodescanner.CameraPreview",
                     "type": "CLASS",
-                    "downloadSize": 3282,
+                    "downloadSize": 3281,
                     "installSize": 3298
                 },
                 {
@@ -59061,7 +59061,7 @@
                     "name": "com.google.zxing.client.android.R$id",
                     "type": "CLASS",
                     "downloadSize": 775,
-                    "installSize": 779
+                    "installSize": 778
                 },
                 {
                     "name": "com.journeyapps.barcodescanner.BarcodeView",
@@ -66204,14 +66204,14 @@
         {
             "name": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
             "type": "EXTERNAL",
-            "downloadSize": 12689,
-            "installSize": 12755,
+            "downloadSize": 12688,
+            "installSize": 12754,
             "files": [
                 {
                     "name": "kotlin.io.path.PathsKt__PathUtilsKt",
                     "type": "CLASS",
                     "downloadSize": 4618,
-                    "installSize": 4642
+                    "installSize": 4641
                 },
                 {
                     "name": "kotlin.io.path.PathsKt__PathReadWriteKt",
@@ -66228,7 +66228,7 @@
                 {
                     "name": "kotlin.io.path.PathTreeWalk",
                     "type": "CLASS",
-                    "downloadSize": 639,
+                    "downloadSize": 638,
                     "installSize": 642
                 },
                 {
@@ -66324,10 +66324,10 @@
             ]
         },
         {
-            "name": "com.google.dagger:hilt-android:2.44.2",
+            "name": "com.google.dagger:hilt-android:2.45",
             "type": "EXTERNAL",
-            "downloadSize": 12212,
-            "installSize": 12255,
+            "downloadSize": 12232,
+            "installSize": 12273,
             "files": [
                 {
                     "name": "dagger.hilt.android.internal.managers.ViewComponentManager",
@@ -66351,31 +66351,31 @@
                     "name": "dagger.hilt.android.internal.managers.ViewComponentManager$FragmentContextWrapper",
                     "type": "CLASS",
                     "downloadSize": 416,
-                    "installSize": 419
+                    "installSize": 418
                 },
                 {
                     "name": "dagger.hilt.android.internal.managers.ActivityComponentManager",
                     "type": "CLASS",
-                    "downloadSize": 299,
-                    "installSize": 301
+                    "downloadSize": 311,
+                    "installSize": 312
                 },
                 {
                     "name": "dagger.hilt.android.internal.lifecycle.HiltViewModelFactory",
                     "type": "CLASS",
-                    "downloadSize": 278,
-                    "installSize": 279
+                    "downloadSize": 305,
+                    "installSize": 306
+                },
+                {
+                    "name": "dagger.hilt.android.internal.managers.ActivityRetainedComponentManager",
+                    "type": "CLASS",
+                    "downloadSize": 276,
+                    "installSize": 278
                 },
                 {
                     "name": "dagger.hilt.android.migration.OptionalInjectCheck",
                     "type": "CLASS",
                     "downloadSize": 273,
                     "installSize": 274
-                },
-                {
-                    "name": "dagger.hilt.android.internal.managers.ActivityRetainedComponentManager",
-                    "type": "CLASS",
-                    "downloadSize": 266,
-                    "installSize": 267
                 },
                 {
                     "name": "dagger.hilt.android.internal.lifecycle.RetainedLifecycleImpl",
@@ -66388,12 +66388,6 @@
                     "type": "CLASS",
                     "downloadSize": 237,
                     "installSize": 238
-                },
-                {
-                    "name": "dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories$InternalFactoryFactory",
-                    "type": "CLASS",
-                    "downloadSize": 228,
-                    "installSize": 229
                 },
                 {
                     "name": "dagger.hilt.android.internal.modules.ActivityModule_ProvideFragmentActivityFactory",
@@ -66426,6 +66420,12 @@
                     "installSize": 208
                 },
                 {
+                    "name": "dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories$InternalFactoryFactory",
+                    "type": "CLASS",
+                    "downloadSize": 199,
+                    "installSize": 200
+                },
+                {
                     "name": "dagger.hilt.android.internal.managers.ServiceComponentManager",
                     "type": "CLASS",
                     "downloadSize": 195,
@@ -66444,16 +66444,16 @@
                     "installSize": 173
                 },
                 {
-                    "name": "dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories",
+                    "name": "dagger.hilt.android.internal.managers.ApplicationComponentManager",
                     "type": "CLASS",
                     "downloadSize": 155,
                     "installSize": 156
                 },
                 {
-                    "name": "dagger.hilt.android.internal.managers.ApplicationComponentManager",
+                    "name": "dagger.hilt.android.internal.lifecycle.DefaultViewModelFactories",
                     "type": "CLASS",
-                    "downloadSize": 155,
-                    "installSize": 156
+                    "downloadSize": 154,
+                    "installSize": 155
                 },
                 {
                     "name": "dagger.hilt.android.internal.managers.ActivityRetainedComponentManager$ActivityRetainedComponentViewModel",
@@ -66530,7 +66530,7 @@
                 {
                     "name": "dagger.hilt.android.internal.managers.ActivityRetainedComponentManager$LifecycleModule",
                     "type": "CLASS",
-                    "downloadSize": 95,
+                    "downloadSize": 96,
                     "installSize": 96
                 },
                 {
@@ -69652,7 +69652,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:dagger:2.44.2",
+            "name": "com.google.dagger:dagger:2.45",
             "type": "EXTERNAL",
             "downloadSize": 6444,
             "installSize": 6470,
@@ -73118,7 +73118,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:hilt-core:2.44.2",
+            "name": "com.google.dagger:hilt-core:2.45",
             "type": "EXTERNAL",
             "downloadSize": 1680,
             "installSize": 1685,
