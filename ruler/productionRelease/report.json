@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.9",
+    "version": "1.4.8",
     "variant": "productionRelease",
-    "downloadSize": 5910009,
-    "installSize": 6456544,
+    "downloadSize": 5910007,
+    "installSize": 6456543,
     "components": [
         {
             "name": "com.google.crypto.tink:tink-android:1.7.0",
@@ -17508,8 +17508,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 595717,
-            "installSize": 1121342,
+            "downloadSize": 595715,
+            "installSize": 1121341,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -17610,7 +17610,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.R$id",
                     "type": "CLASS",
-                    "downloadSize": 4571,
+                    "downloadSize": 4570,
                     "installSize": 4594
                 },
                 {
@@ -17640,8 +17640,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3193,
-                    "installSize": 3193
+                    "downloadSize": 3192,
+                    "installSize": 3192
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
