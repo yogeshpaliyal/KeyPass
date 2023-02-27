@@ -62,6 +62,14 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" /> <!-- If you want to disable android.startup completely. -->
 
+        <!-- If you want to disable android.startup completely. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove"
+            android:enabled="false"
+            android:exported="false" />
+
     </application>
 
 </manifest>
