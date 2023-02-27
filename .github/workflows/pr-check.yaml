@@ -43,7 +43,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: 🏗 Build With gradle
-        run: bash ./gradlew builf
+        run: bash ./gradlew build
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
