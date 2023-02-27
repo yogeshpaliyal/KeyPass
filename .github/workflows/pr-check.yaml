@@ -39,11 +39,12 @@ jobs:
 
       - uses: actions/checkout@v3
     
-      - name: Setting up project
+      - name: Setting up project 
         uses: ./.github/actions/setup
 
-      - name: Build with Gradle 
-        run: ./gradlew build
+
+      - name: Build with Gradle 
+          run: bash ./gradlew build
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
