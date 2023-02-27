@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.yogeshpaliyal.common">
    <application>
+
+<provider
+   android:name="androidx.work.impl.WorkManagerInitializer"
+   android:authorities="${applicationId}.workmanager-init"
+   tools:node="remove" />
+
       <provider android:name="androidx.startup.InitializationProvider" android:authorities="${applicationId}.androidx-startup" android:exported="false" tools:node="remove">
          <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup" tools:node="remove" />
       </provider>
