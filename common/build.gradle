@@ -46,7 +46,7 @@ dependencies {
     implementation "commons-codec:commons-codec:1.15"
 
     //Androidx Security
-    implementation "androidx.security:security-crypto:1.1.0-alpha04"
+    implementation "androidx.security:security-crypto:1.1.0-alpha05"
 
     api "androidx.documentfile:documentfile:1.0.1"
 
@@ -55,7 +55,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     api "androidx.room:room-ktx:$room_version"
 
-    api 'com.google.android.material:material:1.9.0-alpha01'
+    api 'com.google.android.material:material:1.9.0-alpha02'
 
 
     // dependency injection
