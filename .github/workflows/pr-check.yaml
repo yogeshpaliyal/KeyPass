@@ -43,7 +43,6 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build with Gradle 
-        id: build 
         run: ./gradlew build
 
       - name: 🏗 Build APK
