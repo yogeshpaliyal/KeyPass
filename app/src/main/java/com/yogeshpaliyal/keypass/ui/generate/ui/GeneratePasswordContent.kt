@@ -1,7 +1,6 @@
 package com.yogeshpaliyal.keypass.ui.generate.ui
 
 import android.content.res.Configuration
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,11 +18,9 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
@@ -48,7 +45,6 @@ fun GeneratePasswordContent(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .background(Color(0xFFEEF0F2))
                 .padding(16.dp)
         ) {
             FormInputCard(
@@ -88,9 +84,7 @@ private fun FormInputCard(
     onSymbolsCheckedChange: (Boolean) -> Unit
 ) {
     OutlinedCard(
-        colors = CardDefaults.outlinedCardColors(
-            containerColor = Color.White
-        ),
+        colors = CardDefaults.outlinedCardColors(),
         shape = RoundedCornerShape(8.dp)
     ) {
         Column(
@@ -219,17 +213,15 @@ private fun GeneratePasswordContentPreview() {
     val viewState = GeneratePasswordViewState.Initial
 
     Mdc3Theme {
-        Surface {
-            GeneratePasswordContent(
-                viewState = viewState,
-                onGeneratePasswordClick = {},
-                onCopyPasswordClick = {},
-                onPasswordLengthChange = {},
-                onUppercaseCheckedChange = {},
-                onLowercaseCheckedChange = {},
-                onNumbersCheckedChange = {},
-                onSymbolsCheckedChange = {}
-            )
-        }
+        GeneratePasswordContent(
+            viewState = viewState,
+            onGeneratePasswordClick = {},
+            onCopyPasswordClick = {},
+            onPasswordLengthChange = {},
+            onUppercaseCheckedChange = {},
+            onLowercaseCheckedChange = {},
+            onNumbersCheckedChange = {},
+            onSymbolsCheckedChange = {}
+        )
     }
 }
