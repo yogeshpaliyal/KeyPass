@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.yogeshpaliyal.common">
-   <application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yogeshpaliyal.common">
 
-<provider
-   android:name="androidx.work.impl.WorkManagerInitializer"
-   android:authorities="${applicationId}.workmanager-init"
-   tools:node="remove" />
+    <application>
 
-      <provider android:name="androidx.startup.InitializationProvider" android:authorities="${applicationId}.androidx-startup" android:exported="false" tools:node="remove">
-         <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup" tools:node="remove" />
-      </provider>
-   </application>
+        <!-- If you want to disable android.startup completely. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove"
+            android:enabled="false"
+            android:exported="false" />
+
+    </application>
 </manifest>
