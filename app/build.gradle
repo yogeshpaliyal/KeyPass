@@ -11,11 +11,12 @@ android {
     compileSdk 33
 
     defaultConfig {
+
         applicationId "com.yogeshpaliyal.keypass"
         minSdk 22
         targetSdk 33
-        versionCode 1408
-        versionName "1.4.8"
+        versionCode 1409
+        versionName "1.4.9"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
