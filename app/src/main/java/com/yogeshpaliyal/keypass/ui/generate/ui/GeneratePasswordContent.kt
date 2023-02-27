@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.primarySurface
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -48,7 +50,6 @@ fun GeneratePasswordContent(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .background(Color(0xFFEEF0F2))
                 .padding(16.dp)
         ) {
             FormInputCard(
@@ -88,9 +89,7 @@ private fun FormInputCard(
     onSymbolsCheckedChange: (Boolean) -> Unit
 ) {
     OutlinedCard(
-        colors = CardDefaults.outlinedCardColors(
-            containerColor = Color.White
-        ),
+        colors = CardDefaults.outlinedCardColors(),
         shape = RoundedCornerShape(8.dp)
     ) {
         Column(
@@ -219,7 +218,6 @@ private fun GeneratePasswordContentPreview() {
     val viewState = GeneratePasswordViewState.Initial
 
     Mdc3Theme {
-        Surface {
             GeneratePasswordContent(
                 viewState = viewState,
                 onGeneratePasswordClick = {},
@@ -230,6 +228,5 @@ private fun GeneratePasswordContentPreview() {
                 onNumbersCheckedChange = {},
                 onSymbolsCheckedChange = {}
             )
-        }
     }
 }
