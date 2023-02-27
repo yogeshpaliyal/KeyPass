@@ -42,6 +42,10 @@ jobs:
       - name: Setting up project
         uses: ./.github/actions/setup
 
+      - name: Build with Gradle 
+        id: build 
+        run: ./gradlew build
+
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
 
