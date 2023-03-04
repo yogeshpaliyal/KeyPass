@@ -15,7 +15,7 @@ import com.yogeshpaliyal.common.utils.getRandomString
 * created on 30-01-2021 20:38
 */
 @Entity(tableName = "account")
-open class AccountModel(
+data class AccountModel(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     @SerializedName("id")

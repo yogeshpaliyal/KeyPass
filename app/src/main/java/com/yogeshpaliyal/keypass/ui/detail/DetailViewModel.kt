@@ -36,9 +36,9 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    fun deleteAccount(onExecCompleted: () -> Unit) {
+    fun deleteAccount(accountModel: AccountModel, onExecCompleted: () -> Unit) {
         viewModelScope.launch {
-            accountModel.value?.let {
+            accountModel.let {
                 withContext(Dispatchers.IO) {
                     appDb.getDao().deleteAccount(it)
                 }
@@ -48,9 +48,9 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    fun insertOrUpdate(onExecCompleted: () -> Unit) {
+    fun insertOrUpdate(accountModel: AccountModel, onExecCompleted: () -> Unit) {
         viewModelScope.launch {
-            accountModel.value?.let {
+            accountModel.let {
                 withContext(Dispatchers.IO) {
                     appDb.getDao().insertOrUpdateAccount(it)
                     autoBackup()
