@@ -160,7 +160,7 @@ class DetailActivity : AppCompatActivity() {
 
 @Preview()
 @Composable
-fun Detail(viewModel: DetailViewModel? = null) {
+fun Detail(viewModel: DetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     KeyPassTheme {
         Scaffold(bottomBar = {
             BottomBar()
@@ -183,7 +183,9 @@ fun BottomBar() {
             )
         }
     }, floatingActionButton = {
-        FloatingActionButton(onClick = { /*TODO*/ }) {
+        FloatingActionButton(onClick = {
+
+        }) {
             Icon(
                 painter = rememberVectorPainter(image = Icons.Rounded.Done),
                 contentDescription = "Save Changes"
