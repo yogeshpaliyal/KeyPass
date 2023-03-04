@@ -15,7 +15,7 @@ import com.yogeshpaliyal.common.utils.getRandomString
 * created on 30-01-2021 20:38
 */
 @Entity(tableName = "account")
-open class AccountModel(
+data class AccountModel(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     @SerializedName("id")
@@ -56,11 +56,12 @@ open class AccountModel(
 ) {
 
     fun getInitials() = (
-        title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
+            title?.firstOrNull() ?: username?.firstOrNull() ?: site?.firstOrNull()
             ?: notes?.firstOrNull() ?: 'K'
-        ).toString()
+            ).toString()
 
     fun getOtp(): String = TOTPHelper.generate(password)
 
     fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
+
 }

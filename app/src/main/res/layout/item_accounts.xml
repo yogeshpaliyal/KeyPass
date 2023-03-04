@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="com.yogeshpaliyal.keypass.data.MyAccountModel" />
+        <import type="com.yogeshpaliyal.common.data.AccountModel" />
 
         <variable
             name="model"
             type="MyAccountModel" />
         <variable
             name="listener"
-            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;MyAccountModel>" />
+            type="com.yogeshpaliyal.keypass.listener.AccountsClickListener&lt;AccountModel>" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +31,7 @@
         app:cardElevation="1dp"
         app:strokeWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:onClick="@{(view)->listener.onItemClick(view, model)}"
+        android:onClick="@{(view)->listener.onItemClick(view, model.getAccountModel())}"
         android:layout_marginVertical="@dimen/grid_0_25"
         android:layout_marginHorizontal="@dimen/grid_0_5">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +42,7 @@
                 android:layout_width="60dp"
                 android:background="@drawable/avatar_none"
                 android:layout_height="60dp"
-                android:text="@{model.initials}"
+                android:text="@{model.getAccountModel().initials}"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -54,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
-                android:text="@{model.title}"
+                android:text="@{model.getAccountModel().title}"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toTopOf="@id/txtUsername"
                 app:layout_constraintEnd_toStartOf="@id/icnCopy"
@@ -71,7 +72,7 @@
                 app:layout_constraintEnd_toStartOf="@id/icnCopy"
                 app:layout_constraintBottom_toBottomOf="parent"
                 style="@style/TextStyle.SubHeading"
-                android:text="@{model.username}"
+                android:text="@{model.getAccountModel().username}"
                 android:id="@+id/txtUsername"
                 app:layout_constraintHorizontal_bias="0"
                 tools:text="@tools:sample/full_names"
@@ -85,7 +86,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:padding="@dimen/grid_1"
-                android:onClick="@{()->listener.onCopyClicked(model)}"
+                android:onClick="@{()->listener.onCopyClicked(model.getAccountModel())}"
                 android:id="@+id/icnCopy"/>
 
 

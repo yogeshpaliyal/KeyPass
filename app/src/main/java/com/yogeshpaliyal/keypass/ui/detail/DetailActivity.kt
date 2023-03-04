@@ -1,9 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.detail
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
@@ -18,7 +19,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Done
+import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material.icons.rounded.Visibility
+import androidx.compose.material.icons.rounded.VisibilityOff
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
@@ -29,20 +35,24 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.zxing.integration.android.IntentIntegrator
 import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.databinding.FragmentDetailBinding
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,8 +64,6 @@ import dagger.hilt.android.AndroidEntryPoint
 */
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
-
-    lateinit var binding: FragmentDetailBinding
 
     companion object {
 
@@ -78,126 +86,141 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Detail(mViewModel)
+            Detail(accountId, mViewModel)
         }
 
         mViewModel.loadAccount(accountId)
-//        mViewModel.accountModel.observe(
-//            this,
-//            Observer {
-//                binding.accountData = it
-//            }
-//        )
-//
-//        if (accountId > 0) {
-//            binding.bottomAppBar.replaceMenu(R.menu.bottom_app_bar_detail)
-//
-//            binding.tilPassword.startIconDrawable = null
-//        } else {
-//            binding.tilPassword.setStartIconDrawable(R.drawable.ic_round_refresh_24)
-//
-//            binding.tilPassword.setStartIconOnClickListener {
-//                binding.etPassword.setText(PasswordGenerator().generatePassword())
-//            }
-//        }
-//
-//        binding.bottomAppBar.setNavigationOnClickListener {
-//            onBackPressed()
-//        }
-//        binding.bottomAppBar.setOnMenuItemClickListener { item ->
-//            if (item.itemId == R.id.action_delete) {
-//                deleteAccount()
-//                return@setOnMenuItemClickListener true
-//            }
-//
-//            return@setOnMenuItemClickListener false
-//        }
-//
-//        binding.btnSave.setOnClickListener {
-//            mViewModel.insertOrUpdate {
-//                onBackPressed()
-//            }
-//        }
-//
-//        binding.btnScan.setOnClickListener {
-//            IntentIntegrator(this).setPrompt("").initiateScan()
-//        }
-    }
-
-    private fun deleteAccount() {
-        MaterialAlertDialogBuilder(this)
-            .setTitle(getString(R.string.delete_account_title))
-            .setMessage(getString(R.string.delete_account_msg))
-            .setPositiveButton(
-                getString(R.string.delete)
-            ) { dialog, which ->
-                dialog?.dismiss()
-
-                if (accountId > 0L) {
-                    mViewModel.deleteAccount {
-                        onBackPressed()
-                    }
-                }
-            }
-            .setNegativeButton(getString(R.string.cancel)) { dialog, which ->
-                dialog.dismiss()
-            }.show()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.bottom_app_bar_detail, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-
-        if (result != null) {
-            if (result.contents != null) {
-                binding.etPassword.setText(result.contents)
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
     }
 }
 
 @Preview()
 @Composable
-fun Detail(viewModel: DetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
-    val account: AccountModel? by viewModel.accountModel.observeAsState()
+fun Detail(
+    id: Long?,
+    viewModel: DetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),
+) {
+    // task value state
+    val (accountModel, setAccountModel) = remember {
+        mutableStateOf(
+            AccountModel()
+        )
+    }
+
+    // Set initial object
+    LaunchedEffect(key1 = viewModel.accountModel) {
+        viewModel.accountModel.value?.apply {
+            setAccountModel(this.copy())
+        }
+    }
+
+    val activity = (LocalContext.current as? Activity)
+    val goBack: () -> Unit = {
+        activity?.onBackPressed()
+    }
+
+    val launcher = rememberLauncherForActivityResult(QRScanner()) {
+        it?.let {
+            setAccountModel(accountModel.copy(password = it))
+        }
+    }
+
     KeyPassTheme {
-        Scaffold(bottomBar = {
-            BottomBar()
-        }) { paddingValues ->
+        Scaffold(
+            bottomBar = {
+                BottomBar(
+                    accountModel, backPressed = goBack,
+                    onDeleteAccount = {
+                        viewModel.deleteAccount(accountModel, goBack)
+                    }
+                ) {
+                    viewModel.insertOrUpdate(accountModel, goBack)
+                }
+            }
+        ) { paddingValues ->
             Surface(modifier = Modifier.padding(paddingValues)) {
-                Fields()
+                Fields(
+                    accountModel = accountModel,
+                    updateAccountModel = { newAccountModel ->
+                        setAccountModel(newAccountModel)
+                    }
+                ) {
+                    launcher.launch(null)
+                }
             }
         }
     }
 }
 
 @Composable
-fun Fields(modifier: Modifier = Modifier) {
+fun Fields(
+    modifier: Modifier = Modifier,
+    accountModel: AccountModel,
+    updateAccountModel: (newAccountModel: AccountModel) -> Unit,
+    scanClicked: () -> Unit
+) {
 
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(4.dp)
+            .padding(16.dp)
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
 
+        KeyPassInputField(
+            placeholder = R.string.account_name,
+            value = accountModel.title,
+            setValue = {
+                updateAccountModel(accountModel.copy(title = it))
+            }
+        )
 
-        KeyPassInputField(placeholder = R.string.account_name, value = "", setValue = {})
-
-        KeyPassInputField(placeholder = R.string.username_email_phone, value = "", setValue = {})
-
+        KeyPassInputField(
+            placeholder = R.string.username_email_phone,
+            value = accountModel.username,
+            setValue = {
+                updateAccountModel(accountModel.copy(username = it))
+            }
+        )
 
         Column {
-            KeyPassInputField(placeholder = R.string.password, value = "", setValue = {})
-            Button(onClick = { /*TODO*/ }) {
+
+            val passwordVisible = rememberSaveable { mutableStateOf(false) }
+
+            val visualTransformation =
+                if (passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
+
+            KeyPassInputField(
+                modifier = modifier,
+                placeholder = R.string.password,
+                value = accountModel.password,
+                setValue = {
+                    updateAccountModel(accountModel.copy(password = it))
+                },
+                trailingIcon = {
+                    PasswordTrailingIcon(passwordVisible.value) {
+                        passwordVisible.value = it
+                    }
+                },
+                leadingIcon = if (accountModel.id != null)
+                    null
+                else (
+                    {
+                        IconButton(
+                            onClick = {
+                                updateAccountModel(accountModel.copy(password = PasswordGenerator().generatePassword()))
+                            }
+                        ) {
+                            Icon(
+                                painter = rememberVectorPainter(image = Icons.Rounded.Refresh),
+                                contentDescription = ""
+                            )
+                        }
+                    }
+                    ),
+                visualTransformation = visualTransformation
+            )
+            Button(onClick = scanClicked) {
                 Row {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_twotone_qr_code_scanner_24),
@@ -208,7 +231,68 @@ fun Fields(modifier: Modifier = Modifier) {
             }
         }
 
+        KeyPassInputField(
+            placeholder = R.string.tags_comma_separated_optional,
+            value = accountModel.tags,
+            setValue = {
+                updateAccountModel(accountModel.copy(tags = it))
+            }
+        )
 
+        KeyPassInputField(
+            placeholder = R.string.website_url_optional,
+            value = accountModel.site,
+            setValue = {
+                updateAccountModel(accountModel.copy(site = it))
+            }
+        )
+
+        KeyPassInputField(
+            placeholder = R.string.notes_optional,
+            value = accountModel.notes,
+            setValue = {
+                updateAccountModel(accountModel.copy(notes = it))
+            }
+        )
+    }
+}
+
+@Composable
+fun DeleteConfirmation(
+    openDialog: Boolean,
+    updateDialogVisibility: (Boolean) -> Unit,
+    onDelete: () -> Unit
+) {
+
+    if (openDialog) {
+        AlertDialog(
+            onDismissRequest = { /*TODO*/ },
+            title = {
+                Text(text = stringResource(id = R.string.delete_account_title))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        updateDialogVisibility(false)
+                        onDelete()
+                    }
+                ) {
+                    Text(text = stringResource(id = R.string.delete))
+                }
+            },
+            text = {
+                Text(text = stringResource(id = R.string.delete_account_msg))
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        updateDialogVisibility(false)
+                    }
+                ) {
+                    Text(text = stringResource(id = R.string.cancel))
+                }
+            }
+        )
     }
 }
 
@@ -216,32 +300,90 @@ fun Fields(modifier: Modifier = Modifier) {
 fun KeyPassInputField(
     modifier: Modifier = Modifier,
     @StringRes placeholder: Int,
-    value: String,
-    setValue: (String) -> Unit
+    value: String?,
+    setValue: (String) -> Unit,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    visualTransformation: VisualTransformation = VisualTransformation.None
 ) {
-    OutlinedTextField(modifier = Modifier.fillMaxWidth(), value = value, label = {
-        Text(text = stringResource(id = placeholder))
-    }, onValueChange = setValue)
+    OutlinedTextField(
+        modifier = modifier.fillMaxWidth(), value = value ?: "",
+        label = {
+            Text(text = stringResource(id = placeholder))
+        },
+        onValueChange = setValue,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+        visualTransformation = visualTransformation
+    )
 }
 
 @Composable
-fun BottomBar() {
-    BottomAppBar(actions = {
-        IconButton(onClick = { /*TODO*/ }) {
-            Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
-                contentDescription = "Go Back",
-                tint = MaterialTheme.colorScheme.onSurface
-            )
-        }
-    }, floatingActionButton = {
-        FloatingActionButton(onClick = {
+fun PasswordTrailingIcon(
+    passwordVisible: Boolean,
+    changePasswordVisibility: (updatedValue: Boolean) -> Unit
+) {
 
-        }) {
-            Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.Done),
-                contentDescription = "Save Changes"
-            )
+    val description = if (passwordVisible) "Hide password" else "Show password"
+
+    val image = if (passwordVisible)
+        Icons.Rounded.Visibility
+    else
+        Icons.Rounded.VisibilityOff
+
+    IconButton(onClick = { changePasswordVisibility(!passwordVisible) }) {
+        Icon(
+            painter = rememberVectorPainter(image = image),
+            contentDescription = description
+        )
+    }
+}
+
+@Composable
+fun BottomBar(
+    accountModel: AccountModel,
+    backPressed: () -> Unit,
+    onDeleteAccount: () -> Unit,
+    onSaveClicked: () -> Unit
+) {
+
+    val openDialog = remember { mutableStateOf(false) }
+
+    BottomAppBar(
+        actions = {
+            IconButton(onClick = backPressed) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
+                    contentDescription = "Go Back",
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
+            if (accountModel.id != null) {
+                IconButton(onClick = { openDialog.value = true }) {
+                    Icon(
+                        painter = rememberVectorPainter(image = Icons.Rounded.Delete),
+                        contentDescription = "Delete",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+            }
+        },
+        floatingActionButton = {
+            FloatingActionButton(onClick = onSaveClicked) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Rounded.Done),
+                    contentDescription = "Save Changes"
+                )
+            }
         }
-    })
+    )
+
+    DeleteConfirmation(
+        openDialog.value,
+        updateDialogVisibility = {
+            openDialog.value = it
+        },
+        onDeleteAccount
+    )
 }
