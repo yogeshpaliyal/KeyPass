@@ -4,15 +4,37 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.ArrowBackIos
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.rounded.Done
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.Observer
+import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.zxing.integration.android.IntentIntegrator
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.FragmentDetailBinding
+import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.security.Key
 
 /*
 * @author Yogesh Paliyal
@@ -47,6 +69,11 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = FragmentDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setContent {
+            KeyPassTheme {
+
+            }
+        }
         binding.lifecycleOwner = this
 
         mViewModel.loadAccount(accountId)
@@ -129,4 +156,38 @@ class DetailActivity : AppCompatActivity() {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
+}
+
+@Preview()
+@Composable
+fun Detail(viewModel: DetailViewModel? = null) {
+    KeyPassTheme {
+        Scaffold(bottomBar = {
+            BottomBar()
+        }) { paddingValues ->
+            Surface(modifier = Modifier.padding(paddingValues)) {
+
+            }
+        }
+    }
+}
+
+@Composable
+fun BottomBar() {
+    BottomAppBar(actions = {
+        IconButton(onClick = { /*TODO*/ }) {
+            Icon(
+                painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
+                contentDescription = "Go Back",
+                tint = MaterialTheme.colorScheme.onSurface
+            )
+        }
+    }, floatingActionButton = {
+        FloatingActionButton(onClick = { /*TODO*/ }) {
+            Icon(
+                painter = rememberVectorPainter(image = Icons.Rounded.Done),
+                contentDescription = "Save Changes"
+            )
+        }
+    })
 }
