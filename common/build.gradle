@@ -29,9 +29,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'com.yogeshpaliyal.common'
 
-    // namespace 'com.yogeshpaliyal.common'
+    namespace 'com.yogeshpaliyal.common'
 }
 
 dependencies {

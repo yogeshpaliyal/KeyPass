@@ -7,12 +7,14 @@ plugins {
     id("com.spotify.ruler")
 }
 
+def appPackageId = 'com.yogeshpaliyal.keypass'
+
 android {
     compileSdk 33
 
     defaultConfig {
 
-        applicationId "com.yogeshpaliyal.keypass"
+        applicationId appPackageId
         minSdk 22
         targetSdk 33
         versionCode 1409
@@ -85,7 +87,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'com.yogeshpaliyal.keypass'
+    namespace appPackageId
 
     /*sourceSets {
         main {
