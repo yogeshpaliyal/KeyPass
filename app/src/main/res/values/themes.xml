@@ -32,19 +32,21 @@
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.KeyPass.LargeComponent</item>
 
         <!--Typography-->
-        <item name="textAppearanceHeadline1">@style/TextAppearance.KeyPass.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.KeyPass.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.KeyPass.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.KeyPass.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.KeyPass.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.KeyPass.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.KeyPass.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.KeyPass.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.KeyPass.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.KeyPass.Body2</item>
-        <item name="textAppearanceButton">@style/TextAppearance.KeyPass.Button</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.KeyPass.Caption</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.KeyPass.Overline</item>
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.KeyPass.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.KeyPass.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.KeyPass.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.KeyPass.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.KeyPass.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.KeyPass.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.KeyPass.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.KeyPass.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.KeyPass.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.KeyPass.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.KeyPass.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.KeyPass.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.KeyPass.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.KeyPass.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.KeyPass.LabelSmall</item>
 
         <item name="emphasisHighAlpha">0.87</item>
         <item name="emphasisMediumAlpha">0.60</item>
@@ -63,6 +65,7 @@
         <item name="android:windowBackground">?android:colorBackground</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
         <!-- Customize your theme here. -->
+
     </style>
 
 </resources>
