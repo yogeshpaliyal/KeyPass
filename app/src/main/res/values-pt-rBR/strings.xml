@@ -22,7 +22,12 @@
     <string name="send_feedback_desc">Reportar um problema técnico ou sugerir novas funções</string>
     <string name="share">Compartilhar</string>
     <string name="share_desc">Divulgar app com outros</string>
+    <string name="password_length">Comprimento da senha</string>
     <string name="password">Senha</string>
+    <string name="uppercase_alphabets">LETRAS MAIÚSCULAS</string>
+    <string name="lowercase_alphabets">letras minúsculas</string>
+    <string name="symbols">Símbolos</string>
+    <string name="numbers">Números</string>
     <string name="copied_to_clipboard">Copiado para à área de transferência</string>
     <string name="login_to_enter_keypass">Autenticação para entrar no KeyPass</string>
     <string name="authentication_failed">Falha na autenticação</string>
