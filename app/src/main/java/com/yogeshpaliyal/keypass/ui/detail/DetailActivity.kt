@@ -314,7 +314,7 @@ fun KeyPassInputField(
         onValueChange = setValue,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
-        visualTransformation = visualTransformation
+        visualTransformation = visualTransformation,
     )
 }
 
