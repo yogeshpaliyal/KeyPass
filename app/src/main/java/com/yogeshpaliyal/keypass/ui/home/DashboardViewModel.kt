@@ -2,7 +2,6 @@ package com.yogeshpaliyal.keypass.ui.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -20,7 +19,10 @@ import javax.inject.Inject
 * created on 30-01-2021 23:02
 */
 @HiltViewModel
-class DashboardViewModel @Inject constructor(application: Application, val appDb: com.yogeshpaliyal.common.AppDatabase) :
+class DashboardViewModel @Inject constructor(
+    application: Application,
+    val appDb: com.yogeshpaliyal.common.AppDatabase
+) :
     AndroidViewModel(application) {
 
     val keyword by lazy {
@@ -32,17 +34,23 @@ class DashboardViewModel @Inject constructor(application: Application, val appDb
 
     private val appDao = appDb.getDao()
 
-    val mediator = MediatorLiveData<LiveData<List<AccountModel>>>()
+    val mediator = MediatorLiveData<List<AccountModel>>()
 
     init {
         mediator.addSource(keyword) {
-            mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
+            viewModelScope.launch(Dispatchers.IO) {
+                mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
+            }
         }
         mediator.addSource(tag) {
+            viewModelScope.launch(Dispatchers.IO) {
+                mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
+            }
+        }
+
+        viewModelScope.launch(Dispatchers.IO) {
             mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
         }
-        mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
-
         reloadData()
     }
 
