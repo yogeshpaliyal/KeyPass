@@ -65,7 +65,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.seconds
 
-
 /*
 * @author Yogesh Paliyal
 * techpaliyal@gmail.com
@@ -80,7 +79,9 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
@@ -104,7 +105,6 @@ class HomeFragment : Fragment() {
                 val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
 
                 AccountsList(listOfAccountsLiveData)
-
             }
         }
     }
@@ -123,14 +123,16 @@ class HomeFragment : Fragment() {
             ) {
 
                 items(accounts) { account ->
-                    Account(account,
+                    Account(
+                        account,
                         onClick = {
                             if (it.type == AccountType.TOTP) {
                                 AddTOTPActivity.start(context, it.uniqueId)
                             } else {
                                 DetailActivity.start(context, it.id)
                             }
-                        }, onCopyClicked = {
+                        },
+                        onCopyClicked = {
                             val clipboard = ContextCompat.getSystemService(
                                 context, ClipboardManager::class.java
                             )
@@ -142,7 +144,8 @@ class HomeFragment : Fragment() {
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
-                        })
+                        }
+                    )
                 }
                 item {
                     Spacer(modifier = Modifier.height(32.dp))
@@ -153,16 +156,17 @@ class HomeFragment : Fragment() {
         }
     }
 
-
     @Preview
     @Composable
     fun PreviewAccount() {
         KeyPassTheme {
-            Account(accountModel = AccountModel(), onClick = {
-
-            }, onCopyClicked = {
-
-            })
+            Account(
+                accountModel = AccountModel(),
+                onClick = {
+                },
+                onCopyClicked = {
+                }
+            )
         }
     }
 
@@ -175,7 +179,8 @@ class HomeFragment : Fragment() {
 
         Card(
             elevation = androidx.compose.material3.CardDefaults.cardElevation(defaultElevation = 1.dp),
-            onClick = { onClick(accountModel) }) {
+            onClick = { onClick(accountModel) }
+        ) {
             Row(modifier = Modifier.padding(12.dp)) {
 
                 Box(
@@ -198,7 +203,6 @@ class HomeFragment : Fragment() {
                     }
                 }
 
-
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -215,18 +219,17 @@ class HomeFragment : Fragment() {
                     )
 
                     RenderUserName(accountModel)
-
                 }
 
                 IconButton(
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    onClick = { onCopyClicked(accountModel) }) {
+                    onClick = { onCopyClicked(accountModel) }
+                ) {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.TwoTone.ContentCopy),
                         contentDescription = "Copy To Clipboard"
                     )
                 }
-
             }
         }
     }
@@ -245,7 +248,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
 
         CircularProgressIndicator(
             modifier = Modifier.fillMaxSize(),
@@ -270,7 +272,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
 
         Text(
             text = username ?: "",
@@ -308,5 +309,4 @@ class HomeFragment : Fragment() {
             )
         }
     }
-
 }
