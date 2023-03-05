@@ -17,8 +17,8 @@ android {
         applicationId appPackageId
         minSdk 22
         targetSdk 33
-        versionCode 1409
-        versionName "1.4.9"
+        versionCode 1410
+        versionName "1.4.10"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
