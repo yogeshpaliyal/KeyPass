@@ -12,7 +12,7 @@ jobs:
   validatePr: 
    name: 'Validate PR comment'
    if: contains(github.event.comment.html_url, '/pull/')    # check if the comments come from pull request, exclude those from issue.
-   runs-on: [re-centos7]
+   runs-on: ubuntu-latest
    steps:
     - name: test
       if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
