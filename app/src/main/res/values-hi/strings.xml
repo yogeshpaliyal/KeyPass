@@ -22,12 +22,7 @@
     <string name="send_feedback_desc">तकनीकी मुद्दों की रिपोर्ट करें या नई सुविधाओं का सुझाव दें</string>
     <string name="share">साझा करें</string>
     <string name="share_desc">दूसरों के साथ ऐप शेयर करें</string>
-    <string name="password_length">पासवर्ड की लंबाई</string>
     <string name="password">पासवर्ड</string>
-    <string name="uppercase_alphabets">अपरकेस अक्षर</string>
-    <string name="lowercase_alphabets">लोअरकेस अक्षर</string>
-    <string name="symbols">प्रतीक</string>
-    <string name="numbers">संख्याएं</string>
     <string name="copied_to_clipboard">क्लिपबोर्ड पर कॉपी किया गया</string>
     <string name="login_to_enter_keypass">KeyPass में प्रवेश करने के लिए लॉगिन करें</string>
     <string name="authentication_failed">प्रमाणीकरण विफल होना</string>

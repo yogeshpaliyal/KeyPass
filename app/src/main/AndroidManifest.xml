@@ -57,10 +57,6 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" /> <!-- If you want to disable android.startup completely. -->
-
         <!-- If you want to disable android.startup completely. -->
         <provider
             android:name="androidx.startup.InitializationProvider"

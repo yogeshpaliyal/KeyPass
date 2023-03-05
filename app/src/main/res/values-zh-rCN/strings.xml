@@ -22,12 +22,7 @@
     <string name="send_feedback_desc">报告技术问题或建议新功能</string>
     <string name="share">分享</string>
     <string name="share_desc">向别人分享该应用</string>
-    <string name="password_length">密码长度</string>
     <string name="password">密码</string>
-    <string name="uppercase_alphabets">大写字母</string>
-    <string name="lowercase_alphabets">小写字母</string>
-    <string name="symbols">标点符号</string>
-    <string name="numbers">数字</string>
     <string name="copied_to_clipboard">已复制到剪切板</string>
     <string name="login_to_enter_keypass">输入密码以进入 KeyPass</string>
     <string name="authentication_failed">身份认证失败</string>
