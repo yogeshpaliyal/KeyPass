@@ -16,6 +16,8 @@ jobs:
    steps:
     - name: test
       if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
+      run: |
+        echo test
  
   spotless:
     needs: validatePr
