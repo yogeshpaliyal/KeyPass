@@ -1,0 +1,2 @@
+Changed to mono font
+Migrating to compose
