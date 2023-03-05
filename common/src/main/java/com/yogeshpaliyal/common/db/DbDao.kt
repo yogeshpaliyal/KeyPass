@@ -42,7 +42,7 @@ interface DbDao {
             "OR (notes LIKE '%'||:query||'%' )) " +
             "ORDER BY title ASC"
     )
-    fun getAllAccounts(query: String?, tag: String?): LiveData<List<AccountModel>>
+    fun getAllAccounts(query: String?, tag: String?): List<AccountModel>
 
     @Query("SELECT * FROM account WHERE id = :id")
     suspend fun getAccount(id: Long?): AccountModel?

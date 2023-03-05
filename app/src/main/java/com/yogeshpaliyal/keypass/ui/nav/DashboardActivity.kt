@@ -69,18 +69,6 @@ class DashboardActivity :
             this@DashboardActivity
         )
 
-        /*   val intent = Intent(this, AuthenticationActivity::class.java)
-           startActivity(intent)*/
-
-        /* val autoFillService = getAutoFillService()
-         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-             if (autoFillService?.isAutofillSupported == true && autoFillService.hasEnabledAutofillServices().not()) {
-                 val intent = Intent(Settings.ACTION_REQUEST_SET_AUTOFILL_SERVICE)
-                 intent.data = Uri.parse("package:$packageName")
-                 startActivityForResult(intent,777)
-             }
-         }*/
-
         binding.btnAdd.setOnClickListener {
             currentNavigationFragment?.apply {
                 exitTransition = MaterialElevationScale(false).apply {

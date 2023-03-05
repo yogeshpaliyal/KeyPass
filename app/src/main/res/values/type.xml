@@ -15,6 +15,11 @@
 <resources>
 
     <!--Typography-->
+    <style name="TextAppearance.KeyPass.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/work_sans_medium</item>
+        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
+    </style>
+
     <style name="TextAppearance.KeyPass.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="fontFamily">@font/work_sans_medium</item>
         <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
