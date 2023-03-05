@@ -2,25 +2,12 @@ name: PR Check
 
 on:
   pull_request:
-    types: [ ready_for_review ]
-  issue_comment:                                     
-    types: [created, edited, deleted]
+    branches: [ master ]
 
 
 jobs:
 
-  validatePr: 
-   name: 'Validate PR comment'
-   if: contains(github.event.comment.html_url, '/pull/')    # check if the comments come from pull request, exclude those from issue.
-   runs-on: ubuntu-latest
-   steps:
-    - name: test
-      if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
-      run: |
-        echo test
- 
   spotless:
-    needs: validatePr
     name: 'Spotless'
     runs-on: ubuntu-latest
     steps:
@@ -35,7 +22,6 @@ jobs:
         
   tests:
     name: 'Tests'
-    needs: validatePr
     runs-on: ubuntu-latest
     steps:
 
@@ -49,7 +35,6 @@ jobs:
 
   build:
     name: 'Build Production Debug Build'
-    needs: validatePr
     runs-on: ubuntu-latest
     steps:
 
@@ -64,7 +49,7 @@ jobs:
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
 
-      - name: 🚀 Upload APK 📱
+      - name: 🚀 Upload APK to Artifiacts 📱
         uses: actions/upload-artifact@v2
         with:
           name: app
