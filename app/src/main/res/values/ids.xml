@@ -14,4 +14,5 @@
   -->
 <resources>
     <item name="tag_system_window_inset_top" type="id"/>
+    <item name="tag_view_top_snapshot" type="id"/>
 </resources>
