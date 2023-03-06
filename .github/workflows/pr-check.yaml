@@ -50,7 +50,7 @@ jobs:
         run: bash ./gradlew assembleProductionDebug
 
       - name: 🚀 Upload APK to Artifiacts 📱
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: app
           path: app/build/outputs/apk/production/debug/*.apk
