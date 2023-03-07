@@ -7,7 +7,7 @@ runs:
   steps:
 
     - name: 🧱 Set Up JDK
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         java-version: 11
         
