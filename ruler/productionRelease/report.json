@@ -2,20 +2,20 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.10",
     "variant": "productionRelease",
-    "downloadSize": 2504429,
-    "installSize": 3072936,
+    "downloadSize": 2504591,
+    "installSize": 3074057,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 454256,
-            "installSize": 1015695,
+            "downloadSize": 454442,
+            "installSize": 1016904,
             "files": [
                 {
                     "name": "/resources.arsc",
                     "type": "OTHER",
-                    "downloadSize": 126108,
-                    "installSize": 685628
+                    "downloadSize": 126296,
+                    "installSize": 686840
                 },
                 {
                     "name": "/res/font/roboto_mono.ttf",
@@ -44,8 +44,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5438,
-                    "installSize": 5433
+                    "downloadSize": 5439,
+                    "installSize": 5434
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -86,8 +86,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3281,
-                    "installSize": 3281
+                    "downloadSize": 3282,
+                    "installSize": 3282
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
@@ -194,8 +194,8 @@
                 {
                     "name": "/res/layout/activity_dashboard.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 1508,
-                    "installSize": 1508
+                    "downloadSize": 1510,
+                    "installSize": 1510
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/gen_approx_any.txt",
@@ -416,8 +416,8 @@
                 {
                     "name": "/res/layout/activity_add_totpactivity.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 932,
-                    "installSize": 932
+                    "downloadSize": 931,
+                    "installSize": 931
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/sep_lang.txt",
@@ -458,8 +458,8 @@
                 {
                     "name": "/res/layout/layout_custom_keypharse.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 882,
-                    "installSize": 882
+                    "downloadSize": 883,
+                    "installSize": 883
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/ash_rules_hungarian.txt",
@@ -488,8 +488,8 @@
                 {
                     "name": "/res/layout/layout_restore_keypharse.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 835,
-                    "installSize": 835
+                    "downloadSize": 836,
+                    "installSize": 836
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.databinding.ActivityAddTotpactivityBindingImpl",
@@ -590,8 +590,8 @@
                 {
                     "name": "/res/drawable/ic_baseline_settings_24.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 731,
-                    "installSize": 731
+                    "downloadSize": 729,
+                    "installSize": 729
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/gen_rules_romanian.txt",
@@ -614,32 +614,32 @@
                 {
                     "name": "/res/layout/fragment_bottom_nav_drawer.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 704,
-                    "installSize": 704
+                    "downloadSize": 706,
+                    "installSize": 706
                 },
                 {
                     "name": "/res/navigation/navigation_graph.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 704,
-                    "installSize": 704
+                    "downloadSize": 705,
+                    "installSize": 705
                 },
                 {
                     "name": "/res/layout/layout_no_accounts.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 698,
-                    "installSize": 698
-                },
-                {
-                    "name": "com.yogeshpaliyal.keypass.DataBinderMapperImpl",
-                    "type": "CLASS",
-                    "downloadSize": 695,
-                    "installSize": 697
+                    "downloadSize": 700,
+                    "installSize": 700
                 },
                 {
                     "name": "/res/layout/layout_backup_keypharse.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 694,
-                    "installSize": 694
+                    "downloadSize": 697,
+                    "installSize": 697
+                },
+                {
+                    "name": "com.yogeshpaliyal.keypass.DataBinderMapperImpl",
+                    "type": "CLASS",
+                    "downloadSize": 696,
+                    "installSize": 697
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/gen_approx_russian.txt",
@@ -654,16 +654,16 @@
                     "installSize": 685
                 },
                 {
-                    "name": "/res/drawable/ic_twotone_vpn_key_24.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 683,
-                    "installSize": 683
-                },
-                {
                     "name": "/org/apache/commons/codec/language/bm/sep_rules_hebrew.txt",
                     "type": "OTHER",
                     "downloadSize": 682,
                     "installSize": 682
+                },
+                {
+                    "name": "/res/drawable/ic_twotone_vpn_key_24.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 681,
+                    "installSize": 681
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/ash_rules_hebrew.txt",
@@ -692,8 +692,8 @@
                 {
                     "name": "/res/layout/activity_authentication.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 636,
-                    "installSize": 636
+                    "downloadSize": 635,
+                    "installSize": 635
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/sep_exact_common.txt",
@@ -758,8 +758,8 @@
                 {
                     "name": "/res/layout/backup_activity.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 546,
-                    "installSize": 546
+                    "downloadSize": 547,
+                    "installSize": 547
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/gen_languages.txt",
@@ -842,14 +842,14 @@
                 {
                     "name": "/res/layout/nav_divider_item_layout.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 498,
-                    "installSize": 498
+                    "downloadSize": 497,
+                    "installSize": 497
                 },
                 {
                     "name": "/res/layout/nav_email_folder_item_layout.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 497,
-                    "installSize": 497
+                    "downloadSize": 496,
+                    "installSize": 496
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/gen_approx_spanish.txt",
@@ -872,14 +872,14 @@
                 {
                     "name": "/res/drawable/ic_twotone_qr_code_scanner_24.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 492,
-                    "installSize": 492
+                    "downloadSize": 491,
+                    "installSize": 491
                 },
                 {
                     "name": "/res/drawable/ic_twotone_folder.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 489,
-                    "installSize": 489
+                    "downloadSize": 488,
+                    "installSize": 488
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/sep_languages.txt",
@@ -912,13 +912,13 @@
                     "installSize": 482
                 },
                 {
-                    "name": "/res/drawable/ic_twotone_totp.xml",
+                    "name": "/res/drawable/$avd_add_to_save__1.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 482,
-                    "installSize": 482
+                    "downloadSize": 481,
+                    "installSize": 481
                 },
                 {
-                    "name": "/res/drawable/$avd_add_to_save__1.xml",
+                    "name": "/res/drawable/ic_twotone_totp.xml",
                     "type": "RESOURCE",
                     "downloadSize": 481,
                     "installSize": 481
@@ -1128,22 +1128,16 @@
                     "installSize": 469
                 },
                 {
+                    "name": "/res/layout/nav_menu_item_layout.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 469,
+                    "installSize": 469
+                },
+                {
                     "name": "com.yogeshpaliyal.keypass.ui.settings.MySettingsFragment$backup$2",
                     "type": "CLASS",
                     "downloadSize": 468,
                     "installSize": 469
-                },
-                {
-                    "name": "/res/layout/nav_menu_item_layout.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 468,
-                    "installSize": 468
-                },
-                {
-                    "name": "/res/drawable/ic_twotone_home_24.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 465,
-                    "installSize": 465
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/sep_exact_french.txt",
@@ -1168,6 +1162,12 @@
                     "type": "OTHER",
                     "downloadSize": 464,
                     "installSize": 464
+                },
+                {
+                    "name": "/res/drawable/ic_twotone_home_24.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 463,
+                    "installSize": 463
                 },
                 {
                     "name": "/org/apache/commons/codec/language/bm/ash_approx_hebrew.txt",
@@ -1284,16 +1284,16 @@
                     "installSize": 461
                 },
                 {
-                    "name": "/res/drawable/ic_twotone_delete_24.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 455,
-                    "installSize": 455
-                },
-                {
                     "name": "com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity$onCreate$3",
                     "type": "CLASS",
                     "downloadSize": 454,
                     "installSize": 455
+                },
+                {
+                    "name": "/res/drawable/ic_twotone_delete_24.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 453,
+                    "installSize": 453
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.settings.Hilt_MySettingsFragment",
@@ -1314,16 +1314,16 @@
                     "installSize": 444
                 },
                 {
+                    "name": "/res/layout/fragment_home.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 442,
+                    "installSize": 442
+                },
+                {
                     "name": "com.yogeshpaliyal.keypass.ui.nav.BottomNavigationDrawerCallback",
                     "type": "CLASS",
                     "downloadSize": 441,
                     "installSize": 442
-                },
-                {
-                    "name": "/res/layout/fragment_home.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 440,
-                    "installSize": 440
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPViewModel$saveAccount$1",
@@ -1376,12 +1376,6 @@
                 {
                     "name": "/res/drawable/ic_round_add_24.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 396,
-                    "installSize": 396
-                },
-                {
-                    "name": "/res/drawable/ic_round_done_24.xml",
-                    "type": "RESOURCE",
                     "downloadSize": 395,
                     "installSize": 395
                 },
@@ -1390,6 +1384,12 @@
                     "type": "OTHER",
                     "downloadSize": 394,
                     "installSize": 394
+                },
+                {
+                    "name": "/res/drawable/ic_round_done_24.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 393,
+                    "installSize": 393
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordViewState",
@@ -1404,12 +1404,6 @@
                     "installSize": 391
                 },
                 {
-                    "name": "/res/drawable/ic_baseline_feedback_24.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 390,
-                    "installSize": 390
-                },
-                {
                     "name": "com.yogeshpaliyal.keypass.DaggerMyApplication_HiltComponents_SingletonC$ViewModelCImpl$SwitchingProvider",
                     "type": "CLASS",
                     "downloadSize": 389,
@@ -1420,6 +1414,12 @@
                     "type": "CLASS",
                     "downloadSize": 388,
                     "installSize": 389
+                },
+                {
+                    "name": "/res/drawable/ic_baseline_feedback_24.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 388,
+                    "installSize": 388
                 },
                 {
                     "name": "/res/drawable/ic_round_menu_24.xml",
@@ -1442,8 +1442,8 @@
                 {
                     "name": "/res/drawable/ic_baseline_arrow_back_ios_24.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 379,
-                    "installSize": 379
+                    "downloadSize": 377,
+                    "installSize": 377
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.detail.DetailViewModel$loadAccount$1",
@@ -1592,14 +1592,14 @@
                 {
                     "name": "/res/drawable/$mtrl_checkbox_button_icon_checked_indeterminate__0.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 314,
-                    "installSize": 314
+                    "downloadSize": 313,
+                    "installSize": 313
                 },
                 {
                     "name": "/res/drawable/$mtrl_checkbox_button_icon_indeterminate_checked__0.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 314,
-                    "installSize": 314
+                    "downloadSize": 313,
+                    "installSize": 313
                 },
                 {
                     "name": "/res/drawable/$mtrl_switch_thumb_checked_pressed__0.xml",
@@ -1650,6 +1650,18 @@
                     "installSize": 311
                 },
                 {
+                    "name": "/res/drawable/$m3_avd_hide_password__1.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 311,
+                    "installSize": 311
+                },
+                {
+                    "name": "/res/drawable/$m3_avd_show_password__1.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 311,
+                    "installSize": 311
+                },
+                {
                     "name": "/res/drawable/$mtrl_checkbox_button_icon_unchecked_indeterminate__2.xml",
                     "type": "RESOURCE",
                     "downloadSize": 311,
@@ -1668,18 +1680,6 @@
                     "installSize": 310
                 },
                 {
-                    "name": "/res/drawable/$m3_avd_hide_password__1.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 310,
-                    "installSize": 310
-                },
-                {
-                    "name": "/res/drawable/$m3_avd_show_password__1.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 310,
-                    "installSize": 310
-                },
-                {
                     "name": "com.yogeshpaliyal.keypass.ui.home.DashboardViewModel$sam$androidx_lifecycle_Observer$0",
                     "type": "CLASS",
                     "downloadSize": 303,
@@ -1693,6 +1693,12 @@
                 },
                 {
                     "name": "/res/drawable/$avd_show_password__2.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 295,
+                    "installSize": 295
+                },
+                {
+                    "name": "/res/drawable/$m3_avd_show_password__2.xml",
                     "type": "RESOURCE",
                     "downloadSize": 295,
                     "installSize": 295
@@ -1734,12 +1740,6 @@
                     "installSize": 293
                 },
                 {
-                    "name": "/res/drawable/$m3_avd_show_password__2.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 293,
-                    "installSize": 293
-                },
-                {
                     "name": "/res/drawable/$mtrl_switch_thumb_unchecked_checked__0.xml",
                     "type": "RESOURCE",
                     "downloadSize": 290,
@@ -1754,8 +1754,8 @@
                 {
                     "name": "/res/menu/bottom_app_bar_settings_menu.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 282,
-                    "installSize": 282
+                    "downloadSize": 281,
+                    "installSize": 281
                 },
                 {
                     "name": "/kotlin-tooling-metadata.json",
@@ -1872,16 +1872,16 @@
                     "installSize": 229
                 },
                 {
-                    "name": "/res/color/color_navigation_drawer_menu_item.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 227,
-                    "installSize": 227
-                },
-                {
                     "name": "com.yogeshpaliyal.keypass.ui.detail.DetailViewModel$deleteAccount$1$1$1",
                     "type": "CLASS",
                     "downloadSize": 226,
                     "installSize": 227
+                },
+                {
+                    "name": "/res/color/color_navigation_drawer_menu_item.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 226,
+                    "installSize": 226
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.databinding.LayoutCustomKeypharseBindingImpl",
@@ -2048,14 +2048,14 @@
                 {
                     "name": "/res/color/color_on_surface_emphasis_high.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 199,
-                    "installSize": 199
+                    "downloadSize": 200,
+                    "installSize": 200
                 },
                 {
                     "name": "/res/color/color_on_surface_emphasis_medium.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 199,
-                    "installSize": 199
+                    "downloadSize": 200,
+                    "installSize": 200
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.home.DashboardViewModel",
@@ -2724,12 +2724,6 @@
                     "installSize": 14
                 },
                 {
-                    "name": "/META-INF/com.google.android.material_material.version",
-                    "type": "OTHER",
-                    "downloadSize": 16,
-                    "installSize": 14
-                },
-                {
                     "name": "/META-INF/androidx.compose.animation_animation-core.version",
                     "type": "OTHER",
                     "downloadSize": 15,
@@ -2839,6 +2833,12 @@
                 },
                 {
                     "name": "/META-INF/androidx.emoji2_emoji2.version",
+                    "type": "OTHER",
+                    "downloadSize": 15,
+                    "installSize": 13
+                },
+                {
+                    "name": "/META-INF/com.google.android.material_material.version",
                     "type": "OTHER",
                     "downloadSize": 15,
                     "installSize": 13
@@ -3338,16 +3338,16 @@
             ]
         },
         {
-            "name": "com.google.android.material:material:1.9.0-alpha02",
+            "name": "com.google.android.material:material:1.9.0-beta01",
             "type": "EXTERNAL",
-            "downloadSize": 277837,
-            "installSize": 278218,
+            "downloadSize": 277805,
+            "installSize": 278182,
             "files": [
                 {
                     "name": "com.google.android.material.textfield.TextInputLayout",
                     "type": "CLASS",
                     "downloadSize": 15061,
-                    "installSize": 15095
+                    "installSize": 15094
                 },
                 {
                     "name": "com.google.android.material.chip.Chip",
@@ -3364,7 +3364,7 @@
                 {
                     "name": "com.google.android.material.button.MaterialButton",
                     "type": "CLASS",
-                    "downloadSize": 4824,
+                    "downloadSize": 4825,
                     "installSize": 4835
                 },
                 {
@@ -3377,7 +3377,7 @@
                     "name": "com.google.android.material.floatingactionbutton.FloatingActionButton",
                     "type": "CLASS",
                     "downloadSize": 4184,
-                    "installSize": 4194
+                    "installSize": 4193
                 },
                 {
                     "name": "com.google.android.material.appbar.AppBarLayout$BaseBehavior",
@@ -3532,7 +3532,7 @@
                 {
                     "name": "com.google.android.material.textfield.IndicatorViewController",
                     "type": "CLASS",
-                    "downloadSize": 1196,
+                    "downloadSize": 1197,
                     "installSize": 1199
                 },
                 {
@@ -3562,14 +3562,14 @@
                 {
                     "name": "com.google.android.material.color.utilities.DynamicColor",
                     "type": "CLASS",
-                    "downloadSize": 1047,
-                    "installSize": 1049
+                    "downloadSize": 1046,
+                    "installSize": 1048
                 },
                 {
                     "name": "/res/layout/mtrl_picker_header_fullscreen.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 1003,
-                    "installSize": 1003
+                    "downloadSize": 997,
+                    "installSize": 997
                 },
                 {
                     "name": "com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop",
@@ -3694,8 +3694,8 @@
                 {
                     "name": "/res/layout/mtrl_alert_dialog_actions.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 686,
-                    "installSize": 686
+                    "downloadSize": 685,
+                    "installSize": 685
                 },
                 {
                     "name": "com.google.android.material.color.ColorResourcesTableCreator$StringPoolChunk",
@@ -3706,8 +3706,8 @@
                 {
                     "name": "/res/layout-land/material_timepicker.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 673,
-                    "installSize": 673
+                    "downloadSize": 675,
+                    "installSize": 675
                 },
                 {
                     "name": "com.google.android.material.color.DynamicColors$DynamicColorsActivityLifecycleCallbacks",
@@ -3718,6 +3718,12 @@
                 {
                     "name": "/res/layout/design_layout_snackbar_include.xml",
                     "type": "RESOURCE",
+                    "downloadSize": 669,
+                    "installSize": 669
+                },
+                {
+                    "name": "/res/layout/material_timepicker.xml",
+                    "type": "RESOURCE",
                     "downloadSize": 668,
                     "installSize": 668
                 },
@@ -3726,12 +3732,6 @@
                     "type": "CLASS",
                     "downloadSize": 667,
                     "installSize": 669
-                },
-                {
-                    "name": "/res/layout/material_timepicker.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 665,
-                    "installSize": 665
                 },
                 {
                     "name": "com.google.android.material.behavior.HideBottomViewOnScrollBehavior",
@@ -3748,8 +3748,8 @@
                 {
                     "name": "/res/layout/mtrl_calendar_month_navigation.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 655,
-                    "installSize": 655
+                    "downloadSize": 656,
+                    "installSize": 656
                 },
                 {
                     "name": "com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior",
@@ -3778,8 +3778,8 @@
                 {
                     "name": "/res/layout/m3_alert_dialog_actions.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 623,
-                    "installSize": 623
+                    "downloadSize": 622,
+                    "installSize": 622
                 },
                 {
                     "name": "com.google.android.material.bottomappbar.BottomAppBar$Behavior",
@@ -3796,14 +3796,14 @@
                 {
                     "name": "/res/animator/m3_extended_fab_state_list_animator.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 616,
-                    "installSize": 616
+                    "downloadSize": 617,
+                    "installSize": 617
                 },
                 {
                     "name": "/res/animator/mtrl_extended_fab_state_list_animator.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 611,
-                    "installSize": 611
+                    "downloadSize": 612,
+                    "installSize": 612
                 },
                 {
                     "name": "com.google.android.material.dialog.MaterialAlertDialogBuilder",
@@ -3812,13 +3812,13 @@
                     "installSize": 609
                 },
                 {
-                    "name": "/res/layout-land/mtrl_picker_header_dialog.xml",
+                    "name": "/res/animator/mtrl_btn_state_list_anim.xml",
                     "type": "RESOURCE",
                     "downloadSize": 607,
                     "installSize": 607
                 },
                 {
-                    "name": "/res/animator/mtrl_btn_state_list_anim.xml",
+                    "name": "/res/layout-land/mtrl_picker_header_dialog.xml",
                     "type": "RESOURCE",
                     "downloadSize": 606,
                     "installSize": 606
@@ -3868,20 +3868,20 @@
                 {
                     "name": "/res/layout/material_clock_period_toggle.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 543,
-                    "installSize": 543
+                    "downloadSize": 542,
+                    "installSize": 542
+                },
+                {
+                    "name": "/res/animator/m3_card_elevated_state_list_anim.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 539,
+                    "installSize": 539
                 },
                 {
                     "name": "com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate",
                     "type": "CLASS",
                     "downloadSize": 538,
                     "installSize": 540
-                },
-                {
-                    "name": "/res/animator/m3_card_elevated_state_list_anim.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 538,
-                    "installSize": 538
                 },
                 {
                     "name": "com.google.android.material.datepicker.MonthAdapter",
@@ -3892,8 +3892,8 @@
                 {
                     "name": "/res/animator/m3_card_state_list_anim.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 529,
-                    "installSize": 529
+                    "downloadSize": 530,
+                    "installSize": 530
                 },
                 {
                     "name": "com.google.android.material.bottomsheet.BottomSheetBehavior$4",
@@ -3904,8 +3904,8 @@
                 {
                     "name": "/res/layout-land/material_clock_period_toggle_land.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 525,
-                    "installSize": 525
+                    "downloadSize": 524,
+                    "installSize": 524
                 },
                 {
                     "name": "/res/animator/m3_btn_state_list_anim.xml",
@@ -3940,8 +3940,8 @@
                 {
                     "name": "/res/animator/mtrl_card_state_list_anim.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 484,
-                    "installSize": 484
+                    "downloadSize": 485,
+                    "installSize": 485
                 },
                 {
                     "name": "/res/layout/mtrl_picker_dialog.xml",
@@ -3958,20 +3958,20 @@
                 {
                     "name": "/res/layout/material_clockface_view.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 474,
-                    "installSize": 474
+                    "downloadSize": 475,
+                    "installSize": 475
                 },
                 {
                     "name": "/res/layout/mtrl_alert_select_dialog_multichoice.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 470,
-                    "installSize": 470
+                    "downloadSize": 471,
+                    "installSize": 471
                 },
                 {
                     "name": "/res/layout/mtrl_alert_select_dialog_singlechoice.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 470,
-                    "installSize": 470
+                    "downloadSize": 471,
+                    "installSize": 471
                 },
                 {
                     "name": "com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda3",
@@ -3998,10 +3998,10 @@
                     "installSize": 458
                 },
                 {
-                    "name": "/res/color/m3_text_button_ripple_color_selector.xml",
+                    "name": "/res/layout/mtrl_layout_snackbar_include.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 451,
-                    "installSize": 451
+                    "downloadSize": 449,
+                    "installSize": 449
                 },
                 {
                     "name": "/res/drawable/ic_mtrl_chip_checked_circle.xml",
@@ -4010,10 +4010,10 @@
                     "installSize": 448
                 },
                 {
-                    "name": "/res/layout/mtrl_layout_snackbar_include.xml",
+                    "name": "/res/color/m3_text_button_ripple_color_selector.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 448,
-                    "installSize": 448
+                    "downloadSize": 447,
+                    "installSize": 447
                 },
                 {
                     "name": "/res/layout/mtrl_calendar_horizontal.xml",
@@ -4024,8 +4024,8 @@
                 {
                     "name": "/res/animator-v21/design_appbar_state_list_animator.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 445,
-                    "installSize": 445
+                    "downloadSize": 443,
+                    "installSize": 443
                 },
                 {
                     "name": "com.google.android.material.internal.ForegroundLinearLayout",
@@ -4052,16 +4052,16 @@
                     "installSize": 437
                 },
                 {
+                    "name": "/res/layout/design_navigation_menu_item.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 436,
+                    "installSize": 436
+                },
+                {
                     "name": "/res/animator-v21/m3_appbar_state_list_animator.xml",
                     "type": "RESOURCE",
                     "downloadSize": 435,
                     "installSize": 435
-                },
-                {
-                    "name": "/res/layout/design_navigation_menu_item.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 433,
-                    "installSize": 433
                 },
                 {
                     "name": "com.google.android.material.carousel.CarouselLayoutManager$DebugItemDecoration",
@@ -4072,8 +4072,8 @@
                 {
                     "name": "/res/drawable/mtrl_checkbox_button.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 431,
-                    "installSize": 431
+                    "downloadSize": 432,
+                    "installSize": 432
                 },
                 {
                     "name": "com.google.android.material.color.utilities.MaterialDynamicColors$$ExternalSyntheticLambda1",
@@ -4090,8 +4090,8 @@
                 {
                     "name": "/res/layout/material_time_input.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 425,
-                    "installSize": 425
+                    "downloadSize": 422,
+                    "installSize": 422
                 },
                 {
                     "name": "/res/drawable/ic_clock_black_24dp.xml",
@@ -4124,12 +4124,6 @@
                     "installSize": 418
                 },
                 {
-                    "name": "/res/layout/mtrl_picker_fullscreen.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 415,
-                    "installSize": 415
-                },
-                {
                     "name": "/res/drawable/ic_m3_chip_checked_circle.xml",
                     "type": "RESOURCE",
                     "downloadSize": 412,
@@ -4144,14 +4138,14 @@
                 {
                     "name": "/res/layout/m3_alert_dialog_title.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 412,
-                    "installSize": 412
+                    "downloadSize": 411,
+                    "installSize": 411
                 },
                 {
                     "name": "/res/drawable-v23/m3_popupmenu_background_overlay.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 411,
-                    "installSize": 411
+                    "downloadSize": 410,
+                    "installSize": 410
                 },
                 {
                     "name": "/res/layout/mtrl_alert_dialog_title.xml",
@@ -4160,28 +4154,34 @@
                     "installSize": 410
                 },
                 {
+                    "name": "/res/color/m3_card_stroke_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 409,
+                    "installSize": 409
+                },
+                {
                     "name": "/res/color/m3_chip_ripple_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 409,
                     "installSize": 409
                 },
                 {
-                    "name": "/res/color/m3_card_stroke_color.xml",
+                    "name": "/res/layout/mtrl_picker_fullscreen.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 408,
-                    "installSize": 408
+                    "downloadSize": 409,
+                    "installSize": 409
+                },
+                {
+                    "name": "/res/color/m3_card_ripple_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 406,
+                    "installSize": 406
                 },
                 {
                     "name": "com.google.android.material.snackbar.SnackbarManager",
                     "type": "CLASS",
                     "downloadSize": 405,
                     "installSize": 406
-                },
-                {
-                    "name": "/res/color/m3_card_ripple_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 405,
-                    "installSize": 405
                 },
                 {
                     "name": "/res/drawable/ic_mtrl_chip_close_circle.xml",
@@ -4244,6 +4244,12 @@
                     "installSize": 386
                 },
                 {
+                    "name": "/res/color/m3_navigation_item_text_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 385,
+                    "installSize": 385
+                },
+                {
                     "name": "/res/drawable/material_ic_edit_black_24dp.xml",
                     "type": "RESOURCE",
                     "downloadSize": 385,
@@ -4262,22 +4268,16 @@
                     "installSize": 384
                 },
                 {
-                    "name": "/res/color/m3_navigation_item_text_color.xml",
+                    "name": "/res/animator/m3_extended_fab_change_size_collapse_motion_spec.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 384,
-                    "installSize": 384
+                    "downloadSize": 382,
+                    "installSize": 382
                 },
                 {
                     "name": "/res/animator/m3_extended_fab_change_size_expand_motion_spec.xml",
                     "type": "RESOURCE",
                     "downloadSize": 382,
                     "installSize": 382
-                },
-                {
-                    "name": "/res/animator/m3_extended_fab_change_size_collapse_motion_spec.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 381,
-                    "installSize": 381
                 },
                 {
                     "name": "/res/drawable/material_ic_calendar_black_24dp.xml",
@@ -4298,12 +4298,6 @@
                     "installSize": 381
                 },
                 {
-                    "name": "/res/color/m3_tabs_ripple_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 380,
-                    "installSize": 380
-                },
-                {
                     "name": "com.google.android.material.transformation.FabTransformationScrimBehavior",
                     "type": "CLASS",
                     "downloadSize": 379,
@@ -4311,6 +4305,18 @@
                 },
                 {
                     "name": "/res/animator/mtrl_extended_fab_change_size_expand_motion_spec.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 379,
+                    "installSize": 379
+                },
+                {
+                    "name": "/res/color/m3_navigation_item_ripple_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 379,
+                    "installSize": 379
+                },
+                {
+                    "name": "/res/color/m3_tabs_ripple_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 379,
                     "installSize": 379
@@ -4334,7 +4340,7 @@
                     "installSize": 378
                 },
                 {
-                    "name": "/res/color/m3_navigation_item_ripple_color.xml",
+                    "name": "/res/color/m3_radiobutton_ripple_tint.xml",
                     "type": "RESOURCE",
                     "downloadSize": 378,
                     "installSize": 378
@@ -4344,12 +4350,6 @@
                     "type": "RESOURCE",
                     "downloadSize": 378,
                     "installSize": 378
-                },
-                {
-                    "name": "/res/color/m3_radiobutton_ripple_tint.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 377,
-                    "installSize": 377
                 },
                 {
                     "name": "com.google.android.material.shape.ShapePath$ArcShadowOperation",
@@ -4376,6 +4376,12 @@
                     "installSize": 374
                 },
                 {
+                    "name": "/res/color/m3_timepicker_display_ripple_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 374,
+                    "installSize": 374
+                },
+                {
                     "name": "/res/drawable/material_ic_keyboard_arrow_left_black_24dp.xml",
                     "type": "RESOURCE",
                     "downloadSize": 374,
@@ -4388,7 +4394,7 @@
                     "installSize": 374
                 },
                 {
-                    "name": "/res/color/m3_timepicker_display_ripple_color.xml",
+                    "name": "/res/color/m3_tabs_ripple_color_secondary.xml",
                     "type": "RESOURCE",
                     "downloadSize": 373,
                     "installSize": 373
@@ -4400,22 +4406,10 @@
                     "installSize": 371
                 },
                 {
-                    "name": "/res/color/m3_tabs_ripple_color_secondary.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 371,
-                    "installSize": 371
-                },
-                {
                     "name": "/res/layout/mtrl_calendar_month_labeled.xml",
                     "type": "RESOURCE",
                     "downloadSize": 368,
                     "installSize": 368
-                },
-                {
-                    "name": "/res/color/m3_checkbox_button_tint.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 367,
-                    "installSize": 367
                 },
                 {
                     "name": "/res/drawable/ic_mtrl_checked_circle.xml",
@@ -4424,14 +4418,20 @@
                     "installSize": 367
                 },
                 {
-                    "name": "/res/layout/design_text_input_end_icon.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 367,
-                    "installSize": 367
-                },
-                {
                     "name": "com.google.android.material.snackbar.SnackbarContentLayout",
                     "type": "CLASS",
+                    "downloadSize": 366,
+                    "installSize": 366
+                },
+                {
+                    "name": "/res/color/m3_checkbox_button_tint.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 366,
+                    "installSize": 366
+                },
+                {
+                    "name": "/res/layout/design_text_input_end_icon.xml",
+                    "type": "RESOURCE",
                     "downloadSize": 366,
                     "installSize": 366
                 },
@@ -4460,16 +4460,16 @@
                     "installSize": 364
                 },
                 {
-                    "name": "/res/animator/m3_extended_fab_hide_motion_spec.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 362,
-                    "installSize": 362
-                },
-                {
                     "name": "com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment",
                     "type": "CLASS",
                     "downloadSize": 361,
                     "installSize": 362
+                },
+                {
+                    "name": "/res/animator/m3_extended_fab_hide_motion_spec.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 361,
+                    "installSize": 361
                 },
                 {
                     "name": "/res/animator/mtrl_extended_fab_show_motion_spec.xml",
@@ -4486,8 +4486,8 @@
                 {
                     "name": "/res/layout/design_text_input_start_icon.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 361,
-                    "installSize": 361
+                    "downloadSize": 360,
+                    "installSize": 360
                 },
                 {
                     "name": "com.google.android.material.shape.ShapePath$PathArcOperation",
@@ -4498,8 +4498,8 @@
                 {
                     "name": "/res/animator/m3_extended_fab_show_motion_spec.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 356,
-                    "installSize": 356
+                    "downloadSize": 357,
+                    "installSize": 357
                 },
                 {
                     "name": "/res/layout/material_clock_display.xml",
@@ -4550,12 +4550,6 @@
                     "installSize": 344
                 },
                 {
-                    "name": "/res/color/m3_checkbox_button_icon_tint.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 343,
-                    "installSize": 343
-                },
-                {
                     "name": "/res/drawable/ic_m3_chip_close.xml",
                     "type": "RESOURCE",
                     "downloadSize": 343,
@@ -4574,6 +4568,12 @@
                     "installSize": 343
                 },
                 {
+                    "name": "/res/color/m3_checkbox_button_icon_tint.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 342,
+                    "installSize": 342
+                },
+                {
                     "name": "/res/drawable/mtrl_switch_thumb_checked.xml",
                     "type": "RESOURCE",
                     "downloadSize": 342,
@@ -4582,8 +4582,8 @@
                 {
                     "name": "/res/color/m3_navigation_bar_item_with_indicator_icon_tint.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 340,
-                    "installSize": 340
+                    "downloadSize": 341,
+                    "installSize": 341
                 },
                 {
                     "name": "com.google.android.material.ripple.RippleDrawableCompat",
@@ -4616,13 +4616,13 @@
                     "installSize": 338
                 },
                 {
-                    "name": "/res/color/mtrl_switch_thumb_tint.xml",
+                    "name": "/res/color/m3_navigation_bar_item_with_indicator_label_tint.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 337,
-                    "installSize": 337
+                    "downloadSize": 336,
+                    "installSize": 336
                 },
                 {
-                    "name": "/res/color/m3_navigation_bar_item_with_indicator_label_tint.xml",
+                    "name": "/res/color/mtrl_switch_thumb_tint.xml",
                     "type": "RESOURCE",
                     "downloadSize": 336,
                     "installSize": 336
@@ -4672,8 +4672,8 @@
                 {
                     "name": "/res/drawable/mtrl_dialog_background.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 329,
-                    "installSize": 329
+                    "downloadSize": 328,
+                    "installSize": 328
                 },
                 {
                     "name": "/res/animator/design_fab_show_motion_spec.xml",
@@ -4684,35 +4684,41 @@
                 {
                     "name": "/res/color/mtrl_choice_chip_ripple_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 326,
-                    "installSize": 326
+                    "downloadSize": 324,
+                    "installSize": 324
                 },
                 {
                     "name": "/res/drawable/m3_popupmenu_background_overlay.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 325,
-                    "installSize": 325
+                    "downloadSize": 324,
+                    "installSize": 324
                 },
                 {
                     "name": "/res/drawable/mtrl_popupmenu_background.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 325,
-                    "installSize": 325
+                    "downloadSize": 324,
+                    "installSize": 324
                 },
                 {
                     "name": "/res/drawable/mtrl_popupmenu_background_overlay.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 325,
-                    "installSize": 325
+                    "downloadSize": 324,
+                    "installSize": 324
                 },
                 {
-                    "name": "/res/color/mtrl_text_btn_text_color_selector.xml",
+                    "name": "/res/layout/mtrl_auto_complete_simple_item.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 324,
+                    "installSize": 324
+                },
+                {
+                    "name": "/res/color/mtrl_fab_ripple_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 323,
                     "installSize": 323
                 },
                 {
-                    "name": "/res/layout/mtrl_picker_header_title_text.xml",
+                    "name": "/res/color/mtrl_text_btn_text_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 323,
                     "installSize": 323
@@ -4730,18 +4736,6 @@
                     "installSize": 322
                 },
                 {
-                    "name": "/res/color/mtrl_btn_text_btn_ripple_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 322,
-                    "installSize": 322
-                },
-                {
-                    "name": "/res/color/mtrl_fab_ripple_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 322,
-                    "installSize": 322
-                },
-                {
                     "name": "/res/drawable-v23/m3_tabs_background.xml",
                     "type": "RESOURCE",
                     "downloadSize": 322,
@@ -4754,10 +4748,16 @@
                     "installSize": 322
                 },
                 {
-                    "name": "/res/layout/mtrl_auto_complete_simple_item.xml",
+                    "name": "/res/color/mtrl_btn_text_btn_ripple_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 322,
-                    "installSize": 322
+                    "downloadSize": 321,
+                    "installSize": 321
+                },
+                {
+                    "name": "/res/color/mtrl_filled_stroke_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 321,
+                    "installSize": 321
                 },
                 {
                     "name": "/res/color/mtrl_outlined_stroke_color.xml",
@@ -4766,19 +4766,19 @@
                     "installSize": 321
                 },
                 {
-                    "name": "/res/color/mtrl_filled_stroke_color.xml",
+                    "name": "/res/drawable/mtrl_switch_track_decoration.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 320,
-                    "installSize": 320
+                    "downloadSize": 321,
+                    "installSize": 321
+                },
+                {
+                    "name": "/res/layout/mtrl_picker_header_title_text.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 321,
+                    "installSize": 321
                 },
                 {
                     "name": "/res/drawable/ic_mtrl_chip_checked_black.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 320,
-                    "installSize": 320
-                },
-                {
-                    "name": "/res/drawable/mtrl_switch_track_decoration.xml",
                     "type": "RESOURCE",
                     "downloadSize": 320,
                     "installSize": 320
@@ -4790,13 +4790,13 @@
                     "installSize": 320
                 },
                 {
-                    "name": "/res/color/mtrl_calendar_item_stroke_color.xml",
+                    "name": "/res/color/mtrl_choice_chip_background_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 316,
-                    "installSize": 316
+                    "downloadSize": 317,
+                    "installSize": 317
                 },
                 {
-                    "name": "/res/color/mtrl_choice_chip_background_color.xml",
+                    "name": "/res/color/mtrl_calendar_item_stroke_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 316,
                     "installSize": 316
@@ -4808,6 +4808,18 @@
                     "installSize": 316
                 },
                 {
+                    "name": "/res/color/m3_card_foreground_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 315,
+                    "installSize": 315
+                },
+                {
+                    "name": "/res/color/mtrl_card_view_ripple.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 315,
+                    "installSize": 315
+                },
+                {
                     "name": "/res/color/mtrl_chip_background_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 315,
@@ -4816,12 +4828,6 @@
                 {
                     "name": "com.google.android.material.datepicker.UtcDates",
                     "type": "CLASS",
-                    "downloadSize": 313,
-                    "installSize": 313
-                },
-                {
-                    "name": "/res/color/mtrl_card_view_ripple.xml",
-                    "type": "RESOURCE",
                     "downloadSize": 313,
                     "installSize": 313
                 },
@@ -4838,16 +4844,22 @@
                     "installSize": 313
                 },
                 {
-                    "name": "/res/color/m3_card_foreground_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 312,
-                    "installSize": 312
-                },
-                {
                     "name": "com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState",
                     "type": "CLASS",
                     "downloadSize": 311,
                     "installSize": 312
+                },
+                {
+                    "name": "/res/color/mtrl_card_view_foreground.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 310,
+                    "installSize": 310
+                },
+                {
+                    "name": "/res/color/mtrl_choice_chip_text_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 310,
+                    "installSize": 310
                 },
                 {
                     "name": "/res/color/mtrl_filled_background_color.xml",
@@ -4856,26 +4868,14 @@
                     "installSize": 310
                 },
                 {
-                    "name": "/res/color/mtrl_card_view_foreground.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 309,
-                    "installSize": 309
-                },
-                {
-                    "name": "/res/color/mtrl_choice_chip_text_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 309,
-                    "installSize": 309
+                    "name": "com.google.android.material.floatingactionbutton.BaseMotionStrategy",
+                    "type": "CLASS",
+                    "downloadSize": 308,
+                    "installSize": 308
                 },
                 {
                     "name": "/res/drawable/mtrl_switch_track.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 309,
-                    "installSize": 309
-                },
-                {
-                    "name": "com.google.android.material.floatingactionbutton.BaseMotionStrategy",
-                    "type": "CLASS",
                     "downloadSize": 308,
                     "installSize": 308
                 },
@@ -4884,12 +4884,6 @@
                     "type": "RESOURCE",
                     "downloadSize": 307,
                     "installSize": 307
-                },
-                {
-                    "name": "/res/color/m3_text_button_foreground_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 306,
-                    "installSize": 306
                 },
                 {
                     "name": "com.google.android.material.datepicker.MonthsPagerAdapter$1",
@@ -4904,13 +4898,7 @@
                     "installSize": 305
                 },
                 {
-                    "name": "/res/color/m3_button_ripple_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 304,
-                    "installSize": 304
-                },
-                {
-                    "name": "/res/color/m3_tonal_button_ripple_color_selector.xml",
+                    "name": "/res/color/m3_text_button_foreground_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 304,
                     "installSize": 304
@@ -4928,19 +4916,7 @@
                     "installSize": 303
                 },
                 {
-                    "name": "/res/color/m3_fab_ripple_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 303,
-                    "installSize": 303
-                },
-                {
                     "name": "/res/color/m3_textfield_input_text_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 303,
-                    "installSize": 303
-                },
-                {
-                    "name": "/res/color/m3_timepicker_secondary_text_button_ripple_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 303,
                     "installSize": 303
@@ -4952,7 +4928,31 @@
                     "installSize": 303
                 },
                 {
+                    "name": "/res/color/m3_button_ripple_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 302,
+                    "installSize": 302
+                },
+                {
+                    "name": "/res/color/m3_fab_ripple_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 302,
+                    "installSize": 302
+                },
+                {
                     "name": "/res/color/m3_timepicker_button_text_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 302,
+                    "installSize": 302
+                },
+                {
+                    "name": "/res/color/m3_timepicker_secondary_text_button_ripple_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 302,
+                    "installSize": 302
+                },
+                {
+                    "name": "/res/color/m3_tonal_button_ripple_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 302,
                     "installSize": 302
@@ -4988,6 +4988,12 @@
                     "installSize": 300
                 },
                 {
+                    "name": "/res/color/m3_simple_item_ripple_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 300,
+                    "installSize": 300
+                },
+                {
                     "name": "/res/drawable/m3_avd_show_password.xml",
                     "type": "RESOURCE",
                     "downloadSize": 300,
@@ -4995,12 +5001,6 @@
                 },
                 {
                     "name": "/res/drawable/mtrl_ic_arrow_drop_down.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 300,
-                    "installSize": 300
-                },
-                {
-                    "name": "/res/layout/mtrl_picker_header_toggle.xml",
                     "type": "RESOURCE",
                     "downloadSize": 300,
                     "installSize": 300
@@ -5018,12 +5018,6 @@
                     "installSize": 299
                 },
                 {
-                    "name": "/res/color/m3_simple_item_ripple_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 299,
-                    "installSize": 299
-                },
-                {
                     "name": "/res/drawable/mtrl_ic_arrow_drop_up.xml",
                     "type": "RESOURCE",
                     "downloadSize": 299,
@@ -5031,6 +5025,12 @@
                 },
                 {
                     "name": "/res/layout/design_layout_snackbar.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 299,
+                    "installSize": 299
+                },
+                {
+                    "name": "/res/layout/mtrl_picker_header_toggle.xml",
                     "type": "RESOURCE",
                     "downloadSize": 299,
                     "installSize": 299
@@ -5086,12 +5086,6 @@
                 {
                     "name": "/res/color/m3_filled_icon_button_container_color_selector.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 292,
-                    "installSize": 292
-                },
-                {
-                    "name": "/res/color/m3_icon_button_icon_color_selector.xml",
-                    "type": "RESOURCE",
                     "downloadSize": 291,
                     "installSize": 291
                 },
@@ -5102,6 +5096,12 @@
                     "installSize": 290
                 },
                 {
+                    "name": "/res/color/m3_icon_button_icon_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 289,
+                    "installSize": 289
+                },
+                {
                     "name": "/res/color/design_box_stroke_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 287,
@@ -5110,20 +5110,20 @@
                 {
                     "name": "/res/color/mtrl_filled_icon_tint.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 286,
-                    "installSize": 286
+                    "downloadSize": 285,
+                    "installSize": 285
                 },
                 {
                     "name": "/res/color/mtrl_outlined_icon_tint.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 286,
-                    "installSize": 286
+                    "downloadSize": 285,
+                    "installSize": 285
                 },
                 {
                     "name": "/res/drawable-v21/m3_tabs_background.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 285,
-                    "installSize": 285
+                    "downloadSize": 284,
+                    "installSize": 284
                 },
                 {
                     "name": "/res/drawable/mtrl_checkbox_button_icon_checked_unchecked.xml",
@@ -5176,14 +5176,14 @@
                 {
                     "name": "/res/color/mtrl_navigation_item_icon_tint.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 279,
-                    "installSize": 279
+                    "downloadSize": 280,
+                    "installSize": 280
                 },
                 {
                     "name": "/res/color/mtrl_navigation_item_text_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 279,
-                    "installSize": 279
+                    "downloadSize": 280,
+                    "installSize": 280
                 },
                 {
                     "name": "/res/drawable/mtrl_bottomsheet_drag_handle.xml",
@@ -5199,6 +5199,12 @@
                 },
                 {
                     "name": "/res/color/m3_chip_background_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 278,
+                    "installSize": 278
+                },
+                {
+                    "name": "/res/color/mtrl_navigation_item_background_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 278,
                     "installSize": 278
@@ -5223,12 +5229,6 @@
                 },
                 {
                     "name": "/res/color/m3_textfield_label_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 277,
-                    "installSize": 277
-                },
-                {
-                    "name": "/res/color/mtrl_navigation_item_background_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 277,
                     "installSize": 277
@@ -5276,12 +5276,6 @@
                     "installSize": 274
                 },
                 {
-                    "name": "/res/color/m3_switch_track_tint.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 273,
-                    "installSize": 273
-                },
-                {
                     "name": "/res/layout/material_clockface_textview.xml",
                     "type": "RESOURCE",
                     "downloadSize": 273,
@@ -5296,6 +5290,12 @@
                 {
                     "name": "com.google.android.material.snackbar.BaseTransientBottomBar$Behavior",
                     "type": "CLASS",
+                    "downloadSize": 272,
+                    "installSize": 272
+                },
+                {
+                    "name": "/res/color/m3_switch_track_tint.xml",
+                    "type": "RESOURCE",
                     "downloadSize": 272,
                     "installSize": 272
                 },
@@ -5336,13 +5336,13 @@
                     "installSize": 263
                 },
                 {
-                    "name": "/res/anim/m3_motion_fade_exit.xml",
+                    "name": "/res/layout/material_clock_display_divider.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 262,
-                    "installSize": 262
+                    "downloadSize": 263,
+                    "installSize": 263
                 },
                 {
-                    "name": "/res/layout/material_clock_display_divider.xml",
+                    "name": "/res/anim/m3_motion_fade_exit.xml",
                     "type": "RESOURCE",
                     "downloadSize": 262,
                     "installSize": 262
@@ -5384,12 +5384,6 @@
                     "installSize": 259
                 },
                 {
-                    "name": "/res/layout/mtrl_calendar_days_of_week.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 258,
-                    "installSize": 258
-                },
-                {
                     "name": "com.google.android.material.sidesheet.SideSheetBehavior$$ExternalSyntheticLambda0",
                     "type": "CLASS",
                     "downloadSize": 257,
@@ -5397,6 +5391,12 @@
                 },
                 {
                     "name": "/res/color/material_slider_inactive_tick_marks_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 257,
+                    "installSize": 257
+                },
+                {
+                    "name": "/res/layout/mtrl_calendar_days_of_week.xml",
                     "type": "RESOURCE",
                     "downloadSize": 257,
                     "installSize": 257
@@ -5476,18 +5476,6 @@
                 {
                     "name": "/res/color/mtrl_indicator_text_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 253,
-                    "installSize": 253
-                },
-                {
-                    "name": "/res/color/mtrl_btn_stroke_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 252,
-                    "installSize": 252
-                },
-                {
-                    "name": "/res/drawable-v23/m3_appbar_background.xml",
-                    "type": "RESOURCE",
                     "downloadSize": 252,
                     "installSize": 252
                 },
@@ -5506,14 +5494,20 @@
                 {
                     "name": "/res/color/material_slider_halo_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 250,
-                    "installSize": 250
+                    "downloadSize": 251,
+                    "installSize": 251
                 },
                 {
-                    "name": "/res/color/mtrl_navigation_bar_item_tint.xml",
+                    "name": "/res/color/mtrl_btn_stroke_color_selector.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 250,
-                    "installSize": 250
+                    "downloadSize": 251,
+                    "installSize": 251
+                },
+                {
+                    "name": "/res/drawable-v23/m3_appbar_background.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 251,
+                    "installSize": 251
                 },
                 {
                     "name": "/res/color/material_timepicker_button_background.xml",
@@ -5523,6 +5517,12 @@
                 },
                 {
                     "name": "/res/color/mtrl_btn_text_btn_bg_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 249,
+                    "installSize": 249
+                },
+                {
+                    "name": "/res/color/mtrl_navigation_bar_item_tint.xml",
                     "type": "RESOURCE",
                     "downloadSize": 249,
                     "installSize": 249
@@ -5542,14 +5542,8 @@
                 {
                     "name": "/res/color/material_slider_thumb_color.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 248,
-                    "installSize": 248
-                },
-                {
-                    "name": "/res/color/mtrl_fab_icon_text_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 248,
-                    "installSize": 248
+                    "downloadSize": 247,
+                    "installSize": 247
                 },
                 {
                     "name": "/res/color/mtrl_btn_bg_color_selector.xml",
@@ -5565,6 +5559,12 @@
                 },
                 {
                     "name": "/res/color/mtrl_fab_bg_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 247,
+                    "installSize": 247
+                },
+                {
+                    "name": "/res/color/mtrl_fab_icon_text_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 247,
                     "installSize": 247
@@ -5594,18 +5594,6 @@
                     "installSize": 244
                 },
                 {
-                    "name": "/res/color/m3_slider_thumb_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 244,
-                    "installSize": 244
-                },
-                {
-                    "name": "/res/color/m3_textfield_filled_background_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 244,
-                    "installSize": 244
-                },
-                {
                     "name": "/res/color-v31/m3_dynamic_dark_default_color_secondary_text.xml",
                     "type": "RESOURCE",
                     "downloadSize": 244,
@@ -5618,13 +5606,25 @@
                     "installSize": 244
                 },
                 {
-                    "name": "/res/color/m3_button_foreground_color_selector.xml",
+                    "name": "/res/color/m3_button_background_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 243,
                     "installSize": 243
                 },
                 {
-                    "name": "/res/color/m3_fab_efab_foreground_color_selector.xml",
+                    "name": "/res/color/m3_fab_efab_background_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 243,
+                    "installSize": 243
+                },
+                {
+                    "name": "/res/color/m3_slider_thumb_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 243,
+                    "installSize": 243
+                },
+                {
+                    "name": "/res/color/m3_textfield_filled_background_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 243,
                     "installSize": 243
@@ -5648,12 +5648,6 @@
                     "installSize": 243
                 },
                 {
-                    "name": "/res/color/mtrl_tabs_icon_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 243,
-                    "installSize": 243
-                },
-                {
                     "name": "/res/color-v31/m3_dynamic_default_color_secondary_text.xml",
                     "type": "RESOURCE",
                     "downloadSize": 243,
@@ -5672,19 +5666,7 @@
                     "installSize": 242
                 },
                 {
-                    "name": "/res/color/m3_button_background_color_selector.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 242,
-                    "installSize": 242
-                },
-                {
                     "name": "/res/color/m3_dark_default_color_secondary_text.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 242,
-                    "installSize": 242
-                },
-                {
-                    "name": "/res/color/m3_fab_efab_background_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 242,
                     "installSize": 242
@@ -5702,19 +5684,31 @@
                     "installSize": 242
                 },
                 {
-                    "name": "/res/color/m3_slider_inactive_track_color.xml",
+                    "name": "/res/color/mtrl_tabs_icon_color_selector.xml",
                     "type": "RESOURCE",
                     "downloadSize": 242,
                     "installSize": 242
                 },
                 {
-                    "name": "/res/color/m3_text_button_background_color_selector.xml",
+                    "name": "/res/color/m3_button_foreground_color_selector.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 242,
-                    "installSize": 242
+                    "downloadSize": 241,
+                    "installSize": 241
                 },
                 {
                     "name": "/res/color/m3_default_color_primary_text.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 241,
+                    "installSize": 241
+                },
+                {
+                    "name": "/res/color/m3_fab_efab_foreground_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 241,
+                    "installSize": 241
+                },
+                {
+                    "name": "/res/color/m3_slider_inactive_track_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 241,
                     "installSize": 241
@@ -5750,13 +5744,25 @@
                     "installSize": 241
                 },
                 {
-                    "name": "/res/color/m3_chip_assist_text_color.xml",
+                    "name": "/res/color/m3_dark_primary_text_disable_only.xml",
                     "type": "RESOURCE",
                     "downloadSize": 240,
                     "installSize": 240
                 },
                 {
-                    "name": "/res/color/m3_dark_primary_text_disable_only.xml",
+                    "name": "/res/color/m3_text_button_background_color_selector.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 240,
+                    "installSize": 240
+                },
+                {
+                    "name": "/res/color/material_personalized_color_primary_text.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 240,
+                    "installSize": 240
+                },
+                {
+                    "name": "/res/color/material_personalized_color_primary_text_inverse.xml",
                     "type": "RESOURCE",
                     "downloadSize": 240,
                     "installSize": 240
@@ -5768,19 +5774,13 @@
                     "installSize": 240
                 },
                 {
+                    "name": "/res/color/m3_chip_assist_text_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 239,
+                    "installSize": 239
+                },
+                {
                     "name": "/res/color/m3_dark_default_color_primary_text.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 239,
-                    "installSize": 239
-                },
-                {
-                    "name": "/res/color/material_personalized_color_primary_text.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 239,
-                    "installSize": 239
-                },
-                {
-                    "name": "/res/color/material_personalized_color_primary_text_inverse.xml",
                     "type": "RESOURCE",
                     "downloadSize": 239,
                     "installSize": 239
@@ -5804,12 +5804,6 @@
                     "installSize": 231
                 },
                 {
-                    "name": "/res/color/design_error.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 230,
-                    "installSize": 230
-                },
-                {
                     "name": "/res/layout/material_time_chip.xml",
                     "type": "RESOURCE",
                     "downloadSize": 230,
@@ -5822,37 +5816,13 @@
                     "installSize": 229
                 },
                 {
-                    "name": "/res/color/m3_timepicker_clock_text_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 229,
-                    "installSize": 229
-                },
-                {
                     "name": "/res/color/m3_timepicker_time_input_stroke_color.xml",
                     "type": "RESOURCE",
                     "downloadSize": 229,
                     "installSize": 229
                 },
                 {
-                    "name": "/res/color/mtrl_error.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 229,
-                    "installSize": 229
-                },
-                {
-                    "name": "/res/color/m3_navigation_rail_item_with_indicator_icon_tint.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 228,
-                    "installSize": 228
-                },
-                {
-                    "name": "/res/color/m3_navigation_rail_item_with_indicator_label_tint.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 228,
-                    "installSize": 228
-                },
-                {
-                    "name": "/res/color/m3_timepicker_display_background_color.xml",
+                    "name": "/res/color/design_error.xml",
                     "type": "RESOURCE",
                     "downloadSize": 228,
                     "installSize": 228
@@ -5870,16 +5840,46 @@
                     "installSize": 228
                 },
                 {
-                    "name": "/res/color/material_timepicker_clock_text_color.xml",
+                    "name": "/res/color/m3_navigation_rail_item_with_indicator_icon_tint.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 226,
-                    "installSize": 226
+                    "downloadSize": 227,
+                    "installSize": 227
+                },
+                {
+                    "name": "/res/color/m3_navigation_rail_item_with_indicator_label_tint.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 227,
+                    "installSize": 227
+                },
+                {
+                    "name": "/res/color/m3_timepicker_clock_text_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 227,
+                    "installSize": 227
+                },
+                {
+                    "name": "/res/color/m3_timepicker_display_background_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 227,
+                    "installSize": 227
+                },
+                {
+                    "name": "/res/color/mtrl_error.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 227,
+                    "installSize": 227
                 },
                 {
                     "name": "com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState",
                     "type": "CLASS",
                     "downloadSize": 225,
                     "installSize": 226
+                },
+                {
+                    "name": "/res/color/material_timepicker_clock_text_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 225,
+                    "installSize": 225
                 },
                 {
                     "name": "com.google.android.material.color.ColorResourcesTableCreator$PackageChunk",
@@ -6014,6 +6014,18 @@
                     "installSize": 207
                 },
                 {
+                    "name": "/res/color/m3_popupmenu_overlay_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 207,
+                    "installSize": 207
+                },
+                {
+                    "name": "/res/color/material_timepicker_button_stroke.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 207,
+                    "installSize": 207
+                },
+                {
                     "name": "/res/interpolator-v21/m3_sys_motion_easing_standard.xml",
                     "type": "RESOURCE",
                     "downloadSize": 207,
@@ -6032,6 +6044,12 @@
                     "installSize": 207
                 },
                 {
+                    "name": "/res/layout/mtrl_calendar_year.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 207,
+                    "installSize": 207
+                },
+                {
                     "name": "com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl",
                     "type": "CLASS",
                     "downloadSize": 206,
@@ -6039,24 +6057,6 @@
                 },
                 {
                     "name": "/res/color/m3_appbar_overlay_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 206,
-                    "installSize": 206
-                },
-                {
-                    "name": "/res/color/m3_popupmenu_overlay_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 206,
-                    "installSize": 206
-                },
-                {
-                    "name": "/res/color/material_divider_color.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 206,
-                    "installSize": 206
-                },
-                {
-                    "name": "/res/color/material_timepicker_button_stroke.xml",
                     "type": "RESOURCE",
                     "downloadSize": 206,
                     "installSize": 206
@@ -6074,25 +6074,31 @@
                     "installSize": 206
                 },
                 {
-                    "name": "/res/color-night-v8/material_timepicker_clockface.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 206,
-                    "installSize": 206
-                },
-                {
-                    "name": "/res/layout/mtrl_calendar_year.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 206,
-                    "installSize": 206
-                },
-                {
                     "name": "/res/color/m3_calendar_item_disabled_text.xml",
                     "type": "RESOURCE",
                     "downloadSize": 205,
                     "installSize": 205
                 },
                 {
+                    "name": "/res/color/material_divider_color.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 205,
+                    "installSize": 205
+                },
+                {
                     "name": "/res/color/mtrl_calendar_selected_range.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 205,
+                    "installSize": 205
+                },
+                {
+                    "name": "/res/color-night-v8/material_timepicker_clockface.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 205,
+                    "installSize": 205
+                },
+                {
+                    "name": "/res/layout/mtrl_calendar_day.xml",
                     "type": "RESOURCE",
                     "downloadSize": 205,
                     "installSize": 205
@@ -6105,12 +6111,6 @@
                 },
                 {
                     "name": "/res/color/material_timepicker_clockface.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 204,
-                    "installSize": 204
-                },
-                {
-                    "name": "/res/layout/mtrl_calendar_day.xml",
                     "type": "RESOURCE",
                     "downloadSize": 204,
                     "installSize": 204
@@ -6159,12 +6159,6 @@
                 },
                 {
                     "name": "/res/color/m3_dark_highlighted_text.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 202,
-                    "installSize": 202
-                },
-                {
-                    "name": "/res/color/material_on_surface_disabled.xml",
                     "type": "RESOURCE",
                     "downloadSize": 202,
                     "installSize": 202
@@ -6244,6 +6238,12 @@
                 {
                     "name": "com.google.android.material.datepicker.CalendarConstraints$Builder",
                     "type": "CLASS",
+                    "downloadSize": 201,
+                    "installSize": 201
+                },
+                {
+                    "name": "/res/color/material_on_surface_disabled.xml",
+                    "type": "RESOURCE",
                     "downloadSize": 201,
                     "installSize": 201
                 },
@@ -7518,8 +7518,8 @@
         {
             "name": "androidx.appcompat:appcompat:1.6.1",
             "type": "EXTERNAL",
-            "downloadSize": 217520,
-            "installSize": 219492,
+            "downloadSize": 217510,
+            "installSize": 219476,
             "files": [
                 {
                     "name": "androidx.appcompat.app.AppCompatDelegateImpl",
@@ -7536,7 +7536,7 @@
                 {
                     "name": "androidx.appcompat.widget.LinearLayoutCompat",
                     "type": "CLASS",
-                    "downloadSize": 4425,
+                    "downloadSize": 4426,
                     "installSize": 4435
                 },
                 {
@@ -7549,7 +7549,7 @@
                     "name": "androidx.appcompat.widget.SwitchCompat",
                     "type": "CLASS",
                     "downloadSize": 3710,
-                    "installSize": 3719
+                    "installSize": 3718
                 },
                 {
                     "name": "androidx.appcompat.view.menu.MenuBuilder",
@@ -7591,7 +7591,7 @@
                     "name": "androidx.appcompat.view.menu.CascadingMenuPopup",
                     "type": "CLASS",
                     "downloadSize": 2640,
-                    "installSize": 2646
+                    "installSize": 2645
                 },
                 {
                     "name": "androidx.appcompat.app.AppCompatActivity",
@@ -7632,7 +7632,7 @@
                 {
                     "name": "androidx.appcompat.widget.ActionMenuPresenter",
                     "type": "CLASS",
-                    "downloadSize": 2124,
+                    "downloadSize": 2125,
                     "installSize": 2129
                 },
                 {
@@ -7692,7 +7692,7 @@
                 {
                     "name": "androidx.appcompat.widget.AppCompatButton",
                     "type": "CLASS",
-                    "downloadSize": 1558,
+                    "downloadSize": 1559,
                     "installSize": 1562
                 },
                 {
@@ -7788,8 +7788,8 @@
                 {
                     "name": "/res/layout/abc_search_view.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 1105,
-                    "installSize": 1105
+                    "downloadSize": 1104,
+                    "installSize": 1104
                 },
                 {
                     "name": "androidx.appcompat.widget.AppCompatAutoCompleteTextView",
@@ -7938,8 +7938,8 @@
                 {
                     "name": "/res/layout/abc_cascading_menu_item_layout.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 714,
-                    "installSize": 714
+                    "downloadSize": 713,
+                    "installSize": 713
                 },
                 {
                     "name": "/res/drawable/btn_radio_off_mtrl.xml",
@@ -7974,8 +7974,8 @@
                 {
                     "name": "/res/layout/abc_search_dropdown_item_icons_2line.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 670,
-                    "installSize": 670
+                    "downloadSize": 671,
+                    "installSize": 671
                 },
                 {
                     "name": "/res/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml",
@@ -7996,16 +7996,16 @@
                     "installSize": 657
                 },
                 {
+                    "name": "/res/layout-v26/abc_screen_toolbar.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 652,
+                    "installSize": 652
+                },
+                {
                     "name": "androidx.appcompat.widget.SearchView$SearchAutoComplete",
                     "type": "CLASS",
                     "downloadSize": 651,
                     "installSize": 653
-                },
-                {
-                    "name": "/res/layout-v26/abc_screen_toolbar.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 651,
-                    "installSize": 651
                 },
                 {
                     "name": "/res/layout/abc_alert_dialog_title_material.xml",
@@ -8148,8 +8148,8 @@
                 {
                     "name": "/res/layout/abc_select_dialog_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 537,
-                    "installSize": 537
+                    "downloadSize": 536,
+                    "installSize": 536
                 },
                 {
                     "name": "/res/layout/abc_dialog_title_material.xml",
@@ -8178,14 +8178,14 @@
                 {
                     "name": "/res/layout/abc_tooltip.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 500,
-                    "installSize": 500
+                    "downloadSize": 501,
+                    "installSize": 501
                 },
                 {
                     "name": "/res/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 493,
-                    "installSize": 493
+                    "downloadSize": 491,
+                    "installSize": 491
                 },
                 {
                     "name": "androidx.appcompat.app.AlertController",
@@ -8236,16 +8236,16 @@
                     "installSize": 525
                 },
                 {
-                    "name": "/res/drawable-v21/abc_edit_text_material.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 464,
-                    "installSize": 464
-                },
-                {
                     "name": "/res/drawable-xxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
                     "type": "RESOURCE",
                     "downloadSize": 463,
                     "installSize": 524
+                },
+                {
+                    "name": "/res/drawable-v21/abc_edit_text_material.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 463,
+                    "installSize": 463
                 },
                 {
                     "name": "androidx.appcompat.app.AppCompatDelegateImpl$6$1",
@@ -8262,14 +8262,14 @@
                 {
                     "name": "/res/drawable/abc_ic_voice_search_api_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 456,
-                    "installSize": 456
+                    "downloadSize": 455,
+                    "installSize": 455
                 },
                 {
                     "name": "/res/drawable/abc_ic_search_api_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 453,
-                    "installSize": 453
+                    "downloadSize": 451,
+                    "installSize": 451
                 },
                 {
                     "name": "androidx.appcompat.view.menu.SubMenuBuilder",
@@ -8280,14 +8280,14 @@
                 {
                     "name": "/res/layout/select_dialog_multichoice_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 445,
-                    "installSize": 445
+                    "downloadSize": 447,
+                    "installSize": 447
                 },
                 {
                     "name": "/res/layout/select_dialog_singlechoice_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 445,
-                    "installSize": 445
+                    "downloadSize": 447,
+                    "installSize": 447
                 },
                 {
                     "name": "androidx.appcompat.app.ToolbarActionBar$ActionMenuPresenterCallback",
@@ -8308,13 +8308,13 @@
                     "installSize": 435
                 },
                 {
-                    "name": "/res/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml",
+                    "name": "/res/layout/abc_popup_menu_header_item_layout.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 433,
-                    "installSize": 433
+                    "downloadSize": 435,
+                    "installSize": 435
                 },
                 {
-                    "name": "/res/layout/abc_popup_menu_header_item_layout.xml",
+                    "name": "/res/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml",
                     "type": "RESOURCE",
                     "downloadSize": 433,
                     "installSize": 433
@@ -8380,16 +8380,16 @@
                     "installSize": 403
                 },
                 {
-                    "name": "/res/drawable/abc_spinner_textfield_background_material.xml",
+                    "name": "/res/color/abc_tint_default.xml",
                     "type": "RESOURCE",
                     "downloadSize": 407,
                     "installSize": 407
                 },
                 {
-                    "name": "/res/color/abc_tint_default.xml",
+                    "name": "/res/drawable/abc_spinner_textfield_background_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 406,
-                    "installSize": 406
+                    "downloadSize": 407,
+                    "installSize": 407
                 },
                 {
                     "name": "/res/drawable/abc_ic_menu_copy_mtrl_am_alpha.xml",
@@ -8442,8 +8442,8 @@
                 {
                     "name": "/res/drawable/abc_ic_menu_overflow_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 390,
-                    "installSize": 390
+                    "downloadSize": 388,
+                    "installSize": 388
                 },
                 {
                     "name": "/res/layout/abc_action_bar_title_item.xml",
@@ -8464,16 +8464,16 @@
                     "installSize": 420
                 },
                 {
-                    "name": "/res/drawable/abc_ic_ab_back_material.xml",
+                    "name": "/res/layout/abc_list_menu_item_icon.xml",
                     "type": "RESOURCE",
                     "downloadSize": 382,
                     "installSize": 382
                 },
                 {
-                    "name": "/res/layout/abc_list_menu_item_icon.xml",
+                    "name": "/res/drawable/abc_ic_ab_back_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 382,
-                    "installSize": 382
+                    "downloadSize": 381,
+                    "installSize": 381
                 },
                 {
                     "name": "androidx.appcompat.app.AppCompatDelegate$$ExternalSyntheticLambda0",
@@ -8556,8 +8556,8 @@
                 {
                     "name": "/res/drawable/abc_ic_clear_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 360,
-                    "installSize": 360
+                    "downloadSize": 359,
+                    "installSize": 359
                 },
                 {
                     "name": "androidx.appcompat.app.AppLocalesStorageHelper$SerialExecutor",
@@ -8604,8 +8604,8 @@
                 {
                     "name": "/res/drawable/abc_ic_go_search_api_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 340,
-                    "installSize": 340
+                    "downloadSize": 339,
+                    "installSize": 339
                 },
                 {
                     "name": "/res/drawable/abc_list_selector_holo_dark.xml",
@@ -8623,7 +8623,7 @@
                     "name": "androidx.appcompat.widget.SearchView$8",
                     "type": "CLASS",
                     "downloadSize": 336,
-                    "installSize": 337
+                    "installSize": 336
                 },
                 {
                     "name": "androidx.appcompat.app.AppCompatDelegate",
@@ -8656,14 +8656,14 @@
                     "installSize": 322
                 },
                 {
-                    "name": "/res/drawable-v21/abc_dialog_material_background.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 325,
-                    "installSize": 325
-                },
-                {
                     "name": "androidx.appcompat.widget.AppCompatSpinner$DropDownAdapter",
                     "type": "CLASS",
+                    "downloadSize": 324,
+                    "installSize": 324
+                },
+                {
+                    "name": "/res/drawable-v21/abc_dialog_material_background.xml",
+                    "type": "RESOURCE",
                     "downloadSize": 324,
                     "installSize": 324
                 },
@@ -8700,14 +8700,14 @@
                 {
                     "name": "/res/color/abc_tint_edittext.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 316,
-                    "installSize": 316
+                    "downloadSize": 315,
+                    "installSize": 315
                 },
                 {
                     "name": "/res/color/abc_tint_spinner.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 316,
-                    "installSize": 316
+                    "downloadSize": 315,
+                    "installSize": 315
                 },
                 {
                     "name": "androidx.appcompat.view.menu.MenuDialogHelper",
@@ -8724,8 +8724,8 @@
                 {
                     "name": "/res/color/abc_tint_switch_track.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 312,
-                    "installSize": 312
+                    "downloadSize": 311,
+                    "installSize": 311
                 },
                 {
                     "name": "androidx.appcompat.widget.ListPopupWindow$3",
@@ -8734,16 +8734,16 @@
                     "installSize": 310
                 },
                 {
-                    "name": "/res/color/abc_tint_btn_checkable.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 307,
-                    "installSize": 307
-                },
-                {
                     "name": "androidx.appcompat.app.AppCompatViewInflater$DeclaredOnClickListener",
                     "type": "CLASS",
                     "downloadSize": 306,
                     "installSize": 307
+                },
+                {
+                    "name": "/res/color/abc_tint_btn_checkable.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 306,
+                    "installSize": 306
                 },
                 {
                     "name": "/res/drawable/btn_checkbox_checked_to_unchecked_mtrl_animation.xml",
@@ -8784,8 +8784,8 @@
                 {
                     "name": "/res/layout/abc_action_menu_layout.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 297,
-                    "installSize": 297
+                    "downloadSize": 298,
+                    "installSize": 298
                 },
                 {
                     "name": "/res/layout/abc_screen_content_include.xml",
@@ -8812,34 +8812,28 @@
                     "installSize": 307
                 },
                 {
-                    "name": "/res/color-v23/abc_tint_edittext.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 284,
-                    "installSize": 284
-                },
-                {
-                    "name": "/res/color-v23/abc_tint_spinner.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 284,
-                    "installSize": 284
-                },
-                {
                     "name": "/res/layout/abc_list_menu_item_checkbox.xml",
                     "type": "RESOURCE",
                     "downloadSize": 283,
                     "installSize": 283
                 },
                 {
-                    "name": "/res/color-v23/abc_tint_switch_track.xml",
+                    "name": "/res/color-v23/abc_tint_edittext.xml",
                     "type": "RESOURCE",
                     "downloadSize": 282,
                     "installSize": 282
                 },
                 {
-                    "name": "/res/color-v23/abc_tint_btn_checkable.xml",
+                    "name": "/res/color-v23/abc_tint_spinner.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 274,
-                    "installSize": 274
+                    "downloadSize": 282,
+                    "installSize": 282
+                },
+                {
+                    "name": "/res/color-v23/abc_tint_switch_track.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 281,
+                    "installSize": 281
                 },
                 {
                     "name": "androidx.appcompat.view.menu.ExpandedMenuView",
@@ -8849,6 +8843,12 @@
                 },
                 {
                     "name": "/res/color/abc_btn_colored_text_material.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 273,
+                    "installSize": 273
+                },
+                {
+                    "name": "/res/color-v23/abc_tint_btn_checkable.xml",
                     "type": "RESOURCE",
                     "downloadSize": 273,
                     "installSize": 273
@@ -8998,16 +8998,16 @@
                     "installSize": 234
                 },
                 {
+                    "name": "/res/layout/abc_expanded_menu_layout.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 233,
+                    "installSize": 233
+                },
+                {
                     "name": "androidx.appcompat.app.TwilightCalculator",
                     "type": "CLASS",
                     "downloadSize": 232,
                     "installSize": 233
-                },
-                {
-                    "name": "/res/layout/abc_expanded_menu_layout.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 232,
-                    "installSize": 232
                 },
                 {
                     "name": "/res/color/abc_background_cache_hint_selector_material_dark.xml",
@@ -9017,12 +9017,6 @@
                 },
                 {
                     "name": "/res/color/abc_background_cache_hint_selector_material_light.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 231,
-                    "installSize": 231
-                },
-                {
-                    "name": "/res/color-v21/abc_btn_colored_borderless_text_material.xml",
                     "type": "RESOURCE",
                     "downloadSize": 231,
                     "installSize": 231
@@ -9047,6 +9041,12 @@
                 },
                 {
                     "name": "/res/color/abc_primary_text_material_light.xml",
+                    "type": "RESOURCE",
+                    "downloadSize": 230,
+                    "installSize": 230
+                },
+                {
+                    "name": "/res/color-v21/abc_btn_colored_borderless_text_material.xml",
                     "type": "RESOURCE",
                     "downloadSize": 230,
                     "installSize": 230
@@ -9102,8 +9102,8 @@
                 {
                     "name": "/res/drawable/tooltip_frame_dark.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 223,
-                    "installSize": 223
+                    "downloadSize": 224,
+                    "installSize": 224
                 },
                 {
                     "name": "/res/drawable/tooltip_frame_light.xml",
@@ -10244,14 +10244,14 @@
         {
             "name": "androidx.compose.ui:ui:1.4.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 183737,
-            "installSize": 184144,
+            "downloadSize": 183738,
+            "installSize": 184142,
             "files": [
                 {
                     "name": "androidx.compose.ui.input.key.KeyEvent_androidKt",
                     "type": "CLASS",
                     "downloadSize": 10667,
-                    "installSize": 10691
+                    "installSize": 10690
                 },
                 {
                     "name": "androidx.compose.ui.platform.AndroidComposeView",
@@ -10394,7 +10394,7 @@
                 {
                     "name": "androidx.compose.ui.node.LayoutNodeDrawScope",
                     "type": "CLASS",
-                    "downloadSize": 1419,
+                    "downloadSize": 1420,
                     "installSize": 1423
                 },
                 {
@@ -10836,16 +10836,16 @@
                     "installSize": 363
                 },
                 {
-                    "name": "androidx.compose.ui.platform.DeviceRenderNode",
+                    "name": "androidx.compose.ui.window.DialogLayout",
                     "type": "CLASS",
                     "downloadSize": 356,
                     "installSize": 357
                 },
                 {
-                    "name": "androidx.compose.ui.window.DialogLayout",
+                    "name": "androidx.compose.ui.platform.DeviceRenderNode",
                     "type": "CLASS",
                     "downloadSize": 356,
-                    "installSize": 357
+                    "installSize": 356
                 },
                 {
                     "name": "androidx.compose.ui.platform.AndroidUiDispatcher",
@@ -13150,8 +13150,8 @@
         {
             "name": "androidx.compose.foundation:foundation:1.4.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 154005,
-            "installSize": 154344,
+            "downloadSize": 154007,
+            "installSize": 154340,
             "files": [
                 {
                     "name": "androidx.compose.foundation.text.StringHelpersKt",
@@ -13181,7 +13181,7 @@
                     "name": "androidx.compose.foundation.lazy.LazyListKt$rememberLazyListMeasurePolicy$1$1",
                     "type": "CLASS",
                     "downloadSize": 3184,
-                    "installSize": 3192
+                    "installSize": 3191
                 },
                 {
                     "name": "androidx.compose.foundation.text.selection.TextFieldSelectionManager",
@@ -13211,7 +13211,7 @@
                     "name": "androidx.compose.foundation.ClickableKt$clickable$4$delayPressInteraction$1$1",
                     "type": "CLASS",
                     "downloadSize": 1473,
-                    "installSize": 1477
+                    "installSize": 1476
                 },
                 {
                     "name": "androidx.compose.foundation.BorderKt$border$2$1",
@@ -13246,7 +13246,7 @@
                 {
                     "name": "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapGestures$2$1",
                     "type": "CLASS",
-                    "downloadSize": 1326,
+                    "downloadSize": 1327,
                     "installSize": 1329
                 },
                 {
@@ -13271,7 +13271,7 @@
                     "name": "androidx.compose.foundation.lazy.LazyListScrollPosition",
                     "type": "CLASS",
                     "downloadSize": 1246,
-                    "installSize": 1249
+                    "installSize": 1248
                 },
                 {
                     "name": "androidx.compose.foundation.gestures.ScrollableKt$scrollable$2",
@@ -13361,7 +13361,7 @@
                     "name": "androidx.compose.foundation.shape.CutCornerShape",
                     "type": "CLASS",
                     "downloadSize": 831,
-                    "installSize": 833
+                    "installSize": 832
                 },
                 {
                     "name": "androidx.compose.foundation.gestures.ScrollingLogic",
@@ -13546,7 +13546,7 @@
                 {
                     "name": "androidx.compose.foundation.gestures.DraggableKt$draggable$9$2",
                     "type": "CLASS",
-                    "downloadSize": 528,
+                    "downloadSize": 529,
                     "installSize": 530
                 },
                 {
@@ -15852,8 +15852,8 @@
         {
             "name": "androidx.compose.runtime:runtime:1.4.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 97698,
-            "installSize": 97910,
+            "downloadSize": 97699,
+            "installSize": 97909,
             "files": [
                 {
                     "name": "androidx.compose.runtime.ComposerImpl",
@@ -15883,7 +15883,7 @@
                     "name": "androidx.compose.runtime.external.kotlinx.collections.immutable.implementations.immutableMap.TrieNode",
                     "type": "CLASS",
                     "downloadSize": 4363,
-                    "installSize": 4373
+                    "installSize": 4372
                 },
                 {
                     "name": "androidx.compose.runtime.Recomposer",
@@ -15984,7 +15984,7 @@
                 {
                     "name": "androidx.compose.runtime.snapshots.SnapshotIdSet",
                     "type": "CLASS",
-                    "downloadSize": 964,
+                    "downloadSize": 965,
                     "installSize": 967
                 },
                 {
@@ -16965,13 +16965,13 @@
             "name": "androidx.core:core:1.9.0",
             "type": "EXTERNAL",
             "downloadSize": 91345,
-            "installSize": 91863,
+            "installSize": 91858,
             "files": [
                 {
                     "name": "androidx.core.content.res.ResourcesCompat$FontCallback",
                     "type": "CLASS",
                     "downloadSize": 19523,
-                    "installSize": 19567
+                    "installSize": 19566
                 },
                 {
                     "name": "androidx.core.widget.NestedScrollView",
@@ -16983,7 +16983,7 @@
                     "name": "androidx.core.content.res.CamColor",
                     "type": "CLASS",
                     "downloadSize": 2799,
-                    "installSize": 2806
+                    "installSize": 2805
                 },
                 {
                     "name": "androidx.core.view.ViewCompat",
@@ -17036,7 +17036,7 @@
                 {
                     "name": "androidx.core.widget.ListViewAutoScrollHelper",
                     "type": "CLASS",
-                    "downloadSize": 1029,
+                    "downloadSize": 1030,
                     "installSize": 1032
                 },
                 {
@@ -17049,7 +17049,7 @@
                     "name": "androidx.core.text.PrecomputedTextCompat$Params",
                     "type": "CLASS",
                     "downloadSize": 959,
-                    "installSize": 962
+                    "installSize": 961
                 },
                 {
                     "name": "androidx.core.text.BidiFormatter",
@@ -17066,8 +17066,8 @@
                 {
                     "name": "/res/layout-v21/notification_template_custom_big.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 787,
-                    "installSize": 787
+                    "downloadSize": 788,
+                    "installSize": 788
                 },
                 {
                     "name": "androidx.core.view.ViewCompat$Api21Impl",
@@ -17240,8 +17240,8 @@
                 {
                     "name": "/res/layout-v21/notification_template_icon_group.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 421,
-                    "installSize": 421
+                    "downloadSize": 419,
+                    "installSize": 419
                 },
                 {
                     "name": "androidx.core.view.WindowInsetsAnimationCompat$Impl21$Impl21OnApplyWindowInsetsListener$3",
@@ -17301,7 +17301,7 @@
                     "name": "androidx.core.hardware.fingerprint.FingerprintManagerCompat$1",
                     "type": "CLASS",
                     "downloadSize": 346,
-                    "installSize": 347
+                    "installSize": 346
                 },
                 {
                     "name": "androidx.core.graphics.Insets",
@@ -18604,20 +18604,20 @@
         {
             "name": "androidx.work:work-runtime:2.8.0",
             "type": "EXTERNAL",
-            "downloadSize": 77135,
-            "installSize": 77314,
+            "downloadSize": 77136,
+            "installSize": 77310,
             "files": [
                 {
                     "name": "androidx.work.impl.model.RawWorkInfoDao_Impl",
                     "type": "CLASS",
-                    "downloadSize": 9920,
-                    "installSize": 9943
+                    "downloadSize": 9921,
+                    "installSize": 9942
                 },
                 {
                     "name": "androidx.work.impl.model.WorkTagDao_Impl",
                     "type": "CLASS",
                     "downloadSize": 4895,
-                    "installSize": 4906
+                    "installSize": 4905
                 },
                 {
                     "name": "androidx.work.impl.model.DependencyDao_Impl",
@@ -18671,7 +18671,7 @@
                     "name": "androidx.work.impl.utils.futures.AbstractFuture",
                     "type": "CLASS",
                     "downloadSize": 1523,
-                    "installSize": 1527
+                    "installSize": 1526
                 },
                 {
                     "name": "androidx.work.impl.model.SystemIdInfoDao_Impl",
@@ -18845,7 +18845,7 @@
                     "name": "androidx.work.impl.constraints.controllers.ConstraintController",
                     "type": "CLASS",
                     "downloadSize": 445,
-                    "installSize": 446
+                    "installSize": 445
                 },
                 {
                     "name": "androidx.work.impl.utils.StopWorkRunnable",
@@ -20673,13 +20673,13 @@
             "name": "androidx.recyclerview:recyclerview:1.2.0",
             "type": "EXTERNAL",
             "downloadSize": 67546,
-            "installSize": 67697,
+            "installSize": 67692,
             "files": [
                 {
                     "name": "androidx.recyclerview.widget.RecyclerView",
                     "type": "CLASS",
                     "downloadSize": 16318,
-                    "installSize": 16355
+                    "installSize": 16354
                 },
                 {
                     "name": "androidx.recyclerview.widget.StaggeredGridLayoutManager",
@@ -20691,7 +20691,7 @@
                     "name": "androidx.recyclerview.widget.LinearLayoutManager",
                     "type": "CLASS",
                     "downloadSize": 5708,
-                    "installSize": 5721
+                    "installSize": 5720
                 },
                 {
                     "name": "androidx.recyclerview.widget.GridLayoutManager",
@@ -20709,7 +20709,7 @@
                     "name": "androidx.recyclerview.widget.RecyclerView$Recycler",
                     "type": "CLASS",
                     "downloadSize": 3135,
-                    "installSize": 3142
+                    "installSize": 3141
                 },
                 {
                     "name": "androidx.recyclerview.widget.DefaultItemAnimator",
@@ -20763,7 +20763,7 @@
                     "name": "androidx.recyclerview.widget.OrientationHelper$1",
                     "type": "CLASS",
                     "downloadSize": 939,
-                    "installSize": 942
+                    "installSize": 941
                 },
                 {
                     "name": "androidx.recyclerview.widget.GapWorker",
@@ -20865,7 +20865,7 @@
                     "name": "androidx.recyclerview.widget.AsyncListDiffer$1$1",
                     "type": "CLASS",
                     "downloadSize": 336,
-                    "installSize": 337
+                    "installSize": 336
                 },
                 {
                     "name": "androidx.recyclerview.widget.ViewBoundsCheck$BoundFlags",
@@ -21197,13 +21197,13 @@
             "name": "androidx.compose.ui:ui-text:1.4.0-beta02",
             "type": "EXTERNAL",
             "downloadSize": 65702,
-            "installSize": 65839,
+            "installSize": 65837,
             "files": [
                 {
                     "name": "androidx.compose.ui.text.style.TextForegroundStyle$-CC",
                     "type": "CLASS",
                     "downloadSize": 4431,
-                    "installSize": 4441
+                    "installSize": 4440
                 },
                 {
                     "name": "androidx.compose.ui.text.SaversKt$AnnotationRangeSaver$1",
@@ -21395,7 +21395,7 @@
                     "name": "androidx.compose.ui.text.caches.LruCache",
                     "type": "CLASS",
                     "downloadSize": 464,
-                    "installSize": 466
+                    "installSize": 465
                 },
                 {
                     "name": "androidx.compose.ui.text.AnnotatedString",
@@ -22236,7 +22236,7 @@
         {
             "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
             "type": "EXTERNAL",
-            "downloadSize": 65077,
+            "downloadSize": 65078,
             "installSize": 65220,
             "files": [
                 {
@@ -22266,7 +22266,7 @@
                 {
                     "name": "kotlinx.coroutines.scheduling.CoroutineScheduler",
                     "type": "CLASS",
-                    "downloadSize": 1994,
+                    "downloadSize": 1995,
                     "installSize": 1999
                 },
                 {
@@ -23564,7 +23564,7 @@
         {
             "name": "com.google.zxing:core:3.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 61919,
+            "downloadSize": 61920,
             "installSize": 62055,
             "files": [
                 {
@@ -23858,7 +23858,7 @@
                 {
                     "name": "com.google.zxing.aztec.AztecReader",
                     "type": "CLASS",
-                    "downloadSize": 231,
+                    "downloadSize": 232,
                     "installSize": 232
                 },
                 {
@@ -24160,13 +24160,13 @@
         {
             "name": "androidx.datastore:datastore-preferences-core:1.0.0",
             "type": "EXTERNAL",
-            "downloadSize": 58283,
-            "installSize": 58414,
+            "downloadSize": 58285,
+            "installSize": 58412,
             "files": [
                 {
                     "name": "androidx.datastore.preferences.protobuf.MessageSchema",
                     "type": "CLASS",
-                    "downloadSize": 13288,
+                    "downloadSize": 13289,
                     "installSize": 13318
                 },
                 {
@@ -24215,7 +24215,7 @@
                     "name": "androidx.datastore.preferences.protobuf.MapEntryLite",
                     "type": "CLASS",
                     "downloadSize": 1246,
-                    "installSize": 1249
+                    "installSize": 1248
                 },
                 {
                     "name": "androidx.datastore.preferences.protobuf.CodedOutputStream",
@@ -24353,7 +24353,7 @@
                     "name": "androidx.datastore.preferences.protobuf.SmallSortedMap$EntryIterator",
                     "type": "CLASS",
                     "downloadSize": 336,
-                    "installSize": 337
+                    "installSize": 336
                 },
                 {
                     "name": "androidx.datastore.preferences.protobuf.SmallSortedMap$Entry",
@@ -24424,7 +24424,7 @@
                 {
                     "name": "androidx.datastore.preferences.protobuf.Internal",
                     "type": "CLASS",
-                    "downloadSize": 231,
+                    "downloadSize": 232,
                     "installSize": 232
                 },
                 {
@@ -24756,7 +24756,7 @@
         {
             "name": "org.jetbrains.kotlin:kotlin-stdlib:1.8.10",
             "type": "EXTERNAL",
-            "downloadSize": 47142,
+            "downloadSize": 47144,
             "installSize": 47255,
             "files": [
                 {
@@ -24792,7 +24792,7 @@
                 {
                     "name": "kotlin.collections.CollectionsKt___CollectionsKt",
                     "type": "CLASS",
-                    "downloadSize": 1419,
+                    "downloadSize": 1420,
                     "installSize": 1423
                 },
                 {
@@ -24990,7 +24990,7 @@
                 {
                     "name": "kotlin.coroutines.SafeContinuation",
                     "type": "CLASS",
-                    "downloadSize": 231,
+                    "downloadSize": 232,
                     "installSize": 232
                 },
                 {
@@ -25653,13 +25653,13 @@
             "name": "androidx.fragment:fragment:1.5.4",
             "type": "EXTERNAL",
             "downloadSize": 45983,
-            "installSize": 46081,
+            "installSize": 46080,
             "files": [
                 {
                     "name": "androidx.fragment.app.FragmentManagerImpl",
                     "type": "CLASS",
                     "downloadSize": 9268,
-                    "installSize": 9289
+                    "installSize": 9288
                 },
                 {
                     "name": "androidx.fragment.app.FragmentStateManager",
@@ -27010,8 +27010,8 @@
         {
             "name": "com.google.code.gson:gson:2.10.1",
             "type": "EXTERNAL",
-            "downloadSize": 28600,
-            "installSize": 28666,
+            "downloadSize": 28601,
+            "installSize": 28665,
             "files": [
                 {
                     "name": "com.google.gson.stream.JsonReader",
@@ -27028,7 +27028,7 @@
                 {
                     "name": "com.google.gson.stream.JsonWriter",
                     "type": "CLASS",
-                    "downloadSize": 1289,
+                    "downloadSize": 1290,
                     "installSize": 1292
                 },
                 {
@@ -27155,7 +27155,7 @@
                     "name": "com.google.gson.internal.reflect.ReflectionHelper",
                     "type": "CLASS",
                     "downloadSize": 346,
-                    "installSize": 347
+                    "installSize": 346
                 },
                 {
                     "name": "com.google.gson.internal.bind.DateTypeAdapter",
@@ -27582,8 +27582,8 @@
                 {
                     "name": "/res/layout/preference_widget_seekbar_material.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 1095,
-                    "installSize": 1095
+                    "downloadSize": 1096,
+                    "installSize": 1096
                 },
                 {
                     "name": "/res/layout/preference_widget_seekbar.xml",
@@ -27684,8 +27684,8 @@
                 {
                     "name": "/res/layout/image_frame.xml",
                     "type": "RESOURCE",
-                    "downloadSize": 497,
-                    "installSize": 497
+                    "downloadSize": 496,
+                    "installSize": 496
                 },
                 {
                     "name": "androidx.preference.DialogPreference",
@@ -28331,13 +28331,13 @@
             "name": "androidx.compose.animation:animation-core:1.4.0-beta02",
             "type": "EXTERNAL",
             "downloadSize": 22165,
-            "installSize": 22211,
+            "installSize": 22210,
             "files": [
                 {
                     "name": "androidx.compose.animation.core.FloatSpringSpec",
                     "type": "CLASS",
                     "downloadSize": 2017,
-                    "installSize": 2022
+                    "installSize": 2021
                 },
                 {
                     "name": "androidx.compose.animation.core.Transition$totalDurationNanos$2",
@@ -28759,7 +28759,7 @@
             "name": "com.journeyapps:zxing-android-embedded:4.3.0",
             "type": "EXTERNAL",
             "downloadSize": 20495,
-            "installSize": 21387,
+            "installSize": 21386,
             "files": [
                 {
                     "name": "/res/raw/zxing_beep.ogg",
@@ -28945,7 +28945,7 @@
                     "name": "com.journeyapps.barcodescanner.RotationListener$1",
                     "type": "CLASS",
                     "downloadSize": 118,
-                    "installSize": 119
+                    "installSize": 118
                 },
                 {
                     "name": "com.google.zxing.client.android.DecodeFormatManager",
@@ -29078,8 +29078,8 @@
         {
             "name": "androidx.transition:transition:1.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 15270,
-            "installSize": 15307,
+            "downloadSize": 15271,
+            "installSize": 15306,
             "files": [
                 {
                     "name": "androidx.transition.Transition",
@@ -29120,7 +29120,7 @@
                 {
                     "name": "androidx.transition.TransitionManager$MultiListener",
                     "type": "CLASS",
-                    "downloadSize": 862,
+                    "downloadSize": 863,
                     "installSize": 864
                 },
                 {
@@ -29157,7 +29157,7 @@
                     "name": "androidx.transition.Visibility$1",
                     "type": "CLASS",
                     "downloadSize": 237,
-                    "installSize": 238
+                    "installSize": 237
                 },
                 {
                     "name": "androidx.transition.TransitionManager",
@@ -29520,14 +29520,14 @@
         {
             "name": ":common",
             "type": "INTERNAL",
-            "downloadSize": 13673,
-            "installSize": 13707,
+            "downloadSize": 13674,
+            "installSize": 13706,
             "files": [
                 {
                     "name": "com.yogeshpaliyal.common.db.DbDao_Impl",
                     "type": "CLASS",
-                    "downloadSize": 4481,
-                    "installSize": 4492
+                    "downloadSize": 4482,
+                    "installSize": 4491
                 },
                 {
                     "name": "com.yogeshpaliyal.common.utils.SharedPreferenceUtilsKt",
@@ -29745,13 +29745,13 @@
             "name": "androidx.navigation:navigation-runtime:2.5.3",
             "type": "EXTERNAL",
             "downloadSize": 13344,
-            "installSize": 13373,
+            "installSize": 13372,
             "files": [
                 {
                     "name": "androidx.navigation.NavHostController",
                     "type": "CLASS",
                     "downloadSize": 7487,
-                    "installSize": 7504
+                    "installSize": 7503
                 },
                 {
                     "name": "androidx.navigation.NavInflater",
@@ -30078,8 +30078,8 @@
         {
             "name": "androidx.room:room-runtime:2.5.0",
             "type": "EXTERNAL",
-            "downloadSize": 12753,
-            "installSize": 12786,
+            "downloadSize": 12754,
+            "installSize": 12785,
             "files": [
                 {
                     "name": "androidx.room.util.TableInfo",
@@ -30091,7 +30091,7 @@
                     "name": "androidx.room.RoomDatabase$Builder",
                     "type": "CLASS",
                     "downloadSize": 1276,
-                    "installSize": 1279
+                    "installSize": 1278
                 },
                 {
                     "name": "androidx.room.InvalidationTracker",
@@ -30132,7 +30132,7 @@
                 {
                     "name": "androidx.room.QueryInterceptorProgram",
                     "type": "CLASS",
-                    "downloadSize": 565,
+                    "downloadSize": 566,
                     "installSize": 567
                 },
                 {
@@ -30302,8 +30302,8 @@
         {
             "name": "androidx.activity:activity:1.7.0-beta01",
             "type": "EXTERNAL",
-            "downloadSize": 11775,
-            "installSize": 11801,
+            "downloadSize": 11776,
+            "installSize": 11800,
             "files": [
                 {
                     "name": "androidx.activity.result.contract.ActivityResultContract$SynchronousResult",
@@ -30320,7 +30320,7 @@
                 {
                     "name": "androidx.activity.ComponentActivity$1",
                     "type": "CLASS",
-                    "downloadSize": 1289,
+                    "downloadSize": 1290,
                     "installSize": 1292
                 },
                 {
@@ -30333,7 +30333,7 @@
                     "name": "androidx.activity.ComponentDialog",
                     "type": "CLASS",
                     "downloadSize": 593,
-                    "installSize": 595
+                    "installSize": 594
                 },
                 {
                     "name": "androidx.activity.result.ActivityResult$1",
@@ -31350,13 +31350,13 @@
         {
             "name": "androidx.vectordrawable:vectordrawable:1.1.0",
             "type": "EXTERNAL",
-            "downloadSize": 5713,
+            "downloadSize": 5714,
             "installSize": 5727,
             "files": [
                 {
                     "name": "androidx.vectordrawable.graphics.drawable.VectorDrawableCompat",
                     "type": "CLASS",
-                    "downloadSize": 2189,
+                    "downloadSize": 2190,
                     "installSize": 2194
                 },
                 {
@@ -31504,13 +31504,13 @@
         {
             "name": "androidx.navigation:navigation-fragment:2.5.3",
             "type": "EXTERNAL",
-            "downloadSize": 4213,
+            "downloadSize": 4214,
             "installSize": 4222,
             "files": [
                 {
                     "name": "androidx.navigation.fragment.NavHostFragment",
                     "type": "CLASS",
-                    "downloadSize": 2078,
+                    "downloadSize": 2079,
                     "installSize": 2083
                 },
                 {
@@ -32561,7 +32561,7 @@
             "name": "commons-codec:commons-codec:1.15",
             "type": "EXTERNAL",
             "downloadSize": 1669,
-            "installSize": 1674,
+            "installSize": 1673,
             "files": [
                 {
                     "name": "org.apache.commons.codec.binary.Base32",
@@ -32579,7 +32579,7 @@
                     "name": "org.apache.commons.codec.binary.BaseNCodec$Context",
                     "type": "CLASS",
                     "downloadSize": 118,
-                    "installSize": 119
+                    "installSize": 118
                 }
             ]
         },
@@ -33051,7 +33051,7 @@
             "name": "androidx.work:work-runtime-ktx:2.8.0",
             "type": "EXTERNAL",
             "downloadSize": 925,
-            "installSize": 928,
+            "installSize": 927,
             "files": [
                 {
                     "name": "androidx.work.CoroutineWorker",
@@ -33069,7 +33069,7 @@
                     "name": "androidx.work.CoroutineWorker$getForegroundInfoAsync$1",
                     "type": "CLASS",
                     "downloadSize": 227,
-                    "installSize": 228
+                    "installSize": 227
                 },
                 {
                     "name": "androidx.work.CoroutineWorker$startWork$1",
