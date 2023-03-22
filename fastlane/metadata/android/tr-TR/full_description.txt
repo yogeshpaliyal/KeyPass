@@ -1,0 +1,9 @@
+Modern parola yöneticisi, kimlik bilgilerinizi sunucularda saklamaz, bu nedenle parolalarınız sizin elinizde güvende, endişelenmenize gerek yok.
+
+1. Tamamen Çevrimdışı
+2. Reklamsız
+3. Açık kaynak (kaynak kodunu görüntüleyebilirsiniz)
+4. Kimlik bilgilerinizi Yedekleyin ve Geri Yükleyin
+5. Zamana Dayalı Otp (TOTP)
+
+https://github.com/yogeshpaliyal/KeyPass
