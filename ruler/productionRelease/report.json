@@ -2,14 +2,14 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.10",
     "variant": "productionRelease",
-    "downloadSize": 2506691,
-    "installSize": 3077798,
+    "downloadSize": 2505097,
+    "installSize": 3076392,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 450559,
-            "installSize": 1014780,
+            "downloadSize": 449458,
+            "installSize": 1013685,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -32,20 +32,14 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.home.DashboardViewModel_HiltModules$KeyModule",
                     "type": "CLASS",
-                    "downloadSize": 7975,
-                    "installSize": 7992
+                    "downloadSize": 7971,
+                    "installSize": 7989
                 },
                 {
                     "name": "/res/mipmap-xxhdpi-v4/ic_launcher_round.png",
                     "type": "RESOURCE",
                     "downloadSize": 7566,
                     "installSize": 7561
-                },
-                {
-                    "name": "/assets/dexopt/baseline.prof",
-                    "type": "ASSET",
-                    "downloadSize": 5431,
-                    "installSize": 5426
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -64,6 +58,12 @@
                     "type": "RESOURCE",
                     "downloadSize": 4733,
                     "installSize": 4728
+                },
+                {
+                    "name": "/assets/dexopt/baseline.prof",
+                    "type": "ASSET",
+                    "downloadSize": 4338,
+                    "installSize": 4333
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher.png",
@@ -134,14 +134,14 @@
                 {
                     "name": "androidx.activity.ComponentActivity$$ExternalSyntheticLambda1",
                     "type": "CLASS",
-                    "downloadSize": 2076,
+                    "downloadSize": 2075,
                     "installSize": 2080
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.home.HomeFragment",
                     "type": "CLASS",
-                    "downloadSize": 2043,
-                    "installSize": 2048
+                    "downloadSize": 2046,
+                    "installSize": 2050
                 },
                 {
                     "name": "/res/mipmap-xhdpi-v4/ic_launcher.png",
@@ -746,7 +746,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.databinding.NavMenuItemLayoutBindingImpl",
                     "type": "CLASS",
-                    "downloadSize": 556,
+                    "downloadSize": 555,
                     "installSize": 557
                 },
                 {
@@ -782,8 +782,8 @@
                 {
                     "name": "/assets/dexopt/baseline.profm",
                     "type": "ASSET",
-                    "downloadSize": 524,
-                    "installSize": 519
+                    "downloadSize": 523,
+                    "installSize": 518
                 },
                 {
                     "name": "/res/drawable/$avd_hide_password__0.xml",
@@ -1776,15 +1776,15 @@
                     "installSize": 271
                 },
                 {
-                    "name": "com.yogeshpaliyal.keypass.ui.nav.NavigationModelItem$NavModelItemDiff",
+                    "name": "com.yogeshpaliyal.keypass.ui.backup.BackupActivity",
                     "type": "CLASS",
                     "downloadSize": 261,
                     "installSize": 261
                 },
                 {
-                    "name": "com.yogeshpaliyal.keypass.ui.backup.BackupActivity",
+                    "name": "com.yogeshpaliyal.keypass.ui.nav.NavigationModelItem$NavModelItemDiff",
                     "type": "CLASS",
-                    "downloadSize": 261,
+                    "downloadSize": 260,
                     "installSize": 261
                 },
                 {
@@ -1866,15 +1866,15 @@
                     "installSize": 229
                 },
                 {
-                    "name": "com.yogeshpaliyal.keypass.ui.detail.DetailViewModel$deleteAccount$1$1$1",
-                    "type": "CLASS",
+                    "name": "/res/color/color_navigation_drawer_menu_item.xml",
+                    "type": "RESOURCE",
                     "downloadSize": 226,
                     "installSize": 226
                 },
                 {
-                    "name": "/res/color/color_navigation_drawer_menu_item.xml",
-                    "type": "RESOURCE",
-                    "downloadSize": 226,
+                    "name": "com.yogeshpaliyal.keypass.ui.detail.DetailViewModel$deleteAccount$1$1$1",
+                    "type": "CLASS",
+                    "downloadSize": 225,
                     "installSize": 226
                 },
                 {
@@ -1910,7 +1910,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.detail.DetailViewModel$_accountModel$2",
                     "type": "CLASS",
-                    "downloadSize": 217,
+                    "downloadSize": 216,
                     "installSize": 217
                 },
                 {
@@ -2270,7 +2270,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.DaggerMyApplication_HiltComponents_SingletonC$SingletonCImpl",
                     "type": "CLASS",
-                    "downloadSize": 113,
+                    "downloadSize": 112,
                     "installSize": 113
                 },
                 {
@@ -3334,31 +3334,31 @@
         {
             "name": "com.google.android.material:material:1.9.0-beta01",
             "type": "EXTERNAL",
-            "downloadSize": 277329,
+            "downloadSize": 277307,
             "installSize": 277679,
             "files": [
                 {
                     "name": "com.google.android.material.textfield.TextInputLayout",
                     "type": "CLASS",
-                    "downloadSize": 15018,
+                    "downloadSize": 15016,
                     "installSize": 15050
                 },
                 {
                     "name": "com.google.android.material.chip.Chip",
                     "type": "CLASS",
-                    "downloadSize": 9456,
+                    "downloadSize": 9455,
                     "installSize": 9476
                 },
                 {
                     "name": "com.google.android.material.bottomsheet.BottomSheetBehavior",
                     "type": "CLASS",
-                    "downloadSize": 5453,
+                    "downloadSize": 5452,
                     "installSize": 5465
                 },
                 {
                     "name": "com.google.android.material.button.MaterialButton",
                     "type": "CLASS",
-                    "downloadSize": 4814,
+                    "downloadSize": 4813,
                     "installSize": 4824
                 },
                 {
@@ -3370,13 +3370,13 @@
                 {
                     "name": "com.google.android.material.floatingactionbutton.FloatingActionButton",
                     "type": "CLASS",
-                    "downloadSize": 4175,
+                    "downloadSize": 4174,
                     "installSize": 4184
                 },
                 {
                     "name": "com.google.android.material.appbar.AppBarLayout$BaseBehavior",
                     "type": "CLASS",
-                    "downloadSize": 4139,
+                    "downloadSize": 4138,
                     "installSize": 4148
                 },
                 {
@@ -3388,7 +3388,7 @@
                 {
                     "name": "com.google.android.material.shape.MaterialShapeDrawable",
                     "type": "CLASS",
-                    "downloadSize": 3403,
+                    "downloadSize": 3402,
                     "installSize": 3410
                 },
                 {
@@ -3424,13 +3424,13 @@
                 {
                     "name": "com.google.android.material.datepicker.MaterialDatePicker",
                     "type": "CLASS",
-                    "downloadSize": 2096,
+                    "downloadSize": 2095,
                     "installSize": 2100
                 },
                 {
                     "name": "com.google.android.material.sidesheet.SideSheetBehavior",
                     "type": "CLASS",
-                    "downloadSize": 2062,
+                    "downloadSize": 2061,
                     "installSize": 2066
                 },
                 {
@@ -3460,13 +3460,13 @@
                 {
                     "name": "com.google.android.material.color.utilities.Hct",
                     "type": "CLASS",
-                    "downloadSize": 1582,
+                    "downloadSize": 1581,
                     "installSize": 1585
                 },
                 {
                     "name": "com.google.android.material.floatingactionbutton.FloatingActionButtonImpl",
                     "type": "CLASS",
-                    "downloadSize": 1582,
+                    "downloadSize": 1581,
                     "installSize": 1585
                 },
                 {
@@ -3514,13 +3514,13 @@
                 {
                     "name": "com.google.android.material.timepicker.ClockHandView",
                     "type": "CLASS",
-                    "downloadSize": 1208,
+                    "downloadSize": 1207,
                     "installSize": 1210
                 },
                 {
                     "name": "com.google.android.material.transformation.FabTransformationBehavior",
                     "type": "CLASS",
-                    "downloadSize": 1207,
+                    "downloadSize": 1206,
                     "installSize": 1209
                 },
                 {
@@ -3532,7 +3532,7 @@
                 {
                     "name": "com.google.android.material.snackbar.BaseTransientBottomBar",
                     "type": "CLASS",
-                    "downloadSize": 1164,
+                    "downloadSize": 1163,
                     "installSize": 1166
                 },
                 {
@@ -3556,7 +3556,7 @@
                 {
                     "name": "com.google.android.material.color.utilities.DynamicColor",
                     "type": "CLASS",
-                    "downloadSize": 1044,
+                    "downloadSize": 1043,
                     "installSize": 1046
                 },
                 {
@@ -3940,7 +3940,7 @@
                 {
                     "name": "com.google.android.material.datepicker.Month",
                     "type": "CLASS",
-                    "downloadSize": 478,
+                    "downloadSize": 477,
                     "installSize": 479
                 },
                 {
@@ -5896,7 +5896,7 @@
                 {
                     "name": "com.google.android.material.bottomsheet.InsetsAnimationCallback",
                     "type": "CLASS",
-                    "downloadSize": 217,
+                    "downloadSize": 216,
                     "installSize": 217
                 },
                 {
@@ -6388,7 +6388,7 @@
                 {
                     "name": "com.google.android.material.internal.CheckableImageButton$SavedState",
                     "type": "CLASS",
-                    "downloadSize": 165,
+                    "downloadSize": 164,
                     "installSize": 165
                 },
                 {
@@ -6496,7 +6496,7 @@
                 {
                     "name": "com.google.android.material.ripple.RippleUtils",
                     "type": "CLASS",
-                    "downloadSize": 139,
+                    "downloadSize": 138,
                     "installSize": 139
                 },
                 {
@@ -6626,18 +6626,6 @@
                     "installSize": 114
                 },
                 {
-                    "name": "com.google.android.material.textfield.TextInputLayout$2",
-                    "type": "CLASS",
-                    "downloadSize": 113,
-                    "installSize": 113
-                },
-                {
-                    "name": "com.google.android.material.color.ColorResourcesTableCreator$ResChunkHeader",
-                    "type": "CLASS",
-                    "downloadSize": 113,
-                    "installSize": 113
-                },
-                {
                     "name": "com.google.android.material.appbar.AppBarLayout$BaseBehavior$2",
                     "type": "CLASS",
                     "downloadSize": 113,
@@ -6647,6 +6635,18 @@
                     "name": "com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder",
                     "type": "CLASS",
                     "downloadSize": 113,
+                    "installSize": 113
+                },
+                {
+                    "name": "com.google.android.material.textfield.TextInputLayout$2",
+                    "type": "CLASS",
+                    "downloadSize": 112,
+                    "installSize": 113
+                },
+                {
+                    "name": "com.google.android.material.color.ColorResourcesTableCreator$ResChunkHeader",
+                    "type": "CLASS",
+                    "downloadSize": 112,
                     "installSize": 113
                 },
                 {
@@ -7512,25 +7512,25 @@
         {
             "name": "androidx.appcompat:appcompat:1.6.1",
             "type": "EXTERNAL",
-            "downloadSize": 214964,
+            "downloadSize": 214942,
             "installSize": 216896,
             "files": [
                 {
                     "name": "androidx.appcompat.app.AppCompatDelegateImpl",
                     "type": "CLASS",
-                    "downloadSize": 7703,
+                    "downloadSize": 7702,
                     "installSize": 7720
                 },
                 {
                     "name": "androidx.appcompat.widget.Toolbar",
                     "type": "CLASS",
-                    "downloadSize": 6932,
+                    "downloadSize": 6931,
                     "installSize": 6947
                 },
                 {
                     "name": "androidx.appcompat.widget.LinearLayoutCompat",
                     "type": "CLASS",
-                    "downloadSize": 4419,
+                    "downloadSize": 4418,
                     "installSize": 4428
                 },
                 {
@@ -7566,7 +7566,7 @@
                 {
                     "name": "androidx.appcompat.widget.ActionBarOverlayLayout",
                     "type": "CLASS",
-                    "downloadSize": 3079,
+                    "downloadSize": 3078,
                     "installSize": 3085
                 },
                 {
@@ -7590,7 +7590,7 @@
                 {
                     "name": "androidx.appcompat.app.AppCompatActivity",
                     "type": "CLASS",
-                    "downloadSize": 2592,
+                    "downloadSize": 2591,
                     "installSize": 2597
                 },
                 {
@@ -7608,7 +7608,7 @@
                 {
                     "name": "androidx.appcompat.app.AlertDialog",
                     "type": "CLASS",
-                    "downloadSize": 2379,
+                    "downloadSize": 2378,
                     "installSize": 2384
                 },
                 {
@@ -7620,13 +7620,13 @@
                 {
                     "name": "androidx.appcompat.widget.SuggestionsAdapter",
                     "type": "CLASS",
-                    "downloadSize": 2138,
+                    "downloadSize": 2137,
                     "installSize": 2142
                 },
                 {
                     "name": "androidx.appcompat.widget.ActionMenuPresenter",
                     "type": "CLASS",
-                    "downloadSize": 2119,
+                    "downloadSize": 2118,
                     "installSize": 2123
                 },
                 {
@@ -7662,7 +7662,7 @@
                 {
                     "name": "androidx.appcompat.widget.AppCompatEditText",
                     "type": "CLASS",
-                    "downloadSize": 1749,
+                    "downloadSize": 1748,
                     "installSize": 1752
                 },
                 {
@@ -7680,31 +7680,31 @@
                 {
                     "name": "androidx.appcompat.widget.TooltipCompatHandler",
                     "type": "CLASS",
-                    "downloadSize": 1573,
+                    "downloadSize": 1572,
                     "installSize": 1576
                 },
                 {
                     "name": "androidx.appcompat.widget.AppCompatButton",
                     "type": "CLASS",
-                    "downloadSize": 1555,
+                    "downloadSize": 1554,
                     "installSize": 1558
                 },
                 {
                     "name": "androidx.appcompat.view.SupportMenuInflater",
                     "type": "CLASS",
-                    "downloadSize": 1408,
+                    "downloadSize": 1407,
                     "installSize": 1411
                 },
                 {
                     "name": "androidx.appcompat.widget.AppCompatBackgroundHelper",
                     "type": "CLASS",
-                    "downloadSize": 1374,
+                    "downloadSize": 1373,
                     "installSize": 1376
                 },
                 {
                     "name": "androidx.appcompat.widget.DropDownListView",
                     "type": "CLASS",
-                    "downloadSize": 1365,
+                    "downloadSize": 1364,
                     "installSize": 1367
                 },
                 {
@@ -7776,7 +7776,7 @@
                 {
                     "name": "androidx.appcompat.view.menu.MenuItemWrapperICS",
                     "type": "CLASS",
-                    "downloadSize": 1122,
+                    "downloadSize": 1121,
                     "installSize": 1124
                 },
                 {
@@ -7818,7 +7818,7 @@
                 {
                     "name": "androidx.appcompat.widget.ActionBarContainer",
                     "type": "CLASS",
-                    "downloadSize": 903,
+                    "downloadSize": 902,
                     "installSize": 905
                 },
                 {
@@ -7860,7 +7860,7 @@
                 {
                     "name": "androidx.appcompat.widget.AppCompatToggleButton",
                     "type": "CLASS",
-                    "downloadSize": 817,
+                    "downloadSize": 816,
                     "installSize": 818
                 },
                 {
@@ -8034,7 +8034,7 @@
                 {
                     "name": "androidx.appcompat.widget.AppCompatImageView",
                     "type": "CLASS",
-                    "downloadSize": 617,
+                    "downloadSize": 616,
                     "installSize": 618
                 },
                 {
@@ -8266,12 +8266,6 @@
                     "installSize": 444
                 },
                 {
-                    "name": "androidx.appcompat.widget.SearchView$SavedState$1",
-                    "type": "CLASS",
-                    "downloadSize": 435,
-                    "installSize": 435
-                },
-                {
                     "name": "/res/drawable/abc_ic_menu_paste_mtrl_am_alpha.xml",
                     "type": "RESOURCE",
                     "downloadSize": 435,
@@ -8281,6 +8275,12 @@
                     "name": "/res/layout/abc_popup_menu_header_item_layout.xml",
                     "type": "RESOURCE",
                     "downloadSize": 435,
+                    "installSize": 435
+                },
+                {
+                    "name": "androidx.appcompat.widget.SearchView$SavedState$1",
+                    "type": "CLASS",
+                    "downloadSize": 434,
                     "installSize": 435
                 },
                 {
@@ -8406,7 +8406,7 @@
                 {
                     "name": "androidx.appcompat.widget.SearchView$10",
                     "type": "CLASS",
-                    "downloadSize": 391,
+                    "downloadSize": 390,
                     "installSize": 391
                 },
                 {
@@ -8862,7 +8862,7 @@
                 {
                     "name": "androidx.appcompat.widget.SearchView$6",
                     "type": "CLASS",
-                    "downloadSize": 261,
+                    "downloadSize": 260,
                     "installSize": 261
                 },
                 {
@@ -9478,15 +9478,15 @@
                     "installSize": 122
                 },
                 {
-                    "name": "androidx.appcompat.widget.Toolbar$$ExternalSyntheticLambda0",
+                    "name": "androidx.appcompat.widget.AppCompatSpinner$SavedState",
                     "type": "CLASS",
                     "downloadSize": 113,
                     "installSize": 113
                 },
                 {
-                    "name": "androidx.appcompat.widget.AppCompatSpinner$SavedState",
+                    "name": "androidx.appcompat.widget.Toolbar$$ExternalSyntheticLambda0",
                     "type": "CLASS",
-                    "downloadSize": 113,
+                    "downloadSize": 112,
                     "installSize": 113
                 },
                 {
@@ -10214,19 +10214,19 @@
         {
             "name": "androidx.compose.ui:ui:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 188859,
-            "installSize": 189283,
+            "downloadSize": 188846,
+            "installSize": 189284,
             "files": [
                 {
                     "name": "androidx.compose.ui.input.key.KeyEvent_androidKt",
                     "type": "CLASS",
-                    "downloadSize": 19146,
+                    "downloadSize": 19145,
                     "installSize": 19188
                 },
                 {
                     "name": "androidx.compose.ui.platform.AndroidComposeView",
                     "type": "CLASS",
-                    "downloadSize": 8725,
+                    "downloadSize": 8724,
                     "installSize": 8744
                 },
                 {
@@ -10244,7 +10244,7 @@
                 {
                     "name": "androidx.compose.ui.node.NodeCoordinator",
                     "type": "CLASS",
-                    "downloadSize": 6055,
+                    "downloadSize": 6054,
                     "installSize": 6068
                 },
                 {
@@ -10256,7 +10256,7 @@
                 {
                     "name": "androidx.compose.ui.platform.AndroidComposeViewAccessibilityDelegateCompat",
                     "type": "CLASS",
-                    "downloadSize": 4466,
+                    "downloadSize": 4465,
                     "installSize": 4475
                 },
                 {
@@ -10269,12 +10269,12 @@
                     "name": "androidx.compose.ui.node.MeasureAndLayoutDelegate",
                     "type": "CLASS",
                     "downloadSize": 2507,
-                    "installSize": 2512
+                    "installSize": 2513
                 },
                 {
                     "name": "androidx.compose.ui.graphics.GraphicsLayerModifierKt",
                     "type": "CLASS",
-                    "downloadSize": 2477,
+                    "downloadSize": 2476,
                     "installSize": 2482
                 },
                 {
@@ -10328,7 +10328,7 @@
                 {
                     "name": "androidx.compose.ui.layout.Placeable$PlacementScope",
                     "type": "CLASS",
-                    "downloadSize": 1592,
+                    "downloadSize": 1591,
                     "installSize": 1595
                 },
                 {
@@ -10388,7 +10388,7 @@
                 {
                     "name": "androidx.compose.ui.focus.FocusOwnerImpl",
                     "type": "CLASS",
-                    "downloadSize": 1312,
+                    "downloadSize": 1311,
                     "installSize": 1314
                 },
                 {
@@ -10412,7 +10412,7 @@
                 {
                     "name": "androidx.compose.ui.input.key.Key",
                     "type": "CLASS",
-                    "downloadSize": 1146,
+                    "downloadSize": 1145,
                     "installSize": 1148
                 },
                 {
@@ -10490,7 +10490,7 @@
                 {
                     "name": "androidx.compose.ui.node.InnerNodeCoordinator$LookaheadDelegateImpl",
                     "type": "CLASS",
-                    "downloadSize": 825,
+                    "downloadSize": 824,
                     "installSize": 826
                 },
                 {
@@ -10550,7 +10550,7 @@
                 {
                     "name": "androidx.compose.ui.platform.AndroidCompositionLocals_androidKt",
                     "type": "CLASS",
-                    "downloadSize": 739,
+                    "downloadSize": 738,
                     "installSize": 740
                 },
                 {
@@ -10784,7 +10784,7 @@
                 {
                     "name": "androidx.compose.ui.platform.GlobalSnapshotManager$ensureStarted$1",
                     "type": "CLASS",
-                    "downloadSize": 391,
+                    "downloadSize": 390,
                     "installSize": 391
                 },
                 {
@@ -11196,15 +11196,15 @@
                     "installSize": 201
                 },
                 {
-                    "name": "androidx.compose.ui.platform.WindowRecomposer_androidKt$createLifecycleAwareWindowRecomposer$2",
+                    "name": "androidx.compose.ui.layout.LayoutNodeSubcompositionsState$createMeasurePolicy$1",
                     "type": "CLASS",
                     "downloadSize": 200,
                     "installSize": 200
                 },
                 {
-                    "name": "androidx.compose.ui.layout.LayoutNodeSubcompositionsState$createMeasurePolicy$1",
+                    "name": "androidx.compose.ui.platform.WindowRecomposer_androidKt$createLifecycleAwareWindowRecomposer$2",
                     "type": "CLASS",
-                    "downloadSize": 200,
+                    "downloadSize": 199,
                     "installSize": 200
                 },
                 {
@@ -11402,7 +11402,7 @@
                 {
                     "name": "androidx.compose.ui.BiasAlignment$Vertical",
                     "type": "CLASS",
-                    "downloadSize": 174,
+                    "downloadSize": 173,
                     "installSize": 174
                 },
                 {
@@ -13144,25 +13144,25 @@
         {
             "name": "androidx.compose.foundation:foundation:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 156012,
-            "installSize": 156350,
+            "downloadSize": 155994,
+            "installSize": 156351,
             "files": [
                 {
                     "name": "androidx.compose.foundation.text.StringHelpersKt",
                     "type": "CLASS",
-                    "downloadSize": 9830,
+                    "downloadSize": 9829,
                     "installSize": 9851
                 },
                 {
                     "name": "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect",
                     "type": "CLASS",
-                    "downloadSize": 3983,
+                    "downloadSize": 3982,
                     "installSize": 3991
                 },
                 {
                     "name": "androidx.compose.foundation.AndroidOverscrollKt$StretchOverscrollNonClippingLayer$1",
                     "type": "CLASS",
-                    "downloadSize": 3647,
+                    "downloadSize": 3646,
                     "installSize": 3655
                 },
                 {
@@ -13186,13 +13186,13 @@
                 {
                     "name": "androidx.compose.foundation.ClickableKt$PressedInteractionSourceDisposableEffect$1",
                     "type": "CLASS",
-                    "downloadSize": 2530,
+                    "downloadSize": 2529,
                     "installSize": 2535
                 },
                 {
                     "name": "androidx.compose.foundation.text.selection.TextFieldPreparedSelection",
                     "type": "CLASS",
-                    "downloadSize": 2076,
+                    "downloadSize": 2075,
                     "installSize": 2080
                 },
                 {
@@ -13204,7 +13204,7 @@
                 {
                     "name": "androidx.compose.foundation.BorderKt$border$2$1",
                     "type": "CLASS",
-                    "downloadSize": 1450,
+                    "downloadSize": 1449,
                     "installSize": 1453
                 },
                 {
@@ -13282,7 +13282,7 @@
                 {
                     "name": "androidx.compose.foundation.text.HeightInLinesModifierKt$heightInLines$2",
                     "type": "CLASS",
-                    "downloadSize": 1173,
+                    "downloadSize": 1172,
                     "installSize": 1175
                 },
                 {
@@ -13336,7 +13336,7 @@
                 {
                     "name": "androidx.compose.foundation.gestures.AndroidConfig",
                     "type": "CLASS",
-                    "downloadSize": 922,
+                    "downloadSize": 921,
                     "installSize": 923
                 },
                 {
@@ -13408,7 +13408,7 @@
                 {
                     "name": "androidx.compose.foundation.ClickableKt$clickable-O2vRcR0$$inlined$debugInspectorInfo$1",
                     "type": "CLASS",
-                    "downloadSize": 712,
+                    "downloadSize": 711,
                     "installSize": 713
                 },
                 {
@@ -13468,13 +13468,13 @@
                 {
                     "name": "androidx.compose.foundation.lazy.layout.LazyLayoutKt$LazyLayout$2",
                     "type": "CLASS",
-                    "downloadSize": 608,
+                    "downloadSize": 607,
                     "installSize": 609
                 },
                 {
                     "name": "androidx.compose.foundation.lazy.layout.LazyLayoutItemContentFactory$CachedItemContent$createContentLambda$1$1",
                     "type": "CLASS",
-                    "downloadSize": 600,
+                    "downloadSize": 599,
                     "installSize": 601
                 },
                 {
@@ -13679,7 +13679,7 @@
                     "name": "androidx.compose.foundation.gestures.UpdatableAnimationState",
                     "type": "CLASS",
                     "downloadSize": 424,
-                    "installSize": 424
+                    "installSize": 425
                 },
                 {
                     "name": "androidx.compose.foundation.ClickableKt$clickable$4$gesture$1$1",
@@ -14020,7 +14020,7 @@
                 {
                     "name": "androidx.compose.foundation.ScrollKt$scroll$2$semantics$1$1",
                     "type": "CLASS",
-                    "downloadSize": 278,
+                    "downloadSize": 277,
                     "installSize": 278
                 },
                 {
@@ -14158,7 +14158,7 @@
                 {
                     "name": "androidx.compose.foundation.text.selection.AndroidSelectionHandles_androidKt$drawSelectionHandle$1",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
@@ -14374,13 +14374,13 @@
                 {
                     "name": "androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollByAction$1$1",
                     "type": "CLASS",
-                    "downloadSize": 226,
+                    "downloadSize": 225,
                     "installSize": 226
                 },
                 {
                     "name": "androidx.compose.foundation.relocation.BringIntoViewResponderModifier$bringChildIntoView$2$2",
                     "type": "CLASS",
-                    "downloadSize": 226,
+                    "downloadSize": 225,
                     "installSize": 226
                 },
                 {
@@ -14626,7 +14626,7 @@
                 {
                     "name": "androidx.compose.foundation.MagnifierKt$magnifier$4$1$1",
                     "type": "CLASS",
-                    "downloadSize": 191,
+                    "downloadSize": 190,
                     "installSize": 191
                 },
                 {
@@ -14812,7 +14812,7 @@
                 {
                     "name": "androidx.compose.foundation.text.TextFieldScrollKt$textFieldScrollable$2$wrappedScrollableState$1$1",
                     "type": "CLASS",
-                    "downloadSize": 165,
+                    "downloadSize": 164,
                     "installSize": 165
                 },
                 {
@@ -15178,7 +15178,7 @@
                 {
                     "name": "androidx.compose.foundation.lazy.EmptyLazyListLayoutInfo",
                     "type": "CLASS",
-                    "downloadSize": 87,
+                    "downloadSize": 86,
                     "installSize": 87
                 },
                 {
@@ -15858,13 +15858,13 @@
         {
             "name": "androidx.compose.runtime:runtime:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 97551,
-            "installSize": 97765,
+            "downloadSize": 97549,
+            "installSize": 97767,
             "files": [
                 {
                     "name": "androidx.compose.runtime.ComposerImpl",
                     "type": "CLASS",
-                    "downloadSize": 8389,
+                    "downloadSize": 8388,
                     "installSize": 8407
                 },
                 {
@@ -15876,7 +15876,7 @@
                 {
                     "name": "androidx.compose.runtime.SlotWriter",
                     "type": "CLASS",
-                    "downloadSize": 4856,
+                    "downloadSize": 4855,
                     "installSize": 4866
                 },
                 {
@@ -15888,7 +15888,7 @@
                 {
                     "name": "androidx.compose.runtime.external.kotlinx.collections.immutable.implementations.immutableMap.TrieNode",
                     "type": "CLASS",
-                    "downloadSize": 4367,
+                    "downloadSize": 4366,
                     "installSize": 4376
                 },
                 {
@@ -15930,7 +15930,7 @@
                 {
                     "name": "androidx.compose.runtime.snapshots.SnapshotStateList",
                     "type": "CLASS",
-                    "downloadSize": 2017,
+                    "downloadSize": 2016,
                     "installSize": 2021
                 },
                 {
@@ -15948,8 +15948,8 @@
                 {
                     "name": "androidx.compose.runtime.ComposerImpl$recordInsert$2",
                     "type": "CLASS",
-                    "downloadSize": 1642,
-                    "installSize": 1646
+                    "downloadSize": 1645,
+                    "installSize": 1648
                 },
                 {
                     "name": "androidx.compose.runtime.snapshots.SubList",
@@ -16062,7 +16062,7 @@
                 {
                     "name": "androidx.compose.runtime.PausableMonotonicFrameClock",
                     "type": "CLASS",
-                    "downloadSize": 669,
+                    "downloadSize": 668,
                     "installSize": 670
                 },
                 {
@@ -16970,19 +16970,19 @@
         {
             "name": "androidx.work:work-runtime:2.8.1",
             "type": "EXTERNAL",
-            "downloadSize": 96055,
+            "downloadSize": 96049,
             "installSize": 96261,
             "files": [
                 {
                     "name": "androidx.work.WorkManager",
                     "type": "CLASS",
-                    "downloadSize": 20503,
+                    "downloadSize": 20501,
                     "installSize": 20547
                 },
                 {
                     "name": "androidx.work.impl.model.RawWorkInfoDao_Impl",
                     "type": "CLASS",
-                    "downloadSize": 8600,
+                    "downloadSize": 8599,
                     "installSize": 8619
                 },
                 {
@@ -17042,7 +17042,7 @@
                 {
                     "name": "androidx.work.impl.utils.futures.AbstractFuture",
                     "type": "CLASS",
-                    "downloadSize": 1520,
+                    "downloadSize": 1519,
                     "installSize": 1523
                 },
                 {
@@ -17054,7 +17054,7 @@
                 {
                     "name": "androidx.work.impl.Processor",
                     "type": "CLASS",
-                    "downloadSize": 1400,
+                    "downloadSize": 1399,
                     "installSize": 1403
                 },
                 {
@@ -17108,7 +17108,7 @@
                 {
                     "name": "androidx.work.impl.foreground.SystemForegroundDispatcher",
                     "type": "CLASS",
-                    "downloadSize": 973,
+                    "downloadSize": 972,
                     "installSize": 975
                 },
                 {
@@ -18040,13 +18040,13 @@
         {
             "name": "androidx.core:core:1.9.0",
             "type": "EXTERNAL",
-            "downloadSize": 74467,
+            "downloadSize": 74460,
             "installSize": 74956,
             "files": [
                 {
                     "name": "androidx.core.widget.NestedScrollView",
                     "type": "CLASS",
-                    "downloadSize": 7920,
+                    "downloadSize": 7919,
                     "installSize": 7937
                 },
                 {
@@ -18064,7 +18064,7 @@
                 {
                     "name": "androidx.core.graphics.PathParser$PathDataNode",
                     "type": "CLASS",
-                    "downloadSize": 2106,
+                    "downloadSize": 2105,
                     "installSize": 2110
                 },
                 {
@@ -18088,7 +18088,7 @@
                 {
                     "name": "androidx.core.graphics.TypefaceCompatApi26Impl",
                     "type": "CLASS",
-                    "downloadSize": 1356,
+                    "downloadSize": 1355,
                     "installSize": 1358
                 },
                 {
@@ -18118,7 +18118,7 @@
                 {
                     "name": "androidx.core.text.PrecomputedTextCompat$Params",
                     "type": "CLASS",
-                    "downloadSize": 956,
+                    "downloadSize": 955,
                     "installSize": 958
                 },
                 {
@@ -18160,7 +18160,7 @@
                 {
                     "name": "androidx.core.graphics.TypefaceCompatApi21Impl",
                     "type": "CLASS",
-                    "downloadSize": 722,
+                    "downloadSize": 721,
                     "installSize": 723
                 },
                 {
@@ -18208,7 +18208,7 @@
                 {
                     "name": "androidx.core.widget.TextViewCompat$Api23Impl$$ExternalSyntheticApiModelOutline5",
                     "type": "CLASS",
-                    "downloadSize": 600,
+                    "downloadSize": 599,
                     "installSize": 601
                 },
                 {
@@ -18292,7 +18292,7 @@
                 {
                     "name": "androidx.core.provider.CallbackWithHandler$1",
                     "type": "CLASS",
-                    "downloadSize": 495,
+                    "downloadSize": 494,
                     "installSize": 496
                 },
                 {
@@ -19704,8 +19704,8 @@
         {
             "name": "androidx.compose.material3:material3:1.1.0-beta01",
             "type": "EXTERNAL",
-            "downloadSize": 73760,
-            "installSize": 73918,
+            "downloadSize": 73461,
+            "installSize": 73622,
             "files": [
                 {
                     "name": "androidx.compose.material3.TextFieldMeasurePolicy",
@@ -19716,8 +19716,8 @@
                 {
                     "name": "androidx.compose.material3.OutlinedTextFieldKt",
                     "type": "CLASS",
-                    "downloadSize": 2898,
-                    "installSize": 2905
+                    "downloadSize": 2894,
+                    "installSize": 2901
                 },
                 {
                     "name": "androidx.compose.material3.OutlinedTextFieldMeasurePolicy",
@@ -19780,12 +19780,6 @@
                     "installSize": 1400
                 },
                 {
-                    "name": "androidx.compose.material3.ColorSchemeKt",
-                    "type": "CLASS",
-                    "downloadSize": 1327,
-                    "installSize": 1330
-                },
-                {
                     "name": "androidx.compose.material3.ProgressIndicatorKt",
                     "type": "CLASS",
                     "downloadSize": 1320,
@@ -19794,7 +19788,7 @@
                 {
                     "name": "androidx.compose.material3.TextFieldImplKt$CommonDecorationBox$3",
                     "type": "CLASS",
-                    "downloadSize": 1260,
+                    "downloadSize": 1259,
                     "installSize": 1262
                 },
                 {
@@ -19808,6 +19802,12 @@
                     "type": "CLASS",
                     "downloadSize": 1142,
                     "installSize": 1145
+                },
+                {
+                    "name": "androidx.compose.material3.ColorSchemeKt",
+                    "type": "CLASS",
+                    "downloadSize": 1134,
+                    "installSize": 1137
                 },
                 {
                     "name": "androidx.compose.material3.AppBarKt$BottomAppBar$1",
@@ -19828,16 +19828,16 @@
                     "installSize": 1036
                 },
                 {
+                    "name": "androidx.compose.material3.TextKt",
+                    "type": "CLASS",
+                    "downloadSize": 1030,
+                    "installSize": 1032
+                },
+                {
                     "name": "androidx.compose.material3.TextFieldColors",
                     "type": "CLASS",
                     "downloadSize": 1029,
                     "installSize": 1031
-                },
-                {
-                    "name": "androidx.compose.material3.TextKt",
-                    "type": "CLASS",
-                    "downloadSize": 1026,
-                    "installSize": 1029
                 },
                 {
                     "name": "androidx.compose.material3.ScaffoldKt",
@@ -19854,7 +19854,7 @@
                 {
                     "name": "androidx.compose.material3.AlertDialogKt$AlertDialogContent$1$1$4$1",
                     "type": "CLASS",
-                    "downloadSize": 818,
+                    "downloadSize": 817,
                     "installSize": 819
                 },
                 {
@@ -19948,13 +19948,13 @@
                     "installSize": 524
                 },
                 {
-                    "name": "androidx.compose.material3.tokens.PaletteTokens",
+                    "name": "androidx.compose.material3.SurfaceKt",
                     "type": "CLASS",
-                    "downloadSize": 521,
-                    "installSize": 522
+                    "downloadSize": 517,
+                    "installSize": 518
                 },
                 {
-                    "name": "androidx.compose.material3.SurfaceKt",
+                    "name": "androidx.compose.material3.tokens.PaletteTokens",
                     "type": "CLASS",
                     "downloadSize": 517,
                     "installSize": 518
@@ -19974,7 +19974,7 @@
                 {
                     "name": "androidx.compose.material3.TextFieldMeasurePolicy$measure$1",
                     "type": "CLASS",
-                    "downloadSize": 504,
+                    "downloadSize": 503,
                     "installSize": 505
                 },
                 {
@@ -20172,7 +20172,7 @@
                 {
                     "name": "androidx.compose.material3.Shapes",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
@@ -20554,12 +20554,6 @@
                     "installSize": 98
                 },
                 {
-                    "name": "androidx.compose.material3.tokens.ColorDarkTokens",
-                    "type": "CLASS",
-                    "downloadSize": 98,
-                    "installSize": 98
-                },
-                {
                     "name": "androidx.compose.material3.tokens.OutlinedCardTokens",
                     "type": "CLASS",
                     "downloadSize": 96,
@@ -20702,14 +20696,14 @@
         {
             "name": "androidx.recyclerview:recyclerview:1.2.0",
             "type": "EXTERNAL",
-            "downloadSize": 67424,
-            "installSize": 67574,
+            "downloadSize": 67419,
+            "installSize": 67575,
             "files": [
                 {
                     "name": "androidx.recyclerview.widget.RecyclerView",
                     "type": "CLASS",
-                    "downloadSize": 16282,
-                    "installSize": 16316
+                    "downloadSize": 16280,
+                    "installSize": 16317
                 },
                 {
                     "name": "androidx.recyclerview.widget.StaggeredGridLayoutManager",
@@ -20720,7 +20714,7 @@
                 {
                     "name": "androidx.recyclerview.widget.LinearLayoutManager",
                     "type": "CLASS",
-                    "downloadSize": 5694,
+                    "downloadSize": 5693,
                     "installSize": 5706
                 },
                 {
@@ -20738,7 +20732,7 @@
                 {
                     "name": "androidx.recyclerview.widget.RecyclerView$Recycler",
                     "type": "CLASS",
-                    "downloadSize": 3128,
+                    "downloadSize": 3127,
                     "installSize": 3134
                 },
                 {
@@ -20756,7 +20750,7 @@
                 {
                     "name": "androidx.recyclerview.widget.AdapterHelper",
                     "type": "CLASS",
-                    "downloadSize": 1555,
+                    "downloadSize": 1554,
                     "installSize": 1558
                 },
                 {
@@ -21226,19 +21220,19 @@
         {
             "name": "androidx.compose.ui:ui-text:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 67003,
-            "installSize": 67144,
+            "downloadSize": 67005,
+            "installSize": 67158,
             "files": [
                 {
                     "name": "androidx.compose.ui.text.style.TextForegroundStyle$-CC",
                     "type": "CLASS",
-                    "downloadSize": 4411,
+                    "downloadSize": 4410,
                     "installSize": 4420
                 },
                 {
                     "name": "androidx.compose.ui.text.SaversKt$AnnotationRangeSaver$1",
                     "type": "CLASS",
-                    "downloadSize": 4385,
+                    "downloadSize": 4384,
                     "installSize": 4394
                 },
                 {
@@ -21268,7 +21262,7 @@
                 {
                     "name": "androidx.compose.ui.text.SaversKt$LocaleSaver$2",
                     "type": "CLASS",
-                    "downloadSize": 2145,
+                    "downloadSize": 2144,
                     "installSize": 2149
                 },
                 {
@@ -21286,14 +21280,14 @@
                 {
                     "name": "androidx.compose.ui.text.android.LayoutHelper",
                     "type": "CLASS",
-                    "downloadSize": 1502,
+                    "downloadSize": 1501,
                     "installSize": 1505
                 },
                 {
                     "name": "androidx.compose.ui.text.MultiParagraph",
                     "type": "CLASS",
                     "downloadSize": 1465,
-                    "installSize": 1468
+                    "installSize": 1469
                 },
                 {
                     "name": "androidx.compose.ui.text.AndroidParagraph",
@@ -21304,13 +21298,13 @@
                 {
                     "name": "androidx.compose.ui.text.TextStyle",
                     "type": "CLASS",
-                    "downloadSize": 1319,
-                    "installSize": 1322
+                    "downloadSize": 1332,
+                    "installSize": 1335
                 },
                 {
                     "name": "androidx.compose.ui.text.input.PartialGapBuffer",
                     "type": "CLASS",
-                    "downloadSize": 1260,
+                    "downloadSize": 1259,
                     "installSize": 1262
                 },
                 {
@@ -21328,7 +21322,7 @@
                 {
                     "name": "androidx.compose.ui.text.AnnotatedString$Builder",
                     "type": "CLASS",
-                    "downloadSize": 790,
+                    "downloadSize": 789,
                     "installSize": 791
                 },
                 {
@@ -21352,7 +21346,7 @@
                 {
                     "name": "androidx.compose.ui.text.MultiParagraphIntrinsics",
                     "type": "CLASS",
-                    "downloadSize": 721,
+                    "downloadSize": 720,
                     "installSize": 722
                 },
                 {
@@ -21418,7 +21412,7 @@
                 {
                     "name": "androidx.compose.ui.text.platform.AndroidTextPaint",
                     "type": "CLASS",
-                    "downloadSize": 478,
+                    "downloadSize": 477,
                     "installSize": 479
                 },
                 {
@@ -21578,13 +21572,13 @@
                     "installSize": 262
                 },
                 {
-                    "name": "androidx.compose.ui.text.android.StaticLayoutParams",
+                    "name": "androidx.compose.ui.text.PlatformParagraphStyle",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
-                    "name": "androidx.compose.ui.text.PlatformParagraphStyle",
+                    "name": "androidx.compose.ui.text.android.StaticLayoutParams",
                     "type": "CLASS",
                     "downloadSize": 251,
                     "installSize": 252
@@ -21610,7 +21604,7 @@
                 {
                     "name": "androidx.compose.ui.text.font.AndroidFontResolveInterceptor",
                     "type": "CLASS",
-                    "downloadSize": 226,
+                    "downloadSize": 225,
                     "installSize": 226
                 },
                 {
@@ -21952,7 +21946,7 @@
                 {
                     "name": "androidx.compose.ui.text.font.AsyncFontListLoader$load$1",
                     "type": "CLASS",
-                    "downloadSize": 87,
+                    "downloadSize": 86,
                     "installSize": 87
                 },
                 {
@@ -22308,13 +22302,13 @@
         {
             "name": "com.google.zxing:core:3.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 61694,
+            "downloadSize": 61686,
             "installSize": 61818,
             "files": [
                 {
                     "name": "com.google.zxing.datamatrix.decoder.Decoder",
                     "type": "CLASS",
-                    "downloadSize": 4503,
+                    "downloadSize": 4502,
                     "installSize": 4512
                 },
                 {
@@ -22326,7 +22320,7 @@
                 {
                     "name": "com.google.zxing.oned.rss.expanded.RSSExpandedReader",
                     "type": "CLASS",
-                    "downloadSize": 3560,
+                    "downloadSize": 3559,
                     "installSize": 3567
                 },
                 {
@@ -22344,7 +22338,7 @@
                 {
                     "name": "com.google.zxing.aztec.detector.Detector",
                     "type": "CLASS",
-                    "downloadSize": 2615,
+                    "downloadSize": 2614,
                     "installSize": 2620
                 },
                 {
@@ -22356,7 +22350,7 @@
                 {
                     "name": "com.google.zxing.pdf417.PDF417Reader",
                     "type": "CLASS",
-                    "downloadSize": 2365,
+                    "downloadSize": 2364,
                     "installSize": 2370
                 },
                 {
@@ -22398,7 +22392,7 @@
                 {
                     "name": "com.google.zxing.oned.CodaBarReader",
                     "type": "CLASS",
-                    "downloadSize": 1434,
+                    "downloadSize": 1433,
                     "installSize": 1437
                 },
                 {
@@ -22440,7 +22434,7 @@
                 {
                     "name": "com.google.zxing.common.HybridBinarizer",
                     "type": "CLASS",
-                    "downloadSize": 939,
+                    "downloadSize": 938,
                     "installSize": 941
                 },
                 {
@@ -22464,7 +22458,7 @@
                 {
                     "name": "com.google.zxing.datamatrix.DataMatrixReader",
                     "type": "CLASS",
-                    "downloadSize": 808,
+                    "downloadSize": 807,
                     "installSize": 809
                 },
                 {
@@ -22518,7 +22512,7 @@
                 {
                     "name": "com.google.zxing.aztec.AztecReader",
                     "type": "CLASS",
-                    "downloadSize": 443,
+                    "downloadSize": 442,
                     "installSize": 443
                 },
                 {
@@ -22898,19 +22892,19 @@
         {
             "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
             "type": "EXTERNAL",
-            "downloadSize": 60782,
+            "downloadSize": 60774,
             "installSize": 60906,
             "files": [
                 {
                     "name": "kotlinx.coroutines.DebugStringsKt",
                     "type": "CLASS",
-                    "downloadSize": 9819,
+                    "downloadSize": 9818,
                     "installSize": 9840
                 },
                 {
                     "name": "kotlinx.coroutines.JobSupport",
                     "type": "CLASS",
-                    "downloadSize": 3793,
+                    "downloadSize": 3792,
                     "installSize": 3801
                 },
                 {
@@ -22922,7 +22916,7 @@
                 {
                     "name": "kotlinx.coroutines.flow.SharedFlowImpl",
                     "type": "CLASS",
-                    "downloadSize": 2253,
+                    "downloadSize": 2252,
                     "installSize": 2257
                 },
                 {
@@ -22946,7 +22940,7 @@
                 {
                     "name": "kotlinx.coroutines.scheduling.CoroutineScheduler$Worker",
                     "type": "CLASS",
-                    "downloadSize": 1314,
+                    "downloadSize": 1313,
                     "installSize": 1316
                 },
                 {
@@ -22994,7 +22988,7 @@
                 {
                     "name": "kotlinx.coroutines.internal.ThreadSafeHeap",
                     "type": "CLASS",
-                    "downloadSize": 669,
+                    "downloadSize": 668,
                     "installSize": 670
                 },
                 {
@@ -23198,7 +23192,7 @@
                 {
                     "name": "kotlinx.coroutines.flow.internal.ChannelFlow$collectToFun$1",
                     "type": "CLASS",
-                    "downloadSize": 226,
+                    "downloadSize": 225,
                     "installSize": 226
                 },
                 {
@@ -23306,7 +23300,7 @@
                 {
                     "name": "kotlinx.coroutines.scheduling.UnlimitedIoScheduler",
                     "type": "CLASS",
-                    "downloadSize": 191,
+                    "downloadSize": 190,
                     "installSize": 191
                 },
                 {
@@ -23670,15 +23664,15 @@
                     "installSize": 91
                 },
                 {
-                    "name": "kotlinx.coroutines.flow.internal.NoOpContinuation",
+                    "name": "kotlinx.coroutines.flow.StateFlowImpl$collect$1",
                     "type": "CLASS",
                     "downloadSize": 87,
                     "installSize": 87
                 },
                 {
-                    "name": "kotlinx.coroutines.flow.StateFlowImpl$collect$1",
+                    "name": "kotlinx.coroutines.flow.internal.NoOpContinuation",
                     "type": "CLASS",
-                    "downloadSize": 87,
+                    "downloadSize": 86,
                     "installSize": 87
                 },
                 {
@@ -24220,19 +24214,19 @@
         {
             "name": "androidx.datastore:datastore-preferences-core:1.0.0",
             "type": "EXTERNAL",
-            "downloadSize": 58194,
+            "downloadSize": 58187,
             "installSize": 58317,
             "files": [
                 {
                     "name": "androidx.datastore.preferences.protobuf.MessageSchema",
                     "type": "CLASS",
-                    "downloadSize": 13255,
+                    "downloadSize": 13254,
                     "installSize": 13284
                 },
                 {
                     "name": "androidx.datastore.preferences.protobuf.SchemaUtil",
                     "type": "CLASS",
-                    "downloadSize": 6474,
+                    "downloadSize": 6473,
                     "installSize": 6487
                 },
                 {
@@ -24244,7 +24238,7 @@
                 {
                     "name": "androidx.datastore.preferences.protobuf.Utf8$SafeProcessor",
                     "type": "CLASS",
-                    "downloadSize": 2911,
+                    "downloadSize": 2910,
                     "installSize": 2917
                 },
                 {
@@ -24262,7 +24256,7 @@
                 {
                     "name": "androidx.datastore.preferences.protobuf.CodedOutputStream$OutputStreamEncoder",
                     "type": "CLASS",
-                    "downloadSize": 1415,
+                    "downloadSize": 1414,
                     "installSize": 1418
                 },
                 {
@@ -24322,7 +24316,7 @@
                 {
                     "name": "androidx.datastore.preferences.PreferencesProto$StringSet",
                     "type": "CLASS",
-                    "downloadSize": 739,
+                    "downloadSize": 738,
                     "installSize": 740
                 },
                 {
@@ -24434,13 +24428,13 @@
                     "installSize": 318
                 },
                 {
-                    "name": "androidx.datastore.preferences.core.MutablePreferences",
+                    "name": "androidx.datastore.preferences.protobuf.UnsafeUtil$MemoryAccessor",
                     "type": "CLASS",
-                    "downloadSize": 304,
+                    "downloadSize": 303,
                     "installSize": 304
                 },
                 {
-                    "name": "androidx.datastore.preferences.protobuf.UnsafeUtil$MemoryAccessor",
+                    "name": "androidx.datastore.preferences.core.MutablePreferences",
                     "type": "CLASS",
                     "downloadSize": 303,
                     "installSize": 304
@@ -24574,7 +24568,7 @@
                 {
                     "name": "androidx.datastore.preferences.protobuf.Android",
                     "type": "CLASS",
-                    "downloadSize": 113,
+                    "downloadSize": 112,
                     "installSize": 113
                 },
                 {
@@ -24816,13 +24810,13 @@
         {
             "name": "org.jetbrains.kotlin:kotlin-stdlib:1.8.10",
             "type": "EXTERNAL",
-            "downloadSize": 46957,
+            "downloadSize": 46955,
             "installSize": 47059,
             "files": [
                 {
                     "name": "kotlin.jvm.internal.Intrinsics$Kotlin",
                     "type": "CLASS",
-                    "downloadSize": 15578,
+                    "downloadSize": 15577,
                     "installSize": 15612
                 },
                 {
@@ -25242,7 +25236,7 @@
                 {
                     "name": "kotlin.coroutines.jvm.internal.CompletedContinuation",
                     "type": "CLASS",
-                    "downloadSize": 113,
+                    "downloadSize": 112,
                     "installSize": 113
                 },
                 {
@@ -25706,19 +25700,19 @@
         {
             "name": "androidx.fragment:fragment:1.5.4",
             "type": "EXTERNAL",
-            "downloadSize": 45406,
+            "downloadSize": 45399,
             "installSize": 45496,
             "files": [
                 {
                     "name": "androidx.fragment.app.FragmentManagerImpl",
                     "type": "CLASS",
-                    "downloadSize": 9240,
+                    "downloadSize": 9239,
                     "installSize": 9259
                 },
                 {
                     "name": "androidx.fragment.app.FragmentStateManager",
                     "type": "CLASS",
-                    "downloadSize": 5358,
+                    "downloadSize": 5357,
                     "installSize": 5369
                 },
                 {
@@ -25772,7 +25766,7 @@
                 {
                     "name": "androidx.fragment.app.SpecialEffectsController$FragmentStateManagerOperation",
                     "type": "CLASS",
-                    "downloadSize": 1269,
+                    "downloadSize": 1268,
                     "installSize": 1271
                 },
                 {
@@ -25826,7 +25820,7 @@
                 {
                     "name": "androidx.fragment.app.LogWriter",
                     "type": "CLASS",
-                    "downloadSize": 496,
+                    "downloadSize": 495,
                     "installSize": 497
                 },
                 {
@@ -25838,7 +25832,7 @@
                 {
                     "name": "androidx.fragment.app.FragmentManagerViewModel",
                     "type": "CLASS",
-                    "downloadSize": 435,
+                    "downloadSize": 434,
                     "installSize": 435
                 },
                 {
@@ -25874,7 +25868,7 @@
                 {
                     "name": "androidx.fragment.app.DefaultSpecialEffectsController$TransitionInfo",
                     "type": "CLASS",
-                    "downloadSize": 382,
+                    "downloadSize": 381,
                     "installSize": 382
                 },
                 {
@@ -25994,7 +25988,7 @@
                 {
                     "name": "androidx.fragment.app.BackStackState",
                     "type": "CLASS",
-                    "downloadSize": 139,
+                    "downloadSize": 138,
                     "installSize": 139
                 },
                 {
@@ -26188,19 +26182,19 @@
         {
             "name": "androidx.constraintlayout:constraintlayout:2.1.4",
             "type": "EXTERNAL",
-            "downloadSize": 42306,
-            "installSize": 42398,
+            "downloadSize": 42304,
+            "installSize": 42400,
             "files": [
                 {
                     "name": "androidx.constraintlayout.widget.R$id",
                     "type": "CLASS",
                     "downloadSize": 15953,
-                    "installSize": 15987
+                    "installSize": 15989
                 },
                 {
                     "name": "androidx.constraintlayout.widget.ConstraintSet",
                     "type": "CLASS",
-                    "downloadSize": 6976,
+                    "downloadSize": 6975,
                     "installSize": 6991
                 },
                 {
@@ -26224,7 +26218,7 @@
                 {
                     "name": "androidx.constraintlayout.widget.ConstraintLayout$LayoutParams",
                     "type": "CLASS",
-                    "downloadSize": 1427,
+                    "downloadSize": 1426,
                     "installSize": 1430
                 },
                 {
@@ -26328,13 +26322,13 @@
         {
             "name": "androidx.constraintlayout:constraintlayout-core:1.0.4",
             "type": "EXTERNAL",
-            "downloadSize": 38268,
+            "downloadSize": 38267,
             "installSize": 38348,
             "files": [
                 {
                     "name": "androidx.constraintlayout.core.widgets.ConstraintWidget",
                     "type": "CLASS",
-                    "downloadSize": 7186,
+                    "downloadSize": 7185,
                     "installSize": 7201
                 },
                 {
@@ -26540,7 +26534,7 @@
         {
             "name": "androidx.compose.ui:ui-graphics:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 30266,
+            "downloadSize": 30262,
             "installSize": 30337,
             "files": [
                 {
@@ -26720,7 +26714,7 @@
                 {
                     "name": "androidx.compose.ui.graphics.colorspace.Rgb$$ExternalSyntheticLambda1",
                     "type": "CLASS",
-                    "downloadSize": 287,
+                    "downloadSize": 286,
                     "installSize": 287
                 },
                 {
@@ -26744,19 +26738,19 @@
                 {
                     "name": "androidx.compose.ui.graphics.Float16",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
                     "name": "androidx.compose.ui.graphics.vector.PathNode$QuadTo",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
                     "name": "androidx.compose.ui.graphics.vector.PathNode$RelativeQuadTo",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
@@ -27064,7 +27058,7 @@
         {
             "name": "com.google.code.gson:gson:2.10.1",
             "type": "EXTERNAL",
-            "downloadSize": 28580,
+            "downloadSize": 28577,
             "installSize": 28637,
             "files": [
                 {
@@ -27304,7 +27298,7 @@
                 {
                     "name": "com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$FieldReflectionAdapter",
                     "type": "CLASS",
-                    "downloadSize": 226,
+                    "downloadSize": 225,
                     "installSize": 226
                 },
                 {
@@ -27322,7 +27316,7 @@
                 {
                     "name": "com.google.gson.internal.bind.ArrayTypeAdapter",
                     "type": "CLASS",
-                    "downloadSize": 174,
+                    "downloadSize": 173,
                     "installSize": 174
                 },
                 {
@@ -27430,7 +27424,7 @@
                 {
                     "name": "com.google.gson.JsonNull",
                     "type": "CLASS",
-                    "downloadSize": 87,
+                    "downloadSize": 86,
                     "installSize": 87
                 },
                 {
@@ -27612,7 +27606,7 @@
         {
             "name": "androidx.preference:preference:1.2.0",
             "type": "EXTERNAL",
-            "downloadSize": 28004,
+            "downloadSize": 28003,
             "installSize": 28039,
             "files": [
                 {
@@ -27888,7 +27882,7 @@
                 {
                     "name": "androidx.preference.internal.PreferenceImageView",
                     "type": "CLASS",
-                    "downloadSize": 191,
+                    "downloadSize": 190,
                     "installSize": 191
                 },
                 {
@@ -28028,13 +28022,13 @@
         {
             "name": ":common",
             "type": "INTERNAL",
-            "downloadSize": 24535,
+            "downloadSize": 24532,
             "installSize": 24587,
             "files": [
                 {
                     "name": "com.yogeshpaliyal.common.R$string",
                     "type": "CLASS",
-                    "downloadSize": 10226,
+                    "downloadSize": 10225,
                     "installSize": 10248
                 },
                 {
@@ -28058,7 +28052,7 @@
                 {
                     "name": "com.yogeshpaliyal.common.db.DbDao_Impl$11",
                     "type": "CLASS",
-                    "downloadSize": 1208,
+                    "downloadSize": 1207,
                     "installSize": 1210
                 },
                 {
@@ -28142,7 +28136,7 @@
                 {
                     "name": "com.yogeshpaliyal.common.dbhelper.DbBackupRestoreKt$restoreBackup$2$1$3",
                     "type": "CLASS",
-                    "downloadSize": 191,
+                    "downloadSize": 190,
                     "installSize": 191
                 },
                 {
@@ -28258,19 +28252,19 @@
         {
             "name": "androidx.compose.foundation:foundation-layout:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 23848,
+            "downloadSize": 23845,
             "installSize": 23896,
             "files": [
                 {
                     "name": "androidx.compose.foundation.layout.RowColumnImplKt$rowColumnMeasurePolicy$1",
                     "type": "CLASS",
-                    "downloadSize": 1849,
+                    "downloadSize": 1848,
                     "installSize": 1853
                 },
                 {
                     "name": "androidx.compose.foundation.layout.BoxKt$boxMeasurePolicy$1$measure$5",
                     "type": "CLASS",
-                    "downloadSize": 1598,
+                    "downloadSize": 1597,
                     "installSize": 1601
                 },
                 {
@@ -28348,7 +28342,7 @@
                 {
                     "name": "androidx.compose.foundation.layout.InsetsPaddingModifier",
                     "type": "CLASS",
-                    "downloadSize": 530,
+                    "downloadSize": 529,
                     "installSize": 531
                 },
                 {
@@ -28614,7 +28608,7 @@
         {
             "name": "androidx.compose.animation:animation-core:1.4.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 22375,
+            "downloadSize": 22373,
             "installSize": 22421,
             "files": [
                 {
@@ -28674,7 +28668,7 @@
                 {
                     "name": "androidx.compose.animation.core.Animatable",
                     "type": "CLASS",
-                    "downloadSize": 678,
+                    "downloadSize": 677,
                     "installSize": 679
                 },
                 {
@@ -28686,7 +28680,7 @@
                 {
                     "name": "androidx.compose.animation.core.FloatTweenSpec",
                     "type": "CLASS",
-                    "downloadSize": 635,
+                    "downloadSize": 634,
                     "installSize": 636
                 },
                 {
@@ -29362,7 +29356,7 @@
         {
             "name": "androidx.transition:transition:1.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 14532,
+            "downloadSize": 14530,
             "installSize": 14558,
             "files": [
                 {
@@ -29374,7 +29368,7 @@
                 {
                     "name": "androidx.transition.TransitionSet",
                     "type": "CLASS",
-                    "downloadSize": 1626,
+                    "downloadSize": 1625,
                     "installSize": 1629
                 },
                 {
@@ -29428,7 +29422,7 @@
                 {
                     "name": "androidx.transition.ChangeBounds$1",
                     "type": "CLASS",
-                    "downloadSize": 365,
+                    "downloadSize": 364,
                     "installSize": 365
                 },
                 {
@@ -29804,13 +29798,13 @@
         {
             "name": "androidx.navigation:navigation-runtime:2.5.3",
             "type": "EXTERNAL",
-            "downloadSize": 13944,
+            "downloadSize": 13942,
             "installSize": 13974,
             "files": [
                 {
                     "name": "androidx.navigation.NavHostController",
                     "type": "CLASS",
-                    "downloadSize": 7554,
+                    "downloadSize": 7553,
                     "installSize": 7570
                 },
                 {
@@ -29828,7 +29822,7 @@
                 {
                     "name": "androidx.navigation.NavController$NavControllerNavigatorState",
                     "type": "CLASS",
-                    "downloadSize": 790,
+                    "downloadSize": 789,
                     "installSize": 791
                 },
                 {
@@ -29878,7 +29872,7 @@
         {
             "name": "androidx.room:room-runtime:2.5.1",
             "type": "EXTERNAL",
-            "downloadSize": 12577,
+            "downloadSize": 12576,
             "installSize": 12601,
             "files": [
                 {
@@ -29956,7 +29950,7 @@
                 {
                     "name": "androidx.room.MultiInstanceInvalidationClient",
                     "type": "CLASS",
-                    "downloadSize": 374,
+                    "downloadSize": 373,
                     "installSize": 374
                 },
                 {
@@ -30096,7 +30090,7 @@
         {
             "name": "androidx.biometric:biometric:1.1.0",
             "type": "EXTERNAL",
-            "downloadSize": 12441,
+            "downloadSize": 12440,
             "installSize": 12575,
             "files": [
                 {
@@ -30192,7 +30186,7 @@
                 {
                     "name": "androidx.biometric.BiometricFragment$ShowPromptForAuthenticationRunnable",
                     "type": "CLASS",
-                    "downloadSize": 174,
+                    "downloadSize": 173,
                     "installSize": 174
                 },
                 {
@@ -30756,13 +30750,13 @@
         {
             "name": "androidx.coordinatorlayout:coordinatorlayout:1.1.0",
             "type": "EXTERNAL",
-            "downloadSize": 10001,
+            "downloadSize": 10000,
             "installSize": 10023,
             "files": [
                 {
                     "name": "androidx.coordinatorlayout.widget.CoordinatorLayout",
                     "type": "CLASS",
-                    "downloadSize": 8622,
+                    "downloadSize": 8621,
                     "installSize": 8640
                 },
                 {
@@ -30818,13 +30812,13 @@
         {
             "name": "androidx.compose.material:material-ripple:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 9112,
+            "downloadSize": 9111,
             "installSize": 9132,
             "files": [
                 {
                     "name": "androidx.compose.material.ripple.CommonRippleIndicationInstance",
                     "type": "CLASS",
-                    "downloadSize": 1549,
+                    "downloadSize": 1548,
                     "installSize": 1552
                 },
                 {
@@ -31062,13 +31056,13 @@
         {
             "name": "androidx.collection:collection:1.1.0",
             "type": "EXTERNAL",
-            "downloadSize": 7840,
+            "downloadSize": 7839,
             "installSize": 7856,
             "files": [
                 {
                     "name": "androidx.collection.SimpleArrayMap",
                     "type": "CLASS",
-                    "downloadSize": 1521,
+                    "downloadSize": 1520,
                     "installSize": 1524
                 },
                 {
@@ -31234,7 +31228,7 @@
         {
             "name": "androidx.datastore:datastore-core:1.0.0",
             "type": "EXTERNAL",
-            "downloadSize": 6087,
+            "downloadSize": 6086,
             "installSize": 6101,
             "files": [
                 {
@@ -31312,7 +31306,7 @@
                 {
                     "name": "androidx.datastore.core.SingleProcessDataStore$transformAndWrite$1",
                     "type": "CLASS",
-                    "downloadSize": 113,
+                    "downloadSize": 112,
                     "installSize": 113
                 },
                 {
@@ -31600,7 +31594,7 @@
         {
             "name": "androidx.navigation:navigation-fragment:2.5.3",
             "type": "EXTERNAL",
-            "downloadSize": 4161,
+            "downloadSize": 4160,
             "installSize": 4169,
             "files": [
                 {
@@ -31612,7 +31606,7 @@
                 {
                     "name": "androidx.navigation.fragment.FragmentNavigator",
                     "type": "CLASS",
-                    "downloadSize": 921,
+                    "downloadSize": 920,
                     "installSize": 923
                 },
                 {
@@ -31644,13 +31638,13 @@
         {
             "name": "androidx.customview:customview:1.1.0",
             "type": "EXTERNAL",
-            "downloadSize": 3730,
+            "downloadSize": 3729,
             "installSize": 3738,
             "files": [
                 {
                     "name": "androidx.customview.widget.ViewDragHelper",
                     "type": "CLASS",
-                    "downloadSize": 2964,
+                    "downloadSize": 2963,
                     "installSize": 2970
                 },
                 {
@@ -31830,8 +31824,8 @@
         {
             "name": "androidx.activity:activity-compose:1.7.0",
             "type": "EXTERNAL",
-            "downloadSize": 3214,
-            "installSize": 3221,
+            "downloadSize": 3215,
+            "installSize": 3222,
             "files": [
                 {
                     "name": "androidx.activity.compose.ActivityResultRegistryKt$rememberLauncherForActivityResult$1",
@@ -31842,8 +31836,8 @@
                 {
                     "name": "androidx.activity.compose.LocalActivityResultRegistryOwner$LocalComposition$1",
                     "type": "CLASS",
-                    "downloadSize": 815,
-                    "installSize": 817
+                    "downloadSize": 816,
+                    "installSize": 818
                 },
                 {
                     "name": "androidx.activity.compose.ActivityResultRegistryKt$rememberLauncherForActivityResult$1$invoke$$inlined$onDispose$1",
@@ -32266,16 +32260,16 @@
             ]
         },
         {
-            "name": "com.google.accompanist:accompanist-themeadapter-core:0.28.0",
+            "name": "com.google.accompanist:accompanist-themeadapter-core:0.30.0",
             "type": "EXTERNAL",
-            "downloadSize": 2132,
-            "installSize": 2137,
+            "downloadSize": 2093,
+            "installSize": 2097,
             "files": [
                 {
                     "name": "com.google.accompanist.themeadapter.core.ResourceUtilsKt",
                     "type": "CLASS",
-                    "downloadSize": 1934,
-                    "installSize": 1939
+                    "downloadSize": 1895,
+                    "installSize": 1899
                 },
                 {
                     "name": "com.google.accompanist.themeadapter.core.FontFamilyWithWeight",
@@ -32388,7 +32382,7 @@
         {
             "name": "androidx.emoji2:emoji2-views-helper:1.3.0",
             "type": "EXTERNAL",
-            "downloadSize": 2049,
+            "downloadSize": 2048,
             "installSize": 2053,
             "files": [
                 {
@@ -32412,7 +32406,7 @@
                 {
                     "name": "androidx.emoji2.viewsintegration.EmojiInputConnection",
                     "type": "CLASS",
-                    "downloadSize": 252,
+                    "downloadSize": 251,
                     "installSize": 252
                 },
                 {
@@ -33030,28 +33024,28 @@
             ]
         },
         {
-            "name": "com.google.accompanist:accompanist-themeadapter-material3:0.28.0",
+            "name": "com.google.accompanist:accompanist-themeadapter-material3:0.30.0",
             "type": "EXTERNAL",
-            "downloadSize": 1117,
-            "installSize": 1118,
+            "downloadSize": 1118,
+            "installSize": 1121,
             "files": [
                 {
                     "name": "com.google.accompanist.themeadapter.material3.Mdc3Theme",
                     "type": "CLASS",
-                    "downloadSize": 783,
+                    "downloadSize": 782,
                     "installSize": 784
+                },
+                {
+                    "name": "com.google.accompanist.themeadapter.material3.Mdc3Theme$Mdc3Theme$2",
+                    "type": "CLASS",
+                    "downloadSize": 168,
+                    "installSize": 169
                 },
                 {
                     "name": "com.google.accompanist.themeadapter.material3.Theme3Parameters",
                     "type": "CLASS",
                     "downloadSize": 168,
                     "installSize": 168
-                },
-                {
-                    "name": "com.google.accompanist.themeadapter.material3.Mdc3Theme$Mdc3Theme$2",
-                    "type": "CLASS",
-                    "downloadSize": 166,
-                    "installSize": 166
                 }
             ]
         },
