@@ -1,15 +1,15 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.10",
+    "version": "1.4.11",
     "variant": "productionRelease",
-    "downloadSize": 2508430,
-    "installSize": 3079218,
+    "downloadSize": 2508427,
+    "installSize": 3079214,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 459464,
-            "installSize": 1023681,
+            "downloadSize": 459460,
+            "installSize": 1023677,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -44,8 +44,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5424,
-                    "installSize": 5419
+                    "downloadSize": 5423,
+                    "installSize": 5418
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -86,8 +86,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3359,
-                    "installSize": 3359
+                    "downloadSize": 3356,
+                    "installSize": 3356
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
@@ -13150,7 +13150,7 @@
         {
             "name": "androidx.compose.foundation:foundation:1.4.0",
             "type": "EXTERNAL",
-            "downloadSize": 153744,
+            "downloadSize": 153745,
             "installSize": 154046,
             "files": [
                 {
@@ -13174,7 +13174,7 @@
                 {
                     "name": "androidx.compose.foundation.BorderKt$drawGenericBorder$1",
                     "type": "CLASS",
-                    "downloadSize": 3478,
+                    "downloadSize": 3479,
                     "installSize": 3485
                 },
                 {
