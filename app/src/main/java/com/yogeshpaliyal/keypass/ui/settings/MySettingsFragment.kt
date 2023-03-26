@@ -149,7 +149,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    fun restore(
+    private fun restore(
         dialog: AlertDialog,
         keyphrase: String,
         contentResolver: ContentResolver,
