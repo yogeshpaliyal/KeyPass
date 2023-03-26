@@ -1,5 +1,6 @@
 package com.yogeshpaliyal.common.data
 
+import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -14,6 +15,7 @@ import com.yogeshpaliyal.common.utils.getRandomString
 * https://techpaliyal.com
 * created on 30-01-2021 20:38
 */
+@Keep
 @Entity(tableName = "account")
 data class AccountModel(
     @PrimaryKey(autoGenerate = true)

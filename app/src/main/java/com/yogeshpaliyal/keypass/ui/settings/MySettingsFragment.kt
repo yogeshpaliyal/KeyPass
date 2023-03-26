@@ -3,10 +3,13 @@ package com.yogeshpaliyal.keypass.ui.settings
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.ContentResolver
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +18,7 @@ import androidx.preference.PreferenceFragmentCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yogeshpaliyal.common.dbhelper.createBackup
 import com.yogeshpaliyal.common.dbhelper.restoreBackup
+import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
 import com.yogeshpaliyal.common.utils.setBackupDirectory
@@ -116,37 +120,77 @@ class MySettingsFragment : PreferenceFragmentCompat() {
 
                 val binding = LayoutRestoreKeypharseBinding.inflate(layoutInflater)
 
-                MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
+                val dialog = MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
                     .setNegativeButton(
-                        "Cancel"
+                        R.string.cancel
                     ) { dialog, which ->
                         dialog.dismiss()
                     }
                     .setPositiveButton(
-                        "Restore"
+                        R.string.restore
                     ) { dialog, which ->
-                        lifecycleScope.launch {
-                            val result = appDb.restoreBackup(
-                                binding.etKeyPhrase.text.toString(),
-                                contentResolver,
-                                selectedFile
-                            )
-                            if (result) {
-                                dialog?.dismiss()
-                                Toast.makeText(
-                                    context,
-                                    getString(R.string.backup_restored),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            } else {
-                                Toast.makeText(
-                                    context,
-                                    getString(R.string.invalid_keyphrase),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }.show()
+                        dialog.dismiss()
+                    }.create()
+
+                dialog.setOnShowListener {
+                    val positiveBtn = dialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                    positiveBtn.setOnClickListener {
+                        restore(
+                            dialog,
+                            binding.etKeyPhrase.text.toString(),
+                            contentResolver,
+                            selectedFile
+                        )
+                    }
+                }
+                dialog.show()
+            }
+        }
+    }
+
+    private fun restore(
+        dialog: AlertDialog,
+        keyphrase: String,
+        contentResolver: ContentResolver,
+        selectedFile: Uri
+    ) {
+        if (keyphrase.isEmpty()) {
+            Toast.makeText(
+                context,
+                R.string.alert_blank_keyphrase,
+                Toast.LENGTH_SHORT
+            )
+                .show()
+            return
+        }
+
+        if (keyphrase.length != BACKUP_KEY_LENGTH) {
+            Toast.makeText(
+                context,
+                R.string.alert_invalid_keyphrase,
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+        lifecycleScope.launch {
+            val result = appDb.restoreBackup(
+                keyphrase,
+                contentResolver,
+                selectedFile
+            )
+            if (result) {
+                dialog.dismiss()
+                Toast.makeText(
+                    context,
+                    getString(R.string.backup_restored),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(
+                    context,
+                    getString(R.string.invalid_keyphrase),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

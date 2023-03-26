@@ -45,7 +45,9 @@
         app:boxBackgroundColor="@android:color/transparent"
         android:layout_marginTop="@dimen/grid_2"
         android:hint="@string/enter_keyphrase"
-        android:layout_marginHorizontal="@dimen/grid_3">
+        android:layout_marginHorizontal="@dimen/grid_3"
+        app:counterEnabled="true"
+        app:counterMaxLength="16">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
