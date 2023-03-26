@@ -36,6 +36,7 @@ class CrashActivity : AppCompatActivity() {
         binding.btnSendFeedback.setOnClickListener {
 
             val deviceInfo = StringBuilder()
+            deviceInfo.append(binding.txtCrash.text.toString())
             try {
                 deviceInfo.append("\n")
                 deviceInfo.append("App Version: " + BuildConfig.VERSION_NAME)
@@ -57,7 +58,7 @@ class CrashActivity : AppCompatActivity() {
 
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("yogeshpaliyal.foss@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Crash Report in KeyPass")
-            intent.putExtra(Intent.EXTRA_TEXT, binding.txtCrash.text.toString() + "$deviceInfo")
+            intent.putExtra(Intent.EXTRA_TEXT, deviceInfo.toString())
 
             startActivity(Intent.createChooser(intent, ""))
         }

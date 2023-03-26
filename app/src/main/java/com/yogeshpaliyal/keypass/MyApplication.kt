@@ -15,6 +15,6 @@ import dagger.hilt.android.HiltAndroidApp
 class MyApplication : CommonMyApplication() {
 
     override fun getCrashActivityIntent(throwable: Throwable): Intent {
-        return CrashActivity.getIntent(this, throwable.localizedMessage)
+        return CrashActivity.getIntent(this, throwable.stackTraceToString())
     }
 }
