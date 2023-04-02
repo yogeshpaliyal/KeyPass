@@ -1,5 +1,12 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextEquals
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
@@ -7,12 +14,14 @@ import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withTagValue
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import org.hamcrest.CoreMatchers.`is`
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -24,7 +33,7 @@ class DashboardActivityTest {
     var hiltRule = HiltAndroidRule(this)
 
     @get:Rule(order = 1)
-    var activityScenarioRule = ActivityScenarioRule(DashboardActivity::class.java)
+    var activityScenarioRule = createAndroidComposeRule<DashboardActivity>()
 
     @Inject
     lateinit var appDatabase: com.yogeshpaliyal.common.AppDatabase
@@ -59,51 +68,51 @@ class DashboardActivityTest {
         onView(withId(R.id.btnAdd)).perform(click())
 
         // Fill information on Detail Activity
-        onView(withId(R.id.etAccountName)).perform(replaceText(accountModel.title))
+        activityScenarioRule.onNodeWithTag("accountName").performTextInput(accountModel.title ?: "")
 
         // generate random password
-        onView(withId(R.id.etUsername)).perform(replaceText(accountModel.username))
+        activityScenarioRule.onNodeWithTag("username").performTextInput(accountModel.username ?: "")
 
-        onView(withId(R.id.etPassword)).perform(replaceText(accountModel.password))
+        activityScenarioRule.onNodeWithTag("password").performTextInput(accountModel.password ?: "")
 
-        onView(withId(R.id.etTag)).perform(replaceText(accountModel.tags))
+        activityScenarioRule.onNodeWithTag("tags").performTextInput(accountModel.tags ?: "")
 
-        onView(withId(R.id.etWebsite)).perform(replaceText(accountModel.password))
+        activityScenarioRule.onNodeWithTag("website").performTextInput(accountModel.site ?: "")
 
-        onView(withId(R.id.etNotes)).perform(replaceText(accountModel.notes))
+        activityScenarioRule.onNodeWithTag("notes").performTextInput(accountModel.notes ?: "")
 
-        onView(withId(R.id.btnSave)).perform(click())
+        activityScenarioRule.onNodeWithTag("save").performClick()
 
         // is showing in listing
-        onView(withText(accountModel.username)).check(matches(isDisplayed()))
+        activityScenarioRule.onNodeWithText(accountModel.username?:"").assertIsDisplayed()
     }
 
     private fun checkAccountDetail(accountModel: AccountModel) {
         // Navigate to account detail
-        onView(withText(accountModel.username)).perform(click())
+        activityScenarioRule.onNodeWithText(accountModel.username?:"").performClick()
 
         // Fill information on Detail Activity
-        onView(withId(R.id.etAccountName)).check(matches(withText(accountModel.title)))
+        activityScenarioRule.onNodeWithTag("accountName").assertTextEquals(accountModel.title ?: "")
 
         // generate random password
-        onView(withId(R.id.etUsername)).check(matches(withText(accountModel.username)))
+        activityScenarioRule.onNodeWithTag("username").assertTextEquals(accountModel.username ?: "")
 
-        onView(withId(R.id.etPassword)).check(matches(withText(accountModel.password)))
+        activityScenarioRule.onNodeWithTag("password").assertTextEquals(accountModel.password ?: "")
 
-        onView(withId(R.id.etTag)).check(matches(withText(accountModel.tags)))
+        activityScenarioRule.onNodeWithTag("tags").assertTextEquals(accountModel.tags ?: "")
 
-        onView(withId(R.id.etWebsite)).check(matches(withText(accountModel.password)))
+        activityScenarioRule.onNodeWithTag("website").assertTextEquals(accountModel.site ?: "")
 
-        onView(withId(R.id.etNotes)).check(matches(withText(accountModel.notes)))
+        activityScenarioRule.onNodeWithTag("notes").assertTextEquals(accountModel.notes ?: "")
     }
 
     private fun deleteAccount(accountModel: AccountModel) {
         // delete account
-        onView(withId(R.id.action_delete)).perform(click())
+        activityScenarioRule.onNodeWithTag("action_delete").performClick()
 
-        onView(withText(R.string.delete)).perform(click())
+        activityScenarioRule.onNodeWithTag("delete").performClick()
 
         // is not showing in listing
-        onView(withText(accountModel.username)).check(doesNotExist())
+        activityScenarioRule.onNodeWithText(accountModel.username ?: "").assertDoesNotExist()
     }
 }
