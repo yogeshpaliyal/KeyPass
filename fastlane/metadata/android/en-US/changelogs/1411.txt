@@ -1,3 +1,1 @@
-
-
 Major bug fix in backup and restore from v1.4.10
