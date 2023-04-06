@@ -111,7 +111,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
     implementation "androidx.compose.material:material-icons-extended:1.4.1"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.0"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.1"
     debugImplementation "androidx.compose.ui:ui-tooling:1.4.1"
     implementation("androidx.compose.runtime:runtime-livedata:1.4.1")
 
