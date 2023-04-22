@@ -70,7 +70,7 @@ suspend fun Context?.backupAccounts(
             fileName
         )
 
-    val response = appDb.createBackup(
+    appDb.createBackup(
         keyPair.second,
         contentResolver,
         docFile?.uri
