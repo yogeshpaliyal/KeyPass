@@ -171,6 +171,6 @@ dependencies {
     kaptTest("com.google.dagger:hilt-android-compiler:$hilt_version")
 
 
-    implementation "org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.5.5"
+    implementation "org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.6.1"
 
 }
