@@ -2,6 +2,7 @@ package com.yogeshpaliyal.keypass.ui.redux
 
 import android.content.Intent
 import androidx.navigation.NavController
+import androidx.navigation.NavOptionsBuilder
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
@@ -12,9 +13,16 @@ import org.reduxkotlin.middleware
 
 object KeyPassRedux {
 
-    private fun NavController.navigateIfNotInSameRoute(route: String) {
+    private fun NavController.navigateIfNotInSameRoute(
+        route: String,
+        builder: (NavOptionsBuilder.() -> Unit)? = null
+    ) {
         if (this.currentDestination?.route != route) {
-            this.navigate(route)
+            if (builder != null) {
+                this.navigate(route, builder)
+            } else {
+                this.navigate(route)
+            }
         }
     }
 
@@ -64,7 +72,9 @@ object KeyPassRedux {
             }
 
             is ScreeNavigationAction.Home -> {
-                state.navController?.navigateIfNotInSameRoute(action.route)
+                state.navController?.navigateIfNotInSameRoute(action.route) {
+                    launchSingleTop = true
+                }
             }
 
             is ScreeNavigationAction.Settings -> {

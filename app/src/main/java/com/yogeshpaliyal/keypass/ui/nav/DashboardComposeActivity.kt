@@ -48,15 +48,18 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.yogeshpaliyal.keypass.databinding.LayoutMySettingsFragmentBinding
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.home.Main
 import com.yogeshpaliyal.keypass.ui.redux.Action
 import com.yogeshpaliyal.keypass.ui.redux.BottomSheetAction
+import com.yogeshpaliyal.keypass.ui.redux.Home
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.ScreeNavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.ScreenRoutes
@@ -99,6 +102,8 @@ fun Dashboard(viewModel: DashboardViewModel = androidx.lifecycle.viewmodel.compo
         }
 
         onDispose {
+            KeyPassRedux.dispatchAction(UpdateContextAction(null))
+            KeyPassRedux.dispatchAction(UpdateNavControllerAction(null))
             unsubscribe()
         }
     }
@@ -114,8 +119,18 @@ fun Dashboard(viewModel: DashboardViewModel = androidx.lifecycle.viewmodel.compo
                     navController = navController,
                     startDestination = ScreenRoutes.HOME
                 ) {
-                    composable(ScreenRoutes.HOME) {
-                        Main(viewModel)
+                    composable(
+                        ScreenRoutes.HOME,
+                        arguments = listOf(
+                            navArgument("tag") {
+                                type = NavType.StringType
+                                nullable = true
+                                defaultValue = ""
+                            }
+                        )
+                    ) { backStackEntry ->
+                        val type = backStackEntry.arguments?.getString("tag")
+                        Main(viewModel, type)
                     }
                     composable(ScreenRoutes.SETTINGS) {
                         MySettings()
@@ -143,12 +158,12 @@ fun MySettings() {
 
 @Composable
 fun OptionBottomBar(
-    updateBottomSheetState: (Action) -> Unit,
+    dispatchAction: (Action) -> Unit,
     viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
     val navigationItems by viewModel.navigationList.observeAsState()
     ModalBottomSheet(onDismissRequest = {
-        updateBottomSheetState(BottomSheetAction.HomeNavigationMenu(false))
+        dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
     }) {
         LazyColumn(
             modifier = Modifier
@@ -164,12 +179,13 @@ fun OptionBottomBar(
 
                         is NavigationModelItem.NavEmailFolder -> {
                             NavMenuFolder(folder = it) {
+                                dispatchAction(ScreeNavigationAction.Home(it.category))
                             }
                         }
 
                         is NavigationModelItem.NavMenuItem -> {
                             NavItem(it) {
-                                updateBottomSheetState(it.action)
+                                dispatchAction(it.action)
                             }
                         }
                     }

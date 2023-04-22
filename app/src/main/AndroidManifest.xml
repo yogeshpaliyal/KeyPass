@@ -49,14 +49,13 @@
             android:screenOrientation="portrait"
             tools:replace="screenOrientation" />
         <activity
-            android:name=".ui.nav.DashboardActivity"
+            android:name=".ui.nav.DashboardComposeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name="com.yogeshpaliyal.keypass.ui.nav.DashboardComposeActivity" />
 
         <!-- If you want to disable android.startup completely. -->
         <provider

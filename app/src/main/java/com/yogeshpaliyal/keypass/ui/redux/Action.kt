@@ -6,11 +6,11 @@ import androidx.navigation.NavController
 
 sealed class Action
 
-class UpdateContextAction(val context: Context) : Action()
-class UpdateNavControllerAction(val navController: NavController) : Action()
+class UpdateContextAction(val context: Context?) : Action()
+class UpdateNavControllerAction(val navController: NavController?) : Action()
 
 sealed class ScreeNavigationAction(val route: String, val globalArgs: Bundle? = null) : Action() {
-    data class Home(val args: Bundle? = null) : ScreeNavigationAction(ScreenRoutes.HOME, args)
+    data class Home(val tag: String? = null) : ScreeNavigationAction(ScreenRoutes.HOME.replace("{tag}", tag ?: ""))
     data class Settings(val args: Bundle? = null) :
         ScreeNavigationAction(ScreenRoutes.SETTINGS, args)
 

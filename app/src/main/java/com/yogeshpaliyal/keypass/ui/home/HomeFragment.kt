@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                Main(mViewModel)
+                Main(mViewModel, null)
             }
         }
     }
@@ -101,12 +101,35 @@ private fun getPassword(model: AccountModel): String {
 }
 
 @Composable()
-fun Main(mViewModel: DashboardViewModel = viewModel()) {
+fun Main(mViewModel: DashboardViewModel = viewModel(), selectedTag: String?) {
     KeyPassTheme {
         Surface(modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.bottom_app_bar_height))) {
             val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
 
-            AccountsList(listOfAccountsLiveData)
+            val keyword by mViewModel.keyword.observeAsState()
+
+            LaunchedEffect(key1 = selectedTag, block = {
+                if (selectedTag.isNullOrBlank()) {
+                    mViewModel.tag.postValue(null)
+                } else {
+                    mViewModel.tag.postValue(selectedTag)
+                }
+            })
+
+            Column(modifier = Modifier.fillMaxSize()) {
+                OutlinedTextField(
+                    modifier = Modifier
+                        .fillMaxWidth(1f)
+                        .padding(16.dp),
+                    value = keyword ?: "",
+                    placeholder = {
+                        Text(text = "Search Account")
+                    },
+                    onValueChange = { newValue -> mViewModel.keyword.postValue(newValue) }
+                )
+
+                AccountsList(listOfAccountsLiveData)
+            }
         }
     }
 }
