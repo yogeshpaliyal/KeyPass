@@ -1,14 +1,19 @@
 package com.yogeshpaliyal.keypass.ui.redux
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Intent
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
+import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import org.reduxkotlin.Reducer
 import org.reduxkotlin.applyMiddleware
-import org.reduxkotlin.createThreadSafeStore
+import org.reduxkotlin.createStore
 import org.reduxkotlin.middleware
 
 object KeyPassRedux {
@@ -30,6 +35,25 @@ object KeyPassRedux {
         when (action) {
             is ScreeNavigationAction -> {
                 state.copy(currentScreen = ScreenState(action.route, action.globalArgs))
+            }
+
+            is CopyToClipboard -> {
+                state.context?.let {
+                    val clipboard = ContextCompat.getSystemService(
+                        it,
+                        ClipboardManager::class.java
+                    )
+                    val clip = ClipData.newPlainText("KeyPass", action.password)
+                    clipboard?.setPrimaryClip(clip)
+
+                    Toast.makeText(
+                        it,
+                        R.string.copied_to_clipboard,
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+                state
             }
 
             is UpdateContextAction -> {
@@ -84,19 +108,5 @@ object KeyPassRedux {
         next(action)
     }
 
-    private val store = createThreadSafeStore<KeyPassState>(
-        reducer,
-        generateDefaultState(),
-        applyMiddleware(
-            navigationMiddleware
-        )
-    )
-
-    fun getCurrentState() = store.state
-
-    val subscribeToStore = store.subscribe
-
-    fun dispatchAction(action: Action) {
-        store.dispatch(action)
-    }
+    val store = createStore(reducer, generateDefaultState(), applyMiddleware(navigationMiddleware))
 }

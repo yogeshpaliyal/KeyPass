@@ -36,7 +36,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -56,17 +55,20 @@ import androidx.navigation.navArgument
 import com.yogeshpaliyal.keypass.databinding.LayoutMySettingsFragmentBinding
 import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
-import com.yogeshpaliyal.keypass.ui.home.Main
+import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.redux.Action
 import com.yogeshpaliyal.keypass.ui.redux.BottomSheetAction
-import com.yogeshpaliyal.keypass.ui.redux.Home
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
+import com.yogeshpaliyal.keypass.ui.redux.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.ScreeNavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.ScreenRoutes
 import com.yogeshpaliyal.keypass.ui.redux.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.UpdateNavControllerAction
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
+import org.reduxkotlin.compose.StoreProvider
+import org.reduxkotlin.compose.rememberDispatcher
+import org.reduxkotlin.compose.selectState
 import java.util.Locale
 
 @AndroidEntryPoint
@@ -81,70 +83,68 @@ class DashboardComposeActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_SECURE
         )
         setContent {
-            Dashboard(viewModel = mViewModel)
+            KeyPassTheme {
+                StoreProvider(store = KeyPassRedux.store) {
+                    Dashboard(viewModel = mViewModel)
+                }
+            }
         }
     }
 }
 
 @Composable
 fun Dashboard(viewModel: DashboardViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
-    val (appState, updateAppState) = remember { mutableStateOf(KeyPassRedux.getCurrentState()) }
+    val appState by selectState<KeyPassState, KeyPassState> { this }
 
     val navController = rememberNavController()
     val context = LocalContext.current
+    val dispatch = rememberDispatcher()
 
     DisposableEffect(KeyPassRedux, navController, context) {
-        KeyPassRedux.dispatchAction(UpdateContextAction(context))
-        KeyPassRedux.dispatchAction(UpdateNavControllerAction(navController))
-
-        val unsubscribe = KeyPassRedux.subscribeToStore {
-            updateAppState(KeyPassRedux.getCurrentState())
-        }
+        dispatch(UpdateContextAction(context))
+        dispatch(UpdateNavControllerAction(navController))
 
         onDispose {
-            KeyPassRedux.dispatchAction(UpdateContextAction(null))
-            KeyPassRedux.dispatchAction(UpdateNavControllerAction(null))
-            unsubscribe()
+            dispatch(UpdateContextAction(null))
+            dispatch(UpdateNavControllerAction(null))
         }
     }
 
-    KeyPassTheme {
-        Scaffold(bottomBar = {
-            KeyPassBottomBar(navController) {
-                KeyPassRedux.dispatchAction(it)
-            }
-        }) { paddingValues ->
-            Surface(modifier = Modifier.padding(paddingValues)) {
-                NavHost(
-                    navController = navController,
-                    startDestination = ScreenRoutes.HOME
-                ) {
-                    composable(
-                        ScreenRoutes.HOME,
-                        arguments = listOf(
-                            navArgument("tag") {
-                                type = NavType.StringType
-                                nullable = true
-                                defaultValue = ""
-                            }
-                        )
-                    ) { backStackEntry ->
-                        val type = backStackEntry.arguments?.getString("tag")
-                        Main(viewModel, type)
-                    }
-                    composable(ScreenRoutes.SETTINGS) {
-                        MySettings()
-                    }
-                }
-
-                if (appState.bottomSheet.isBottomSheetOpen) {
-                    OptionBottomBar({
-                        KeyPassRedux.dispatchAction(it)
-                        if (it !is BottomSheetAction) {
-                            KeyPassRedux.dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
+    Scaffold(bottomBar = {
+        KeyPassBottomBar(navController) {
+            dispatch(it)
+        }
+    }) { paddingValues ->
+        Surface(modifier = Modifier.padding(paddingValues)) {
+            NavHost(
+                navController = navController,
+                startDestination = ScreenRoutes.HOME
+            ) {
+                composable(
+                    ScreenRoutes.HOME,
+                    arguments = listOf(
+                        navArgument("tag") {
+                            type = NavType.StringType
+                            nullable = true
+                            defaultValue = ""
                         }
-                    })
+                    )
+                ) { backStackEntry ->
+                    val type = backStackEntry.arguments?.getString("tag")
+                    Homepage(viewModel, type)
                 }
+                composable(ScreenRoutes.SETTINGS) {
+                    MySettings()
+                }
+            }
+
+            if (appState.bottomSheet.isBottomSheetOpen) {
+                OptionBottomBar({
+                    dispatch(it)
+                    if (it !is BottomSheetAction) {
+                        dispatch(BottomSheetAction.HomeNavigationMenu(false))
+                    }
+                })
             }
         }
     }
@@ -177,9 +177,9 @@ fun OptionBottomBar(
                             NavItemSection(it)
                         }
 
-                        is NavigationModelItem.NavEmailFolder -> {
+                        is NavigationModelItem.NavTagItem -> {
                             NavMenuFolder(folder = it) {
-                                dispatchAction(ScreeNavigationAction.Home(it.category))
+                                dispatchAction(ScreeNavigationAction.Home(it.tag))
                             }
                         }
 
@@ -196,7 +196,7 @@ fun OptionBottomBar(
 }
 
 @Composable
-fun NavMenuFolder(folder: NavigationModelItem.NavEmailFolder, onClick: () -> Unit) {
+fun NavMenuFolder(folder: NavigationModelItem.NavTagItem, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .padding(vertical = 16.dp)
@@ -208,7 +208,7 @@ fun NavMenuFolder(folder: NavigationModelItem.NavEmailFolder, onClick: () -> Uni
 
     ) {
         Text(
-            text = folder.category,
+            text = folder.tag,
             style = MaterialTheme.typography.titleMedium
         )
     }
