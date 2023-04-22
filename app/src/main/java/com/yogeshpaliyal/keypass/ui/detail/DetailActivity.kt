@@ -44,6 +44,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -167,6 +168,7 @@ fun Fields(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         KeyPassInputField(
+            modifier = Modifier.testTag("accountName"),
             placeholder = R.string.account_name,
             value = accountModel.title,
             setValue = {
@@ -175,6 +177,7 @@ fun Fields(
         )
 
         KeyPassInputField(
+            modifier = Modifier.testTag("username"),
             placeholder = R.string.username_email_phone,
             value = accountModel.username,
             setValue = {
@@ -189,7 +192,7 @@ fun Fields(
                 if (passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation()
 
             KeyPassInputField(
-                modifier = modifier,
+                modifier = Modifier.testTag("password"),
                 placeholder = R.string.password,
                 value = accountModel.password,
                 setValue = {
@@ -230,6 +233,7 @@ fun Fields(
         }
 
         KeyPassInputField(
+            modifier = Modifier.testTag("tags"),
             placeholder = R.string.tags_comma_separated_optional,
             value = accountModel.tags,
             setValue = {
@@ -238,6 +242,7 @@ fun Fields(
         )
 
         KeyPassInputField(
+            modifier = Modifier.testTag("website"),
             placeholder = R.string.website_url_optional,
             value = accountModel.site,
             setValue = {
@@ -246,6 +251,7 @@ fun Fields(
         )
 
         KeyPassInputField(
+            modifier = Modifier.testTag("notes"),
             placeholder = R.string.notes_optional,
             value = accountModel.notes,
             setValue = {
@@ -269,6 +275,7 @@ fun DeleteConfirmation(
             },
             confirmButton = {
                 TextButton(
+                    modifier = Modifier.testTag("delete"),
                     onClick = {
                         updateDialogVisibility(false)
                         onDelete()
@@ -357,7 +364,10 @@ fun BottomBar(
             }
 
             if (accountModel.id != null) {
-                IconButton(onClick = { openDialog.value = true }) {
+                IconButton(
+                    modifier = Modifier.testTag("action_delete"),
+                    onClick = { openDialog.value = true }
+                ) {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Rounded.Delete),
                         contentDescription = "Delete",
@@ -367,7 +377,7 @@ fun BottomBar(
             }
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = onSaveClicked) {
+            FloatingActionButton(modifier = Modifier.testTag("save"), onClick = onSaveClicked) {
                 Icon(
                     painter = rememberVectorPainter(image = Icons.Rounded.Done),
                     contentDescription = "Save Changes"
