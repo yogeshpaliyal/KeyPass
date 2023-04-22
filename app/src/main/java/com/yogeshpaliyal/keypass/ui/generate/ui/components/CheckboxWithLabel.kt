@@ -20,11 +20,11 @@ fun CheckboxWithLabel(
         modifier = modifier
             .fillMaxWidth()
             .clickable { onCheckedChange(!checked) },
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Checkbox(
             checked = checked,
-            onCheckedChange = onCheckedChange,
+            onCheckedChange = onCheckedChange
         )
 
         Text(text = label)

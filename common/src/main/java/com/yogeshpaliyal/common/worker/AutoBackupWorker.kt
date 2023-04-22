@@ -24,7 +24,6 @@ class AutoBackupWorker @AssistedInject constructor(
     CoroutineWorker(appContext, params) {
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
-
             if (appContext.canUserAccessBackupDirectory()) {
                 val selectedDirectory = Uri.parse(appContext.getBackupDirectory())
                 appContext.backupAccounts(

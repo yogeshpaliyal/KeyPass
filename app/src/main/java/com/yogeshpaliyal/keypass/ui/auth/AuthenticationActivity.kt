@@ -15,7 +15,7 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.databinding.ActivityAuthenticationBinding
-import com.yogeshpaliyal.keypass.ui.nav.DashboardActivity
+import com.yogeshpaliyal.keypass.ui.nav.DashboardComposeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.Executor
 
@@ -41,7 +41,8 @@ class AuthenticationActivity : AppCompatActivity() {
 
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(
-            this, executor,
+            this,
+            executor,
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationError(
                     errorCode: Int,
@@ -50,7 +51,8 @@ class AuthenticationActivity : AppCompatActivity() {
                     super.onAuthenticationError(errorCode, errString)
                     Toast.makeText(
                         applicationContext,
-                        "Authentication error: $errString", Toast.LENGTH_SHORT
+                        "Authentication error: $errString",
+                        Toast.LENGTH_SHORT
                     )
                         .show()
                     // finish()
@@ -67,7 +69,8 @@ class AuthenticationActivity : AppCompatActivity() {
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
                     Toast.makeText(
-                        applicationContext, getString(R.string.authentication_failed),
+                        applicationContext,
+                        getString(R.string.authentication_failed),
                         Toast.LENGTH_SHORT
                     )
                         .show()
@@ -126,7 +129,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
     private fun onAuthenticated() {
         // binding.passCodeView.isVisible = false
-        val dashboardIntent = Intent(this, DashboardActivity::class.java)
+        val dashboardIntent = Intent(this, DashboardComposeActivity::class.java)
         startActivity(dashboardIntent)
         finish()
     }

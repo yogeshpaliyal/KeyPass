@@ -187,7 +187,10 @@ class InitialPadding(val left: Int, val top: Int, val right: Int, val bottom: In
 class InitialMargin(val left: Int, val top: Int, val right: Int, val bottom: Int)
 
 private fun recordInitialPaddingForView(view: View) = InitialPadding(
-    view.paddingLeft, view.paddingTop, view.paddingRight, view.paddingBottom
+    view.paddingLeft,
+    view.paddingTop,
+    view.paddingRight,
+    view.paddingBottom
 )
 
 private fun recordInitialMarginForView(view: View): InitialMargin {

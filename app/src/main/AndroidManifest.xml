@@ -56,6 +56,7 @@
             android:name=".ui.detail.DetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name="com.yogeshpaliyal.keypass.ui.nav.DashboardComposeActivity" />
 
         <!-- If you want to disable android.startup completely. -->
         <provider
