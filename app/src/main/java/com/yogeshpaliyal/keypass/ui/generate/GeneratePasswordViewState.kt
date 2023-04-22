@@ -6,7 +6,7 @@ data class GeneratePasswordViewState(
     val includeLowercaseLetters: Boolean,
     val includeSymbols: Boolean,
     val includeNumbers: Boolean,
-    val password: String
+    val password: String,
 ) {
     companion object {
         val Initial = GeneratePasswordViewState(

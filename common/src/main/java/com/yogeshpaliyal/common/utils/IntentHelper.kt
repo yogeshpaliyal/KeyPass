@@ -13,6 +13,7 @@ import android.net.Uri
 */
 
 @JvmName("IntentHelper")
+
 fun Context.email(
     chooserTitle: String,
     email: String = "",
@@ -22,17 +23,14 @@ fun Context.email(
     val intent = Intent(Intent.ACTION_SENDTO)
     intent.data = Uri.parse("mailto:")
 
-    if (email.isNotEmpty()) {
+    if (email.isNotEmpty())
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
-    }
 
-    if (subject.isNotEmpty()) {
+    if (subject.isNotEmpty())
         intent.putExtra(Intent.EXTRA_SUBJECT, subject)
-    }
 
-    if (text.isNotEmpty()) {
+    if (text.isNotEmpty())
         intent.putExtra(Intent.EXTRA_TEXT, text)
-    }
 
     startActivity(Intent.createChooser(intent, chooserTitle))
 }

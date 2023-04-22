@@ -55,6 +55,7 @@ suspend fun Context?.backupAccounts(
     selectedDirectory: Uri,
     customFileName: String? = null
 ): Pair<Boolean, String>? {
+
     this ?: return null
 
     val keyPair = getOrCreateBackupKey()
@@ -63,12 +64,11 @@ suspend fun Context?.backupAccounts(
 
     val directory = DocumentFile.fromTreeUri(this, selectedDirectory)
     var docFile = directory?.findFile(fileName)
-    if (docFile == null) {
+    if (docFile == null)
         docFile = DocumentFile.fromTreeUri(this, selectedDirectory)?.createFile(
             "*/*",
             fileName
         )
-    }
 
     val response = appDb.createBackup(
         keyPair.second,

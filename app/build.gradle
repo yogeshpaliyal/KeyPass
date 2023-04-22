@@ -33,11 +33,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
-//        debug {
-//            minifyEnabled true
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//        }
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
 
     }
     compileOptions {
@@ -106,7 +106,6 @@ dependencies {
 
     implementation "androidx.compose.ui:ui:1.4.1"
     implementation "androidx.compose.ui:ui-tooling-preview:1.4.1"
-    implementation "androidx.compose.ui:ui-viewbinding:1.4.1"
     implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
@@ -115,7 +114,6 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.0"
     debugImplementation "androidx.compose.ui:ui-tooling:1.4.1"
     implementation("androidx.compose.runtime:runtime-livedata:1.4.1")
-    implementation "androidx.navigation:navigation-compose:2.5.3"
 
     implementation 'androidx.compose.material3:material3:1.1.0-beta02'
     implementation "com.google.accompanist:accompanist-themeadapter-material3:0.30.1"
@@ -160,7 +158,5 @@ dependencies {
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:$hilt_version")
 
-
-    implementation "org.reduxkotlin:redux-kotlin-threadsafe-jvm:0.5.5"
 
 }

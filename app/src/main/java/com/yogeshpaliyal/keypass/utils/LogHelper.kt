@@ -11,6 +11,7 @@ import com.yogeshpaliyal.keypass.BuildConfig
 */
 
 @JvmName("LogHelper")
+
 fun Any?.systemOutPrint() {
     if (BuildConfig.DEBUG) println(this)
 }

@@ -36,7 +36,7 @@ fun GeneratePasswordContent(
     onUppercaseCheckedChange: (Boolean) -> Unit,
     onLowercaseCheckedChange: (Boolean) -> Unit,
     onNumbersCheckedChange: (Boolean) -> Unit,
-    onSymbolsCheckedChange: (Boolean) -> Unit
+    onSymbolsCheckedChange: (Boolean) -> Unit,
 ) {
     Scaffold(
         floatingActionButton = { GeneratePasswordFab(onGeneratePasswordClick) }
@@ -64,7 +64,7 @@ fun GeneratePasswordContent(
 private fun GeneratePasswordFab(onGeneratePasswordClick: () -> Unit) {
     FloatingActionButton(
         onClick = onGeneratePasswordClick,
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(16.dp),
     ) {
         Icon(
             imageVector = Icons.Default.Refresh,
@@ -146,7 +146,7 @@ private fun PasswordLengthInput(
         value = length.toFloat(),
         onValueChange = onPasswordLengthChange,
         valueRange = 7f..50f,
-        steps = 43
+        steps = 43,
     )
 }
 
@@ -158,7 +158,7 @@ private fun UppercaseAlphabetInput(
     CheckboxWithLabel(
         label = "Uppercase Alphabets",
         checked = includeUppercaseLetters,
-        onCheckedChange = onUppercaseCheckedChange
+        onCheckedChange = onUppercaseCheckedChange,
     )
 }
 
@@ -170,7 +170,7 @@ private fun LowercaseAlphabetInput(
     CheckboxWithLabel(
         label = "Lowercase Alphabets",
         checked = includeLowercaseLetters,
-        onCheckedChange = onLowercaseCheckedChange
+        onCheckedChange = onLowercaseCheckedChange,
     )
 }
 
@@ -182,7 +182,7 @@ private fun NumberInput(
     CheckboxWithLabel(
         label = "Numbers",
         checked = includeNumbers,
-        onCheckedChange = onNumbersCheckedChange
+        onCheckedChange = onNumbersCheckedChange,
     )
 }
 
@@ -194,21 +194,22 @@ private fun SymbolInput(
     CheckboxWithLabel(
         label = "Symbols",
         checked = includeSymbols,
-        onCheckedChange = onSymbolsCheckedChange
+        onCheckedChange = onSymbolsCheckedChange,
     )
 }
 
 @Preview(
     name = "Night Mode",
-    uiMode = Configuration.UI_MODE_NIGHT_YES
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 @Preview(
     name = "Day Mode",
-    uiMode = Configuration.UI_MODE_NIGHT_NO
+    uiMode = Configuration.UI_MODE_NIGHT_NO,
 )
 @Composable
 @Suppress("UnusedPrivateMember", "MagicNumber")
 private fun GeneratePasswordContentPreview() {
+
     val viewState = GeneratePasswordViewState.Initial
 
     Mdc3Theme {
