@@ -29,7 +29,7 @@ class DashboardViewModel @Inject constructor(
         MutableLiveData<String>("")
     }
     val tag by lazy {
-        MutableLiveData<String>()
+        MutableLiveData<String?>()
     }
 
     private val appDao = appDb.getDao()

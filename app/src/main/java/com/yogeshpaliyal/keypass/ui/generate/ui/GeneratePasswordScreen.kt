@@ -13,7 +13,6 @@ import com.yogeshpaliyal.keypass.ui.generate.ui.utils.copyTextToClipboard
 
 @Composable
 fun GeneratePasswordScreen(viewModel: GeneratePasswordViewModel) {
-
     val context = LocalContext.current
 
     // replace collectAsState() with collectAsStateWithLifecycle() when compose version and kotlin version are bumped up.

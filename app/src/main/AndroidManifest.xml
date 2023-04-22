@@ -49,7 +49,7 @@
             android:screenOrientation="portrait"
             tools:replace="screenOrientation" />
         <activity
-            android:name=".ui.nav.DashboardActivity"
+            android:name=".ui.nav.DashboardComposeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity

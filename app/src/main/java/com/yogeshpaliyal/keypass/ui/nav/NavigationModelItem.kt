@@ -3,6 +3,7 @@ package com.yogeshpaliyal.keypass.ui.nav
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.recyclerview.widget.DiffUtil
+import com.yogeshpaliyal.keypass.ui.redux.Action
 import com.yogeshpaliyal.keypass.utils.StringDiffUtil
 
 /**
@@ -17,7 +18,8 @@ sealed class NavigationModelItem {
         val id: Int,
         @DrawableRes val icon: Int,
         @StringRes val titleRes: Int,
-        var checked: Boolean
+        var checked: Boolean,
+        var action: Action
     ) : NavigationModelItem()
 
     /**

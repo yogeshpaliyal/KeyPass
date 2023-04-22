@@ -38,7 +38,6 @@ object EncryptionHelper {
         outputFile: OutputStream?
     ) {
         try {
-
             val secretKey: Key =
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
             val cipher = Cipher.getInstance(TRANSFORMATION)
