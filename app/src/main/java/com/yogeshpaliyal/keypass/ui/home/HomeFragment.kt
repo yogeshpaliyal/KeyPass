@@ -1,12 +1,5 @@
 package com.yogeshpaliyal.keypass.ui.home
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,7 +23,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,10 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.ViewCompositionStrategy
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -52,18 +41,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
-import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
+import com.yogeshpaliyal.keypass.ui.redux.CopyToClipboard
+import com.yogeshpaliyal.keypass.ui.redux.ScreeNavigationAction
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
+import org.reduxkotlin.compose.rememberDispatcher
 import kotlin.time.Duration.Companion.seconds
 
 /*
@@ -72,27 +58,6 @@ import kotlin.time.Duration.Companion.seconds
 * https://techpaliyal.com
 * created on 31-01-2021 09:25
 */
-@AndroidEntryPoint
-class HomeFragment : Fragment() {
-
-    private val mViewModel by lazy {
-        activityViewModels<DashboardViewModel>().value
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return ComposeView(requireContext()).apply {
-            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-            setContent {
-                Main(mViewModel, null)
-            }
-        }
-    }
-}
-
 private fun getPassword(model: AccountModel): String {
     if (model.type == AccountType.TOTP) {
         return model.getOtp()
@@ -101,48 +66,45 @@ private fun getPassword(model: AccountModel): String {
 }
 
 @Composable()
-fun Main(mViewModel: DashboardViewModel = viewModel(), selectedTag: String?) {
-    KeyPassTheme {
-        Surface(modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.bottom_app_bar_height))) {
-            val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
+fun Homepage(mViewModel: DashboardViewModel = viewModel(), selectedTag: String?) {
+    val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
 
-            val keyword by mViewModel.keyword.observeAsState()
+    val keyword by mViewModel.keyword.observeAsState()
 
-            LaunchedEffect(key1 = selectedTag, block = {
-                if (selectedTag.isNullOrBlank()) {
-                    mViewModel.tag.postValue(null)
-                } else {
-                    mViewModel.tag.postValue(selectedTag)
-                }
-            })
-
-            Column(modifier = Modifier.fillMaxSize()) {
-                OutlinedTextField(
-                    modifier = Modifier
-                        .fillMaxWidth(1f)
-                        .padding(16.dp),
-                    value = keyword ?: "",
-                    placeholder = {
-                        Text(text = "Search Account")
-                    },
-                    onValueChange = { newValue -> mViewModel.keyword.postValue(newValue) }
-                )
-
-                AccountsList(listOfAccountsLiveData)
-            }
+    LaunchedEffect(key1 = selectedTag, block = {
+        if (selectedTag.isNullOrBlank()) {
+            mViewModel.tag.postValue(null)
+        } else {
+            mViewModel.tag.postValue(selectedTag)
         }
+    })
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        OutlinedTextField(
+            modifier = Modifier
+                .fillMaxWidth(1f)
+                .padding(16.dp),
+            value = keyword ?: "",
+            placeholder = {
+                Text(text = "Search Account")
+            },
+            onValueChange = { newValue -> mViewModel.keyword.postValue(newValue) }
+        )
+
+        AccountsList(listOfAccountsLiveData)
     }
 }
 
 @Composable
 fun AccountsList(accounts: List<AccountModel>? = null) {
     val context = LocalContext.current
+    val dispatch = rememberDispatcher()
 
     if (accounts?.isNotEmpty() != null) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
+                .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             items(accounts) { account ->
@@ -150,29 +112,15 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
                     account,
                     onClick = {
                         if (it.type == AccountType.TOTP) {
-                            AddTOTPActivity.start(context, it.uniqueId)
+                            dispatch(ScreeNavigationAction.AddTOTP(it.uniqueId))
                         } else {
-                            DetailActivity.start(context, it.id)
+                            dispatch(ScreeNavigationAction.AddAccount(it.id))
                         }
-                    },
-                    onCopyClicked = {
-                        val clipboard = ContextCompat.getSystemService(
-                            context,
-                            ClipboardManager::class.java
-                        )
-                        val clip = ClipData.newPlainText("KeyPass", getPassword(it))
-                        clipboard?.setPrimaryClip(clip)
-                        Toast.makeText(
-                            context,
-                            context.getString(R.string.copied_to_clipboard),
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
                     }
                 )
             }
             item {
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(8.dp))
             }
         }
     } else {
@@ -187,8 +135,6 @@ fun PreviewAccount() {
         Account(
             accountModel = AccountModel(),
             onClick = {
-            },
-            onCopyClicked = {
             }
         )
     }
@@ -197,9 +143,10 @@ fun PreviewAccount() {
 @Composable
 fun Account(
     accountModel: AccountModel,
-    onClick: (AccountModel) -> Unit,
-    onCopyClicked: (AccountModel) -> Unit
+    onClick: (AccountModel) -> Unit
 ) {
+    val dispatch = rememberDispatcher()
+
     Card(
         elevation = androidx.compose.material3.CardDefaults.cardElevation(defaultElevation = 1.dp),
         onClick = { onClick(accountModel) }
@@ -245,7 +192,7 @@ fun Account(
 
             IconButton(
                 modifier = Modifier.align(Alignment.CenterVertically),
-                onClick = { onCopyClicked(accountModel) }
+                onClick = { dispatch(CopyToClipboard(getPassword(accountModel))) }
             ) {
                 Icon(
                     painter = rememberVectorPainter(image = Icons.TwoTone.ContentCopy),
