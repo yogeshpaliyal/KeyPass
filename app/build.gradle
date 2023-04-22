@@ -114,19 +114,19 @@ dependencies {
     // Needed for createAndroidComposeRule, but not createComposeRule:
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.4.0")
 
-    implementation "androidx.compose.ui:ui:1.4.0"
-    implementation "androidx.compose.ui:ui-tooling-preview:1.4.0"
+    implementation "androidx.compose.ui:ui:1.4.1"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.4.1"
     implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-    implementation "androidx.compose.material:material-icons-extended:1.4.0"
+    implementation "androidx.compose.material:material-icons-extended:1.4.1"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.0"
-    debugImplementation "androidx.compose.ui:ui-tooling:1.4.0"
-    implementation("androidx.compose.runtime:runtime-livedata:1.4.0")
+    debugImplementation "androidx.compose.ui:ui-tooling:1.4.1"
+    implementation("androidx.compose.runtime:runtime-livedata:1.4.1")
 
-    implementation 'androidx.compose.material3:material3:1.1.0-beta01'
-    implementation "com.google.accompanist:accompanist-themeadapter-material3:0.30.0"
+    implementation 'androidx.compose.material3:material3:1.1.0-beta02'
+    implementation "com.google.accompanist:accompanist-themeadapter-material3:0.30.1"
 
 
     // XML Libraries
