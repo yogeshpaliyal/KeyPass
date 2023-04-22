@@ -18,8 +18,7 @@ const val DB_VERSION_5 = 5
 
 @Database(
     entities = [AccountModel::class],
-    version = 5,
-    exportSchema = false
+    version = 5, exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 

@@ -18,18 +18,14 @@ class PasswordGenerator(
     public fun generatePassword(): String {
         var password = ""
         val list = ArrayList<Int>()
-        if (includeUpperCaseLetters) {
+        if (includeUpperCaseLetters)
             list.add(UPPER_CASE)
-        }
-        if (includeLowerCaseLetters) {
+        if (includeLowerCaseLetters)
             list.add(LOWER_CASE)
-        }
-        if (includeNumbers) {
+        if (includeNumbers)
             list.add(NUMBERS)
-        }
-        if (includeSymbols) {
+        if (includeSymbols)
             list.add(SYMBOLS)
-        }
 
         for (i in 1..length) {
             if (list.isNotEmpty()) {

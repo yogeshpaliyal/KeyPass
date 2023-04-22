@@ -26,6 +26,7 @@ class AddTOTPActivity : AppCompatActivity() {
 
         @JvmStatic
         fun start(context: Context?, accountId: String? = null) {
+
             val starter = Intent(context, AddTOTPActivity::class.java)
             starter.putExtra(ARG_ACCOUNT_ID, accountId)
             context?.startActivity(starter)
@@ -85,9 +86,8 @@ class AddTOTPActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (accountId != null) {
+        if (accountId != null)
             menuInflater.inflate(R.menu.menu_delete, menu)
-        }
         return super.onCreateOptionsMenu(menu)
     }
 

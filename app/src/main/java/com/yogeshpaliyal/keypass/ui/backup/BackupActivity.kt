@@ -128,6 +128,7 @@ class BackupActivity : AppCompatActivity() {
         }
 
         private suspend fun passwordSelection(selectedDirectory: Uri) {
+
             val isKeyPresent = context?.isKeyPresent() ?: return
             if (isKeyPresent) {
                 backup(selectedDirectory)
@@ -238,6 +239,7 @@ class BackupActivity : AppCompatActivity() {
                 val backupDirectory = context.getBackupDirectory()
 
                 withContext(Dispatchers.Main) {
+
                     findPreference<Preference>(getString(R.string.settings_start_backup))?.isVisible =
                         isBackupEnabled.not()
                     findPreference<Preference>(getString(R.string.settings_stop_backup))?.isVisible =

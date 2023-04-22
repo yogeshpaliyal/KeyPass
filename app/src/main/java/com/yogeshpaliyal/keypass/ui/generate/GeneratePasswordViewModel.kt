@@ -22,7 +22,7 @@ class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
             includeUpperCaseLetters = currentViewState.includeUppercaseLetters,
             includeLowerCaseLetters = currentViewState.includeLowercaseLetters,
             includeSymbols = currentViewState.includeSymbols,
-            includeNumbers = currentViewState.includeNumbers
+            includeNumbers = currentViewState.includeNumbers,
         )
 
         _viewState.update {
