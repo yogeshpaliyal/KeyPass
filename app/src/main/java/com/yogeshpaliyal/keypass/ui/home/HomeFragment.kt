@@ -29,6 +29,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -82,7 +83,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
@@ -104,6 +105,8 @@ fun Main(mViewModel: DashboardViewModel = viewModel()) {
     KeyPassTheme {
         Surface(modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.bottom_app_bar_height))) {
             val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
+
+            OutlinedTextField(value = "", onValueChange = {})
 
             AccountsList(listOfAccountsLiveData)
         }
