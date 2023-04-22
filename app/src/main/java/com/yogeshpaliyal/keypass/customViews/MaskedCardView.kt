@@ -1,4 +1,4 @@
-package com.yogeshpaliyal.keypass.custom_views
+package com.yogeshpaliyal.keypass.customViews
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -18,7 +18,7 @@ import com.yogeshpaliyal.keypass.R
 class MaskedCardView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyle: Int = R.attr.materialCardViewStyle,
+    defStyle: Int = R.attr.materialCardViewStyle
 ) : MaterialCardView(context, attrs, defStyle) {
     @SuppressLint("RestrictedApi")
     private val pathProvider = ShapeAppearancePathProvider()

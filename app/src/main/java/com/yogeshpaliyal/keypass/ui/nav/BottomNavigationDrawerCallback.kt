@@ -27,8 +27,9 @@ class BottomNavigationDrawerCallback : BottomSheetBehavior.BottomSheetCallback()
     private var halfExpandedSlideOffset = Float.MAX_VALUE
 
     override fun onSlide(sheet: View, slideOffset: Float) {
-        if (halfExpandedSlideOffset == Float.MAX_VALUE)
+        if (halfExpandedSlideOffset == Float.MAX_VALUE) {
             calculateInitialHalfExpandedSlideOffset(sheet)
+        }
 
         lastSlideOffset = slideOffset
         // Correct for the fact that the slideOffset is not zero when half expanded

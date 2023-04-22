@@ -34,7 +34,6 @@ class CrashActivity : AppCompatActivity() {
         binding.txtCrash.text = intent.extras?.getString(ARG_DATA)
 
         binding.btnSendFeedback.setOnClickListener {
-
             val deviceInfo = StringBuilder()
             deviceInfo.append(binding.txtCrash.text.toString())
             try {

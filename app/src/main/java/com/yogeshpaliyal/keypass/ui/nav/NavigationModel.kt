@@ -1,6 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.redux.ScreeNavigationAction
 
 /**
  * A class which maintains and generates a navigation list to be displayed by [NavigationAdapter].
@@ -17,18 +18,21 @@ object NavigationModel {
             icon = R.drawable.ic_twotone_home_24,
             titleRes = R.string.home,
             checked = false,
+            action = ScreeNavigationAction.Home()
         ),
         NavigationModelItem.NavMenuItem(
             id = GENERATE_PASSWORD,
             icon = R.drawable.ic_twotone_vpn_key_24,
             titleRes = R.string.generate_password,
             checked = false,
+            action = ScreeNavigationAction.GeneratePassword
         ),
         NavigationModelItem.NavMenuItem(
             id = ADD_TOPT,
             icon = R.drawable.ic_twotone_totp,
             titleRes = R.string.add_totp,
             checked = false,
+            action = ScreeNavigationAction.AddTOTP()
         )
     )
 }

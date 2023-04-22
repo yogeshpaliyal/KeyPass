@@ -60,8 +60,7 @@ subprojects {
             targetExclude('bin/**/*.kt')
 
             java.util.HashMap<String, String> map = new HashMap<>();
-            map.put("disabled_rules","no-wildcard-imports")
-            ktlint("0.40.0").userData(map)
+            ktlint("0.46.0").userData(map)
            // licenseHeaderFile rootProject.file('spotless/copyright.kt')
         }
     }
