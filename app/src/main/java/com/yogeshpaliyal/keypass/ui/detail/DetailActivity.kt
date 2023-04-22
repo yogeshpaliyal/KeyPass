@@ -97,7 +97,7 @@ class DetailActivity : AppCompatActivity() {
 @Composable
 fun Detail(
     id: Long?,
-    viewModel: DetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),
+    viewModel: DetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
     // task value state
     val (accountModel, setAccountModel) = remember {
@@ -128,7 +128,8 @@ fun Detail(
         Scaffold(
             bottomBar = {
                 BottomBar(
-                    accountModel, backPressed = goBack,
+                    accountModel,
+                    backPressed = goBack,
                     onDeleteAccount = {
                         viewModel.deleteAccount(accountModel, goBack)
                     }
@@ -158,7 +159,6 @@ fun Fields(
     updateAccountModel: (newAccountModel: AccountModel) -> Unit,
     scanClicked: () -> Unit
 ) {
-
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -166,7 +166,6 @@ fun Fields(
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-
         KeyPassInputField(
             placeholder = R.string.account_name,
             value = accountModel.title,
@@ -184,7 +183,6 @@ fun Fields(
         )
 
         Column {
-
             val passwordVisible = rememberSaveable { mutableStateOf(false) }
 
             val visualTransformation =
@@ -202,9 +200,9 @@ fun Fields(
                         passwordVisible.value = it
                     }
                 },
-                leadingIcon = if (accountModel.id != null)
+                leadingIcon = if (accountModel.id != null) {
                     null
-                else (
+                } else (
                     {
                         IconButton(
                             onClick = {
@@ -263,7 +261,6 @@ fun DeleteConfirmation(
     updateDialogVisibility: (Boolean) -> Unit,
     onDelete: () -> Unit
 ) {
-
     if (openDialog) {
         AlertDialog(
             onDismissRequest = { /*TODO*/ },
@@ -307,7 +304,8 @@ fun KeyPassInputField(
     visualTransformation: VisualTransformation = VisualTransformation.None
 ) {
     OutlinedTextField(
-        modifier = modifier.fillMaxWidth(), value = value ?: "",
+        modifier = modifier.fillMaxWidth(),
+        value = value ?: "",
         label = {
             Text(text = stringResource(id = placeholder))
         },
@@ -323,13 +321,13 @@ fun PasswordTrailingIcon(
     passwordVisible: Boolean,
     changePasswordVisibility: (updatedValue: Boolean) -> Unit
 ) {
-
     val description = if (passwordVisible) "Hide password" else "Show password"
 
-    val image = if (passwordVisible)
+    val image = if (passwordVisible) {
         Icons.Rounded.Visibility
-    else
+    } else {
         Icons.Rounded.VisibilityOff
+    }
 
     IconButton(onClick = { changePasswordVisibility(!passwordVisible) }) {
         Icon(
@@ -346,7 +344,6 @@ fun BottomBar(
     onDeleteAccount: () -> Unit,
     onSaveClicked: () -> Unit
 ) {
-
     val openDialog = remember { mutableStateOf(false) }
 
     BottomAppBar(

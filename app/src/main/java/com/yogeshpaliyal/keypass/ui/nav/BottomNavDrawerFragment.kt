@@ -166,8 +166,8 @@ class BottomNavDrawerFragment :
             behavior.state == STATE_HIDDEN -> open()
             behavior.state == STATE_HIDDEN ||
                 behavior.state == STATE_HALF_EXPANDED ||
-                behavior.state == STATE_EXPANDED
-                || behavior.state == STATE_COLLAPSED -> close()
+                behavior.state == STATE_EXPANDED ||
+                behavior.state == STATE_COLLAPSED -> close()
         }
     }
 }

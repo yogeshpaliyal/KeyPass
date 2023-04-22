@@ -117,7 +117,6 @@ class MySettingsFragment : PreferenceFragmentCompat() {
             val contentResolver = context?.contentResolver
             val selectedFile = data?.data
             if (contentResolver != null && selectedFile != null) {
-
                 val binding = LayoutRestoreKeypharseBinding.inflate(layoutInflater)
 
                 val dialog = MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
@@ -196,7 +195,6 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     }
 
     suspend fun backup(selectedDirectory: Uri) {
-
         val keyPair = requireContext().getOrCreateBackupKey()
 
         val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(

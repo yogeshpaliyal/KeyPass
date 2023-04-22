@@ -131,7 +131,6 @@ class DashboardActivity :
         destination: NavDestination,
         arguments: Bundle?
     ) {
-
         binding.searchAppBar.isVisible = destination.id == R.id.homeFragment
         when (destination.id) {
             R.id.homeFragment -> {
