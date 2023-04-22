@@ -366,7 +366,8 @@ fun BottomBar(
             if (accountModel.id != null) {
                 IconButton(
                     modifier = Modifier.testTag("action_delete"),
-                    onClick = { openDialog.value = true }) {
+                    onClick = { openDialog.value = true }
+                ) {
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Rounded.Delete),
                         contentDescription = "Delete",
