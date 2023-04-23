@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,10 +14,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.twotone.ContentCopy
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -33,7 +37,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -47,6 +50,7 @@ import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.CopyToClipboard
+import com.yogeshpaliyal.keypass.ui.redux.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
@@ -72,6 +76,7 @@ fun Homepage(mViewModel: DashboardViewModel = viewModel(), selectedTag: String?)
     val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
 
     val keyword by mViewModel.keyword.observeAsState()
+    val dispatchAction = rememberDispatcher()
 
     LaunchedEffect(key1 = selectedTag, block = {
         if (selectedTag.isNullOrBlank()) {
@@ -90,8 +95,41 @@ fun Homepage(mViewModel: DashboardViewModel = viewModel(), selectedTag: String?)
             placeholder = {
                 Text(text = "Search Account")
             },
-            onValueChange = { newValue -> mViewModel.keyword.postValue(newValue) }
+            onValueChange = { newValue -> mViewModel.keyword.value = newValue },
+            trailingIcon = {
+                if (keyword.isNullOrBlank().not()) {
+                    IconButton(onClick = { mViewModel.keyword.value = "" }) {
+                        Icon(
+                            painter = rememberVectorPainter(image = Icons.Rounded.Close),
+                            contentDescription = ""
+                        )
+                    }
+                }
+            }
         )
+
+        if (selectedTag != null) {
+            LazyRow(
+                modifier = Modifier.padding(vertical = 8.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                content = {
+                    item {
+                        AssistChip(onClick = { }, label = {
+                            Text(text = selectedTag)
+                        }, trailingIcon = {
+                                IconButton(onClick = {
+                                    dispatchAction(NavigationAction(HomeState(), true))
+                                }) {
+                                    Icon(
+                                        painter = rememberVectorPainter(image = Icons.Rounded.Close),
+                                        contentDescription = ""
+                                    )
+                                }
+                            })
+                    }
+                }
+            )
+        }
 
         AccountsList(listOfAccountsLiveData)
     }
@@ -99,10 +137,9 @@ fun Homepage(mViewModel: DashboardViewModel = viewModel(), selectedTag: String?)
 
 @Composable
 fun AccountsList(accounts: List<AccountModel>? = null) {
-    val context = LocalContext.current
     val dispatch = rememberDispatcher()
 
-    if (accounts?.isNotEmpty() != null) {
+    if (accounts?.isNotEmpty() == true) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -212,9 +249,9 @@ fun WrapWithProgress(accountModel: AccountModel) {
     LaunchedEffect(Unit) {
         if (accountModel.type == AccountType.TOTP) {
             while (true) {
-                delay(1.seconds)
                 val newProgress = accountModel.getTOtpProgress().toFloat() / 30
                 setProgress(newProgress)
+                delay(1.seconds)
             }
         }
     }
@@ -231,14 +268,16 @@ private fun getUsernameOrOtp(accountModel: AccountModel): String? {
 
 @Composable
 fun RenderUserName(accountModel: AccountModel) {
-    val (username, setUsername) = remember { mutableStateOf(getUsernameOrOtp(accountModel)) }
+    val (username, setUsername) = remember { mutableStateOf("") }
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(accountModel) {
         if (accountModel.type == AccountType.TOTP) {
             while (true) {
-                delay(1.seconds)
                 setUsername(accountModel.getOtp())
+                delay(1.seconds)
             }
+        } else {
+            setUsername(accountModel.username ?: "")
         }
     }
 

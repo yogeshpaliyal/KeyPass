@@ -10,7 +10,7 @@ class UpdateContextAction(val context: Context?) : Action
 
 object GoBackAction : Action
 
-data class NavigationAction(val state: ScreenState) : Action
+data class NavigationAction(val state: ScreenState, val clearBackStack: Boolean = false) : Action
 data class StateUpdateAction(val state: ScreenState) : Action
 
 sealed interface IntentNavigation : Action {
