@@ -18,8 +18,6 @@
     <!--KeyPass uses an 8dp grid system. Smaller components can align to a 2dp 'sub' grid.-->
 
     <!--2dp sub grid-->
-    <dimen name="grid_0_25">2dp</dimen>
-    <dimen name="grid_0_5">4dp</dimen>
 
     <!--8dp grid-->
     <dimen name="grid_1">8dp</dimen>

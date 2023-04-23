@@ -2,8 +2,8 @@ package com.yogeshpaliyal.keypass.ui.nav
 
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -46,24 +46,21 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidViewBinding
-import androidx.navigation.NavController
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.yogeshpaliyal.keypass.databinding.LayoutMySettingsFragmentBinding
-import com.yogeshpaliyal.keypass.ui.detail.DetailActivity
-import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
+import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.home.Homepage
-import com.yogeshpaliyal.keypass.ui.redux.Action
+import com.yogeshpaliyal.keypass.ui.redux.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.BottomSheetAction
+import com.yogeshpaliyal.keypass.ui.redux.BottomSheetState
+import com.yogeshpaliyal.keypass.ui.redux.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassState
-import com.yogeshpaliyal.keypass.ui.redux.ScreeNavigationAction
-import com.yogeshpaliyal.keypass.ui.redux.ScreenRoutes
+import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.ScreenState
+import com.yogeshpaliyal.keypass.ui.redux.SettingsState
+import com.yogeshpaliyal.keypass.ui.redux.TotpDetailState
 import com.yogeshpaliyal.keypass.ui.redux.UpdateContextAction
-import com.yogeshpaliyal.keypass.ui.redux.UpdateNavControllerAction
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
 import org.reduxkotlin.compose.StoreProvider
@@ -74,8 +71,6 @@ import java.util.Locale
 @AndroidEntryPoint
 class DashboardComposeActivity : AppCompatActivity() {
 
-    private val mViewModel by viewModels<DashboardViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -84,8 +79,8 @@ class DashboardComposeActivity : AppCompatActivity() {
         )
         setContent {
             KeyPassTheme {
-                StoreProvider(store = KeyPassRedux.store) {
-                    Dashboard(viewModel = mViewModel)
+                StoreProvider(store = KeyPassRedux.createStore()) {
+                    Dashboard()
                 }
             }
         }
@@ -93,59 +88,59 @@ class DashboardComposeActivity : AppCompatActivity() {
 }
 
 @Composable
-fun Dashboard(viewModel: DashboardViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
-    val appState by selectState<KeyPassState, KeyPassState> { this }
+fun Dashboard() {
+    val systemBackPress by selectState<KeyPassState, Boolean> { this.systemBackPress }
 
-    val navController = rememberNavController()
     val context = LocalContext.current
     val dispatch = rememberDispatcher()
 
-    DisposableEffect(KeyPassRedux, navController, context) {
+    BackHandler(!systemBackPress) {
+        dispatch(GoBackAction)
+    }
+
+    if (systemBackPress) {
+        (context as? AppCompatActivity)?.onBackPressed()
+    }
+
+    DisposableEffect(KeyPassRedux, context) {
         dispatch(UpdateContextAction(context))
-        dispatch(UpdateNavControllerAction(navController))
 
         onDispose {
             dispatch(UpdateContextAction(null))
-            dispatch(UpdateNavControllerAction(null))
         }
     }
 
     Scaffold(bottomBar = {
-        KeyPassBottomBar(navController) {
-            dispatch(it)
-        }
+        KeyPassBottomBar()
     }) { paddingValues ->
         Surface(modifier = Modifier.padding(paddingValues)) {
-            NavHost(
-                navController = navController,
-                startDestination = ScreenRoutes.HOME
-            ) {
-                composable(
-                    ScreenRoutes.HOME,
-                    arguments = listOf(
-                        navArgument("tag") {
-                            type = NavType.StringType
-                            nullable = true
-                            defaultValue = ""
-                        }
-                    )
-                ) { backStackEntry ->
-                    val type = backStackEntry.arguments?.getString("tag")
-                    Homepage(viewModel, type)
-                }
-                composable(ScreenRoutes.SETTINGS) {
-                    MySettings()
-                }
-            }
+            CurrentPage()
 
-            if (appState.bottomSheet.isBottomSheetOpen) {
-                OptionBottomBar({
-                    dispatch(it)
-                    if (it !is BottomSheetAction) {
-                        dispatch(BottomSheetAction.HomeNavigationMenu(false))
-                    }
-                })
-            }
+            OptionBottomBar()
+        }
+    }
+}
+
+@Composable
+fun CurrentPage() {
+    val currentScreen by selectState<KeyPassState, ScreenState> { this.currentScreen }
+
+    val dispatch = rememberDispatcher()
+
+    when (currentScreen) {
+        is HomeState -> {
+            Homepage(selectedTag = (currentScreen as HomeState).type)
+        }
+
+        is SettingsState -> {
+            MySettings()
+        }
+
+        is AccountDetailState -> {
+            AccountDetailPage(id = (currentScreen as AccountDetailState).accountId)
+        }
+
+        is TotpDetailState -> {
         }
     }
 }
@@ -158,9 +153,16 @@ fun MySettings() {
 
 @Composable
 fun OptionBottomBar(
-    dispatchAction: (Action) -> Unit,
     viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
+    val bottomSheetState by selectState<KeyPassState, BottomSheetState> { this.bottomSheet }
+
+    if (!bottomSheetState.isBottomSheetOpen) {
+        return
+    }
+
+    val dispatchAction = rememberDispatcher()
+
     val navigationItems by viewModel.navigationList.observeAsState()
     ModalBottomSheet(onDismissRequest = {
         dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
@@ -179,13 +181,15 @@ fun OptionBottomBar(
 
                         is NavigationModelItem.NavTagItem -> {
                             NavMenuFolder(folder = it) {
-                                dispatchAction(ScreeNavigationAction.Home(it.tag))
+                                dispatchAction(NavigationAction(HomeState(it.tag)))
+                                dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
                             }
                         }
 
                         is NavigationModelItem.NavMenuItem -> {
                             NavItem(it) {
                                 dispatchAction(it.action)
+                                dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
                             }
                         }
                     }
@@ -251,12 +255,19 @@ fun NavItemSection(divider: NavigationModelItem.NavDivider) {
 }
 
 @Composable
-fun KeyPassBottomBar(navController: NavController, onActionItemClick: (Action) -> Unit) {
+fun KeyPassBottomBar() {
+    val showMainBottomAppBar by selectState<KeyPassState, Boolean> { this.currentScreen.showMainBottomAppBar }
+    val dispatchAction = rememberDispatcher()
+
+    if (!showMainBottomAppBar) {
+        return
+    }
+
     val context = LocalContext.current
 
     BottomAppBar(actions = {
         IconButton(onClick = {
-            onActionItemClick(BottomSheetAction.HomeNavigationMenu(true))
+            dispatchAction(BottomSheetAction.HomeNavigationMenu(true))
         }) {
             Icon(
                 painter = rememberVectorPainter(image = Icons.Rounded.Menu),
@@ -266,7 +277,7 @@ fun KeyPassBottomBar(navController: NavController, onActionItemClick: (Action) -
         }
 
         IconButton(onClick = {
-            onActionItemClick(ScreeNavigationAction.Settings())
+            dispatchAction(NavigationAction(SettingsState))
         }) {
             Icon(
                 painter = rememberVectorPainter(image = Icons.Rounded.Settings),
@@ -276,7 +287,7 @@ fun KeyPassBottomBar(navController: NavController, onActionItemClick: (Action) -
         }
     }, floatingActionButton = {
             FloatingActionButton(onClick = {
-                DetailActivity.start(context)
+                dispatchAction(NavigationAction(AccountDetailState()))
             }) {
                 Icon(
                     painter = rememberVectorPainter(image = Icons.Rounded.Add),

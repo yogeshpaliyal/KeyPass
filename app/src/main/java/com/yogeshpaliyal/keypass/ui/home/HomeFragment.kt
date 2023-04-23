@@ -45,8 +45,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.redux.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.CopyToClipboard
-import com.yogeshpaliyal.keypass.ui.redux.ScreeNavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.IntentNavigation
+import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import kotlinx.coroutines.delay
 import org.reduxkotlin.compose.rememberDispatcher
@@ -112,9 +114,9 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
                     account,
                     onClick = {
                         if (it.type == AccountType.TOTP) {
-                            dispatch(ScreeNavigationAction.AddTOTP(it.uniqueId))
+                            dispatch(IntentNavigation.AddTOTP(it.uniqueId))
                         } else {
-                            dispatch(ScreeNavigationAction.AddAccount(it.id))
+                            dispatch(NavigationAction(AccountDetailState(it.id)))
                         }
                     }
                 )

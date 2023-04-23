@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.common.worker.executeAutoBackup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,18 +20,16 @@ import javax.inject.Inject
 */
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    val app: Application,
+    app: Application,
     val appDb: com.yogeshpaliyal.common.AppDatabase
 ) : AndroidViewModel(app) {
 
     private val _accountModel by lazy { MutableLiveData<AccountModel>() }
     val accountModel: LiveData<AccountModel> = _accountModel
 
-    fun loadAccount(accountId: Long?) {
+    fun loadAccount(accountId: Long?, getAccount: (AccountModel) -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
-            _accountModel.postValue(
-                appDb.getDao().getAccount(accountId) ?: AccountModel()
-            )
+            getAccount(appDb.getDao().getAccount(accountId) ?: AccountModel())
         }
     }
 
@@ -62,7 +59,7 @@ class DetailViewModel @Inject constructor(
 
     private fun autoBackup() {
         viewModelScope.launch {
-            app.executeAutoBackup()
+            // application.executeAutoBackup()
         }
     }
 }
