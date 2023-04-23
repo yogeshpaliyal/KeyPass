@@ -1,5 +1,7 @@
 *.iml
 .gradle
+.app
+.idea/
 /local.properties
 /.idea
 /.idea/libraries
