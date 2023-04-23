@@ -7,34 +7,8 @@ on:
 
 jobs:
 
-  spotless:
-    name: 'Spotless'
-    runs-on: ubuntu-latest
-    steps:
-
-      - uses: actions/checkout@v3
-    
-      - name: Setting up project
-        uses: ./.github/actions/setup
-        
-      - name: 🛠 Build Project with Spotless Check
-        run: ./gradlew spotlessCheck
-        
-  tests:
-    name: 'Tests'
-    runs-on: ubuntu-latest
-    steps:
-
-      - uses: actions/checkout@v3
-    
-      - name: Setting up project
-        uses: ./.github/actions/setup
-        
-      - name: 🧪 Run Tests
-        run: ./gradlew test
-
   build:
-    name: 'Build Production Debug Build'
+    name: 'Spotless, Tests and Build Production Debug Build'
     runs-on: ubuntu-latest
     steps:
 
@@ -45,6 +19,12 @@ jobs:
 
       - name: 🏗 Build With gradle
         run: bash ./gradlew build
+        
+      - name: 🛠 Build Project with Spotless Check
+        run: ./gradlew spotlessCheck
+        
+      - name: 🧪 Run Tests
+        run: ./gradlew test
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleProductionDebug
