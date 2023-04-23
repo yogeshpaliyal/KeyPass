@@ -125,8 +125,6 @@ fun Dashboard() {
 fun CurrentPage() {
     val currentScreen by selectState<KeyPassState, ScreenState> { this.currentScreen }
 
-    val dispatch = rememberDispatcher()
-
     when (currentScreen) {
         is HomeState -> {
             Homepage(selectedTag = (currentScreen as HomeState).type)
@@ -170,7 +168,7 @@ fun OptionBottomBar(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth(1f)
-                .padding(32.dp)
+                .padding(16.dp)
         ) {
             if (navigationItems != null) {
                 items(navigationItems!!) {
@@ -181,7 +179,7 @@ fun OptionBottomBar(
 
                         is NavigationModelItem.NavTagItem -> {
                             NavMenuFolder(folder = it) {
-                                dispatchAction(NavigationAction(HomeState(it.tag)))
+                                dispatchAction(NavigationAction(HomeState(it.tag), false))
                                 dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
                             }
                         }
@@ -203,12 +201,15 @@ fun OptionBottomBar(
 fun NavMenuFolder(folder: NavigationModelItem.NavTagItem, onClick: () -> Unit) {
     Box(
         modifier = Modifier
-            .padding(vertical = 16.dp)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = true),
+                indication = rememberRipple(
+                    bounded = true
+                ),
                 onClick = onClick
             )
+            .padding(16.dp)
+            .fillMaxWidth(1f)
 
     ) {
         Text(
@@ -222,12 +223,11 @@ fun NavMenuFolder(folder: NavigationModelItem.NavTagItem, onClick: () -> Unit) {
 fun NavItem(item: NavigationModelItem.NavMenuItem, onClick: () -> Unit) {
     Row(
         modifier = Modifier
-            .padding(vertical = 16.dp)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = true),
                 onClick = onClick
-            )
+            ).padding(16.dp).fillMaxWidth(1f)
     ) {
         Icon(
             painter = painterResource(id = item.icon),
@@ -243,7 +243,7 @@ fun NavItem(item: NavigationModelItem.NavMenuItem, onClick: () -> Unit) {
 
 @Composable
 fun NavItemSection(divider: NavigationModelItem.NavDivider) {
-    Column(modifier = Modifier.padding(vertical = 16.dp)) {
+    Column(modifier = Modifier.padding(16.dp)) {
         Divider()
         Spacer(modifier = Modifier.height(32.dp))
         Text(
@@ -262,8 +262,6 @@ fun KeyPassBottomBar() {
     if (!showMainBottomAppBar) {
         return
     }
-
-    val context = LocalContext.current
 
     BottomAppBar(actions = {
         IconButton(onClick = {

@@ -17,7 +17,7 @@ object NavigationModel {
             icon = R.drawable.ic_twotone_home_24,
             titleRes = R.string.home,
             checked = false,
-            action = NavigationAction(HomeState())
+            action = NavigationAction(HomeState(), true)
         ),
         NavigationModelItem.NavMenuItem(
             id = GENERATE_PASSWORD,

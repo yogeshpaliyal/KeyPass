@@ -15,39 +15,22 @@ import org.reduxkotlin.middleware
 
 object KeyPassRedux {
 
-    private val arrPages by lazy {
-        mutableListOf<ScreenState>()
-    }
+    private var arrPages = mutableListOf<ScreenState>()
 
     private val reducer: Reducer<KeyPassState> = { state, action ->
         when (action) {
             is NavigationAction -> {
-                // TODO handle backstack
-                arrPages.add(state.currentScreen)
+                if (action.clearBackStack) {
+                    arrPages.clear()
+                } else {
+                    arrPages.add(state.currentScreen)
+                }
+
                 state.copy(currentScreen = action.state)
             }
 
             is StateUpdateAction -> {
                 state.copy(currentScreen = action.state)
-            }
-
-            is CopyToClipboard -> {
-                state.context?.let {
-                    val clipboard = ContextCompat.getSystemService(
-                        it,
-                        ClipboardManager::class.java
-                    )
-                    val clip = ClipData.newPlainText("KeyPass", action.password)
-                    clipboard?.setPrimaryClip(clip)
-
-                    Toast.makeText(
-                        it,
-                        R.string.copied_to_clipboard,
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-                state
             }
 
             is CopyToClipboard -> {

@@ -39,7 +39,7 @@
     <string name="cancel">Cancel</string>
     <string name="feedback_to_keypass">Feedback to KeyPass</string>
     <string name="share_keypass">Share KeyPass</string>
-    <string name="message_no_accounts">No Accounts added, please add from below button</string>
+    <string name="message_no_accounts">No Accounts found, please add from below button</string>
     <string name="turn_off_backup">Turn Off Backups</string>
     <string name="verify_keyphrase">Verify backup passphrase</string>
     <string name="verify_keyphrase_message">Test your backup passphrase and verify that it matches</string>
