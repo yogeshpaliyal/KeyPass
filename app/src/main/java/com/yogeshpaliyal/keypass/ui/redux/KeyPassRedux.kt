@@ -50,6 +50,25 @@ object KeyPassRedux {
                 state
             }
 
+            is CopyToClipboard -> {
+                state.context?.let {
+                    val clipboard = ContextCompat.getSystemService(
+                        it,
+                        ClipboardManager::class.java
+                    )
+                    val clip = ClipData.newPlainText("KeyPass", action.password)
+                    clipboard?.setPrimaryClip(clip)
+
+                    Toast.makeText(
+                        it,
+                        R.string.copied_to_clipboard,
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+                state
+            }
+
             is UpdateContextAction -> {
                 state.copy(context = action.context)
             }
