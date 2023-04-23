@@ -16,11 +16,8 @@
 
     <!--BottomAppBar-->
     <dimen name="bottom_app_bar_height">56dp</dimen>
-    <dimen name="bottom_app_bar_fab_cradle_corner_radius">32dp</dimen>
-    <dimen name="bottom_app_bar_fab_cradle_margin">8dp</dimen>
 
     <!--BottomNavigationDrawer-->
-    <dimen name="navigation_drawer_menu_item_height">56dp</dimen>
 
     <!--Email previews-->
 
