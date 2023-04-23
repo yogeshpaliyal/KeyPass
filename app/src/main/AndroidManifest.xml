@@ -52,10 +52,6 @@
             android:name=".ui.nav.DashboardComposeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".ui.detail.DetailActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
 
         <!-- If you want to disable android.startup completely. -->
         <provider

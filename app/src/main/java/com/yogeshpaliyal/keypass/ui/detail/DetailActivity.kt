@@ -1,14 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.detail
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,19 +36,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
-import dagger.hilt.android.AndroidEntryPoint
+import com.yogeshpaliyal.keypass.ui.redux.GoBackAction
+import org.reduxkotlin.compose.rememberDispatcher
 
 /*
 * @author Yogesh Paliyal
@@ -63,43 +55,14 @@ import dagger.hilt.android.AndroidEntryPoint
 * https://techpaliyal.com
 * created on 31-01-2021 10:38
 */
-@AndroidEntryPoint
-class DetailActivity : AppCompatActivity() {
 
-    companion object {
-
-        private const val ARG_ACCOUNT_ID = "ARG_ACCOUNT_ID"
-
-        @JvmStatic
-        fun start(context: Context?, accountId: Long? = null) {
-            val starter = Intent(context, DetailActivity::class.java)
-                .putExtra(ARG_ACCOUNT_ID, accountId)
-            context?.startActivity(starter)
-        }
-    }
-
-    private val mViewModel by viewModels<DetailViewModel>()
-
-    private val accountId by lazy {
-        intent?.extras?.getLong(ARG_ACCOUNT_ID) ?: -1
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Detail(accountId, mViewModel)
-        }
-
-        mViewModel.loadAccount(accountId)
-    }
-}
-
-@Preview()
 @Composable
-fun Detail(
+fun AccountDetailPage(
     id: Long?,
-    viewModel: DetailViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+    viewModel: DetailViewModel = hiltViewModel()
 ) {
+    val dispatchAction = rememberDispatcher()
+
     // task value state
     val (accountModel, setAccountModel) = remember {
         mutableStateOf(
@@ -108,15 +71,14 @@ fun Detail(
     }
 
     // Set initial object
-    LaunchedEffect(key1 = viewModel.accountModel) {
-        viewModel.accountModel.value?.apply {
-            setAccountModel(this.copy())
+    LaunchedEffect(key1 = id) {
+        viewModel.loadAccount(id) {
+            setAccountModel(it.copy())
         }
     }
 
-    val activity = (LocalContext.current as? Activity)
     val goBack: () -> Unit = {
-        activity?.onBackPressed()
+        dispatchAction(GoBackAction)
     }
 
     val launcher = rememberLauncherForActivityResult(QRScanner()) {
@@ -125,29 +87,27 @@ fun Detail(
         }
     }
 
-    KeyPassTheme {
-        Scaffold(
-            bottomBar = {
-                BottomBar(
-                    accountModel,
-                    backPressed = goBack,
-                    onDeleteAccount = {
-                        viewModel.deleteAccount(accountModel, goBack)
-                    }
-                ) {
-                    viewModel.insertOrUpdate(accountModel, goBack)
+    Scaffold(
+        bottomBar = {
+            BottomBar(
+                accountModel,
+                backPressed = goBack,
+                onDeleteAccount = {
+                    viewModel.deleteAccount(accountModel, goBack)
                 }
+            ) {
+                viewModel.insertOrUpdate(accountModel, goBack)
             }
-        ) { paddingValues ->
-            Surface(modifier = Modifier.padding(paddingValues)) {
-                Fields(
-                    accountModel = accountModel,
-                    updateAccountModel = { newAccountModel ->
-                        setAccountModel(newAccountModel)
-                    }
-                ) {
-                    launcher.launch(null)
+        }
+    ) { paddingValues ->
+        Surface(modifier = Modifier.padding(paddingValues)) {
+            Fields(
+                accountModel = accountModel,
+                updateAccountModel = { newAccountModel ->
+                    setAccountModel(newAccountModel)
                 }
+            ) {
+                launcher.launch(null)
             }
         }
     }

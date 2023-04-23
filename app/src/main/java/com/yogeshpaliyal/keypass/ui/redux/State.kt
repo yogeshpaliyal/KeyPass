@@ -2,19 +2,20 @@ package com.yogeshpaliyal.keypass.ui.redux
 
 import android.content.Context
 import android.os.Bundle
-import androidx.navigation.NavController
 
 data class KeyPassState(
     val context: Context? = null,
-    val navController: NavController? = null,
     val currentScreen: ScreenState,
-    val bottomSheet: BottomSheetState
+    val bottomSheet: BottomSheetState,
+    val systemBackPress: Boolean = false
 )
 
-data class ScreenState(
-    val path: String,
-    val args: Bundle? = null
-)
+sealed class ScreenState(val showMainBottomAppBar: Boolean = false)
+
+data class HomeState(val type: String? = null) : ScreenState(true)
+data class AccountDetailState(val accountId: Long? = null) : ScreenState()
+data class TotpDetailState(val accountId: String? = null) : ScreenState()
+object SettingsState : ScreenState(true)
 
 data class BottomSheetState(
     val path: String,
@@ -23,7 +24,7 @@ data class BottomSheetState(
 )
 
 fun generateDefaultState(): KeyPassState {
-    val screenState = ScreenState(ScreenRoutes.HOME)
+    val currentPage = HomeState()
     val bottomSheet = BottomSheetState(BottomSheetRoutes.HOME_NAV_MENU, isBottomSheetOpen = false)
-    return KeyPassState(currentScreen = screenState, bottomSheet = bottomSheet)
+    return KeyPassState(currentScreen = currentPage, bottomSheet = bottomSheet)
 }
