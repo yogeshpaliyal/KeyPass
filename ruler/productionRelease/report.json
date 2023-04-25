@@ -30586,7 +30586,7 @@
             ]
         },
         {
-            "name": "androidx.compose.material:material-ripple:1.4.1",
+            "name": "androidx.compose.material:material-ripple:1.4.2",
             "type": "EXTERNAL",
             "downloadSize": 9249,
             "installSize": 9271,
