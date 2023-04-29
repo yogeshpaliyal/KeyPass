@@ -3,12 +3,10 @@ package com.yogeshpaliyal.keypass.ui.home
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.AccountModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +22,6 @@ class DashboardViewModel @Inject constructor(
     val appDb: com.yogeshpaliyal.common.AppDatabase
 ) :
     AndroidViewModel(application) {
-
 
     private val appDao = appDb.getDao()
 

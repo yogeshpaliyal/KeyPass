@@ -40,7 +40,6 @@ fun SearchBar(
         },
         trailingIcon = {
             Row {
-
                 if (keyword.isNullOrBlank().not()) {
                     IconButton(onClick = { updateKeyword("") }) {
                         Icon(
@@ -60,7 +59,6 @@ fun SearchBar(
                 }
             }
 
-
             SortingMenu(isMenuVisible, setMenuVisible) { sortingField, order ->
                 updateSorting(sortingField, order)
                 setMenuVisible(false)
@@ -68,4 +66,3 @@ fun SearchBar(
         }
     )
 }
-

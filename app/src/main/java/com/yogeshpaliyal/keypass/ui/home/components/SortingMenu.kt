@@ -10,14 +10,12 @@ import com.yogeshpaliyal.keypass.ui.home.SortingOrder
 import me.saket.cascade.CascadeDropdownMenu
 import me.saket.cascade.rememberCascadeState
 
-
 @Composable
 fun SortingMenu(
     isMenuVisible: Boolean,
     setMenuVisible: (Boolean) -> Unit,
     onOptionSelected: (SortingField, SortingOrder) -> Unit
 ) {
-
     val state = rememberCascadeState()
 
     val sortingOptions =
@@ -28,7 +26,6 @@ fun SortingMenu(
         expanded = isMenuVisible,
         onDismissRequest = { setMenuVisible(false) }
     ) {
-
         sortingOptions.forEach { sortingField ->
             DropdownMenuItem(
                 text = { Text(stringResource(id = sortingField.label)) },
@@ -44,6 +41,5 @@ fun SortingMenu(
                 }
             )
         }
-
     }
 }

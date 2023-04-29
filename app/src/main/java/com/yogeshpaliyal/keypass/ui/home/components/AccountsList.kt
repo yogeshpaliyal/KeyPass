@@ -80,7 +80,6 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
     }
 }
 
-
 @Composable
 fun Account(
     accountModel: AccountModel,
@@ -148,7 +147,6 @@ private fun getUsernameOrOtp(accountModel: AccountModel): String? {
     return if (accountModel.type == AccountType.TOTP) accountModel.getOtp() else accountModel.username
 }
 
-
 @Composable
 fun RenderUserName(accountModel: AccountModel) {
     val (username, setUsername) = remember { mutableStateOf("") }
@@ -208,7 +206,6 @@ private fun getPassword(model: AccountModel): String {
     }
     return model.password.orEmpty()
 }
-
 
 @Composable
 fun WrapWithProgress(accountModel: AccountModel) {

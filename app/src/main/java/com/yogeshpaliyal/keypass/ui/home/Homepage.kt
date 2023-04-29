@@ -38,12 +38,10 @@ fun Homepage(
     mViewModel: DashboardViewModel = viewModel(),
     homeState: HomeState
 ) {
-
     val tag = homeState.tag
     val keyword = homeState.keyword
     val sortField = homeState.sortField
     val sortAscendingOrder = homeState.sortAscending
-
 
     val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
 
@@ -54,7 +52,6 @@ fun Homepage(
     })
 
     Column(modifier = Modifier.fillMaxSize()) {
-
         SearchBar(keyword, {
             dispatchAction(StateUpdateAction(homeState.copy(keyword = it)))
         }) { field, order ->
@@ -79,15 +76,15 @@ fun Homepage(
                         AssistChip(onClick = { }, label = {
                             Text(text = tag)
                         }, trailingIcon = {
-                            IconButton(onClick = {
-                                dispatchAction(NavigationAction(HomeState(), true))
-                            }) {
-                                Icon(
-                                    painter = rememberVectorPainter(image = Icons.Rounded.Close),
-                                    contentDescription = ""
-                                )
-                            }
-                        })
+                                IconButton(onClick = {
+                                    dispatchAction(NavigationAction(HomeState(), true))
+                                }) {
+                                    Icon(
+                                        painter = rememberVectorPainter(image = Icons.Rounded.Close),
+                                        contentDescription = ""
+                                    )
+                                }
+                            })
                     }
                 }
             )

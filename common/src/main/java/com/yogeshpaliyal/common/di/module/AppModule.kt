@@ -58,7 +58,6 @@ object AppModule {
 
 class SqliteDatabaseLogger : RoomDatabase.QueryCallback {
     override fun onQuery(sqlQuery: String, bindArgs: List<Any?>) {
-        Log.d("QueryUpdated","SQL Query: $sqlQuery SQL Args: $bindArgs")
+        Log.d("QueryUpdated", "SQL Query: $sqlQuery SQL Args: $bindArgs")
     }
-
 }
