@@ -80,5 +80,7 @@
     <string name="restore">Restaurar</string>
     <string name="keyphrase_restore_info">Insira a frase-chave que você obteve ao fazer backup</string>
     <string name="custom_generated_keyphrase_info">Deseja criar sua própria frase-chave para backups ou devo gerar para você?</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">descendente</string>
 
 </resources>

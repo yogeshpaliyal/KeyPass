@@ -82,5 +82,7 @@
     <string name="restore">पुनर्स्थापित करना</string>
     <string name="keyphrase_restore_info">कृपया वह कीफ़्रेज़ दर्ज करें जो आपके द्वारा बैक अप लेने पर प्राप्त होता है</string>
     <string name="custom_generated_keyphrase_info">क्या आप बैकअप के लिए अपना खुद का कीफ्रेज बनाना चाहते हैं या मुझे आपके लिए जनरेट करना चाहिए?</string>
+    <string name="ascending">आरोही</string>
+    <string name="descending">अवरोही</string>
 
 </resources>
