@@ -69,8 +69,6 @@ dependencies {
 
     api "androidx.datastore:datastore-preferences:1.0.0"
 
-    api "androidx.biometric:biometric:1.1.0"
-
     // ViewModel
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // LiveData

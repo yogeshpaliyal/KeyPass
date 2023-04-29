@@ -16,8 +16,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Visibility
+import androidx.compose.material.icons.rounded.VisibilityOff
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -31,6 +37,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.getKeyPassPassword
@@ -72,6 +81,8 @@ class AuthenticationActivity : AppCompatActivity() {
             mutableStateOf("")
         }
 
+        val (passwordVisible, setPasswordVisible) = remember(state) { mutableStateOf(false) }
+
         val (passwordError, setPasswordError) = remember(state, password) {
             mutableStateOf<Int?>(null)
         }
@@ -108,9 +119,12 @@ class AuthenticationActivity : AppCompatActivity() {
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(1f),
                     value = password,
+                    singleLine = true,
                     placeholder = {
                         Text(text = stringResource(id = R.string.enter_password))
                     },
+                    visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                     onValueChange = setPassword,
                     isError = passwordError != null,
                     supportingText = {
@@ -120,6 +134,18 @@ class AuthenticationActivity : AppCompatActivity() {
                                 text = stringResource(id = passwordError),
                                 color = MaterialTheme.colorScheme.error
                             )
+                        }
+                    },
+                    trailingIcon = {
+                        val image = if (passwordVisible) {
+                            Icons.Rounded.Visibility
+                        } else Icons.Rounded.VisibilityOff
+
+                        // Please provide localized description for accessibility services
+                        val description = if (passwordVisible) "Hide password" else "Show password"
+
+                        IconButton(onClick = { setPasswordVisible(!passwordVisible) }) {
+                            Icon(imageVector = image, description)
                         }
                     }
                 )
