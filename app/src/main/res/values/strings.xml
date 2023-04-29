@@ -80,4 +80,7 @@
     <string name="keyphrase_restore_info">Please enter keyphrase you get when you backed up</string>
     <string name="custom_generated_keyphrase_info">Do you want to create your own keyphrase for backups or should I generate for you?</string>
 
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+
 </resources>

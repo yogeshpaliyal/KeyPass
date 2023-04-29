@@ -81,5 +81,7 @@
     <string name="restore">恢复</string>
     <string name="keyphrase_restore_info">请输入您备份时获得的关键词</string>
     <string name="custom_generated_keyphrase_info">您想创建自己的备份关键字还是我应该为您生成？</string>
+    <string name="ascending">上升</string>
+    <string name="descending">降序</string>
 
 </resources>

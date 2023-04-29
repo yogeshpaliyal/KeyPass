@@ -12,7 +12,7 @@ data class KeyPassState(
 
 sealed class ScreenState(val showMainBottomAppBar: Boolean = false)
 
-data class HomeState(val type: String? = null) : ScreenState(true)
+data class HomeState(val keyword: String? = null, val tag: String? = null, val sortField: String? = null, val sortAscending: Boolean = true) : ScreenState(true)
 data class AccountDetailState(val accountId: Long? = null) : ScreenState()
 data class TotpDetailState(val accountId: String? = null) : ScreenState()
 object SettingsState : ScreenState(true)

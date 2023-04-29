@@ -127,7 +127,7 @@ fun CurrentPage() {
 
     when (currentScreen) {
         is HomeState -> {
-            Homepage(selectedTag = (currentScreen as HomeState).type)
+            Homepage(homeState = (currentScreen as HomeState))
         }
 
         is SettingsState -> {
@@ -179,7 +179,7 @@ fun OptionBottomBar(
 
                         is NavigationModelItem.NavTagItem -> {
                             NavMenuFolder(folder = it) {
-                                dispatchAction(NavigationAction(HomeState(it.tag), false))
+                                dispatchAction(NavigationAction(HomeState(tag = it.tag), false))
                                 dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
                             }
                         }
