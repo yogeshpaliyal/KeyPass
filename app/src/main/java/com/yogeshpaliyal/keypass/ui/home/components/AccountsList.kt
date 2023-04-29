@@ -1,5 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.home.components
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -209,20 +214,19 @@ private fun getPassword(model: AccountModel): String {
 
 @Composable
 fun WrapWithProgress(accountModel: AccountModel) {
-    val (progress, setProgress) = remember { mutableStateOf(0f) }
-
-    LaunchedEffect(Unit) {
-        if (accountModel.type == AccountType.TOTP) {
-            while (true) {
-                val newProgress = accountModel.getTOtpProgress().toFloat() / 30
-                setProgress(newProgress)
-                delay(1.seconds)
-            }
-        }
+    if (accountModel.type != AccountType.TOTP) {
+        return
     }
+
+    val infiniteTransition = rememberInfiniteTransition(accountModel.uniqueId ?: accountModel.title ?: "")
+    val rotationAnimation = infiniteTransition.animateFloat(
+        initialValue = 1f - (accountModel.getTOtpProgress().toFloat() / 30),
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(tween(30000, easing = LinearEasing))
+    )
 
     CircularProgressIndicator(
         modifier = Modifier.fillMaxSize(),
-        progress = progress
+        progress = rotationAnimation.value
     )
 }
