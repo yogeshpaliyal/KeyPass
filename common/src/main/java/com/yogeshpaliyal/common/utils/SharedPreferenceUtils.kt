@@ -39,6 +39,20 @@ suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, 
     }
 }
 
+suspend fun Context.getKeyPassPassword(): String? {
+    return dataStore.data.first().get(KEYPASS_PASSWORD)
+}
+
+suspend fun Context.setKeyPassPassword(password: String?) {
+    dataStore.edit {
+        if (password == null) {
+            it.remove(KEYPASS_PASSWORD)
+        } else {
+            it[KEYPASS_PASSWORD] = password
+        }
+    }
+}
+
 suspend fun Context.isKeyPresent(): Boolean {
     val sp = dataStore.data.first()
     return sp.contains(BACKUP_KEY)
@@ -97,6 +111,7 @@ suspend fun Context?.getBackupTime(): Long {
 }
 
 private val BACKUP_KEY = stringPreferencesKey("backup_key")
+private val KEYPASS_PASSWORD = stringPreferencesKey("keypass_password")
 private val BACKUP_DIRECTORY = stringPreferencesKey("backup_directory")
 private val BACKUP_DATE_TIME = longPreferencesKey("backup_date_time")
 private val AUTO_BACKUP = booleanPreferencesKey("auto_backup")

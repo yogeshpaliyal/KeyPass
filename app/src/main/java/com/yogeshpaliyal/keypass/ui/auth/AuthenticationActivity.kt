@@ -1,136 +1,215 @@
 package com.yogeshpaliyal.keypass.ui.auth
 
+import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
-import android.widget.Toast
+import androidx.activity.compose.BackHandler
+import androidx.activity.compose.setContent
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.biometric.BiometricManager
-import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
-import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK
-import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
-import androidx.biometric.BiometricPrompt
-import androidx.core.content.ContextCompat
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Visibility
+import androidx.compose.material.icons.rounded.VisibilityOff
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.yogeshpaliyal.common.utils.getKeyPassPassword
+import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.databinding.ActivityAuthenticationBinding
 import com.yogeshpaliyal.keypass.ui.nav.DashboardComposeActivity
+import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.concurrent.Executor
+import kotlinx.coroutines.launch
 
 private const val AUTHENTICATION_RESULT = 707
+
+sealed class AuthState(@StringRes val title: Int) {
+    object CreatePassword : AuthState(R.string.create_password)
+    class ConfirmPassword(val password: String) : AuthState(R.string.confirm_password)
+    object Login : AuthState(R.string.login_to_enter_keypass)
+}
 
 @AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAuthenticationBinding
-
-    private lateinit var executor: Executor
-    private lateinit var biometricPrompt: BiometricPrompt
-    private lateinit var promptInfo: BiometricPrompt.PromptInfo
-
-    private val biometricManager by lazy {
-        BiometricManager.from(this)
+    @Preview(showSystemUi = true)
+    @Composable
+    fun AuthScreenPreview() {
+        AuthScreen()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityAuthenticationBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    @Composable
+    fun AuthScreen() {
+        val context = LocalContext.current
 
-        executor = ContextCompat.getMainExecutor(this)
-        biometricPrompt = BiometricPrompt(
-            this,
-            executor,
-            object : BiometricPrompt.AuthenticationCallback() {
-                override fun onAuthenticationError(
-                    errorCode: Int,
-                    errString: CharSequence
-                ) {
-                    super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(
-                        applicationContext,
-                        "Authentication error: $errString",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                    // finish()
-                }
+        val coroutineScope = rememberCoroutineScope()
 
-                override fun onAuthenticationSucceeded(
-                    result: BiometricPrompt.AuthenticationResult
-                ) {
-                    super.onAuthenticationSucceeded(result)
+        val (state, setState) = remember {
+            mutableStateOf<AuthState>(AuthState.Login)
+        }
 
-                    onAuthenticated()
-                }
+        val (password, setPassword) = remember(state) {
+            mutableStateOf("")
+        }
 
-                override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    Toast.makeText(
-                        applicationContext,
-                        getString(R.string.authentication_failed),
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+        val (passwordVisible, setPasswordVisible) = remember(state) { mutableStateOf(false) }
+
+        val (passwordError, setPasswordError) = remember(state, password) {
+            mutableStateOf<Int?>(null)
+        }
+
+        BackHandler(state is AuthState.ConfirmPassword) {
+            setState(AuthState.CreatePassword)
+        }
+
+        LaunchedEffect(key1 = Unit, block = {
+            coroutineScope.launch {
+                val mPassword = context.getKeyPassPassword()
+                if (mPassword == null) {
+                    setState(AuthState.CreatePassword)
                 }
             }
-        )
+        })
 
-        promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle(getString(R.string.app_name))
-            .setSubtitle(getString(R.string.login_to_enter_keypass))
-            .setAllowedAuthenticators(DEVICE_CREDENTIAL or BIOMETRIC_WEAK or BIOMETRIC_STRONG)
-            .build()
+        KeyPassTheme {
+            Column(
+                modifier = Modifier
+                    .padding(32.dp)
+                    .fillMaxSize(1f)
+                    .verticalScroll(rememberScrollState()),
+                Arrangement.SpaceEvenly,
+                Alignment.CenterHorizontally
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.ic_undraw_unlock_24mb),
+                    contentDescription = ""
+                )
 
-        // Prompt appears when user clicks "Log in".
-        // Consider integrating with the keystore to unlock cryptographic operations,
-        // if needed by your app.
+                Text(text = stringResource(id = state.title))
 
-        biometricPrompt.authenticate(promptInfo)
-
-        binding.btnRetry.setOnClickListener {
-            val allowedAuths = DEVICE_CREDENTIAL or BIOMETRIC_WEAK or BIOMETRIC_STRONG
-            val canAuthentication =
-                biometricManager.canAuthenticate(allowedAuths)
-            when (canAuthentication) {
-                BiometricManager.BIOMETRIC_SUCCESS -> {
-                    Log.d("MY_APP_TAG", "App can authenticate using biometrics.")
-                    biometricPrompt.authenticate(promptInfo)
-                }
-                BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE,
-                BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE,
-                BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-                    Log.e(
-                        "MY_APP_TAG",
-                        "$canAuthentication Biometric features are currently unavailable."
-                    )
-                    // Prompts the user to create credentials that your app accepts.
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                        val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
-                            putExtra(
-                                Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                                BIOMETRIC_STRONG or DEVICE_CREDENTIAL
+                OutlinedTextField(
+                    modifier = Modifier.fillMaxWidth(1f),
+                    value = password,
+                    singleLine = true,
+                    placeholder = {
+                        Text(text = stringResource(id = R.string.enter_password))
+                    },
+                    visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    onValueChange = setPassword,
+                    isError = passwordError != null,
+                    supportingText = {
+                        if (passwordError != null) {
+                            Text(
+                                modifier = Modifier.fillMaxWidth(),
+                                text = stringResource(id = passwordError),
+                                color = MaterialTheme.colorScheme.error
                             )
                         }
-                        startActivityForResult(enrollIntent, AUTHENTICATION_RESULT)
-                    } else {
-                        Toast.makeText(
-                            this,
-                            "Please set password for your device first from phone settings",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    },
+                    trailingIcon = {
+                        val image = if (passwordVisible) {
+                            Icons.Rounded.Visibility
+                        } else Icons.Rounded.VisibilityOff
+
+                        // Please provide localized description for accessibility services
+                        val description = if (passwordVisible) "Hide password" else "Show password"
+
+                        IconButton(onClick = { setPasswordVisible(!passwordVisible) }) {
+                            Icon(imageVector = image, description)
+                        }
+                    }
+                )
+
+                Row(modifier = Modifier.fillMaxWidth(1f), Arrangement.SpaceEvenly) {
+                    AnimatedVisibility(state is AuthState.ConfirmPassword) {
+                        Button(onClick = {
+                            setState(AuthState.CreatePassword)
+                        }) {
+                            Text(text = stringResource(id = R.string.back))
+                        }
+                    }
+
+                    Button(onClick = {
+                        when (state) {
+                            is AuthState.CreatePassword -> {
+                                if (password.isBlank()) {
+                                    setPasswordError(R.string.enter_password)
+                                } else {
+                                    setState(AuthState.ConfirmPassword(password))
+                                }
+                            }
+
+                            is AuthState.ConfirmPassword -> {
+                                if (state.password == password) {
+                                    coroutineScope.launch {
+                                        context.setKeyPassPassword(password)
+                                        onAuthComplete(context)
+                                    }
+                                } else {
+                                    setPasswordError(R.string.password_no_match)
+                                }
+                            }
+
+                            is AuthState.Login -> {
+                                coroutineScope.launch {
+                                    val savedPassword = context.getKeyPassPassword()
+                                    if (savedPassword == password) {
+                                        onAuthComplete(context)
+                                    } else {
+                                        setPasswordError(R.string.incorrect_password)
+                                    }
+                                }
+                            }
+                        }
+                    }) {
+                        Text(text = stringResource(id = R.string.str_continue))
                     }
                 }
             }
         }
     }
 
-    private fun onAuthenticated() {
+    private fun onAuthComplete(context: Context) {
         // binding.passCodeView.isVisible = false
-        val dashboardIntent = Intent(this, DashboardComposeActivity::class.java)
+        val dashboardIntent = Intent(context, DashboardComposeActivity::class.java)
         startActivity(dashboardIntent)
         finish()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            AuthScreen()
+        }
     }
 }

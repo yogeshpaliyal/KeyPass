@@ -82,5 +82,12 @@
 
     <string name="ascending">Ascending</string>
     <string name="descending">Descending</string>
+    <string name="str_continue">Continue</string>
+    <string name="back">Back</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="create_password">Create Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="incorrect_password">Incorrect Password</string>
+    <string name="password_no_match">The password did not match</string>
 
 </resources>

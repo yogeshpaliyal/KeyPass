@@ -82,5 +82,12 @@
     <string name="custom_generated_keyphrase_info">Deseja criar sua própria frase-chave para backups ou devo gerar para você?</string>
     <string name="ascending">Ascendente</string>
     <string name="descending">descendente</string>
+    <string name="str_continue">Continuar</string>
+    <string name="back">Voltar</string>
+    <string name="enter_password">Digite a senha</string>
+    <string name="create_password">Criar senha</string>
+    <string name="confirm_password">Confirme sua senha</string>
+    <string name="incorrect_password">Senha incorreta</string>
+    <string name="password_no_match">A senha não corresponde</string>
 
 </resources>

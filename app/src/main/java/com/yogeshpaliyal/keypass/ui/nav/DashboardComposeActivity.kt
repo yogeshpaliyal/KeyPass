@@ -46,6 +46,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidViewBinding
+import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.databinding.LayoutMySettingsFragmentBinding
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.home.Homepage
@@ -73,10 +74,12 @@ class DashboardComposeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_SECURE,
-            WindowManager.LayoutParams.FLAG_SECURE
-        )
+        if (BuildConfig.DEBUG.not()) {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE
+            )
+        }
         setContent {
             KeyPassTheme {
                 StoreProvider(store = KeyPassRedux.createStore()) {

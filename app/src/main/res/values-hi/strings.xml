@@ -84,5 +84,12 @@
     <string name="custom_generated_keyphrase_info">क्या आप बैकअप के लिए अपना खुद का कीफ्रेज बनाना चाहते हैं या मुझे आपके लिए जनरेट करना चाहिए?</string>
     <string name="ascending">आरोही</string>
     <string name="descending">अवरोही</string>
+    <string name="str_continue">जारी रखना</string>
+    <string name="back">पीछे</string>
+    <string name="enter_password">कृपया पासवर्ड दर्ज करें</string>
+    <string name="create_password">पासवर्ड बनाएं</string>
+    <string name="confirm_password">पासवर्ड की पुष्टि कीजिये</string>
+    <string name="incorrect_password">गलत पासवर्ड</string>
+    <string name="password_no_match">पासवर्ड मेल नहीं खाता</string>
 
 </resources>
