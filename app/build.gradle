@@ -15,7 +15,7 @@ android {
     defaultConfig {
 
         applicationId appPackageId
-        minSdk 22
+        minSdk 23
         targetSdk 33
         versionCode 1411
         versionName "1.4.11"
@@ -171,7 +171,6 @@ dependencies {
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:$hilt_version")
 
-
     implementation "org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0"
-
+    implementation "me.saket.cascade:cascade-compose:2.0.0-rc02"
 }

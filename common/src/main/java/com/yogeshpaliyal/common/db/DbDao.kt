@@ -33,16 +33,48 @@ interface DbDao {
 
     @Query(
         "SELECT * FROM account " +
-            "WHERE " +
-            "CASE WHEN :tag IS NOT NULL " +
-            "THEN tags = :tag " +
-            "ELSE 1 END " +
-            "AND ((username LIKE '%'||:query||'%' ) " +
-            "OR (title LIKE '%'||:query||'%' ) " +
-            "OR (notes LIKE '%'||:query||'%' )) " +
-            "ORDER BY title ASC"
+                "WHERE " +
+                "CASE WHEN :tag IS NOT NULL " +
+                "THEN tags = :tag " +
+                "ELSE 1 END " +
+                "AND ((username LIKE '%'||:query||'%' ) " +
+                "OR (title LIKE '%'||:query||'%' ) " +
+                "OR (notes LIKE '%'||:query||'%' )) " +
+                "ORDER BY" +
+                " CASE" +
+                "    WHEN :sortingField = 'username' THEN username" +
+                "    WHEN :sortingField = 'title' THEN title" +
+                "    WHEN :sortingField = 'notes' THEN notes" +
+                "  END ASC"
     )
-    fun getAllAccounts(query: String?, tag: String?): List<AccountModel>
+    fun getAllAccountsAscending(
+        query: String?,
+        tag: String?,
+        sortingField: String?
+    ): List<AccountModel>
+
+
+    @Query(
+        "SELECT * FROM account " +
+                "WHERE " +
+                "CASE WHEN :tag IS NOT NULL " +
+                "THEN tags = :tag " +
+                "ELSE 1 END " +
+                "AND ((username LIKE '%'||:query||'%' ) " +
+                "OR (title LIKE '%'||:query||'%' ) " +
+                "OR (notes LIKE '%'||:query||'%' )) " +
+                "ORDER BY" +
+                " CASE" +
+                "    WHEN :sortingField = 'username' THEN username" +
+                "    WHEN :sortingField = 'title' THEN title" +
+                "    WHEN :sortingField = 'notes' THEN notes" +
+                "  END DESC"
+    )
+    fun getAllAccountsDescending(
+        query: String?,
+        tag: String?,
+        sortingField: String?
+    ): List<AccountModel>
 
     @Query("SELECT * FROM account WHERE id = :id")
     suspend fun getAccount(id: Long?): AccountModel?

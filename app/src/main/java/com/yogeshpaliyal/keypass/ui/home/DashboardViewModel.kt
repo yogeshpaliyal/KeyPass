@@ -25,40 +25,17 @@ class DashboardViewModel @Inject constructor(
 ) :
     AndroidViewModel(application) {
 
-    val keyword by lazy {
-        MutableLiveData<String>("")
-    }
-    val tag by lazy {
-        MutableLiveData<String?>()
-    }
 
     private val appDao = appDb.getDao()
 
     val mediator = MediatorLiveData<List<AccountModel>>()
 
-    init {
-        mediator.addSource(keyword) {
-            viewModelScope.launch(Dispatchers.IO) {
-                mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
-            }
-        }
-        mediator.addSource(tag) {
-            viewModelScope.launch(Dispatchers.IO) {
-                mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
-            }
-        }
-
+    fun queryUpdated(keyword: String?, tag: String?, sortField: String?, sortAscending: Boolean = true) {
         viewModelScope.launch(Dispatchers.IO) {
-            mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
-        }
-        reloadData()
-    }
-
-    private fun reloadData() {
-        viewModelScope.launch(Dispatchers.IO) {
-            while (true) {
-                delay(1000)
-                mediator.postValue(appDao.getAllAccounts(keyword.value, tag.value))
+            if (sortAscending) {
+                mediator.postValue(appDao.getAllAccountsAscending(keyword ?: "", tag, sortField))
+            } else {
+                mediator.postValue(appDao.getAllAccountsDescending(keyword ?: "", tag, sortField))
             }
         }
     }
