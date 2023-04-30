@@ -33,12 +33,12 @@ jobs:
           RELEASE_NOTES: ${{ inputs.releaseNote }}
         
         
-      - name: Version Bump
-        run: |
-            git config --global user.name 'Yogesh Choudhary Paliyal'
-            git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
-            git commit -am "Automated version bump"
-            git push
+      # - name: Version Bump
+      #   run: |
+      #       git config --global user.name 'Yogesh Choudhary Paliyal'
+      #       git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
+      #       git commit -am "Automated version bump"
+      #       git push
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5.0.0
