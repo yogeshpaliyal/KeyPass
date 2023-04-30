@@ -1,5 +1,6 @@
 package com.yogeshpaliyal.keypass.ui.home.components
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -40,7 +41,7 @@ fun SearchBar(
         },
         trailingIcon = {
             Row {
-                if (keyword.isNullOrBlank().not()) {
+                AnimatedVisibility(keyword.isNullOrBlank().not()) {
                     IconButton(onClick = { updateKeyword("") }) {
                         Icon(
                             painter = rememberVectorPainter(image = Icons.Rounded.Close),

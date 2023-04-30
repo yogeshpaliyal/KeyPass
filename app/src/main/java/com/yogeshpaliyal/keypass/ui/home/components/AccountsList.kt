@@ -1,10 +1,13 @@
 package com.yogeshpaliyal.keypass.ui.home.components
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -53,31 +56,35 @@ import kotlinx.coroutines.delay
 import org.reduxkotlin.compose.rememberDispatcher
 import kotlin.time.Duration.Companion.seconds
 
+@OptIn(ExperimentalFoundationApi::class, ExperimentalAnimationApi::class)
 @Composable
 fun AccountsList(accounts: List<AccountModel>? = null) {
     val dispatch = rememberDispatcher()
 
     if (accounts?.isNotEmpty() == true) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            items(accounts) { account ->
-                Account(
-                    account,
-                    onClick = {
-                        if (it.type == AccountType.TOTP) {
-                            dispatch(IntentNavigation.AddTOTP(it.uniqueId))
-                        } else {
-                            dispatch(NavigationAction(AccountDetailState(it.id)))
+        AnimatedContent(targetState = accounts) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                items(it) { account ->
+                    Account(
+                        modifier = Modifier.animateItemPlacement(),
+                        account,
+                        onClick = {
+                            if (it.type == AccountType.TOTP) {
+                                dispatch(IntentNavigation.AddTOTP(it.uniqueId))
+                            } else {
+                                dispatch(NavigationAction(AccountDetailState(it.id)))
+                            }
                         }
-                    }
-                )
-            }
-            item {
-                Spacer(modifier = Modifier.height(8.dp))
+                    )
+                }
+                item {
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
             }
         }
     } else {
@@ -87,12 +94,14 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
 
 @Composable
 fun Account(
+    modifier: Modifier,
     accountModel: AccountModel,
     onClick: (AccountModel) -> Unit
 ) {
     val dispatch = rememberDispatcher()
 
     Card(
+        modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         onClick = { onClick(accountModel) }
     ) {
@@ -218,7 +227,8 @@ fun WrapWithProgress(accountModel: AccountModel) {
         return
     }
 
-    val infiniteTransition = rememberInfiniteTransition(accountModel.uniqueId ?: accountModel.title ?: "")
+    val infiniteTransition =
+        rememberInfiniteTransition(accountModel.uniqueId ?: accountModel.title ?: "")
     val rotationAnimation = infiniteTransition.animateFloat(
         initialValue = 1f - (accountModel.getTOtpProgress().toFloat() / 30),
         targetValue = 1f,

@@ -31,9 +31,14 @@
             android:name=".ui.generate.GeneratePasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.auth.AuthenticationActivity"
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" />
+        <activity
+            android:name=".ui.nav.DashboardComposeActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,15 +49,6 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-        <activity
-            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation" />
-        <activity
-            android:name=".ui.nav.DashboardComposeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
 
         <!-- If you want to disable android.startup completely. -->
         <provider

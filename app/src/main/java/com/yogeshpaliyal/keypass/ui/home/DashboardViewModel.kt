@@ -1,10 +1,13 @@
 package com.yogeshpaliyal.keypass.ui.home
 
 import android.app.Application
+import android.content.ContentResolver
+import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.dbhelper.restoreBackup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,7 +30,12 @@ class DashboardViewModel @Inject constructor(
 
     val mediator = MediatorLiveData<List<AccountModel>>()
 
-    fun queryUpdated(keyword: String?, tag: String?, sortField: String?, sortAscending: Boolean = true) {
+    fun queryUpdated(
+        keyword: String?,
+        tag: String?,
+        sortField: String?,
+        sortAscending: Boolean = true
+    ) {
         viewModelScope.launch(Dispatchers.IO) {
             if (sortAscending) {
                 mediator.postValue(appDao.getAllAccountsAscending(keyword ?: "", tag, sortField))
@@ -35,5 +43,13 @@ class DashboardViewModel @Inject constructor(
                 mediator.postValue(appDao.getAllAccountsDescending(keyword ?: "", tag, sortField))
             }
         }
+    }
+
+    suspend fun restoreBackup(
+        keyphrase: String,
+        contentResolver: ContentResolver,
+        fileUri: Uri?
+    ): Boolean {
+        return appDb.restoreBackup(keyphrase, contentResolver, fileUri)
     }
 }
