@@ -20,9 +20,7 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - uses: yogeshpaliyal/KeyPass@master
-      - name: Setting up project
-        uses: ./.github/actions/setup
+      - uses: actions/checkout@v2
 
       - name: 🏗 Bump App Version
         uses: ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
