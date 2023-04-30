@@ -1,0 +1,34 @@
+name: Bump App Version
+on: 
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+      releaseNote:
+        description: 'Release Note'
+        required: true
+        type: string
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setting up project
+        uses: ./.github/actions/setup
+
+      - name: 🏗 Bump App Version
+        uses: ./scripts/versionBump.sh ${{ github.event.inputs.type }} "${{ github.event.inputs.releaseNote }}"
+      - name: Version Bump
+        run: |
+            git config --global user.name 'Yogesh Choudhary Paliyal'
+            git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
+            git commit -am "Automated version bump"
+            git push
