@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: master
-          token: ${{ secrets.REPO_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🏗 Bump App Version
         run: ls && bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
