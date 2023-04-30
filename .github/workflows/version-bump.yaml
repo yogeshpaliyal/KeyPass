@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          ref: master
-          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        run: |
+            git checkout -b autoVersionBump
 
       - name: 🏗 Bump App Version
         run: ls && bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
@@ -39,3 +39,7 @@ jobs:
             git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
             git commit -am "Automated version bump"
             git push
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5.0.0
+
