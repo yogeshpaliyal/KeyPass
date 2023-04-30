@@ -34,6 +34,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
@@ -45,12 +46,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.yogeshpaliyal.keypass.BuildConfig
-import com.yogeshpaliyal.keypass.databinding.LayoutMySettingsFragmentBinding
+import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.redux.AccountDetailState
+import com.yogeshpaliyal.keypass.ui.redux.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.BottomSheetAction
 import com.yogeshpaliyal.keypass.ui.redux.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.GoBackAction
@@ -62,6 +63,7 @@ import com.yogeshpaliyal.keypass.ui.redux.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.SettingsState
 import com.yogeshpaliyal.keypass.ui.redux.TotpDetailState
 import com.yogeshpaliyal.keypass.ui.redux.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
 import org.reduxkotlin.compose.StoreProvider
@@ -101,9 +103,11 @@ fun Dashboard() {
         dispatch(GoBackAction)
     }
 
-    if (systemBackPress) {
-        (context as? AppCompatActivity)?.onBackPressed()
-    }
+    LaunchedEffect(key1 = systemBackPress, block = {
+        if (systemBackPress) {
+            (context as? AppCompatActivity)?.onBackPressed()
+        }
+    })
 
     DisposableEffect(KeyPassRedux, context) {
         dispatch(UpdateContextAction(context))
@@ -128,27 +132,27 @@ fun Dashboard() {
 fun CurrentPage() {
     val currentScreen by selectState<KeyPassState, ScreenState> { this.currentScreen }
 
-    when (currentScreen) {
-        is HomeState -> {
-            Homepage(homeState = (currentScreen as HomeState))
-        }
+    currentScreen.let {
+        when (it) {
+            is HomeState -> {
+                Homepage(homeState = it)
+            }
 
-        is SettingsState -> {
-            MySettings()
-        }
+            is SettingsState -> {
+                MySettingCompose()
+            }
 
-        is AccountDetailState -> {
-            AccountDetailPage(id = (currentScreen as AccountDetailState).accountId)
-        }
+            is AccountDetailState -> {
+                AccountDetailPage(id = it.accountId)
+            }
 
-        is TotpDetailState -> {
-        }
-    }
-}
+            is AuthState -> {
+                AuthScreen(it)
+            }
 
-@Composable
-fun MySettings() {
-    AndroidViewBinding(LayoutMySettingsFragmentBinding::inflate) {
+            is TotpDetailState -> {
+            }
+        }
     }
 }
 
@@ -156,9 +160,9 @@ fun MySettings() {
 fun OptionBottomBar(
     viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
-    val bottomSheetState by selectState<KeyPassState, BottomSheetState> { this.bottomSheet }
+    val bottomSheetState by selectState<KeyPassState, BottomSheetState?> { this.bottomSheet }
 
-    if (!bottomSheetState.isBottomSheetOpen) {
+    if (bottomSheetState?.isBottomSheetOpen != true) {
         return
     }
 
@@ -230,7 +234,9 @@ fun NavItem(item: NavigationModelItem.NavMenuItem, onClick: () -> Unit) {
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = true),
                 onClick = onClick
-            ).padding(16.dp).fillMaxWidth(1f)
+            )
+            .padding(16.dp)
+            .fillMaxWidth(1f)
     ) {
         Icon(
             painter = painterResource(id = item.icon),

@@ -5,8 +5,10 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
+import com.yogeshpaliyal.keypass.ui.backup.BackupActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import org.reduxkotlin.Reducer
 import org.reduxkotlin.applyMiddleware
@@ -56,6 +58,13 @@ object KeyPassRedux {
                 state.copy(context = action.context)
             }
 
+            is ToastAction -> {
+                state.context?.let {
+                    Toast.makeText(it, action.text, Toast.LENGTH_SHORT).show()
+                }
+                state
+            }
+
             is GoBackAction -> {
                 val lastItem = arrPages.removeLastOrNull()
                 if (lastItem != null) {
@@ -90,6 +99,21 @@ object KeyPassRedux {
 
             is IntentNavigation.AddTOTP -> {
                 AddTOTPActivity.start(state.context, action.accountId)
+            }
+
+            is IntentNavigation.BackupActivity -> {
+                BackupActivity.start(state.context)
+            }
+
+            is IntentNavigation.ShareApp -> {
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(
+                    Intent.EXTRA_TEXT,
+                    "KeyPass Password Manager\n Offline, Secure, Open Source https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
+                )
+                sendIntent.type = "text/plain"
+                state.context?.startActivity(Intent.createChooser(sendIntent, state.context.getString(R.string.share_keypass)))
             }
         }
         next(action)

@@ -1,5 +1,6 @@
 package com.yogeshpaliyal.keypass.ui.home
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -67,14 +68,14 @@ fun Homepage(
             )
         }
 
-        if (tag != null) {
+        AnimatedVisibility(tag != null) {
             LazyRow(
                 modifier = Modifier.padding(vertical = 8.dp),
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 content = {
                     item {
                         AssistChip(onClick = { }, label = {
-                            Text(text = tag)
+                            Text(text = tag ?: "")
                         }, trailingIcon = {
                                 IconButton(onClick = {
                                     dispatchAction(NavigationAction(HomeState(), true))
