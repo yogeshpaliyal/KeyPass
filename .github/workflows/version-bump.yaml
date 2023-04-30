@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: master
+          token: ${{ secrets.REPO_TOKEN }}
 
       - name: 🏗 Bump App Version
         run: ls && bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
@@ -32,6 +36,6 @@ jobs:
       - name: Version Bump
         run: |
             git config --global user.name 'Yogesh Choudhary Paliyal'
-            git config --global user.email 'yogeshpaliyal.foss@gmail.com'
+            git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
             git commit -am "Automated version bump"
             git push
