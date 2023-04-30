@@ -25,7 +25,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: 🏗 Bump App Version
-        uses: ./scripts/versionBump.sh ${{ github.event.inputs.type }} "${{ github.event.inputs.releaseNote }}"
+        uses: ./scripts/versionBump.sh ${{ inputs.type }} "${{ inputs.releaseNote }}"
       - name: Version Bump
         run: |
             git config --global user.name 'Yogesh Choudhary Paliyal'
