@@ -32,6 +32,6 @@ jobs:
       - name: Version Bump
         run: |
             git config --global user.name 'Yogesh Choudhary Paliyal'
-            git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
+            git config --global user.email 'yogeshpaliyal.foss@gmail.com'
             git commit -am "Automated version bump"
             git push
