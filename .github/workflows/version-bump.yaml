@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: 🏗 Bump App Version
-        run: ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
+        run: ls && ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
         env:
           TYPE: ${{ inputs.type }}
           RELEASE_NOTES: ${{ inputs.releaseNote }}
