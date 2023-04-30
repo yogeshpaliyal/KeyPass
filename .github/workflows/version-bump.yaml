@@ -20,7 +20,7 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: yogeshpaliyal/KeyPass@master
       - name: Setting up project
         uses: ./.github/actions/setup
 
