@@ -1,0 +1,16 @@
+
+name: "Setup Worflow"
+
+
+runs:
+  using: "composite"
+  steps:
+
+    - name: 🧱 Set Up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 17
+        
+    - name: "Grant Gradlew rights"
+      run: chmod +x gradlew
+      shell: bash

@@ -71,4 +71,25 @@
     <string name="scan_password">पासवर्ड स्कैन करें</string>
 
     <string name="save">सहेजें</string>
+
+    <string name="custom_keyphrase">कस्टम कीफ़्रेज़</string>
+    <string name="generate_keyphrase">कीफ़्रेज़ जनरेट करें</string>
+    <string name="alert_blank_keyphrase">कृपया कीफ़्रेज़ दर्ज करें</string>
+    <string name="alert_invalid_keyphrase">कृपया मान्य कीफ़्रेज़ दर्ज करें</string>
+    <string name="set_keyphrase">कीफ़्रेज़ सेट करें</string>
+    <string name="set_keyphrase_info">कृपया बैकअप फ़ाइल के लिए कीफ़्रेज़ बनाएं, इसका उपयोग बैकअप फ़ाइल को पुनर्स्थापित करने के लिए किया जाएगा। कीफ़्रेज़ 16 वर्णों का होना चाहिए</string>
+    <string name="enter_keyphrase">कीफ़्रेज़ दर्ज करें</string>
+    <string name="restore">पुनर्स्थापित करना</string>
+    <string name="keyphrase_restore_info">कृपया वह कीफ़्रेज़ दर्ज करें जो आपके द्वारा बैक अप लेने पर प्राप्त होता है</string>
+    <string name="custom_generated_keyphrase_info">क्या आप बैकअप के लिए अपना खुद का कीफ्रेज बनाना चाहते हैं या मुझे आपके लिए जनरेट करना चाहिए?</string>
+    <string name="ascending">आरोही</string>
+    <string name="descending">अवरोही</string>
+    <string name="str_continue">जारी रखना</string>
+    <string name="back">पीछे</string>
+    <string name="enter_password">कृपया पासवर्ड दर्ज करें</string>
+    <string name="create_password">पासवर्ड बनाएं</string>
+    <string name="confirm_password">पासवर्ड की पुष्टि कीजिये</string>
+    <string name="incorrect_password">गलत पासवर्ड</string>
+    <string name="password_no_match">पासवर्ड मेल नहीं खाता</string>
+
 </resources>

@@ -1,15 +1,22 @@
 ![](cover.jpeg)
 
-# KeyPass
-
-![buildStatus](https://img.shields.io/github/workflow/status/yogeshpaliyal/KeyPass/Deploy%20App%20CI?style=for-the-badge)
-![latestVersion](https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge)
-![visitCount](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyogeshpaliyal%2FKeyPass&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true&style=for-the-badge")
-[![DevLibrary](https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google)](https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass)
-
-<a href="https://twitter.com/yogeshpaliyal" target="_blank">
-<img alt="Twitter: yogeshpaliyal" src="https://img.shields.io/twitter/follow/yogeshpaliyal.svg?style=social" />
+<div style="display: inline-block"  align="center">
+<h1>KeyPass</h1>
+<p>
+<a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-staging-debug.apk">
+<img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
 </a>
+<img src="https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge" alt="latestVersion">
+<a href="https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass">
+<img src="https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge" alt="DevLibrary">
+</a>
+<a href="https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/productionRelease/report.html">
+<img src="https://img.shields.io/badge/App%20Size-Report-9cf?color=f39c12&style=for-the-badge" alt="DevLibrary">
+</a>
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyogeshpaliyal%2FKeyPass&count_bg=%2379C83D&title_bg=%23555555&title=hits&style=for-the-badge%22" alt="visitCount">
+</p>
+</div>
+
 
 > The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
 
@@ -84,7 +91,6 @@ Give a ⭐️ if this project helped you!
 ## Download Links
 <a href='https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass'><img align='center' height='55' src='./icons/google_play_badge.png'></a>
 <a href='https://f-droid.org/en/packages/com.yogeshpaliyal.keypass/'><img align='center' alt='Get it on F-Droid' src='./icons/fdroid_badge.png' height="55"/></a>
-
 
 ## 📝 License
 

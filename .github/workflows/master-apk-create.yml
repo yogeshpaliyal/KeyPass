@@ -1,0 +1,26 @@
+name: Create APK from Master
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+  
+    - name: Setting up project
+      uses: ./.github/actions/setup
+      
+    - name: Build APK ⚙️🛠
+      run: bash ./gradlew assembleStagingDebug
+ 
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+          repo_token: "${{ github.token }}"
+          automatic_release_tag: "latest-master"
+          prerelease: true
+          title: "Staging Build"
+          files: app/build/outputs/apk/staging/debug/*.apk

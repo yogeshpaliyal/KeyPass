@@ -1,0 +1,37 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [ master ]
+
+
+jobs:
+
+  build:
+    name: 'Spotless, Tests and Build Production Debug Build'
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+    
+      - name: Setting up project 
+        uses: ./.github/actions/setup
+
+      - name: 🏗 Build With gradle
+        run: bash ./gradlew build
+        
+      - name: 🛠 Build Project with Spotless Check
+        run: ./gradlew spotlessCheck
+        
+      - name: 🧪 Run Tests
+        run: ./gradlew test
+
+      - name: 🏗 Build APK
+        run: bash ./gradlew assembleProductionDebug
+
+      - name: 🚀 Upload APK to Artifiacts 📱
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: app/build/outputs/apk/production/debug/*.apk
+          retention-days: 3

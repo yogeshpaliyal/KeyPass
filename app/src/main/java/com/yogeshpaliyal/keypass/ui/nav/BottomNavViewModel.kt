@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,11 +16,14 @@ import javax.inject.Inject
 * created on 31-01-2021 14:11
 */
 @HiltViewModel
-class BottomNavViewModel @Inject constructor (application: Application, val appDb: com.yogeshpaliyal.common.AppDatabase) : AndroidViewModel(application) {
+class BottomNavViewModel @Inject constructor(
+    application: Application,
+    val appDb: com.yogeshpaliyal.common.AppDatabase
+) : AndroidViewModel(application) {
     private val _navigationList: MutableLiveData<List<NavigationModelItem>> = MutableLiveData()
     private val tagsDb = appDb.getDao().getTags()
 
-    private var tagsList: List<String> ? = null
+    private var tagsList: List<String>? = null
 
     val navigationList: LiveData<List<NavigationModelItem>>
         get() = _navigationList
@@ -57,7 +59,10 @@ class BottomNavViewModel @Inject constructor (application: Application, val appD
 
     private fun postListUpdate() {
         val newList = if (tagsList.isNullOrEmpty().not()) {
-            NavigationModel.navigationMenuItems + NavigationModelItem.NavDivider("Tags") + (tagsList?.filter { it != null }?.map { NavigationModelItem.NavEmailFolder(it) } ?: listOf())
+            NavigationModel.navigationMenuItems + NavigationModelItem.NavDivider("Tags") + (
+                tagsList?.filter { it != null }
+                    ?.map { NavigationModelItem.NavTagItem(it) } ?: listOf()
+                )
         } else {
             NavigationModel.navigationMenuItems
         }

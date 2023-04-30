@@ -70,4 +70,25 @@
     <string name="scanner">扫描器</string>
     <string name="scan_password">扫描密码</string>
     <string name="save">保存</string>
+
+    <string name="custom_keyphrase">自定义关键词</string>
+    <string name="generate_keyphrase">生成关键词</string>
+    <string name="alert_blank_keyphrase">请输入关键词</string>
+    <string name="alert_invalid_keyphrase">请输入有效的关键词</string>
+    <string name="set_keyphrase">设置关键词</string>
+    <string name="set_keyphrase_info">请为您的备份文件创建关键字，这将用于恢复备份文件。 关键词应为 16 个字符</string>
+    <string name="enter_keyphrase">输入关键词</string>
+    <string name="restore">恢复</string>
+    <string name="keyphrase_restore_info">请输入您备份时获得的关键词</string>
+    <string name="custom_generated_keyphrase_info">您想创建自己的备份关键字还是我应该为您生成？</string>
+    <string name="ascending">上升</string>
+    <string name="descending">降序</string>
+    <string name="str_continue">继续</string>
+    <string name="back">后退</string>
+    <string name="enter_password">请输入密码</string>
+    <string name="create_password">创建密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="incorrect_password">密码错误</string>
+    <string name="password_no_match">密码不匹配</string>
+
 </resources>

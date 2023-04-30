@@ -39,7 +39,7 @@
     <string name="cancel">Cancel</string>
     <string name="feedback_to_keypass">Feedback to KeyPass</string>
     <string name="share_keypass">Share KeyPass</string>
-    <string name="message_no_accounts">No Accounts added, please add from below button</string>
+    <string name="message_no_accounts">No Accounts found, please add from below button</string>
     <string name="turn_off_backup">Turn Off Backups</string>
     <string name="verify_keyphrase">Verify backup passphrase</string>
     <string name="verify_keyphrase_message">Test your backup passphrase and verify that it matches</string>
@@ -69,4 +69,25 @@
     <string name="add_totp">Add TOTP</string>
     <string name="scan_password">Scan Password</string>
     <string name="save">Save</string>
+    <string name="custom_keyphrase">Custom Keyphrase</string>
+    <string name="generate_keyphrase">Generate Keyphrase</string>
+    <string name="alert_blank_keyphrase">Please enter keyphrase</string>
+    <string name="alert_invalid_keyphrase">Please enter valid keyphrase</string>
+    <string name="set_keyphrase">Set Keyphrase</string>
+    <string name="set_keyphrase_info">Please create keyphrase for you backup file, this will be used to restore the backup file. keyphrase should be of 16 characters</string>
+    <string name="enter_keyphrase">Enter Keyphrase</string>
+    <string name="restore">Restore</string>
+    <string name="keyphrase_restore_info">Please enter keyphrase you get when you backed up</string>
+    <string name="custom_generated_keyphrase_info">Do you want to create your own keyphrase for backups or should I generate for you?</string>
+
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="str_continue">Continue</string>
+    <string name="back">Back</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="create_password">Create Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="incorrect_password">Incorrect Password</string>
+    <string name="password_no_match">The password did not match</string>
+
 </resources>

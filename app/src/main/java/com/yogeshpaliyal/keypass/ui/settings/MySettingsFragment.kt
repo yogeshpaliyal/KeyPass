@@ -1,34 +1,58 @@
 package com.yogeshpaliyal.keypass.ui.settings
 
-import android.app.Activity
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.documentfile.provider.DocumentFile
-import androidx.lifecycle.lifecycleScope
-import androidx.preference.Preference
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.annotation.StringRes
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Feedback
+import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.preference.PreferenceFragmentCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.yogeshpaliyal.common.dbhelper.createBackup
-import com.yogeshpaliyal.common.dbhelper.restoreBackup
+import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
-import com.yogeshpaliyal.common.utils.getOrCreateBackupKey
-import com.yogeshpaliyal.common.utils.setBackupDirectory
-import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.databinding.LayoutBackupKeypharseBinding
-import com.yogeshpaliyal.keypass.databinding.LayoutRestoreKeypharseBinding
-import com.yogeshpaliyal.keypass.ui.backup.BackupActivity
+import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
+import com.yogeshpaliyal.keypass.ui.redux.Action
+import com.yogeshpaliyal.keypass.ui.redux.IntentNavigation
+import com.yogeshpaliyal.keypass.ui.redux.ToastAction
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import org.reduxkotlin.compose.rememberTypedDispatcher
 import javax.inject.Inject
-
-private const val CHOOSE_BACKUPS_LOCATION_REQUEST_CODE = 26212
-private const val CHOOSE_RESTORE_FILE_REQUEST_CODE = 26213
 
 @AndroidEntryPoint
 class MySettingsFragment : PreferenceFragmentCompat() {
@@ -39,164 +63,181 @@ class MySettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.preferences, rootKey)
     }
+}
 
-    override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        return when (preference.key) {
-            "feedback" -> {
-                context?.email(
-                    getString(R.string.feedback_to_keypass),
-                    "yogeshpaliyal.foss@gmail.com"
-                )
-                true
-            }
-
-            "backup" -> {
-                BackupActivity.start(context)
-                true
-            }
-
-            getString(R.string.settings_restore_backup) -> {
-                selectRestoreFile()
-                true
-            }
-
-            "share" -> {
-                val sendIntent = Intent()
-                sendIntent.action = Intent.ACTION_SEND
-                sendIntent.putExtra(
-                    Intent.EXTRA_TEXT,
-                    "KeyPass Password Manager\n Offline, Secure, Open Source https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
-                )
-                sendIntent.type = "text/plain"
-                startActivity(Intent.createChooser(sendIntent, getString(R.string.share_keypass)))
-                true
-            }
-            else -> super.onPreferenceTreeClick(preference)
-        }
+@Composable
+fun RestoreDialog(
+    selectedFile: Uri,
+    hideDialog: () -> Unit,
+    mViewModel: DashboardViewModel = hiltViewModel()
+) {
+    val (keyphrase, setKeyPhrase) = remember {
+        mutableStateOf("")
     }
 
-    private fun selectRestoreFile() {
-        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-        intent.addCategory(Intent.CATEGORY_OPENABLE)
-        intent.type = "*/*"
+    val dispatchAction = rememberTypedDispatcher<Action>()
 
-        intent.addFlags(
-            Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
-                Intent.FLAG_GRANT_READ_URI_PERMISSION
-        )
+    val context = LocalContext.current
 
-        try {
-            startActivityForResult(intent, CHOOSE_RESTORE_FILE_REQUEST_CODE)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
+    val coroutineScope = rememberCoroutineScope()
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CHOOSE_BACKUPS_LOCATION_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val contentResolver = context?.contentResolver
-            val selectedDirectory = data?.data
-            if (contentResolver != null && selectedDirectory != null) {
-                contentResolver.takePersistableUriPermission(
-                    selectedDirectory,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                )
-
-                lifecycleScope.launch {
-                    context?.setBackupDirectory(selectedDirectory.toString())
-
-                    backup(selectedDirectory)
+    AlertDialog(
+        onDismissRequest = {
+            hideDialog()
+        },
+        title = {
+            Text(text = stringResource(id = R.string.restore))
+        },
+        confirmButton = {
+            TextButton(onClick = {
+                if (keyphrase.isEmpty()) {
+                    dispatchAction(ToastAction(R.string.alert_blank_keyphrase))
+                    return@TextButton
                 }
-            }
-        } else if (requestCode == CHOOSE_RESTORE_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            val contentResolver = context?.contentResolver
-            val selectedFile = data?.data
-            if (contentResolver != null && selectedFile != null) {
 
-                val binding = LayoutRestoreKeypharseBinding.inflate(layoutInflater)
+                if (keyphrase.length != BACKUP_KEY_LENGTH) {
+                    dispatchAction(ToastAction(R.string.alert_invalid_keyphrase))
+                    return@TextButton
+                }
+                coroutineScope.launch {
+                    val result =
+                        mViewModel.restoreBackup(keyphrase, context.contentResolver, selectedFile)
 
-                MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
-                    .setNegativeButton(
-                        "Cancel"
-                    ) { dialog, which ->
-                        dialog.dismiss()
+                    if (result) {
+                        hideDialog()
+                        dispatchAction(ToastAction(R.string.backup_restored))
+                    } else {
+                        dispatchAction(ToastAction(R.string.invalid_keyphrase))
                     }
-                    .setPositiveButton(
-                        "Restore"
-                    ) { dialog, which ->
-                        lifecycleScope.launch {
-                            val result = appDb.restoreBackup(
-                                binding.etKeyPhrase.text.toString(),
-                                contentResolver,
-                                selectedFile
-                            )
-                            if (result) {
-                                dialog?.dismiss()
-                                Toast.makeText(
-                                    context,
-                                    getString(R.string.backup_restored),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            } else {
-                                Toast.makeText(
-                                    context,
-                                    getString(R.string.invalid_keyphrase),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }.show()
+                }
+            }) {
+                Text(text = stringResource(id = R.string.restore))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = hideDialog) {
+                Text(text = stringResource(id = R.string.cancel))
+            }
+        },
+        text = {
+            Column(modifier = Modifier.fillMaxWidth(1f)) {
+                Text(text = stringResource(id = R.string.keyphrase_restore_info))
+                Spacer(modifier = Modifier.size(8.dp))
+                OutlinedTextField(
+                    modifier = Modifier.fillMaxWidth(1f),
+                    value = keyphrase,
+                    onValueChange = setKeyPhrase,
+                    placeholder = {
+                        Text(text = stringResource(id = R.string.enter_keyphrase))
+                    }
+                )
             }
         }
+    )
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun MySettingCompose() {
+    val dispatchAction = rememberTypedDispatcher<Action>()
+    val context = LocalContext.current
+
+    val (result, setResult) = remember { mutableStateOf<Uri?>(null) }
+
+    val launcher = rememberLauncherForActivityResult(OpenKeyPassBackup()) {
+        setResult(it)
     }
 
-    suspend fun backup(selectedDirectory: Uri) {
-
-        val keyPair = requireContext().getOrCreateBackupKey()
-
-        val tempFile = DocumentFile.fromTreeUri(requireContext(), selectedDirectory)?.createFile(
-            "*/*",
-            "key_pass_backup_${System.currentTimeMillis()}.keypass"
+    result?.let {
+        RestoreDialog(
+            selectedFile = it,
+            hideDialog = {
+                setResult(null)
+            }
         )
+    }
 
-        lifecycleScope.launch {
-            context?.contentResolver?.let {
-                appDb.createBackup(
-                    keyPair.second,
-                    it,
-                    tempFile?.uri
-                )
-                if (keyPair.first) {
-                    val binding = LayoutBackupKeypharseBinding.inflate(layoutInflater)
-                    binding.txtCode.text = requireContext().getOrCreateBackupKey().second
-                    binding.txtCode.setOnClickListener {
-                        val clipboard =
-                            getSystemService(requireContext(), ClipboardManager::class.java)
-                        val clip = ClipData.newPlainText(
-                            getString(R.string.app_name),
-                            binding.txtCode.text
-                        )
-                        clipboard?.setPrimaryClip(clip)
-                        Toast.makeText(
-                            context,
-                            getString(R.string.copied_to_clipboard),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    MaterialAlertDialogBuilder(requireContext()).setView(binding.root)
-                        .setPositiveButton(
-                            "Yes"
-                        ) { dialog, which ->
-                            dialog?.dismiss()
-                        }.show()
-                } else {
-                    Toast.makeText(
-                        context,
-                        getString(R.string.backup_completed),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+    Column {
+        PreferenceItem(title = R.string.security, isCategory = true)
+        PreferenceItem(
+            title = R.string.credentials_backups,
+            summary = R.string.credentials_backups_desc
+        ) {
+            dispatchAction(IntentNavigation.BackupActivity)
+        }
+        PreferenceItem(
+            title = R.string.restore_credentials,
+            summary = R.string.restore_credentials_desc
+        ) {
+            launcher.launch(arrayOf())
+        }
+        Divider(
+            modifier = Modifier
+                .fillMaxWidth(1f)
+                .height(1.dp)
+        )
+        PreferenceItem(title = R.string.help, isCategory = true)
+        PreferenceItem(
+            title = R.string.send_feedback,
+            summary = R.string.send_feedback_desc,
+            icon = Icons.Rounded.Feedback
+        ) {
+            context.email(
+                context.getString(R.string.feedback_to_keypass),
+                "yogeshpaliyal.foss@gmail.com"
+            )
+        }
+        PreferenceItem(
+            title = R.string.share,
+            summary = R.string.share_desc,
+            icon = Icons.Rounded.Share
+        ) {
+            dispatchAction(IntentNavigation.ShareApp)
+        }
+    }
+}
+
+@Composable
+fun PreferenceItem(
+    @StringRes title: Int,
+    @StringRes summary: Int? = null,
+    icon: ImageVector? = null,
+    isCategory: Boolean = false,
+    onClickItem: (() -> Unit)? = null
+) {
+    val titleColor = if (isCategory) {
+        MaterialTheme.colorScheme.secondary
+    } else {
+        Color.Unspecified
+    }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(1f)
+            .widthIn(48.dp)
+            .padding(horizontal = 16.dp)
+            .clickable(onClickItem != null) {
+                onClickItem?.invoke()
+            },
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
+            if (icon != null) {
+                Icon(painter = rememberVectorPainter(image = icon), contentDescription = "")
+            }
+        }
+        Column(
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+                .fillMaxWidth(1f)
+        ) {
+            Text(
+                text = stringResource(id = title),
+                color = titleColor,
+                style = TextStyle(fontSize = 16.sp)
+            )
+            if (summary != null) {
+                Text(text = stringResource(id = summary), style = TextStyle(fontSize = 14.sp))
             }
         }
     }
