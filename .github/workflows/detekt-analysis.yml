@@ -16,7 +16,7 @@ on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   pull_request:
     branches: [ master ]
-    paths:
+    paths-ignore:
       - '!fastlane/**'
       - '!.github/**'
       - '!icons/**'
