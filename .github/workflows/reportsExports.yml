@@ -4,6 +4,15 @@ on:
   push:
     branches:
     - master
+    paths-ignore:
+      - 'fastlane/**'
+      - '.github/**'
+      - 'icons/**'
+      - 'images/**'
+      - 'scripts/**'
+      - 'whatsnew/**'
+      - '**.md'
+      - '**.MD'
 
 jobs:
   build:

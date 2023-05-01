@@ -21,19 +21,54 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setting up project
-        uses: ./.github/actions/setup
+
+      # - name: Checkout
+      #   run: |
+      #       git checkout -b autoVersionBump
 
       - name: 🏗 Bump App Version
-        uses: ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
+        id: bump-app-version
+        run: |
+          newVersion=$(bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")
+          echo "::newVersion::$newVersion"
+          echo "newVersion=$newVersion" >> "$GITHUB_OUTPUT"
         env:
           TYPE: ${{ inputs.type }}
           RELEASE_NOTES: ${{ inputs.releaseNote }}
         
         
-      - name: Version Bump
+      - name: Git Add and Commit
         run: |
             git config --global user.name 'Yogesh Choudhary Paliyal'
             git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
-            git commit -am "Automated version bump"
-            git push
+            git add .
+            git commit -am "Github Actions: App version Bumped to ${{ steps.bump-app-version.outputs.newVersion }}"
+
+      - name: Print newVersion
+        run: echo "${{ steps.bump-app-version.outputs.newVersion }}"
+
+      - name: Push to protected branch
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          branch: master
+          unprotect_reviews: true
+
+      - name: Git push tag
+        run: |
+            git tag -a ${{ steps.bump-app-version.outputs.newVersion }} -m "Release version ${{ steps.bump-app-version.outputs.newVersion }}"
+            git push origin ${{ steps.bump-app-version.outputs.newVersion }}
+
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          tag: "${{ steps.bump-app-version.outputs.newVersion }}"
+          generateReleaseNotes: true
+          commit: "master"
+          discussionCategory: "Release feedbacks"
+          makeLatest: true
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5.0.0
+
