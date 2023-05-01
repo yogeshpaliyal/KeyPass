@@ -1,11 +1,11 @@
-name: Deploy App CI
+name: Deploy App Play Store
 
 on:
   push:
 #     branches: 
 #     - master
     tags: 
-    - '*'
+      - 'v.*'
 
 jobs:
   build:

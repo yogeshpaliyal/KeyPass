@@ -20,7 +20,7 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # - name: Checkout
       #   run: |
@@ -51,7 +51,7 @@ jobs:
         uses: CasperWA/push-protected@v2
         with:
           token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
-          branch: main
+          branch: master
           unprotect_reviews: true
 
 
