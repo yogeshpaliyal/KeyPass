@@ -41,7 +41,8 @@ jobs:
         run: |
             git config --global user.name 'Yogesh Choudhary Paliyal'
             git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
-            git commit -am "Automated version bump"
+            git add .
+            git commit -am "Github Actions: App version Bumped to ${{ steps.bump-app-version.outputs.newVersion }}"
 
       - name: Print newVersion
         run: echo "${{ steps.bump-app-version.outputs.newVersion }}"
