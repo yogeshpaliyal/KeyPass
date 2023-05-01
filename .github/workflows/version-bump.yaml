@@ -54,6 +54,11 @@ jobs:
           branch: master
           unprotect_reviews: true
 
+      - name: Create/Update tag
+        uses: rickstaa/action-create-tag@v1.6.1
+        with:
+          tag: "${{ steps.bump-app-version.outputs.newVersion }}"
+
 
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
