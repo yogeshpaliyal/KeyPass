@@ -15,7 +15,7 @@ MAJOR=${VERSION_PARTS[0]}
 MINOR=${VERSION_PARTS[1]}
 PATCH=${VERSION_PARTS[2]}
 
-echo "$VERSION_CODE"
+#echo "$VERSION_CODE"
 
 # Increment the appropriate version number based on the input type
 case $INCREMENT_MODE in
@@ -34,8 +34,10 @@ sed -i "s/versionCode $VERSION_CODE/versionCode $NEW_VERSION_CODE/" app/build.gr
 sed -i "s/versionName \"$VERSION_NAME\"/versionName \"$NEW_VERSION_NAME\"/" app/build.gradle
 
 # Output the new versionCode and versionName values
-echo "New versionCode: $NEW_VERSION_CODE"
-echo "New versionName: $NEW_VERSION_NAME"
-
+#echo "New versionCode: $NEW_VERSION_CODE"
 echo "$RELEASE_NOTES" > whatsnew/whatsnew-en-US
 echo "$RELEASE_NOTES" > fastlane/metadata/android/en-US/changelogs/${NEW_VERSION_CODE}.txt
+
+echo "v$NEW_VERSION_NAME"
+
+

@@ -16,6 +16,15 @@ on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   pull_request:
     branches: [ master ]
+    paths:
+      - '!fastlane/**'
+      - '!.github/**'
+      - '!icons/**'
+      - '!images/**'
+      - '!scripts/**'
+      - '!whatsnew/**'
+      - '!**.md'
+      - '!**.MD'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

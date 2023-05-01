@@ -22,24 +22,48 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Checkout
-        run: |
-            git checkout -b autoVersionBump
+      # - name: Checkout
+      #   run: |
+      #       git checkout -b autoVersionBump
 
       - name: 🏗 Bump App Version
-        run: ls && bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
+        id: bump-app-version
+        run: |
+          newVersion=$(bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")
+          echo "::newVersion::$newVersion"
+          echo "newVersion=$newVersion" >> "$GITHUB_OUTPUT"
         env:
           TYPE: ${{ inputs.type }}
           RELEASE_NOTES: ${{ inputs.releaseNote }}
         
         
-      # - name: Version Bump
-      #   run: |
-      #       git config --global user.name 'Yogesh Choudhary Paliyal'
-      #       git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
-      #       git commit -am "Automated version bump"
-      #       git push
+      - name: Git Add and Commit
+        run: |
+            git config --global user.name 'Yogesh Choudhary Paliyal'
+            git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
+            git add .
+            git commit -am "Github Actions: App version Bumped to ${{ steps.bump-app-version.outputs.newVersion }}"
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5.0.0
+      - name: Print newVersion
+        run: echo "${{ steps.bump-app-version.outputs.newVersion }}"
+
+      - name: Push to protected branch
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          branch: main
+          unprotect_reviews: true
+
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          tag: "${{ steps.bump-app-version.outputs.newVersion }}"
+          generateReleaseNotes: true
+          commit: "master"
+          discussionCategory: "Release feedbacks"
+          makeLatest: true
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5.0.0
 
