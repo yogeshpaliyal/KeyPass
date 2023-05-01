@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.15",
+    "version": "1.4.16",
     "variant": "productionRelease",
-    "downloadSize": 2504871,
-    "installSize": 3045266,
+    "downloadSize": 2504872,
+    "installSize": 3045269,
     "components": [
         {
             "name": ":app",
@@ -7075,7 +7075,7 @@
             "name": "androidx.compose.ui:ui:1.4.2",
             "type": "EXTERNAL",
             "downloadSize": 213237,
-            "installSize": 213822,
+            "installSize": 213823,
             "files": [
                 {
                     "name": "androidx.compose.ui.input.key.KeyEvent_androidKt",
@@ -7297,7 +7297,7 @@
                     "name": "androidx.compose.ui.window.DialogWrapper",
                     "type": "CLASS",
                     "downloadSize": 1160,
-                    "installSize": 1163
+                    "installSize": 1164
                 },
                 {
                     "name": "androidx.compose.ui.input.key.Key",
@@ -16401,7 +16401,7 @@
             "name": "androidx.compose.material3:material3:1.1.0-rc01",
             "type": "EXTERNAL",
             "downloadSize": 91664,
-            "installSize": 91911,
+            "installSize": 91912,
             "files": [
                 {
                     "name": "androidx.compose.material3.SliderDefaults",
@@ -16509,7 +16509,7 @@
                     "name": "androidx.compose.material3.AndroidAlertDialog_androidKt",
                     "type": "CLASS",
                     "downloadSize": 1160,
-                    "installSize": 1163
+                    "installSize": 1164
                 },
                 {
                     "name": "androidx.compose.material3.IconKt",
@@ -22261,7 +22261,7 @@
             "name": "com.google.zxing:core:3.4.1",
             "type": "EXTERNAL",
             "downloadSize": 62271,
-            "installSize": 62438,
+            "installSize": 62439,
             "files": [
                 {
                     "name": "com.google.zxing.datamatrix.decoder.Decoder",
@@ -22291,7 +22291,7 @@
                     "name": "com.google.zxing.oned.Code128Reader",
                     "type": "CLASS",
                     "downloadSize": 3053,
-                    "installSize": 3061
+                    "installSize": 3062
                 },
                 {
                     "name": "com.google.zxing.aztec.detector.Detector",
@@ -26022,13 +26022,13 @@
         {
             "name": "androidx.constraintlayout:constraintlayout-core:1.0.4",
             "type": "EXTERNAL",
-            "downloadSize": 36884,
+            "downloadSize": 36885,
             "installSize": 36989,
             "files": [
                 {
                     "name": "androidx.constraintlayout.core.widgets.ConstraintWidget",
                     "type": "CLASS",
-                    "downloadSize": 7107,
+                    "downloadSize": 7108,
                     "installSize": 7127
                 },
                 {
