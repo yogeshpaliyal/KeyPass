@@ -1,15 +1,15 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.13",
+    "version": "1.4.12",
     "variant": "productionRelease",
-    "downloadSize": 2504868,
-    "installSize": 3045266,
+    "downloadSize": 2504871,
+    "installSize": 3045268,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 454320,
-            "installSize": 986840,
+            "downloadSize": 454322,
+            "installSize": 986842,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -98,8 +98,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3303,
-                    "installSize": 3303
+                    "downloadSize": 3305,
+                    "installSize": 3305
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
@@ -26022,13 +26022,13 @@
         {
             "name": "androidx.constraintlayout:constraintlayout-core:1.0.4",
             "type": "EXTERNAL",
-            "downloadSize": 36884,
+            "downloadSize": 36885,
             "installSize": 36989,
             "files": [
                 {
                     "name": "androidx.constraintlayout.core.widgets.ConstraintWidget",
                     "type": "CLASS",
-                    "downloadSize": 7107,
+                    "downloadSize": 7108,
                     "installSize": 7127
                 },
                 {
