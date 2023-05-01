@@ -1,15 +1,15 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.16",
+    "version": "1.4.17",
     "variant": "productionRelease",
-    "downloadSize": 2504872,
-    "installSize": 3045269,
+    "downloadSize": 2504883,
+    "installSize": 3045270,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 454323,
-            "installSize": 986843,
+            "downloadSize": 454324,
+            "installSize": 986844,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -56,8 +56,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5447,
-                    "installSize": 5442
+                    "downloadSize": 5448,
+                    "installSize": 5443
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -3244,7 +3244,7 @@
         {
             "name": "com.google.android.material:material:1.9.0-beta01",
             "type": "EXTERNAL",
-            "downloadSize": 248751,
+            "downloadSize": 248752,
             "installSize": 249128,
             "files": [
                 {
@@ -3292,7 +3292,7 @@
                 {
                     "name": "com.google.android.material.internal.CollapsingTextHelper",
                     "type": "CLASS",
-                    "downloadSize": 2696,
+                    "downloadSize": 2697,
                     "installSize": 2704
                 },
                 {
@@ -7074,13 +7074,13 @@
         {
             "name": "androidx.compose.ui:ui:1.4.2",
             "type": "EXTERNAL",
-            "downloadSize": 213237,
+            "downloadSize": 213239,
             "installSize": 213823,
             "files": [
                 {
                     "name": "androidx.compose.ui.input.key.KeyEvent_androidKt",
                     "type": "CLASS",
-                    "downloadSize": 40028,
+                    "downloadSize": 40029,
                     "installSize": 40139
                 },
                 {
@@ -7302,7 +7302,7 @@
                 {
                     "name": "androidx.compose.ui.input.key.Key",
                     "type": "CLASS",
-                    "downloadSize": 1135,
+                    "downloadSize": 1136,
                     "installSize": 1139
                 },
                 {
@@ -15294,7 +15294,7 @@
         {
             "name": "androidx.compose.runtime:runtime:1.4.2",
             "type": "EXTERNAL",
-            "downloadSize": 95253,
+            "downloadSize": 95254,
             "installSize": 95528,
             "files": [
                 {
@@ -15414,7 +15414,7 @@
                 {
                     "name": "androidx.compose.runtime.ComposerImpl$recordInsert$2",
                     "type": "CLASS",
-                    "downloadSize": 1114,
+                    "downloadSize": 1115,
                     "installSize": 1118
                 },
                 {
@@ -17770,7 +17770,7 @@
         {
             "name": "androidx.work:work-runtime:2.8.1",
             "type": "EXTERNAL",
-            "downloadSize": 77660,
+            "downloadSize": 77661,
             "installSize": 77876,
             "files": [
                 {
@@ -17956,7 +17956,7 @@
                 {
                     "name": "androidx.work.impl.background.systemalarm.Alarms",
                     "type": "CLASS",
-                    "downloadSize": 668,
+                    "downloadSize": 669,
                     "installSize": 670
                 },
                 {
@@ -21814,7 +21814,7 @@
         {
             "name": "androidx.recyclerview:recyclerview:1.2.0",
             "type": "EXTERNAL",
-            "downloadSize": 63566,
+            "downloadSize": 63567,
             "installSize": 63749,
             "files": [
                 {
@@ -22054,7 +22054,7 @@
                 {
                     "name": "androidx.recyclerview.widget.OrientationHelper",
                     "type": "CLASS",
-                    "downloadSize": 222,
+                    "downloadSize": 223,
                     "installSize": 223
                 },
                 {
@@ -22260,7 +22260,7 @@
         {
             "name": "com.google.zxing:core:3.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 62271,
+            "downloadSize": 62272,
             "installSize": 62439,
             "files": [
                 {
@@ -22272,7 +22272,7 @@
                 {
                     "name": "com.google.zxing.qrcode.decoder.Version",
                     "type": "CLASS",
-                    "downloadSize": 4013,
+                    "downloadSize": 4014,
                     "installSize": 4025
                 },
                 {
@@ -28620,7 +28620,7 @@
         {
             "name": "androidx.compose.material:material:1.4.2",
             "type": "EXTERNAL",
-            "downloadSize": 25465,
+            "downloadSize": 25466,
             "installSize": 25538,
             "files": [
                 {
@@ -28818,7 +28818,7 @@
                 {
                     "name": "androidx.compose.material.DefaultFloatingActionButtonElevation$elevation$1$1",
                     "type": "CLASS",
-                    "downloadSize": 222,
+                    "downloadSize": 223,
                     "installSize": 223
                 },
                 {
@@ -30232,13 +30232,13 @@
         {
             "name": "androidx.transition:transition:1.4.1",
             "type": "EXTERNAL",
-            "downloadSize": 13121,
+            "downloadSize": 13122,
             "installSize": 13156,
             "files": [
                 {
                     "name": "androidx.transition.Transition",
                     "type": "CLASS",
-                    "downloadSize": 2731,
+                    "downloadSize": 2732,
                     "installSize": 2739
                 },
                 {
@@ -32846,13 +32846,13 @@
         {
             "name": "commons-codec:commons-codec:1.15",
             "type": "EXTERNAL",
-            "downloadSize": 1648,
+            "downloadSize": 1649,
             "installSize": 1652,
             "files": [
                 {
                     "name": "org.apache.commons.codec.binary.Base32",
                     "type": "CLASS",
-                    "downloadSize": 1358,
+                    "downloadSize": 1359,
                     "installSize": 1362
                 },
                 {
