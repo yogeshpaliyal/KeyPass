@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - master
-    paths:
+    paths-ignore:
       - '!fastlane/**'
       - '!.github/**'
       - '!icons/**'

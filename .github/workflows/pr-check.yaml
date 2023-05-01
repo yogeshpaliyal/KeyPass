@@ -3,7 +3,7 @@ name: PR Check
 on:
   pull_request:
     branches: [ master ]
-    paths:
+    paths-ignore:
       - '!fastlane/**'
       - '!.github/**'
       - '!icons/**'
