@@ -4,6 +4,15 @@ on:
   push:
     branches:
     - master
+    paths:
+      - '!fastlane/**'
+      - '!.github/**'
+      - '!icons/**'
+      - '!images/**'
+      - '!scripts/**'
+      - '!whatsnew/**'
+      - '!**.md'
+      - '!**.MD'
 
 jobs:
   build:
