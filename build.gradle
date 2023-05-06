@@ -6,7 +6,7 @@ buildscript {
         lifecycle_version = "2.6.1"
         room_version = "2.5.1"
         navigation_version = '2.5.3'
-        ext.hilt_version = '2.45'
+        ext.hilt_version = '2.46'
     }
     repositories {
         google()
