@@ -1,7 +1,6 @@
 package com.yogeshpaliyal.keypass.ui.settings
 
 import android.net.Uri
-import android.os.Bundle
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
@@ -41,29 +40,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.preference.PreferenceFragmentCompat
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
-import com.yogeshpaliyal.keypass.ui.redux.Action
-import com.yogeshpaliyal.keypass.ui.redux.IntentNavigation
-import com.yogeshpaliyal.keypass.ui.redux.ToastAction
-import dagger.hilt.android.AndroidEntryPoint
+import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
-import javax.inject.Inject
 
-@AndroidEntryPoint
-class MySettingsFragment : PreferenceFragmentCompat() {
-
-    @Inject
-    lateinit var appDb: com.yogeshpaliyal.common.AppDatabase
-
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.preferences, rootKey)
-    }
-}
 
 @Composable
 fun RestoreDialog(
@@ -163,7 +152,7 @@ fun MySettingCompose() {
             title = R.string.credentials_backups,
             summary = R.string.credentials_backups_desc
         ) {
-            dispatchAction(IntentNavigation.BackupActivity)
+            dispatchAction(NavigationAction(BackupScreenState()))
         }
         PreferenceItem(
             title = R.string.restore_credentials,
@@ -199,8 +188,9 @@ fun MySettingCompose() {
 
 @Composable
 fun PreferenceItem(
-    @StringRes title: Int,
+    @StringRes title: Int? = null,
     @StringRes summary: Int? = null,
+    summaryStr: String? = null,
     icon: ImageVector? = null,
     isCategory: Boolean = false,
     onClickItem: (() -> Unit)? = null
@@ -231,13 +221,22 @@ fun PreferenceItem(
                 .padding(vertical = 16.dp)
                 .fillMaxWidth(1f)
         ) {
-            Text(
-                text = stringResource(id = title),
-                color = titleColor,
-                style = TextStyle(fontSize = 16.sp)
-            )
-            if (summary != null) {
-                Text(text = stringResource(id = summary), style = TextStyle(fontSize = 14.sp))
+            if (title != null) {
+                Text(
+                    text = stringResource(id = title),
+                    color = titleColor,
+                    style = TextStyle(fontSize = 16.sp)
+                )
+            }
+            if (summary != null || summaryStr != null) {
+                val summaryText = if (summary != null) {
+                    stringResource(id = summary)
+                } else {
+                    summaryStr
+                }
+                if (summaryText != null) {
+                    Text(text =summaryText, style = TextStyle(fontSize = 14.sp))
+                }
             }
         }
     }

@@ -10,5 +10,5 @@ class MySettingsViewModel @Inject constructor(
     application: Application,
     val appDb: com.yogeshpaliyal.common.AppDatabase
 ) : AndroidViewModel(application) {
-    private val appDao = appDb.getDao()
+
 }

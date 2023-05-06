@@ -48,10 +48,10 @@ import androidx.compose.ui.unit.sp
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.redux.AccountDetailState
-import com.yogeshpaliyal.keypass.ui.redux.CopyToClipboard
-import com.yogeshpaliyal.keypass.ui.redux.IntentNavigation
-import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
+import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
+import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import kotlinx.coroutines.delay
 import org.reduxkotlin.compose.rememberDispatcher
 import kotlin.time.Duration.Companion.seconds

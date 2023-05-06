@@ -89,5 +89,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="incorrect_password">Incorrect Password</string>
     <string name="password_no_match">The password did not match</string>
+    <string name="auto_backup_desc">Your accounts will be backed up whenever account is added or modified</string>
 
 </resources>

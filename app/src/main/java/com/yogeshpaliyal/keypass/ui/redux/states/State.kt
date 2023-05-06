@@ -1,9 +1,10 @@
-package com.yogeshpaliyal.keypass.ui.redux
+package com.yogeshpaliyal.keypass.ui.redux.states
 
 import android.content.Context
 import android.os.Bundle
 import androidx.annotation.StringRes
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.redux.BottomSheetRoutes
 
 data class KeyPassState(
     val context: Context? = null,
@@ -14,9 +15,17 @@ data class KeyPassState(
 
 sealed class ScreenState(val showMainBottomAppBar: Boolean = false)
 
-data class HomeState(val keyword: String? = null, val tag: String? = null, val sortField: String? = null, val sortAscending: Boolean = true) : ScreenState(true)
+data class HomeState(
+    val keyword: String? = null,
+    val tag: String? = null,
+    val sortField: String? = null,
+    val sortAscending: Boolean = true
+) : ScreenState(true)
+
 data class AccountDetailState(val accountId: Long? = null) : ScreenState()
 data class TotpDetailState(val accountId: String? = null) : ScreenState()
+
+
 object SettingsState : ScreenState(true)
 
 open class AuthState(@StringRes val title: Int) : ScreenState(false) {
@@ -24,6 +33,7 @@ open class AuthState(@StringRes val title: Int) : ScreenState(false) {
     class ConfirmPassword(val password: String) : AuthState(R.string.confirm_password)
     object Login : AuthState(R.string.login_to_enter_keypass)
 }
+
 data class BottomSheetState(
     val path: String,
     val args: Bundle? = null,
