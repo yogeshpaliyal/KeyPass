@@ -2,14 +2,14 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.12",
     "variant": "productionRelease",
-    "downloadSize": 2503652,
-    "installSize": 3044080,
+    "downloadSize": 2503610,
+    "installSize": 3044036,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 462015,
-            "installSize": 994688,
+            "downloadSize": 461973,
+            "installSize": 994644,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -2340,12 +2340,6 @@
                     "installSize": 59
                 },
                 {
-                    "name": "/META-INF/androidx.security_security-crypto.version",
-                    "type": "OTHER",
-                    "downloadSize": 58,
-                    "installSize": 58
-                },
-                {
                     "name": "androidx.activity.ComponentActivity$$ExternalSyntheticLambda2",
                     "type": "CLASS",
                     "downloadSize": 55,
@@ -2596,6 +2590,12 @@
                     "type": "CLASS",
                     "downloadSize": 29,
                     "installSize": 29
+                },
+                {
+                    "name": "/META-INF/androidx.security_security-crypto.version",
+                    "type": "OTHER",
+                    "downloadSize": 16,
+                    "installSize": 14
                 },
                 {
                     "name": "/META-INF/androidx.compose.material3_material3.version",
