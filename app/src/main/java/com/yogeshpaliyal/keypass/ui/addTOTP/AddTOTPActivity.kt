@@ -127,7 +127,9 @@ class AddTOTPActivity : AppCompatActivity() {
             if (result.contents != null) {
                 try {
                     val totp = TOTPHelper(result.contents)
-                    mViewModel.setSecretKey(totp.secret)
+                    totp.secret?.let {
+                        mViewModel.setSecretKey(it)
+                    }
                     mViewModel.setAccountName(totp.label)
                 } catch (e: Exception) {
                     e.printStackTrace()
