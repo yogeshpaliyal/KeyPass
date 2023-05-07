@@ -18,7 +18,7 @@ abstract class CommonMyApplication : Application(), Configuration.Provider {
 
     override fun onCreate() {
         super.onCreate()
-        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             Log.d("MyApplication", "crashed ")
             val intent = getCrashActivityIntent(throwable)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
