@@ -91,5 +91,6 @@
     <string name="confirm_password">पासवर्ड की पुष्टि कीजिये</string>
     <string name="incorrect_password">गलत पासवर्ड</string>
     <string name="password_no_match">पासवर्ड मेल नहीं खाता</string>
+    <string name="auto_backup_desc">जब भी खाता जोड़ा या संशोधित किया जाएगा, आपके खाते का बैकअप ले लिया जाएगा</string>
 
 </resources>

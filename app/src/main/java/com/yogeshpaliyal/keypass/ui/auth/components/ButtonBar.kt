@@ -14,9 +14,9 @@ import androidx.compose.ui.res.stringResource
 import com.yogeshpaliyal.common.utils.getKeyPassPassword
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.redux.AuthState
-import com.yogeshpaliyal.keypass.ui.redux.HomeState
-import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
+import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import kotlinx.coroutines.launch
 
 @Composable

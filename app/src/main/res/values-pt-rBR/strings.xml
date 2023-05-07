@@ -89,5 +89,6 @@
     <string name="confirm_password">Confirme sua senha</string>
     <string name="incorrect_password">Senha incorreta</string>
     <string name="password_no_match">A senha não corresponde</string>
+    <string name="auto_backup_desc">Será feito backup de suas contas sempre que uma conta for adicionada ou modificada</string>
 
 </resources>

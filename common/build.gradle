@@ -23,11 +23,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     namespace 'com.yogeshpaliyal.common'
@@ -42,7 +42,7 @@ dependencies {
     implementation "commons-codec:commons-codec:1.15"
 
     //Androidx Security
-    implementation "androidx.security:security-crypto:1.1.0-alpha05"
+    implementation "androidx.security:security-crypto:1.1.0-alpha06"
 
     api "androidx.documentfile:documentfile:1.0.1"
 
@@ -51,7 +51,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     api "androidx.room:room-ktx:$room_version"
 
-    api 'com.google.android.material:material:1.9.0-beta01'
+    api 'com.google.android.material:material:1.9.0-rc01'
 
 
     // dependency injection

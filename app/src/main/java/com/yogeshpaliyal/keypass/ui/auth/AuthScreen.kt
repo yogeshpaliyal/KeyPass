@@ -24,8 +24,8 @@ import com.yogeshpaliyal.common.utils.getKeyPassPassword
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
-import com.yogeshpaliyal.keypass.ui.redux.AuthState
-import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberDispatcher
 

@@ -41,6 +41,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.TextUnit
@@ -48,21 +49,23 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
+import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.home.Homepage
-import com.yogeshpaliyal.keypass.ui.redux.AccountDetailState
-import com.yogeshpaliyal.keypass.ui.redux.AuthState
-import com.yogeshpaliyal.keypass.ui.redux.BottomSheetAction
-import com.yogeshpaliyal.keypass.ui.redux.BottomSheetState
-import com.yogeshpaliyal.keypass.ui.redux.GoBackAction
-import com.yogeshpaliyal.keypass.ui.redux.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
-import com.yogeshpaliyal.keypass.ui.redux.KeyPassState
-import com.yogeshpaliyal.keypass.ui.redux.NavigationAction
-import com.yogeshpaliyal.keypass.ui.redux.ScreenState
-import com.yogeshpaliyal.keypass.ui.redux.SettingsState
-import com.yogeshpaliyal.keypass.ui.redux.TotpDetailState
-import com.yogeshpaliyal.keypass.ui.redux.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
+import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
+import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
+import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
+import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
+import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -148,6 +151,10 @@ fun CurrentPage() {
 
             is AuthState -> {
                 AuthScreen(it)
+            }
+
+            is BackupScreenState -> {
+                BackupScreen(state = it)
             }
 
             is TotpDetailState -> {
@@ -293,7 +300,7 @@ fun KeyPassBottomBar() {
             )
         }
     }, floatingActionButton = {
-            FloatingActionButton(onClick = {
+            FloatingActionButton(modifier = Modifier.testTag("btnAdd"), onClick = {
                 dispatchAction(NavigationAction(AccountDetailState()))
             }) {
                 Icon(

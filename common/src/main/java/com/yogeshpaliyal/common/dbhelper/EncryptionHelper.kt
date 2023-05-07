@@ -79,7 +79,7 @@ object EncryptionHelper {
         key: String,
         inputFile: InputStream?
     ): String {
-        var data = ""
+        var data: String
         try {
             val secretKey: Key =
                 SecretKeySpec(key.toByteArray(), ALGORITHM)
