@@ -23,7 +23,7 @@ val intentNavigationMiddleware = middleware<KeyPassState> { store, next, action 
         }
 
         is IntentNavigation.BackupActivity -> {
-           // BackupActivity.start(state.context)
+            // BackupActivity.start(state.context)
         }
 
         is IntentNavigation.ShareApp -> {

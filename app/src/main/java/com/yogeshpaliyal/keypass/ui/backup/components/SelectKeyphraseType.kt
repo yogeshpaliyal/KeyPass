@@ -17,16 +17,16 @@ fun SelectKeyphraseType(
     AlertDialog(onDismissRequest = dismissDialog, title = {
         Text(text = stringResource(id = R.string.alert))
     }, confirmButton = {
-        TextButton(onClick = customKeyphrase) {
-            Text(stringResource(id = R.string.custom_keyphrase))
-        }
-    }, dismissButton = {
-        TextButton(onClick = generateKeyphrase) {
-            Text(stringResource(id = R.string.generate_keyphrase))
-        }
-    }, text = {
-        Column {
-            Text(text = stringResource(id = R.string.custom_generated_keyphrase_info))
-        }
-    })
+            TextButton(onClick = customKeyphrase) {
+                Text(stringResource(id = R.string.custom_keyphrase))
+            }
+        }, dismissButton = {
+            TextButton(onClick = generateKeyphrase) {
+                Text(stringResource(id = R.string.generate_keyphrase))
+            }
+        }, text = {
+            Column {
+                Text(text = stringResource(id = R.string.custom_generated_keyphrase_info))
+            }
+        })
 }

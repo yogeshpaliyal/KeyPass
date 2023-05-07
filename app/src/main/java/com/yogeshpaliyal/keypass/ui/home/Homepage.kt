@@ -22,9 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.yogeshpaliyal.keypass.ui.home.components.AccountsList
 import com.yogeshpaliyal.keypass.ui.home.components.SearchBar
-import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
+import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import org.reduxkotlin.compose.rememberDispatcher
 
 /*

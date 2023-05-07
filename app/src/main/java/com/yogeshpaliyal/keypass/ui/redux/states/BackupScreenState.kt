@@ -4,9 +4,9 @@ import android.net.Uri
 import java.net.URLDecoder
 
 data class BackupScreenState(
-    val isBackupEnabled: Boolean? = false,
-    val isAutoBackupEnabled: Boolean? = false,
-    val overrideAutoBackup: Boolean? = false,
+    val isBackupEnabled: Boolean? = null,
+    val isAutoBackupEnabled: Boolean? = null,
+    val overrideAutoBackup: Boolean? = null,
     val lastBackupTime: Long? = null,
     val backupDirectory: Uri? = null,
     val dialog: BackupDialog? = null
@@ -22,8 +22,8 @@ data class BackupScreenState(
 
 sealed interface BackupDialog
 
-object SelectKeyphraseType: BackupDialog
+object SelectKeyphraseType : BackupDialog
 
-object CustomKeyphrase: BackupDialog
+object CustomKeyphrase : BackupDialog
 
-object ShowKeyphrase: BackupDialog
+object ShowKeyphrase : BackupDialog

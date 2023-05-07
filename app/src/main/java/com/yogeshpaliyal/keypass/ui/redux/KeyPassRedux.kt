@@ -12,7 +12,6 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
-import com.yogeshpaliyal.keypass.ui.redux.middlewares.backupMiddleware
 import com.yogeshpaliyal.keypass.ui.redux.middlewares.intentNavigationMiddleware
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
@@ -99,6 +98,6 @@ object KeyPassRedux {
         createStore(
             reducer,
             generateDefaultState(),
-            applyMiddleware(intentNavigationMiddleware, backupMiddleware)
+            applyMiddleware(intentNavigationMiddleware)
         )
 }

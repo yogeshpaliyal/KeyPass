@@ -13,8 +13,8 @@ fun BackupDialogs(state: BackupScreenState, updateState: (BackupScreenState) -> 
             SelectKeyphraseType(customKeyphrase = {
                 updateState(state.copy(dialog = CustomKeyphrase))
             }, generateKeyphrase = {
-                updateState(state.copy(dialog = ShowKeyphrase))
-            }) {
+                    updateState(state.copy(dialog = ShowKeyphrase))
+                }) {
                 updateState(state.copy(dialog = null))
             }
         }
@@ -31,7 +31,12 @@ fun BackupDialogs(state: BackupScreenState, updateState: (BackupScreenState) -> 
             ShowKeyPhraseDialog(selectedDirectory = state.backupDirectory, onYesClicked = {
                 updateState(state.copy(dialog = null, isBackupEnabled = true))
             }) {
-                updateState(state.copy(isBackupEnabled = true))
+                updateState(
+                    state.copy(
+                        isBackupEnabled = true,
+                        lastBackupTime = System.currentTimeMillis()
+                    )
+                )
             }
         }
 

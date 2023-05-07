@@ -26,7 +26,6 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
 fun CreateCustomKeyphrase(saveKeyphrase: () -> Unit, dismissDialog: () -> Unit) {
-
     val (keyphrase, setKeyPhrase) = remember {
         mutableStateOf("")
     }
@@ -40,38 +39,37 @@ fun CreateCustomKeyphrase(saveKeyphrase: () -> Unit, dismissDialog: () -> Unit) 
     AlertDialog(onDismissRequest = dismissDialog, title = {
         Text(text = stringResource(id = R.string.set_keyphrase))
     }, confirmButton = {
-        TextButton(onClick = {
-            if (keyphrase.isEmpty()) {
-                dispatchAction(ToastAction(R.string.alert_blank_keyphrase))
-                return@TextButton
-            }
-
-            if (keyphrase.length != BACKUP_KEY_LENGTH) {
-                dispatchAction(ToastAction(R.string.alert_invalid_keyphrase))
-                return@TextButton
-            }
-
-            coroutineScope.launch {
-                context.saveKeyphrase(keyphrase)
-            }
-
-            saveKeyphrase.invoke()
-
-        }) {
-            Text(stringResource(id = R.string.yes))
-        }
-    }, text = {
-        Column {
-            Text(text = stringResource(id = R.string.set_keyphrase_info))
-            Spacer(modifier = Modifier.size(8.dp))
-            OutlinedTextField(
-                modifier = Modifier.fillMaxWidth(1f),
-                value = keyphrase,
-                onValueChange = setKeyPhrase,
-                placeholder = {
-                    Text(text = stringResource(id = R.string.enter_keyphrase))
+            TextButton(onClick = {
+                if (keyphrase.isEmpty()) {
+                    dispatchAction(ToastAction(R.string.alert_blank_keyphrase))
+                    return@TextButton
                 }
-            )
-        }
-    })
+
+                if (keyphrase.length != BACKUP_KEY_LENGTH) {
+                    dispatchAction(ToastAction(R.string.alert_invalid_keyphrase))
+                    return@TextButton
+                }
+
+                coroutineScope.launch {
+                    context.saveKeyphrase(keyphrase)
+                }
+
+                saveKeyphrase.invoke()
+            }) {
+                Text(stringResource(id = R.string.yes))
+            }
+        }, text = {
+            Column {
+                Text(text = stringResource(id = R.string.set_keyphrase_info))
+                Spacer(modifier = Modifier.size(8.dp))
+                OutlinedTextField(
+                    modifier = Modifier.fillMaxWidth(1f),
+                    value = keyphrase,
+                    onValueChange = setKeyPhrase,
+                    placeholder = {
+                        Text(text = stringResource(id = R.string.enter_keyphrase))
+                    }
+                )
+            }
+        })
 }

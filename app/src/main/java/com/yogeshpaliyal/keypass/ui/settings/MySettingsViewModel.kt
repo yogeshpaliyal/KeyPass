@@ -9,6 +9,4 @@ import javax.inject.Inject
 class MySettingsViewModel @Inject constructor(
     application: Application,
     val appDb: com.yogeshpaliyal.common.AppDatabase
-) : AndroidViewModel(application) {
-
-}
+) : AndroidViewModel(application)

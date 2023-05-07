@@ -1,9 +1,9 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 
 object NavigationModel {
 

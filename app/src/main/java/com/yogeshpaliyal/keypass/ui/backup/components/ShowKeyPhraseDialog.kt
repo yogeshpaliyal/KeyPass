@@ -53,25 +53,23 @@ fun ShowKeyPhraseDialog(
             AlertDialog(onDismissRequest = {}, title = {
                 Text(text = stringResource(id = R.string.alert))
             }, confirmButton = {
-                TextButton(onClick = {
-                    onYesClicked()
-                }) {
-                    Text(stringResource(id = R.string.yes))
-                }
-            }, text = {
-                Column {
-                    Text(text = stringResource(id = R.string.copy_keypharse_msg))
                     TextButton(onClick = {
-                        dispatchAction(CopyToClipboard(backupInfo.second))
+                        onYesClicked()
                     }) {
-                        Text(text = backupInfo.second)
+                        Text(stringResource(id = R.string.yes))
                     }
-                }
-            })
+                }, text = {
+                    Column {
+                        Text(text = stringResource(id = R.string.copy_keypharse_msg))
+                        TextButton(onClick = {
+                            dispatchAction(CopyToClipboard(backupInfo.second))
+                        }) {
+                            Text(text = backupInfo.second)
+                        }
+                    }
+                })
         } else {
             dispatchAction(ToastAction(R.string.backup_completed))
-            onYesClicked()
         }
     }
-
 }
