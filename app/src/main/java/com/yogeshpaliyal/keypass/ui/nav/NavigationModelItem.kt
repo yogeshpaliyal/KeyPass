@@ -2,7 +2,7 @@ package com.yogeshpaliyal.keypass.ui.nav
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.yogeshpaliyal.keypass.ui.redux.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 
 sealed class NavigationModelItem {
 

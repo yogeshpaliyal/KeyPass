@@ -46,7 +46,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.redux.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import org.reduxkotlin.compose.rememberDispatcher
 
 /*
