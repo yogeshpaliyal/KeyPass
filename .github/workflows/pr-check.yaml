@@ -26,11 +26,11 @@ jobs:
       - name: Setting up project 
         uses: ./.github/actions/setup
 
-      - name: 🏗 Build With gradle
-        run: bash ./gradlew build
-        
       - name: 🛠 Build Project with Spotless Check
         run: ./gradlew spotlessCheck
+
+      - name: 🏗 Build With gradle
+        run: bash ./gradlew build
         
       - name: 🧪 Run Tests
         run: ./gradlew test
