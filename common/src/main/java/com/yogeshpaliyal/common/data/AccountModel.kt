@@ -64,5 +64,5 @@ data class AccountModel(
 
     fun getOtp(): String = TOTPHelper.generate(password)
 
-    fun getTOtpProgress() = TOTPHelper.getProgress().toInt()
+    fun getTOtpProgress() = TOTPHelper.progress.toInt()
 }
