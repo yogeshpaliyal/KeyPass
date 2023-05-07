@@ -9,7 +9,7 @@ runs:
     - name: 🧱 Set Up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: jdk8u372-b07
+        java-version: 8
         distribution: adopt-openj9
         
     - name: "Grant Gradlew rights"
