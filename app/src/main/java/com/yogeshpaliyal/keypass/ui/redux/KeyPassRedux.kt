@@ -2,18 +2,24 @@ package com.yogeshpaliyal.keypass.ui.redux
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Intent
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
-import com.yogeshpaliyal.keypass.ui.backup.BackupActivity
-import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
+import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.redux.middlewares.intentNavigationMiddleware
+import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
+import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.generateDefaultState
 import org.reduxkotlin.Reducer
 import org.reduxkotlin.applyMiddleware
 import org.reduxkotlin.createStore
-import org.reduxkotlin.middleware
 
 object KeyPassRedux {
 
@@ -88,37 +94,10 @@ object KeyPassRedux {
         }
     }
 
-    private val intentNavigationMiddleware = middleware<KeyPassState> { store, next, action ->
-        val state = store.state
-
-        when (action) {
-            is IntentNavigation.GeneratePassword -> {
-                val intent = Intent(state.context, GeneratePasswordActivity::class.java)
-                state.context?.startActivity(intent)
-            }
-
-            is IntentNavigation.AddTOTP -> {
-                AddTOTPActivity.start(state.context, action.accountId)
-            }
-
-            is IntentNavigation.BackupActivity -> {
-                BackupActivity.start(state.context)
-            }
-
-            is IntentNavigation.ShareApp -> {
-                val sendIntent = Intent()
-                sendIntent.action = Intent.ACTION_SEND
-                sendIntent.putExtra(
-                    Intent.EXTRA_TEXT,
-                    "KeyPass Password Manager\n Offline, Secure, Open Source https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
-                )
-                sendIntent.type = "text/plain"
-                state.context?.startActivity(Intent.createChooser(sendIntent, state.context.getString(R.string.share_keypass)))
-            }
-        }
-        next(action)
-    }
-
     fun createStore() =
-        createStore(reducer, generateDefaultState(), applyMiddleware(intentNavigationMiddleware))
+        createStore(
+            reducer,
+            generateDefaultState(),
+            applyMiddleware(intentNavigationMiddleware)
+        )
 }
