@@ -7,11 +7,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.keypass.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
@@ -25,7 +21,7 @@ class DashboardActivityTest {
     var hiltRule = HiltAndroidRule(this)
 
     @get:Rule(order = 1)
-    var activityScenarioRule = createAndroidComposeRule<DashboardActivity>()
+    var activityScenarioRule = createAndroidComposeRule<DashboardComposeActivity>()
 
     @Inject
     lateinit var appDatabase: com.yogeshpaliyal.common.AppDatabase
@@ -57,7 +53,7 @@ class DashboardActivityTest {
 
     private fun addAccount(accountModel: AccountModel) {
         // Navigate to add screen
-        onView(withId(R.id.btnAdd)).perform(click())
+        activityScenarioRule.onNodeWithTag("btnAdd").performClick()
 
         // Fill information on Detail Activity
         activityScenarioRule.onNodeWithTag("accountName").performTextInput(accountModel.title ?: "")
