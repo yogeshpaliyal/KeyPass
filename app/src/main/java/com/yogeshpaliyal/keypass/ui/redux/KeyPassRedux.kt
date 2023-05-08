@@ -33,8 +33,8 @@ object KeyPassRedux {
                 } else {
                     arrPages.add(state.currentScreen)
                 }
-                if(state.currentScreen == action.state){
-                    arrPages.remove(state.currentScreen);
+                if (state.currentScreen == action.state) {
+                    arrPages.remove(state.currentScreen)
                 }
                 state.copy(currentScreen = action.state)
             }
