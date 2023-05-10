@@ -57,5 +57,8 @@ subprojects {
 tasks.register<Copy>("installGitHook") {
     from(File(rootProject.rootDir, "scripts/pre-commit"))
     into(File(rootProject.rootDir, ".git/hooks"))
-    //setMode(0777)
+    setFileMode(775)
 }
+
+tasks.getByPath(":app:preBuild").dependsOn(tasks.named("installGitHook"))
+
