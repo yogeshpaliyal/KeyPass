@@ -1,9 +1,10 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-kapt")
+    kotlin("kapt")
     id("dagger.hilt.android.plugin")
     id("com.spotify.ruler")
+    id("com.google.dagger.hilt.android")
 }
 
 val appPackageId = "com.yogeshpaliyal.keypass"
@@ -101,7 +102,7 @@ ruler {
 
 
 dependencies {
-    project(":common")
+    api(project(":common"))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -130,12 +131,11 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.1.0-rc01")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
 
+    implementation("androidx.appcompat:appcompat:1.6.1")
 
     // XML Libraries
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.preference:preference-ktx:1.2.0'")
-
 
     kapt("androidx.room:room-compiler:${Versions.room}")
 

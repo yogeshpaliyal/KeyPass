@@ -20,7 +20,6 @@ jobs:
     name: 'Spotless, Tests and Build Production Debug Build'
     runs-on: ubuntu-latest
     steps:
-
       - uses: actions/checkout@v3
     
       - name: Setting up project 
@@ -28,9 +27,6 @@ jobs:
 
       - name: 🛠 Build Project with Spotless Check
         run: ./gradlew spotlessCheck
-
-      - name: 🏗 Build With gradle
-        run: bash ./gradlew build
         
       - name: 🧪 Run Tests
         run: ./gradlew test

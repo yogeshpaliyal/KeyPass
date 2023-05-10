@@ -1,7 +1,8 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
     id("dagger.hilt.android.plugin")
 }
 
@@ -49,11 +50,8 @@ dependencies {
     kapt("androidx.room:room-compiler:${Versions.room}")
     api("androidx.room:room-ktx:${Versions.room}")
 
-    api("com.google.android.material:material:1.9.0")
-
-
     // dependency injection
-    api("com.google.dagger:hilt-android:${Versions.room}")
+    api("com.google.dagger:hilt-android:${Versions.hilt}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
     api("androidx.hilt:hilt-work:1.0.0")
     // When using Kotlin.
@@ -61,15 +59,12 @@ dependencies {
 
     api("androidx.work:work-runtime-ktx:2.8.1")
 
+    api("com.google.android.material:material:1.9.0")
+
     implementation("com.google.code.gson:gson:2.10.1")
 
     api("com.google.code.gson:gson:2.10.1")
 
     api("androidx.datastore:datastore-preferences:1.0.0")
-
-    // ViewModel
-    api("androidx.lifecycle:lifecycle-viewmodel-ktx:$${Versions.hilt}")
-    // LiveData
-    api("androidx.lifecycle:lifecycle-livedata-ktx:${Versions.hilt}")
 
 }

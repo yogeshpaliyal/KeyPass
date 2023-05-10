@@ -2,9 +2,9 @@ package com.yogeshpaliyal.keypass.ui.nav
 
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -75,7 +75,7 @@ import org.reduxkotlin.compose.selectState
 import java.util.Locale
 
 @AndroidEntryPoint
-class DashboardComposeActivity : AppCompatActivity() {
+class DashboardComposeActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,7 +108,7 @@ fun Dashboard() {
 
     LaunchedEffect(key1 = systemBackPress, block = {
         if (systemBackPress) {
-            (context as? AppCompatActivity)?.onBackPressed()
+            (context as? ComponentActivity)?.onBackPressed()
         }
     })
 
