@@ -1,7 +1,7 @@
 package com.yogeshpaliyal.keypass.common
 
-import androidx.compose.material.Text
 import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,7 +14,7 @@ fun App() {
     val platformName = getPlatformName()
 
     Button(onClick = {
-        text = "Hello, ${platformName}"
+        text = "Hello, $platformName"
     }) {
         Text(text)
     }
