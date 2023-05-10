@@ -110,21 +110,21 @@ dependencies {
     androidTestImplementation 'androidx.test:core-ktx:1.5.0'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.5'
     // Test rules and transitive dependencies:
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.3")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
     // Needed for createAndroidComposeRule, but not createComposeRule:
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.4.3")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
-    implementation "androidx.compose.ui:ui:1.4.3"
-    implementation "androidx.compose.ui:ui-tooling-preview:1.4.2"
-    implementation "androidx.compose.ui:ui-viewbinding:1.4.3"
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "androidx.compose.ui:ui-viewbinding:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     implementation 'androidx.activity:activity-compose:1.7.1'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-    implementation "androidx.compose.material:material-icons-extended:1.4.2"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.4.3"
-    debugImplementation "androidx.compose.ui:ui-tooling:1.4.3"
-    implementation("androidx.compose.runtime:runtime-livedata:1.4.3")
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
     implementation "androidx.navigation:navigation-compose:2.5.3"
 
     implementation 'androidx.compose.material3:material3:1.1.0-rc01'
