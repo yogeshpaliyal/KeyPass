@@ -50,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
+import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
@@ -61,6 +62,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
+import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
@@ -157,6 +159,9 @@ fun CurrentPage() {
                 BackupScreen(state = it)
             }
 
+            is ChangeAppPasswordState -> {
+                ChangePassword(it)
+            }
             is TotpDetailState -> {
             }
         }
