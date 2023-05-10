@@ -2,6 +2,7 @@ package com.yogeshpaliyal.keypass.ui.detail
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material.icons.rounded.Refresh
@@ -34,6 +36,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
@@ -46,6 +49,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import org.reduxkotlin.compose.rememberDispatcher
 
@@ -105,6 +109,9 @@ fun AccountDetailPage(
                 accountModel = accountModel,
                 updateAccountModel = { newAccountModel ->
                     setAccountModel(newAccountModel)
+                },
+                copyToClipboardClicked = { value ->
+                    dispatchAction(CopyToClipboard(value))
                 }
             ) {
                 launcher.launch(null)
@@ -118,6 +125,7 @@ fun Fields(
     modifier: Modifier = Modifier,
     accountModel: AccountModel,
     updateAccountModel: (newAccountModel: AccountModel) -> Unit,
+    copyToClipboardClicked: (String) -> Unit,
     scanClicked: () -> Unit
 ) {
     Column(
@@ -133,7 +141,8 @@ fun Fields(
             value = accountModel.title,
             setValue = {
                 updateAccountModel(accountModel.copy(title = it))
-            }
+            },
+            copyToClipboardClicked = copyToClipboardClicked
         )
 
         KeyPassInputField(
@@ -142,7 +151,8 @@ fun Fields(
             value = accountModel.username,
             setValue = {
                 updateAccountModel(accountModel.copy(username = it))
-            }
+            },
+            copyToClipboardClicked = copyToClipboardClicked
         )
 
         Column {
@@ -179,7 +189,8 @@ fun Fields(
                         }
                     }
                     ),
-                visualTransformation = visualTransformation
+                visualTransformation = visualTransformation,
+                copyToClipboardClicked = copyToClipboardClicked
             )
             Button(onClick = scanClicked) {
                 Row {
@@ -198,7 +209,8 @@ fun Fields(
             value = accountModel.tags,
             setValue = {
                 updateAccountModel(accountModel.copy(tags = it))
-            }
+            },
+            copyToClipboardClicked = copyToClipboardClicked
         )
 
         KeyPassInputField(
@@ -207,7 +219,8 @@ fun Fields(
             value = accountModel.site,
             setValue = {
                 updateAccountModel(accountModel.copy(site = it))
-            }
+            },
+            copyToClipboardClicked = copyToClipboardClicked
         )
 
         KeyPassInputField(
@@ -216,7 +229,8 @@ fun Fields(
             value = accountModel.notes,
             setValue = {
                 updateAccountModel(accountModel.copy(notes = it))
-            }
+            },
+            copyToClipboardClicked = copyToClipboardClicked
         )
     }
 }
@@ -268,7 +282,8 @@ fun KeyPassInputField(
     setValue: (String) -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
-    visualTransformation: VisualTransformation = VisualTransformation.None
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    copyToClipboardClicked: ((String) -> Unit) ? = null
 ) {
     OutlinedTextField(
         modifier = modifier.fillMaxWidth(),
@@ -278,7 +293,29 @@ fun KeyPassInputField(
         },
         onValueChange = setValue,
         leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
+        trailingIcon = {
+            Row {
+                trailingIcon?.invoke()
+
+                if (copyToClipboardClicked != null) {
+                    AnimatedVisibility(value.isNullOrBlank().not()) {
+                        IconButton(
+                            modifier = Modifier.align(Alignment.CenterVertically),
+                            onClick = {
+                                if (value != null) {
+                                    copyToClipboardClicked(value)
+                                }
+                            }
+                        ) {
+                            Icon(
+                                painter = rememberVectorPainter(image = Icons.Rounded.ContentCopy),
+                                contentDescription = "Copy To Clipboard"
+                            )
+                        }
+                    }
+                }
+            }
+        },
         visualTransformation = visualTransformation
     )
 }
