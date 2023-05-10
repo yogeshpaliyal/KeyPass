@@ -4,8 +4,8 @@ INCREMENT_MODE=$1 # major, minor, and patch
 RELEASE_NOTES=$2 # String files
 
 # Read the current versionCode and versionName from the build.gradle.kts.kts file
-VERSION_CODE=$(grep "versionCode" app/build.gradle | awk '{print $2}' | tr -d '\r''"')
-VERSION_NAME=$(grep "versionName" app/build.gradle | awk '{print $2}' | tr -d '\r''"')
+VERSION_CODE=$(grep "versionCode" app/build.gradle.kts | awk '{print $2}' | tr -d '\r''"')
+VERSION_NAME=$(grep "versionName" app/build.gradle.kts | awk '{print $2}' | tr -d '\r''"')
 
 
 # Split the versionName into major, minor, and patch numbers
