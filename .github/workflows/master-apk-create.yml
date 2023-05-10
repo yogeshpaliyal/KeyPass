@@ -43,7 +43,15 @@ jobs:
         git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
         git add .
         git commit -am "Github Actions: App version Bumped to ${{ steps.bump-app-version.outputs.newVersion }}"
- 
+        
+
+    - name: Git push tag
+      run: |
+        git tag -a latest-master -m "Release version ${{ steps.bump-app-version.outputs.newVersion }}" -f
+        git push origin latest-master -f
+    
+    
+
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
           repo_token: "${{ github.token }}"
