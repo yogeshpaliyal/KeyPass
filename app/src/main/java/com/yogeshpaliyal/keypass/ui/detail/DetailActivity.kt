@@ -2,6 +2,7 @@ package com.yogeshpaliyal.keypass.ui.detail
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,12 +13,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.rounded.ContentCopy
 import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.Visibility
 import androidx.compose.material.icons.rounded.VisibilityOff
-import androidx.compose.material.icons.twotone.ContentCopy
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
@@ -297,18 +298,20 @@ fun KeyPassInputField(
                 trailingIcon?.invoke()
 
                 if (copyToClipboardClicked != null) {
-                    IconButton(
-                        modifier = Modifier.align(Alignment.CenterVertically),
-                        onClick = {
-                            if (value != null) {
-                                copyToClipboardClicked(value)
+                    AnimatedVisibility(value.isNullOrBlank().not()) {
+                        IconButton(
+                            modifier = Modifier.align(Alignment.CenterVertically),
+                            onClick = {
+                                if (value != null) {
+                                    copyToClipboardClicked(value)
+                                }
                             }
+                        ) {
+                            Icon(
+                                painter = rememberVectorPainter(image = Icons.Rounded.ContentCopy),
+                                contentDescription = "Copy To Clipboard"
+                            )
                         }
-                    ) {
-                        Icon(
-                            painter = rememberVectorPainter(image = Icons.TwoTone.ContentCopy),
-                            contentDescription = "Copy To Clipboard"
-                        )
                     }
                 }
             }
