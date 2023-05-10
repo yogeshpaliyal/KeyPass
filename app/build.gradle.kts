@@ -129,7 +129,7 @@ dependencies {
     implementation(Deps.Lifecycle.runtimeCompose)
     implementation("androidx.navigation:navigation-compose:2.5.3")
 
-    implementation("androidx.compose.material3:material3:1.1.0-rc01")
+    implementation("androidx.compose.material3:material3:1.1.0")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
