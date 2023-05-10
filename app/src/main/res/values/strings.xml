@@ -90,5 +90,13 @@
     <string name="incorrect_password">Incorrect Password</string>
     <string name="password_no_match">The password did not match</string>
     <string name="auto_backup_desc">Your accounts will be backed up whenever account is added or modified</string>
+    <string name="change_app_password">Change App Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="blank_old_password">Please enter your old password</string>
+    <string name="incorrect_old_password">Please enter your correct old password</string>
+    <string name="blank_new_password">Please enter your new password</string>
+    <string name="blank_confirm_password">Please enter confirm password</string>
+    <string name="password_change_success">Password changed successfully</string>
 
 </resources>

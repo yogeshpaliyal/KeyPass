@@ -46,6 +46,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -154,6 +155,12 @@ fun MySettingCompose() {
             summary = R.string.restore_credentials_desc
         ) {
             launcher.launch(arrayOf())
+        }
+        PreferenceItem(
+            title = R.string.change_app_password,
+            summary = R.string.change_app_password
+        ) {
+            dispatchAction(NavigationAction(ChangeAppPasswordState()))
         }
         Divider(
             modifier = Modifier

@@ -92,5 +92,13 @@
     <string name="incorrect_password">गलत पासवर्ड</string>
     <string name="password_no_match">पासवर्ड मेल नहीं खाता</string>
     <string name="auto_backup_desc">जब भी खाता जोड़ा या संशोधित किया जाएगा, आपके खाते का बैकअप ले लिया जाएगा</string>
+    <string name="change_app_password">ऐप पासवर्ड बदलें</string>
+    <string name="old_password">पुराना पासवर्ड</string>
+    <string name="new_password">नया पासवर्ड</string>
+    <string name="blank_old_password">कृपया अपना पुराना पासवर्ड दर्ज करें</string>
+    <string name="incorrect_old_password">कृपया अपना सही पुराना पासवर्ड दर्ज करें</string>
+    <string name="blank_new_password">कृपया अपना नया पासवर्ड दर्ज करें</string>
+    <string name="blank_confirm_password">कृपया पुष्टि पासवर्ड दर्ज करें</string>
+    <string name="password_change_success">पासवर्ड सफलतापूर्वक बदला गया</string>
 
 </resources>
