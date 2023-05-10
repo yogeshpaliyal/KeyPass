@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="shared-desktop-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/shared/build/libs</output-path>
+    <root id="archive" name="shared-desktop-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="com.yogeshpaliyal.keypass.KeyPass.shared.desktopMain" />
+    </root>
+  </artifact>
+</component>
