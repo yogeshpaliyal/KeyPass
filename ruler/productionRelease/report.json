@@ -1,15 +1,15 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.12",
+    "version": "1.4.13",
     "variant": "productionRelease",
-    "downloadSize": 2470890,
-    "installSize": 2997263,
+    "downloadSize": 2470887,
+    "installSize": 2997260,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 463136,
-            "installSize": 981796,
+            "downloadSize": 463133,
+            "installSize": 981793,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -56,8 +56,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5454,
-                    "installSize": 5449
+                    "downloadSize": 5453,
+                    "installSize": 5448
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -104,8 +104,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3210,
-                    "installSize": 3210
+                    "downloadSize": 3208,
+                    "installSize": 3208
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
