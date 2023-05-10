@@ -20,6 +20,7 @@ import com.yogeshpaliyal.keypass.R
 
 @Composable
 fun PasswordInputField(
+    label: Int = R.string.enter_password,
     password: String,
     setPassword: (String) -> Unit,
     passwordVisible: Boolean,
@@ -31,7 +32,7 @@ fun PasswordInputField(
         value = password,
         singleLine = true,
         placeholder = {
-            Text(text = stringResource(id = R.string.enter_password))
+            Text(text = stringResource(id = label))
         },
         visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),

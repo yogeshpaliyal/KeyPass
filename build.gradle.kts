@@ -54,3 +54,8 @@ subprojects {
 //tasks.register("clean", Delete::class) {
 //    delete(rootProject.buildDir)
 //}
+tasks.register<Copy>("installGitHook") {
+    from(File(rootProject.rootDir, "scripts/pre-commit"))
+    into(File(rootProject.rootDir, ".git/hooks"))
+    //setMode(0777)
+}

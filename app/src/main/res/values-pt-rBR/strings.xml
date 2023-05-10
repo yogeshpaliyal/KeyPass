@@ -90,5 +90,13 @@
     <string name="incorrect_password">Senha incorreta</string>
     <string name="password_no_match">A senha não corresponde</string>
     <string name="auto_backup_desc">Será feito backup de suas contas sempre que uma conta for adicionada ou modificada</string>
+    <string name="change_app_password">Alterar senha do aplicativo</string>
+    <string name="old_password">Senha Antiga</string>
+    <string name="new_password">Nova Senha</string>
+    <string name="blank_old_password">Por favor, digite sua senha antiga</string>
+    <string name="incorrect_old_password">Digite sua senha antiga correta</string>
+    <string name="blank_new_password">Por favor, digite sua nova senha</string>
+    <string name="blank_confirm_password">Por favor, digite a senha de confirmação</string>
+    <string name="password_change_success">Senha alterada com sucesso</string>
 
 </resources>

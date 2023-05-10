@@ -76,11 +76,11 @@ fun AuthScreen(state: AuthState) {
         Text(text = stringResource(id = state.title))
 
         PasswordInputField(
-            password,
-            setPassword,
-            passwordVisible,
-            setPasswordVisible,
-            passwordError
+            password = password,
+            setPassword = setPassword,
+            passwordVisible = passwordVisible,
+            setPasswordVisible = setPasswordVisible,
+            passwordError = passwordError
         )
 
         ButtonBar(state, password, setPasswordError) {
