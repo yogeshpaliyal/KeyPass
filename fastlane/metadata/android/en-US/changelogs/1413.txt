@@ -1,0 +1,3 @@
+
+Now you can copy all the fields.
+New option added to change password.
