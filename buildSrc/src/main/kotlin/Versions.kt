@@ -6,4 +6,6 @@ object Versions {
     const val hilt = "2.45"
     const val compose = "1.4.3"
     const val activity = "1.7.1"
+    const val agp = "7.3.0"
+    const val composeMultiplatform = "1.3.0"
 }

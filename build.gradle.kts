@@ -3,6 +3,7 @@ buildscript {
 
     repositories {
         google()
+        mavenCentral()
     }
     dependencies {
         classpath ("com.android.tools.build:gradle:7.4.2")
@@ -18,15 +19,16 @@ buildscript {
     }
 }
 plugins {
+    kotlin("multiplatform") version("1.8.0") apply false
+    kotlin("android") version("1.8.0") apply false
+    id("com.android.application") version("7.3.0") apply false
+    id("com.android.library") version("7.3.0") apply false
+    id("org.jetbrains.compose") version "1.4.0" apply false
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
-    id("com.google.dagger.hilt.android") version "2.44" apply false
+    id("com.google.dagger.hilt.android") version ("2.44") apply false
+    id("com.gradle.enterprise") version("3.13.2") apply false
 }
-
-/*task clean(type: Delete) {
-    delete rootProject.buildDir
-}*/
-
 
 
 subprojects {
@@ -48,3 +50,7 @@ subprojects {
         }
     }
 }
+
+//tasks.register("clean", Delete::class) {
+//    delete(rootProject.buildDir)
+//}
