@@ -26,7 +26,7 @@ plugins {
     id("org.jetbrains.compose") version "1.4.0" apply false
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
-    id("com.google.dagger.hilt.android") version ("2.44") apply false
+    id("com.google.dagger.hilt.android") version ("2.46") apply false
     id("com.gradle.enterprise") version("3.13.2") apply false
 }
 
