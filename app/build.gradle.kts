@@ -155,12 +155,12 @@ dependencies {
 
 
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.46")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.46.1")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     // For Robolectric tests.
-    testImplementation("com.google.dagger:hilt-android-testing:2.46")
+    testImplementation("com.google.dagger:hilt-android-testing:2.46.1")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
