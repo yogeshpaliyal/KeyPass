@@ -11,6 +11,9 @@
 <a href="https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass">
 <img src="https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge" alt="DevLibrary">
 </a>
+<a href="https://f-droid.org/en/packages/com.yogeshpaliyal.keypass">
+<img src="https://img.shields.io/f-droid/v/org.fdroid.fdroid" />
+</a>
 <a href="https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/productionRelease/report.html">
 <img src="https://img.shields.io/badge/App%20Size-Report-9cf?color=f39c12&style=for-the-badge" alt="DevLibrary">
 </a>
