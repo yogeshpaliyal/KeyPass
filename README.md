@@ -8,6 +8,7 @@
 <img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
 </a>
 <img src="https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge" alt="latestVersion">
+<br />
 <a href="https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass">
 <img src="https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge" alt="DevLibrary">
 </a>
