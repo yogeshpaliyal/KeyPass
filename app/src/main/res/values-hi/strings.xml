@@ -30,6 +30,11 @@
     <string name="numbers">संख्याएं</string>
     <string name="copied_to_clipboard">क्लिपबोर्ड पर कॉपी किया गया</string>
     <string name="login_to_enter_keypass">KeyPass में प्रवेश करने के लिए लॉगिन करें</string>
+    <string name="biometric_error_no_hardware">इस डिवाइस पर कोई बायोमेट्रिक सुविधा उपलब्ध नहीं है।</string>
+    <string name="biometric_error_hw_unavailable">बायोमेट्रिक सुविधाएँ वर्तमान में अनुपलब्ध हैं।</string>
+    <string name="biometric_error_none_enrolled">अपने डिवाइस पर बायोमेट्रिक सेटअप करें।</string>
+    <string name="unlock_with_biometric">बायोमेट्रिक से अनलॉक करें</string>
+    <string name="password_set_from_settings">कृपया फोन सेटिंग से पहले अपने डिवाइस के लिए पासवर्ड सेट करें</string>
     <string name="authentication_failed">प्रमाणीकरण विफल होना</string>
 
     <string name="last_backup_date">पिछला बैकअप: %s</string>
@@ -100,5 +105,6 @@
     <string name="blank_new_password">कृपया अपना नया पासवर्ड दर्ज करें</string>
     <string name="blank_confirm_password">कृपया पुष्टि पासवर्ड दर्ज करें</string>
     <string name="password_change_success">पासवर्ड सफलतापूर्वक बदला गया</string>
+    <string name="authentication_error">प्रमाणीकरण त्रुटि %s</string>
 
 </resources>

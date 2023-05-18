@@ -30,6 +30,11 @@
     <string name="numbers">Números</string>
     <string name="copied_to_clipboard">Copiado para à área de transferência</string>
     <string name="login_to_enter_keypass">Autenticação para entrar no KeyPass</string>
+    <string name="biometric_error_no_hardware">Nenhum recurso biométrico disponível neste dispositivo.</string>
+    <string name="biometric_error_hw_unavailable">Os recursos biométricos estão indisponíveis no momento.</string>
+    <string name="biometric_error_none_enrolled">Configure a biometria no seu dispositivo.</string>
+    <string name="unlock_with_biometric">Desbloqueie com biometria</string>
+    <string name="password_set_from_settings">Por favor, defina a senha para o seu dispositivo primeiro nas configurações do telefone</string>
     <string name="authentication_failed">Falha na autenticação</string>
 
     <string name="last_backup_date">Último backup: %s</string>
@@ -98,5 +103,6 @@
     <string name="blank_new_password">Por favor, digite sua nova senha</string>
     <string name="blank_confirm_password">Por favor, digite a senha de confirmação</string>
     <string name="password_change_success">Senha alterada com sucesso</string>
+    <string name="authentication_error">Erro de autenticação %s</string>
 
 </resources>

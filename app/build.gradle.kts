@@ -166,4 +166,7 @@ dependencies {
 
     implementation("org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0")
     implementation("me.saket.cascade:cascade-compose:2.0.0-rc02")
+
+    implementation("androidx.biometric:biometric:1.1.0")
+
 }

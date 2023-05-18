@@ -58,6 +58,16 @@ suspend fun Context.isKeyPresent(): Boolean {
     return sp.contains(BACKUP_KEY)
 }
 
+suspend fun Context.isBiometricEnable(): Boolean {
+    return this.dataStore.data.first()[BIOMETRIC_ENABLE] ?: false
+}
+
+suspend fun Context.setBiometricEnable(isEnable: Boolean) {
+    dataStore.edit {
+        it[BIOMETRIC_ENABLE] = isEnable
+    }
+}
+
 suspend fun Context.saveKeyphrase(keyphrase: String) {
     dataStore.edit {
         it[BACKUP_KEY] = keyphrase
@@ -111,6 +121,7 @@ suspend fun Context?.getBackupTime(): Long {
 }
 
 private val BACKUP_KEY = stringPreferencesKey("backup_key")
+private val BIOMETRIC_ENABLE = booleanPreferencesKey("biometric_enable")
 private val KEYPASS_PASSWORD = stringPreferencesKey("keypass_password")
 private val BACKUP_DIRECTORY = stringPreferencesKey("backup_directory")
 private val BACKUP_DATE_TIME = longPreferencesKey("backup_date_time")
