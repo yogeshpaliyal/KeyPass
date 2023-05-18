@@ -11,6 +11,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.ToastActionStr
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.middlewares.intentNavigationMiddleware
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
@@ -67,6 +68,13 @@ object KeyPassRedux {
             }
 
             is ToastAction -> {
+                state.context?.let {
+                    Toast.makeText(it, action.text, Toast.LENGTH_SHORT).show()
+                }
+                state
+            }
+
+            is ToastActionStr -> {
                 state.context?.let {
                     Toast.makeText(it, action.text, Toast.LENGTH_SHORT).show()
                 }

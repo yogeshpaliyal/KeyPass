@@ -1,8 +1,14 @@
 package com.yogeshpaliyal.keypass.ui.settings
 
+import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.annotation.StringRes
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
+import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,6 +22,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Feedback
+import androidx.compose.material.icons.rounded.Fingerprint
+import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Divider
@@ -25,6 +33,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -39,6 +48,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
+import com.yogeshpaliyal.common.utils.isBiometricEnable
+import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
@@ -158,10 +169,14 @@ fun MySettingCompose() {
         }
         PreferenceItem(
             title = R.string.change_app_password,
-            summary = R.string.change_app_password
+            summary = R.string.change_app_password,
+            icon = Icons.Rounded.Password
         ) {
             dispatchAction(NavigationAction(ChangeAppPasswordState()))
         }
+
+        BiometricsOption()
+
         Divider(
             modifier = Modifier
                 .fillMaxWidth(1f)
@@ -189,6 +204,85 @@ fun MySettingCompose() {
 }
 
 @Composable
+fun BiometricsOption() {
+    val context = LocalContext.current
+    val (canAuthenticate, setCanAuthenticate) = remember {
+        mutableStateOf(BiometricManager.BIOMETRIC_STATUS_UNKNOWN)
+    }
+
+    val (isBiometricEnable, setIsBiometricEnable) = remember {
+        mutableStateOf(false)
+    }
+
+    val (subtitle, setSubtitle) = remember {
+        mutableStateOf<Int?>(null)
+    }
+
+    val dispatch = rememberTypedDispatcher<Action>()
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(key1 = context) {
+        setIsBiometricEnable(context.isBiometricEnable())
+    }
+
+    LaunchedEffect(key1 = context) {
+        val biometricManager = BiometricManager.from(context)
+        setCanAuthenticate(biometricManager.canAuthenticate(BIOMETRIC_STRONG))
+    }
+
+    LaunchedEffect(key1 = canAuthenticate, isBiometricEnable) {
+        when (canAuthenticate) {
+            BiometricManager.BIOMETRIC_SUCCESS ->
+                if (isBiometricEnable) {
+                    setSubtitle(R.string.enabled)
+                } else {
+                    setSubtitle(R.string.disabled)
+                }
+
+            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
+                setSubtitle(R.string.biometric_error_no_hardware)
+
+            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
+                setSubtitle(R.string.biometric_error_hw_unavailable)
+
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+                setSubtitle(R.string.biometric_error_none_enrolled)
+            }
+        }
+    }
+
+    PreferenceItem(
+        title = R.string.unlock_with_biometric,
+        summary = subtitle,
+        icon = Icons.Rounded.Fingerprint
+    ) {
+        when (canAuthenticate) {
+            BiometricManager.BIOMETRIC_SUCCESS -> {
+                coroutineScope.launch {
+                    context.setBiometricEnable(!isBiometricEnable)
+                    setIsBiometricEnable(!isBiometricEnable)
+                }
+            }
+
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+                // Prompts the user to create credentials that your app accepts.
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                        putExtra(
+                            Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                            BIOMETRIC_STRONG or DEVICE_CREDENTIAL
+                        )
+                    }
+                    context.startActivity(enrollIntent)
+                } else {
+                    dispatch(ToastAction(R.string.password_set_from_settings))
+                }
+            }
+        }
+    }
+}
+
+@Composable
 fun PreferenceItem(
     @StringRes title: Int? = null,
     @StringRes summary: Int? = null,
@@ -200,11 +294,11 @@ fun PreferenceItem(
     Row(
         modifier = Modifier
             .fillMaxWidth(1f)
-            .widthIn(48.dp)
-            .padding(horizontal = 16.dp)
-            .clickable(onClickItem != null) {
+            .clickable(onClickItem != null, onClick = {
                 onClickItem?.invoke()
-            },
+            })
+            .widthIn(48.dp)
+            .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
