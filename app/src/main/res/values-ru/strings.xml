@@ -1,0 +1,109 @@
+<resources>
+
+
+    <string name="generate_password">Сгенерировать пароль</string>
+    <string name="home">Домой</string>
+    <string name="delete">Удалить</string>
+
+
+    <string name="generate_shortcut_short_label">Сгенерировать пароль</string>
+
+    <string name="backup_restored">Резервная копия восстановлена</string>
+    <string name="invalid_keyphrase">Недопустимая ключевая фраза</string>
+
+    <string name="backup_completed">Резервное копирование завершено</string>
+
+    <!-- Sync Preferences -->
+    <string name="credentials_backups">Резервные копии учетных данных</string>
+    <string name="credentials_backups_desc">Создайте резервную копию учетных данных во внешнем хранилище</string>
+    <string name="restore_credentials">Восстановить учетные данные</string>
+    <string name="restore_credentials_desc">Восстановите свою резервную копию</string>
+    <string name="send_feedback">Отправить отзыв</string>
+    <string name="send_feedback_desc">Сообщайте о технических проблемах или предлагайте новые функции</string>
+    <string name="share">Делиться</string>
+    <string name="share_desc">Поделитесь приложением с другими</string>
+    <string name="password_length">Длина пароля</string>
+    <string name="password">Пароль</string>
+    <string name="uppercase_alphabets">АЛФАВИТЫ В ВЕРХНЕМ РЕГИСТРЕ</string>
+    <string name="lowercase_alphabets">алфавиты в нижнем регистре</string>
+    <string name="symbols">Символы</string>
+    <string name="numbers">Числа</string>
+    <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
+    <string name="login_to_enter_keypass">Войдите в систему, чтобы ввести пароль</string>
+
+    <string name="last_backup_date">Последняя резервная копия : %s</string>
+    <string name="coming_soon">Скоро будет</string>
+    <string name="delete_account_title">Вы уверены?</string>
+    <string name="delete_account_msg">Вы действительно хотите удалить эту запись, она не может быть восстановлена</string>
+    <string name="cancel">Отменить</string>
+    <string name="feedback_to_keypass">Обратная связь с ключом</string>
+    <string name="share_keypass">Общий доступ к ключу</string>
+    <string name="message_no_accounts">Учетные записи не найдены, пожалуйста, добавьте с помощью кнопки ниже</string>
+    <string name="turn_off_backup">Отключите резервное копирование</string>
+    <string name="verify_keyphrase">Проверьте кодовую фразу резервного копирования</string>
+    <string name="verify_keyphrase_message">Проверьте свою резервную кодовую фразу и убедитесь, что она соответствует</string>
+    <string name="backup_folder">Папка резервного копирования</string>
+    <string name="backup">Резервная копия</string>
+    <string name="turn_on_backup">Включите резервное копирование</string>
+    <string name="backup_desc">Резервные копии шифруются с помощью парольной фразы и хранятся на вашем устройстве</string>
+    <string name="yes">Да</string>
+    <string name="create_backup">Создать резервную копию</string>
+    <string name="alert">Тревога</string>
+    <string name="copy_keypharse_msg">Скопируйте эту ключевую фразу, это будет использовано для восстановления этой резервной копии, это больше не будет предоставляться KeyPass, вы скопировали или записали?</string>
+    <string name="help">Помощь</string>
+    <string name="security">Безопасность</string>
+    <string name="search">Поиск</string>
+    <string name="account_name">Имя учетной записи</string>
+    <string name="username_email_phone">Имя пользователя/Электронная почта/Телефон</string>
+    <string name="tags_comma_separated_optional">Теги, разделенные запятой (необязательно)</string>
+    <string name="website_url_optional">Url веб-сайта (необязательно)</string>
+    <string name="notes_optional">Примечания (необязательно)</string>
+    <string name="auto_backup">Автоматическое резервное копирование</string>
+    <string name="disabled">Нетрудоспособный</string>
+    <string name="enabled">Включенный</string>
+    <string name="override_auto_backup_file">Переопределить файл автоматической резервной копии</string>
+    <string name="scanner">Сканер</string>
+    <string name="alert_black_secret_key">Пожалуйста, введите секретный ключ</string>
+    <string name="alert_black_account_name">Пожалуйста, введите имя учетной записи</string>
+    <string name="add_totp">Добавить TOTP</string>
+    <string name="scan_password">Пароль для сканирования</string>
+    <string name="save">Сохранить</string>
+    <string name="custom_keyphrase">Пользовательская ключевая фраза</string>
+    <string name="generate_keyphrase">Сгенерировать ключевую фразу</string>
+    <string name="alert_blank_keyphrase">Пожалуйста, введите ключевую фразу</string>
+    <string name="alert_invalid_keyphrase">Пожалуйста, введите действительную ключевую фразу</string>
+    <string name="set_keyphrase">Установите ключевую фразу</string>
+    <string name="set_keyphrase_info">Пожалуйста, создайте ключевую фразу для вашего файла резервной копии, она будет использована для восстановления файла резервной копии. ключевая фраза должна состоять из 16 символов</string>
+    <string name="enter_keyphrase">Введите ключевую фразу</string>
+    <string name="restore">Восстанавливать</string>
+    <string name="keyphrase_restore_info">Пожалуйста, введите ключевую фразу, которую вы получили при создании резервной копии</string>
+    <string name="custom_generated_keyphrase_info">Вы хотите создать свою собственную ключевую фразу для резервных копий или я должен сгенерировать ее для вас?</string>
+
+    <string name="ascending">Восходящий</string>
+    <string name="descending">Нисходящий</string>
+    <string name="str_continue">Продолжать</string>
+    <string name="back">Назад</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="create_password">Создайте пароль</string>
+    <string name="confirm_password">Подтвердите парольd</string>
+    <string name="incorrect_password">Неверный пароль</string>
+    <string name="password_no_match">Пароль не совпал</string>
+    <string name="auto_backup_desc">Резервные копии ваших учетных записей будут создаваться при каждом добавлении или изменении учетной записи</string>
+    <string name="change_app_password">Изменить пароль приложения</string>
+    <string name="old_password">Старый пароль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="blank_old_password">Пожалуйста, введите свой старый пароль</string>
+    <string name="incorrect_old_password">Пожалуйста, введите свой правильный старый пароль</string>
+    <string name="blank_new_password">Пожалуйста, введите свой новый пароль</string>
+    <string name="blank_confirm_password">Пожалуйста, введите подтверждающий пароль</string>
+    <string name="password_change_success">Пароль успешно изменен</string>
+
+    <string name="biometric_error_no_hardware">На этом устройстве отсутствуют биометрические функции.</string>
+    <string name="biometric_error_hw_unavailable">Биометрические функции в настоящее время недоступны.</string>
+    <string name="biometric_error_none_enrolled">Установите биометрические данные на вашем устройстве.</string>
+    <string name="unlock_with_biometric">Разблокировка с помощью биометрических данных</string>
+    <string name="password_set_from_settings">Пожалуйста, сначала установите пароль для вашего устройства в настройках телефона</string>
+    <string name="authentication_failed">Ошибка проверки подлинности</string>
+    <string name="authentication_error">Ошибка аутентификации %s</string>
+
+</resources>
