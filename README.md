@@ -94,6 +94,10 @@ Give a ⭐️ if this project helped you!
     <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donation" width="160">
 </a>
 
+## Language
+[![Translation status](https://hosted.weblate.org/widgets/keypass/-/keypass/multi-auto.svg)](https://hosted.weblate.org/engage/keypass/)    
+Want to contribute in transaltions? [Contribute](https://hosted.weblate.org/projects/keypass/keypass/)
+
 ## Download Links
 <a href='https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass'><img align='center' height='55' src='./icons/google_play_badge.png'></a>
 <a href='https://f-droid.org/en/packages/com.yogeshpaliyal.keypass/'><img align='center' alt='Get it on F-Droid' src='./icons/fdroid_badge.png' height="55"/></a>
