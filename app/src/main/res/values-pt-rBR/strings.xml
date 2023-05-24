@@ -1,18 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <string name="generate_password">Gerar senha</string>
     <string name="home">Início</string>
     <string name="delete">Deletar</string>
-
-
     <string name="generate_shortcut_short_label">Gerar senha</string>
-
     <string name="backup_restored">Backup restaurado</string>
     <string name="invalid_keyphrase">Senha incorreta</string>
-
     <string name="backup_completed">Backup concluído</string>
-
     <!-- Sync Preferences -->
     <string name="credentials_backups">Backup de credenciais</string>
     <string name="credentials_backups_desc">Salva suas senhas em um armazenamento externo</string>
@@ -36,11 +30,10 @@
     <string name="unlock_with_biometric">Desbloqueie com biometria</string>
     <string name="password_set_from_settings">Por favor, defina a senha para o seu dispositivo primeiro nas configurações do telefone</string>
     <string name="authentication_failed">Falha na autenticação</string>
-
     <string name="last_backup_date">Último backup: %s</string>
     <string name="coming_soon">Em breve</string>
     <string name="delete_account_title">Tem certeza?</string>
-    <string name="delete_account_msg">Você realmente deseja apagar esses dados? Não será possível restaurá-los.</string>
+    <string name="delete_account_msg">Você realmente deseja apagar esses dados\? Não será possível restaurá-los</string>
     <string name="cancel">Cancelar</string>
     <string name="feedback_to_keypass">Feedback para o KeyPass</string>
     <string name="share_keypass">Compartilhar o KeyPass</string>
@@ -74,7 +67,6 @@
     <string name="add_totp">Adicionar TOTP</string>
     <string name="scan_password">Escanear senha</string>
     <string name="save">Salvar</string>
-
     <string name="custom_keyphrase">Frase-chave personalizada</string>
     <string name="generate_keyphrase">Gerar frase-chave</string>
     <string name="alert_blank_keyphrase">Digite a frase-chave</string>
@@ -104,5 +96,4 @@
     <string name="blank_confirm_password">Por favor, digite a senha de confirmação</string>
     <string name="password_change_success">Senha alterada com sucesso</string>
     <string name="authentication_error">Erro de autenticação %s</string>
-
 </resources>
