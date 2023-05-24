@@ -20,7 +20,7 @@
     <string name="copied_to_clipboard">Copied a clipboard</string>
     <string name="login_to_enter_keypass">Accedi per inserire KeyPass</string>
     <string name="last_backup_date">Ultimo backup: %s</string>
-    <string name="delete_account_title">Sei sicuro\?</string>
+    <string name="delete_account_title">Sei sicuro?</string>
     <string name="delete_account_msg">Vuoi davvero eliminare questa voce, non può essere ripristinato</string>
     <string name="cancel">Annulla</string>
     <string name="feedback_to_keypass">Feedback a KeyPass</string>
@@ -33,7 +33,7 @@
     <string name="yes">Sì</string>
     <string name="create_backup">Crea backup</string>
     <string name="alert">Avviso</string>
-    <string name="copy_keypharse_msg">Copia Questo Key Phrase sarà utilizzato per recuperare questo backup, questo non sarà fornito da KeyPass Ancora una volta, hai copiato o scritto giù\?</string>
+    <string name="copy_keypharse_msg">Copia Questo Key Phrase sarà utilizzato per recuperare questo backup, questo non sarà fornito da KeyPass Ancora una volta, hai copiato o scritto giù?</string>
     <string name="help">Aiuto</string>
     <string name="security">Sicurezza</string>
     <string name="account_name">Nome del conto</string>
@@ -56,7 +56,7 @@
     <string name="enter_keyphrase">Inserisci Keyphrase</string>
     <string name="restore">Ripristino</string>
     <string name="keyphrase_restore_info">Si prega di inserire keyphrase si ottiene quando si backup</string>
-    <string name="custom_generated_keyphrase_info">Vuoi creare la tua keyphrase per i backup o dovrei generare per te\?</string>
+    <string name="custom_generated_keyphrase_info">Vuoi creare la tua keyphrase per i backup o dovrei generare per te?</string>
     <string name="ascending">Finanziamenti</string>
     <string name="descending">Discussione</string>
     <string name="str_continue">Continua</string>
