@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="generate_password">पासवर्ड उत्पन्न करें</string>
     <string name="home">होम</string>
     <string name="delete">हटाएँ</string>
-
-
     <string name="generate_shortcut_short_label">पासवर्ड उत्पन्न करें</string>
-
     <string name="backup_restored">बैकअप रीस्टोर किया गया</string>
     <string name="invalid_keyphrase">अमान्य कीफ्रेज़</string>
-
-    <string name="backup_completed">बैकअप पूर्ण।</string>
-
+    <string name="backup_completed">बैकअप पूर्ण</string>
     <!-- Sync Preferences -->
     <string name="credentials_backups">क्रेडेंशियल्स बैकअप</string>
     <string name="credentials_backups_desc">बाहरी भंडारण के लिए बैकअप क्रेडेंशियल्स</string>
@@ -36,7 +30,6 @@
     <string name="unlock_with_biometric">बायोमेट्रिक से अनलॉक करें</string>
     <string name="password_set_from_settings">कृपया फोन सेटिंग से पहले अपने डिवाइस के लिए पासवर्ड सेट करें</string>
     <string name="authentication_failed">प्रमाणीकरण विफल होना</string>
-
     <string name="last_backup_date">पिछला बैकअप: %s</string>
     <string name="coming_soon">जल्द आ रहा है</string>
     <string name="delete_account_title">क्या आप वाकई ऐसा करना चाहते हैं?</string>
@@ -64,7 +57,6 @@
     <string name="tags_comma_separated_optional">टैग अल्पविराम से अलग (वैकल्पिक)</string>
     <string name="website_url_optional">वेबसाइट यूआरएल (वैकल्पिक)</string>
     <string name="notes_optional">नोट्स (वैकल्पिक)</string>
-
     <string name="auto_backup">ऑटो बैकअप</string>
     <string name="disabled">अक्षम</string>
     <string name="enabled">सक्रिय</string>
@@ -74,9 +66,7 @@
     <string name="alert_black_account_name">कृपया खाता नाम दर्ज करें</string>
     <string name="add_totp">TOTP . जोड़ें</string>
     <string name="scan_password">पासवर्ड स्कैन करें</string>
-
     <string name="save">सहेजें</string>
-
     <string name="custom_keyphrase">कस्टम कीफ़्रेज़</string>
     <string name="generate_keyphrase">कीफ़्रेज़ जनरेट करें</string>
     <string name="alert_blank_keyphrase">कृपया कीफ़्रेज़ दर्ज करें</string>
@@ -106,5 +96,4 @@
     <string name="blank_confirm_password">कृपया पुष्टि पासवर्ड दर्ज करें</string>
     <string name="password_change_success">पासवर्ड सफलतापूर्वक बदला गया</string>
     <string name="authentication_error">प्रमाणीकरण त्रुटि %s</string>
-
 </resources>
