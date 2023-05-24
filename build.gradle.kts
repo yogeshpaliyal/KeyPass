@@ -24,7 +24,7 @@ plugins {
     id("com.android.application") version("7.4.2") apply false
     id("com.android.library") version("7.4.2") apply false
     id("org.jetbrains.compose") version "1.4.0" apply false
-    id ("com.diffplug.spotless") version("6.18.0")
+    id ("com.diffplug.spotless") version("6.19.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
     id("com.google.dagger.hilt.android") version ("2.46.1") apply false
     id("com.gradle.enterprise") version("3.13.2") apply false
