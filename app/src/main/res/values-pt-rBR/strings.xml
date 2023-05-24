@@ -27,7 +27,7 @@
     <string name="authentication_failed">Falha na autenticação</string>
     <string name="last_backup_date">Último backup: %s</string>
     <string name="delete_account_title">Tem certeza?</string>
-    <string name="delete_account_msg">Você realmente deseja apagar esses dados\? Não será possível restaurá-los</string>
+    <string name="delete_account_msg">Você realmente deseja apagar esses dados? Não será possível restaurá-los</string>
     <string name="cancel">Cancelar</string>
     <string name="feedback_to_keypass">Feedback para o KeyPass</string>
     <string name="share_keypass">Compartilhar o KeyPass</string>
