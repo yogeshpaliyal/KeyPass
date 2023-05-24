@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="delete">Löschen</string>
+    <string name="home">Home</string>
+    <string name="generate_shortcut_short_label">Passwort generieren</string>
+    <string name="generate_password">Passwort generieren</string>
+    <string name="backup_restored">Backup Restauriert</string>
+    <string name="password">Passwort vergessen</string>
+    <string name="send_feedback">Feedback senden</string>
+    <string name="credentials_backups">Datensicherungen</string>
+    <string name="restore_credentials">Wiederherstellen von Credentials</string>
+    <string name="restore_credentials_desc">Speichern Sie Ihr Backup</string>
+    <string name="send_feedback_desc">Technische Probleme melden oder neue Features vorschlagen</string>
+    <string name="uppercase_alphabets">ALPHABE</string>
+    <string name="lowercase_alphabets">kleinbuchstaben</string>
+    <string name="symbols">Symbole</string>
+    <string name="numbers">Anzahl</string>
+    <string name="invalid_keyphrase">Invalid Keyphras</string>
+    <string name="backup_completed">Backup abgeschlossen</string>
+    <string name="credentials_backups_desc">Erstellen von Sicherungsdaten für externe Speicher</string>
+    <string name="share">Anteil</string>
+    <string name="share_desc">App mit anderen teilen</string>
+    <string name="password_length">Passwort Länge</string>
+    <string name="last_backup_date">Letztes Backup : %s</string>
+    <string name="coming_soon">Ich komme bald</string>
+    <string name="copied_to_clipboard">Zu Clipboard gewickelt</string>
+    <string name="login_to_enter_keypass">Anmeldung zum KeyPass</string>
+    <string name="delete_account_title">Bist du sicher\?</string>
+</resources>
