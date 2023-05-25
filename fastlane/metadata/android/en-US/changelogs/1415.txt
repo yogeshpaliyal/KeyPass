@@ -1,1 +1,1 @@
-Test release notes
+Added support for new languages, french, german, Italian, russian
