@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="override_auto_backup_file">Override Auto Backup File</string>
+    <string name="override_auto_backup_file">Ignora il file di backup automatico</string>
     <string name="generate_password">Generare password</string>
     <string name="home">Home</string>
     <string name="delete">Cancella</string>
     <string name="generate_shortcut_short_label">Generare password</string>
     <string name="backup_restored">Ripristino del backup</string>
-    <string name="invalid_keyphrase">Invalid Keyphrase</string>
+    <string name="invalid_keyphrase">Frase chiave non valida</string>
     <string name="backup_completed">Backup completato</string>
     <string name="credentials_backups">Credenziali di backup</string>
     <string name="credentials_backups_desc">Credenziali di backup per archiviazione esterna</string>
@@ -64,7 +64,7 @@
     <string name="generate_keyphrase">Generare Keyphrase</string>
     <string name="alert_blank_keyphrase">Si prega di inserire keyphrase</string>
     <string name="alert_invalid_keyphrase">Si prega di inserire keyphrase valida</string>
-    <string name="set_keyphrase">Set Keyphrase</string>
+    <string name="set_keyphrase">Imposta frase chiave</string>
     <string name="set_keyphrase_info">Si prega di creare keyphrase per il file di backup, questo verrà utilizzato per ripristinare il file di backup. keyphrase dovrebbe essere di 16 caratteri</string>
     <string name="enter_keyphrase">Inserisci Keyphrase</string>
     <string name="restore">Ripristino</string>
