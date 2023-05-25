@@ -1,15 +1,15 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.14",
+    "version": "1.4.15",
     "variant": "productionRelease",
-    "downloadSize": 2492392,
-    "installSize": 3031296,
+    "downloadSize": 2492387,
+    "installSize": 3031287,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 468428,
-            "installSize": 1000099,
+            "downloadSize": 468427,
+            "installSize": 1000098,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -56,8 +56,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5446,
-                    "installSize": 5441
+                    "downloadSize": 5445,
+                    "installSize": 5440
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -3251,7 +3251,7 @@
             "name": "com.google.android.material:material:1.9.0",
             "type": "EXTERNAL",
             "downloadSize": 247588,
-            "installSize": 247898,
+            "installSize": 247897,
             "files": [
                 {
                     "name": "com.google.android.material.textfield.TextInputLayout",
@@ -3263,7 +3263,7 @@
                     "name": "com.google.android.material.chip.Chip",
                     "type": "CLASS",
                     "downloadSize": 9380,
-                    "installSize": 9402
+                    "installSize": 9401
                 },
                 {
                     "name": "com.google.android.material.shape.EdgeTreatment",
@@ -9687,13 +9687,13 @@
             "name": "androidx.compose.ui:ui:1.4.3",
             "type": "EXTERNAL",
             "downloadSize": 192139,
-            "installSize": 192607,
+            "installSize": 192604,
             "files": [
                 {
                     "name": "androidx.compose.ui.input.key.KeyEvent_androidKt",
                     "type": "CLASS",
                     "downloadSize": 20266,
-                    "installSize": 20314
+                    "installSize": 20313
                 },
                 {
                     "name": "androidx.compose.ui.platform.AndroidComposeView",
@@ -10101,13 +10101,13 @@
                     "name": "androidx.compose.ui.input.pointer.MotionEventHelper$$ExternalSyntheticApiModelOutline0",
                     "type": "CLASS",
                     "downloadSize": 572,
-                    "installSize": 574
+                    "installSize": 573
                 },
                 {
                     "name": "androidx.compose.ui.node.NodeCoordinator$updateLayerParameters$1",
                     "type": "CLASS",
                     "downloadSize": 572,
-                    "installSize": 574
+                    "installSize": 573
                 },
                 {
                     "name": "androidx.compose.ui.platform.RenderNodeApi29$$ExternalSyntheticApiModelOutline23",
@@ -15277,7 +15277,7 @@
             "name": "androidx.compose.runtime:runtime:1.4.3",
             "type": "EXTERNAL",
             "downloadSize": 94770,
-            "installSize": 95000,
+            "installSize": 94998,
             "files": [
                 {
                     "name": "androidx.compose.runtime.ComposerImpl",
@@ -15391,7 +15391,7 @@
                     "name": "androidx.compose.runtime.SlotReader",
                     "type": "CLASS",
                     "downloadSize": 1178,
-                    "installSize": 1181
+                    "installSize": 1180
                 },
                 {
                     "name": "androidx.compose.runtime.ComposerImpl$recordInsert$2",
@@ -15511,7 +15511,7 @@
                     "name": "androidx.compose.runtime.external.kotlinx.collections.immutable.implementations.immutableList.PersistentVectorMutableIterator",
                     "type": "CLASS",
                     "downloadSize": 605,
-                    "installSize": 607
+                    "installSize": 606
                 },
                 {
                     "name": "androidx.compose.runtime.collection.MutableVector",
@@ -16388,7 +16388,7 @@
         {
             "name": "androidx.compose.material3:material3:1.1.0",
             "type": "EXTERNAL",
-            "downloadSize": 93091,
+            "downloadSize": 93090,
             "installSize": 93297,
             "files": [
                 {
@@ -16406,7 +16406,7 @@
                 {
                     "name": "androidx.compose.material3.OutlinedTextFieldKt",
                     "type": "CLASS",
-                    "downloadSize": 2794,
+                    "downloadSize": 2793,
                     "installSize": 2800
                 },
                 {
@@ -19081,7 +19081,7 @@
             "name": "androidx.work:work-runtime:2.8.1",
             "type": "EXTERNAL",
             "downloadSize": 70595,
-            "installSize": 70756,
+            "installSize": 70755,
             "files": [
                 {
                     "name": "androidx.work.impl.model.RawWorkInfoDao_Impl",
@@ -19201,7 +19201,7 @@
                     "name": "androidx.work.impl.background.systemalarm.DelayMetCommandHandler",
                     "type": "CLASS",
                     "downloadSize": 1178,
-                    "installSize": 1181
+                    "installSize": 1180
                 },
                 {
                     "name": "androidx.work.impl.constraints.trackers.BatteryChargingTracker",
@@ -24480,13 +24480,13 @@
         {
             "name": "org.jetbrains.kotlin:kotlin-stdlib:1.8.10",
             "type": "EXTERNAL",
-            "downloadSize": 47625,
+            "downloadSize": 47624,
             "installSize": 47733,
             "files": [
                 {
                     "name": "kotlin.jvm.internal.Intrinsics$Kotlin",
                     "type": "CLASS",
-                    "downloadSize": 15757,
+                    "downloadSize": 15756,
                     "installSize": 15793
                 },
                 {
@@ -25987,7 +25987,7 @@
             "name": "androidx.constraintlayout:constraintlayout-core:1.0.4",
             "type": "EXTERNAL",
             "downloadSize": 37110,
-            "installSize": 37200,
+            "installSize": 37199,
             "files": [
                 {
                     "name": "androidx.constraintlayout.core.widgets.ConstraintWidget",
@@ -26011,7 +26011,7 @@
                     "name": "androidx.constraintlayout.core.widgets.analyzer.DependencyGraph",
                     "type": "CLASS",
                     "downloadSize": 3205,
-                    "installSize": 3213
+                    "installSize": 3212
                 },
                 {
                     "name": "androidx.constraintlayout.core.widgets.Flow$WidgetsList",
@@ -29568,7 +29568,7 @@
         {
             "name": "androidx.transition:transition:1.2.0",
             "type": "EXTERNAL",
-            "downloadSize": 15261,
+            "downloadSize": 15260,
             "installSize": 15296,
             "files": [
                 {
@@ -29580,7 +29580,7 @@
                 {
                     "name": "androidx.transition.Fade",
                     "type": "CLASS",
-                    "downloadSize": 1806,
+                    "downloadSize": 1805,
                     "installSize": 1810
                 },
                 {
@@ -30600,7 +30600,7 @@
         {
             "name": "androidx.compose.material:material-ripple:1.4.3",
             "type": "EXTERNAL",
-            "downloadSize": 10350,
+            "downloadSize": 10349,
             "installSize": 10375,
             "files": [
                 {
@@ -30624,7 +30624,7 @@
                 {
                     "name": "androidx.compose.material.ripple.RippleHostView",
                     "type": "CLASS",
-                    "downloadSize": 1032,
+                    "downloadSize": 1031,
                     "installSize": 1034
                 },
                 {
