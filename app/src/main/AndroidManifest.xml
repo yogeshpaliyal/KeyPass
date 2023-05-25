@@ -5,6 +5,8 @@
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove"/>
+
 
     <application
         android:name=".MyApplication"
