@@ -48,3 +48,15 @@ jobs:
           releaseFiles: app/build/outputs/bundle/productionRelease/*.aab
           track: beta
           whatsNewDirectory: whatsnew/
+          
+          
+      - name: Deploy to Play Store (PROD)
+        id: deployProd
+        uses: r0adkll/upload-google-play@v1.1.1
+        with:
+          serviceAccountJson: service_account.json
+          packageName: com.yogeshpaliyal.keypass
+          releaseFiles: app/build/outputs/bundle/productionRelease/*.aab
+          track: production
+          userFraction: 0.01
+          whatsNewDirectory: whatsnew/
