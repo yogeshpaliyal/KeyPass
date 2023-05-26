@@ -3,11 +3,6 @@
 <div style="display: inline-block"  align="center">
 <h1>KeyPass</h1>
 <p>
-<!--
-TODO Fix versioning with F-droid
- <a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-staging-debug.apk">
-<img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
-</a> -->
 <img src="https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge" alt="latestVersion">
   <a href="https://f-droid.org/en/packages/com.yogeshpaliyal.keypass">
 <img src="https://img.shields.io/f-droid/v/com.yogeshpaliyal.keypass?style=for-the-badge" />
@@ -15,6 +10,11 @@ TODO Fix versioning with F-droid
 <br />
 <a href="https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass">
 <img src="https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge" alt="DevLibrary">
+</a>
+
+
+ <a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-staging-debug.apk">
+<img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
 </a>
 
 <a href="https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/productionRelease/report.html">
