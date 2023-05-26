@@ -2,14 +2,14 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.15",
     "variant": "productionRelease",
-    "downloadSize": 2492387,
-    "installSize": 3031287,
+    "downloadSize": 2492353,
+    "installSize": 3031253,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 468427,
-            "installSize": 1000098,
+            "downloadSize": 468393,
+            "installSize": 1000064,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -98,8 +98,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3268,
-                    "installSize": 3268
+                    "downloadSize": 3234,
+                    "installSize": 3234
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
