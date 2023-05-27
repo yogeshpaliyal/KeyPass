@@ -98,7 +98,7 @@ Give a ⭐️ if this project helped you!
 </a>
 
 ## Language
-[![Translation status](https://hosted.weblate.org/widgets/keypass/-/keypass/multi-auto.svg)](https://hosted.weblate.org/engage/keypass/)    
+[![Translation status](https://hosted.weblate.org/widgets/keypass/-/keypass/horizontal-auto.svg)](https://hosted.weblate.org/engage/keypass/)    
 Want to contribute in transaltions? [Contribute](https://hosted.weblate.org/projects/keypass/keypass/)
 
 ## Download Links
