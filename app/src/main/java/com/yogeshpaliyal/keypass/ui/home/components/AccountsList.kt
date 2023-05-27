@@ -34,8 +34,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -157,10 +159,6 @@ fun Account(
     }
 }
 
-private fun getUsernameOrOtp(accountModel: AccountModel): String? {
-    return if (accountModel.type == AccountType.TOTP) accountModel.getOtp() else accountModel.username
-}
-
 @Composable
 fun RenderUserName(accountModel: AccountModel) {
     val (username, setUsername) = remember { mutableStateOf("") }
@@ -227,16 +225,22 @@ fun WrapWithProgress(accountModel: AccountModel) {
         return
     }
 
-    val infiniteTransition =
-        rememberInfiniteTransition(accountModel.uniqueId ?: accountModel.title ?: "")
-    val rotationAnimation = infiniteTransition.animateFloat(
-        initialValue = 1f - (accountModel.getTOtpProgress().toFloat() / 30),
+    val (initialProgress, setInitialProgress) = remember { mutableStateOf(0f) }
+
+    LaunchedEffect(key1 = accountModel.uniqueId, block = {
+        setInitialProgress(1f - (accountModel.getTOtpProgress().toFloat() / 30))
+    })
+
+    val infiniteTransition = rememberInfiniteTransition()
+    val progress by infiniteTransition.animateFloat(
+        initialValue = initialProgress,
         targetValue = 1f,
         animationSpec = infiniteRepeatable(tween(30000, easing = LinearEasing))
     )
 
     CircularProgressIndicator(
-        modifier = Modifier.fillMaxSize(),
-        progress = rotationAnimation.value
+        modifier = Modifier
+            .fillMaxSize(),
+        progress = progress
     )
 }
