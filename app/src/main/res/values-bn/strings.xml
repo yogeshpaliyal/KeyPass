@@ -33,7 +33,7 @@
     <string name="last_backup_date">শেষ ব্যাকআপ: %s</string>
     <string name="coming_soon">শীঘ্রই আসছে</string>
     <string name="delete_account_title">তুমি কি নিশ্চিত\?</string>
-    <string name="delete_account_msg">আপনি কি সত্যিই এই এন্ট্রিটি মুছতে চান, এটি পুনরুদ্ধার করা যাবে না৷</string>
+    <string name="delete_account_msg">আপনি কি সত্যিই এই এন্ট্রিটি মুছতে চান, এটি পুনরুদ্ধার করা যাবে না</string>
     <string name="cancel">বাতিল করুন</string>
     <string name="feedback_to_keypass">KeyPass-এ প্রতিক্রিয়া</string>
     <string name="share_keypass">কীপাস শেয়ার করুন</string>
