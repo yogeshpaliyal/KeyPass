@@ -21,7 +21,7 @@
     <string name="message_no_accounts">アカウントが見つかりません。下のボタンから追加してください</string>
     <string name="turn_off_backup">バックアップをオフにする</string>
     <string name="verify_keyphrase">バックアップのパスフレーズを確認する</string>
-    <string name="verify_keyphrase_message">バックアップ パスフレーズをテストし、一致することを確認します。</string>
+    <string name="verify_keyphrase_message">バックアップ パスフレーズをテストし、一致することを確認します</string>
     <string name="backup_folder">バックアップフォルダー</string>
     <string name="backup">バックアップ</string>
     <string name="turn_on_backup">バックアップをオンにする</string>
