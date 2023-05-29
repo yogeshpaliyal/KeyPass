@@ -59,4 +59,5 @@ jobs:
           releaseFiles: app/build/outputs/bundle/productionRelease/*.aab
           track: production
           userFraction: 0.01
+          status: inProgress
           whatsNewDirectory: whatsnew/
