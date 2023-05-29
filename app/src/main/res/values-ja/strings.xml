@@ -22,7 +22,7 @@
     <string name="yes">はい</string>
     <string name="create_backup">バックアップを作成する</string>
     <string name="alert">アラート</string>
-    <string name="copy_keypharse_msg">このキー フレーズをコピーします。これはこのバックアップを回復するために使用されます。これは KeyPass によって提供されるものではありません。コピーまたは書き留めましたか\?</string>
+    <string name="copy_keypharse_msg">このキー フレーズをコピーします。これはこのバックアップを回復するために使用されます。これは KeyPass によって提供されるものではありません。コピーまたは書き留めましたか?</string>
     <string name="help">ヘルプ</string>
     <string name="security">安全</string>
     <string name="account_name">アカウント名</string>
@@ -46,7 +46,7 @@
     <string name="enter_keyphrase">キーフレーズを入力してください</string>
     <string name="restore">戻す</string>
     <string name="keyphrase_restore_info">バックアップ時に取得したキーフレーズを入力してください</string>
-    <string name="custom_generated_keyphrase_info">バックアップ用に独自のキーフレーズを作成しますか\? それとも私が生成する必要がありますか\?</string>
+    <string name="custom_generated_keyphrase_info">バックアップ用に独自のキーフレーズを作成しますか? それとも私が生成する必要がありますか?</string>
     <string name="ascending">上昇</string>
     <string name="descending">降順</string>
     <string name="str_continue">続く</string>
