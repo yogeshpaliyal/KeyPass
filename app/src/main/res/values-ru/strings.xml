@@ -1,18 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <string name="generate_password">Сгенерировать пароль</string>
     <string name="home">Домой</string>
     <string name="delete">Удалить</string>
-
-
     <string name="generate_shortcut_short_label">Сгенерировать пароль</string>
-
     <string name="backup_restored">Резервная копия восстановлена</string>
     <string name="invalid_keyphrase">Недопустимая ключевая фраза</string>
-
     <string name="backup_completed">Резервное копирование завершено</string>
-
     <!-- Sync Preferences -->
     <string name="credentials_backups">Резервные копии учетных данных</string>
     <string name="credentials_backups_desc">Создайте резервную копию учетных данных во внешнем хранилище</string>
@@ -30,10 +24,9 @@
     <string name="numbers">Числа</string>
     <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
     <string name="login_to_enter_keypass">Войдите в систему, чтобы ввести пароль</string>
-
     <string name="last_backup_date">Последняя резервная копия : %s</string>
     <string name="coming_soon">Скоро будет</string>
-    <string name="delete_account_title">Вы уверены?</string>
+    <string name="delete_account_title">Вы уверены\?</string>
     <string name="delete_account_msg">Вы действительно хотите удалить эту запись, она не может быть восстановлена</string>
     <string name="cancel">Отменить</string>
     <string name="feedback_to_keypass">Обратная связь с ключом</string>
@@ -49,7 +42,7 @@
     <string name="yes">Да</string>
     <string name="create_backup">Создать резервную копию</string>
     <string name="alert">Тревога</string>
-    <string name="copy_keypharse_msg">Скопируйте эту ключевую фразу, это будет использовано для восстановления этой резервной копии, это больше не будет предоставляться KeyPass, вы скопировали или записали?</string>
+    <string name="copy_keypharse_msg">Скопируйте эту ключевую фразу, это будет использовано для восстановления этой резервной копии, это больше не будет предоставляться KeyPass, вы скопировали или записали\?</string>
     <string name="help">Помощь</string>
     <string name="security">Безопасность</string>
     <string name="search">Поиск</string>
@@ -77,8 +70,7 @@
     <string name="enter_keyphrase">Введите ключевую фразу</string>
     <string name="restore">Восстанавливать</string>
     <string name="keyphrase_restore_info">Пожалуйста, введите ключевую фразу, которую вы получили при создании резервной копии</string>
-    <string name="custom_generated_keyphrase_info">Вы хотите создать свою собственную ключевую фразу для резервных копий или я должен сгенерировать ее для вас?</string>
-
+    <string name="custom_generated_keyphrase_info">Вы хотите создать свою собственную ключевую фразу для резервных копий или я должен сгенерировать ее для вас\?</string>
     <string name="ascending">Восходящий</string>
     <string name="descending">Нисходящий</string>
     <string name="str_continue">Продолжать</string>
@@ -97,7 +89,6 @@
     <string name="blank_new_password">Пожалуйста, введите свой новый пароль</string>
     <string name="blank_confirm_password">Пожалуйста, введите подтверждающий пароль</string>
     <string name="password_change_success">Пароль успешно изменен</string>
-
     <string name="biometric_error_no_hardware">На этом устройстве отсутствуют биометрические функции.</string>
     <string name="biometric_error_hw_unavailable">Биометрические функции в настоящее время недоступны.</string>
     <string name="biometric_error_none_enrolled">Установите биометрические данные на вашем устройстве.</string>
@@ -105,5 +96,4 @@
     <string name="password_set_from_settings">Пожалуйста, сначала установите пароль для вашего устройства в настройках телефона</string>
     <string name="authentication_failed">Ошибка проверки подлинности</string>
     <string name="authentication_error">Ошибка аутентификации %s</string>
-
 </resources>
