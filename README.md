@@ -51,8 +51,8 @@
 ## 🛠️ Language, Tools & Frameworks Used
 1. Kotlin
 2. Cipher (For Backup encryption and decryption)
-3. Material Design
-4. MVVM architecture
+3. Material Design 3
+4. MVI architecture
 5. LiveData & MutableLiveData
 6. Room Database
 7. Hilt (Dependency Injection)
