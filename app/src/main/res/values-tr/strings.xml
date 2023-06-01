@@ -33,7 +33,7 @@
     <string name="yes">Evet</string>
     <string name="create_backup">Yedek Oluştur</string>
     <string name="alert">Uyarı</string>
-    <string name="copy_keypharse_msg">Bu Anahtar İfadeyi Kopyalayın, bu yedeği kurtarmak için kullanılacaktır, bu KeyPass tarafından tekrar sağlanmayacaktır, kopyaladınız mı veya not aldınız mı\?</string>
+    <string name="copy_keypharse_msg">Bu Anahtar İfadeyi Kopyalayın, bu yedeği kurtarmak için kullanılacaktır, bu KeyPass tarafından tekrar sağlanmayacaktır, kopyaladınız mı veya not aldınız mı?</string>
     <string name="help">Yardım</string>
     <string name="security">Güvenlik</string>
     <string name="account_name">Hesap Adı</string>
