@@ -105,5 +105,6 @@
     <string name="password_set_from_settings">Please set password for your device first from phone settings</string>
     <string name="authentication_failed">Authentication Failed</string>
     <string name="authentication_error">Authentication Error %s</string>
+    <string name="change_password_length">Change password length</string>
 
 </resources>

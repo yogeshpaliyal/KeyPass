@@ -96,4 +96,5 @@
     <string name="blank_confirm_password">Por favor, digite a senha de confirmação</string>
     <string name="password_change_success">Senha alterada com sucesso</string>
     <string name="authentication_error">Erro de autenticação %s</string>
+    <string name="change_password_length">Alterar tamanho da senha</string>
 </resources>

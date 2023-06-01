@@ -95,4 +95,5 @@
     <string name="password_set_from_settings">ফোন সেটিংস থেকে প্রথমে আপনার ডিভাইসের জন্য পাসওয়ার্ড সেট করুন</string>
     <string name="authentication_failed">প্রমাণীকরণ ব্যর্থ হয়েছে</string>
     <string name="authentication_error">প্রমাণীকরণ ত্রুটি %s</string>
+    <string name="change_password_length">পাসওয়ার্ডের দৈর্ঘ্য পরিবর্তন করুন</string>
 </resources>

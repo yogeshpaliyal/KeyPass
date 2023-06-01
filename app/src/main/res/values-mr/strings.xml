@@ -95,4 +95,5 @@
     <string name="password_set_from_settings">कृपया फोन सेटिंग्जमधून प्रथम तुमच्या डिव्हाइससाठी पासवर्ड सेट करा</string>
     <string name="authentication_failed">प्रमाणीकरण अयशस्वी</string>
     <string name="authentication_error">प्रमाणीकरण त्रुटी %s</string>
+    <string name="change_password_length">पासवर्डची लांबी बदला</string>
 </resources>

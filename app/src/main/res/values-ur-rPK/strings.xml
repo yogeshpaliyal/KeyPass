@@ -95,4 +95,5 @@
     <string name="password_set_from_settings">براہ کرم فون کی ترتیبات سے پہلے اپنے آلے کے لیے پاس ورڈ سیٹ کریں</string>
     <string name="authentication_failed">تصدیق میں ناکام رہے</string>
     <string name="authentication_error">تصدیق کی خرابی %s</string>
+    <string name="change_password_length">پاس ورڈ کی لمبائی تبدیل کریں۔</string>
 </resources>

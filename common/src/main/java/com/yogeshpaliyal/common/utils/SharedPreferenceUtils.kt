@@ -3,6 +3,7 @@ package com.yogeshpaliyal.common.utils
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -50,6 +51,16 @@ suspend fun Context.setKeyPassPassword(password: String?) {
         } else {
             it[KEYPASS_PASSWORD] = password
         }
+    }
+}
+
+suspend fun Context.getKeyPassPasswordLength(): Float? {
+    return dataStore.data.first()[KEYPASS_PASSWORD_LENGTH]
+}
+
+suspend fun Context.setKeyPassPasswordLength(length: Float) {
+    dataStore.edit {
+        it[KEYPASS_PASSWORD_LENGTH] = length
     }
 }
 
@@ -123,6 +134,7 @@ suspend fun Context?.getBackupTime(): Long {
 private val BACKUP_KEY = stringPreferencesKey("backup_key")
 private val BIOMETRIC_ENABLE = booleanPreferencesKey("biometric_enable")
 private val KEYPASS_PASSWORD = stringPreferencesKey("keypass_password")
+private val KEYPASS_PASSWORD_LENGTH = floatPreferencesKey("keypass_password_length")
 private val BACKUP_DIRECTORY = stringPreferencesKey("backup_directory")
 private val BACKUP_DATE_TIME = longPreferencesKey("backup_date_time")
 private val AUTO_BACKUP = booleanPreferencesKey("auto_backup")

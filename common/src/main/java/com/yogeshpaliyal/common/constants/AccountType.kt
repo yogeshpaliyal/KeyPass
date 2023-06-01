@@ -1,6 +1,6 @@
 package com.yogeshpaliyal.common.constants
 
-annotation class AccountType() {
+annotation class AccountType {
     companion object {
         const val DEFAULT = 1 // used to store password and user information
         const val TOTP = 2 // used to store Time base - One time Password

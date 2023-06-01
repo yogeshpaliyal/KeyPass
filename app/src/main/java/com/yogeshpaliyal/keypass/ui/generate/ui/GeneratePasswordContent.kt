@@ -17,7 +17,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordViewState
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.CheckboxWithLabel
+import com.yogeshpaliyal.keypass.ui.generate.ui.components.PasswordLengthInput
 
 @Composable
 fun GeneratePasswordContent(
@@ -132,21 +132,6 @@ private fun PasswordTextField(
         label = {
             Text(text = "Password")
         }
-    )
-}
-
-@Composable
-private fun PasswordLengthInput(
-    length: Int,
-    onPasswordLengthChange: (Float) -> Unit
-) {
-    Text(text = "Password Length: $length")
-
-    Slider(
-        value = length.toFloat(),
-        onValueChange = onPasswordLengthChange,
-        valueRange = 7f..50f,
-        steps = 43
     )
 }
 

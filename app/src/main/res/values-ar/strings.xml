@@ -95,4 +95,5 @@
     <string name="backup_folder">مجلد النسخ الاحتياطي</string>
     <string name="backup">دعم</string>
     <string name="turn_on_backup">قم بتشغيل النسخ الاحتياطية</string>
+    <string name="change_password_length">تغيير طول كلمة المرور</string>
 </resources>

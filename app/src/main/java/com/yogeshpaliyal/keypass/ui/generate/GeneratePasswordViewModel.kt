@@ -1,11 +1,16 @@
 package com.yogeshpaliyal.keypass.ui.generate
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.utils.PasswordGenerator
+import com.yogeshpaliyal.common.utils.getKeyPassPasswordLength
+import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -14,11 +19,20 @@ class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
     private val _viewState = MutableStateFlow(GeneratePasswordViewState.Initial)
     val viewState = _viewState.asStateFlow()
 
+    fun retrieveSavedPasswordLength(context: Context) {
+        viewModelScope.launch {
+            val savedPasswordLength = context.getKeyPassPasswordLength() ?: DEFAULT_PASSWORD_LENGTH
+            _viewState.update {
+                _viewState.value.copy(length = savedPasswordLength)
+            }
+        }
+    }
+
     fun generatePassword() {
         val currentViewState = _viewState.value
 
         val passwordGenerator = PasswordGenerator(
-            length = currentViewState.length,
+            length = currentViewState.length.toInt(),
             includeUpperCaseLetters = currentViewState.includeUppercaseLetters,
             includeLowerCaseLetters = currentViewState.includeLowercaseLetters,
             includeSymbols = currentViewState.includeSymbols,
@@ -33,7 +47,7 @@ class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
 
     fun onPasswordLengthSliderChange(value: Float) {
         _viewState.update {
-            it.copy(length = value.toInt())
+            it.copy(length = value)
         }
     }
 
