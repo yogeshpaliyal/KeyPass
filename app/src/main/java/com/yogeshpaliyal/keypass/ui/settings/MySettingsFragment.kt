@@ -185,9 +185,10 @@ fun MySettingCompose() {
         ) {
             dispatchAction(NavigationAction(ChangeAppPasswordState()))
         }
+        val changePasswordLengthSummary = context.getString(R.string.default_password_length)
         PreferenceItem(
             title = R.string.change_password_length,
-            summaryStr = "Default password length: ${savedPasswordLength.toInt()}"
+            summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}"
         ) {
             dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
         }

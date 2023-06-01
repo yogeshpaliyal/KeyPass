@@ -96,4 +96,5 @@
     <string name="authentication_failed">প্রমাণীকরণ ব্যর্থ হয়েছে</string>
     <string name="authentication_error">প্রমাণীকরণ ত্রুটি %s</string>
     <string name="change_password_length">পাসওয়ার্ডের দৈর্ঘ্য পরিবর্তন করুন</string>
+    <string name="default_password_length">ডিফল্ট পাসওয়ার্ড দৈর্ঘ্য</string>
 </resources>

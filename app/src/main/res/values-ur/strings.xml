@@ -96,4 +96,5 @@
     <string name="biometric_error_none_enrolled">اپنے آلے پر بائیو میٹرک سیٹ اپ کریں۔</string>
     <string name="unlock_with_biometric">بائیو میٹرک کے ساتھ انلاک کریں</string>
     <string name="change_password_length">پاس ورڈ کی لمبائی تبدیل کریں۔</string>
+    <string name="default_password_length">پہلے سے طے شدہ پاس ورڈ کی لمبائی</string>
 </resources>

@@ -96,4 +96,5 @@
     <string name="authentication_failed">प्रमाणीकरण अयशस्वी</string>
     <string name="authentication_error">प्रमाणीकरण त्रुटी %s</string>
     <string name="change_password_length">पासवर्डची लांबी बदला</string>
+    <string name="default_password_length">डीफॉल्ट पासवर्ड लांबी</string>
 </resources>

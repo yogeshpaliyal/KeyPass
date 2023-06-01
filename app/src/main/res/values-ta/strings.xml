@@ -96,4 +96,5 @@
     <string name="biometric_error_no_hardware">இந்தச் சாதனத்தில் பயோமெட்ரிக் அம்சங்கள் எதுவும் இல்லை.</string>
     <string name="biometric_error_hw_unavailable">பயோமெட்ரிக் அம்சங்கள் தற்போது கிடைக்கவில்லை.</string>
     <string name="change_password_length">கடவுச்சொல் நீளத்தை மாற்றவும்</string>
+    <string name="default_password_length">இயல்புநிலை கடவுச்சொல் நீளம்</string>
 </resources>

@@ -96,4 +96,5 @@
     <string name="authentication_failed">Autenticazione non riuscita</string>
     <string name="authentication_error">Errore di autenticazione %s</string>
     <string name="change_password_length">Modifica la lunghezza della password</string>
+    <string name="default_password_length">Lunghezza password predefinita</string>
 </resources>
