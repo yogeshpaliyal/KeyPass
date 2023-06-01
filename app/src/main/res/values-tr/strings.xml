@@ -1,0 +1,109 @@
+<resources>
+
+
+    <string name="generate_password">Şifre Üret</string>
+    <string name="home">Ev</string>
+    <string name="delete">Sil</string>
+
+
+    <string name="generate_shortcut_short_label">Şifre Üret</string>
+
+    <string name="backup_restored">Yedek Geri Yüklendi</string>
+    <string name="invalid_keyphrase">Geçersiz Anahtar Kelime</string>
+
+    <string name="backup_completed">Yedekleme Tamamlandı</string>
+
+    <!-- Sync Preferences -->
+    <string name="credentials_backups">Bilgi Yedekleri</string>
+    <string name="credentials_backups_desc">Bilgileri harici depolama birimine yedekleyin</string>
+    <string name="restore_credentials">Bilgeleri Geri Yükle</string>
+    <string name="restore_credentials_desc">Yedeği geri yükle</string>
+    <string name="send_feedback">Geribildirim yolla</string>
+    <string name="send_feedback_desc">Sorunları bildirin veya yeni özellikler önerin</string>
+    <string name="share">Paylaş</string>
+    <string name="share_desc">Uygulamayı diğerleriyle paylaş</string>
+    <string name="password_length">Şifre uzunluğu</string>
+    <string name="password">Şifre</string>
+    <string name="uppercase_alphabets">BÜYÜK HARFLER</string>
+    <string name="lowercase_alphabets">küçük harfler</string>
+    <string name="symbols">Semboller</string>
+    <string name="numbers">Sayılar</string>
+    <string name="copied_to_clipboard">Panoya kopyalandı</string>
+    <string name="login_to_enter_keypass">KeyPass\'e girmek için oturum açın</string>
+
+    <string name="last_backup_date">Son yedek : %s</string>
+    <string name="coming_soon">Yakında</string>
+    <string name="delete_account_title">Emin Misiniz?</string>
+    <string name="delete_account_msg">Bu girişi gerçekten silmek istiyor musunuz, geri yüklenemez</string>
+    <string name="cancel">İptal et</string>
+    <string name="feedback_to_keypass">KeyPass\'a geri bildirim</string>
+    <string name="share_keypass">KeyPass\'ı paylaş</string>
+    <string name="message_no_accounts">Hesap bulunamadı, lütfen aşağıdaki butondan ekleyin</string>
+    <string name="turn_off_backup">Yedekleri kapat</string>
+    <string name="verify_keyphrase">Verify backup passphrase</string>
+    <string name="verify_keyphrase_message">Yedek parolanızı test edin ve eşleştiğini doğrulayın</string>
+    <string name="backup_folder">Yedekleme klasörü</string>
+    <string name="backup">Yedekle</string>
+    <string name="turn_on_backup">Yedekleri aç</string>
+    <string name="backup_desc">Yedeklemeler bir parola ile şifrelenir ve cihazınızda depolanır</string>
+    <string name="yes">Evet</string>
+    <string name="create_backup">Yedek Oluştur</string>
+    <string name="alert">Uyarı</string>
+    <string name="copy_keypharse_msg">Bu Anahtar İfadeyi Kopyalayın, bu, bu yedeği kurtarmak için kullanılacaktır, bu KeyPass tarafından tekrar sağlanmayacaktır, kopyaladınız mı veya not aldınız mı?</string>
+    <string name="help">Yardım</string>
+    <string name="security">Güvenlik</string>
+    <string name="search">Ara</string>
+    <string name="account_name">Hesap Adı</string>
+    <string name="username_email_phone">Kullanıcı adı/Email/Telefon</string>
+    <string name="tags_comma_separated_optional">Etiketleri virgülle ayır (isteğe bağlı)</string>
+    <string name="website_url_optional">Website urlsi (isteğe bağlı)</string>
+    <string name="notes_optional">Notlar (isteğe bağlı)</string>
+    <string name="auto_backup">Oto Yedekleme</string>
+    <string name="disabled">Devre dışı bırakıldı</string>
+    <string name="enabled">Etkinleştirildi</string>
+    <string name="override_auto_backup_file">Otomatik Yedekleme Dosyasını Geçersiz Kıl</string>
+    <string name="scanner">Tarayıcı</string>
+    <string name="alert_black_secret_key">Lütfen secret key\'i girin</string>
+    <string name="alert_black_account_name">Lütfen hesap adı girin</string>
+    <string name="add_totp">TOTP ekle</string>
+    <string name="scan_password">Şifre Tara</string>
+    <string name="save">Kaydet</string>
+    <string name="custom_keyphrase">Özel Anahtar Kelime</string>
+    <string name="generate_keyphrase">Anahtar Kelime Üret</string>
+    <string name="alert_blank_keyphrase">Lütfen anahtar kelimeyi girin</string>
+    <string name="alert_invalid_keyphrase">Lütfen geçerli bir anahtar kelime girin</string>
+    <string name="set_keyphrase">Anahtar kelime ayarla</string>
+    <string name="set_keyphrase_info">Lütfen yedekleme dosyanız için bir anahtar kelime oluşturun, bu, yedekleme dosyasını geri yüklemek için kullanılacaktır. Anahtar sözcük 16 karakterden oluşmalıdır</string>
+    <string name="enter_keyphrase">Anahtar kelimeyi girin</string>
+    <string name="restore">Geri yükle</string>
+    <string name="keyphrase_restore_info">Lütfen yedeklediğinizde aldığınız anahtar kelimeyi girin</string>
+    <string name="custom_generated_keyphrase_info">Yedeklemeler için kendi anahtar kelimenizi mi oluşturmak istiyorsunuz yoksa sizin için kendim mi oluşturayım?</string>
+
+    <string name="ascending">Artan</string>
+    <string name="descending">Azalan</string>
+    <string name="str_continue">Devam et</string>
+    <string name="back">Geri</string>
+    <string name="enter_password">Şifreyi Gir</string>
+    <string name="create_password">Şifre Oluştur</string>
+    <string name="confirm_password">Şifreyi Onayla</string>
+    <string name="incorrect_password">Yanlış Şifre</string>
+    <string name="password_no_match">Şifre uyuşmuyor</string>
+    <string name="auto_backup_desc">Hesap eklendiğinde veya değiştirildiğinde hesaplarınız yedeklenecektir.</string>
+    <string name="change_app_password">Uygulama Şifresini Değiştir</string>
+    <string name="old_password">Eski Şifre</string>
+    <string name="new_password">Yeni Şifre</string>
+    <string name="blank_old_password">Lütfen eski şifrenizi girin</string>
+    <string name="incorrect_old_password">Lütfen doğru eski şifrenizi girin</string>
+    <string name="blank_new_password">Lütfen yeni şifrenizi girin</string>
+    <string name="blank_confirm_password">Lütfen şifreyi onaylayın</string>
+    <string name="password_change_success">Şifre değiştirme başarılı</string>
+
+    <string name="biometric_error_no_hardware">Bu cihazda biyometrik özellikleri bulunamadı.</string>
+    <string name="biometric_error_hw_unavailable">Biyometrik özellikler şu anda kullanılamıyor.</string>
+    <string name="biometric_error_none_enrolled">Cihazınızda biyometriği kurun.</string>
+    <string name="unlock_with_biometric">Biyometrik ile aç</string>
+    <string name="password_set_from_settings">Lütfen önce cihazınıza bir şifre koyun</string>
+    <string name="authentication_failed">Doğrulama Başarısız</string>
+    <string name="authentication_error">Doğrulama Hatası %s</string>
+
+</resources>
