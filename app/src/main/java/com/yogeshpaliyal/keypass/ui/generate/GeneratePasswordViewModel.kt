@@ -5,19 +5,30 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.common.utils.getKeyPassPasswordLength
+import com.yogeshpaliyal.common.utils.setKeyPassPasswordLength
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
+class GeneratePasswordViewModel @Inject constructor(
+    @ApplicationContext context: Context
+) : ViewModel() {
 
     private val _viewState = MutableStateFlow(GeneratePasswordViewState.Initial)
     val viewState = _viewState.asStateFlow()
+
+    init {
+        observeState(context)
+    }
 
     fun retrieveSavedPasswordLength(context: Context) {
         viewModelScope.launch {
@@ -72,6 +83,18 @@ class GeneratePasswordViewModel @Inject constructor() : ViewModel() {
     fun onSymbolsCheckedChange(checked: Boolean) {
         _viewState.update {
             it.copy(includeSymbols = checked)
+        }
+    }
+
+    @OptIn(FlowPreview::class)
+    private fun observeState(context: Context) {
+        viewModelScope.launch {
+            // Save every changed value from password length with a delay
+            _viewState
+                .debounce(400)
+                .collectLatest { state ->
+                    context.setKeyPassPasswordLength(state.length)
+                }
         }
     }
 }
