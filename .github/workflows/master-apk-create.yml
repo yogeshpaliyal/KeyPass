@@ -35,15 +35,7 @@ jobs:
         echo "newVersion=$newVersion" >> "$GITHUB_OUTPUT"
       env:
         TYPE: ${{ inputs.type }}
-        RELEASE_NOTES: ${{ inputs.releaseNote }}
-
-    - name: Git Add and Commit
-      run: |
-        git config --global user.name 'Yogesh Choudhary Paliyal'
-        git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
-        git add .
-        git commit -am "Github Actions: App version Bumped to ${{ steps.bump-app-version.outputs.newVersion }}"
-        
+        RELEASE_NOTES: ${{ inputs.releaseNote }}      
 
     - name: Git push tag
       run: |
