@@ -44,7 +44,7 @@ subprojects {
             targetExclude("$buildDir/**/*.kt")
             targetExclude("bin/**/*.kt")
 
-            val map = HashMap<String, String>();
+            val map = HashMap<String, String>()
             ktlint("0.46.0").userData(map)
            // licenseHeaderFile rootProject.file('spotless/copyright.kt')
         }

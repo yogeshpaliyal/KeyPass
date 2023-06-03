@@ -96,4 +96,6 @@
     <string name="blank_confirm_password">请输入确认密码</string>
     <string name="password_change_success">密码修改成功</string>
     <string name="authentication_error">身份验证错误 %s</string>
+    <string name="change_password_length">更改密码长度</string>
+    <string name="default_password_length">默认密码长度</string>
 </resources>

@@ -34,9 +34,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -48,9 +50,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
+import com.yogeshpaliyal.common.utils.getKeyPassPasswordLength
 import com.yogeshpaliyal.common.utils.isBiometricEnable
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
@@ -58,6 +62,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
+import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -153,6 +158,12 @@ fun MySettingCompose() {
         )
     }
 
+    // Retrieving saved password length
+    var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
+    LaunchedEffect(key1 = Unit) {
+        context.getKeyPassPasswordLength()?.let { value -> savedPasswordLength = value }
+    }
+
     Column {
         PreferenceItem(title = R.string.security, isCategory = true)
         PreferenceItem(
@@ -173,6 +184,13 @@ fun MySettingCompose() {
             icon = Icons.Rounded.Password
         ) {
             dispatchAction(NavigationAction(ChangeAppPasswordState()))
+        }
+        val changePasswordLengthSummary = context.getString(R.string.default_password_length)
+        PreferenceItem(
+            title = R.string.change_password_length,
+            summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}"
+        ) {
+            dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
         }
 
         BiometricsOption()

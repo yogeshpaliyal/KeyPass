@@ -95,4 +95,6 @@
     <string name="old_password">Contraseña antigua</string>
     <string name="blank_old_password">Por favor, introduzca su contraseña anterior</string>
     <string name="unlock_with_biometric">Desbloqueo con biométrico</string>
+    <string name="change_password_length">Cambiar la longitud de la contraseña</string>
+    <string name="default_password_length">Longitud de contraseña predeterminada</string>
 </resources>

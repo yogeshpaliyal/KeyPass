@@ -95,4 +95,6 @@
     <string name="password_set_from_settings">કૃપા કરીને ફોન સેટિંગ્સમાંથી પહેલા તમારા ઉપકરણ માટે પાસવર્ડ સેટ કરો</string>
     <string name="authentication_failed">પ્રમાણીકરણ નિષ્ફળ થયું</string>
     <string name="authentication_error">પ્રમાણીકરણ ભૂલ %s</string>
+    <string name="change_password_length">પાસવર્ડ લંબાઈ બદલો</string>
+    <string name="default_password_length">ડિફૉલ્ટ પાસવર્ડ લંબાઈ</string>
 </resources>

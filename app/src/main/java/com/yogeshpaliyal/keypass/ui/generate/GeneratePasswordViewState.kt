@@ -1,7 +1,9 @@
 package com.yogeshpaliyal.keypass.ui.generate
 
+import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
+
 data class GeneratePasswordViewState(
-    val length: Int,
+    val length: Float,
     val includeUppercaseLetters: Boolean,
     val includeLowercaseLetters: Boolean,
     val includeSymbols: Boolean,
@@ -10,7 +12,7 @@ data class GeneratePasswordViewState(
 ) {
     companion object {
         val Initial = GeneratePasswordViewState(
-            length = 10,
+            length = DEFAULT_PASSWORD_LENGTH,
             includeUppercaseLetters = true,
             includeLowercaseLetters = true,
             includeSymbols = true,

@@ -96,4 +96,6 @@
     <string name="blank_confirm_password">कृपया पुष्टि पासवर्ड दर्ज करें</string>
     <string name="password_change_success">पासवर्ड सफलतापूर्वक बदला गया</string>
     <string name="authentication_error">प्रमाणीकरण त्रुटि %s</string>
+    <string name="change_password_length">पासवर्ड की लंबाई बदलें</string>
+    <string name="default_password_length">डिफ़ॉल्ट पासवर्ड लंबाई</string>
 </resources>

@@ -95,4 +95,6 @@
     <string name="password_length">パスワードの長さ</string>
     <string name="password">パスワード</string>
     <string name="uppercase_alphabets">大文字のアルファベット</string>
+    <string name="change_password_length">パスワードの長さを変更する</string>
+    <string name="default_password_length">デフォルトのパスワードの長さ</string>
 </resources>

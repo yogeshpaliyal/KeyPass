@@ -16,8 +16,6 @@ object Deps {
         val runtimeCompose by lazy { "androidx.lifecycle:lifecycle-runtime-compose:${Versions.lifecycle}" }
     }
 
-    object ComposeAndroidTest {
-
-    }
+    object ComposeAndroidTest
 
 }

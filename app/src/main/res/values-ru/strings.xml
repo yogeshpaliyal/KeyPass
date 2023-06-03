@@ -96,4 +96,6 @@
     <string name="password_set_from_settings">Пожалуйста, сначала установите пароль для вашего устройства в настройках телефона</string>
     <string name="authentication_failed">Ошибка проверки подлинности</string>
     <string name="authentication_error">Ошибка аутентификации %s</string>
+    <string name="change_password_length">Изменить длину пароля</string>
+    <string name="default_password_length">Длина пароля по умолчанию</string>
 </resources>

@@ -15,5 +15,5 @@ fun Long.formatCalendar(dateTimeFormat: String?): String? {
     val calendar: Calendar = Calendar.getInstance()
     calendar.timeInMillis = this
     val simpleDateFormat = SimpleDateFormat(dateTimeFormat, Locale.US)
-    return simpleDateFormat.format(calendar.getTime())
+    return simpleDateFormat.format(calendar.time)
 }

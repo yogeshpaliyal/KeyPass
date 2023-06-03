@@ -15,7 +15,7 @@ class PasswordGenerator(
     private val NUMBERS = 2
     private val SYMBOLS = 3
 
-    public fun generatePassword(): String {
+    fun generatePassword(): String {
         var password = ""
         val list = ArrayList<Int>()
         if (includeUpperCaseLetters) {

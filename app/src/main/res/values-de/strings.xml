@@ -95,4 +95,6 @@
     <string name="enter_password">Passwort eingeben</string>
     <string name="str_continue">Weitermachen</string>
     <string name="descending">Absteigend</string>
+    <string name="change_password_length">Passwortlänge ändern</string>
+    <string name="default_password_length">Standardlänge des Passworts</string>
 </resources>

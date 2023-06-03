@@ -46,7 +46,6 @@ dependencies {
     api("androidx.documentfile:documentfile:1.0.1")
 
     api("androidx.room:room-runtime:${Versions.room}")
-    androidTestApi("androidx.test:rules:1.5.0")
     kapt("androidx.room:room-compiler:${Versions.room}")
     api("androidx.room:room-ktx:${Versions.room}")
 
@@ -66,5 +65,9 @@ dependencies {
     api("com.google.code.gson:gson:2.10.1")
 
     api("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Test
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
+    androidTestApi("androidx.test:rules:1.5.0")
 
 }
