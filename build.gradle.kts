@@ -54,3 +54,11 @@ subprojects {
 //tasks.register("clean", Delete::class) {
 //    delete(rootProject.buildDir)
 //}
+
+// pre build gradle hook for git init on evey gradle build to reduce developer friction.
+val installGitHook by tasks.register<Exec>("installGitHook") {
+    workingDir = rootProject.rootDir
+    commandLine = listOf("sh", "./githooks/git-init.sh")
+}
+
+tasks.getByPath("app:preBuild").dependsOn(installGitHook)
