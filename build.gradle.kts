@@ -51,8 +51,7 @@ subprojects {
     }
 }
 
-//tasks.register("clean", Exec::class) {
-//    this.w
+//tasks.register("clean", Delete::class) {
 //    delete(rootProject.buildDir)
 //}
 
