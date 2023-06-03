@@ -39,16 +39,7 @@ jobs:
         id: createServiceAccount
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
 
-      - name: Deploy to Play Store (BETA)
-        id: deploy
-        uses: r0adkll/upload-google-play@v1.1.1
-        with:
-          serviceAccountJson: service_account.json
-          packageName: com.yogeshpaliyal.keypass
-          releaseFiles: app/build/outputs/bundle/productionRelease/*.aab
-          track: beta
-          whatsNewDirectory: whatsnew/
-          
+
           
       - name: Deploy to Play Store (PROD)
         id: deployProd
