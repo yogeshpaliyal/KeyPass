@@ -25,23 +25,7 @@ jobs:
       uses: ./.github/actions/setup
       
     - name: Build APK ⚙️🛠
-      run: bash ./gradlew assembleStagingDebug
-
-    - name: 🏗 Master Bump App Version
-      id: bump-app-version
-      run: |
-        newVersion=$(bash ./scripts/masterVersion.sh)
-        echo "::newVersion::$newVersion"
-        echo "newVersion=$newVersion" >> "$GITHUB_OUTPUT"
-      env:
-        TYPE: ${{ inputs.type }}
-        RELEASE_NOTES: ${{ inputs.releaseNote }}      
-
-    - name: Git push tag
-      run: |
-        git tag -a latest-master -m "Release version ${{ steps.bump-app-version.outputs.newVersion }}" -f
-        git push origin latest-master -f
-    
+      run: bash ./gradlew assembleStagingDebug    
     
 
     - uses: "marvinpinto/action-automatic-releases@latest"
