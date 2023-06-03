@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+echo "*******************************"
+echo   "Running git pre-commit hook"
+echo "*******************************"
+
+# Run Spotless
+./gradlew spotlessApply
+./gradlew spotlessKotlinApplyApply
+
+# Check if lint found any errors
+if [[ $? -ne 0 ]]; then
+  echo "Spotless found some errors. Please fix them before committing."
+  exit 1
+fi
+
