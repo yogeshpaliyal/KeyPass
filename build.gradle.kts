@@ -59,7 +59,7 @@ subprojects {
 // pre build gradle hook for git init on evey gradle build to reduce developer friction.
 val installGitHook by tasks.register<Exec>("installGitHook") {
     workingDir = rootProject.rootDir
-    commandLine = listOf("chmod +x ./githooks/git-init.sh", "sh ./githooks/git-init.sh")
+    commandLine = listOf("sh", "./githooks/git-init.sh")
 }
 
 tasks.getByPath("app:preBuild").dependsOn(installGitHook)

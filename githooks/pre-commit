@@ -6,7 +6,7 @@ echo "*******************************"
 
 # Run Spotless
 ./gradlew spotlessApply
-./gradlew spotlessKotlinApplyApply
+./gradlew spotlessKotlinApply
 
 # Check if lint found any errors
 if [[ $? -ne 0 ]]; then
