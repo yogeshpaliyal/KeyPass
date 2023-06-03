@@ -96,4 +96,6 @@
     <string name="password_set_from_settings">Lütfen önce cihazınıza bir şifre koyun</string>
     <string name="authentication_failed">Doğrulama Başarısız</string>
     <string name="authentication_error">Doğrulama Hatası %s</string>
+    <string name="change_password_length">Şifre uzunluğunu değiştir</string>
+    <string name="default_password_length">varsayılan şifre uzunluğu</string>
 </resources>
