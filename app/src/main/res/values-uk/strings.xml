@@ -11,7 +11,7 @@
     <string name="alert_invalid_keyphrase">Уведіть правильну парольну фразу</string>
     <string name="enter_keyphrase">Введіть парольну фразу</string>
     <string name="restore">Відновити</string>
-    <string name="custom_generated_keyphrase_info">Ви хочете створити власну парольну фразу для резервних копій або згенерувати її за вас\?</string>
+    <string name="custom_generated_keyphrase_info">Ви хочете створити власну парольну фразу для резервних копій або згенерувати її за вас?</string>
     <string name="blank_new_password">Будь ласка, введіть новий пароль</string>
     <string name="descending">За спаданням</string>
     <string name="set_keyphrase_info">Будь ласка, створіть парольну фразу для файлу резервної копії, яка буде використана для відновлення файлу резервної копії. Вона повинна складатися з 16 символів</string>
@@ -70,9 +70,9 @@
     <string name="share_desc">Поділіться програмою з іншими</string>
     <string name="password">Пароль</string>
     <string name="message_no_accounts">Не знайдено облікових записів, будь ласка, додайте знизу</string>
-    <string name="delete_account_title">Ви впевнені\?</string>
+    <string name="delete_account_title">Ви впевнені?</string>
     <string name="share_keypass">Поділитися KeyPass</string>
-    <string name="copy_keypharse_msg">Скопіюйте цю парольну фразу, вона буде використана для відновлення цієї резервної копії, вона не буде надана KeyPass Знову ж таки, ви скопіювали або записали\?</string>
+    <string name="copy_keypharse_msg">Скопіюйте цю парольну фразу, вона буде використана для відновлення цієї резервної копії, вона не буде надана KeyPass Знову ж таки, ви скопіювали або записали?</string>
     <string name="backup_desc">Резервні копії шифруються за допомогою парольної фрази та зберігаються на вашому пристрої</string>
     <string name="create_backup">Створити резервну копію</string>
     <string name="security">Безпека</string>
