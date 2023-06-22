@@ -35,6 +35,7 @@
 <img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png?raw=true" width="19%"/>
 </div>
 
+<a href="./README_ja.md">Japanese</a> 👈
 
 ## 🤩 Features
 - [x] Complete Offline : No internet permission has been added
