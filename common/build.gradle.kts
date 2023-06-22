@@ -38,7 +38,7 @@ dependencies {
     api("androidx.appcompat:appcompat:1.6.1")
 
     // apache common codec
-    implementation("commons-codec:commons-codec:1.15")
+    implementation("commons-codec:commons-codec:1.16.0")
 
     //Androidx Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
