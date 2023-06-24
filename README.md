@@ -47,7 +47,7 @@
 - [x] Authenticate with device credentials (pin, pattern, biometrics)
 - [x] Auto Backup
 - [x] TOTP
-- [ ] Jetpack Compose
+- [x] Jetpack Compose
 
 ## 🛠️ Language, Tools & Frameworks Used
 1. Kotlin
