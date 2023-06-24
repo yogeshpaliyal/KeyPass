@@ -98,4 +98,5 @@
     <string name="authentication_error">Ошибка аутентификации %s</string>
     <string name="change_password_length">Изменить длину пароля</string>
     <string name="default_password_length">Длина пароля по умолчанию</string>
+    <string name="secret_key">Секретный ключ</string>
 </resources>
