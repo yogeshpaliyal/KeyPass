@@ -97,4 +97,5 @@
     <string name="descending">Absteigend</string>
     <string name="change_password_length">Passwortlänge ändern</string>
     <string name="default_password_length">Standardlänge des Passworts</string>
+    <string name="secret_key">Geheimer Schlüssel</string>
 </resources>
