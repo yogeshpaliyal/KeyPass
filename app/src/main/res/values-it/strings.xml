@@ -97,4 +97,5 @@
     <string name="authentication_error">Errore di autenticazione %s</string>
     <string name="change_password_length">Modifica la lunghezza della password</string>
     <string name="default_password_length">Lunghezza password predefinita</string>
+    <string name="secret_key">Chiave segreta</string>
 </resources>
