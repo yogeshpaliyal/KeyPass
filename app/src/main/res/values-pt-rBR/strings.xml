@@ -98,4 +98,5 @@
     <string name="authentication_error">Erro de autenticação %s</string>
     <string name="change_password_length">Alterar tamanho da senha</string>
     <string name="default_password_length">Comprimento da senha padrão</string>
+    <string name="secret_key">Chave secreta</string>
 </resources>

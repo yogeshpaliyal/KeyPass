@@ -97,4 +97,5 @@
     <string name="account_name">Ім\'я облікового запису</string>
     <string name="auto_backup">Автоматичне резервне копіювання</string>
     <string name="old_password">Старий пароль</string>
+    <string name="secret_key">Секретний ключ</string>
 </resources>
