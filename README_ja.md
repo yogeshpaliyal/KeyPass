@@ -47,7 +47,7 @@
 - [x] デバイスの認証情報（PIN、パターン、生体認証）を使用して認証
 - [x] 自動バックアップ
 - [x] TOTP
-- [ ] Jetpack Compose
+- [x] Jetpack Compose
 
 ## 🛠️ 使用している言語、ツール、フレームワーク
 1. Kotlin
