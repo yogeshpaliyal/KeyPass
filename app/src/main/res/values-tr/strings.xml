@@ -98,4 +98,5 @@
     <string name="authentication_error">Doğrulama Hatası %s</string>
     <string name="change_password_length">Şifre uzunluğunu değiştir</string>
     <string name="default_password_length">varsayılan şifre uzunluğu</string>
+    <string name="secret_key">Gizli anahtar</string>
 </resources>
