@@ -3,7 +3,6 @@ package com.yogeshpaliyal.keypass.ui.redux.middlewares
 import android.content.Intent
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.addTOTP.AddTOTPActivity
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
@@ -16,10 +15,6 @@ val intentNavigationMiddleware = middleware<KeyPassState> { store, next, action 
         is IntentNavigation.GeneratePassword -> {
             val intent = Intent(state.context, GeneratePasswordActivity::class.java)
             state.context?.startActivity(intent)
-        }
-
-        is IntentNavigation.AddTOTP -> {
-            AddTOTPActivity.start(state.context, action.accountId)
         }
 
         is IntentNavigation.BackupActivity -> {

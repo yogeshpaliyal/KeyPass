@@ -49,6 +49,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
 import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPasswordLengthScreen
@@ -171,6 +172,7 @@ fun CurrentPage() {
             }
 
             is TotpDetailState -> {
+                TOTPScreen(it.accountId)
             }
         }
     }

@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.utils.TOTPHelper
-import com.yogeshpaliyal.common.utils.getRandomString
 
 /*
 * @author Yogesh Paliyal
@@ -29,7 +28,7 @@ data class AccountModel(
 
     @ColumnInfo(name = "unique_id")
     @SerializedName("unique_id")
-    var uniqueId: String? = getRandomString(),
+    var uniqueId: String? = null,
 
     @ColumnInfo(name = "username")
     @SerializedName("username")

@@ -1,142 +1,202 @@
 package com.yogeshpaliyal.keypass.ui.addTOTP
 
-import android.content.Context
-import android.content.Intent
-import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
-import com.google.zxing.integration.android.IntentIntegrator
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.material.icons.rounded.Done
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.databinding.ActivityAddTotpactivityBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.yogeshpaliyal.keypass.ui.detail.DeleteConfirmation
+import com.yogeshpaliyal.keypass.ui.detail.KeyPassInputField
+import com.yogeshpaliyal.keypass.ui.detail.QRScanner
+import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import org.reduxkotlin.compose.rememberTypedDispatcher
 
-@AndroidEntryPoint
-class AddTOTPActivity : AppCompatActivity() {
+@Composable
+fun TOTPScreen(id: String? = null, viewModel: AddTOTPViewModel = hiltViewModel()) {
+    val dispatchAction = rememberTypedDispatcher<Action>()
 
-    companion object {
-
-        private const val ARG_ACCOUNT_ID = "account_id"
-
-        @JvmStatic
-        fun start(context: Context?, accountId: String? = null) {
-            val starter = Intent(context, AddTOTPActivity::class.java)
-            starter.putExtra(ARG_ACCOUNT_ID, accountId)
-            context?.startActivity(starter)
-        }
-    }
-
-    private lateinit var binding: ActivityAddTotpactivityBinding
-
-    private val mViewModel by viewModels<AddTOTPViewModel>()
-
-    private val accountId by lazy {
-        intent.extras?.getString(ARG_ACCOUNT_ID)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityAddTotpactivityBinding.inflate(layoutInflater)
-        binding.mViewModel = mViewModel
-        binding.lifecycleOwner = this
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-
-        binding.tilSecretKey.isVisible = accountId == null
-        mViewModel.loadOldAccount(accountId)
-
-        binding.toolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
-
-        binding.tilSecretKey.setEndIconOnClickListener {
-            // ScannerActivity.start(this)
-            IntentIntegrator(this).setPrompt("").initiateScan()
-        }
-
-        mViewModel.error.observe(
-            this,
-            Observer {
-                it?.getContentIfNotHandled()?.let {
-                    Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
-                }
-            }
+    // task value state
+    val (accountModel, setAccountModel) = remember {
+        mutableStateOf(
+            AccountModel()
         )
+    }
 
-        mViewModel.goBack.observe(
-            this,
-            Observer {
-                it.getContentIfNotHandled()?.let {
-                    onBackPressed()
-                }
-            }
-        )
-
-        binding.btnSave.setOnClickListener {
-            mViewModel.saveAccount(accountId)
+    val launcher = rememberLauncherForActivityResult(QRScanner()) {
+        it?.let {
+            val totp = TOTPHelper(it)
+            setAccountModel(
+                accountModel.copy(
+                    password = totp.secret,
+                    title = totp.label,
+                    username = totp.issuer
+                )
+            )
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (accountId != null) {
-            menuInflater.inflate(R.menu.menu_delete, menu)
-        }
-        return super.onCreateOptionsMenu(menu)
+    val goBack: () -> Unit = {
+        dispatchAction(GoBackAction)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_delete) {
-            deleteAccount()
+    // Set initial object
+    LaunchedEffect(key1 = Unit) {
+        viewModel.loadOldAccount(id) {
+            setAccountModel(it.copy())
         }
-        return super.onOptionsItemSelected(item)
     }
 
-    private fun deleteAccount() {
-        MaterialAlertDialogBuilder(this)
-            .setTitle(getString(R.string.delete_account_title))
-            .setMessage(getString(R.string.delete_account_msg))
-            .setPositiveButton(
-                getString(R.string.delete)
-            ) { dialog, which ->
-                dialog?.dismiss()
-
-                if (accountId != null) {
-                    mViewModel.deleteAccount(accountId!!) {
-                        onBackPressed()
+    Scaffold(bottomBar = {
+        BottomBar(
+            backPressed = goBack,
+            showDeleteButton = accountModel.uniqueId != null,
+            onDeletePressed = {
+                accountModel.uniqueId?.let {
+                    viewModel.deleteAccount(it) {
+                        goBack()
                     }
                 }
             }
-            .setNegativeButton(getString(R.string.cancel)) { dialog, which ->
-                dialog.dismiss()
-            }.show()
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-
-        if (result != null) {
-            if (result.contents != null) {
-                try {
-                    val totp = TOTPHelper(result.contents)
-                    totp.secret?.let {
-                        mViewModel.setSecretKey(it)
-                    }
-                    mViewModel.setAccountName(totp.label)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+        ) {
+            if (accountModel.password.isNullOrEmpty()) {
+                dispatchAction(ToastAction(R.string.alert_black_secret_key))
+                return@BottomBar
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
+
+            if (accountModel.title.isNullOrEmpty()) {
+                dispatchAction(ToastAction(R.string.alert_black_account_name))
+                return@BottomBar
+            }
+
+            viewModel.saveAccount(accountModel, goBack)
+        }
+    }) { paddingValues ->
+        Surface(modifier = Modifier.padding(paddingValues)) {
+            Fields(accountModel = accountModel, updateAccountModel = { newAccountModel ->
+                setAccountModel(newAccountModel)
+            }) {
+                launcher.launch(null)
+            }
         }
     }
+}
+
+@Composable
+fun Fields(
+    modifier: Modifier = Modifier,
+    accountModel: AccountModel,
+    updateAccountModel: (newAccountModel: AccountModel) -> Unit,
+    scanClicked: () -> Unit
+) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        if (accountModel.uniqueId == null) {
+            KeyPassInputField(
+                modifier = Modifier.testTag("secretKey"),
+                placeholder = R.string.secret_key,
+                value = accountModel.password,
+                setValue = {
+                    updateAccountModel(accountModel.copy(password = it))
+                },
+                trailingIcon = {
+                    IconButton(onClick = {
+                        scanClicked()
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_twotone_qr_code_scanner_24),
+                            contentDescription = ""
+                        )
+                    }
+                }
+            )
+        }
+
+        KeyPassInputField(
+            modifier = Modifier.testTag("accountName"),
+            placeholder = R.string.account_name,
+            value = accountModel.title,
+            setValue = {
+                updateAccountModel(accountModel.copy(title = it))
+            }
+        )
+    }
+}
+
+@Composable
+fun BottomBar(
+    backPressed: () -> Unit,
+    showDeleteButton: Boolean,
+    onDeletePressed: () -> Unit,
+    onSaveClicked: () -> Unit
+) {
+    val (openDialog, setOpenDialog) = remember { mutableStateOf(false) }
+
+    BottomAppBar(actions = {
+        IconButton(onClick = backPressed) {
+            Icon(
+                painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
+                contentDescription = "Go Back",
+                tint = MaterialTheme.colorScheme.onSurface
+            )
+        }
+        if (showDeleteButton) {
+            IconButton(onClick = {
+                setOpenDialog(true)
+            }) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Rounded.Delete),
+                    contentDescription = "Delete",
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }
+        }
+    }, floatingActionButton = {
+            FloatingActionButton(modifier = Modifier.testTag("save"), onClick = onSaveClicked) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Rounded.Done),
+                    contentDescription = "Save Changes"
+                )
+            }
+        })
+
+    DeleteConfirmation(
+        openDialog,
+        updateDialogVisibility = {
+            setOpenDialog(it)
+        },
+        onDeletePressed
+    )
 }
