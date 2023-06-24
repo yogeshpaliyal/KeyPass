@@ -97,4 +97,5 @@
     <string name="authentication_error">प्रमाणीकरण त्रुटी %s</string>
     <string name="change_password_length">पासवर्डची लांबी बदला</string>
     <string name="default_password_length">डीफॉल्ट पासवर्ड लांबी</string>
+    <string name="secret_key">गुप्त की</string>
 </resources>
