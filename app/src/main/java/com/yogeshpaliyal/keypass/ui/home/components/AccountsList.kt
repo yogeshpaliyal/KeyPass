@@ -54,6 +54,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
+import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 import kotlinx.coroutines.delay
 import org.reduxkotlin.compose.rememberDispatcher
 import kotlin.time.Duration.Companion.seconds
@@ -77,7 +78,7 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
                         account,
                         onClick = {
                             if (it.type == AccountType.TOTP) {
-                                dispatch(IntentNavigation.AddTOTP(it.uniqueId))
+                                dispatch(NavigationAction(TotpDetailState(it.uniqueId)))
                             } else {
                                 dispatch(NavigationAction(AccountDetailState(it.id)))
                             }

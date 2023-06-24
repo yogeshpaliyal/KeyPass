@@ -29,7 +29,7 @@ data class AccountModel(
 
     @ColumnInfo(name = "unique_id")
     @SerializedName("unique_id")
-    var uniqueId: String? = getRandomString(),
+    var uniqueId: String? = null,
 
     @ColumnInfo(name = "username")
     @SerializedName("username")

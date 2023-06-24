@@ -107,5 +107,6 @@
     <string name="authentication_error">Authentication Error %s</string>
     <string name="change_password_length">Change password length</string>
     <string name="default_password_length">Default password length</string>
+    <string name="secret_key">Secret Key</string>
 
 </resources>

@@ -4,6 +4,7 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
+import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 
 object NavigationModel {
 
@@ -31,7 +32,7 @@ object NavigationModel {
             icon = R.drawable.ic_twotone_totp,
             titleRes = R.string.add_totp,
             checked = false,
-            action = IntentNavigation.AddTOTP()
+            action = NavigationAction(TotpDetailState())
         )
     )
 }

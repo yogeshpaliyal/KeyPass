@@ -21,9 +21,6 @@
             android:name=".ui.CrashActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.addTOTP.AddTOTPActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.addTOTP.ScannerActivity"
             android:exported="false" />
         <activity
