@@ -27,7 +27,8 @@
 </div>
 
 
-> The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
+> このアプリは、最新のパスワードマネージャーです。
+パスワードは端末上に保存され、認証情報がサーバーに共有されないので、漏洩の心配がありません。
 
 
 <div style="display: inline-block"  align="center">
@@ -35,21 +36,20 @@
 <img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png?raw=true" width="19%"/><img src ="https://github.com/yogeshpaliyal/KeyPass/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png?raw=true" width="19%"/>
 </div>
 
-<a href="./README_ja.md">Japanese</a> 👈
 
-## 🤩 Features
-- [x] Complete Offline : No internet permission has been added
-- [x] Open Source : Code is accessible to every one
-- [x] Encrypted Backup and Restore
-- [x] Dark Mode Support
-- [x] Material Design 3
-- [x] Screenshot Blocked
-- [x] Authenticate with device credentials (pin, pattern, biometrics)
-- [x] Auto Backup
+## 🤩 機能
+- [x] オフラインで完結 : アプリに通信の権限が追加されていません
+- [x] オープンソース : コードは誰でも閲覧可能です
+- [x] 暗号化されたバックアップと、バックアップからの復元
+- [x] ダークモードのサポート
+- [x] Material Design 3の準拠
+- [x] スクリーンショットの禁止
+- [x] デバイスの認証情報（PIN、パターン、生体認証）を使用して認証
+- [x] 自動バックアップ
 - [x] TOTP
 - [ ] Jetpack Compose
 
-## 🛠️ Language, Tools & Frameworks Used
+## 🛠️ 使用している言語、ツール、フレームワーク
 1. Kotlin
 2. Cipher (For Backup encryption and decryption)
 3. Material Design 3
@@ -59,32 +59,32 @@
 7. Hilt (Dependency Injection)
 8. Jetpack Data Store Preference
 
-## ✍️ Author
+## ✍️ 作者
 
 👤 **Yogesh Choudhary Paliyal**
 
 * Twitter: <a href="https://twitter.com/yogeshpaliyal" target="_blank">@yogeshpaliyal</a>
 * Email: yogeshpaliyal.foss@gmail.com
 
-Feel free to ping me 😉
+お気軽にお声がけください 😉
 
-## 🤝 Contributing
+## 🤝 コントリビュート
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any
-contributions you make are **greatly appreciated**.
+コントリビュートは、オープンソースコミュニティを、より創造的な素晴らしい場にしてくれます。
+どんなコントリビュートでも**歓迎しています。**
 
-1. Open an issue first to discuss what you would like to change.
-1. Fork the Project
-1. Create your feature branch (`git checkout -b feature/amazing-feature`)
-1. Commit your changes (`git commit -m 'Add some amazing feature'`)
-1. Push to the branch (`git push origin feature/amazing-feature`)
-1. Open a pull request
+1. 初めに、変更内容について議論するために、まずISSUEをオープンしてください。
+1. プロジェクトをフォークしてください。
+1. Featureブランチを作成します。 (`git checkout -b feature/amazing-feature`)
+1. 変更をコミットします。 (`git commit -m 'Add some amazing feature'`)
+1. 変更をプッシュしてください。 (`git push origin feature/amazing-feature`)
+1. プルリクエストをオープンしてください。
 
-Please make sure to update tests as appropriate.
+テストを適切な状態に更新することを、お忘れなく。
 
-## ❤ Show your support
+## ❤ 援助
 
-Give a ⭐️ if this project helped you!
+もしこのプロジェクトが役に立った場合は ⭐️ をお願いします！
 
 <a href="https://www.patreon.com/yogeshpaliyal">
   <img alt="Patron Link" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"/>
@@ -98,11 +98,11 @@ Give a ⭐️ if this project helped you!
     <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donation" width="160">
 </a>
 
-## Language
+## 言語
 [![Translation status](https://hosted.weblate.org/widgets/keypass/-/keypass/horizontal-auto.svg)](https://hosted.weblate.org/engage/keypass/)    
-Want to contribute in transaltions? [Contribute](https://hosted.weblate.org/projects/keypass/keypass/)
+翻訳に貢献したい場合は、こちらのリンクをチェックしてください。 [コントリビュート](https://hosted.weblate.org/projects/keypass/keypass/)
 
-## Download Links
+## ダウンロードはこちらから
 <a href='https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass'><img align='center' height='55' src='./icons/google_play_badge.png'></a>
 <a href='https://f-droid.org/en/packages/com.yogeshpaliyal.keypass/'><img align='center' alt='Get it on F-Droid' src='./icons/fdroid_badge.png' height="55"/></a>
 
