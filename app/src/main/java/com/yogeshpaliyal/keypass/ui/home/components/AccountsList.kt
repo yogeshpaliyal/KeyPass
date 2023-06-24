@@ -51,7 +51,6 @@ import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
-import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState

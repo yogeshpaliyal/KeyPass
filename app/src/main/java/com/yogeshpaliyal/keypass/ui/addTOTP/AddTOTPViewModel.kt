@@ -1,15 +1,11 @@
 package com.yogeshpaliyal.keypass.ui.addTOTP
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.common.utils.Event
 import com.yogeshpaliyal.common.utils.getRandomString
-import com.yogeshpaliyal.keypass.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,7 +14,6 @@ import javax.inject.Inject
 @HiltViewModel
 class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase) :
     ViewModel() {
-
 
     fun loadOldAccount(accountId: String?, loadAccount: (accountModel: AccountModel) -> Unit) {
         accountId ?: return
@@ -32,7 +27,6 @@ class AddTOTPViewModel @Inject constructor(private val appDatabase: AppDatabase)
 
     fun saveAccount(accountModel: AccountModel, onComplete: () -> Unit) {
         viewModelScope.launch {
-
             val accountModelDb = if (accountModel.uniqueId == null) {
                 AccountModel(uniqueId = getRandomString(), password = accountModel.password, title = accountModel.title, type = AccountType.TOTP)
             } else {

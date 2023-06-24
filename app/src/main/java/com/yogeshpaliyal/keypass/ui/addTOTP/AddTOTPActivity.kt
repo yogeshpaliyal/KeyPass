@@ -41,7 +41,6 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
 fun TOTPScreen(id: String? = null, viewModel: AddTOTPViewModel = hiltViewModel()) {
-
     val dispatchAction = rememberTypedDispatcher<Action>()
 
     // task value state
@@ -75,7 +74,6 @@ fun TOTPScreen(id: String? = null, viewModel: AddTOTPViewModel = hiltViewModel()
         }
     }
 
-
     Scaffold(bottomBar = {
         BottomBar(
             backPressed = goBack,
@@ -86,10 +84,8 @@ fun TOTPScreen(id: String? = null, viewModel: AddTOTPViewModel = hiltViewModel()
                         goBack()
                     }
                 }
-
             }
         ) {
-
             if (accountModel.password.isNullOrEmpty()) {
                 dispatchAction(ToastAction(R.string.alert_black_secret_key))
                 return@BottomBar
@@ -127,10 +123,9 @@ fun Fields(
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-
         if (accountModel.uniqueId == null) {
-
-            KeyPassInputField(modifier = Modifier.testTag("secretKey"),
+            KeyPassInputField(
+                modifier = Modifier.testTag("secretKey"),
                 placeholder = R.string.secret_key,
                 value = accountModel.password,
                 setValue = {
@@ -145,15 +140,18 @@ fun Fields(
                             contentDescription = ""
                         )
                     }
-                })
+                }
+            )
         }
 
-        KeyPassInputField(modifier = Modifier.testTag("accountName"),
+        KeyPassInputField(
+            modifier = Modifier.testTag("accountName"),
             placeholder = R.string.account_name,
             value = accountModel.title,
             setValue = {
                 updateAccountModel(accountModel.copy(title = it))
-            })
+            }
+        )
     }
 }
 
@@ -164,10 +162,7 @@ fun BottomBar(
     onDeletePressed: () -> Unit,
     onSaveClicked: () -> Unit
 ) {
-
-
     val (openDialog, setOpenDialog) = remember { mutableStateOf(false) }
-
 
     BottomAppBar(actions = {
         IconButton(onClick = backPressed) {
@@ -189,13 +184,13 @@ fun BottomBar(
             }
         }
     }, floatingActionButton = {
-        FloatingActionButton(modifier = Modifier.testTag("save"), onClick = onSaveClicked) {
-            Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.Done),
-                contentDescription = "Save Changes"
-            )
-        }
-    })
+            FloatingActionButton(modifier = Modifier.testTag("save"), onClick = onSaveClicked) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Rounded.Done),
+                    contentDescription = "Save Changes"
+                )
+            }
+        })
 
     DeleteConfirmation(
         openDialog,
