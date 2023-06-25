@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="generate_password">Créer un mot de passe</string>
+    <string name="generate_password">Générer un mot de passe</string>
     <string name="home">Maison</string>
     <string name="website_url_optional">URL du site Web (facultatif)</string>
     <string name="notes_optional">Remarques (facultatif)</string>
     <string name="delete">Supprimer</string>
-    <string name="generate_shortcut_short_label">Créer un mot de passe</string>
+    <string name="generate_shortcut_short_label">Générer un mot de passe</string>
     <string name="backup_restored">Sauvegarde restaurée</string>
     <string name="invalid_keyphrase">Phrase clé invalide</string>
     <string name="backup_completed">Sauvegarde terminée</string>
