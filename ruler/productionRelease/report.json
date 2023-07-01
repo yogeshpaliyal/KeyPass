@@ -2,14 +2,14 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.17",
     "variant": "productionRelease",
-    "downloadSize": 2530145,
-    "installSize": 3072300,
+    "downloadSize": 2530146,
+    "installSize": 3072301,
     "components": [
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 436466,
-            "installSize": 971368,
+            "downloadSize": 436467,
+            "installSize": 971369,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -1580,8 +1580,8 @@
                 {
                     "name": "/kotlin-tooling-metadata.json",
                     "type": "OTHER",
-                    "downloadSize": 281,
-                    "installSize": 281
+                    "downloadSize": 282,
+                    "installSize": 282
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.backup.components.ShowKeyPhraseDialogKt$ShowKeyPhraseDialog$1",
