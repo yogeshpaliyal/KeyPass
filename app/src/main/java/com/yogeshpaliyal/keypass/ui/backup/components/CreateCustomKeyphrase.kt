@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
-import com.yogeshpaliyal.common.utils.saveKeyphrase
+import com.yogeshpaliyal.common.utils.setBackupKey
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
@@ -51,7 +51,7 @@ fun CreateCustomKeyphrase(saveKeyphrase: () -> Unit, dismissDialog: () -> Unit) 
                 }
 
                 coroutineScope.launch {
-                    context.saveKeyphrase(keyphrase)
+                    context.setBackupKey(keyphrase)
                 }
 
                 saveKeyphrase.invoke()

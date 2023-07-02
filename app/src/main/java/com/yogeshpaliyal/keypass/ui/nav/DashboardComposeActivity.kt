@@ -34,8 +34,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
@@ -48,6 +51,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import com.yogeshpaliyal.common.data.UserSettings
+import com.yogeshpaliyal.common.utils.getUserSettingsFlow
+import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
@@ -80,6 +86,8 @@ import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 import java.util.Locale
 
+val LocalUserSettings = compositionLocalOf { UserSettings() }
+
 @AndroidEntryPoint
 class DashboardComposeActivity : AppCompatActivity() {
 
@@ -92,11 +100,19 @@ class DashboardComposeActivity : AppCompatActivity() {
             )
         }
         setContent {
-            KeyPassTheme {
-                StoreProvider(store = KeyPassRedux.createStore()) {
-                    Dashboard()
+            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
+
+            CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
+                KeyPassTheme {
+                    StoreProvider(store = KeyPassRedux.createStore()) {
+                        Dashboard()
+                    }
                 }
             }
+
+            LaunchedEffect(key1 = Unit, block = {
+                migrateOldDataToNewerDataStore()
+            })
         }
     }
 }

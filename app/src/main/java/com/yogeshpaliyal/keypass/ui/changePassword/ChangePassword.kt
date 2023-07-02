@@ -28,10 +28,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.yogeshpaliyal.common.utils.getKeyPassPassword
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
@@ -51,6 +51,7 @@ fun ChangePassword(state: ChangeAppPasswordState) {
 
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
 
     Scaffold(bottomBar = {
         BottomAppBar {
@@ -199,7 +200,7 @@ fun ChangePassword(state: ChangeAppPasswordState) {
                         }
 
                         coroutineScope.launch {
-                            val oldPasswordFromStore = context.getKeyPassPassword()
+                            val oldPasswordFromStore = userSettings.keyPassPassword
                             if (oldPassword.password != oldPasswordFromStore) {
                                 dispatchAction.updateState(
                                     state.copy(

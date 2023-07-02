@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -25,28 +24,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.yogeshpaliyal.common.utils.getKeyPassPassword
-import com.yogeshpaliyal.common.utils.isBiometricEnable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastActionStr
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
-import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
 fun AuthScreen(state: AuthState) {
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
 
     val dispatchAction = rememberDispatcher()
-
-    val coroutineScope = rememberCoroutineScope()
 
     val (password, setPassword) = remember(state) {
         mutableStateOf("")
@@ -62,20 +58,20 @@ fun AuthScreen(state: AuthState) {
 
     LaunchedEffect(key1 = context, state) {
         if (state is AuthState.Login) {
-            setBiometricEnable(context.isBiometricEnable())
+            setBiometricEnable(userSettings.isBiometricEnable)
         }
     }
 
     BackHandler(state is AuthState.ConfirmPassword) {
-        dispatchAction(NavigationAction(AuthState.CreatePassword))
+        dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
 
-    LaunchedEffect(key1 = Unit, block = {
-        coroutineScope.launch {
-            val mPassword = context.getKeyPassPassword()
-            if (mPassword == null) {
-                dispatchAction(NavigationAction(AuthState.CreatePassword))
-            }
+    LaunchedEffect(key1 = userSettings.keyPassPassword, block = {
+        val mPassword = userSettings.keyPassPassword
+        if (mPassword == null) {
+            dispatchAction(NavigationAction(AuthState.CreatePassword, true))
+        } else {
+            dispatchAction(NavigationAction(AuthState.Login, true))
         }
     })
 
@@ -131,7 +127,14 @@ fun BiometricPrompt(show: Boolean) {
                     errString: CharSequence
                 ) {
                     super.onAuthenticationError(errorCode, errString)
-                    dispatch(ToastActionStr(context.getString(R.string.authentication_error, errString)))
+                    dispatch(
+                        ToastActionStr(
+                            context.getString(
+                                R.string.authentication_error,
+                                errString
+                            )
+                        )
+                    )
                 }
 
                 override fun onAuthenticationSucceeded(
