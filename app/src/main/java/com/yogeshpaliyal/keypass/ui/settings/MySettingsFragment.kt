@@ -50,8 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
-import com.yogeshpaliyal.common.utils.getKeyPassPasswordLength
-import com.yogeshpaliyal.common.utils.isBiometricEnable
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
@@ -161,7 +160,7 @@ fun MySettingCompose() {
     // Retrieving saved password length
     var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
     LaunchedEffect(key1 = Unit) {
-        context.getKeyPassPasswordLength()?.let { value -> savedPasswordLength = value }
+        context.getUserSettings().defaultPasswordLength?.let { value -> savedPasswordLength = value }
     }
 
     Column {
@@ -240,7 +239,7 @@ fun BiometricsOption() {
     val coroutineScope = rememberCoroutineScope()
 
     LaunchedEffect(key1 = context) {
-        setIsBiometricEnable(context.isBiometricEnable())
+        setIsBiometricEnable(context.getUserSettings().isBiometricEnable)
     }
 
     LaunchedEffect(key1 = context) {

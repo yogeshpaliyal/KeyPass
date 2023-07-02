@@ -28,7 +28,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.yogeshpaliyal.common.utils.getKeyPassPassword
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
@@ -199,7 +199,7 @@ fun ChangePassword(state: ChangeAppPasswordState) {
                         }
 
                         coroutineScope.launch {
-                            val oldPasswordFromStore = context.getKeyPassPassword()
+                            val oldPasswordFromStore = context.getUserSettings().keyPassPassword
                             if (oldPassword.password != oldPasswordFromStore) {
                                 dispatchAction.updateState(
                                     state.copy(

@@ -8,8 +8,7 @@ import androidx.work.WorkerParameters
 import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.utils.backupAccounts
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
-import com.yogeshpaliyal.common.utils.getBackupDirectory
-import com.yogeshpaliyal.common.utils.overrideAutoBackup
+import com.yogeshpaliyal.common.utils.getUserSettings
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
@@ -25,11 +24,12 @@ class AutoBackupWorker @AssistedInject constructor(
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
             if (appContext.canUserAccessBackupDirectory()) {
-                val selectedDirectory = Uri.parse(appContext.getBackupDirectory())
+                val userSettings = appContext.getUserSettings() ?: return@withContext Result.failure()
+                val selectedDirectory = Uri.parse(userSettings.backupDirectory)
                 appContext.backupAccounts(
                     appDatabase,
                     selectedDirectory,
-                    if (appContext.overrideAutoBackup()) "key_pass_auto_backup" else null
+                    if (userSettings.overrideAutoBackup) "key_pass_auto_backup" else null
                 )
             }
 

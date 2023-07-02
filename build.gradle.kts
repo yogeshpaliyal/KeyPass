@@ -28,6 +28,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
     id("com.google.dagger.hilt.android") version ("2.46.1") apply false
     id("com.gradle.enterprise") version("3.13.4") apply false
+    id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
 }
 
 

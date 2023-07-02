@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.utils.PasswordGenerator
-import com.yogeshpaliyal.common.utils.getKeyPassPasswordLength
-import com.yogeshpaliyal.common.utils.setKeyPassPasswordLength
+import com.yogeshpaliyal.common.utils.getUserSettings
+import com.yogeshpaliyal.common.utils.setDefaultPasswordLength
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -32,7 +32,7 @@ class GeneratePasswordViewModel @Inject constructor(
 
     fun retrieveSavedPasswordLength(context: Context) {
         viewModelScope.launch {
-            val savedPasswordLength = context.getKeyPassPasswordLength() ?: DEFAULT_PASSWORD_LENGTH
+            val savedPasswordLength = context.getUserSettings().defaultPasswordLength ?: DEFAULT_PASSWORD_LENGTH
             _viewState.update {
                 _viewState.value.copy(length = savedPasswordLength)
             }
@@ -93,7 +93,7 @@ class GeneratePasswordViewModel @Inject constructor(
             _viewState
                 .debounce(400)
                 .collectLatest { state ->
-                    context.setKeyPassPasswordLength(state.length)
+                    context.setDefaultPasswordLength(state.length)
                 }
         }
     }

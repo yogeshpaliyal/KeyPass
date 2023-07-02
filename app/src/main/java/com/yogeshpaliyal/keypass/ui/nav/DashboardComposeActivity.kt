@@ -48,6 +48,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
@@ -97,6 +98,11 @@ class DashboardComposeActivity : AppCompatActivity() {
                     Dashboard()
                 }
             }
+
+            LaunchedEffect(key1 = Unit, block = {
+                this@DashboardComposeActivity.migrateOldDataToNewerDataStore()
+            })
+
         }
     }
 }

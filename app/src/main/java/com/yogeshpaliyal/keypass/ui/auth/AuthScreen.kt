@@ -25,8 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.yogeshpaliyal.common.utils.getKeyPassPassword
-import com.yogeshpaliyal.common.utils.isBiometricEnable
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
@@ -62,7 +61,7 @@ fun AuthScreen(state: AuthState) {
 
     LaunchedEffect(key1 = context, state) {
         if (state is AuthState.Login) {
-            setBiometricEnable(context.isBiometricEnable())
+            setBiometricEnable(context.getUserSettings().isBiometricEnable)
         }
     }
 
@@ -72,7 +71,7 @@ fun AuthScreen(state: AuthState) {
 
     LaunchedEffect(key1 = Unit, block = {
         coroutineScope.launch {
-            val mPassword = context.getKeyPassPassword()
+            val mPassword = context.getUserSettings().keyPassPassword
             if (mPassword == null) {
                 dispatchAction(NavigationAction(AuthState.CreatePassword))
             }

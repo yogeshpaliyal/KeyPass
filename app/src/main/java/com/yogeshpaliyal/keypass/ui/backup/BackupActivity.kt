@@ -28,11 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
 import com.yogeshpaliyal.common.utils.clearBackupKey
 import com.yogeshpaliyal.common.utils.formatCalendar
-import com.yogeshpaliyal.common.utils.getBackupDirectory
-import com.yogeshpaliyal.common.utils.getBackupTime
-import com.yogeshpaliyal.common.utils.isAutoBackupEnabled
-import com.yogeshpaliyal.common.utils.isKeyPresent
-import com.yogeshpaliyal.common.utils.overrideAutoBackup
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
 import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
@@ -66,7 +62,7 @@ fun BackupScreen(state: BackupScreenState) {
         )
 
         coroutineScope.launch {
-            val dialog = if (context.isKeyPresent()) {
+            val dialog = if (context.getUserSettings().isKeyPresent()) {
                 ShowKeyphrase
             } else {
                 SelectKeyphraseType
@@ -104,14 +100,14 @@ fun BackupScreen(state: BackupScreenState) {
 
     LaunchedEffect(key1 = Unit, block = {
         val isBackupEnabled = (
-            context.canUserAccessBackupDirectory() && (context.isKeyPresent())
+            context.canUserAccessBackupDirectory() && (context.getUserSettings().isKeyPresent())
             )
 
-        val isAutoBackupEnabled = context.isAutoBackupEnabled()
-        val overrideAutoBackup = context.overrideAutoBackup()
+        val isAutoBackupEnabled = context.getUserSettings().autoBackupEnable
+        val overrideAutoBackup = context.getUserSettings().overrideAutoBackup
 
-        val lastBackupTime = context.getBackupTime()
-        val backupDirectory = context.getBackupDirectory()
+        val lastBackupTime = context.getUserSettings().backupTime
+        val backupDirectory = context.getUserSettings().backupDirectory
 
         dispatchAction(
             StateUpdateAction(

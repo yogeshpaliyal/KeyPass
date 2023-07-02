@@ -11,7 +11,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import com.yogeshpaliyal.common.utils.getKeyPassPassword
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
@@ -61,7 +61,7 @@ fun ButtonBar(
 
                 is AuthState.Login -> {
                     coroutineScope.launch {
-                        val savedPassword = context.getKeyPassPassword()
+                        val savedPassword = context.getUserSettings().keyPassPassword
                         if (savedPassword == password) {
                             dispatchAction(NavigationAction(HomeState(), true))
                         } else {

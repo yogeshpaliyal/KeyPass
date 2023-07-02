@@ -5,8 +5,8 @@ import androidx.datastore.preferences.core.edit
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.yogeshpaliyal.common.utils.dataStore
-import com.yogeshpaliyal.common.utils.getKeyPassPasswordLength
-import com.yogeshpaliyal.common.utils.setKeyPassPasswordLength
+import com.yogeshpaliyal.common.utils.getUserSettings
+import com.yogeshpaliyal.common.utils.setDefaultPasswordLength
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -26,15 +26,15 @@ class SharedPreferenceUtilsTest {
 
     @Test
     fun getKeyPassPasswordLength_test() = runBlocking {
-        val result = context.getKeyPassPasswordLength()
+        val result = context.getUserSettings().defaultPasswordLength
         assertEquals(null, result)
     }
 
     @Test
     fun setKeyPassPasswordLength_test() = runBlocking {
         val expectedLength = 8f
-        context.setKeyPassPasswordLength(expectedLength)
-        val result = context.getKeyPassPasswordLength()
+        context.setDefaultPasswordLength(expectedLength)
+        val result = context.getUserSettings().defaultPasswordLength
         assertEquals(expectedLength, result)
     }
 
