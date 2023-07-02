@@ -15,10 +15,11 @@ import com.yogeshpaliyal.common.db.DbDao
 const val DB_VERSION_3 = 3
 const val DB_VERSION_4 = 4
 const val DB_VERSION_5 = 5
+const val DB_VERSION_6 = 6
 
 @Database(
     entities = [AccountModel::class],
-    version = 5,
+    version = DB_VERSION_6,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
