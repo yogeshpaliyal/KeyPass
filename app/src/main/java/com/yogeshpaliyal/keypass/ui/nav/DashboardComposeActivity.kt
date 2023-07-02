@@ -103,9 +103,7 @@ class DashboardComposeActivity : AppCompatActivity() {
         }
         setContent {
 
-            val (localUserSettings, setLocalUserSettings) = remember {
-                mutableStateOf(UserSettings())
-            }
+            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
                 KeyPassTheme {
@@ -117,9 +115,6 @@ class DashboardComposeActivity : AppCompatActivity() {
 
             LaunchedEffect(key1 = Unit, block = {
                 this@DashboardComposeActivity.migrateOldDataToNewerDataStore()
-                getUserSettingsFlow().collectLatest {
-                    setLocalUserSettings(it)
-                }
             })
 
         }

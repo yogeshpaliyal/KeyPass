@@ -37,7 +37,7 @@ suspend fun Context.getUserSettings(): UserSettings {
     return getUserSettingsDataStore().data.firstOrNull() ?: UserSettings()
 }
 
-suspend fun Context.getUserSettingsFlow(): Flow<UserSettings> {
+fun Context.getUserSettingsFlow(): Flow<UserSettings> {
     return getUserSettingsDataStore().data
 }
 
