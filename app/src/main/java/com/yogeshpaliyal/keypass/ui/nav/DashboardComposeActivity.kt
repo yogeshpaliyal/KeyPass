@@ -114,7 +114,7 @@ class DashboardComposeActivity : AppCompatActivity() {
             }
 
             LaunchedEffect(key1 = Unit, block = {
-                this@DashboardComposeActivity.migrateOldDataToNewerDataStore()
+                migrateOldDataToNewerDataStore()
             })
 
         }

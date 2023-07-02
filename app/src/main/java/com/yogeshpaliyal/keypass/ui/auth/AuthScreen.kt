@@ -35,7 +35,6 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastActionStr
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
-import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -45,8 +44,6 @@ fun AuthScreen(state: AuthState) {
     val userSettings = LocalUserSettings.current
 
     val dispatchAction = rememberDispatcher()
-
-    val coroutineScope = rememberCoroutineScope()
 
     val (password, setPassword) = remember(state) {
         mutableStateOf("")
@@ -67,15 +64,15 @@ fun AuthScreen(state: AuthState) {
     }
 
     BackHandler(state is AuthState.ConfirmPassword) {
-        dispatchAction(NavigationAction(AuthState.CreatePassword))
+        dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
 
-    LaunchedEffect(key1 = Unit, block = {
-        coroutineScope.launch {
-            val mPassword = userSettings.keyPassPassword
-            if (mPassword == null) {
-                dispatchAction(NavigationAction(AuthState.CreatePassword))
-            }
+    LaunchedEffect(key1 = userSettings.keyPassPassword, block = {
+        val mPassword = userSettings.keyPassPassword
+        if (mPassword == null) {
+            dispatchAction(NavigationAction(AuthState.CreatePassword, true))
+        } else {
+            dispatchAction(NavigationAction(AuthState.Login, true))
         }
     })
 
@@ -131,7 +128,14 @@ fun BiometricPrompt(show: Boolean) {
                     errString: CharSequence
                 ) {
                     super.onAuthenticationError(errorCode, errString)
-                    dispatch(ToastActionStr(context.getString(R.string.authentication_error, errString)))
+                    dispatch(
+                        ToastActionStr(
+                            context.getString(
+                                R.string.authentication_error,
+                                errString
+                            )
+                        )
+                    )
                 }
 
                 override fun onAuthenticationSucceeded(

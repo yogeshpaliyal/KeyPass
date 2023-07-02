@@ -33,7 +33,7 @@ fun ButtonBar(
     Row(modifier = Modifier.fillMaxWidth(1f), Arrangement.SpaceEvenly) {
         AnimatedVisibility(state is AuthState.ConfirmPassword) {
             Button(onClick = {
-                dispatchAction(NavigationAction(AuthState.CreatePassword))
+                dispatchAction(NavigationAction(AuthState.CreatePassword, true))
             }) {
                 Text(text = stringResource(id = R.string.back))
             }

@@ -108,7 +108,7 @@ fun BackupScreen(state: BackupScreenState) {
         val overrideAutoBackup = userSettings.overrideAutoBackup
 
         val lastBackupTime = userSettings.backupTime
-        val backupDirectory = userSettings.backupDirectory
+        val backupDirectory = if (userSettings.backupDirectory != null) Uri.parse(userSettings.backupDirectory) else null
 
         dispatchAction(
             StateUpdateAction(
@@ -117,7 +117,7 @@ fun BackupScreen(state: BackupScreenState) {
                     isAutoBackupEnabled = isAutoBackupEnabled,
                     overrideAutoBackup = overrideAutoBackup,
                     lastBackupTime = lastBackupTime,
-                    backupDirectory = Uri.parse(backupDirectory)
+                    backupDirectory = backupDirectory
                 )
             )
         )
