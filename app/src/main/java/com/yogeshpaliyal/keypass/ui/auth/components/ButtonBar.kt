@@ -11,9 +11,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
@@ -28,6 +28,7 @@ fun ButtonBar(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
 
     Row(modifier = Modifier.fillMaxWidth(1f), Arrangement.SpaceEvenly) {
         AnimatedVisibility(state is AuthState.ConfirmPassword) {
@@ -61,7 +62,7 @@ fun ButtonBar(
 
                 is AuthState.Login -> {
                     coroutineScope.launch {
-                        val savedPassword = context.getUserSettings().keyPassPassword
+                        val savedPassword = userSettings.keyPassPassword
                         if (savedPassword == password) {
                             dispatchAction(NavigationAction(HomeState(), true))
                         } else {

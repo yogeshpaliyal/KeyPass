@@ -50,11 +50,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
-import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
@@ -141,6 +141,7 @@ fun RestoreDialog(
 fun MySettingCompose() {
     val dispatchAction = rememberTypedDispatcher<Action>()
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
 
     val (result, setResult) = remember { mutableStateOf<Uri?>(null) }
 
@@ -160,7 +161,7 @@ fun MySettingCompose() {
     // Retrieving saved password length
     var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
     LaunchedEffect(key1 = Unit) {
-        context.getUserSettings().defaultPasswordLength?.let { value -> savedPasswordLength = value }
+        userSettings.defaultPasswordLength?.let { value -> savedPasswordLength = value }
     }
 
     Column {
@@ -223,6 +224,8 @@ fun MySettingCompose() {
 @Composable
 fun BiometricsOption() {
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
+
     val (canAuthenticate, setCanAuthenticate) = remember {
         mutableStateOf(BiometricManager.BIOMETRIC_STATUS_UNKNOWN)
     }
@@ -239,7 +242,7 @@ fun BiometricsOption() {
     val coroutineScope = rememberCoroutineScope()
 
     LaunchedEffect(key1 = context) {
-        setIsBiometricEnable(context.getUserSettings().isBiometricEnable)
+        setIsBiometricEnable(userSettings.isBiometricEnable)
     }
 
     LaunchedEffect(key1 = context) {

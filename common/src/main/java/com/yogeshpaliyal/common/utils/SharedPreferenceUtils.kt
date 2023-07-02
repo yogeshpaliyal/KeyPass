@@ -2,8 +2,6 @@ package com.yogeshpaliyal.common.utils
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.core.Serializer
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.floatPreferencesKey
@@ -12,9 +10,9 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.yogeshpaliyal.common.data.DEFAULT_PASSWORD_LENGTH
 import com.yogeshpaliyal.common.data.UserSettings
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
-import javax.inject.Inject
 
 /*
 * @author Yogesh Paliyal
@@ -37,6 +35,10 @@ private fun Context.getUserSettingsDataStore(): DataStore<UserSettings> {
 
 suspend fun Context.getUserSettings(): UserSettings {
     return getUserSettingsDataStore().data.firstOrNull() ?: UserSettings()
+}
+
+suspend fun Context.getUserSettingsFlow(): Flow<UserSettings> {
+    return getUserSettingsDataStore().data
 }
 
 suspend fun Context.getUserSettingsOrNull(): UserSettings? {

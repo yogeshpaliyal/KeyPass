@@ -28,12 +28,12 @@ import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
 import com.yogeshpaliyal.common.utils.clearBackupKey
 import com.yogeshpaliyal.common.utils.formatCalendar
-import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
 import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
@@ -47,6 +47,7 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 @Composable
 fun BackupScreen(state: BackupScreenState) {
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
     val coroutineScope = rememberCoroutineScope()
 
     val dispatchAction = rememberTypedDispatcher<Action>()
@@ -62,7 +63,7 @@ fun BackupScreen(state: BackupScreenState) {
         )
 
         coroutineScope.launch {
-            val dialog = if (context.getUserSettings().isKeyPresent()) {
+            val dialog = if (userSettings.isKeyPresent()) {
                 ShowKeyphrase
             } else {
                 SelectKeyphraseType
@@ -100,14 +101,14 @@ fun BackupScreen(state: BackupScreenState) {
 
     LaunchedEffect(key1 = Unit, block = {
         val isBackupEnabled = (
-            context.canUserAccessBackupDirectory() && (context.getUserSettings().isKeyPresent())
+            context.canUserAccessBackupDirectory() && (userSettings.isKeyPresent())
             )
 
-        val isAutoBackupEnabled = context.getUserSettings().autoBackupEnable
-        val overrideAutoBackup = context.getUserSettings().overrideAutoBackup
+        val isAutoBackupEnabled = userSettings.autoBackupEnable
+        val overrideAutoBackup = userSettings.overrideAutoBackup
 
-        val lastBackupTime = context.getUserSettings().backupTime
-        val backupDirectory = context.getUserSettings().backupDirectory
+        val lastBackupTime = userSettings.backupTime
+        val backupDirectory = userSettings.backupDirectory
 
         dispatchAction(
             StateUpdateAction(

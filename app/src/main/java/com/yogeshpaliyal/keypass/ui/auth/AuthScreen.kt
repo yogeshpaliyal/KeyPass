@@ -25,10 +25,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
@@ -42,6 +42,7 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 @Composable
 fun AuthScreen(state: AuthState) {
     val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
 
     val dispatchAction = rememberDispatcher()
 
@@ -61,7 +62,7 @@ fun AuthScreen(state: AuthState) {
 
     LaunchedEffect(key1 = context, state) {
         if (state is AuthState.Login) {
-            setBiometricEnable(context.getUserSettings().isBiometricEnable)
+            setBiometricEnable(userSettings.isBiometricEnable)
         }
     }
 
@@ -71,7 +72,7 @@ fun AuthScreen(state: AuthState) {
 
     LaunchedEffect(key1 = Unit, block = {
         coroutineScope.launch {
-            val mPassword = context.getUserSettings().keyPassPassword
+            val mPassword = userSettings.keyPassPassword
             if (mPassword == null) {
                 dispatchAction(NavigationAction(AuthState.CreatePassword))
             }
