@@ -22,5 +22,4 @@ class UserSettingsDataStore(val context: Context) {
     )
 
     fun getDataStore() = context.dataStoreSerializer
-
 }

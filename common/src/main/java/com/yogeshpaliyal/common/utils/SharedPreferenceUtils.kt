@@ -25,7 +25,6 @@ val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
 
-
 private var userSettingsDataStore: DataStore<UserSettings>? = null
 private fun Context.getUserSettingsDataStore(): DataStore<UserSettings> {
     val res = userSettingsDataStore ?: UserSettingsDataStore(this).getDataStore()
@@ -45,60 +44,59 @@ suspend fun Context.getUserSettingsOrNull(): UserSettings? {
     return getUserSettingsDataStore().data.firstOrNull()
 }
 
-suspend fun Context.setKeyPassPassword(password: String?){
+suspend fun Context.setKeyPassPassword(password: String?) {
     getUserSettingsDataStore().updateData {
         it.copy(keyPassPassword = password)
     }
 }
 
-suspend fun Context.setDefaultPasswordLength(password: Float){
+suspend fun Context.setDefaultPasswordLength(password: Float) {
     getUserSettingsDataStore().updateData {
         it.copy(defaultPasswordLength = password)
     }
 }
 
-suspend fun Context.setBiometricEnable(isBiometricEnable: Boolean){
+suspend fun Context.setBiometricEnable(isBiometricEnable: Boolean) {
     getUserSettingsDataStore().updateData {
         it.copy(isBiometricEnable = isBiometricEnable)
     }
 }
 
-suspend fun Context.setBackupDirectory(backupDirectory: String){
+suspend fun Context.setBackupDirectory(backupDirectory: String) {
     getUserSettingsDataStore().updateData {
         it.copy(backupDirectory = backupDirectory)
     }
 }
 
-suspend fun Context.setBackupKey(backupKey: String?){
+suspend fun Context.setBackupKey(backupKey: String?) {
     getUserSettingsDataStore().updateData {
         it.copy(backupKey = backupKey)
     }
 }
 
-suspend fun Context.setBackupTime(backupTime: Long?){
+suspend fun Context.setBackupTime(backupTime: Long?) {
     getUserSettingsDataStore().updateData {
         it.copy(backupTime = backupTime)
     }
 }
 
-suspend fun Context.setAutoBackupEnabled(autoBackupEnable: Boolean){
+suspend fun Context.setAutoBackupEnabled(autoBackupEnable: Boolean) {
     getUserSettingsDataStore().updateData {
         it.copy(autoBackupEnable = autoBackupEnable)
     }
 }
 
-suspend fun Context.setOverrideAutoBackup(overrideAutoBackup: Boolean){
+suspend fun Context.setOverrideAutoBackup(overrideAutoBackup: Boolean) {
     getUserSettingsDataStore().updateData {
         it.copy(overrideAutoBackup = overrideAutoBackup)
     }
 }
 
-suspend fun Context.setUserSettings(userSettings: UserSettings){
+suspend fun Context.setUserSettings(userSettings: UserSettings) {
     getUserSettingsDataStore().updateData {
         userSettings
     }
 }
-
 
 const val BACKUP_KEY_LENGTH = 16
 

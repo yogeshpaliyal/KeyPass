@@ -1,17 +1,11 @@
 package com.yogeshpaliyal.common.utils
 
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.datastore.core.Serializer
 import com.yogeshpaliyal.common.data.DEFAULT_PASSWORD_LENGTH
 import com.yogeshpaliyal.common.data.UserSettings
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.serialization.SerializationException
-import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
-import javax.inject.Inject
 
 class UserSettingsSerializerLegacy constructor(
     private val applicationContext: Context

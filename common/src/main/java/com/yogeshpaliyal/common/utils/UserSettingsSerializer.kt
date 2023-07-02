@@ -25,7 +25,7 @@ class UserSettingsSerializer(
                 deserializer = UserSettings.serializer(),
                 string = decodedString
             )
-        } catch(e: SerializationException) {
+        } catch (e: SerializationException) {
             e.printStackTrace()
             defaultValue
         }

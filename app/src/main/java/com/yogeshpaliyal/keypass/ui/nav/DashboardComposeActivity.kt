@@ -41,7 +41,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -82,7 +81,6 @@ import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
@@ -102,7 +100,6 @@ class DashboardComposeActivity : AppCompatActivity() {
             )
         }
         setContent {
-
             val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
@@ -116,7 +113,6 @@ class DashboardComposeActivity : AppCompatActivity() {
             LaunchedEffect(key1 = Unit, block = {
                 migrateOldDataToNewerDataStore()
             })
-
         }
     }
 }

@@ -15,7 +15,7 @@ data class UserSettings(
     val backupDirectory: String? = null,
     val backupTime: Long? = null,
     val autoBackupEnable: Boolean = false,
-    val overrideAutoBackup: Boolean = false,
+    val overrideAutoBackup: Boolean = false
 ) {
     fun isKeyPresent() = backupKey != null
 }
