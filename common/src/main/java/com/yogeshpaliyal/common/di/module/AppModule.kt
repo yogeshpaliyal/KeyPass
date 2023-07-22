@@ -1,6 +1,7 @@
 package com.yogeshpaliyal.common.di.module
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -10,16 +11,14 @@ import com.yogeshpaliyal.common.DB_VERSION_4
 import com.yogeshpaliyal.common.DB_VERSION_5
 import com.yogeshpaliyal.common.DB_VERSION_6
 import com.yogeshpaliyal.common.R
-import com.yogeshpaliyal.common.utils.CryptoManager
 import com.yogeshpaliyal.common.utils.getRandomString
-import com.yogeshpaliyal.common.utils.getUserSettings
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import net.zetetic.database.sqlcipher.SQLiteDatabase
-import net.zetetic.database.sqlcipher.SupportOpenHelperFactory
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import javax.inject.Singleton
 
 @Module
@@ -39,10 +38,9 @@ object AppModule {
             dbNameEncrypted
         )
 
-        System.loadLibrary("sqlcipher")
-
-        val passphrase = "testingString"
-        val factory = SupportOpenHelperFactory(passphrase.toByteArray())
+        val userEnteredPassphrase = "testingString"
+        val passphrase: ByteArray = SQLiteDatabase.getBytes(userEnteredPassphrase.toCharArray())
+        val factory = SupportFactory(passphrase);
         builder.openHelperFactory(factory)
         builder.addMigrations(object : Migration(DB_VERSION_3, DB_VERSION_4) {
             override fun migrate(database: SupportSQLiteDatabase) {
@@ -65,12 +63,13 @@ object AppModule {
         })
         builder.addMigrations(object : Migration(DB_VERSION_5, DB_VERSION_6) {
             override fun migrate(db: SupportSQLiteDatabase) {
-                val database = SQLiteDatabase.openOrCreateDatabase(dbName,null, null);
-                database.execSQL(
+                Log.d("ROOM_MIGRATION", "migrate: from db version 5 to 6")
+                val database = SQLiteDatabase.openOrCreateDatabase(dbName,"", null);
+                database.rawExecSQL(
                     "ATTACH DATABASE '${dbNameEncrypted}' AS encrypted KEY '${passphrase}'");
-                database.execSQL("select sqlcipher_export('encrypted')");
-                database.execSQL("DETACH DATABASE encrypted");
-                database.close()
+                database.rawExecSQL("select sqlcipher_export('encrypted')");
+                database.rawExecSQL("DETACH DATABASE encrypted");
+                database.close();
             }
 
         })
