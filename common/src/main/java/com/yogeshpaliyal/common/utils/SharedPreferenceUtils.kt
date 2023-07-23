@@ -74,6 +74,12 @@ suspend fun Context.setBackupKey(backupKey: String?) {
     }
 }
 
+suspend fun Context.setDatabasePassword(databasePassword: String) {
+    getUserSettingsDataStore().updateData {
+        it.copy(dbPassword = databasePassword)
+    }
+}
+
 suspend fun Context.setBackupTime(backupTime: Long?) {
     getUserSettingsDataStore().updateData {
         it.copy(backupTime = backupTime)
