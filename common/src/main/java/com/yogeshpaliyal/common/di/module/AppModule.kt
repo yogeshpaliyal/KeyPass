@@ -2,20 +2,15 @@ package com.yogeshpaliyal.common.di.module
 
 import android.content.Context
 import android.database.sqlite.SQLiteException
-import android.util.Log
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.DB_VERSION_3
 import com.yogeshpaliyal.common.DB_VERSION_4
 import com.yogeshpaliyal.common.DB_VERSION_5
-import com.yogeshpaliyal.common.DB_VERSION_6
 import com.yogeshpaliyal.common.R
-import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getRandomString
-import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.getUserSettingsOrNull
 import com.yogeshpaliyal.common.utils.setDatabasePassword
 import dagger.Module
@@ -23,8 +18,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
@@ -38,7 +31,7 @@ object AppModule {
     @Singleton
     fun getDb(@ApplicationContext context: Context): AppDatabase {
         val dbName = context.getString(R.string.app_name)
-        val dbNameEncrypted = "${dbName}.encrypted"
+        val dbNameEncrypted = "$dbName.encrypted"
 
         val builder = Room.databaseBuilder(
             context,
@@ -46,7 +39,7 @@ object AppModule {
             dbNameEncrypted
         )
 
-        var userEnteredPassphrase : String
+        var userEnteredPassphrase: String
         var isMigratedFromNonEncryption = false
 
         runBlocking {
@@ -67,7 +60,7 @@ object AppModule {
         }
 
         val passphrase: ByteArray = SQLiteDatabase.getBytes(userEnteredPassphrase.toCharArray())
-        val factory = SupportFactory(passphrase);
+        val factory = SupportFactory(passphrase)
         builder.openHelperFactory(factory)
         builder.addMigrations(object : Migration(DB_VERSION_3, DB_VERSION_4) {
             override fun migrate(database: SupportSQLiteDatabase) {
@@ -94,18 +87,17 @@ object AppModule {
     private fun Context.migrateNonEncryptedToEncryptedDb(nonEncryptedDbName: String, encryptedDbName: String, userEnteredPassphrase: String) {
         try {
             val oldDb = getDatabasePath(nonEncryptedDbName)
-            val database = SQLiteDatabase.openOrCreateDatabase(oldDb, "", null);
+            val database = SQLiteDatabase.openOrCreateDatabase(oldDb, "", null)
             val encryptedDbPath = getDatabasePath(encryptedDbName).path
             database.rawExecSQL(
-                "ATTACH DATABASE '${encryptedDbPath}' AS encrypted KEY '${userEnteredPassphrase}'"
-            );
-            database.rawExecSQL("select sqlcipher_export('encrypted')");
-            database.rawExecSQL("DETACH DATABASE encrypted");
+                "ATTACH DATABASE '$encryptedDbPath' AS encrypted KEY '$userEnteredPassphrase'"
+            )
+            database.rawExecSQL("select sqlcipher_export('encrypted')")
+            database.rawExecSQL("DETACH DATABASE encrypted")
             database.close()
             oldDb.delete()
         } catch (e: SQLiteException) {
             e.printStackTrace()
         }
     }
-
 }
