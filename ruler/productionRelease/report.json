@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.17",
+    "version": "1.4.18",
     "variant": "productionRelease",
-    "downloadSize": 4094728,
-    "installSize": 6753864,
+    "downloadSize": 4094730,
+    "installSize": 6753866,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -118,8 +118,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 440321,
-            "installSize": 976185,
+            "downloadSize": 440322,
+            "installSize": 976186,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -148,8 +148,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5613,
-                    "installSize": 5608
+                    "downloadSize": 5614,
+                    "installSize": 5609
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.backup.components.ComposableSingletons$CreateCustomKeyphraseKt$lambda-2$1",
@@ -25154,13 +25154,13 @@
         {
             "name": "androidx.datastore:datastore-preferences-core:1.0.0",
             "type": "EXTERNAL",
-            "downloadSize": 56302,
+            "downloadSize": 56303,
             "installSize": 56463,
             "files": [
                 {
                     "name": "androidx.datastore.preferences.protobuf.MessageSchema",
                     "type": "CLASS",
-                    "downloadSize": 12799,
+                    "downloadSize": 12800,
                     "installSize": 12836
                 },
                 {
@@ -30587,7 +30587,7 @@
             "name": "androidx.transition:transition:1.2.0",
             "type": "EXTERNAL",
             "downloadSize": 16010,
-            "installSize": 16056,
+            "installSize": 16057,
             "files": [
                 {
                     "name": "androidx.transition.Transition",
@@ -30617,7 +30617,7 @@
                     "name": "androidx.transition.TransitionManager$MultiListener",
                     "type": "CLASS",
                     "downloadSize": 1334,
-                    "installSize": 1337
+                    "installSize": 1338
                 },
                 {
                     "name": "androidx.transition.ChangeBounds",
