@@ -34,11 +34,10 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
 
-//        debug {
-//            minifyEnabled true
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//        }
+        debug {
+            productFlavors.findByName("production")?.signingConfig = signingConfigs.findByName("myDebugConfig")
+            productFlavors.findByName("staging")?.signingConfig = signingConfigs.findByName("myDebugConfig")
+        }
 
     }
     compileOptions {
@@ -66,6 +65,7 @@ android {
 
         create("staging") {
             applicationIdSuffix = ".staging"
+            signingConfig = signingConfigs.findByName("myDebugConfig")
         }
     }
     sourceSets {
@@ -91,6 +91,15 @@ android {
             }
         }
     }*/
+
+    signingConfigs {
+        create("myDebugConfig") {
+            storeFile = file("../keystores/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
 
 }
 
