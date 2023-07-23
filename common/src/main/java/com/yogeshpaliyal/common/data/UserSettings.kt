@@ -9,6 +9,7 @@ const val DEFAULT_PASSWORD_LENGTH = 10f
 @Serializable
 data class UserSettings(
     val keyPassPassword: String? = null,
+    val dbPassword: String? = null,
     val defaultPasswordLength: Float = DEFAULT_PASSWORD_LENGTH,
     val backupKey: String? = null,
     val isBiometricEnable: Boolean = false,

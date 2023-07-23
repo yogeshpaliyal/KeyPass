@@ -11,7 +11,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -71,5 +71,8 @@ dependencies {
     // Test
     implementation("androidx.test.ext:junit-ktx:1.1.5")
     androidTestApi("androidx.test:rules:1.5.0")
+
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
+    implementation("androidx.sqlite:sqlite:2.3.1")
 
 }

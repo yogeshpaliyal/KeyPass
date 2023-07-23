@@ -148,7 +148,7 @@ fun Dashboard() {
         Surface(modifier = Modifier.padding(paddingValues)) {
             CurrentPage()
 
-            OptionBottomBar()
+            BottomSheet()
         }
     }
 }
@@ -195,15 +195,20 @@ fun CurrentPage() {
 }
 
 @Composable
-fun OptionBottomBar(
-    viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-) {
+fun BottomSheet() {
     val bottomSheetState by selectState<KeyPassState, BottomSheetState?> { this.bottomSheet }
 
     if (bottomSheetState?.isBottomSheetOpen != true) {
         return
     }
 
+    OptionBottomBar()
+}
+
+@Composable
+fun OptionBottomBar(
+    viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
     val dispatchAction = rememberDispatcher()
 
     val navigationItems by viewModel.navigationList.observeAsState()
