@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepnames class * extends javax.crypto.SecretKey
+-keepclassmembers class * extends javax.crypto.SecretKey {
+    <fields>;
+}
+
+-keep class java.security.SecureRandom {
+    public void setSeed(byte[]);
+}
+
+-keep class net.sqlcipher.** {*;}
