@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.18",
+    "version": "1.4.19",
     "variant": "productionRelease",
-    "downloadSize": 4124795,
-    "installSize": 6783833,
+    "downloadSize": 4124796,
+    "installSize": 6783834,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -424,8 +424,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 440743,
-            "installSize": 976612,
+            "downloadSize": 440744,
+            "installSize": 976613,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -454,8 +454,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5608,
-                    "installSize": 5603
+                    "downloadSize": 5609,
+                    "installSize": 5604
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.backup.components.ComposableSingletons$CreateCustomKeyphraseKt$lambda-2$1",
