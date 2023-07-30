@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="backup">ব্যাকআপ</string>
     <string name="turn_on_backup">ব্যাকআপ চালু করুন</string>
     <string name="yes">হ্যাঁ</string>
     <string name="alert_blank_keyphrase">অনুগ্রহ করে কীফ্রেজ লিখুন</string>
@@ -15,7 +14,6 @@
     <string name="send_feedback_desc">প্রযুক্তিগত সমস্যা রিপোর্ট বা নতুন বৈশিষ্ট্য প্রস্তাব</string>
     <string name="share">শেয়ার করুন</string>
     <string name="share_desc">অন্যদের সাথে অ্যাপ শেয়ার করুন</string>
-    <string name="password_length">পাসওয়ার্ড দৈর্ঘ্য</string>
     <string name="password">পাসওয়ার্ড</string>
     <string name="generate_password">পাসওয়ার্ড জেনারেট</string>
     <string name="home">বাড়ি</string>
@@ -24,14 +22,9 @@
     <string name="backup_restored">ব্যাকআপ পুনরুদ্ধার করা হয়েছে</string>
     <string name="invalid_keyphrase">অবৈধ কীফ্রেজ</string>
     <string name="backup_completed">ব্যাকআপ সম্পন্ন</string>
-    <string name="uppercase_alphabets">বড় হাতের বর্ণমালা</string>
-    <string name="lowercase_alphabets">ছোট হাতের বর্ণমালা</string>
-    <string name="symbols">প্রতীক</string>
-    <string name="numbers">সংখ্যা</string>
     <string name="copied_to_clipboard">ক্লিপবোর্ডে কপি করা হয়েছে</string>
     <string name="login_to_enter_keypass">কীপাসে প্রবেশ করতে লগইন করুন</string>
     <string name="last_backup_date">শেষ ব্যাকআপ: %s</string>
-    <string name="coming_soon">শীঘ্রই আসছে</string>
     <string name="delete_account_title">তুমি কি নিশ্চিত\?</string>
     <string name="delete_account_msg">আপনি কি সত্যিই এই এন্ট্রিটি মুছতে চান, এটি পুনরুদ্ধার করা যাবে না</string>
     <string name="cancel">বাতিল করুন</string>
@@ -39,8 +32,6 @@
     <string name="share_keypass">কীপাস শেয়ার করুন</string>
     <string name="message_no_accounts">কোন অ্যাকাউন্ট পাওয়া যায়নি, নীচের বোতাম থেকে যোগ করুন</string>
     <string name="turn_off_backup">ব্যাকআপ বন্ধ করুন</string>
-    <string name="verify_keyphrase">ব্যাকআপ পাসফ্রেজ যাচাই করুন</string>
-    <string name="verify_keyphrase_message">আপনার ব্যাকআপ পাসফ্রেজ পরীক্ষা করুন এবং যাচাই করুন যে এটি মেলে</string>
     <string name="backup_folder">ব্যাকআপ ফোল্ডার</string>
     <string name="backup_desc">ব্যাকআপগুলি একটি পাসফ্রেজ দিয়ে এনক্রিপ্ট করা হয় এবং আপনার ডিভাইসে সংরক্ষণ করা হয়</string>
     <string name="create_backup">ব্যাকআপ তৈরি</string>
@@ -48,7 +39,6 @@
     <string name="copy_keypharse_msg">এই মূল বাক্যাংশটি অনুলিপি করুন এই ব্যাকআপটি পুনরুদ্ধার করতে এটি ব্যবহার করা হবে, এটি আবার কীপাস দ্বারা সরবরাহ করা হবে না, আপনি কি অনুলিপি করেছেন বা লিখে রেখেছেন\?</string>
     <string name="help">সাহায্য</string>
     <string name="security">নিরাপত্তা</string>
-    <string name="search">অনুসন্ধান করুন</string>
     <string name="account_name">হিসাবের নাম</string>
     <string name="username_email_phone">ব্যবহারকারীর নাম/ইমেল/ফোন</string>
     <string name="tags_comma_separated_optional">ট্যাগ কমা আলাদা (ঐচ্ছিক)</string>
@@ -58,12 +48,10 @@
     <string name="disabled">অক্ষম</string>
     <string name="enabled">সক্রিয়</string>
     <string name="override_auto_backup_file">অটো ব্যাকআপ ফাইল ওভাররাইড করুন</string>
-    <string name="scanner">স্ক্যানার</string>
     <string name="alert_black_secret_key">গোপন কী লিখুন দয়া করে</string>
     <string name="alert_black_account_name">অনুগ্রহ করে অ্যাকাউন্টের নাম লিখুন</string>
     <string name="add_totp">TOTP যোগ করুন</string>
     <string name="scan_password">পাসওয়ার্ড স্ক্যান করুন</string>
-    <string name="save">সংরক্ষণ</string>
     <string name="custom_keyphrase">কাস্টম কীফ্রেজ</string>
     <string name="generate_keyphrase">কীফ্রেজ তৈরি করুন</string>
     <string name="set_keyphrase_info">অনুগ্রহ করে আপনার ব্যাকআপ ফাইলের জন্য কীফ্রেজ তৈরি করুন, এটি ব্যাকআপ ফাইল পুনরুদ্ধার করতে ব্যবহার করা হবে। মূল বাক্যাংশ 16টি অক্ষরের হওয়া উচিত</string>

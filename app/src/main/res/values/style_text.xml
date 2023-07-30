@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TextStyle">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-        <item name="android:textColor">@color/color_on_surface_emphasis_medium</item>
-    </style>
 
-    <style name="TextStyle.Heading">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/color_on_surface_emphasis_high</item>
-        <item name="android:textAppearance">?attr/textAppearanceHeadline1</item>
-
-    </style>
-
-    <style name="TextStyle.SubHeading">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/color_on_surface_emphasis_medium</item>
-    </style>
-    
 </resources>

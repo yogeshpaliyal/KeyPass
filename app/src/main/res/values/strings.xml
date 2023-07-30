@@ -22,17 +22,11 @@
     <string name="send_feedback_desc">Report technical issues or suggest new features</string>
     <string name="share">Share</string>
     <string name="share_desc">Share app with others</string>
-    <string name="password_length">Password length</string>
     <string name="password">Password</string>
-    <string name="uppercase_alphabets">UPPERCASE ALPHABETS</string>
-    <string name="lowercase_alphabets">lowercase alphabets</string>
-    <string name="symbols">Symbols</string>
-    <string name="numbers">Numbers</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="login_to_enter_keypass">Login to enter KeyPass</string>
 
     <string name="last_backup_date">Last backup : %s</string>
-    <string name="coming_soon">Coming Soon</string>
     <string name="delete_account_title">Are you sure?</string>
     <string name="delete_account_msg">Do you really want to delete this entry, it can\'t be restored</string>
     <string name="cancel">Cancel</string>
@@ -40,10 +34,7 @@
     <string name="share_keypass">Share KeyPass</string>
     <string name="message_no_accounts">No Accounts found, please add from below button</string>
     <string name="turn_off_backup">Turn Off Backups</string>
-    <string name="verify_keyphrase">Verify backup passphrase</string>
-    <string name="verify_keyphrase_message">Test your backup passphrase and verify that it matches</string>
     <string name="backup_folder">Backup Folder</string>
-    <string name="backup">Backup</string>
     <string name="turn_on_backup">Turn On Backups</string>
     <string name="backup_desc">Backups are encrypted with a passphrase and stored on your device</string>
     <string name="yes">Yes</string>
@@ -52,7 +43,6 @@
     <string name="copy_keypharse_msg">Copy This Key Phrase this will be used to recover this backup, this will not be provided by KeyPass Again, have you copied or written down?</string>
     <string name="help">Help</string>
     <string name="security">Security</string>
-    <string name="search">Search</string>
     <string name="account_name">Account Name</string>
     <string name="username_email_phone">Username/Email/Phone</string>
     <string name="tags_comma_separated_optional">Tags comma separated (optional)</string>
@@ -62,12 +52,10 @@
     <string name="disabled">Disabled</string>
     <string name="enabled">Enabled</string>
     <string name="override_auto_backup_file">Override Auto Backup File</string>
-    <string name="scanner">Scanner</string>
     <string name="alert_black_secret_key">Please enter secret key</string>
     <string name="alert_black_account_name">Please enter account name</string>
     <string name="add_totp">Add TOTP</string>
     <string name="scan_password">Scan Password</string>
-    <string name="save">Save</string>
     <string name="custom_keyphrase">Custom Keyphrase</string>
     <string name="generate_keyphrase">Generate Keyphrase</string>
     <string name="alert_blank_keyphrase">Please enter keyphrase</string>

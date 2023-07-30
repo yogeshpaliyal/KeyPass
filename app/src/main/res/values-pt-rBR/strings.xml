@@ -16,12 +16,7 @@
     <string name="send_feedback_desc">Reportar um problema técnico ou sugerir novas funções</string>
     <string name="share">Compartilhar</string>
     <string name="share_desc">Divulgar app com outros</string>
-    <string name="password_length">Comprimento da senha</string>
     <string name="password">Senha</string>
-    <string name="uppercase_alphabets">LETRAS MAIÚSCULAS</string>
-    <string name="lowercase_alphabets">letras minúsculas</string>
-    <string name="symbols">Símbolos</string>
-    <string name="numbers">Números</string>
     <string name="copied_to_clipboard">Copiado para à área de transferência</string>
     <string name="login_to_enter_keypass">Autenticação para entrar no KeyPass</string>
     <string name="biometric_error_no_hardware">Nenhum recurso biométrico disponível neste dispositivo.</string>
@@ -31,7 +26,6 @@
     <string name="password_set_from_settings">Por favor, defina a senha para o seu dispositivo primeiro nas configurações do telefone</string>
     <string name="authentication_failed">Falha na autenticação</string>
     <string name="last_backup_date">Último backup: %s</string>
-    <string name="coming_soon">Em breve</string>
     <string name="delete_account_title">Tem certeza\?</string>
     <string name="delete_account_msg">Você realmente deseja apagar esses dados\? Não será possível restaurá-los</string>
     <string name="cancel">Cancelar</string>
@@ -39,10 +33,7 @@
     <string name="share_keypass">Compartilhar o KeyPass</string>
     <string name="message_no_accounts">Nenhuma conta adicionada. Por favor, adicione uma através do botão abaixo</string>
     <string name="turn_off_backup">Desativar backups</string>
-    <string name="verify_keyphrase">Verificar senha do backup</string>
-    <string name="verify_keyphrase_message">Teste a senha do seu backup e verifique se ela está correta</string>
     <string name="backup_folder">Pasta de backup</string>
-    <string name="backup">Backup</string>
     <string name="turn_on_backup">Ativar backups</string>
     <string name="backup_desc">Os backups são criptografados com uma senha e armazenados no seu dispositivo</string>
     <string name="yes">Sim</string>
@@ -51,7 +42,6 @@
     <string name="copy_keypharse_msg">Copie essa senha. Ela será usada para restaurar esse backup. O KeyPass não irá exibi-la novamente. Você copiou ou guardou sua senha\?</string>
     <string name="help">Ajuda</string>
     <string name="security">Segurança</string>
-    <string name="search">Pesquisar</string>
     <string name="account_name">Nome da conta</string>
     <string name="username_email_phone">Usuário/E-mail/Telefone</string>
     <string name="tags_comma_separated_optional">Tags separadas por vírgula (opcional)</string>
@@ -61,12 +51,10 @@
     <string name="disabled">Desativado</string>
     <string name="enabled">Ativado</string>
     <string name="override_auto_backup_file">Sobrescrever o arquivo de backup automático</string>
-    <string name="scanner">Scanner</string>
     <string name="alert_black_secret_key">Por favor insira a chave secreta</string>
     <string name="alert_black_account_name">Por favor insira o nome da conta</string>
     <string name="add_totp">Adicionar TOTP</string>
     <string name="scan_password">Escanear senha</string>
-    <string name="save">Salvar</string>
     <string name="custom_keyphrase">Frase-chave personalizada</string>
     <string name="generate_keyphrase">Gerar frase-chave</string>
     <string name="alert_blank_keyphrase">Digite a frase-chave</string>

@@ -15,7 +15,6 @@
 <resources>
 
     <!--BottomAppBar-->
-    <dimen name="bottom_app_bar_height">56dp</dimen>
 
     <!--BottomNavigationDrawer-->
 
