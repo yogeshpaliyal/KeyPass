@@ -25,6 +25,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        missingDimensionStrategy("buildTypes", "release")
     }
 
     buildTypes {
@@ -35,8 +37,8 @@ android {
         }
 
         debug {
-            productFlavors.findByName("production")?.signingConfig = signingConfigs.findByName("myDebugConfig")
-            productFlavors.findByName("staging")?.signingConfig = signingConfigs.findByName("myDebugConfig")
+            applicationIdSuffix = ".staging"
+            signingConfig = signingConfigs.getByName("debug")
         }
 
     }
@@ -59,20 +61,7 @@ android {
 
     flavorDimensions("default")
 
-    productFlavors {
-        create("production") {
-        }
 
-        create("staging") {
-            applicationIdSuffix = ".staging"
-            signingConfig = signingConfigs.findByName("myDebugConfig")
-        }
-    }
-    sourceSets {
-        getByName("main") {
-            res.srcDirs("src/main/res", "src/staging/res")
-        }
-    }
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.4"
@@ -84,16 +73,8 @@ android {
     }
     namespace = appPackageId
 
-    /*sourceSets {
-        main {
-            res {
-                srcDirs 'src\\main\\res', 'src\\staging\\res', '..\\common\\src\\staging\\res'
-            }
-        }
-    }*/
-
     signingConfigs {
-        create("myDebugConfig") {
+        getByName("debug") {
             storeFile = file("../keystores/debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
