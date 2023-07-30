@@ -113,7 +113,7 @@ const val BACKUP_KEY_LENGTH = 16
  */
 suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, String> {
     val userSettings = getUserSettings()
-    return if (userSettings?.backupKey != null && reset.not()) {
+    return if (userSettings.backupKey != null && reset.not()) {
         Pair(false, userSettings.backupKey)
     } else {
         val randomKey = getRandomString(BACKUP_KEY_LENGTH)

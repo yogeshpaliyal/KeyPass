@@ -32,11 +32,11 @@ jobs:
         run: ./gradlew test
 
       - name: 🏗 Build APK
-        run: bash ./gradlew assembleProductionDebug
+        run: bash ./gradlew assembleDebug
 
       - name: 🚀 Upload APK to Artifacts 📱
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: app/build/outputs/apk/production/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
           retention-days: 3
