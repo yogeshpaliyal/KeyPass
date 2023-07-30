@@ -8,7 +8,6 @@
     <string name="invalid_keyphrase">చెల్లని కీఫ్రేజ్</string>
     <string name="backup_completed">బ్యాకప్ పూర్తయింది</string>
     <string name="scan_password">పాస్‌వర్డ్‌ని స్కాన్ చేయండి</string>
-    <string name="save">సేవ్ చేయండి</string>
     <string name="custom_keyphrase">కస్టమ్ కీఫ్రేజ్</string>
     <string name="credentials_backups">ఆధారాల బ్యాకప్‌లు</string>
     <string name="credentials_backups_desc">బాహ్య నిల్వకు బ్యాకప్ ఆధారాలు</string>
@@ -18,16 +17,10 @@
     <string name="send_feedback_desc">సాంకేతిక సమస్యలను నివేదించండి లేదా కొత్త ఫీచర్లను సూచించండి</string>
     <string name="share">షేర్ చేయండి</string>
     <string name="share_desc">ఇతరులతో యాప్‌ను షేర్ చేయండి</string>
-    <string name="password_length">పాస్వర్డ్ పొడవు</string>
     <string name="password">పాస్వర్డ్</string>
-    <string name="uppercase_alphabets">పెద్ద అక్షరాలు</string>
-    <string name="lowercase_alphabets">చిన్న అక్షరాలు</string>
-    <string name="symbols">చిహ్నాలు</string>
-    <string name="numbers">సంఖ్యలు</string>
     <string name="copied_to_clipboard">క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది</string>
     <string name="login_to_enter_keypass">కీపాస్‌ని నమోదు చేయడానికి లాగిన్ చేయండి</string>
     <string name="last_backup_date">చివరి బ్యాకప్ : %s</string>
-    <string name="coming_soon">త్వరలో</string>
     <string name="delete_account_title">మీరు చెప్పేది నిజమా\?</string>
     <string name="delete_account_msg">మీరు నిజంగా ఈ ఎంట్రీని తొలగించాలనుకుంటున్నారా, ఇది పునరుద్ధరించబడదు</string>
     <string name="cancel">రద్దు చేయండి</string>
@@ -35,10 +28,7 @@
     <string name="share_keypass">కీపాస్‌ని షేర్ చేయండి</string>
     <string name="message_no_accounts">ఖాతాలు ఏవీ కనుగొనబడలేదు, దయచేసి దిగువ బటన్ నుండి జోడించండి</string>
     <string name="turn_off_backup">బ్యాకప్‌లను ఆఫ్ చేయండి</string>
-    <string name="verify_keyphrase">బ్యాకప్ పాస్‌ఫ్రేజ్‌ని ధృవీకరించండి</string>
-    <string name="verify_keyphrase_message">మీ బ్యాకప్ పాస్‌ఫ్రేజ్‌ని పరీక్షించి, అది సరిపోలుతుందని ధృవీకరించండి</string>
     <string name="backup_folder">బ్యాకప్ ఫోల్డర్</string>
-    <string name="backup">బ్యాకప్</string>
     <string name="turn_on_backup">బ్యాకప్‌లను ఆన్ చేయండి</string>
     <string name="backup_desc">బ్యాకప్‌లు పాస్‌ఫ్రేజ్‌తో గుప్తీకరించబడతాయి మరియు మీ పరికరంలో నిల్వ చేయబడతాయి</string>
     <string name="yes">అవును</string>
@@ -47,7 +37,6 @@
     <string name="copy_keypharse_msg">ఈ కీ పదబంధాన్ని కాపీ చేయండి, ఈ బ్యాకప్‌ని పునరుద్ధరించడానికి ఇది ఉపయోగించబడుతుంది, ఇది మళ్లీ కీపాస్ ద్వారా అందించబడదు, మీరు కాపీ చేసారా లేదా వ్రాసారా\?</string>
     <string name="help">సహాయం</string>
     <string name="security">భద్రత</string>
-    <string name="search">వెతకండి</string>
     <string name="account_name">ఖాతా పేరు</string>
     <string name="username_email_phone">వినియోగదారు పేరు/ఇమెయిల్/ఫోన్</string>
     <string name="tags_comma_separated_optional">ట్యాగ్‌లు కామాతో వేరు చేయబడ్డాయి (ఐచ్ఛికం)</string>
@@ -57,7 +46,6 @@
     <string name="disabled">వికలాంగుడు</string>
     <string name="enabled">ప్రారంభించబడింది</string>
     <string name="override_auto_backup_file">స్వీయ బ్యాకప్ ఫైల్‌ను భర్తీ చేయండి</string>
-    <string name="scanner">స్కానర్</string>
     <string name="alert_black_secret_key">దయచేసి రహస్య కీని నమోదు చేయండి</string>
     <string name="alert_black_account_name">దయచేసి ఖాతా పేరును నమోదు చేయండి</string>
     <string name="add_totp">TOTPని జోడించండి</string>
