@@ -48,6 +48,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.yogeshpaliyal.common.importer.KeyPassAccountImporter
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
@@ -59,6 +60,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
@@ -143,21 +145,6 @@ fun MySettingCompose() {
     val context = LocalContext.current
     val userSettings = LocalUserSettings.current
 
-    val (result, setResult) = remember { mutableStateOf<Uri?>(null) }
-
-    val launcher = rememberLauncherForActivityResult(OpenKeyPassBackup()) {
-        setResult(it)
-    }
-
-    result?.let {
-        RestoreDialog(
-            selectedFile = it,
-            hideDialog = {
-                setResult(null)
-            }
-        )
-    }
-
     // Retrieving saved password length
     var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
     LaunchedEffect(key1 = Unit) {
@@ -176,7 +163,7 @@ fun MySettingCompose() {
             title = R.string.restore_credentials,
             summary = R.string.restore_credentials_desc
         ) {
-            launcher.launch(arrayOf())
+            dispatchAction(NavigationAction(BackupImporterState()))
         }
         PreferenceItem(
             title = R.string.change_app_password,

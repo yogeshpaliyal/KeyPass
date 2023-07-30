@@ -16,8 +16,8 @@
     <!-- Sync Preferences -->
     <string name="credentials_backups">Credentials Backups</string>
     <string name="credentials_backups_desc">Backup Credentials to external storage</string>
-    <string name="restore_credentials">Restore Credentials</string>
-    <string name="restore_credentials_desc">Restore your backup</string>
+    <string name="restore_credentials">Imports Credentials</string>
+    <string name="restore_credentials_desc">Restore your backups</string>
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_desc">Report technical issues or suggest new features</string>
     <string name="share">Share</string>
