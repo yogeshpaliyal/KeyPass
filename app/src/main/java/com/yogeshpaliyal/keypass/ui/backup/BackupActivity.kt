@@ -8,20 +8,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBackIosNew
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Divider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -33,9 +26,9 @@ import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
+import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
-import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SelectKeyphraseType
@@ -108,7 +101,8 @@ fun BackupScreen(state: BackupScreenState) {
         val overrideAutoBackup = userSettings.overrideAutoBackup
 
         val lastBackupTime = userSettings.backupTime
-        val backupDirectory = if (userSettings.backupDirectory != null) Uri.parse(userSettings.backupDirectory) else null
+        val backupDirectory =
+            if (userSettings.backupDirectory != null) Uri.parse(userSettings.backupDirectory) else null
 
         dispatchAction(
             StateUpdateAction(
@@ -124,17 +118,7 @@ fun BackupScreen(state: BackupScreenState) {
     })
 
     Scaffold(bottomBar = {
-        BottomAppBar {
-            IconButton(onClick = {
-                dispatchAction(GoBackAction)
-            }) {
-                Icon(
-                    painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
-                    contentDescription = "Go Back",
-                    tint = MaterialTheme.colorScheme.onSurface
-                )
-            }
-        }
+        DefaultBottomAppBar()
     }) { contentPadding ->
         Surface(modifier = Modifier.padding(contentPadding)) {
             BackSettingOptions(state, updatedState = {
