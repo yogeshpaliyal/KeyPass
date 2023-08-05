@@ -87,4 +87,6 @@
     <string name="change_password_length">Alterar tamanho da senha</string>
     <string name="default_password_length">Comprimento da senha padrão</string>
     <string name="secret_key">Chave secreta</string>
+    <string name="keypass_backup">Backup do KeyPass</string>
+    <string name="google_backup">Backup do Google</string>
 </resources>
