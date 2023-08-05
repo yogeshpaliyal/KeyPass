@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.annotation.StringRes
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
@@ -47,16 +46,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.dbhelper.restoreBackup
-import com.yogeshpaliyal.keypass.importer.KeyPassAccountImporter
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
-import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
@@ -73,7 +69,7 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 fun RestoreDialog(
     selectedFile: Uri,
     hideDialog: () -> Unit,
-    saveAccounts: (list: List<AccountModel>) -> Unit,
+    saveAccounts: (list: List<AccountModel>) -> Unit
 ) {
     val (keyphrase, setKeyPhrase) = remember {
         mutableStateOf("")

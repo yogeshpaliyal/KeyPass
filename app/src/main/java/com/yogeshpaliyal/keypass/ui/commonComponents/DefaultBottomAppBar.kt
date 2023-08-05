@@ -15,7 +15,6 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
 fun DefaultBottomAppBar(extraAction: (@Composable RowScope.() -> Unit)? = null) {
-
     val dispatchAction = rememberTypedDispatcher<Action>()
 
     BottomAppBar {
@@ -30,5 +29,4 @@ fun DefaultBottomAppBar(extraAction: (@Composable RowScope.() -> Unit)? = null) 
             )
         }
     }
-
 }

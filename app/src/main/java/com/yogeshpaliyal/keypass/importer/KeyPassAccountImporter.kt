@@ -2,15 +2,12 @@ package com.yogeshpaliyal.keypass.importer
 
 import android.net.Uri
 import androidx.compose.runtime.Composable
-import com.opencsv.CSVReader
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.settings.RestoreDialog
-import java.io.File
 
-
-class KeyPassAccountImporter: AccountsImporter {
+class KeyPassAccountImporter : AccountsImporter {
     override fun getImporterTitle(): Int {
         return R.string.keypass_backup
     }

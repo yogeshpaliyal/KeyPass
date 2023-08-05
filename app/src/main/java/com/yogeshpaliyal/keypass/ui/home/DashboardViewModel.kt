@@ -1,13 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.home
 
 import android.app.Application
-import android.content.ContentResolver
-import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.common.dbhelper.restoreBackup
 import com.yogeshpaliyal.common.dbhelper.saveToDb
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

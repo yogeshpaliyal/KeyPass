@@ -27,12 +27,10 @@ import com.yogeshpaliyal.keypass.ui.settings.OpenKeyPassBackup
 import com.yogeshpaliyal.keypass.ui.settings.PreferenceItem
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
-
 val listOfBackupItems = listOf(KeyPassAccountImporter(), ChromeAccountImporter())
 
 @Composable
 fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = hiltViewModel()) {
-
     val (result, setResult) = remember { mutableStateOf<Uri?>(null) }
 
     val dispatchAction = rememberTypedDispatcher<Action>()
@@ -63,7 +61,6 @@ fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = 
             launcher.launch(arrayOf())
         }
     })
-
 
     result?.let {
         state.selectedImported?.readFile(result, {

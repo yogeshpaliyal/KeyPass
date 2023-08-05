@@ -26,7 +26,6 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 
-
 class ChromeAccountImporter : AccountsImporter {
     override fun getImporterTitle(): Int = R.string.google_backup
     override fun getImporterDesc(): Int? = null
@@ -64,7 +63,6 @@ class ChromeAccountImporter : AccountsImporter {
         })
 
         LoadingDialog()
-
     }
 }
 

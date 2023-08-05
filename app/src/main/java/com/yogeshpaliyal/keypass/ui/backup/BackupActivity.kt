@@ -94,8 +94,8 @@ fun BackupScreen(state: BackupScreenState) {
 
     LaunchedEffect(key1 = Unit, block = {
         val isBackupEnabled = (
-                context.canUserAccessBackupDirectory() && (userSettings.isKeyPresent())
-                )
+            context.canUserAccessBackupDirectory() && (userSettings.isKeyPresent())
+            )
 
         val isAutoBackupEnabled = userSettings.autoBackupEnable
         val overrideAutoBackup = userSettings.overrideAutoBackup
