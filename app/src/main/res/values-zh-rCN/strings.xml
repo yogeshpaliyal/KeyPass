@@ -87,4 +87,6 @@
     <string name="change_password_length">更改密码长度</string>
     <string name="default_password_length">默认密码长度</string>
     <string name="secret_key">密钥</string>
+    <string name="keypass_backup">B. 重要项目</string>
+    <string name="google_backup">谷歌 Backup</string>
 </resources>
