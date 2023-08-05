@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.annotation.StringRes
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
@@ -47,18 +46,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.dbhelper.restoreBackup
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
-import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
@@ -69,7 +69,7 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 fun RestoreDialog(
     selectedFile: Uri,
     hideDialog: () -> Unit,
-    mViewModel: DashboardViewModel = hiltViewModel()
+    saveAccounts: (list: List<AccountModel>) -> Unit
 ) {
     val (keyphrase, setKeyPhrase) = remember {
         mutableStateOf("")
@@ -101,9 +101,10 @@ fun RestoreDialog(
                 }
                 coroutineScope.launch {
                     val result =
-                        mViewModel.restoreBackup(keyphrase, context.contentResolver, selectedFile)
+                        restoreBackup(keyphrase, context.contentResolver, selectedFile)
 
-                    if (result) {
+                    if (result != null) {
+                        saveAccounts(result)
                         hideDialog()
                         dispatchAction(ToastAction(R.string.backup_restored))
                     } else {
@@ -143,21 +144,6 @@ fun MySettingCompose() {
     val context = LocalContext.current
     val userSettings = LocalUserSettings.current
 
-    val (result, setResult) = remember { mutableStateOf<Uri?>(null) }
-
-    val launcher = rememberLauncherForActivityResult(OpenKeyPassBackup()) {
-        setResult(it)
-    }
-
-    result?.let {
-        RestoreDialog(
-            selectedFile = it,
-            hideDialog = {
-                setResult(null)
-            }
-        )
-    }
-
     // Retrieving saved password length
     var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
     LaunchedEffect(key1 = Unit) {
@@ -176,7 +162,7 @@ fun MySettingCompose() {
             title = R.string.restore_credentials,
             summary = R.string.restore_credentials_desc
         ) {
-            launcher.launch(arrayOf())
+            dispatchAction(NavigationAction(BackupImporterState()))
         }
         PreferenceItem(
             title = R.string.change_app_password,
@@ -309,6 +295,7 @@ fun PreferenceItem(
     summaryStr: String? = null,
     icon: ImageVector? = null,
     isCategory: Boolean = false,
+    removeIconSpace: Boolean = false,
     onClickItem: (() -> Unit)? = null
 ) {
     Row(
@@ -321,9 +308,11 @@ fun PreferenceItem(
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
-            if (icon != null) {
-                Icon(painter = rememberVectorPainter(image = icon), contentDescription = "")
+        if (!removeIconSpace) {
+            Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
+                if (icon != null) {
+                    Icon(painter = rememberVectorPainter(image = icon), contentDescription = "")
+                }
             }
         }
         Column(
