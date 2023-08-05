@@ -17,7 +17,7 @@
 <img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
 </a>
 
-<a href="https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/productionRelease/report.html">
+<a href="https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/release/report.html">
 <img src="https://img.shields.io/badge/App%20Size-Report-9cf?color=f39c12&style=for-the-badge" alt="DevLibrary">
 </a>
 <br />
@@ -29,7 +29,7 @@
 
 > The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
 
-> Disclaimer: Please take a backup before updating to new app.
+> Disclaimer: Please take a backup before updating to the new app.
 
 
 <div style="display: inline-block"  align="center">
@@ -40,8 +40,8 @@
 <a href="./README_ja.md">Japanese</a> 👈
 
 ## 🤩 Features
-- [x] Complete Offline : No internet permission has been added
-- [x] Open Source : Code is accessible to every one
+- [x] Complete Offline: No internet permission has been added
+- [x] Open Source: Code is accessible to everyone
 - [x] Encrypted Backup and Restore
 - [x] Dark Mode Support
 - [x] Material Design 3
@@ -72,7 +72,7 @@ Feel free to ping me 😉
 
 ## 🤝 Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any
 contributions you make are **greatly appreciated**.
 
 1. Open an issue first to discuss what you would like to change.
@@ -102,7 +102,7 @@ Give a ⭐️ if this project helped you!
 
 ## Language
 [![Translation status](https://hosted.weblate.org/widgets/keypass/-/keypass/horizontal-auto.svg)](https://hosted.weblate.org/engage/keypass/)    
-Want to contribute in transaltions? [Contribute](https://hosted.weblate.org/projects/keypass/keypass/)
+Want to contribute to translations? [Contribute](https://hosted.weblate.org/projects/keypass/keypass/)
 
 ## Download Links
 <a href='https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass'><img align='center' height='55' src='./icons/google_play_badge.png'></a>
