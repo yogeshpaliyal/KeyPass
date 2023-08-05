@@ -50,13 +50,12 @@ android {
         jvmTarget = "17"
 
         freeCompilerArgs = listOf(
-                "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+            "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api"
         )
     }
     buildFeatures {
         compose = true
         viewBinding = true
-        dataBinding = true
     }
 
     flavorDimensions("default")
@@ -161,3 +160,4 @@ dependencies {
     implementation("androidx.biometric:biometric:1.1.0")
 
 }
+

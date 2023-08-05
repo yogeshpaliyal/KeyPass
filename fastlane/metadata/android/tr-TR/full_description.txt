@@ -1,3 +1,5 @@
+Disclaimer: Please take a backup before updating to new app.
+
 Modern parola yöneticisi, kimlik bilgilerinizi sunucularda saklamaz, bu nedenle parolalarınız sizin elinizde güvende, endişelenmenize gerek yok.
 
 1. Tamamen Çevrimdışı

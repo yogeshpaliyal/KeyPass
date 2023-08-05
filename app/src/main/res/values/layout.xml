@@ -21,7 +21,5 @@
 
     <!--8dp grid-->
     <dimen name="grid_1">8dp</dimen>
-    <dimen name="grid_2">16dp</dimen>
-    <dimen name="grid_3">24dp</dimen>
     <dimen name="grid_4">32dp</dimen>
 </resources>

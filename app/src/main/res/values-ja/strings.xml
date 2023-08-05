@@ -6,13 +6,9 @@
     <string name="restore_credentials">認証情報の復元</string>
     <string name="restore_credentials_desc">バックアップを復元する</string>
     <string name="send_feedback">フィードバックを送信する</string>
-    <string name="lowercase_alphabets">小文字のアルファベット</string>
-    <string name="symbols">記号</string>
-    <string name="numbers">数字</string>
     <string name="copied_to_clipboard">クリップボードにコピーされました</string>
     <string name="login_to_enter_keypass">ログインしてKeyPassを入力してください</string>
     <string name="last_backup_date">最終バックアップ: %s</string>
-    <string name="coming_soon">近日公開</string>
     <string name="delete_account_title">本気ですか？</string>
     <string name="delete_account_msg">本当にこのエントリを削除してもよろしいですか。復元できません</string>
     <string name="cancel">キャンセル</string>
@@ -20,10 +16,7 @@
     <string name="share_keypass">キーパスを共有する</string>
     <string name="message_no_accounts">アカウントが見つかりません。下のボタンから追加してください</string>
     <string name="turn_off_backup">バックアップをオフにする</string>
-    <string name="verify_keyphrase">バックアップのパスフレーズを確認する</string>
-    <string name="verify_keyphrase_message">バックアップ パスフレーズをテストし、一致することを確認します</string>
     <string name="backup_folder">バックアップフォルダー</string>
-    <string name="backup">バックアップ</string>
     <string name="turn_on_backup">バックアップをオンにする</string>
     <string name="backup_desc">バックアップはパスフレーズで暗号化され、デバイスに保存されます</string>
     <string name="yes">はい</string>
@@ -32,7 +25,6 @@
     <string name="copy_keypharse_msg">このキー フレーズをコピーします。これはこのバックアップを回復するために使用されます。これは KeyPass によって提供されるものではありません。コピーまたは書き留めましたか\?</string>
     <string name="help">ヘルプ</string>
     <string name="security">安全</string>
-    <string name="search">検索</string>
     <string name="account_name">アカウント名</string>
     <string name="username_email_phone">ユーザー名/メールアドレス/電話番号</string>
     <string name="tags_comma_separated_optional">タグはカンマ区切り (オプション)</string>
@@ -42,12 +34,10 @@
     <string name="disabled">無効</string>
     <string name="enabled">有効</string>
     <string name="override_auto_backup_file">自動バックアップファイルを上書きする</string>
-    <string name="scanner">スキャナー</string>
     <string name="alert_black_secret_key">秘密キーを入力してください</string>
     <string name="alert_black_account_name">アカウント名を入力してください</string>
     <string name="add_totp">TOTPを追加</string>
     <string name="scan_password">スキャンパスワード</string>
-    <string name="save">保存</string>
     <string name="custom_keyphrase">カスタムキーフレーズ</string>
     <string name="generate_keyphrase">キーフレーズの生成</string>
     <string name="alert_blank_keyphrase">キーフレーズを入力してください</string>
@@ -92,9 +82,7 @@
     <string name="send_feedback_desc">技術的な問題を報告したり、新機能を提案したりする</string>
     <string name="share">共有</string>
     <string name="share_desc">アプリを他の人と共有する</string>
-    <string name="password_length">パスワードの長さ</string>
     <string name="password">パスワード</string>
-    <string name="uppercase_alphabets">大文字のアルファベット</string>
     <string name="change_password_length">パスワードの長さを変更する</string>
     <string name="default_password_length">デフォルトのパスワードの長さ</string>
     <string name="secret_key">秘密鍵</string>

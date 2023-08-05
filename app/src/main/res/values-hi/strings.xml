@@ -16,12 +16,7 @@
     <string name="send_feedback_desc">तकनीकी मुद्दों की रिपोर्ट करें या नई सुविधाओं का सुझाव दें</string>
     <string name="share">साझा करें</string>
     <string name="share_desc">दूसरों के साथ ऐप शेयर करें</string>
-    <string name="password_length">पासवर्ड की लंबाई</string>
     <string name="password">पासवर्ड</string>
-    <string name="uppercase_alphabets">अपरकेस अक्षर</string>
-    <string name="lowercase_alphabets">लोअरकेस अक्षर</string>
-    <string name="symbols">प्रतीक</string>
-    <string name="numbers">संख्याएं</string>
     <string name="copied_to_clipboard">क्लिपबोर्ड पर कॉपी किया गया</string>
     <string name="login_to_enter_keypass">KeyPass में प्रवेश करने के लिए लॉगिन करें</string>
     <string name="biometric_error_no_hardware">इस डिवाइस पर कोई बायोमेट्रिक सुविधा उपलब्ध नहीं है।</string>
@@ -31,7 +26,6 @@
     <string name="password_set_from_settings">कृपया फोन सेटिंग से पहले अपने डिवाइस के लिए पासवर्ड सेट करें</string>
     <string name="authentication_failed">प्रमाणीकरण विफल होना</string>
     <string name="last_backup_date">पिछला बैकअप: %s</string>
-    <string name="coming_soon">जल्द आ रहा है</string>
     <string name="delete_account_title">क्या आप वाकई ऐसा करना चाहते हैं\?</string>
     <string name="delete_account_msg">क्या आप वास्तव में इस प्रविष्टि को हटाना चाहते हैं, इसे बहाल नहीं किया जा सकता</string>
     <string name="cancel">रद्द करें</string>
@@ -39,10 +33,7 @@
     <string name="share_keypass">शेयर KeyPass</string>
     <string name="message_no_accounts">कोई खाता नहीं जोड़ा गया, कृपया नीचे बटन से जोड़ें</string>
     <string name="turn_off_backup">बैकअप बंद करें</string>
-    <string name="verify_keyphrase">बैकअप पासफ़्रेज़ सत्यापित करें</string>
-    <string name="verify_keyphrase_message">अपने बैकअप पासफ्रेज़ का परीक्षण करें और सत्यापित करें कि यह मेल खाता है</string>
     <string name="backup_folder">बैकअप फोल्डर</string>
-    <string name="backup">बैकअप</string>
     <string name="turn_on_backup">बैकअप चालू करें</string>
     <string name="backup_desc">बैकअप पासफ़्रेज़ के साथ एन्क्रिप्ट किए जाते हैं और आपके डिवाइस पर संग्रहीत होते हैं</string>
     <string name="yes">हाँ</string>
@@ -51,7 +42,6 @@
     <string name="copy_keypharse_msg">इस कुंजी वाक्यांश को कॉपी करें इसका उपयोग इस बैकअप को पुनर्प्राप्त करने के लिए किया जाएगा, यह KeyPass अगेन द्वारा प्रदान नहीं किया जाएगा, क्या आपने कॉपी किया है या लिखा है\?</string>
     <string name="help">मदद</string>
     <string name="security">सुरक्षा</string>
-    <string name="search">खोजें</string>
     <string name="account_name">खाता नाम</string>
     <string name="username_email_phone">प्रयोक्ता नाम/ईमेल/फोन</string>
     <string name="tags_comma_separated_optional">टैग अल्पविराम से अलग (वैकल्पिक)</string>
@@ -61,12 +51,10 @@
     <string name="disabled">अक्षम</string>
     <string name="enabled">सक्रिय</string>
     <string name="override_auto_backup_file">ऑटो बैकअप फ़ाइल को ओवरराइड करें</string>
-    <string name="scanner">स्कैनर</string>
     <string name="alert_black_secret_key">कृपया गुप्त कुंजी दर्ज करें</string>
     <string name="alert_black_account_name">कृपया खाता नाम दर्ज करें</string>
     <string name="add_totp">TOTP . जोड़ें</string>
     <string name="scan_password">पासवर्ड स्कैन करें</string>
-    <string name="save">सहेजें</string>
     <string name="custom_keyphrase">कस्टम कीफ़्रेज़</string>
     <string name="generate_keyphrase">कीफ़्रेज़ जनरेट करें</string>
     <string name="alert_blank_keyphrase">कृपया कीफ़्रेज़ दर्ज करें</string>
