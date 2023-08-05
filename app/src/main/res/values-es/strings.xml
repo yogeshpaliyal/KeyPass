@@ -86,4 +86,6 @@
     <string name="change_password_length">Cambiar la longitud de la contraseña</string>
     <string name="default_password_length">Longitud de contraseña predeterminada</string>
     <string name="secret_key">Llave secreta</string>
+    <string name="keypass_backup">KeyPass Backup</string>
+    <string name="google_backup">Google Backup</string>
 </resources>
