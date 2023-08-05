@@ -86,4 +86,6 @@
     <string name="change_password_length">تغيير طول كلمة المرور</string>
     <string name="default_password_length">الطول الافتراضي لكلمة المرور</string>
     <string name="secret_key">المفتاح السري</string>
+    <string name="keypass_backup">دعم أساسي</string>
+    <string name="google_backup">Google Backup</string>
 </resources>
