@@ -96,5 +96,7 @@
     <string name="change_password_length">Change password length</string>
     <string name="default_password_length">Default password length</string>
     <string name="secret_key">Secret Key</string>
+    <string name="keypass_backup">KeyPass Backup</string>
+    <string name="google_backup">Google Backup</string>
 
 </resources>

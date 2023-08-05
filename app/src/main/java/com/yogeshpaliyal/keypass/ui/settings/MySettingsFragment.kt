@@ -48,7 +48,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.yogeshpaliyal.common.importer.KeyPassAccountImporter
+import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.dbhelper.restoreBackup
+import com.yogeshpaliyal.keypass.importer.KeyPassAccountImporter
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
@@ -71,7 +73,7 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 fun RestoreDialog(
     selectedFile: Uri,
     hideDialog: () -> Unit,
-    mViewModel: DashboardViewModel = hiltViewModel()
+    saveAccounts: (list: List<AccountModel>) -> Unit,
 ) {
     val (keyphrase, setKeyPhrase) = remember {
         mutableStateOf("")
@@ -103,9 +105,10 @@ fun RestoreDialog(
                 }
                 coroutineScope.launch {
                     val result =
-                        mViewModel.restoreBackup(keyphrase, context.contentResolver, selectedFile)
+                        restoreBackup(keyphrase, context.contentResolver, selectedFile)
 
-                    if (result) {
+                    if (result != null) {
+                        saveAccounts(result)
                         hideDialog()
                         dispatchAction(ToastAction(R.string.backup_restored))
                     } else {
@@ -296,6 +299,7 @@ fun PreferenceItem(
     summaryStr: String? = null,
     icon: ImageVector? = null,
     isCategory: Boolean = false,
+    removeIconSpace: Boolean = false,
     onClickItem: (() -> Unit)? = null
 ) {
     Row(
@@ -308,9 +312,11 @@ fun PreferenceItem(
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
-            if (icon != null) {
-                Icon(painter = rememberVectorPainter(image = icon), contentDescription = "")
+        if (!removeIconSpace) {
+            Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
+                if (icon != null) {
+                    Icon(painter = rememberVectorPainter(image = icon), contentDescription = "")
+                }
             }
         }
         Column(

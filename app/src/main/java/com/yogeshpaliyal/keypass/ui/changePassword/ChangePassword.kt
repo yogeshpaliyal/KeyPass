@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
+import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
@@ -54,17 +55,7 @@ fun ChangePassword(state: ChangeAppPasswordState) {
     val userSettings = LocalUserSettings.current
 
     Scaffold(bottomBar = {
-        BottomAppBar {
-            IconButton(onClick = {
-                dispatchAction(GoBackAction)
-            }) {
-                Icon(
-                    painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
-                    contentDescription = "Go Back",
-                    tint = MaterialTheme.colorScheme.onSurface
-                )
-            }
-        }
+        DefaultBottomAppBar()
     }) { contentPadding ->
         Surface(modifier = Modifier.padding(contentPadding)) {
             Column(

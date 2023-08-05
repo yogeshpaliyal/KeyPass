@@ -75,7 +75,7 @@ dependencies {
     implementation("net.zetetic:android-database-sqlcipher:4.5.4")
     implementation("androidx.sqlite:sqlite:2.3.1")
 
-    implementation("com.opencsv:opencsv:4.6")
+    api("com.opencsv:opencsv:4.6")
 
 
 }

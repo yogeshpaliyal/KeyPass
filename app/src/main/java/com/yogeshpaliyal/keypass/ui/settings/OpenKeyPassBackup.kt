@@ -3,7 +3,7 @@ package com.yogeshpaliyal.keypass.ui.settings
 import android.content.Context
 import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContracts
-import com.yogeshpaliyal.common.importer.AccountsImporter
+import com.yogeshpaliyal.keypass.importer.AccountsImporter
 
 class OpenKeyPassBackup<T : AccountsImporter>(val importer: T?) : ActivityResultContracts.OpenDocument() {
     override fun createIntent(context: Context, input: Array<String>): Intent {
