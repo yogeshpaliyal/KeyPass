@@ -11,8 +11,8 @@
     <string name="backup_completed">Sauvegarde terminée</string>
     <string name="credentials_backups">Sauvegardes des identifiants</string>
     <string name="credentials_backups_desc">Sauvegarder les informations d\'identification sur un stockage externe</string>
-    <string name="restore_credentials">Restaurer les informations d\'identification</string>
-    <string name="restore_credentials_desc">Restaurez votre sauvegarde</string>
+    <string name="restore_credentials">Importer les informations d\'identification</string>
+    <string name="restore_credentials_desc">Restaurez vos sauvegardes</string>
     <string name="send_feedback">Envoyer des commentaires</string>
     <string name="send_feedback_desc">Signaler des problèmes techniques ou suggérer de nouvelles fonctionnalités</string>
     <string name="share">Partager</string>
