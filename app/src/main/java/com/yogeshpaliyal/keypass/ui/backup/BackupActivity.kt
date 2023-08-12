@@ -158,9 +158,6 @@ fun BackupEnableOptions(
     updatedState: (BackupScreenState) -> Unit,
     launchDirectorySelector: () -> Unit
 ) {
-
-    val coroutineScope = rememberCoroutineScope()
-
     Column {
         PreferenceItem(
             title = R.string.create_backup,
@@ -188,9 +185,6 @@ fun BackupEnableOptions(
 //                summary = R.string.verify_keyphrase_message
 //            )
         PreferenceItem(title = R.string.turn_off_backup) {
-            coroutineScope.launch {
-
-            }
             updatedState(
                 state.copy(
                     isBackupEnabled = false,
