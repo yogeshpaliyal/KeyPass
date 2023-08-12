@@ -33,7 +33,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SelectKeyphraseType
 import com.yogeshpaliyal.keypass.ui.redux.states.ShowKeyphrase
-import com.yogeshpaliyal.keypass.ui.settings.PreferenceItem
+import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 

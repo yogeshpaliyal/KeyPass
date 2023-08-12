@@ -24,7 +24,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.settings.OpenKeyPassBackup
-import com.yogeshpaliyal.keypass.ui.settings.PreferenceItem
+import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
 val listOfBackupItems = listOf(KeyPassAccountImporter(), ChromeAccountImporter())
