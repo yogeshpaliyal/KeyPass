@@ -276,5 +276,3 @@ fun BiometricsOption() {
         }
     }
 }
-
-

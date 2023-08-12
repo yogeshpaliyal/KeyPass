@@ -27,13 +27,13 @@ import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
+import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SelectKeyphraseType
 import com.yogeshpaliyal.keypass.ui.redux.states.ShowKeyphrase
-import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
