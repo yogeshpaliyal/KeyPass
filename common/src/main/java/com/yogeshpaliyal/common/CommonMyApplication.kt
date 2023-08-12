@@ -7,7 +7,6 @@ import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import com.google.android.material.color.DynamicColors
 import javax.inject.Inject
-import kotlin.system.exitProcess
 
 abstract class CommonMyApplication : Application(), Configuration.Provider {
 
