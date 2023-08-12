@@ -1,27 +1,20 @@
 package com.yogeshpaliyal.keypass.ui.settings
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Divider
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -31,12 +24,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.common.dbhelper.restoreBackup
-import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.keypass.R
@@ -53,78 +42,6 @@ import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
-
-@Composable
-fun RestoreDialog(
-    selectedFile: Uri,
-    hideDialog: () -> Unit,
-    saveAccounts: (list: List<AccountModel>) -> Unit
-) {
-    val (keyphrase, setKeyPhrase) = remember {
-        mutableStateOf("")
-    }
-
-    val dispatchAction = rememberTypedDispatcher<Action>()
-
-    val context = LocalContext.current
-
-    val coroutineScope = rememberCoroutineScope()
-
-    AlertDialog(
-        onDismissRequest = {
-            hideDialog()
-        },
-        title = {
-            Text(text = stringResource(id = R.string.restore))
-        },
-        confirmButton = {
-            TextButton(onClick = {
-                if (keyphrase.isEmpty()) {
-                    dispatchAction(ToastAction(R.string.alert_blank_keyphrase))
-                    return@TextButton
-                }
-
-                if (keyphrase.length != BACKUP_KEY_LENGTH) {
-                    dispatchAction(ToastAction(R.string.alert_invalid_keyphrase))
-                    return@TextButton
-                }
-                coroutineScope.launch {
-                    val result =
-                        restoreBackup(keyphrase, context.contentResolver, selectedFile)
-
-                    if (result != null) {
-                        saveAccounts(result)
-                        hideDialog()
-                        dispatchAction(ToastAction(R.string.backup_restored))
-                    } else {
-                        dispatchAction(ToastAction(R.string.invalid_keyphrase))
-                    }
-                }
-            }) {
-                Text(text = stringResource(id = R.string.restore))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = hideDialog) {
-                Text(text = stringResource(id = R.string.cancel))
-            }
-        },
-        text = {
-            Column(modifier = Modifier.fillMaxWidth(1f)) {
-                Text(text = stringResource(id = R.string.keyphrase_restore_info))
-                Spacer(modifier = Modifier.size(8.dp))
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth(1f),
-                    value = keyphrase,
-                    onValueChange = setKeyPhrase,
-                    placeholder = {
-                        Text(text = stringResource(id = R.string.enter_keyphrase))
-                    }
-                )
-            }
-        }
-    )
-}
 
 @Preview(showSystemUi = true)
 @Composable
