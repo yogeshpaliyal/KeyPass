@@ -49,7 +49,6 @@ class KeyPassAccountImporter : AccountsImporter {
     }
 }
 
-
 @Composable
 fun RestoreDialog(
     selectedFile: Uri,
