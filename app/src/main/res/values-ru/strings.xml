@@ -16,16 +16,10 @@
     <string name="send_feedback_desc">Сообщайте о технических проблемах или предлагайте новые функции</string>
     <string name="share">Делиться</string>
     <string name="share_desc">Поделитесь приложением с другими</string>
-    <string name="password_length">Длина пароля</string>
     <string name="password">Пароль</string>
-    <string name="uppercase_alphabets">АЛФАВИТЫ В ВЕРХНЕМ РЕГИСТРЕ</string>
-    <string name="lowercase_alphabets">алфавиты в нижнем регистре</string>
-    <string name="symbols">Символы</string>
-    <string name="numbers">Числа</string>
     <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
     <string name="login_to_enter_keypass">Войдите в систему, чтобы ввести пароль</string>
     <string name="last_backup_date">Последняя резервная копия : %s</string>
-    <string name="coming_soon">Скоро будет</string>
     <string name="delete_account_title">Вы уверены\?</string>
     <string name="delete_account_msg">Вы действительно хотите удалить эту запись, она не может быть восстановлена</string>
     <string name="cancel">Отменить</string>
@@ -33,10 +27,7 @@
     <string name="share_keypass">Общий доступ к ключу</string>
     <string name="message_no_accounts">Учетные записи не найдены, пожалуйста, добавьте с помощью кнопки ниже</string>
     <string name="turn_off_backup">Отключите резервное копирование</string>
-    <string name="verify_keyphrase">Проверьте кодовую фразу резервного копирования</string>
-    <string name="verify_keyphrase_message">Проверьте свою резервную кодовую фразу и убедитесь, что она соответствует</string>
     <string name="backup_folder">Папка резервного копирования</string>
-    <string name="backup">Резервная копия</string>
     <string name="turn_on_backup">Включите резервное копирование</string>
     <string name="backup_desc">Резервные копии шифруются с помощью парольной фразы и хранятся на вашем устройстве</string>
     <string name="yes">Да</string>
@@ -45,7 +36,6 @@
     <string name="copy_keypharse_msg">Скопируйте эту ключевую фразу, это будет использовано для восстановления этой резервной копии, это больше не будет предоставляться KeyPass, вы скопировали или записали\?</string>
     <string name="help">Помощь</string>
     <string name="security">Безопасность</string>
-    <string name="search">Поиск</string>
     <string name="account_name">Имя учетной записи</string>
     <string name="username_email_phone">Имя пользователя/Электронная почта/Телефон</string>
     <string name="tags_comma_separated_optional">Теги, разделенные запятой (необязательно)</string>
@@ -55,12 +45,10 @@
     <string name="disabled">Нетрудоспособный</string>
     <string name="enabled">Включенный</string>
     <string name="override_auto_backup_file">Переопределить файл автоматической резервной копии</string>
-    <string name="scanner">Сканер</string>
     <string name="alert_black_secret_key">Пожалуйста, введите секретный ключ</string>
     <string name="alert_black_account_name">Пожалуйста, введите имя учетной записи</string>
     <string name="add_totp">Добавить TOTP</string>
     <string name="scan_password">Пароль для сканирования</string>
-    <string name="save">Сохранить</string>
     <string name="custom_keyphrase">Пользовательская ключевая фраза</string>
     <string name="generate_keyphrase">Сгенерировать ключевую фразу</string>
     <string name="alert_blank_keyphrase">Пожалуйста, введите ключевую фразу</string>
@@ -99,4 +87,6 @@
     <string name="change_password_length">Изменить длину пароля</string>
     <string name="default_password_length">Длина пароля по умолчанию</string>
     <string name="secret_key">Секретный ключ</string>
+    <string name="keypass_backup">KeyPass Backup</string>
+    <string name="google_backup">Google Backup</string>
 </resources>

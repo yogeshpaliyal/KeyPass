@@ -16,12 +16,7 @@
     <string name="send_feedback_desc">报告技术问题或建议新功能</string>
     <string name="share">分享</string>
     <string name="share_desc">向别人分享该应用</string>
-    <string name="password_length">密码长度</string>
     <string name="password">密码</string>
-    <string name="uppercase_alphabets">大写字母</string>
-    <string name="lowercase_alphabets">小写字母</string>
-    <string name="symbols">标点符号</string>
-    <string name="numbers">数字</string>
     <string name="copied_to_clipboard">已复制到剪切板</string>
     <string name="login_to_enter_keypass">输入密码以进入 KeyPass</string>
     <string name="biometric_error_no_hardware">此设备上没有可用的生物识别功能。</string>
@@ -31,7 +26,6 @@
     <string name="password_set_from_settings">请先从手机设置中为您的设备设置密码</string>
     <string name="authentication_failed">身份认证失败</string>
     <string name="last_backup_date">上次备份： %s</string>
-    <string name="coming_soon">敬请期待</string>
     <string name="delete_account_title">您确定吗？</string>
     <string name="delete_account_msg">您确定要删除本条目吗？此操作不可撤销</string>
     <string name="cancel">Cancel</string>
@@ -39,10 +33,7 @@
     <string name="share_keypass">分享 KeyPass</string>
     <string name="message_no_accounts">这里空空如也。按下下方的加号以新建</string>
     <string name="turn_off_backup">关闭备份</string>
-    <string name="verify_keyphrase">验证备份密码</string>
-    <string name="verify_keyphrase_message">测试备份密码并验证其匹配</string>
     <string name="backup_folder">备份文件夹</string>
-    <string name="backup">备份</string>
     <string name="turn_on_backup">开启备份</string>
     <string name="backup_desc">备份使用密码加密并存储在您的设备上</string>
     <string name="yes">确定</string>
@@ -51,7 +42,6 @@
     <string name="copy_keypharse_msg">请立即复制或在纸上写下下面的密码。KeyPass 将不会再次显示该密码\?</string>
     <string name="help">帮助</string>
     <string name="security">安全</string>
-    <string name="search">搜索</string>
     <string name="account_name">账户名称</string>
     <string name="username_email_phone">用户名/邮箱/手机号</string>
     <string name="tags_comma_separated_optional">标签（选填）</string>
@@ -64,9 +54,7 @@
     <string name="add_totp">添加 TOTP</string>
     <string name="alert_black_account_name">请输入账户名</string>
     <string name="alert_black_secret_key">请输入密钥</string>
-    <string name="scanner">扫描器</string>
     <string name="scan_password">扫描密码</string>
-    <string name="save">保存</string>
     <string name="custom_keyphrase">自定义关键词</string>
     <string name="generate_keyphrase">生成关键词</string>
     <string name="alert_blank_keyphrase">请输入关键词</string>
@@ -99,4 +87,6 @@
     <string name="change_password_length">更改密码长度</string>
     <string name="default_password_length">默认密码长度</string>
     <string name="secret_key">密钥</string>
+    <string name="keypass_backup">B. 重要项目</string>
+    <string name="google_backup">谷歌 Backup</string>
 </resources>

@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath ("com.android.tools.build:gradle:7.4.2")
+        classpath ("com.android.tools.build:gradle:8.1.0")
         classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath ("com.google.gms:google-services:4.3.15")
 
@@ -62,4 +62,4 @@ val installGitHook by tasks.register<Exec>("installGitHook") {
     commandLine = listOf("sh", "./githooks/git-init.sh")
 }
 
-tasks.getByPath("app:preBuild").dependsOn(installGitHook)
+tasks.getByPath("app:assemble").dependsOn(installGitHook)

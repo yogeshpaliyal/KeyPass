@@ -16,16 +16,10 @@
     <string name="send_feedback_desc">Sorunları bildirin veya yeni özellikler önerin</string>
     <string name="share">Paylaş</string>
     <string name="share_desc">Uygulamayı diğerleriyle paylaş</string>
-    <string name="password_length">Şifre uzunluğu</string>
     <string name="password">Şifre</string>
-    <string name="uppercase_alphabets">BÜYÜK HARFLER</string>
-    <string name="lowercase_alphabets">küçük harfler</string>
-    <string name="symbols">Semboller</string>
-    <string name="numbers">Sayılar</string>
     <string name="copied_to_clipboard">Panoya kopyalandı</string>
     <string name="login_to_enter_keypass">KeyPass\'e girmek için oturum açın</string>
     <string name="last_backup_date">Son yedek : %s</string>
-    <string name="coming_soon">Yakında</string>
     <string name="delete_account_title">Emin Misiniz?</string>
     <string name="delete_account_msg">Bu girişi gerçekten silmek istiyor musunuz, geri yüklenemez</string>
     <string name="cancel">İptal et</string>
@@ -33,10 +27,7 @@
     <string name="share_keypass">KeyPass\'ı paylaş</string>
     <string name="message_no_accounts">Hesap bulunamadı, lütfen aşağıdaki butondan ekleyin</string>
     <string name="turn_off_backup">Yedekleri kapat</string>
-    <string name="verify_keyphrase">Yedek parolayı doğrulayın</string>
-    <string name="verify_keyphrase_message">Yedek parolanızı test edin ve eşleştiğini doğrulayın</string>
     <string name="backup_folder">Yedekleme klasörü</string>
-    <string name="backup">Yedekle</string>
     <string name="turn_on_backup">Yedekleri aç</string>
     <string name="backup_desc">Yedeklemeler bir parola ile şifrelenir ve cihazınızda depolanır</string>
     <string name="yes">Evet</string>
@@ -45,7 +36,6 @@
     <string name="copy_keypharse_msg">Bu Anahtar İfadeyi Kopyalayın, bu yedeği kurtarmak için kullanılacaktır, bu KeyPass tarafından tekrar sağlanmayacaktır, kopyaladınız mı veya not aldınız mı\?</string>
     <string name="help">Yardım</string>
     <string name="security">Güvenlik</string>
-    <string name="search">Ara</string>
     <string name="account_name">Hesap Adı</string>
     <string name="username_email_phone">Kullanıcı adı/Email/Telefon</string>
     <string name="tags_comma_separated_optional">Etiketleri virgülle ayır (isteğe bağlı)</string>
@@ -55,12 +45,10 @@
     <string name="disabled">Devre dışı bırakıldı</string>
     <string name="enabled">Etkinleştirildi</string>
     <string name="override_auto_backup_file">Otomatik Yedekleme Dosyasını Geçersiz Kıl</string>
-    <string name="scanner">Tarayıcı</string>
     <string name="alert_black_secret_key">Lütfen secret key\'i girin</string>
     <string name="alert_black_account_name">Lütfen hesap adı girin</string>
     <string name="add_totp">TOTP ekle</string>
     <string name="scan_password">Şifre Tara</string>
-    <string name="save">Kaydet</string>
     <string name="custom_keyphrase">Özel Anahtar Kelime</string>
     <string name="generate_keyphrase">Anahtar Kelime Üret</string>
     <string name="alert_blank_keyphrase">Lütfen anahtar kelimeyi girin</string>
@@ -99,4 +87,6 @@
     <string name="change_password_length">Şifre uzunluğunu değiştir</string>
     <string name="default_password_length">varsayılan şifre uzunluğu</string>
     <string name="secret_key">Gizli anahtar</string>
+    <string name="keypass_backup">KeyPass Yedekleme</string>
+    <string name="google_backup">Google Yedekleme</string>
 </resources>

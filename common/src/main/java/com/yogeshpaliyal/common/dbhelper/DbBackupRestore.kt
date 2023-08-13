@@ -8,6 +8,7 @@ import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.DB_VERSION_3
 import com.yogeshpaliyal.common.DB_VERSION_5
 import com.yogeshpaliyal.common.constants.AccountType
+import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.data.BackupData
 import com.yogeshpaliyal.common.utils.getRandomString
 import kotlinx.coroutines.Dispatchers
@@ -37,18 +38,24 @@ suspend fun AppDatabase.createBackup(
         return@withContext true
     }
 
-suspend fun AppDatabase.restoreBackup(
+suspend fun AppDatabase.saveToDb(list: List<AccountModel>) = withContext(Dispatchers.IO) {
+    withTransaction {
+        getDao().insertOrUpdateAccount(list)
+    }
+}
+
+suspend fun restoreBackup(
     key: String,
     contentResolver: ContentResolver,
     fileUri: Uri?
-) = withContext(Dispatchers.IO) {
-    fileUri ?: return@withContext false
+): List<AccountModel>? = withContext(Dispatchers.IO) {
+    fileUri ?: return@withContext null
 
     val restoredFile = try {
         EncryptionHelper.doCryptoDecrypt(key, contentResolver.openInputStream(fileUri))
     } catch (e: CryptoException) {
         e.printStackTrace()
-        return@withContext false
+        return@withContext null
     }
 
     return@withContext Gson().fromJson(restoredFile, BackupData::class.java)?.let { data ->
@@ -65,9 +72,6 @@ suspend fun AppDatabase.restoreBackup(
         data.data.forEach {
             it.id = null
         }
-        withTransaction {
-            getDao().insertOrUpdateAccount(data.data)
-        }
-        true
-    } ?: false
+        data.data
+    }
 }

@@ -7,7 +7,6 @@
     <string name="copy_keypharse_msg">انسخ هذه العبارة الرئيسية التي سيتم استخدامها لاستعادة هذه النسخة الاحتياطية ، ولن يوفرها KeyPass مرة أخرى ، هل قمت بنسخها أو كتابتها؟</string>
     <string name="help">يساعد</string>
     <string name="security">حماية</string>
-    <string name="search">يبحث</string>
     <string name="account_name">إسم الحساب</string>
     <string name="username_email_phone">اسم المستخدم / البريد الإلكتروني / الهاتف</string>
     <string name="tags_comma_separated_optional">مفصولة بفواصل بين العلامات (اختياري)</string>
@@ -16,7 +15,6 @@
     <string name="auto_backup">نسخ إحتياطي آلي</string>
     <string name="enabled">ممكن</string>
     <string name="override_auto_backup_file">تجاوز ملف النسخ الاحتياطي التلقائي</string>
-    <string name="scanner">الماسح الضوئي</string>
     <string name="alert_black_secret_key">الرجاء إدخال مفتاح السر</string>
     <string name="scan_password">مسح كلمة المرور</string>
     <string name="custom_keyphrase">عبارة مفاتيح مخصصة</string>
@@ -57,7 +55,6 @@
     <string name="disabled">عاجز</string>
     <string name="alert_black_account_name">الرجاء إدخال اسم الحساب</string>
     <string name="add_totp">أضف TOTP</string>
-    <string name="save">يحفظ</string>
     <string name="enter_keyphrase">أدخل Keyphrase</string>
     <string name="restore">يعيد</string>
     <string name="incorrect_old_password">الرجاء إدخال كلمة المرور القديمة الصحيحة</string>
@@ -78,24 +75,17 @@
     <string name="send_feedback">ارسل رأيك</string>
     <string name="send_feedback_desc">الإبلاغ عن مشاكل فنية أو اقتراح ميزات جديدة</string>
     <string name="share">يشارك</string>
-    <string name="password_length">طول كلمة المرور</string>
-    <string name="uppercase_alphabets">الحروف الكبيرة</string>
-    <string name="lowercase_alphabets">الحروف الهجائية الصغيرة</string>
-    <string name="symbols">حرف او رمز</string>
-    <string name="numbers">أعداد</string>
     <string name="copied_to_clipboard">نسخ إلى الحافظة</string>
     <string name="login_to_enter_keypass">تسجيل الدخول للدخول KeyPass</string>
     <string name="last_backup_date">آخر نسخة احتياطية: %s</string>
-    <string name="coming_soon">قريباً</string>
     <string name="share_keypass">مشاركة KeyPass</string>
     <string name="message_no_accounts">لم يتم العثور على حسابات ، الرجاء الإضافة من الزر أدناه</string>
     <string name="turn_off_backup">قم بإيقاف تشغيل النسخ الاحتياطية</string>
-    <string name="verify_keyphrase">تحقق من عبارة المرور الاحتياطية</string>
-    <string name="verify_keyphrase_message">اختبر عبارة المرور الاحتياطية الخاصة بك وتحقق من مطابقتها</string>
     <string name="backup_folder">مجلد النسخ الاحتياطي</string>
-    <string name="backup">دعم</string>
     <string name="turn_on_backup">قم بتشغيل النسخ الاحتياطية</string>
     <string name="change_password_length">تغيير طول كلمة المرور</string>
     <string name="default_password_length">الطول الافتراضي لكلمة المرور</string>
     <string name="secret_key">المفتاح السري</string>
+    <string name="keypass_backup">دعم أساسي</string>
+    <string name="google_backup">Google Backup</string>
 </resources>

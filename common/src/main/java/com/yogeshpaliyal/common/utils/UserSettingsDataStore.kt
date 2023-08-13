@@ -7,13 +7,13 @@ import com.yogeshpaliyal.common.data.UserSettings
 
 class UserSettingsDataStore(val context: Context) {
 
-    private fun getSerializer(context: Context): Serializer<UserSettings> {
+    private fun getSerializer(): Serializer<UserSettings> {
         return UserSettingsSerializer(CryptoManager())
     }
 
     private val Context.dataStoreSerializer by dataStore(
         fileName = "user-settings.json",
-        serializer = getSerializer(context)
+        serializer = getSerializer()
     )
 
     fun getDataStore() = context.dataStoreSerializer

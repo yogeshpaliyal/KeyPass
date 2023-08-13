@@ -32,7 +32,7 @@ fun getRandomString(sizeOfRandomString: Int): String {
 
 suspend fun Context?.canUserAccessBackupDirectory(): Boolean {
     if (this != null) {
-        val backupDirectoryUri = getUri(getUserSettings()?.backupDirectory)
+        val backupDirectoryUri = getUri(getUserSettings().backupDirectory)
         if (backupDirectoryUri != null) {
             val backupDirectory = DocumentFile.fromTreeUri(this, backupDirectoryUri)
             val listOfConditions = arrayListOf<Boolean?>()

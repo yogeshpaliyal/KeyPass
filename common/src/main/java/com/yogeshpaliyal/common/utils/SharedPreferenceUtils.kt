@@ -104,6 +104,13 @@ suspend fun Context.setUserSettings(userSettings: UserSettings) {
     }
 }
 
+suspend fun Context.clearBackupKey() {
+    getUserSettingsDataStore().updateData {
+        it.backupKey ?: return@updateData it
+        it.copy(backupKey = null)
+    }
+}
+
 const val BACKUP_KEY_LENGTH = 16
 
 /**
@@ -113,104 +120,13 @@ const val BACKUP_KEY_LENGTH = 16
  */
 suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, String> {
     val userSettings = getUserSettings()
-    return if (userSettings?.backupKey != null && reset.not()) {
+    return if (userSettings.backupKey != null && reset.not()) {
         Pair(false, userSettings.backupKey)
     } else {
         val randomKey = getRandomString(BACKUP_KEY_LENGTH)
         setBackupKey(randomKey)
         Pair(true, randomKey)
     }
-}
-
-suspend fun Context.getKeyPassPasswordLegacy(): String? {
-    return dataStore.data.first().get(KEYPASS_PASSWORD)
-}
-
-suspend fun Context.setKeyPassPasswordLegacy(password: String?) {
-    dataStore.edit {
-        if (password == null) {
-            it.remove(KEYPASS_PASSWORD)
-        } else {
-            it[KEYPASS_PASSWORD] = password
-        }
-    }
-}
-
-suspend fun Context.getKeyPassPasswordLengthLegacy(): Float? {
-    return dataStore.data.first()[KEYPASS_PASSWORD_LENGTH]
-}
-
-suspend fun Context.setKeyPassPasswordLengthLegacy(length: Float) {
-    dataStore.edit {
-        it[KEYPASS_PASSWORD_LENGTH] = length
-    }
-}
-
-suspend fun Context.isKeyPresentLegacy(): Boolean {
-    val sp = dataStore.data.first()
-    return sp.contains(BACKUP_KEY)
-}
-
-suspend fun Context.isBiometricEnableLegacy(): Boolean {
-    return this.dataStore.data.first()[BIOMETRIC_ENABLE] ?: false
-}
-
-suspend fun Context.setBiometricEnableLegacy(isEnable: Boolean) {
-    dataStore.edit {
-        it[BIOMETRIC_ENABLE] = isEnable
-    }
-}
-
-suspend fun Context.saveKeyphraseLegacy(keyphrase: String) {
-    dataStore.edit {
-        it[BACKUP_KEY] = keyphrase
-    }
-}
-
-suspend fun Context?.clearBackupKey() {
-    this?.dataStore?.edit {
-        it.remove(BACKUP_KEY)
-    }
-}
-
-suspend fun Context?.setBackupDirectoryLegacy(string: String) {
-    this?.dataStore?.edit {
-        it[BACKUP_DIRECTORY] = string
-    }
-}
-
-suspend fun Context?.setBackupTimeLegacy(time: Long) {
-    this?.dataStore?.edit {
-        it[BACKUP_DATE_TIME] = time
-    }
-}
-
-suspend fun Context?.getBackupDirectoryLegacy(): String {
-    return this?.dataStore?.data?.first()?.get(BACKUP_DIRECTORY) ?: ""
-}
-
-suspend fun Context?.isAutoBackupEnabledLegacy(): Boolean {
-    return this?.dataStore?.data?.first()?.get(AUTO_BACKUP) ?: false
-}
-
-suspend fun Context?.overrideAutoBackupLegacy(): Boolean {
-    return this?.dataStore?.data?.first()?.get(OVERRIDE_AUTO_BACKUP) ?: false
-}
-
-suspend fun Context?.setOverrideAutoBackupLegacy(value: Boolean) {
-    this?.dataStore?.edit {
-        it[OVERRIDE_AUTO_BACKUP] = value
-    }
-}
-
-suspend fun Context?.setAutoBackupEnabledLegacy(value: Boolean) {
-    this?.dataStore?.edit {
-        it[AUTO_BACKUP] = value
-    }
-}
-
-suspend fun Context?.getBackupTimeLegacy(): Long {
-    return this?.dataStore?.data?.first()?.get(BACKUP_DATE_TIME) ?: -1
 }
 
 private val BACKUP_KEY = stringPreferencesKey("backup_key")

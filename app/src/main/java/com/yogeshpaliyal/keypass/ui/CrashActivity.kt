@@ -55,7 +55,7 @@ class CrashActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_SENDTO)
             intent.data = Uri.parse("mailto:")
 
-            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("yogeshpaliyal.foss@gmail.com"))
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("yogeshpaliyal.foss+keypass@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Crash Report in KeyPass")
             intent.putExtra(Intent.EXTRA_TEXT, deviceInfo.toString())
 
