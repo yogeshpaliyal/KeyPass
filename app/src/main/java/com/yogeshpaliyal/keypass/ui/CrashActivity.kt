@@ -6,9 +6,14 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.yogeshpaliyal.common.data.UserSettings
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.databinding.ActivityCrashBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.lang.StringBuilder
 
 @AndroidEntryPoint
@@ -34,13 +39,24 @@ class CrashActivity : AppCompatActivity() {
         binding.txtCrash.text = intent.extras?.getString(ARG_DATA)
 
         binding.btnSendFeedback.setOnClickListener {
+            var userSettings : UserSettings? = null
+            runBlocking {
+                userSettings = getUserSettings()
+            }
+            val installerPackageName = getInstallerPackageName(this, BuildConfig.APPLICATION_ID)
             val deviceInfo = StringBuilder()
             deviceInfo.append(binding.txtCrash.text.toString())
             try {
                 deviceInfo.append("\n")
-                deviceInfo.append("App Version: " + BuildConfig.VERSION_NAME)
+                deviceInfo.append("App Version from Build: " + BuildConfig.VERSION_NAME)
+                deviceInfo.append("\n")
+                deviceInfo.append("Current App Version: " + userSettings?.currentAppVersion)
+                deviceInfo.append("\n")
+                deviceInfo.append("Previous App Version: " + userSettings?.lastAppVersion)
                 deviceInfo.append("\n")
                 deviceInfo.append("Brand Name: " + Build.BRAND)
+                deviceInfo.append("\n")
+                deviceInfo.append("Installed from: " + installerPackageName)
                 deviceInfo.append("\n")
                 deviceInfo.append("Manufacturer Name: " + Build.MANUFACTURER)
                 deviceInfo.append("\n")
@@ -62,4 +78,15 @@ class CrashActivity : AppCompatActivity() {
             startActivity(Intent.createChooser(intent, ""))
         }
     }
+
+    fun getInstallerPackageName(context: Context, packageName: String): String? {
+        kotlin.runCatching {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+                return context.packageManager.getInstallSourceInfo(packageName).installingPackageName
+            @Suppress("DEPRECATION")
+            return context.packageManager.getInstallerPackageName(packageName)
+        }
+        return null
+    }
+
 }

@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.yogeshpaliyal.common.BuildConfig
 import com.yogeshpaliyal.common.data.DEFAULT_PASSWORD_LENGTH
 import com.yogeshpaliyal.common.data.UserSettings
 import kotlinx.coroutines.flow.Flow

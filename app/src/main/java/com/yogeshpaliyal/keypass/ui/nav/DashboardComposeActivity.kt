@@ -52,8 +52,10 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.data.UserSettings
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
+import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
@@ -114,6 +116,12 @@ class DashboardComposeActivity : AppCompatActivity() {
 
             LaunchedEffect(key1 = Unit, block = {
                 migrateOldDataToNewerDataStore()
+//                val userSettings = getUserSettings()
+//                val buildConfigVersion = BuildConfig.VERSION_CODE
+//                val currentAppVersion = userSettings.currentAppVersion
+//                if (buildConfigVersion != currentAppVersion) {
+//                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = buildConfigVersion, currentAppVersion = currentAppVersion))
+//                }
             })
         }
     }
