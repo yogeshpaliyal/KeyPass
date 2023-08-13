@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.19",
+    "version": "1.4.20",
     "variant": "release",
     "downloadSize": 4135067,
-    "installSize": 6788419,
+    "installSize": 6788420,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -454,8 +454,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5542,
-                    "installSize": 5537
+                    "downloadSize": 5543,
+                    "installSize": 5538
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -508,8 +508,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3399,
-                    "installSize": 3399
+                    "downloadSize": 3398,
+                    "installSize": 3398
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
@@ -10043,13 +10043,13 @@
             "name": "androidx.compose.foundation:foundation-android:1.5.0-beta02",
             "type": "EXTERNAL",
             "downloadSize": 193176,
-            "installSize": 193553,
+            "installSize": 193554,
             "files": [
                 {
                     "name": "androidx.compose.foundation.text.StringHelpersKt",
                     "type": "CLASS",
                     "downloadSize": 39512,
-                    "installSize": 39587
+                    "installSize": 39588
                 },
                 {
                     "name": "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect",
