@@ -86,4 +86,6 @@
     <string name="change_password_length">پاس ورڈ کی لمبائی تبدیل کریں</string>
     <string name="default_password_length">پہلے سے طے شدہ پاس ورڈ کی لمبائی</string>
     <string name="secret_key">خفیہ کلید</string>
+    <string name="keypass_backup">KeyPass بیک اپ</string>
+    <string name="google_backup">Google بیک اپ</string>
 </resources>
