@@ -86,4 +86,6 @@
     <string name="change_password_length">கடவுச்சொல் நீளத்தை மாற்றவும்</string>
     <string name="default_password_length">இயல்புநிலை கடவுச்சொல் நீளம்</string>
     <string name="secret_key">இரகசிய விசை</string>
+    <string name="keypass_backup">KeyPass காப்புப்பிரதி</string>
+    <string name="google_backup">Google காப்புப்பிரதி</string>
 </resources>
