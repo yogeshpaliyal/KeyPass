@@ -3,12 +3,7 @@ package com.yogeshpaliyal.keypass.ui.backup
 import android.content.Intent
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -16,18 +11,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
 import com.yogeshpaliyal.common.utils.clearBackupKey
-import com.yogeshpaliyal.common.utils.formatCalendar
 import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
 import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
-import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.backup.components.BackSettingOptions
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
-import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
@@ -131,102 +122,5 @@ fun BackupScreen(state: BackupScreenState) {
 
     BackupDialogs(state = state) {
         dispatchAction(StateUpdateAction(it))
-    }
-}
-
-@Composable
-fun BackSettingOptions(
-    state: BackupScreenState,
-    updatedState: (BackupScreenState) -> Unit,
-    launchDirectorySelector: () -> Unit
-) {
-    Column {
-        PreferenceItem(summary = R.string.backup_desc)
-        AnimatedVisibility(visible = state.isBackupEnabled == true) {
-            BackupEnableOptions(state, updatedState, launchDirectorySelector)
-        }
-
-        AnimatedVisibility(visible = state.isBackupEnabled != true) {
-            PreferenceItem(title = R.string.turn_on_backup, onClickItem = launchDirectorySelector)
-        }
-    }
-}
-
-@Composable
-fun BackupEnableOptions(
-    state: BackupScreenState,
-    updatedState: (BackupScreenState) -> Unit,
-    launchDirectorySelector: () -> Unit
-) {
-    Column {
-        PreferenceItem(
-            title = R.string.create_backup,
-            summaryStr = stringResource(
-                id = R.string.last_backup_date,
-                state.lastBackupTime?.formatCalendar("dd MMM yyyy hh:mm aa") ?: ""
-            )
-        ) {
-            updatedState(state.copy(dialog = ShowKeyphrase))
-        }
-        PreferenceItem(
-            title = R.string.backup_folder,
-            summaryStr = state.getFormattedBackupDirectory(),
-            onClickItem = launchDirectorySelector
-        )
-
-        AutoBackup(state.isAutoBackupEnabled, state.overrideAutoBackup, {
-            updatedState(state.copy(isAutoBackupEnabled = it))
-        }) {
-            updatedState(state.copy(overrideAutoBackup = it))
-        }
-
-//            PreferenceItem(
-//                title = R.string.verify_keyphrase,
-//                summary = R.string.verify_keyphrase_message
-//            )
-        PreferenceItem(title = R.string.turn_off_backup) {
-            updatedState(
-                state.copy(
-                    isBackupEnabled = false,
-                    isAutoBackupEnabled = false,
-                    overrideAutoBackup = false,
-                    lastBackupTime = -1,
-                    backupDirectory = null
-                )
-            )
-        }
-    }
-}
-
-@Composable
-fun AutoBackup(
-    isAutoBackupEnabled: Boolean?,
-    overrideAutoBackup: Boolean?,
-    setAutoBackupEnabled: (Boolean) -> Unit,
-    setOverrideAutoBackup: (Boolean) -> Unit
-) {
-    PreferenceItem(
-        title = R.string.auto_backup,
-        summary = if (isAutoBackupEnabled == true) R.string.enabled else R.string.disabled
-    ) {
-        setAutoBackupEnabled(!(isAutoBackupEnabled ?: false))
-    }
-
-    AnimatedVisibility(visible = isAutoBackupEnabled == true) {
-        Column {
-            PreferenceItem(title = R.string.auto_backup, isCategory = true)
-            Divider(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(1.dp)
-            )
-            PreferenceItem(summary = R.string.auto_backup_desc)
-            PreferenceItem(
-                title = R.string.override_auto_backup_file,
-                summary = if (overrideAutoBackup == true) R.string.enabled else R.string.disabled
-            ) {
-                setOverrideAutoBackup(!(overrideAutoBackup ?: false))
-            }
-        }
     }
 }
