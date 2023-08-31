@@ -10,7 +10,7 @@
     <!-- Sync Preferences -->
     <string name="credentials_backups">Резервные копии учетных данных</string>
     <string name="credentials_backups_desc">Создайте резервную копию учетных данных во внешнем хранилище</string>
-    <string name="restore_credentials">Восстановить учетные данные</string>
+    <string name="restore_credentials">Импортирует учетные данные</string>
     <string name="restore_credentials_desc">Восстановите свою резервную копию</string>
     <string name="send_feedback">Отправить отзыв</string>
     <string name="send_feedback_desc">Сообщайте о технических проблемах или предлагайте новые функции</string>
