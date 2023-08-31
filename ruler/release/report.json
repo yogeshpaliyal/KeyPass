@@ -34222,7 +34222,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:hilt-android:2.47",
+            "name": "com.google.dagger:hilt-android:2.48",
             "type": "EXTERNAL",
             "downloadSize": 1757,
             "installSize": 1761,
@@ -35116,7 +35116,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:dagger:2.47",
+            "name": "com.google.dagger:dagger:2.48",
             "type": "EXTERNAL",
             "downloadSize": 254,
             "installSize": 254,
@@ -35366,7 +35366,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:hilt-core:2.47",
+            "name": "com.google.dagger:hilt-core:2.48",
             "type": "EXTERNAL",
             "downloadSize": 30,
             "installSize": 30,
