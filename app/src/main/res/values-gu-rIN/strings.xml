@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="generate_password">પાસવર્ડ જનરેટ કરો</string>
+    <string name="generate_password">પાસવર્ડ બનાવો</string>
     <string name="home">ઘર</string>
-    <string name="delete">કાઢી નાખો</string>
-    <string name="generate_shortcut_short_label">પાસવર્ડ જનરેટ કરો</string>
-    <string name="backup_restored">બેકઅપ પુનઃસ્થાપિત</string>
-    <string name="invalid_keyphrase">અમાન્ય કીફ્રેઝ</string>
-    <string name="backup_completed">બેકઅપ પૂર્ણ થયું</string>
-    <string name="credentials_backups">ઓળખપત્ર બેકઅપ્સ</string>
-    <string name="credentials_backups_desc">બાહ્ય સ્ટોરેજ પર બેકઅપ ઓળખપત્રો</string>
-    <string name="restore_credentials">ઓળખપત્ર પુનઃસ્થાપિત કરો</string>
-    <string name="restore_credentials_desc">તમારું બેકઅપ પુનઃસ્થાપિત કરો</string>
+    <string name="delete">કાઢો</string>
+    <string name="generate_shortcut_short_label">પાસવર્ડ બનાવો</string>
+    <string name="backup_restored">બેકઅપ પુનઃસ્થાપિત કરવામાં આવ્યો</string>
+    <string name="invalid_keyphrase">અમાન્ય કુંજિ</string>
+    <string name="backup_completed">બેકઅપ પૂર્ણ થયો</string>
+    <string name="credentials_backups">ઓળખપત્રોના બેકઅપ્સ</string>
+    <string name="credentials_backups_desc">બાહ્ય સ્ટોરેજ પર ઓળખપત્રો સાચવો</string>
+    <string name="restore_credentials">ઓળખપત્રોને પુનઃસ્થાપિત કરો</string>
+    <string name="restore_credentials_desc">તમારો બેકઅપ પુનઃસ્થાપિત કરો</string>
     <string name="share">શેર કરો</string>
     <string name="send_feedback">પ્રતિસાદ મોકલ</string>
     <string name="send_feedback_desc">તકનીકી સમસ્યાઓની જાણ કરો અથવા નવી સુવિધાઓ સૂચવો</string>
