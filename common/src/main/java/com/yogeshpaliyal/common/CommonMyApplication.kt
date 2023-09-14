@@ -6,9 +6,6 @@ import android.util.Log
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import com.google.android.material.color.DynamicColors
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 abstract class CommonMyApplication : Application(), Configuration.Provider {
@@ -26,10 +23,7 @@ abstract class CommonMyApplication : Application(), Configuration.Provider {
             val intent = getCrashActivityIntent(throwable)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            GlobalScope.launch {
-                delay(1000)
-                previewExceptionHandler?.uncaughtException(thread, throwable)
-            }
+            previewExceptionHandler?.uncaughtException(thread, throwable)
         }
 
         DynamicColors.applyToActivitiesIfAvailable(this)
