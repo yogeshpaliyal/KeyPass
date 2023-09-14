@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath ("com.android.tools.build:gradle:8.1.0")
+        classpath ("com.android.tools.build:gradle:8.1.1")
         classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath ("com.google.gms:google-services:4.3.15")
 
@@ -23,11 +23,11 @@ plugins {
     kotlin("android") version("1.8.0") apply false
     id("com.android.application") version("7.4.2") apply false
     id("com.android.library") version("7.4.2") apply false
-    id("org.jetbrains.compose") version "1.4.0" apply false
+    id("org.jetbrains.compose") version "1.5.1" apply false
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
-    id("com.google.dagger.hilt.android") version ("2.46.1") apply false
-    id("com.gradle.enterprise") version("3.14.1") apply false
+    id("com.google.dagger.hilt.android") version ("2.48") apply false
+    id("com.gradle.enterprise") version("3.15") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
 }
 

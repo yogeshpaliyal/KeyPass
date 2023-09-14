@@ -1,0 +1,1 @@
+Major crash fix, please take backup before update and if crashing even after update uninstall/clear data once

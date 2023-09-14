@@ -6,33 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.Menu
-import androidx.compose.material.icons.rounded.Settings
-import androidx.compose.material.ripple.rememberRipple
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Divider
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -40,17 +16,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.TextUnitType
-import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
@@ -65,16 +32,15 @@ import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPas
 import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.home.Homepage
+import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
+import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
-import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
-import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
@@ -88,7 +54,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
-import java.util.Locale
 
 val LocalUserSettings = compositionLocalOf { UserSettings() }
 
@@ -158,7 +123,7 @@ fun Dashboard() {
         Surface(modifier = Modifier.padding(paddingValues)) {
             CurrentPage()
 
-            BottomSheet()
+            DashboardBottomSheet()
         }
     }
 }
@@ -204,157 +169,4 @@ fun CurrentPage() {
             is BackupImporterState -> BackupImporter(state = it)
         }
     }
-}
-
-@Composable
-fun BottomSheet() {
-    val bottomSheetState by selectState<KeyPassState, BottomSheetState?> { this.bottomSheet }
-
-    if (bottomSheetState?.isBottomSheetOpen != true) {
-        return
-    }
-
-    OptionBottomBar()
-}
-
-@Composable
-fun OptionBottomBar(
-    viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-) {
-    val dispatchAction = rememberDispatcher()
-
-    val navigationItems by viewModel.navigationList.observeAsState()
-    ModalBottomSheet(onDismissRequest = {
-        dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
-    }) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxWidth(1f)
-                .padding(16.dp)
-        ) {
-            if (navigationItems != null) {
-                items(navigationItems!!) {
-                    when (it) {
-                        is NavigationModelItem.NavDivider -> {
-                            NavItemSection(it)
-                        }
-
-                        is NavigationModelItem.NavTagItem -> {
-                            NavMenuFolder(folder = it) {
-                                dispatchAction(NavigationAction(HomeState(tag = it.tag), false))
-                                dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
-                            }
-                        }
-
-                        is NavigationModelItem.NavMenuItem -> {
-                            NavItem(it) {
-                                dispatchAction(it.action)
-                                dispatchAction(BottomSheetAction.HomeNavigationMenu(false))
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun NavMenuFolder(folder: NavigationModelItem.NavTagItem, onClick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(
-                    bounded = true
-                ),
-                onClick = onClick
-            )
-            .padding(16.dp)
-            .fillMaxWidth(1f)
-
-    ) {
-        Text(
-            text = folder.tag,
-            style = MaterialTheme.typography.titleMedium
-        )
-    }
-}
-
-@Composable
-fun NavItem(item: NavigationModelItem.NavMenuItem, onClick: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = true),
-                onClick = onClick
-            )
-            .padding(16.dp)
-            .fillMaxWidth(1f)
-    ) {
-        Icon(
-            painter = painterResource(id = item.icon),
-            contentDescription = ""
-        )
-        Spacer(modifier = Modifier.width(32.dp))
-        Text(
-            text = stringResource(id = item.titleRes),
-            style = MaterialTheme.typography.titleMedium
-        )
-    }
-}
-
-@Composable
-fun NavItemSection(divider: NavigationModelItem.NavDivider) {
-    Column(modifier = Modifier.padding(16.dp)) {
-        Divider()
-        Spacer(modifier = Modifier.height(32.dp))
-        Text(
-            text = divider.title.uppercase(Locale.getDefault()),
-            style = MaterialTheme.typography.labelMedium,
-            fontSize = TextUnit(12f, TextUnitType.Sp)
-        )
-    }
-}
-
-@Composable
-fun KeyPassBottomBar() {
-    val showMainBottomAppBar by selectState<KeyPassState, Boolean> { this.currentScreen.showMainBottomAppBar }
-    val dispatchAction = rememberDispatcher()
-
-    if (!showMainBottomAppBar) {
-        return
-    }
-
-    BottomAppBar(actions = {
-        IconButton(onClick = {
-            dispatchAction(BottomSheetAction.HomeNavigationMenu(true))
-        }) {
-            Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.Menu),
-                contentDescription = "Menu",
-                tint = MaterialTheme.colorScheme.onSurface
-            )
-        }
-
-        IconButton(onClick = {
-            dispatchAction(NavigationAction(SettingsState))
-        }) {
-            Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.Settings),
-                contentDescription = "Settings",
-                tint = MaterialTheme.colorScheme.onSurface
-            )
-        }
-    }, floatingActionButton = {
-            FloatingActionButton(modifier = Modifier.testTag("btnAdd"), onClick = {
-                dispatchAction(NavigationAction(AccountDetailState()))
-            }) {
-                Icon(
-                    painter = rememberVectorPainter(image = Icons.Rounded.Add),
-                    contentDescription = "Add"
-                )
-            }
-        })
 }

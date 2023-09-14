@@ -20,7 +20,7 @@ jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # - name: Checkout
       #   run: |
@@ -61,7 +61,7 @@ jobs:
 
 
       - name: Create Release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.13.0
         with:
           tag: "${{ steps.bump-app-version.outputs.newVersion }}"
           generateReleaseNotes: true

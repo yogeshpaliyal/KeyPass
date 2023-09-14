@@ -21,4 +21,6 @@
     <!--Email previews-->
 
     <dimen name="chip_icon_diameter">32dp</dimen>
+    <dimen name="grid_1">8dp</dimen>
+    <dimen name="grid_4">32dp</dimen>
 </resources>

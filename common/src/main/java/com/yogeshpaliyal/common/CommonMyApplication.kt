@@ -24,7 +24,7 @@ abstract class CommonMyApplication : Application(), Configuration.Provider {
         val previewExceptionHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             val intent = getCrashActivityIntent(throwable)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             GlobalScope.launch {
                 delay(1000)

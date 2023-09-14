@@ -20,7 +20,7 @@ jobs:
     name: 'Spotless, Tests and Build Production Debug Build'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
     
       - name: Setting up project 
         uses: ./.github/actions/setup

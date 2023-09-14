@@ -5,13 +5,13 @@
     <string name="delete">Deletar</string>
     <string name="generate_shortcut_short_label">Gerar senha</string>
     <string name="backup_restored">Backup restaurado</string>
-    <string name="invalid_keyphrase">Senha incorreta</string>
+    <string name="invalid_keyphrase">Senha Inválida</string>
     <string name="backup_completed">Backup concluído</string>
     <!-- Sync Preferences -->
     <string name="credentials_backups">Backup de credenciais</string>
     <string name="credentials_backups_desc">Salva suas senhas em um armazenamento externo</string>
-    <string name="restore_credentials">Restaurar credenciais</string>
-    <string name="restore_credentials_desc">Restaura seu backup</string>
+    <string name="restore_credentials">Importar Credenciais</string>
+    <string name="restore_credentials_desc">Restaure seus Backups</string>
     <string name="send_feedback">Enviar feedback</string>
     <string name="send_feedback_desc">Reportar um problema técnico ou sugerir novas funções</string>
     <string name="share">Compartilhar</string>

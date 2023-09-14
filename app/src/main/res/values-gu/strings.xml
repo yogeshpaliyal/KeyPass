@@ -86,4 +86,6 @@
     <string name="change_password_length">પાસવર્ડ લંબાઈ બદલો</string>
     <string name="default_password_length">ડિફૉલ્ટ પાસવર્ડ લંબાઈ</string>
     <string name="secret_key">સિક્રેટ કી</string>
+    <string name="keypass_backup">KeyPass બેકઅપ</string>
+    <string name="google_backup">Google બેકઅપ</string>
 </resources>
