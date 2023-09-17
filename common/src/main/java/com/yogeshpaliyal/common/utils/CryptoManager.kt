@@ -2,7 +2,6 @@ package com.yogeshpaliyal.common.utils
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
-import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.io.OutputStream
@@ -64,50 +63,8 @@ class CryptoManager {
         }
     }
 
-    private fun decryptOld(inputStream: InputStream): ByteArray? {
+    fun decrypt(inputStream: InputStream): ByteArray {
         return inputStream.use {
-            val ivSize = inputStream.read()
-            val iv = ByteArray(ivSize)
-            inputStream.read(iv)
-            val cipher = Cipher.getInstance(TRANSFORMATION)
-            cipher.init(Cipher.DECRYPT_MODE, getKey(), IvParameterSpec(iv))
-            val decryptedSize = inputStream.read()
-            val decryptedData = ByteArray(decryptedSize)
-            inputStream.read(decryptedData)
-
-            // check if more data is there
-            try {
-                val input = inputStream.read()
-                if (input != -1) {
-                    return null
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-            return cipher.doFinal(decryptedData)
-        }
-    }
-
-    private fun copyInputStream(inputS: InputStream): InputStream {
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        inputS.copyTo(byteArrayOutputStream, 1024)
-        val data = byteArrayOutputStream.toByteArray()
-        return ByteArrayInputStream(data)
-    }
-
-    fun decrypt(inputS: InputStream): ByteArray {
-        return inputS.use {
-            // TODO remove after migrations
-            val data = inputS.readBytes()
-            val inputStreamForOld = copyInputStream(ByteArrayInputStream(data))
-            val oldDecrypt = decryptOld(inputStreamForOld)
-            if (oldDecrypt != null) {
-                return oldDecrypt
-            }
-
-            val inputStream = copyInputStream(ByteArrayInputStream(data))
-
             val ivSize = inputStream.read()
             val iv = ByteArray(ivSize)
             inputStream.read(iv)

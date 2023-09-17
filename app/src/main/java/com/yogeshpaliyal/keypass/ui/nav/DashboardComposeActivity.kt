@@ -19,8 +19,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.yogeshpaliyal.common.data.UserSettings
+import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
+import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
@@ -66,6 +68,7 @@ class DashboardComposeActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_SECURE
             )
         }
+
         setContent {
             val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
@@ -79,6 +82,12 @@ class DashboardComposeActivity : AppCompatActivity() {
 
             LaunchedEffect(key1 = Unit, block = {
                 migrateOldDataToNewerDataStore()
+                val userSettings = getUserSettings()
+                val buildConfigVersion = BuildConfig.VERSION_CODE
+                val currentAppVersion = userSettings.currentAppVersion
+                if (buildConfigVersion != currentAppVersion) {
+                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = currentAppVersion, currentAppVersion = buildConfigVersion))
+                }
             })
         }
     }
