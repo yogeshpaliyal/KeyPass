@@ -68,6 +68,8 @@ class DashboardComposeActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_SECURE
             )
         }
+
+        throw RuntimeException("Testing")
         setContent {
             val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
