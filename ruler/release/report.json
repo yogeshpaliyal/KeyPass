@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.21",
+    "version": "1.4.22",
     "variant": "release",
-    "downloadSize": 4138509,
-    "installSize": 6789960,
+    "downloadSize": 4138499,
+    "installSize": 6789961,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -425,7 +425,7 @@
             "name": ":app",
             "type": "INTERNAL",
             "downloadSize": 450951,
-            "installSize": 981516,
+            "installSize": 981517,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -454,8 +454,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5543,
-                    "installSize": 5538
+                    "downloadSize": 5544,
+                    "installSize": 5539
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
@@ -1132,7 +1132,7 @@
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.backup.components.ShowKeyPhraseDialogKt$ShowKeyPhraseDialog$1",
                     "type": "CLASS",
-                    "downloadSize": 588,
+                    "downloadSize": 587,
                     "installSize": 588
                 },
                 {
@@ -3768,13 +3768,13 @@
         {
             "name": "com.google.android.material:material:1.9.0",
             "type": "EXTERNAL",
-            "downloadSize": 232624,
+            "downloadSize": 232623,
             "installSize": 232820,
             "files": [
                 {
                     "name": "com.google.android.material.textfield.TextInputLayout",
                     "type": "CLASS",
-                    "downloadSize": 14504,
+                    "downloadSize": 14503,
                     "installSize": 14527
                 },
                 {
@@ -7472,7 +7472,7 @@
         {
             "name": "androidx.appcompat:appcompat:1.6.1",
             "type": "EXTERNAL",
-            "downloadSize": 199898,
+            "downloadSize": 199897,
             "installSize": 201768,
             "files": [
                 {
@@ -7508,7 +7508,7 @@
                 {
                     "name": "androidx.appcompat.widget.AppCompatTextView",
                     "type": "CLASS",
-                    "downloadSize": 3209,
+                    "downloadSize": 3208,
                     "installSize": 3214
                 },
                 {
@@ -12930,13 +12930,13 @@
         {
             "name": "androidx.compose.foundation:foundation-android:1.5.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 184702,
+            "downloadSize": 184700,
             "installSize": 185004,
             "files": [
                 {
                     "name": "androidx.compose.foundation.text.StringHelpersKt",
                     "type": "CLASS",
-                    "downloadSize": 23466,
+                    "downloadSize": 23465,
                     "installSize": 23504
                 },
                 {
@@ -14382,7 +14382,7 @@
                 {
                     "name": "androidx.compose.foundation.relocation.BringIntoViewResponderElement",
                     "type": "CLASS",
-                    "downloadSize": 196,
+                    "downloadSize": 195,
                     "installSize": 196
                 },
                 {
@@ -19262,7 +19262,7 @@
         {
             "name": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
             "type": "EXTERNAL",
-            "downloadSize": 90385,
+            "downloadSize": 90384,
             "installSize": 90535,
             "files": [
                 {
@@ -19346,7 +19346,7 @@
                 {
                     "name": "kotlinx.coroutines.selects.SelectBuilderImpl",
                     "type": "CLASS",
-                    "downloadSize": 784,
+                    "downloadSize": 783,
                     "installSize": 785
                 },
                 {
@@ -20728,13 +20728,13 @@
         {
             "name": "androidx.work:work-runtime:2.8.1",
             "type": "EXTERNAL",
-            "downloadSize": 85732,
+            "downloadSize": 85730,
             "installSize": 85877,
             "files": [
                 {
                     "name": "androidx.work.impl.model.RawWorkInfoDao_Impl",
                     "type": "CLASS",
-                    "downloadSize": 22090,
+                    "downloadSize": 22089,
                     "installSize": 22126
                 },
                 {
@@ -20752,7 +20752,7 @@
                 {
                     "name": "androidx.work.impl.WorkDatabase_Impl$1",
                     "type": "CLASS",
-                    "downloadSize": 2744,
+                    "downloadSize": 2743,
                     "installSize": 2748
                 },
                 {
@@ -24528,7 +24528,7 @@
         {
             "name": "androidx.compose.ui:ui-text-android:1.5.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 59529,
+            "downloadSize": 59528,
             "installSize": 59630,
             "files": [
                 {
@@ -24972,7 +24972,7 @@
                 {
                     "name": "androidx.compose.ui.text.input.SetSelectionCommand",
                     "type": "CLASS",
-                    "downloadSize": 196,
+                    "downloadSize": 195,
                     "installSize": 196
                 },
                 {
@@ -26164,7 +26164,7 @@
         {
             "name": "androidx.fragment:fragment:1.5.1",
             "type": "EXTERNAL",
-            "downloadSize": 42186,
+            "downloadSize": 42185,
             "installSize": 42247,
             "files": [
                 {
@@ -26218,7 +26218,7 @@
                 {
                     "name": "androidx.fragment.app.SpecialEffectsController$FragmentStateManagerOperation",
                     "type": "CLASS",
-                    "downloadSize": 1176,
+                    "downloadSize": 1175,
                     "installSize": 1177
                 },
                 {
@@ -31890,7 +31890,7 @@
         {
             "name": "androidx.room:room-runtime:2.5.2",
             "type": "EXTERNAL",
-            "downloadSize": 12010,
+            "downloadSize": 12009,
             "installSize": 12028,
             "files": [
                 {
@@ -31920,7 +31920,7 @@
                 {
                     "name": "androidx.room.MultiInstanceInvalidationService$binder$1",
                     "type": "CLASS",
-                    "downloadSize": 784,
+                    "downloadSize": 783,
                     "installSize": 785
                 },
                 {
