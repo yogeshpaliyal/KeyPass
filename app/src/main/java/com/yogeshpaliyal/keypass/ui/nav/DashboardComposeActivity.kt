@@ -81,12 +81,12 @@ class DashboardComposeActivity : AppCompatActivity() {
 
             LaunchedEffect(key1 = Unit, block = {
                 migrateOldDataToNewerDataStore()
-//                val userSettings = getUserSettings()
-//                val buildConfigVersion = BuildConfig.VERSION_CODE
-//                val currentAppVersion = userSettings.currentAppVersion
-//                if (buildConfigVersion != currentAppVersion) {
-//                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = buildConfigVersion, currentAppVersion = currentAppVersion))
-//                }
+                val userSettings = getUserSettings()
+                val buildConfigVersion = BuildConfig.VERSION_CODE
+                val currentAppVersion = userSettings.currentAppVersion
+                if (buildConfigVersion != currentAppVersion) {
+                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = currentAppVersion, currentAppVersion = buildConfigVersion))
+                }
             })
         }
     }

@@ -12,6 +12,8 @@ import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.IvParameterSpec
 
+private val MAX_SINGLE_BLOCK_ENCRYPTION = 256
+
 class CryptoManager {
     private val keyStore = KeyStore.getInstance("AndroidKeyStore").apply {
         load(null)
@@ -48,6 +50,13 @@ class CryptoManager {
         outputStream.use {
             it.write(iv.size)
             it.write(iv)
+
+            if (bytes.size <= MAX_SINGLE_BLOCK_ENCRYPTION) {
+                val encryptedBytes = cipher.doFinal(bytes)
+                it.write(encryptedBytes.size)
+                it.write(encryptedBytes)
+                return@use iv
+            }
 
             var offset = 0
             while (offset < bytes.size) {

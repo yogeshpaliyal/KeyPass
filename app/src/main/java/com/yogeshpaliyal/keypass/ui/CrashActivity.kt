@@ -11,8 +11,6 @@ import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.databinding.ActivityCrashBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.lang.StringBuilder
 
@@ -39,7 +37,7 @@ class CrashActivity : AppCompatActivity() {
         binding.txtCrash.text = intent.extras?.getString(ARG_DATA)
 
         binding.btnSendFeedback.setOnClickListener {
-            var userSettings : UserSettings? = null
+            var userSettings: UserSettings? = null
             runBlocking {
                 userSettings = getUserSettings()
             }
@@ -81,12 +79,12 @@ class CrashActivity : AppCompatActivity() {
 
     fun getInstallerPackageName(context: Context, packageName: String): String? {
         kotlin.runCatching {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 return context.packageManager.getInstallSourceInfo(packageName).installingPackageName
+            }
             @Suppress("DEPRECATION")
             return context.packageManager.getInstallerPackageName(packageName)
         }
         return null
     }
-
 }
