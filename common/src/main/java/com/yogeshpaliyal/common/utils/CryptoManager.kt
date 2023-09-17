@@ -2,7 +2,6 @@ package com.yogeshpaliyal.common.utils
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
-import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.io.OutputStream
@@ -66,7 +65,6 @@ class CryptoManager {
 
     fun decrypt(inputStream: InputStream): ByteArray {
         return inputStream.use {
-
             val ivSize = inputStream.read()
             val iv = ByteArray(ivSize)
             inputStream.read(iv)
