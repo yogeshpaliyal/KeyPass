@@ -69,7 +69,6 @@ class DashboardComposeActivity : AppCompatActivity() {
             )
         }
 
-        throw RuntimeException("Testing")
         setContent {
             val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
