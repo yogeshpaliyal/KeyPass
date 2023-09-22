@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.22",
+    "version": "1.4.23",
     "variant": "release",
-    "downloadSize": 4138499,
-    "installSize": 6789961,
+    "downloadSize": 4138503,
+    "installSize": 6789962,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -424,8 +424,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 450951,
-            "installSize": 981517,
+            "downloadSize": 450952,
+            "installSize": 981518,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -508,8 +508,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3398,
-                    "installSize": 3398
+                    "downloadSize": 3399,
+                    "installSize": 3399
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
@@ -7472,7 +7472,7 @@
         {
             "name": "androidx.appcompat:appcompat:1.6.1",
             "type": "EXTERNAL",
-            "downloadSize": 199897,
+            "downloadSize": 199898,
             "installSize": 201768,
             "files": [
                 {
@@ -7508,7 +7508,7 @@
                 {
                     "name": "androidx.appcompat.widget.AppCompatTextView",
                     "type": "CLASS",
-                    "downloadSize": 3208,
+                    "downloadSize": 3209,
                     "installSize": 3214
                 },
                 {
@@ -12930,13 +12930,13 @@
         {
             "name": "androidx.compose.foundation:foundation-android:1.5.0-beta02",
             "type": "EXTERNAL",
-            "downloadSize": 184700,
+            "downloadSize": 184701,
             "installSize": 185004,
             "files": [
                 {
                     "name": "androidx.compose.foundation.text.StringHelpersKt",
                     "type": "CLASS",
-                    "downloadSize": 23465,
+                    "downloadSize": 23466,
                     "installSize": 23504
                 },
                 {
@@ -20728,13 +20728,13 @@
         {
             "name": "androidx.work:work-runtime:2.8.1",
             "type": "EXTERNAL",
-            "downloadSize": 85730,
+            "downloadSize": 85731,
             "installSize": 85877,
             "files": [
                 {
                     "name": "androidx.work.impl.model.RawWorkInfoDao_Impl",
                     "type": "CLASS",
-                    "downloadSize": 22089,
+                    "downloadSize": 22090,
                     "installSize": 22126
                 },
                 {
