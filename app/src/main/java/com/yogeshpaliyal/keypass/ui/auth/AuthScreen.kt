@@ -20,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.keypass.R
-import com.yogeshpaliyal.keypass.ui.auth.components.BiometricPrompt
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
@@ -85,5 +84,4 @@ fun AuthScreen(state: AuthState) {
             dispatchAction(it)
         }
     }
-
 }
