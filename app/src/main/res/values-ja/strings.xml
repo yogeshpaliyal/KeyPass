@@ -36,7 +36,6 @@
     <string name="override_auto_backup_file">自動バックアップファイルを上書きする</string>
     <string name="alert_black_secret_key">秘密キーを入力してください</string>
     <string name="alert_black_account_name">アカウント名を入力してください</string>
-    <string name="add_totp">TOTPを追加</string>
     <string name="scan_password">スキャンパスワード</string>
     <string name="custom_keyphrase">カスタムキーフレーズ</string>
     <string name="generate_keyphrase">キーフレーズの生成</string>

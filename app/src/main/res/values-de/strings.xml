@@ -56,7 +56,6 @@
     <string name="password_set_from_settings">Bitte legen Sie zunächst in den Telefoneinstellungen ein Passwort für Ihr Gerät fest</string>
     <string name="authentication_failed">Authentifizierung fehlgeschlagen</string>
     <string name="authentication_error">Authentifizierungsfehler %s</string>
-    <string name="add_totp">TOTP hinzufügen</string>
     <string name="scan_password">Passwort scannen</string>
     <string name="custom_generated_keyphrase_info">Möchten Sie Ihre eigene Schlüsselphrase für Backups erstellen oder soll ich diese für Sie generieren\?</string>
     <string name="enter_keyphrase">Schlüsselwort eingeben</string>

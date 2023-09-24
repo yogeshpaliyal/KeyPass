@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.DB_VERSION_3
 import com.yogeshpaliyal.common.DB_VERSION_5
+import com.yogeshpaliyal.common.DB_VERSION_7
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.data.BackupData
@@ -59,19 +60,27 @@ suspend fun restoreBackup(
     }
 
     return@withContext Gson().fromJson(restoredFile, BackupData::class.java)?.let { data ->
-        if (data.version == DB_VERSION_3) {
-            for (datum in data.data) {
-                getRandomString().also { datum.uniqueId = it }
+
+        for (datum in data.data) {
+            if (data.version >= DB_VERSION_3 && datum.uniqueId == null) {
+                datum.uniqueId = getRandomString()
             }
-        }
-        if (data.version < DB_VERSION_5) {
-            for (datum in data.data) {
+
+            if (data.version < DB_VERSION_5) {
                 datum.type = AccountType.DEFAULT
             }
+
+            if (data.version < DB_VERSION_7) {
+                if (datum.type == AccountType.TOTP) {
+                    datum.type = AccountType.DEFAULT
+                    datum.secret = datum.password
+                    datum.password = null
+                }
+            }
+
+            datum.id = null
         }
-        data.data.forEach {
-            it.id = null
-        }
+
         data.data
     }
 }

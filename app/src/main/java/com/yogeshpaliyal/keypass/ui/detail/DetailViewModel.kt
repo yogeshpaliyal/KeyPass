@@ -28,9 +28,9 @@ class DetailViewModel @Inject constructor(
     private val _accountModel by lazy { MutableLiveData<AccountModel>() }
     val accountModel: LiveData<AccountModel> = _accountModel
 
-    fun loadAccount(accountId: Long?, getAccount: (AccountModel) -> Unit) {
+    fun loadAccount(uniqueId: String?, getAccount: (AccountModel) -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
-            getAccount(appDb.getDao().getAccount(accountId) ?: AccountModel())
+            getAccount(appDb.getDao().getAccount(uniqueId) ?: AccountModel())
         }
     }
 

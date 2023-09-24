@@ -47,7 +47,6 @@
     <string name="override_auto_backup_file">Переопределить файл автоматической резервной копии</string>
     <string name="alert_black_secret_key">Пожалуйста, введите секретный ключ</string>
     <string name="alert_black_account_name">Пожалуйста, введите имя учетной записи</string>
-    <string name="add_totp">Добавить TOTP</string>
     <string name="scan_password">Пароль для сканирования</string>
     <string name="custom_keyphrase">Пользовательская ключевая фраза</string>
     <string name="generate_keyphrase">Сгенерировать ключевую фразу</string>

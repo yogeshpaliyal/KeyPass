@@ -24,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.yogeshpaliyal.common.constants.ScannerType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
@@ -36,7 +37,7 @@ fun Fields(
     accountModel: AccountModel,
     updateAccountModel: (newAccountModel: AccountModel) -> Unit,
     copyToClipboardClicked: (String) -> Unit,
-    scanClicked: () -> Unit
+    scanClicked: (scannerType: Int) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -102,7 +103,7 @@ fun Fields(
                 visualTransformation = visualTransformation,
                 copyToClipboardClicked = copyToClipboardClicked
             )
-            Button(onClick = scanClicked) {
+            Button(onClick = { scanClicked(ScannerType.Password) }) {
                 Row {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_twotone_qr_code_scanner_24),
@@ -112,6 +113,25 @@ fun Fields(
                 }
             }
         }
+
+        KeyPassInputField(
+            modifier = Modifier.testTag("secretKey"),
+            placeholder = R.string.secret_key,
+            value = accountModel.secret,
+            setValue = {
+                updateAccountModel(accountModel.copy(secret = it))
+            },
+            trailingIcon = {
+                IconButton(onClick = {
+                    scanClicked(ScannerType.Secret)
+                }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_twotone_qr_code_scanner_24),
+                        contentDescription = ""
+                    )
+                }
+            }
+        )
 
         KeyPassInputField(
             modifier = Modifier.testTag("tags"),

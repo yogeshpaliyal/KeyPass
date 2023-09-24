@@ -24,7 +24,6 @@ import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
-import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
 import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
@@ -144,7 +143,7 @@ fun CurrentPage() {
             }
 
             is AccountDetailState -> {
-                AccountDetailPage(id = it.accountId)
+                AccountDetailPage(it.accountId)
             }
 
             is AuthState -> {
@@ -164,7 +163,7 @@ fun CurrentPage() {
             }
 
             is TotpDetailState -> {
-                TOTPScreen(it.accountId)
+                AccountDetailPage(it.accountId)
             }
 
             is BackupImporterState -> BackupImporter(state = it)

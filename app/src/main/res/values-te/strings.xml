@@ -48,7 +48,6 @@
     <string name="override_auto_backup_file">స్వీయ బ్యాకప్ ఫైల్‌ను భర్తీ చేయండి</string>
     <string name="alert_black_secret_key">దయచేసి రహస్య కీని నమోదు చేయండి</string>
     <string name="alert_black_account_name">దయచేసి ఖాతా పేరును నమోదు చేయండి</string>
-    <string name="add_totp">TOTPని జోడించండి</string>
     <string name="generate_keyphrase">కీఫ్రేజ్‌ని రూపొందించండి</string>
     <string name="alert_blank_keyphrase">దయచేసి కీఫ్రేజ్‌ని నమోదు చేయండి</string>
     <string name="alert_invalid_keyphrase">దయచేసి చెల్లుబాటు అయ్యే కీఫ్రేజ్‌ని నమోదు చేయండి</string>

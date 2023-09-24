@@ -3,7 +3,6 @@
     <string name="generate_password">પાસવર્ડ જનરેટ કરો</string>
     <string name="home">ઘર</string>
     <string name="delete">કાઢી નાખો</string>
-    <string name="add_totp">TOTP ઉમેરો</string>
     <string name="scan_password">પાસવર્ડ સ્કેન કરો</string>
     <string name="custom_keyphrase">કસ્ટમ કીફ્રેઝ</string>
     <string name="generate_keyphrase">કીફ્રેઝ જનરેટ કરો</string>

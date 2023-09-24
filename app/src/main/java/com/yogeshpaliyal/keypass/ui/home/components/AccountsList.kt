@@ -47,13 +47,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
-import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 import kotlinx.coroutines.delay
 import org.reduxkotlin.compose.rememberDispatcher
 import kotlin.time.Duration.Companion.seconds
@@ -76,11 +74,7 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
                         modifier = Modifier.animateItemPlacement(),
                         account,
                         onClick = {
-                            if (it.type == AccountType.TOTP) {
-                                dispatch(NavigationAction(TotpDetailState(it.uniqueId)))
-                            } else {
-                                dispatch(NavigationAction(AccountDetailState(it.id)))
-                            }
+                            dispatch(NavigationAction(AccountDetailState(it.uniqueId)))
                         }
                     )
                 }
@@ -123,7 +117,7 @@ fun Account(
                     textAlign = TextAlign.Center
                 )
 
-                if (accountModel.type == AccountType.TOTP) {
+                if (accountModel.secret != null) {
                     WrapWithProgress(accountModel)
                 }
             }
@@ -164,7 +158,7 @@ fun RenderUserName(accountModel: AccountModel) {
     val (username, setUsername) = remember { mutableStateOf("") }
 
     LaunchedEffect(accountModel) {
-        if (accountModel.type == AccountType.TOTP) {
+        if (accountModel.secret != null) {
             while (true) {
                 setUsername(accountModel.getOtp())
                 delay(1.seconds)
@@ -213,7 +207,7 @@ fun NoDataFound() {
 }
 
 private fun getPassword(model: AccountModel): String {
-    if (model.type == AccountType.TOTP) {
+    if (model.secret != null) {
         return model.getOtp()
     }
     return model.password.orEmpty()
@@ -221,9 +215,7 @@ private fun getPassword(model: AccountModel): String {
 
 @Composable
 fun WrapWithProgress(accountModel: AccountModel) {
-    if (accountModel.type != AccountType.TOTP) {
-        return
-    }
+    accountModel.secret ?: return
 
     val (initialProgress, setInitialProgress) = remember { mutableStateOf(0f) }
 

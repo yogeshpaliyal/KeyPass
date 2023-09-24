@@ -75,9 +75,6 @@ interface DbDao {
         sortingField: String?
     ): List<AccountModel>
 
-    @Query("SELECT * FROM account WHERE id = :id")
-    suspend fun getAccount(id: Long?): AccountModel?
-
     @Query("SELECT * FROM account WHERE unique_id = :uniqueId")
     suspend fun getAccount(uniqueId: String?): AccountModel?
 

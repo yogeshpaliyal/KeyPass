@@ -42,7 +42,6 @@
     <string name="backup_folder">Каталог резервного копіювання</string>
     <string name="turn_on_backup">Увімкнути резервне копіювання</string>
     <string name="yes">Так</string>
-    <string name="add_totp">Додати TOTP</string>
     <string name="scan_password">Пароль для сканування</string>
     <string name="custom_keyphrase">Користувацька парольна фраза</string>
     <string name="set_keyphrase">Установити парольну фразу</string>
