@@ -46,7 +46,6 @@
     <string name="enabled">Abilitato</string>
     <string name="alert_black_secret_key">Inserisci la chiave segreta</string>
     <string name="alert_black_account_name">Inserisci il nome dell\'account</string>
-    <string name="add_totp">Aggiungere TOTP</string>
     <string name="scan_password">Scansione password</string>
     <string name="custom_keyphrase">Tastiera personalizzata</string>
     <string name="generate_keyphrase">Generare Keyphrase</string>

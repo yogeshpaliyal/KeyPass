@@ -53,7 +53,6 @@
     <string name="override_auto_backup_file">Sobrescrever o arquivo de backup automático</string>
     <string name="alert_black_secret_key">Por favor insira a chave secreta</string>
     <string name="alert_black_account_name">Por favor insira o nome da conta</string>
-    <string name="add_totp">Adicionar TOTP</string>
     <string name="scan_password">Escanear senha</string>
     <string name="custom_keyphrase">Frase-chave personalizada</string>
     <string name="generate_keyphrase">Gerar frase-chave</string>

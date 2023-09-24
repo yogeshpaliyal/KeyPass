@@ -24,7 +24,6 @@ import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
-import com.yogeshpaliyal.keypass.ui.addTOTP.TOTPScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
 import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
@@ -47,7 +46,6 @@ import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
-import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -144,7 +142,7 @@ fun CurrentPage() {
             }
 
             is AccountDetailState -> {
-                AccountDetailPage(id = it.accountId)
+                AccountDetailPage(it.accountId)
             }
 
             is AuthState -> {
@@ -161,10 +159,6 @@ fun CurrentPage() {
 
             is ChangeDefaultPasswordLengthState -> {
                 ChangeDefaultPasswordLengthScreen()
-            }
-
-            is TotpDetailState -> {
-                TOTPScreen(it.accountId)
             }
 
             is BackupImporterState -> BackupImporter(state = it)

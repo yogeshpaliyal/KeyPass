@@ -48,7 +48,6 @@
     <string name="override_auto_backup_file">ऑटो बॅकअप फाइल ओव्हरराइड करा</string>
     <string name="alert_black_secret_key">कृपया गुप्त की प्रविष्ट करा</string>
     <string name="alert_black_account_name">कृपया खाते नाव प्रविष्ट करा</string>
-    <string name="add_totp">TOTP जोडा</string>
     <string name="scan_password">पासवर्ड स्कॅन करा</string>
     <string name="custom_keyphrase">सानुकूल मुख्य वाक्यांश</string>
     <string name="generate_keyphrase">मुख्य वाक्यांश व्युत्पन्न करा</string>

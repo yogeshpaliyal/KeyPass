@@ -49,7 +49,6 @@
     <string name="alert">Alerta</string>
     <string name="account_name">Nombre de la cuenta</string>
     <string name="override_auto_backup_file">Anular archivo de copia de seguridad automática</string>
-    <string name="add_totp">Añadir TOTP</string>
     <string name="scan_password">Escanear contraseña</string>
     <string name="custom_keyphrase">Frase clave personalizada</string>
     <string name="set_keyphrase">Establecer frase clave</string>

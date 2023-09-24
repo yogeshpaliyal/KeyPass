@@ -10,7 +10,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.yogeshpaliyal.common.constants.ScannerType
 import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.ui.detail.components.BottomBar
 import com.yogeshpaliyal.keypass.ui.detail.components.Fields
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
@@ -26,7 +28,7 @@ import org.reduxkotlin.compose.rememberDispatcher
 
 @Composable
 fun AccountDetailPage(
-    id: Long?,
+    uniqueId: String?,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
     val dispatchAction = rememberDispatcher()
@@ -39,8 +41,8 @@ fun AccountDetailPage(
     }
 
     // Set initial object
-    LaunchedEffect(key1 = id) {
-        viewModel.loadAccount(id) {
+    LaunchedEffect(key1 = uniqueId) {
+        viewModel.loadAccount(uniqueId) {
             setAccountModel(it.copy())
         }
     }
@@ -50,8 +52,25 @@ fun AccountDetailPage(
     }
 
     val launcher = rememberLauncherForActivityResult(QRScanner()) {
-        it?.let {
-            setAccountModel(accountModel.copy(password = it))
+        when (it.type) {
+            ScannerType.Password -> {
+                setAccountModel(accountModel.copy(password = it.scannedText))
+            }
+            ScannerType.Secret -> {
+                it.scannedText ?: return@rememberLauncherForActivityResult
+                val totp = TOTPHelper(it.scannedText)
+                var newAccountModel = accountModel.copy(secret = totp.secret)
+
+                if (newAccountModel.title.isNullOrEmpty()) {
+                    newAccountModel = newAccountModel.copy(title = totp.label)
+                }
+
+                if (newAccountModel.username.isNullOrEmpty()) {
+                    newAccountModel = newAccountModel.copy(username = totp.issuer)
+                }
+
+                setAccountModel(newAccountModel)
+            }
         }
     }
 
@@ -78,7 +97,7 @@ fun AccountDetailPage(
                     dispatchAction(CopyToClipboard(value))
                 }
             ) {
-                launcher.launch(null)
+                launcher.launch(it)
             }
         }
     }

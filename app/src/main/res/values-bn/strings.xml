@@ -50,7 +50,6 @@
     <string name="override_auto_backup_file">অটো ব্যাকআপ ফাইল ওভাররাইড করুন</string>
     <string name="alert_black_secret_key">গোপন কী লিখুন দয়া করে</string>
     <string name="alert_black_account_name">অনুগ্রহ করে অ্যাকাউন্টের নাম লিখুন</string>
-    <string name="add_totp">TOTP যোগ করুন</string>
     <string name="scan_password">পাসওয়ার্ড স্ক্যান করুন</string>
     <string name="custom_keyphrase">কাস্টম কীফ্রেজ</string>
     <string name="generate_keyphrase">কীফ্রেজ তৈরি করুন</string>

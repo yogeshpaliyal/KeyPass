@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.utils.TOTPHelper
+import com.yogeshpaliyal.common.utils.getRandomString
 
 /*
 * @author Yogesh Paliyal
@@ -28,7 +29,7 @@ data class AccountModel(
 
     @ColumnInfo(name = "unique_id")
     @SerializedName("unique_id")
-    var uniqueId: String? = null,
+    var uniqueId: String? = getRandomString(),
 
     @ColumnInfo(name = "username")
     @SerializedName("username")
@@ -37,6 +38,10 @@ data class AccountModel(
     @ColumnInfo(name = "password")
     @SerializedName("password")
     var password: String? = null, // TOTP secret when type is TOTP
+
+    @ColumnInfo(name = "secret")
+    @SerializedName("secret")
+    var secret: String? = null, // TOTP secret when type is TOTP
 
     @ColumnInfo(name = "site")
     @SerializedName("site")
@@ -61,7 +66,7 @@ data class AccountModel(
             ?: notes?.firstOrNull() ?: 'K'
         ).toString()
 
-    fun getOtp(): String = TOTPHelper.generate(password)
+    fun getOtp(): String = TOTPHelper.generate(secret)
 
     fun getTOtpProgress() = TOTPHelper.progress.toInt()
 }

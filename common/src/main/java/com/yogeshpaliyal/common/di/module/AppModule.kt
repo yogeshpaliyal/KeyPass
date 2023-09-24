@@ -9,6 +9,8 @@ import com.yogeshpaliyal.common.AppDatabase
 import com.yogeshpaliyal.common.DB_VERSION_3
 import com.yogeshpaliyal.common.DB_VERSION_4
 import com.yogeshpaliyal.common.DB_VERSION_5
+import com.yogeshpaliyal.common.DB_VERSION_6
+import com.yogeshpaliyal.common.DB_VERSION_7
 import com.yogeshpaliyal.common.R
 import com.yogeshpaliyal.common.utils.getRandomString
 import com.yogeshpaliyal.common.utils.getUserSettingsOrNull
@@ -79,6 +81,15 @@ object AppModule {
         builder.addMigrations(object : Migration(DB_VERSION_4, DB_VERSION_5) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE `account` ADD COLUMN `type` INT DEFAULT 0")
+            }
+        })
+
+        builder.addMigrations(object : Migration(DB_VERSION_6, DB_VERSION_7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Move type = 2, to Default 0, move password to secret
+                database.execSQL("ALTER TABLE `account` ADD COLUMN `secret` TEXT DEFAULT NULL")
+                database.execSQL("UPDATE `account` SET secret = password, password = null, type = 1 WHERE type = 2")
+                database.execSQL("UPDATE `account` SET `unique_id` = '${getRandomString()}' WHERE `unique_id` IS NULL")
             }
         })
         return builder.build()

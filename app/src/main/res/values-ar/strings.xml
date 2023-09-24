@@ -54,7 +54,6 @@
     <string name="feedback_to_keypass">ردود الفعل على KeyPass</string>
     <string name="disabled">عاجز</string>
     <string name="alert_black_account_name">الرجاء إدخال اسم الحساب</string>
-    <string name="add_totp">أضف TOTP</string>
     <string name="enter_keyphrase">أدخل Keyphrase</string>
     <string name="restore">يعيد</string>
     <string name="incorrect_old_password">الرجاء إدخال كلمة المرور القديمة الصحيحة</string>

@@ -46,7 +46,6 @@
     <string name="override_auto_backup_file">ઑટો બેકઅપ ફાઇલને ઓવરરાઇડ કરો</string>
     <string name="alert_black_secret_key">કૃપા કરીને ગુપ્ત કી દાખલ કરો</string>
     <string name="alert_black_account_name">કૃપા કરીને એકાઉન્ટનું નામ દાખલ કરો</string>
-    <string name="add_totp">TOTP ઉમેરો</string>
     <string name="scan_password">પાસવર્ડ સ્કેન કરો</string>
     <string name="custom_keyphrase">કસ્ટમ કીફ્રેઝ</string>
     <string name="generate_keyphrase">કીફ્રેઝ જનરેટ કરો</string>
