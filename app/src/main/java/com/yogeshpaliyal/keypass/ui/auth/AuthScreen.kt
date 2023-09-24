@@ -45,14 +45,6 @@ fun AuthScreen(state: AuthState) {
         mutableStateOf<Int?>(null)
     }
 
-    val (biometricEnable, setBiometricEnable) = remember(state) { mutableStateOf(false) }
-
-    LaunchedEffect(key1 = context, state) {
-        if (state is AuthState.Login) {
-            setBiometricEnable(userSettings.isBiometricEnable)
-        }
-    }
-
     BackHandler(state is AuthState.ConfirmPassword) {
         dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
@@ -94,5 +86,4 @@ fun AuthScreen(state: AuthState) {
         }
     }
 
-    BiometricPrompt(show = biometricEnable)
 }
