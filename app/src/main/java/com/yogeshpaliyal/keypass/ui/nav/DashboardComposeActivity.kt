@@ -46,7 +46,6 @@ import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
-import com.yogeshpaliyal.keypass.ui.redux.states.TotpDetailState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -160,10 +159,6 @@ fun CurrentPage() {
 
             is ChangeDefaultPasswordLengthState -> {
                 ChangeDefaultPasswordLengthScreen()
-            }
-
-            is TotpDetailState -> {
-                AccountDetailPage(it.accountId)
             }
 
             is BackupImporterState -> BackupImporter(state = it)
