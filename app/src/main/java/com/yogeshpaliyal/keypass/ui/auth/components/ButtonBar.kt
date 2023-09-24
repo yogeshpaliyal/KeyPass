@@ -5,8 +5,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -29,6 +32,7 @@ fun ButtonBar(
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
     val userSettings = LocalUserSettings.current
+    val (biometricEnable, setBiometricEnable) = remember(state) { mutableStateOf(false) }
 
     Row(modifier = Modifier.fillMaxWidth(1f), Arrangement.SpaceEvenly) {
         AnimatedVisibility(state is AuthState.ConfirmPassword) {
@@ -36,6 +40,18 @@ fun ButtonBar(
                 dispatchAction(NavigationAction(AuthState.CreatePassword, true))
             }) {
                 Text(text = stringResource(id = R.string.back))
+            }
+        }
+
+        if (userSettings.isBiometricEnable && state is AuthState.Login) {
+            OutlinedButton(onClick = {
+                setBiometricEnable(true)
+            }) {
+                Text(text = stringResource(id = R.string.unlock_with_biometric))
+            }
+
+            BiometricPrompt(show = biometricEnable) {
+                setBiometricEnable(false)
             }
         }
 

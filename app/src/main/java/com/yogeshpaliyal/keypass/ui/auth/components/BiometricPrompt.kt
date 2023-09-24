@@ -17,7 +17,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
-fun BiometricPrompt(show: Boolean) {
+fun BiometricPrompt(show: Boolean, onDismiss: () -> Unit) {
     if (!show) {
         return
     }
@@ -37,6 +37,7 @@ fun BiometricPrompt(show: Boolean) {
                     errString: CharSequence
                 ) {
                     super.onAuthenticationError(errorCode, errString)
+                    onDismiss()
                     dispatch(
                         ToastActionStr(
                             context.getString(
@@ -56,6 +57,7 @@ fun BiometricPrompt(show: Boolean) {
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
+                    onDismiss()
                     dispatch(ToastAction(R.string.authentication_failed))
                 }
             }
