@@ -8,7 +8,7 @@
     <string name="backup_completed">Copia de seguridad completada</string>
     <string name="credentials_backups">Copias de seguridad de credenciales</string>
     <string name="credentials_backups_desc">Credenciales de copia de seguridad en almacenamiento externo</string>
-    <string name="restore_credentials_desc">Restaurar la copia de seguridad</string>
+    <string name="restore_credentials_desc">Restaurar tus copias de seguridad</string>
     <string name="send_feedback_desc">Informar de problemas técnicos o sugerir nuevas funciones</string>
     <string name="share_desc">Compartir aplicación con otros usuarios</string>
     <string name="password">Contraseña</string>
@@ -71,7 +71,7 @@
     <string name="delete">Borrar</string>
     <string name="generate_shortcut_short_label">Generar contraseña</string>
     <string name="invalid_keyphrase">Frase clave no válida</string>
-    <string name="restore_credentials">Restaurar credenciales</string>
+    <string name="restore_credentials">Importar credenciales</string>
     <string name="share">Compartir</string>
     <string name="username_email_phone">Nombre de usuario/correo electrónico/teléfono</string>
     <string name="generate_keyphrase">Generar frase clave</string>
