@@ -5,10 +5,10 @@
     <string name="send_feedback_desc">Докладвайте за технически проблеми или предложете нови функции</string>
     <string name="account_name">Име на акаунт</string>
     <string name="copied_to_clipboard">Копирано в клипборда</string>
-    <string name="delete_account_title">Сигурни ли сте\?</string>
+    <string name="delete_account_title">Сигурни ли сте?</string>
     <string name="password">Парола</string>
     <string name="alert_blank_keyphrase">Моля, въведете ключова фраза</string>
-    <string name="copy_keypharse_msg">Копиране на тази ключова фраза, това ще се използва за възстановяване на това резервно копие, това няма да бъде предоставено от KeyPass Отново, копирахте ли или записахте\?</string>
+    <string name="copy_keypharse_msg">Копиране на тази ключова фраза, това ще се използва за възстановяване на това резервно копие, това няма да бъде предоставено от KeyPass Отново, копирахте ли или записахте?</string>
     <string name="blank_confirm_password">Моля, въведете парола за потвърждение</string>
     <string name="override_auto_backup_file">Замяна на файл за автоматично архивиране</string>
     <string name="delete_account_msg">Наистина ли искате да изтриете този запис, той не може да бъде възстановен</string>
@@ -65,7 +65,7 @@
     <string name="generate_password">Генериране на парола</string>
     <string name="message_no_accounts">Няма намерени акаунти, моля добавете от бутона по-долу</string>
     <string name="restore_credentials">Импортиране на идентификационни данни</string>
-    <string name="custom_generated_keyphrase_info">Искате ли да създадете ваша собствена ключова фраза за архивиране или трябва да генерирам вместо вас\?</string>
+    <string name="custom_generated_keyphrase_info">Искате ли да създадете ваша собствена ключова фраза за архивиране или трябва да генерирам вместо вас?</string>
     <string name="credentials_backups_desc">Архивиране на идентификационни данни във външно хранилище</string>
     <string name="backup_completed">Архивирането е завършено</string>
     <string name="create_password">Създаване на парола</string>
