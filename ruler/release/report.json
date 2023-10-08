@@ -2,8 +2,8 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.23",
     "variant": "release",
-    "downloadSize": 4135369,
-    "installSize": 6786378,
+    "downloadSize": 4135370,
+    "installSize": 6786379,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -424,8 +424,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 448103,
-            "installSize": 978593,
+            "downloadSize": 448104,
+            "installSize": 978594,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -478,8 +478,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 4426,
-                    "installSize": 4421
+                    "downloadSize": 4425,
+                    "installSize": 4420
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher.png",
@@ -2944,8 +2944,8 @@
                 {
                     "name": "/META-INF/com/android/build/gradle/app-metadata.properties",
                     "type": "OTHER",
-                    "downloadSize": 50,
-                    "installSize": 50
+                    "downloadSize": 52,
+                    "installSize": 52
                 },
                 {
                     "name": "com.yogeshpaliyal.keypass.ui.backup.components.ComposableSingletons$ShowKeyPhraseDialogKt",
