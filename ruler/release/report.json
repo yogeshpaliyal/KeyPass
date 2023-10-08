@@ -2,8 +2,8 @@
     "name": "com.yogeshpaliyal.keypass",
     "version": "1.4.23",
     "variant": "release",
-    "downloadSize": 4135378,
-    "installSize": 6786387,
+    "downloadSize": 4135370,
+    "installSize": 6786379,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -424,8 +424,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 448112,
-            "installSize": 978602,
+            "downloadSize": 448104,
+            "installSize": 978594,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -3344,30 +3344,6 @@
                     "installSize": 11
                 },
                 {
-                    "name": "/META-INF/com.google.dagger_dagger-lint-aar.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
-                    "name": "/META-INF/com.google.dagger_dagger.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
-                    "name": "/META-INF/com.google.dagger_hilt-android.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
-                    "name": "/META-INF/com.google.dagger_hilt-core.version",
-                    "type": "OTHER",
-                    "downloadSize": 9,
-                    "installSize": 7
-                },
-                {
                     "name": "/META-INF/androidx.activity_activity-compose.version",
                     "type": "OTHER",
                     "downloadSize": 8,
@@ -3687,6 +3663,30 @@
                 },
                 {
                     "name": "/META-INF/androidx.databinding_viewbinding.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_dagger-lint-aar.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_dagger.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_hilt-android.version",
+                    "type": "OTHER",
+                    "downloadSize": 7,
+                    "installSize": 5
+                },
+                {
+                    "name": "/META-INF/com.google.dagger_hilt-core.version",
                     "type": "OTHER",
                     "downloadSize": 7,
                     "installSize": 5
@@ -34224,7 +34224,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:hilt-android:2.48.1",
+            "name": "com.google.dagger:hilt-android:2.48",
             "type": "EXTERNAL",
             "downloadSize": 1752,
             "installSize": 1755,
@@ -35080,7 +35080,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:dagger:2.48.1",
+            "name": "com.google.dagger:dagger:2.48",
             "type": "EXTERNAL",
             "downloadSize": 258,
             "installSize": 258,
@@ -35330,7 +35330,7 @@
             ]
         },
         {
-            "name": "com.google.dagger:hilt-core:2.48.1",
+            "name": "com.google.dagger:hilt-core:2.48",
             "type": "EXTERNAL",
             "downloadSize": 31,
             "installSize": 31,
