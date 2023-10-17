@@ -6,8 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -15,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.gson.Gson
 import com.yogeshpaliyal.common.constants.ScannerType
@@ -40,6 +40,7 @@ fun AccountDetailPage(
 ) {
     val dispatchAction = rememberDispatcher()
     val generatedQrCodeBitmap = remember { mutableStateOf<Bitmap?>(null) }
+    val showDialog = remember { mutableStateOf(false) }
 
     // task value state
     val (accountModel, setAccountModel) = remember {
@@ -107,21 +108,42 @@ fun AccountDetailPage(
                     dispatchAction(CopyToClipboard(value))
                 },
                 generateQrCodeClicked = {
+                    showDialog.value = true
+
                     val qrCodeBitmap = viewModel.generateQrCode(accountModel)
                     generatedQrCodeBitmap.value = qrCodeBitmap
                 }
             ) {
                 launcher.launch(it)
             }
-            // Display the generated QR code bitmap if available
-            generatedQrCodeBitmap.value?.let { bitmap ->
-                Image(
-                    bitmap = bitmap.asImageBitmap(),
-                    contentDescription = null,
-                    modifier = Modifier.size(150.dp) // Adjust size as needed
-                            .offset(x = 150.dp, y = 590.dp)
-                )
+            // Display the generated QR code bitmap in a popup
+            if (showDialog.value) {
+                Dialog(onDismissRequest = { showDialog.value = false }) {
+                    AlertDialog(
+                        onDismissRequest = { showDialog.value = false },
+                        title = {
+                            Text("QR Code")
+                        },
+                        text = {
+                            generatedQrCodeBitmap.value?.asImageBitmap()?.let {
+                                Image(
+                                    bitmap = it,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(150.dp) // Adjust size as needed
+                                )
+                            }
+                        },
+                        confirmButton = {
+                            Button(onClick = { showDialog.value = false }) {
+                                Text("Close")
+                            }
+                        }
+                    )
+                }
             }
         }
     }
 }
+
+
+
