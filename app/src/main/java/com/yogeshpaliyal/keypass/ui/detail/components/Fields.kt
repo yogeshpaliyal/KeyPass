@@ -37,7 +37,6 @@ fun Fields(
     accountModel: AccountModel,
     updateAccountModel: (newAccountModel: AccountModel) -> Unit,
     copyToClipboardClicked: (String) -> Unit,
-    generateQrCodeClicked: () -> Unit, // Function to handle generating QR code
     scanClicked: (scannerType: Int) -> Unit
 ) {
     Column(
@@ -163,15 +162,5 @@ fun Fields(
             },
             copyToClipboardClicked = copyToClipboardClicked
         )
-
-        Button(onClick = { generateQrCodeClicked() }) {
-            Row {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_twotone_qr_code_scanner_24),
-                    contentDescription = ""
-                )
-                Text(text = stringResource(id = R.string.generate_qr_code))
-            }
-        }
     }
 }

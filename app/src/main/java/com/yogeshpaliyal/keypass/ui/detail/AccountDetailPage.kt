@@ -63,8 +63,6 @@ fun AccountDetailPage(
     // Set initial object
     LaunchedEffect(key1 = uniqueId) {
         viewModel.loadAccount(uniqueId) {
-            val gson = Gson()
-            val accountJson = gson.toJson(it.copy())
             setAccountModel(it.copy())
         }
     }
@@ -76,7 +74,6 @@ fun AccountDetailPage(
     val launcher = rememberLauncherForActivityResult(QRScanner()) {
         when (it.type) {
             ScannerType.Password -> {
-                println("here")
                 setAccountModel(accountModel.copy(password = it.scannedText))
             }
             ScannerType.Secret -> {
@@ -91,7 +88,6 @@ fun AccountDetailPage(
                 if (newAccountModel.username.isNullOrEmpty()) {
                     newAccountModel = newAccountModel.copy(username = totp.issuer)
                 }
-
                 setAccountModel(newAccountModel)
             }
         }
@@ -103,6 +99,12 @@ fun AccountDetailPage(
                 backPressed = goBack,
                 onDeleteAccount = {
                     viewModel.deleteAccount(accountModel, goBack)
+                },
+                generateQrCodeClicked = {
+                    showDialog.value = true
+
+                    val qrCodeBitmap = viewModel.generateQrCode(accountModel)
+                    generatedQrCodeBitmap.value = qrCodeBitmap
                 }
             ) {
                 viewModel.insertOrUpdate(accountModel, goBack)
@@ -117,12 +119,6 @@ fun AccountDetailPage(
                 },
                 copyToClipboardClicked = { value ->
                     dispatchAction(CopyToClipboard(value))
-                },
-                generateQrCodeClicked = {
-                    showDialog.value = true
-
-                    val qrCodeBitmap = viewModel.generateQrCode(accountModel)
-                    generatedQrCodeBitmap.value = qrCodeBitmap
                 }
             ) {
                 launcher.launch(it)
@@ -145,13 +141,11 @@ fun AccountDetailPage(
                                     Image(
                                         bitmap = it,
                                         contentDescription = null,
-                                        modifier = Modifier.size(150.dp) // Adjust size as needed
+                                        modifier = Modifier.size(150.dp)
                                     )
                                 }
                             }
                         },
-
-
                         dismissButton = {
                             Button(onClick = {
                                 download.value = true
@@ -159,7 +153,6 @@ fun AccountDetailPage(
                                 Text("Download QR Code")
                             }
                         },
-
                         confirmButton = {
                             Button(onClick = { showDialog.value = false }) {
                                 Text("Close")
