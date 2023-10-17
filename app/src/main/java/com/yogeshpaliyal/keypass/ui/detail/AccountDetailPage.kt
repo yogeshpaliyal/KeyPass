@@ -1,7 +1,11 @@
 package com.yogeshpaliyal.keypass.ui.detail
 
+import android.graphics.Bitmap
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -9,7 +13,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.gson.Gson
 import com.yogeshpaliyal.common.constants.ScannerType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.TOTPHelper
@@ -32,6 +39,7 @@ fun AccountDetailPage(
     viewModel: DetailViewModel = hiltViewModel()
 ) {
     val dispatchAction = rememberDispatcher()
+    val generatedQrCodeBitmap = remember { mutableStateOf<Bitmap?>(null) }
 
     // task value state
     val (accountModel, setAccountModel) = remember {
@@ -43,6 +51,8 @@ fun AccountDetailPage(
     // Set initial object
     LaunchedEffect(key1 = uniqueId) {
         viewModel.loadAccount(uniqueId) {
+            val gson = Gson()
+            val accountJson = gson.toJson(it.copy())
             setAccountModel(it.copy())
         }
     }
@@ -54,6 +64,7 @@ fun AccountDetailPage(
     val launcher = rememberLauncherForActivityResult(QRScanner()) {
         when (it.type) {
             ScannerType.Password -> {
+                println("here")
                 setAccountModel(accountModel.copy(password = it.scannedText))
             }
             ScannerType.Secret -> {
@@ -73,7 +84,6 @@ fun AccountDetailPage(
             }
         }
     }
-
     Scaffold(
         bottomBar = {
             BottomBar(
@@ -95,9 +105,22 @@ fun AccountDetailPage(
                 },
                 copyToClipboardClicked = { value ->
                     dispatchAction(CopyToClipboard(value))
+                },
+                generateQrCodeClicked = {
+                    val qrCodeBitmap = viewModel.generateQrCode(accountModel)
+                    generatedQrCodeBitmap.value = qrCodeBitmap
                 }
             ) {
                 launcher.launch(it)
+            }
+            // Display the generated QR code bitmap if available
+            generatedQrCodeBitmap.value?.let { bitmap ->
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = null,
+                    modifier = Modifier.size(150.dp) // Adjust size as needed
+                            .offset(x = 150.dp, y = 590.dp)
+                )
             }
         }
     }

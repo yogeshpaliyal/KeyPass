@@ -97,5 +97,6 @@
     <string name="secret_key">Secret Key</string>
     <string name="keypass_backup">KeyPass Backup</string>
     <string name="google_backup">Google Backup</string>
+    <string name="generate_qr_code">Export</string>
 
 </resources>
