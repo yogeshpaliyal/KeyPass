@@ -1,9 +1,13 @@
 package com.yogeshpaliyal.keypass.ui.detail
 
 import android.graphics.Bitmap
+import android.os.Environment
+import android.provider.MediaStore
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.*
@@ -11,8 +15,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -25,6 +33,9 @@ import com.yogeshpaliyal.keypass.ui.detail.components.Fields
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import org.reduxkotlin.compose.rememberDispatcher
+import java.io.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 /*
 * @author Yogesh Paliyal
@@ -118,6 +129,7 @@ fun AccountDetailPage(
             }
             // Display the generated QR code bitmap in a popup
             if (showDialog.value) {
+                val download = remember { mutableStateOf(false) }
                 Dialog(onDismissRequest = { showDialog.value = false }) {
                     AlertDialog(
                         onDismissRequest = { showDialog.value = false },
@@ -125,14 +137,29 @@ fun AccountDetailPage(
                             Text("QR Code")
                         },
                         text = {
-                            generatedQrCodeBitmap.value?.asImageBitmap()?.let {
-                                Image(
-                                    bitmap = it,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(150.dp) // Adjust size as needed
-                                )
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp)
+                            ) {
+                                generatedQrCodeBitmap.value?.asImageBitmap()?.let {
+                                    Image(
+                                        bitmap = it,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(150.dp) // Adjust size as needed
+                                    )
+                                }
                             }
                         },
+
+
+                        dismissButton = {
+                            Button(onClick = {
+                                download.value = true
+                            }) {
+                                Text("Download QR Code")
+                            }
+                        },
+
                         confirmButton = {
                             Button(onClick = { showDialog.value = false }) {
                                 Text("Close")
@@ -140,10 +167,38 @@ fun AccountDetailPage(
                         }
                     )
                 }
+                if(download.value){
+                    generatedQrCodeBitmap.value?.let { saveQRCodeImage(imageBitmap = it.asImageBitmap(), displayName = "QRCode") }
+                }
             }
         }
     }
 }
 
+@Composable
+fun saveQRCodeImage(imageBitmap: ImageBitmap, displayName: String) {
+    val context = LocalContext.current
 
+    val currentTimeMillis = System.currentTimeMillis()
+    val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date(currentTimeMillis))
 
+    val fileName = "$displayName-$timeStamp.png"
+    val resolver = context.contentResolver
+
+    val bitmap: Bitmap = imageBitmap.asAndroidBitmap()
+
+    val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+    val image = File(imagesDir, fileName)
+
+    try {
+        val fos: OutputStream = FileOutputStream(image)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
+        fos.flush()
+        fos.close()
+        MediaStore.Images.Media.insertImage(resolver, image.absolutePath, fileName, null)
+        Toast.makeText(context, "QR code saved to gallery", Toast.LENGTH_SHORT).show()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        Toast.makeText(context, "Error occurred while downloading QR code", Toast.LENGTH_SHORT).show()
+    }
+}
