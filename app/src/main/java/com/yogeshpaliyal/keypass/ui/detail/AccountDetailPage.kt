@@ -10,7 +10,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.*
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -24,7 +28,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.gson.Gson
 import com.yogeshpaliyal.common.constants.ScannerType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.TOTPHelper
@@ -33,9 +36,12 @@ import com.yogeshpaliyal.keypass.ui.detail.components.Fields
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import org.reduxkotlin.compose.rememberDispatcher
-import java.io.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStream
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 /*
 * @author Yogesh Paliyal
@@ -160,7 +166,7 @@ fun AccountDetailPage(
                         }
                     )
                 }
-                if(download.value){
+                if (download.value) {
                     generatedQrCodeBitmap.value?.let { saveQRCodeImage(imageBitmap = it.asImageBitmap(), displayName = "QRCode") }
                 }
             }
