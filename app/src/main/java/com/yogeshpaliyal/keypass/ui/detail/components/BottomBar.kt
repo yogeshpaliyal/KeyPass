@@ -1,6 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.detail.components
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.QrCode
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Done
@@ -22,6 +23,7 @@ fun BottomBar(
     accountModel: AccountModel,
     backPressed: () -> Unit,
     onDeleteAccount: () -> Unit,
+    generateQrCodeClicked: () -> Unit,
     onSaveClicked: () -> Unit
 ) {
     val openDialog = remember { mutableStateOf(false) }
@@ -44,6 +46,16 @@ fun BottomBar(
                     Icon(
                         painter = rememberVectorPainter(image = Icons.Rounded.Delete),
                         contentDescription = "Delete",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+                IconButton(
+                    modifier = Modifier.testTag("action_export_qr"),
+                    onClick = { generateQrCodeClicked() }
+                ) {
+                    Icon(
+                        painter = rememberVectorPainter(image = Icons.Default.QrCode),
+                        contentDescription = "Export as QR Code",
                         tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
