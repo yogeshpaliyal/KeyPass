@@ -93,7 +93,6 @@ class DashboardComposeActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
     }
-
 }
 
 @Composable
