@@ -89,6 +89,10 @@ class DashboardComposeActivity : AppCompatActivity() {
             })
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
 
 @Composable
@@ -104,7 +108,7 @@ fun Dashboard() {
 
     LaunchedEffect(key1 = systemBackPress, block = {
         if (systemBackPress) {
-            (context as? ComponentActivity)?.onBackPressed()
+            (context as? ComponentActivity)?.finishAffinity()
         }
     })
 
