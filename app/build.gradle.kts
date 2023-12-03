@@ -36,6 +36,13 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
 
+        this.create("pro") {
+            applicationIdSuffix = ".pro"
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+
         debug {
             applicationIdSuffix = ".staging"
             signingConfig = signingConfigs.getByName("debug")
@@ -74,6 +81,12 @@ android {
 
     signingConfigs {
         getByName("debug") {
+            storeFile = file("../keystores/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+        getByName("pro") {
             storeFile = file("../keystores/debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
