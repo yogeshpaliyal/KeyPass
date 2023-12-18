@@ -57,7 +57,7 @@ dependencies {
     // When using Kotlin.
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
-    api("androidx.work:work-runtime-ktx:2.8.1")
+    api("androidx.work:work-runtime-ktx:2.9.0")
 
     api("com.google.android.material:material:1.9.0")
 
