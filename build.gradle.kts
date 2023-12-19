@@ -26,7 +26,7 @@ plugins {
     id("org.jetbrains.compose") version "1.5.11" apply false
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
-    id("com.google.dagger.hilt.android") version ("2.48.1") apply false
+    id("com.google.dagger.hilt.android") version ("2.50") apply false
     id("com.gradle.enterprise") version("3.15.1") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
 }
