@@ -59,7 +59,7 @@ dependencies {
 
     api("androidx.work:work-runtime-ktx:2.8.1")
 
-    api("com.google.android.material:material:1.9.0")
+    api("com.google.android.material:material:1.11.0")
 
     implementation("com.google.code.gson:gson:2.10.1")
 
