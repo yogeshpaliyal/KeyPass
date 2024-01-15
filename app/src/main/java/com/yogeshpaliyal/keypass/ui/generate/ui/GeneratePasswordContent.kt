@@ -36,7 +36,8 @@ fun GeneratePasswordContent(
     onUppercaseCheckedChange: (Boolean) -> Unit,
     onLowercaseCheckedChange: (Boolean) -> Unit,
     onNumbersCheckedChange: (Boolean) -> Unit,
-    onSymbolsCheckedChange: (Boolean) -> Unit
+    onSymbolsCheckedChange: (Boolean) -> Unit,
+    onBlankSpacesCheckedChange: (Boolean) -> Unit
 ) {
     Scaffold(
         floatingActionButton = { GeneratePasswordFab(onGeneratePasswordClick) }
@@ -54,7 +55,8 @@ fun GeneratePasswordContent(
                 onUppercaseCheckedChange = onUppercaseCheckedChange,
                 onLowercaseCheckedChange = onLowercaseCheckedChange,
                 onNumbersCheckedChange = onNumbersCheckedChange,
-                onSymbolsCheckedChange = onSymbolsCheckedChange
+                onSymbolsCheckedChange = onSymbolsCheckedChange,
+                onBlankSpacesCheckedChange = onBlankSpacesCheckedChange
             )
         }
     }
@@ -81,7 +83,8 @@ private fun FormInputCard(
     onUppercaseCheckedChange: (Boolean) -> Unit,
     onLowercaseCheckedChange: (Boolean) -> Unit,
     onNumbersCheckedChange: (Boolean) -> Unit,
-    onSymbolsCheckedChange: (Boolean) -> Unit
+    onSymbolsCheckedChange: (Boolean) -> Unit,
+    onBlankSpacesCheckedChange: (Boolean) -> Unit
 ) {
     OutlinedCard(
         colors = CardDefaults.outlinedCardColors(),
@@ -105,6 +108,9 @@ private fun FormInputCard(
             NumberInput(viewState.includeNumbers, onNumbersCheckedChange)
 
             SymbolInput(viewState.includeSymbols, onSymbolsCheckedChange)
+
+            BlankSpaceInput(viewState.includeBlankSpaces, onBlankSpacesCheckedChange)
+
         }
     }
 }
@@ -183,6 +189,19 @@ private fun SymbolInput(
     )
 }
 
+@Composable
+private fun BlankSpaceInput(
+    includeBlankSpaces: Boolean,
+    onBlankSpacesCheckedChange: (Boolean) -> Unit
+) {
+    CheckboxWithLabel(
+        label = "Blank Spaces",
+        checked = includeBlankSpaces,
+        onCheckedChange = onBlankSpacesCheckedChange
+    )
+}
+
+
 @Preview(
     name = "Night Mode",
     uiMode = Configuration.UI_MODE_NIGHT_YES
@@ -205,7 +224,8 @@ private fun GeneratePasswordContentPreview() {
             onUppercaseCheckedChange = {},
             onLowercaseCheckedChange = {},
             onNumbersCheckedChange = {},
-            onSymbolsCheckedChange = {}
+            onSymbolsCheckedChange = {},
+            onBlankSpacesCheckedChange = {}
         )
     }
 }
