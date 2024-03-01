@@ -11,13 +11,13 @@ plugins {
 val appPackageId = "com.yogeshpaliyal.keypass"
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
 
         applicationId = appPackageId
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1423
         versionName = "1.4.23"
 
@@ -34,6 +34,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("debug")
         }
 
         debug {
