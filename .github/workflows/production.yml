@@ -43,7 +43,7 @@ jobs:
           
       - name: Deploy to Play Store (PROD)
         id: deployProd
-        uses: r0adkll/upload-google-play@v1.1.2
+        uses: r0adkll/upload-google-play@v1.1.3
         with:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
