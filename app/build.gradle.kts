@@ -11,13 +11,13 @@ plugins {
 val appPackageId = "com.yogeshpaliyal.keypass"
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
 
         applicationId = appPackageId
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1423
         versionName = "1.4.23"
 
@@ -34,6 +34,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("debug")
         }
 
         debug {
@@ -117,7 +118,7 @@ dependencies {
     implementation(Deps.Lifecycle.viewModelCompose)
     implementation(Deps.Lifecycle.viewModelKtx)
     implementation(Deps.Lifecycle.runtimeCompose)
-    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 
     implementation("androidx.compose.material3:material3:1.1.2")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")

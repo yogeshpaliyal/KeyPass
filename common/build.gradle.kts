@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23
@@ -39,7 +39,7 @@ dependencies {
     api("androidx.appcompat:appcompat:1.6.1")
 
     // apache common codec
-    implementation("commons-codec:commons-codec:1.16.0")
+    implementation("commons-codec:commons-codec:1.16.1")
 
     //Androidx Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
@@ -66,7 +66,7 @@ dependencies {
     api("com.google.code.gson:gson:2.10.1")
 
     api("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     // Test
     implementation("androidx.test.ext:junit-ktx:1.1.5")

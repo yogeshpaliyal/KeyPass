@@ -10,7 +10,7 @@ runs:
       uses: actions/setup-java@v4
       with:
         java-version: 17
-        distribution: adopt-openj9
+        distribution: oracle
         
     - name: "Grant Gradlew rights"
       run: chmod +x gradlew
