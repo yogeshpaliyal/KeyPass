@@ -35986,7 +35986,7 @@
             ]
         },
         {
-            "name": "commons-codec:commons-codec:1.16.0",
+            "name": "commons-codec:commons-codec:1.16.1",
             "type": "EXTERNAL",
             "downloadSize": 1398,
             "installSize": 1403,
