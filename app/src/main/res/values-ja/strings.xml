@@ -87,4 +87,5 @@
     <string name="secret_key">秘密鍵</string>
     <string name="keypass_backup">KeyPass バックアップ</string>
     <string name="google_backup">Googleバックアップ</string>
+    <string name="generate_qr_code">エクスポート</string>
 </resources>
