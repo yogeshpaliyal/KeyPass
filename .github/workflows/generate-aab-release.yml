@@ -1,7 +1,12 @@
 name: Generate AAB File
 
 on: 
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+        ref:
+          description: 'Reference branch, tag, commit id'
+          required: true
+          type: string
   
 
 jobs:
@@ -10,6 +15,10 @@ jobs:
     steps:
 
       - uses: actions/checkout@v4
+        with:
+          ref: $REF
+        env:
+            REF: ${{ inputs.ref }}
     
       - name: Setting up project
         uses: ./.github/actions/setup
