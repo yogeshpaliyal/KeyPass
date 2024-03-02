@@ -87,4 +87,5 @@
     <string name="secret_key">المفتاح السري</string>
     <string name="keypass_backup">دعم أساسي</string>
     <string name="google_backup">Google Backup</string>
+    <string name="generate_qr_code">الصادرات</string>
 </resources>

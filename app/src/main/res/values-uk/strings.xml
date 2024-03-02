@@ -87,4 +87,5 @@
     <string name="secret_key">Секретний ключ</string>
     <string name="keypass_backup">KeyPass Резервне копіювання</string>
     <string name="google_backup">Google Backup</string>
+    <string name="generate_qr_code">Експорт</string>
 </resources>
