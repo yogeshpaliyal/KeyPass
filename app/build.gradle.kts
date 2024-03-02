@@ -120,7 +120,7 @@ dependencies {
     implementation(Deps.Lifecycle.runtimeCompose)
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    implementation("androidx.compose.material3:material3:1.1.2")
+    implementation("androidx.compose.material3:material3:1.2.0")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -134,10 +134,10 @@ dependencies {
     // dependency injection
     implementation("com.google.dagger:hilt-android:${Versions.hilt}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
-    implementation("androidx.hilt:hilt-work:1.0.0")
+    implementation("androidx.hilt:hilt-work:1.2.0")
     // When using Kotlin.
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 
     // zxing library
@@ -146,12 +146,12 @@ dependencies {
 
 
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48.1")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.51")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     // For Robolectric tests.
-    testImplementation("com.google.dagger:hilt-android-testing:2.48.1")
+    testImplementation("com.google.dagger:hilt-android-testing:2.51")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 

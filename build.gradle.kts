@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         classpath ("com.android.tools.build:gradle:8.2.2")
         classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-        classpath ("com.google.gms:google-services:4.4.0")
+        classpath ("com.google.gms:google-services:4.4.1")
 
         classpath ("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
 
@@ -26,7 +26,7 @@ plugins {
     id("org.jetbrains.compose") version "1.6.0" apply false
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
-    id("com.google.dagger.hilt.android") version ("2.48.1") apply false
+    id("com.google.dagger.hilt.android") version ("2.51") apply false
     id("com.gradle.enterprise") version("3.16.2") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
 }

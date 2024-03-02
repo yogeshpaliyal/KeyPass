@@ -53,9 +53,9 @@ dependencies {
     // dependency injection
     api("com.google.dagger:hilt-android:${Versions.hilt}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
-    api("androidx.hilt:hilt-work:1.0.0")
+    api("androidx.hilt:hilt-work:1.2.0")
     // When using Kotlin.
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
 
     api("androidx.work:work-runtime-ktx:2.8.1")
 

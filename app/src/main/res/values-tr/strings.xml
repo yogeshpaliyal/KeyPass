@@ -88,4 +88,5 @@
     <string name="secret_key">Gizli anahtar</string>
     <string name="keypass_backup">KeyPass Yedekleme</string>
     <string name="google_backup">Google Yedekleme</string>
+    <string name="generate_qr_code">İhracat İhracatı</string>
 </resources>

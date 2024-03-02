@@ -15,8 +15,7 @@ on:
 
 
 jobs:
-
-  build:
+  validate-pr:
     name: 'Spotless, Tests and Build Production Debug Build'
     runs-on: ubuntu-latest
     steps:
