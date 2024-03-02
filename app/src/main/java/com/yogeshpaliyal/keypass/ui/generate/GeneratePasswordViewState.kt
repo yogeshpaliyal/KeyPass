@@ -9,7 +9,8 @@ data class GeneratePasswordViewState(
     val includeSymbols: Boolean,
     val includeNumbers: Boolean,
     val includeBlankSpaces: Boolean,
-    val password: String) {
+    val password: String
+) {
     companion object {
         val Initial = GeneratePasswordViewState(
             length = DEFAULT_PASSWORD_LENGTH,
