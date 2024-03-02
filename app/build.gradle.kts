@@ -136,7 +136,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
     implementation("androidx.hilt:hilt-work:1.0.0")
     // When using Kotlin.
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
 
