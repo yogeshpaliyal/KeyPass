@@ -24,6 +24,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
@@ -59,12 +60,14 @@ fun MySettingCompose() {
     Column {
         PreferenceItem(title = R.string.security, isCategory = true)
         PreferenceItem(
+            painter = painterResource(id =R.drawable.credentials_backup),
             title = R.string.credentials_backups,
             summary = R.string.credentials_backups_desc
         ) {
             dispatchAction(NavigationAction(BackupScreenState()))
         }
         PreferenceItem(
+            painter = painterResource(id =R.drawable.import_credentials),
             title = R.string.restore_credentials,
             summary = R.string.restore_credentials_desc
         ) {
