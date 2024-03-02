@@ -47,7 +47,8 @@ class GeneratePasswordViewModel @Inject constructor(
             includeUpperCaseLetters = currentViewState.includeUppercaseLetters,
             includeLowerCaseLetters = currentViewState.includeLowercaseLetters,
             includeSymbols = currentViewState.includeSymbols,
-            includeNumbers = currentViewState.includeNumbers
+            includeNumbers = currentViewState.includeNumbers,
+            includeBlankSpaces = currentViewState.includeBlankSpaces
         )
 
         _viewState.update {
@@ -86,6 +87,12 @@ class GeneratePasswordViewModel @Inject constructor(
         }
     }
 
+    fun onBlankSpacesCheckedChange(checked: Boolean) {
+        _viewState.update {
+            it.copy(includeBlankSpaces = checked)
+        }
+    }
+
     @OptIn(FlowPreview::class)
     private fun observeState(context: Context) {
         viewModelScope.launch {
@@ -97,4 +104,5 @@ class GeneratePasswordViewModel @Inject constructor(
                 }
         }
     }
+
 }
