@@ -36732,7 +36732,7 @@
             ]
         },
         {
-            "name": "androidx.hilt:hilt-work:1.0.0",
+            "name": "androidx.hilt:hilt-work:1.2.0",
             "type": "EXTERNAL",
             "downloadSize": 161,
             "installSize": 161,
