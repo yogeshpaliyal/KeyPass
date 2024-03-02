@@ -110,7 +110,6 @@ private fun FormInputCard(
             SymbolInput(viewState.includeSymbols, onSymbolsCheckedChange)
 
             BlankSpaceInput(viewState.includeBlankSpaces, onBlankSpacesCheckedChange)
-
         }
     }
 }
@@ -200,7 +199,6 @@ private fun BlankSpaceInput(
         onCheckedChange = onBlankSpacesCheckedChange
     )
 }
-
 
 @Preview(
     name = "Night Mode",

@@ -104,5 +104,4 @@ class GeneratePasswordViewModel @Inject constructor(
                 }
         }
     }
-
 }
