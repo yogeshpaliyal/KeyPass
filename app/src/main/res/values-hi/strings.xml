@@ -88,4 +88,5 @@
     <string name="secret_key">गुप्त कुंजी</string>
     <string name="keypass_backup">कुंजीपास बैकअप</string>
     <string name="google_backup">गूगल बैकअप</string>
+    <string name="generate_qr_code">निर्यात</string>
 </resources>
