@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload AAB file to 
         id: upload
-        uses: yogeshpaliyal/sign-android-release@fix/bundle-signing
+        uses: yogeshpaliyal/upload-indus-appstore@v0.0.2
         with:
           apiKey: ${{secrets.INDUS_API_KEY}}
           packageName: com.yogeshpaliyal.keypass
