@@ -82,8 +82,8 @@ android {
         }
     }
 
-    lintOptions{
-       disable 'MissingTranslation'
+    lint{
+        disable += "MissingTranslation"
     }
 
 }
