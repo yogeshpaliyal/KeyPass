@@ -60,14 +60,14 @@ fun MySettingCompose() {
     Column {
         PreferenceItem(title = R.string.security, isCategory = true)
         PreferenceItem(
-            painter = painterResource(id =R.drawable.credentials_backup),
+            painter = painterResource(id = R.drawable.credentials_backup),
             title = R.string.credentials_backups,
             summary = R.string.credentials_backups_desc
         ) {
             dispatchAction(NavigationAction(BackupScreenState()))
         }
         PreferenceItem(
-            painter = painterResource(id =R.drawable.import_credentials),
+            painter = painterResource(id = R.drawable.import_credentials),
             title = R.string.restore_credentials,
             summary = R.string.restore_credentials_desc
         ) {
