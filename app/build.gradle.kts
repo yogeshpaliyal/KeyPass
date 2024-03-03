@@ -82,6 +82,10 @@ android {
         }
     }
 
+    lint{
+        disable += "MissingTranslation"
+    }
+
 }
 
 ruler {

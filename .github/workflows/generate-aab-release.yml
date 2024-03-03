@@ -1,0 +1,47 @@
+name: Generate AAB File
+
+on: 
+  workflow_dispatch:
+    inputs:
+        ref:
+          description: 'Reference branch, tag, commit id'
+          required: true
+          type: string
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+    
+      - name: Setting up project
+        uses: ./.github/actions/setup
+
+      - name: Build with Gradle
+        id: build
+        run: ./gradlew build
+
+      - name: Build Release AAB
+        id: buildRelease
+        run: ./gradlew bundleRelease
+
+      - name: Sign AAB
+        id: sign
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/bundle/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: 🚀 Upload APK to Artifacts 📱
+        uses: actions/upload-artifact@v4
+        with:
+          name: app
+          path: app/build/outputs/bundle/release/*.aab
+          retention-days: 3
