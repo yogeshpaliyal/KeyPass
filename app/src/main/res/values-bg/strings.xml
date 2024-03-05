@@ -87,4 +87,5 @@
     <string name="scan_password">Парола за сканиране</string>
     <string name="backup_restored">Архивирането е възстановено</string>
     <string name="generate_keyphrase">Генериране на ключова фраза</string>
+    <string name="generate_qr_code">Експортиране</string>
 </resources>
