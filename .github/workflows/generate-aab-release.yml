@@ -39,19 +39,6 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-
-      - name: Upload AAB file to 
-        id: upload
-        uses: yogeshpaliyal/upload-indus-appstore@v0.0.2
-        with:
-          apiKey: ${{secrets.INDUS_API_KEY}}
-          packageName: com.yogeshpaliyal.keypass
-          aabFile: app/build/outputs/bundle/release/*.aab
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          keystoreAlias: ${{ secrets.ALIAS }}
-          keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-
       - name: 🚀 Upload APK to Artifacts 📱
         uses: actions/upload-artifact@v4
         with:
