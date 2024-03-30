@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.23",
+    "version": "1.4.24",
     "variant": "release",
-    "downloadSize": 4181524,
-    "installSize": 6835806,
+    "downloadSize": 4181523,
+    "installSize": 6835805,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -424,8 +424,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 461676,
-            "installSize": 994319,
+            "downloadSize": 461675,
+            "installSize": 994318,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -502,8 +502,8 @@
                 {
                     "name": "/AndroidManifest.xml",
                     "type": "OTHER",
-                    "downloadSize": 3393,
-                    "installSize": 3393
+                    "downloadSize": 3392,
+                    "installSize": 3392
                 },
                 {
                     "name": "/res/mipmap-xxxhdpi-v4/ic_launcher_foreground.png",
