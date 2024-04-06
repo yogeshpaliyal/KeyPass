@@ -1,0 +1,18 @@
+name: Validate code in the merge queue
+
+on:
+  merge_group:
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Display info
+      run: | 
+        pwd
+        tree -a -I '.git'
+        git status
+    - name: Run slow CI (emulated by a long sleep)
+      run: sleep 300

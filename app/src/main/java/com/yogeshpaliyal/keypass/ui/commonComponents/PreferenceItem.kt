@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.stringResource
@@ -26,6 +27,7 @@ fun PreferenceItem(
     @StringRes summary: Int? = null,
     summaryStr: String? = null,
     icon: ImageVector? = null,
+    painter: Painter? = null,
     isCategory: Boolean = false,
     removeIconSpace: Boolean = false,
     onClickItem: (() -> Unit)? = null
@@ -42,7 +44,9 @@ fun PreferenceItem(
     ) {
         if (!removeIconSpace) {
             Box(modifier = Modifier.width(56.dp), Alignment.CenterStart) {
-                if (icon != null) {
+                if (painter != null) {
+                    Icon(painter = painter, contentDescription = "")
+                } else if (icon != null) {
                     Icon(painter = rememberVectorPainter(image = icon), contentDescription = "")
                 }
             }
