@@ -36,19 +36,22 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
 
-        this.create("pro") {
-            applicationIdSuffix = ".pro"
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-
         debug {
             applicationIdSuffix = ".staging"
             signingConfig = signingConfigs.getByName("debug")
         }
 
     }
+
+    productFlavors {
+        create("free") {
+            isDefault=true
+        }
+        create("pro") {
+            applicationIdSuffix = ".pro"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -81,12 +84,6 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            storeFile = file("../keystores/debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
-        }
-        getByName("pro") {
             storeFile = file("../keystores/debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
