@@ -34,4 +34,4 @@ jobs:
           automatic_release_tag: "latest-master"
           prerelease: true
           title: "Staging Build"
-          files: app/build/outputs/apk/*/*.apk
+          files: app/build/outputs/apk/free/debug/*.apk
