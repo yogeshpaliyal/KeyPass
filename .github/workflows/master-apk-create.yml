@@ -25,7 +25,7 @@ jobs:
       uses: ./.github/actions/setup
       
     - name: Build APK ⚙️🛠
-      run: bash ./gradlew assembleDebug
+      run: bash ./gradlew assembleFreeDebug
     
 
     - uses: "marvinpinto/action-automatic-releases@latest"
@@ -34,4 +34,4 @@ jobs:
           automatic_release_tag: "latest-master"
           prerelease: true
           title: "Staging Build"
-          files: app/build/outputs/apk/debug/*.apk
+          files: app/build/outputs/apk/*/*.apk
