@@ -33,7 +33,7 @@ jobs:
         id: sign
         uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/build/outputs/bundle/release
+          releaseDirectory: app/build/outputs/bundle/proRelease
           signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
           alias: pro
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -43,5 +43,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: app/build/outputs/bundle/release/*.aab
+          path: app/build/outputs/bundle/proRelease/*.aab
           retention-days: 3
