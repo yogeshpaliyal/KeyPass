@@ -42,6 +42,16 @@ android {
         }
 
     }
+
+    productFlavors {
+        create("free") {
+            isDefault=true
+        }
+        create("pro") {
+            applicationIdSuffix = ".pro"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
