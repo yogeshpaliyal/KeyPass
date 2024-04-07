@@ -1,27 +1,10 @@
 package com.yogeshpaliyal.keypass.importer
 
 import android.net.Uri
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
 import com.opencsv.CSVReader
-import com.yogeshpaliyal.common.constants.AccountType
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
@@ -29,7 +12,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 
 class KeePassAccountImporter : AccountsImporter {
     override fun getImporterTitle(): Int = R.string.keepass_backup
-    override fun getImporterDesc(): Int? = null
+    override fun getImporterDesc(): Int = R.string.keepass_backup_desc
 
     override fun allowedMimeType(): String {
         return "text/comma-separated-values"
@@ -57,7 +40,7 @@ class KeePassAccountImporter : AccountsImporter {
                         username = it["Username"],
                         site = it["URL"],
                         tags = it["Group"],
-                        secret = if(it["TOTP"].isNullOrBlank()) null else it["TOTP"],
+                        secret = if (it["TOTP"].isNullOrBlank()) null else it["TOTP"]
                     )
                 )
             }
