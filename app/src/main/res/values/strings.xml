@@ -97,6 +97,8 @@
     <string name="secret_key">Secret Key</string>
     <string name="keypass_backup">KeyPass Backup</string>
     <string name="google_backup">Google Backup</string>
+    <string name="keepass_backup">KeePass Backup</string>
+    <string name="keepass_backup_desc">Choose KeePass CSV file to import</string>
     <string name="generate_qr_code">Export</string>
 
 </resources>
