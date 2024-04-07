@@ -35,7 +35,7 @@ interface DbDao {
         "SELECT * FROM account " +
             "WHERE " +
             "CASE WHEN :tag IS NOT NULL " +
-            "THEN tags = :tag " +
+            "THEN (tags LIKE '%'||:tag||'%' ) " +
             "ELSE 1 END " +
             "AND ((username LIKE '%'||:query||'%' ) " +
             "OR (title LIKE '%'||:query||'%' ) " +
@@ -57,7 +57,7 @@ interface DbDao {
         "SELECT * FROM account " +
             "WHERE " +
             "CASE WHEN :tag IS NOT NULL " +
-            "THEN tags = :tag " +
+            "THEN (tags LIKE '%'||:tag||'%' ) " +
             "ELSE 1 END " +
             "AND ((username LIKE '%'||:query||'%' ) " +
             "OR (title LIKE '%'||:query||'%' ) " +
