@@ -14,7 +14,7 @@
 
 <a href="https://discord.com/invite/vfcrdVqwee"><img src="https://dcbadge.vercel.app/api/server/gmmp6wEH" /></a>
 
- <a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-staging-debug.apk">
+ <a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-free-debug.apk">
 <img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
 </a>
 

@@ -24,7 +24,7 @@ jobs:
       uses: ./.github/actions/setup
       
     - name: Create Reports ⚙️🛠
-      run: bash ./gradlew :app:analyzeReleaseBundle
+      run: bash ./gradlew :app:analyzeFreeReleaseBundle
       
       
     - name: Exports Reports to report branch
