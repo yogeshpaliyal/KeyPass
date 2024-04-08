@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
+import androidx.compose.material.icons.rounded.ImportExport
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.Divider
@@ -41,6 +42,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
+import com.yogeshpaliyal.keypass.ui.redux.states.ExportPasswordState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -86,6 +88,14 @@ fun MySettingCompose() {
             summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}"
         ) {
             dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
+        }
+
+        PreferenceItem(
+            title = R.string.export_passwords,
+            summary = R.string.export_passwords_desc,
+            icon = Icons.Rounded.ImportExport
+        ) {
+            dispatchAction(NavigationAction(ExportPasswordState()))
         }
 
         BiometricsOption()
