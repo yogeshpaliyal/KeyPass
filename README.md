@@ -51,6 +51,14 @@
 - [x] Auto Backup
 - [x] TOTP
 - [x] Jetpack Compose
+#### Import From
+- [x] Google Chrome CSV
+- [x] KeePass CSV
+- [ ] BitWarden
+#### Export for
+- [ ] Google Chrome
+- [ ] KeePass
+- [ ] BitWarden
 
 ## 🛠️ Language, Tools & Frameworks Used
 1. Kotlin
