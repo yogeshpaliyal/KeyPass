@@ -18,6 +18,8 @@
     <string name="credentials_backups_desc">Backup Credentials to external storage</string>
     <string name="restore_credentials">Imports Credentials</string>
     <string name="restore_credentials_desc">Restore your backups</string>
+    <string name="export_passwords_title">Export Passwords</string>
+    <string name="export_passwords_desc">Export your passwords</string>
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_desc">Report technical issues or suggest new features</string>
     <string name="share">Share</string>
@@ -89,6 +91,7 @@
     <string name="biometric_error_hw_unavailable">Biometric features are currently unavailable.</string>
     <string name="biometric_error_none_enrolled">Setup biometric on your device.</string>
     <string name="unlock_with_biometric">Unlock with biometric</string>
+    <string name="export_passwords">Export Passwords</string>
     <string name="password_set_from_settings">Please set password for your device first from phone settings</string>
     <string name="authentication_failed">Authentication Failed</string>
     <string name="authentication_error">Authentication Error %s</string>
@@ -100,5 +103,10 @@
     <string name="keepass_backup">KeePass Backup</string>
     <string name="keepass_backup_desc">Choose KeePass CSV file to import</string>
     <string name="generate_qr_code">Export</string>
+
+    <string name="bitwarden_export">Bitwarden</string>
+    <string name="bitwarden_export_desc">Bitwarden export description</string>
+    <string name="test_export">Test</string>
+    <string name="test_export_desc">Test export description</string>
 
 </resources>

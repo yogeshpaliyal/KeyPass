@@ -1,10 +1,12 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
+import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -30,6 +32,7 @@ import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
 import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPasswordLengthScreen
 import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
+import com.yogeshpaliyal.keypass.ui.exportPasswords.PasswordExporter
 import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
@@ -42,6 +45,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
+import com.yogeshpaliyal.keypass.ui.redux.states.ExportPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
@@ -131,6 +135,7 @@ fun Dashboard() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun CurrentPage() {
     val currentScreen by selectState<KeyPassState, ScreenState> { this.currentScreen }
@@ -166,6 +171,8 @@ fun CurrentPage() {
             }
 
             is BackupImporterState -> BackupImporter(state = it)
+            
+            is ExportPasswordState -> PasswordExporter(state = it)
         }
     }
 }
