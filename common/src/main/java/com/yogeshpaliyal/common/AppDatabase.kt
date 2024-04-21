@@ -17,10 +17,11 @@ const val DB_VERSION_4 = 4
 const val DB_VERSION_5 = 5
 const val DB_VERSION_6 = 6
 const val DB_VERSION_7 = 7
+const val DB_VERSION_8 = 8
 
 @Database(
     entities = [AccountModel::class],
-    version = DB_VERSION_7,
+    version = DB_VERSION_8,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
