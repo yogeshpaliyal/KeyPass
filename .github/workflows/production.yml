@@ -72,3 +72,15 @@ jobs:
           userFraction: 0.01
           status: inProgress
           whatsNewDirectory: whatsnew/
+
+      - name: Deploy Free to Indus App Store
+        id: uploadToIndus
+        uses: yogeshpaliyal/upload-indus-appstore@v0.0.4
+        with:
+          apiKey: ${{secrets.INDUS_API_KEY}}
+          packageName: com.yogeshpaliyal.keypass
+          aabFile: app/build/outputs/bundle/freeRelease/*.aab
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          keystoreAlias: ${{ secrets.ALIAS }}
+          keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
