@@ -75,8 +75,8 @@ interface DbDao {
         sortingField: String?
     ): List<AccountModel>
 
-    @Query("SELECT * FROM account WHERE unique_id = :uniqueId")
-    suspend fun getAccount(uniqueId: String?): AccountModel?
+    @Query("SELECT * FROM account WHERE id = :id")
+    suspend fun getAccount(id: Long?): AccountModel?
 
     @Query("SELECT DISTINCT tags FROM account WHERE tags IS NOT NULL AND tags <> ''")
     fun getTags(): Flow<List<String>>

@@ -52,7 +52,7 @@ import java.util.Locale
 
 @Composable
 fun AccountDetailPage(
-    uniqueId: String?,
+    id: Long?,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
     val dispatchAction = rememberDispatcher()
@@ -67,8 +67,8 @@ fun AccountDetailPage(
     }
 
     // Set initial object
-    LaunchedEffect(key1 = uniqueId) {
-        viewModel.loadAccount(uniqueId) {
+    LaunchedEffect(key1 = id) {
+        viewModel.loadAccount(id) {
             setAccountModel(it.copy())
         }
     }
