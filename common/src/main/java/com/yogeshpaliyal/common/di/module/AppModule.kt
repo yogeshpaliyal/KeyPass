@@ -89,7 +89,15 @@ object AppModule {
                 // Move type = 2, to Default 0, move password to secret
                 database.execSQL("ALTER TABLE `account` ADD COLUMN `secret` TEXT DEFAULT NULL")
                 database.execSQL("UPDATE `account` SET secret = password, password = null, type = 1 WHERE type = 2")
-                database.execSQL("UPDATE `account` SET `unique_id` = '${getRandomString()}' WHERE `unique_id` IS NULL")
+                database.query("select id,unique_id from `account` where unique_id IS NULL")
+                    .use {
+                        while (it.moveToNext()) {
+                            val id = it.getInt(0)
+                            val query =
+                                "update `account` set `unique_id` = '${getRandomString()}' where `id` = '$id'"
+                            database.execSQL(query)
+                        }
+                    }
             }
         })
         return builder.build()
