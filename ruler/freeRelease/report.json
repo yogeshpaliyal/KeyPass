@@ -1,9 +1,9 @@
 {
     "name": "com.yogeshpaliyal.keypass",
-    "version": "1.4.27",
+    "version": "1.4.26",
     "variant": "freeRelease",
-    "downloadSize": 4182177,
-    "installSize": 6836974,
+    "downloadSize": 4182178,
+    "installSize": 6836975,
     "components": [
         {
             "name": "net.zetetic:android-database-sqlcipher:4.5.4",
@@ -424,8 +424,8 @@
         {
             "name": ":app",
             "type": "INTERNAL",
-            "downloadSize": 462513,
-            "installSize": 995302,
+            "downloadSize": 462514,
+            "installSize": 995303,
             "files": [
                 {
                     "name": "/resources.arsc",
@@ -454,8 +454,8 @@
                 {
                     "name": "/assets/dexopt/baseline.prof",
                     "type": "ASSET",
-                    "downloadSize": 5652,
-                    "installSize": 5647
+                    "downloadSize": 5653,
+                    "installSize": 5648
                 },
                 {
                     "name": "/kotlin/kotlin.kotlin_builtins",
