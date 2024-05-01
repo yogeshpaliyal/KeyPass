@@ -6,15 +6,22 @@ import android.provider.Settings
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -22,13 +29,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
+import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
@@ -44,7 +52,6 @@ import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthStat
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
-@Preview(showSystemUi = true)
 @Composable
 fun MySettingCompose() {
     val dispatchAction = rememberTypedDispatcher<Action>()
@@ -57,7 +64,7 @@ fun MySettingCompose() {
         userSettings.defaultPasswordLength.let { value -> savedPasswordLength = value }
     }
 
-    Column {
+    Column(modifier = Modifier.fillMaxSize(1f).verticalScroll(rememberScrollState())) {
         PreferenceItem(title = R.string.security, isCategory = true)
         PreferenceItem(
             painter = painterResource(id = R.drawable.credentials_backup),
@@ -112,6 +119,18 @@ fun MySettingCompose() {
             icon = Icons.Rounded.Share
         ) {
             dispatchAction(IntentNavigation.ShareApp)
+        }
+        Row(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth(1f),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "App Version ${BuildConfig.VERSION_NAME}",
+                style = MaterialTheme.typography.labelSmall
+            )
         }
     }
 }
