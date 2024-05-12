@@ -77,6 +77,7 @@ jobs:
         id: uploadToIndus
         uses: yogeshpaliyal/upload-indus-appstore@v0.0.6
         with:
+          type: UPLOAD_AAB
           apiKey: ${{secrets.INDUS_API_KEY}}
           packageName: com.yogeshpaliyal.keypass
           aabFile: app/build/outputs/bundle/freeRelease/*.aab
