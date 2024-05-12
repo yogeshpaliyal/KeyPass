@@ -21,34 +21,66 @@ jobs:
         id: build
         run: ./gradlew build
 
-      - name: Build Release AAB
+      - name: Build Free and Pro Release AAB
         id: buildRelease
         run: ./gradlew bundleRelease
 
-      - name: Sign AAB
+      - name: Sign Free AAB
+        id: signPro
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/bundle/freeRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Sign Pro AAB
         id: sign
         uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/build/outputs/bundle/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
+          releaseDirectory: app/build/outputs/bundle/proRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: pro
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Create service_account.json
         id: createServiceAccount
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-
           
-      - name: Deploy to Play Store (PROD)
-        id: deployProd
+      - name: Deploy Free to Play Store (PROD)
+        id: deployFreeProd
         uses: r0adkll/upload-google-play@v1.1.3
         with:
           serviceAccountJson: service_account.json
           packageName: com.yogeshpaliyal.keypass
-          releaseFiles: app/build/outputs/bundle/release/*.aab
+          releaseFiles: app/build/outputs/bundle/freeRelease/*.aab
           track: production
           userFraction: 0.01
           status: inProgress
           whatsNewDirectory: whatsnew/
+
+      - name: Deploy Pro to Play Store (PROD)
+        id: deployProProd
+        uses: r0adkll/upload-google-play@v1.1.3
+        with:
+          serviceAccountJson: service_account.json
+          packageName: com.yogeshpaliyal.keypass.pro
+          releaseFiles: app/build/outputs/bundle/proRelease/*.aab
+          track: production
+          userFraction: 0.01
+          status: inProgress
+          whatsNewDirectory: whatsnew/
+
+      - name: Deploy Free to Indus App Store
+        id: uploadToIndus
+        uses: yogeshpaliyal/upload-indus-appstore@v0.0.4
+        with:
+          apiKey: ${{secrets.INDUS_API_KEY}}
+          packageName: com.yogeshpaliyal.keypass
+          aabFile: app/build/outputs/bundle/freeRelease/*.aab
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          keystoreAlias: ${{ secrets.ALIAS }}
+          keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}

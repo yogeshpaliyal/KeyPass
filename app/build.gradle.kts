@@ -18,8 +18,8 @@ android {
         applicationId = appPackageId
         minSdk = 23
         targetSdk = 34
-        versionCode = 1423
-        versionName = "1.4.23"
+        versionCode = 1427
+        versionName = "1.4.27"
 
         testInstrumentationRunner = "com.yogeshpaliyal.keypass.CustomTestRunner"
         vectorDrawables {
@@ -34,7 +34,6 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("debug")
         }
 
         debug {
@@ -43,6 +42,16 @@ android {
         }
 
     }
+
+    productFlavors {
+        create("free") {
+            isDefault=true
+        }
+        create("pro") {
+            applicationIdSuffix = ".pro"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -80,6 +89,10 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
         }
+    }
+
+    lint{
+        disable += "MissingTranslation"
     }
 
 }
@@ -120,7 +133,7 @@ dependencies {
     implementation(Deps.Lifecycle.runtimeCompose)
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.compose.material3:material3:1.2.1")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
 
     implementation("androidx.appcompat:appcompat:1.6.1")

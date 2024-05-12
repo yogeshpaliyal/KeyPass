@@ -5,15 +5,15 @@ class PasswordGenerator(
     private var includeUpperCaseLetters: Boolean,
     private var includeLowerCaseLetters: Boolean,
     private var includeSymbols: Boolean,
-    private var includeNumbers: Boolean
+    private var includeNumbers: Boolean,
+    private var includeBlankSpaces: Boolean
 ) {
 
-    constructor() : this(10, true, true, true, true)
-
-    private val UPPER_CASE = 0
+    constructor() : this(10, true, true, true, true, true) private val UPPER_CASE = 0
     private val LOWER_CASE = 1
     private val NUMBERS = 2
     private val SYMBOLS = 3
+    private val BLANKSPACES = 4
 
     fun generatePassword(): String {
         var password = ""
@@ -31,6 +31,10 @@ class PasswordGenerator(
             list.add(SYMBOLS)
         }
 
+        if (includeBlankSpaces) {
+            list.add(BLANKSPACES)
+        }
+
         for (i in 1..length) {
             if (list.isNotEmpty()) {
                 when (list.random()) {
@@ -38,6 +42,7 @@ class PasswordGenerator(
                     LOWER_CASE -> password += ('a'..'z').random().toString()
                     NUMBERS -> password += ('0'..'9').random().toString()
                     SYMBOLS -> password += listOf('!', '@', '#', '$', '%', '&', '*', '+', '=', '-', '~', '?', '/', '_').random().toString()
+                    BLANKSPACES -> password += (' ').toString()
                 }
             }
         }

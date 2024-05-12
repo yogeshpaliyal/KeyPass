@@ -30,7 +30,8 @@ fun GeneratePasswordScreen(viewModel: GeneratePasswordViewModel) {
         onUppercaseCheckedChange = viewModel::onUppercaseCheckedChange,
         onLowercaseCheckedChange = viewModel::onLowercaseCheckedChange,
         onNumbersCheckedChange = viewModel::onNumbersCheckedChange,
-        onSymbolsCheckedChange = viewModel::onSymbolsCheckedChange
+        onSymbolsCheckedChange = viewModel::onSymbolsCheckedChange,
+        onBlankSpacesCheckedChange = viewModel::onBlankSpacesCheckedChange
     )
 }
 

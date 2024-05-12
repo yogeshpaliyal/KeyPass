@@ -1,7 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="en">
 
 
     <string name="generate_password">Generate Password</string>
+    <string name="app_desc">Open-source &amp; offline password manager. Store, manage, take control securely.</string>
     <string name="home">Home</string>
     <string name="delete">Delete</string>
 
@@ -21,7 +22,14 @@
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_desc">Report technical issues or suggest new features</string>
     <string name="share">Share</string>
+    <string name="about_us">About Us</string>
     <string name="share_desc">Share app with others</string>
+    <string name="about_us_desc">About us Desc</string>
+    <string name="app_developer">Developer</string>
+    <string name="app_developer_x">X (previously Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Source Code</string>
+    <string name="app_developer_github">Github</string>
     <string name="password">Password</string>
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="login_to_enter_keypass">Login to enter KeyPass</string>
@@ -97,6 +105,8 @@
     <string name="secret_key">Secret Key</string>
     <string name="keypass_backup">KeyPass Backup</string>
     <string name="google_backup">Google Backup</string>
+    <string name="keepass_backup">KeePass Backup</string>
+    <string name="keepass_backup_desc">Choose KeePass CSV file to import</string>
     <string name="generate_qr_code">Export</string>
 
 </resources>

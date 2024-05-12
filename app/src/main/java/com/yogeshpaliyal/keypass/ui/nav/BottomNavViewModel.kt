@@ -33,28 +33,10 @@ class BottomNavViewModel @Inject constructor(
 
         viewModelScope.launch {
             tagsDb.collect {
-                tagsList = it
+                tagsList = it.flatMap { it.split(",") }.map { it.trim() }.toSet().toList()
                 postListUpdate()
             }
         }
-    }
-
-    /**
-     * Set the currently selected menu item.
-     *
-     * @return true if the currently selected item has changed.
-     */
-    fun setNavigationMenuItemChecked(id: Int): Boolean {
-        var updated = false
-        NavigationModel.navigationMenuItems.forEachIndexed { index, item ->
-            val shouldCheck = item.id == id
-            if (item.checked != shouldCheck) {
-                NavigationModel.navigationMenuItems[index] = item.copy(checked = shouldCheck)
-                updated = true
-            }
-        }
-        if (updated) postListUpdate()
-        return updated
     }
 
     private fun postListUpdate() {
