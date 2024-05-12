@@ -16,7 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.DeveloperBoard
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
 import androidx.compose.material.icons.rounded.Password
@@ -127,7 +127,7 @@ fun MySettingCompose() {
         PreferenceItem(
             title = R.string.about_us,
             summary = R.string.about_us,
-            icon = Icons.Rounded.DeveloperBoard
+            icon = Icons.Outlined.Info
         ) {
             dispatchAction(NavigationAction(AboutState()))
         }
