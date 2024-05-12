@@ -12,7 +12,7 @@ buildscript {
 
         classpath ("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
 
-        classpath ("com.spotify.ruler:ruler-gradle-plugin:1.4.0")
+        classpath ("com.spotify.ruler:ruler-gradle-plugin:2.0.0-beta-1")
         classpath ("com.gradle:gradle-enterprise-gradle-plugin:3.13.2")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
