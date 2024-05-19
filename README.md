@@ -12,7 +12,8 @@
 <img src="https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge" alt="DevLibrary">
 </a>
 
-<a href="https://discord.com/invite/vfcrdVqwee"><img src="https://dcbadge.vercel.app/api/server/gmmp6wEH" /></a>
+[![](https://dcbadge.limes.pink/api/server/https://discord.com/invite/vfcrdVqwee)](https://discord.gg/vfcrdVqwee)
+
 
  <a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-free-debug.apk">
 <img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App">
