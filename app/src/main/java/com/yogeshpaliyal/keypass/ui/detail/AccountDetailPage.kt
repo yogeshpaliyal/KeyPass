@@ -35,6 +35,9 @@ import com.yogeshpaliyal.keypass.ui.detail.components.BottomBar
 import com.yogeshpaliyal.keypass.ui.detail.components.Fields
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
+import androidx.compose.runtime.collectAsState
 import org.reduxkotlin.compose.rememberDispatcher
 import java.io.File
 import java.io.FileOutputStream
@@ -60,16 +63,12 @@ fun AccountDetailPage(
     val showDialog = remember { mutableStateOf(false) }
 
     // task value state
-    val (accountModel, setAccountModel) = remember {
-        mutableStateOf(
-            AccountModel()
-        )
-    }
+    val accountModel = viewModel.accountModel.collectAsState().value
 
     // Set initial object
     LaunchedEffect(key1 = id) {
-        viewModel.loadAccount(id) {
-            setAccountModel(it.copy())
+        if (id != null) {
+            viewModel.loadAccount(id)
         }
     }
 
@@ -80,7 +79,7 @@ fun AccountDetailPage(
     val launcher = rememberLauncherForActivityResult(QRScanner()) {
         when (it.type) {
             ScannerType.Password -> {
-                setAccountModel(accountModel.copy(password = it.scannedText))
+                viewModel.setAccountModel(accountModel.copy(password = it.scannedText))
             }
             ScannerType.Secret -> {
                 it.scannedText ?: return@rememberLauncherForActivityResult
@@ -94,7 +93,7 @@ fun AccountDetailPage(
                 if (newAccountModel.username.isNullOrEmpty()) {
                     newAccountModel = newAccountModel.copy(username = totp.issuer)
                 }
-                setAccountModel(newAccountModel)
+                viewModel.setAccountModel(newAccountModel)
             }
         }
     }
@@ -111,6 +110,9 @@ fun AccountDetailPage(
 
                     val qrCodeBitmap = viewModel.generateQrCode(accountModel)
                     generatedQrCodeBitmap.value = qrCodeBitmap
+                },
+                openPasswordConfiguration = {
+                    dispatchAction(NavigationAction(PasswordGeneratorState()))
                 }
             ) {
                 viewModel.insertOrUpdate(accountModel, goBack)
@@ -121,7 +123,7 @@ fun AccountDetailPage(
             Fields(
                 accountModel = accountModel,
                 updateAccountModel = { newAccountModel ->
-                    setAccountModel(newAccountModel)
+                    viewModel.setAccountModel(newAccountModel)
                 },
                 copyToClipboardClicked = { value ->
                     dispatchAction(CopyToClipboard(value))

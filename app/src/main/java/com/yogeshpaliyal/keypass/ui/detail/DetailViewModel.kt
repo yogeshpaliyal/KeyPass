@@ -16,6 +16,8 @@ import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.worker.executeAutoBackup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
@@ -33,13 +35,17 @@ class DetailViewModel @Inject constructor(
     val appDb: com.yogeshpaliyal.common.AppDatabase
 ) : AndroidViewModel(app) {
 
-    private val _accountModel by lazy { MutableLiveData<AccountModel>() }
-    val accountModel: LiveData<AccountModel> = _accountModel
+    private val _accountModel by lazy { MutableStateFlow<AccountModel>(AccountModel()) }
+    val accountModel: StateFlow<AccountModel> = _accountModel
 
-    fun loadAccount(id: Long?, getAccount: (AccountModel) -> Unit) {
+    fun loadAccount(id: Long?) {
         viewModelScope.launch(Dispatchers.IO) {
-            getAccount(appDb.getDao().getAccount(id) ?: AccountModel())
+            _accountModel.emit(appDb.getDao().getAccount(id) ?: AccountModel())
         }
+    }
+
+    fun setAccountModel(accountModel: AccountModel) {
+        _accountModel.value = accountModel
     }
 
     fun deleteAccount(accountModel: AccountModel, onExecCompleted: () -> Unit) {

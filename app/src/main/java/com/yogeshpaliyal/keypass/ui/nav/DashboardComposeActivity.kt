@@ -30,6 +30,7 @@ import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
 import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPasswordLengthScreen
 import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
+import com.yogeshpaliyal.keypass.ui.generate.ui.GeneratePasswordScreen
 import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
@@ -44,6 +45,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
@@ -166,6 +168,7 @@ fun CurrentPage() {
             }
 
             is BackupImporterState -> BackupImporter(state = it)
+            is PasswordGeneratorState -> GeneratePasswordScreen()
         }
     }
 }
