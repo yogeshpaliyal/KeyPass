@@ -27,7 +27,7 @@ plugins {
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
     id("com.google.dagger.hilt.android") version ("2.51.1") apply false
-    id("com.gradle.enterprise") version("3.16.2") apply false
+    id("com.gradle.enterprise") version("3.17.4") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
 }
 
