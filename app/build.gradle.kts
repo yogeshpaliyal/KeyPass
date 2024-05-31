@@ -6,6 +6,7 @@ plugins {
     id("com.spotify.ruler")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 val appPackageId = "com.yogeshpaliyal.keypass"
@@ -72,9 +73,6 @@ android {
 
 
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.13"
-    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"

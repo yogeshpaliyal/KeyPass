@@ -1,0 +1,23 @@
+[versions]
+kotlin="2.0.0"
+lifecycle = "2.6.1"
+room = "2.5.2"
+navigation = "2.5.3"
+hilt = "2.51.1"
+compose = "1.6.7"
+activity = "1.7.1"
+
+[libraries]
+compose-ui  = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-uiTooling  = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-uiToolingPreview  = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-uiViewBinding  = { module = "androidx.compose.ui:ui-viewbinding", version.ref = "compose" }
+compose-materialIconsExtended  = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
+compose-activity  = { module = "androidx.activity:activity-compose", version.ref = "compose" }
+compose-runtimeLiveData  = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose" }
+
+lifecycle-viewModelCompose  = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+lifecycle-viewModelKtx  = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-runtimeCompose  = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+
+[plugins]
