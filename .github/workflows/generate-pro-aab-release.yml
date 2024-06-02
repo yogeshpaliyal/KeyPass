@@ -1,4 +1,4 @@
-name: Generate AAB File
+name: Generate AAB File for Pro
 
 on: 
   workflow_dispatch:
