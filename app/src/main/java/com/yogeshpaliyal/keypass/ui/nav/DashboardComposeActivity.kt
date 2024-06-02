@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -62,6 +65,7 @@ val LocalUserSettings = compositionLocalOf { UserSettings() }
 @AndroidEntryPoint
 class DashboardComposeActivity : AppCompatActivity() {
 
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG.not()) {
@@ -71,13 +75,40 @@ class DashboardComposeActivity : AppCompatActivity() {
             )
         }
 
+        /**
+         * Flow of [DevicePosture] that emits every time there's a change in the windowLayoutInfo
+         */
+        val devicePostureFlow =  WindowInfoTracker.getOrCreate(this).windowLayoutInfo(this)
+            .flowWithLifecycle(this.lifecycle)
+            .map { layoutInfo ->
+                val foldingFeature =
+                    layoutInfo.displayFeatures
+                        .filterIsInstance<FoldingFeature>()
+                        .firstOrNull()
+                when {
+                    isBookPosture(foldingFeature) ->
+                        DevicePosture.BookPosture(foldingFeature.bounds)
+
+                    isSeparating(foldingFeature) ->
+                        DevicePosture.Separating(foldingFeature.bounds, foldingFeature.orientation)
+
+                    else -> DevicePosture.NormalPosture
+                }
+            }
+            .stateIn(
+                scope = lifecycleScope,
+                started = SharingStarted.Eagerly,
+                initialValue = DevicePosture.NormalPosture
+            )
+
         setContent {
             val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
                 KeyPassTheme {
+                    val windowSize = calculateWindowSizeClass(this)
                     StoreProvider(store = KeyPassRedux.createStore()) {
-                        Dashboard()
+                        Dashboard(windowSize.widthSizeClass)
                     }
                 }
             }
@@ -100,7 +131,7 @@ class DashboardComposeActivity : AppCompatActivity() {
 }
 
 @Composable
-fun Dashboard() {
+fun Dashboard(windowWidthSize: WindowWidthSizeClass) {
     val systemBackPress by selectState<KeyPassState, Boolean> { this.systemBackPress }
 
     val context = LocalContext.current
