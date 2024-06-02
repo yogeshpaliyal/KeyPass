@@ -1,11 +1,12 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 kotlin {
     androidTarget()
+    jvmToolchain(17)
     jvm("desktop") {
         compilerOptions {
             apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
@@ -14,6 +15,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                api("androidx.compose.runtime:runtime:1.6.7")
+                api("androidx.compose.foundation:foundation:1.6.7")
+                api("androidx.compose.material:material:1.6.7")
                 implementation("org.reduxkotlin:redux-kotlin-compose:0.6.0")
             }
         }

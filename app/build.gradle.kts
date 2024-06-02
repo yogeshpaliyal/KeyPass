@@ -6,7 +6,7 @@ plugins {
     id("com.spotify.ruler")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 val appPackageId = "com.yogeshpaliyal.keypass"
