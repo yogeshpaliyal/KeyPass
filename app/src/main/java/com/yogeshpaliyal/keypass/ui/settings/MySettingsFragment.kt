@@ -64,7 +64,7 @@ fun MySettingCompose() {
     // Retrieving saved password length
     var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
     LaunchedEffect(key1 = Unit) {
-        userSettings.defaultPasswordLength.let { value -> savedPasswordLength = value }
+        userSettings.passwordConfig.length.let { value -> savedPasswordLength = value }
     }
 
     Column(modifier = Modifier.fillMaxSize(1f).verticalScroll(rememberScrollState())) {

@@ -1,6 +1,7 @@
 package com.yogeshpaliyal.keypass.ui.detail.components
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Password
 import androidx.compose.material.icons.filled.QrCode
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material.icons.rounded.Delete
@@ -24,6 +25,7 @@ fun BottomBar(
     backPressed: () -> Unit,
     onDeleteAccount: () -> Unit,
     generateQrCodeClicked: () -> Unit,
+    openPasswordConfiguration: () -> Unit,
     onSaveClicked: () -> Unit
 ) {
     val openDialog = remember { mutableStateOf(false) }
@@ -34,6 +36,17 @@ fun BottomBar(
                 Icon(
                     painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
                     contentDescription = "Go Back",
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
+            IconButton(
+                modifier = Modifier.testTag("action_configure_password"),
+                onClick = { openPasswordConfiguration() }
+            ) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Default.Password),
+                    contentDescription = "Open Password Configuration",
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }

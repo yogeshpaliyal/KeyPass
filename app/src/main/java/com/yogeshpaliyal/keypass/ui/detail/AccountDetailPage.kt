@@ -17,6 +17,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -29,12 +30,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.constants.ScannerType
-import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.ui.detail.components.BottomBar
 import com.yogeshpaliyal.keypass.ui.detail.components.Fields
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
 import org.reduxkotlin.compose.rememberDispatcher
 import java.io.File
 import java.io.FileOutputStream
@@ -60,17 +62,11 @@ fun AccountDetailPage(
     val showDialog = remember { mutableStateOf(false) }
 
     // task value state
-    val (accountModel, setAccountModel) = remember {
-        mutableStateOf(
-            AccountModel()
-        )
-    }
+    val accountModel = viewModel.accountModel.collectAsState().value
 
     // Set initial object
     LaunchedEffect(key1 = id) {
-        viewModel.loadAccount(id) {
-            setAccountModel(it.copy())
-        }
+        viewModel.loadAccount(id)
     }
 
     val goBack: () -> Unit = {
@@ -80,7 +76,7 @@ fun AccountDetailPage(
     val launcher = rememberLauncherForActivityResult(QRScanner()) {
         when (it.type) {
             ScannerType.Password -> {
-                setAccountModel(accountModel.copy(password = it.scannedText))
+                viewModel.setAccountModel(accountModel.copy(password = it.scannedText))
             }
             ScannerType.Secret -> {
                 it.scannedText ?: return@rememberLauncherForActivityResult
@@ -94,7 +90,7 @@ fun AccountDetailPage(
                 if (newAccountModel.username.isNullOrEmpty()) {
                     newAccountModel = newAccountModel.copy(username = totp.issuer)
                 }
-                setAccountModel(newAccountModel)
+                viewModel.setAccountModel(newAccountModel)
             }
         }
     }
@@ -111,6 +107,9 @@ fun AccountDetailPage(
 
                     val qrCodeBitmap = viewModel.generateQrCode(accountModel)
                     generatedQrCodeBitmap.value = qrCodeBitmap
+                },
+                openPasswordConfiguration = {
+                    dispatchAction(NavigationAction(PasswordGeneratorState()))
                 }
             ) {
                 viewModel.insertOrUpdate(accountModel, goBack)
@@ -121,7 +120,7 @@ fun AccountDetailPage(
             Fields(
                 accountModel = accountModel,
                 updateAccountModel = { newAccountModel ->
-                    setAccountModel(newAccountModel)
+                    viewModel.setAccountModel(newAccountModel)
                 },
                 copyToClipboardClicked = { value ->
                     dispatchAction(CopyToClipboard(value))

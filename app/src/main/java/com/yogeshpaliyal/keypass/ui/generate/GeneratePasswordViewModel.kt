@@ -3,10 +3,10 @@ package com.yogeshpaliyal.keypass.ui.generate
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.common.utils.getUserSettings
-import com.yogeshpaliyal.common.utils.setDefaultPasswordLength
-import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
+import com.yogeshpaliyal.common.utils.setPasswordConfig
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.FlowPreview
@@ -23,18 +23,18 @@ class GeneratePasswordViewModel @Inject constructor(
     @ApplicationContext context: Context
 ) : ViewModel() {
 
-    private val _viewState = MutableStateFlow(GeneratePasswordViewState.Initial)
+    private val _viewState = MutableStateFlow(PasswordConfig.Initial)
     val viewState = _viewState.asStateFlow()
 
     init {
         observeState(context)
     }
 
-    fun retrieveSavedPasswordLength(context: Context) {
+    fun retrieveSavedPasswordConfig(context: Context) {
         viewModelScope.launch {
-            val savedPasswordLength = context.getUserSettings().defaultPasswordLength ?: DEFAULT_PASSWORD_LENGTH
+            val passwordConfig = context.getUserSettings().passwordConfig
             _viewState.update {
-                _viewState.value.copy(length = savedPasswordLength)
+                passwordConfig
             }
         }
     }
@@ -43,12 +43,7 @@ class GeneratePasswordViewModel @Inject constructor(
         val currentViewState = _viewState.value
 
         val passwordGenerator = PasswordGenerator(
-            length = currentViewState.length.toInt(),
-            includeUpperCaseLetters = currentViewState.includeUppercaseLetters,
-            includeLowerCaseLetters = currentViewState.includeLowercaseLetters,
-            includeSymbols = currentViewState.includeSymbols,
-            includeNumbers = currentViewState.includeNumbers,
-            includeBlankSpaces = currentViewState.includeBlankSpaces
+            currentViewState
         )
 
         _viewState.update {
@@ -100,7 +95,7 @@ class GeneratePasswordViewModel @Inject constructor(
             _viewState
                 .debounce(400)
                 .collectLatest { state ->
-                    context.setDefaultPasswordLength(state.length)
+                    context.setPasswordConfig(state)
                 }
         }
     }

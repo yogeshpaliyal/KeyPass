@@ -14,7 +14,6 @@ class GeneratePasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.retrieveSavedPasswordLength(baseContext)
         setContent {
             Mdc3Theme {
                 GeneratePasswordScreen(viewModel)

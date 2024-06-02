@@ -23,13 +23,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
-import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordViewState
+import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.CheckboxWithLabel
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.PasswordLengthInput
 
 @Composable
 fun GeneratePasswordContent(
-    viewState: GeneratePasswordViewState,
+    viewState: PasswordConfig,
     onCopyPasswordClick: () -> Unit,
     onGeneratePasswordClick: () -> Unit,
     onPasswordLengthChange: (Float) -> Unit,
@@ -77,7 +77,7 @@ private fun GeneratePasswordFab(onGeneratePasswordClick: () -> Unit) {
 
 @Composable
 private fun FormInputCard(
-    viewState: GeneratePasswordViewState,
+    viewState: PasswordConfig,
     onCopyPasswordClick: () -> Unit,
     onPasswordLengthChange: (Float) -> Unit,
     onUppercaseCheckedChange: (Boolean) -> Unit,
@@ -211,7 +211,7 @@ private fun BlankSpaceInput(
 @Composable
 @Suppress("UnusedPrivateMember", "MagicNumber")
 private fun GeneratePasswordContentPreview() {
-    val viewState = GeneratePasswordViewState.Initial
+    val viewState = PasswordConfig.Initial
 
     Mdc3Theme {
         GeneratePasswordContent(
