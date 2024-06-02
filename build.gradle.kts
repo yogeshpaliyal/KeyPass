@@ -14,6 +14,7 @@ buildscript {
 
         classpath ("com.spotify.ruler:ruler-gradle-plugin:2.0.0-beta-1")
         classpath ("com.gradle:gradle-enterprise-gradle-plugin:3.13.2")
+        classpath("org.jetbrains.kotlin:compose-compiler-gradle-plugin:${Versions.kotlin}")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
     }
@@ -23,7 +24,6 @@ plugins {
     kotlin("android") version("1.8.0") apply false
     id("com.android.application") version("7.4.2") apply false
     id("com.android.library") version("7.4.2") apply false
-    id("org.jetbrains.compose") version "1.6.10" apply false
     id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
     id("com.google.dagger.hilt.android") version ("2.51.1") apply false
