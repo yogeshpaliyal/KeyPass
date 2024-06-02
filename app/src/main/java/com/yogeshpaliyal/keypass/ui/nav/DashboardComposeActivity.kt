@@ -24,6 +24,7 @@ import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.ui.about.AboutScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
 import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
@@ -37,6 +38,7 @@ import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
@@ -168,6 +170,7 @@ fun CurrentPage() {
             }
 
             is BackupImporterState -> BackupImporter(state = it)
+            is AboutState -> AboutScreen()
             is PasswordGeneratorState -> GeneratePasswordScreen()
         }
     }

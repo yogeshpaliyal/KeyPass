@@ -61,6 +61,17 @@ fun Context.sendSMS(chooserTitle: String, number: String, text: String = ""): Bo
     }
 }
 
+fun Context.openLink(link: String): Boolean {
+    try {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("$link?utm_source=KeyPass&utm_medium=app&utm_campaign=KeyPass"))
+        startActivity(intent)
+        return true
+    } catch (e: Exception) {
+        e.printStackTrace()
+        return false
+    }
+}
+
 fun Context.share(chooserTitle: String, text: String): Boolean {
     try {
         val intent = Intent(Intent.ACTION_SEND)

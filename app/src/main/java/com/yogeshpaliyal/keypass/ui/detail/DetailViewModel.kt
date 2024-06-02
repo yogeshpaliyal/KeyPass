@@ -40,7 +40,11 @@ class DetailViewModel @Inject constructor(
 
     fun loadAccount(id: Long?) {
         viewModelScope.launch(Dispatchers.IO) {
-            _accountModel.emit(appDb.getDao().getAccount(id) ?: AccountModel())
+            if (id == null) {
+                _accountModel.emit(AccountModel())
+            } else {
+                _accountModel.emit(appDb.getDao().getAccount(id) ?: AccountModel())
+            }
         }
     }
 

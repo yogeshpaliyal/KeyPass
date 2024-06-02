@@ -35,11 +35,11 @@ android {
 
 dependencies {
 
-    api("androidx.core:core-ktx:1.10.1")
-    api("androidx.appcompat:appcompat:1.6.1")
+    api("androidx.core:core-ktx:1.13.1")
+    api("androidx.appcompat:appcompat:1.7.0")
 
     // apache common codec
-    implementation("commons-codec:commons-codec:1.16.1")
+    implementation("commons-codec:commons-codec:1.17.0")
 
     //Androidx Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
@@ -59,13 +59,13 @@ dependencies {
 
     api("androidx.work:work-runtime-ktx:2.8.1")
 
-    api("com.google.android.material:material:1.9.0")
+    api("com.google.android.material:material:1.12.0")
 
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.code.gson:gson:2.11.0")
 
-    api("com.google.code.gson:gson:2.10.1")
+    api("com.google.code.gson:gson:2.11.0")
 
-    api("androidx.datastore:datastore-preferences:1.0.0")
+    api("androidx.datastore:datastore-preferences:1.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     // Test

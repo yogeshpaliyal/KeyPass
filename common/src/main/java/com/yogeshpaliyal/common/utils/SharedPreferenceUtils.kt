@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.yogeshpaliyal.common.data.DEFAULT_PASSWORD_LENGTH
+import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.common.data.UserSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -32,6 +33,12 @@ private fun Context.getUserSettingsDataStore(): DataStore<UserSettings> {
     return res
 }
 
+suspend fun Context.setPasswordConfig(passwordConfig: PasswordConfig) {
+    getUserSettingsDataStore().updateData {
+        it.copy(passwordConfig = passwordConfig)
+    }
+}
+
 suspend fun Context.getUserSettings(): UserSettings {
     return getUserSettingsDataStore().data.firstOrNull() ?: UserSettings()
 }
@@ -52,7 +59,7 @@ suspend fun Context.setKeyPassPassword(password: String?) {
 
 suspend fun Context.setDefaultPasswordLength(password: Float) {
     getUserSettingsDataStore().updateData {
-        it.copy(defaultPasswordLength = password)
+        it.copy(passwordConfig = it.passwordConfig.copy(length = password))
     }
 }
 
@@ -157,6 +164,10 @@ suspend fun Context.migrateOldDataToNewerDataStore() {
 
     if (olderData.contains(KEYPASS_PASSWORD_LENGTH)) {
         userSettings = userSettings.copy(defaultPasswordLength = olderData[KEYPASS_PASSWORD_LENGTH] ?: DEFAULT_PASSWORD_LENGTH)
+    }
+
+    if (userSettings.defaultPasswordLength != DEFAULT_PASSWORD_LENGTH) {
+        userSettings = userSettings.copy(passwordConfig = userSettings.passwordConfig.copy(length = userSettings.defaultPasswordLength))
     }
 
     if (olderData.contains(BACKUP_DIRECTORY)) {

@@ -29,7 +29,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.constants.ScannerType
-import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.ui.detail.components.BottomBar
 import com.yogeshpaliyal.keypass.ui.detail.components.Fields
@@ -67,9 +66,7 @@ fun AccountDetailPage(
 
     // Set initial object
     LaunchedEffect(key1 = id) {
-        if (id != null) {
-            viewModel.loadAccount(id)
-        }
+        viewModel.loadAccount(id)
     }
 
     val goBack: () -> Unit = {

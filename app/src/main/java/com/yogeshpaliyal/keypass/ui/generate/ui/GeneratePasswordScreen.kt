@@ -8,19 +8,21 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordViewModel
 import com.yogeshpaliyal.keypass.ui.generate.ui.utils.copyTextToClipboard
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 
 @Composable
 fun GeneratePasswordScreen(viewModel: GeneratePasswordViewModel = hiltViewModel()) {
     val context = LocalContext.current
 
-    // replace collectAsState() with collectAsStateWithLifecycle() when compose version and kotlin version are bumped up.
-    val viewState by viewModel.viewState.collectAsState()
+    val viewState by viewModel.viewState.collectAsStateWithLifecycle()
 
-    LaunchedEffect(key1 = Unit) {
-        viewModel.generatePassword()
+    LaunchedEffect(Unit) {
+        viewModel.retrieveSavedPasswordConfig(context)
     }
 
     GeneratePasswordContent(

@@ -30,6 +30,7 @@ import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.KeyPassInputField
 import com.yogeshpaliyal.keypass.ui.commonComponents.PasswordTrailingIcon
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 
 @Composable
 fun Fields(
@@ -39,6 +40,9 @@ fun Fields(
     copyToClipboardClicked: (String) -> Unit,
     scanClicked: (scannerType: Int) -> Unit
 ) {
+
+    val passwordConfig = LocalUserSettings.current.passwordConfig
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -90,7 +94,7 @@ fun Fields(
                     {
                         IconButton(
                             onClick = {
-                                updateAccountModel(accountModel.copy(password = PasswordGenerator().generatePassword()))
+                                updateAccountModel(accountModel.copy(password = PasswordGenerator(passwordConfig).generatePassword()))
                             }
                         ) {
                             Icon(

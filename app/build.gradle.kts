@@ -6,6 +6,7 @@ plugins {
     id("com.spotify.ruler")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 val appPackageId = "com.yogeshpaliyal.keypass"
@@ -72,9 +73,6 @@ android {
 
 
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.4"
-    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -93,6 +91,7 @@ android {
 
     lint{
         disable += "MissingTranslation"
+        abortOnError = true
     }
 
 }
@@ -136,7 +135,7 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.2.1")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
 
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
 
     // XML Libraries
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
@@ -159,12 +158,12 @@ dependencies {
 
 
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.51")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.51.1")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     // For Robolectric tests.
-    testImplementation("com.google.dagger:hilt-android-testing:2.51")
+    testImplementation("com.google.dagger:hilt-android-testing:2.51.1")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 

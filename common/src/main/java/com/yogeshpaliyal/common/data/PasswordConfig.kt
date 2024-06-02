@@ -1,10 +1,11 @@
-package com.yogeshpaliyal.keypass.ui.generate
+package com.yogeshpaliyal.common.data
 
 import androidx.annotation.Keep
-import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
+import kotlinx.serialization.Serializable
 
 @Keep
-data class GeneratePasswordViewState(
+@Serializable
+data class PasswordConfig(
     val length: Float,
     val includeUppercaseLetters: Boolean,
     val includeLowercaseLetters: Boolean,
@@ -14,7 +15,7 @@ data class GeneratePasswordViewState(
     val password: String
 ) {
     companion object {
-        val Initial = GeneratePasswordViewState(
+        val Initial = PasswordConfig(
             length = DEFAULT_PASSWORD_LENGTH,
             includeUppercaseLetters = true,
             includeLowercaseLetters = true,
