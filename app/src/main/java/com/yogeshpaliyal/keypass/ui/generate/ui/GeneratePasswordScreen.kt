@@ -4,16 +4,13 @@ import android.content.Context
 import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordViewModel
 import com.yogeshpaliyal.keypass.ui.generate.ui.utils.copyTextToClipboard
-import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 
 @Composable
 fun GeneratePasswordScreen(viewModel: GeneratePasswordViewModel = hiltViewModel()) {

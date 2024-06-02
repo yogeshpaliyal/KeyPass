@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.common.utils.getUserSettings
-import com.yogeshpaliyal.common.utils.setDefaultPasswordLength
 import com.yogeshpaliyal.common.utils.setPasswordConfig
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext

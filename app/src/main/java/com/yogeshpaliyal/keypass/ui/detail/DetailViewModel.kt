@@ -3,8 +3,6 @@ package com.yogeshpaliyal.keypass.ui.detail
 import android.app.Application
 import android.graphics.Bitmap
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.zxing.BarcodeFormat

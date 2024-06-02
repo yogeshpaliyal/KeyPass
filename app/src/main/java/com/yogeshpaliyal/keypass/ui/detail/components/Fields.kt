@@ -40,7 +40,6 @@ fun Fields(
     copyToClipboardClicked: (String) -> Unit,
     scanClicked: (scannerType: Int) -> Unit
 ) {
-
     val passwordConfig = LocalUserSettings.current.passwordConfig
 
     Column(

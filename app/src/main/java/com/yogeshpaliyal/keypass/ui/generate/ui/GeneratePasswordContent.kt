@@ -24,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.yogeshpaliyal.common.data.PasswordConfig
-import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordViewState
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.CheckboxWithLabel
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.PasswordLengthInput
 
