@@ -1,6 +1,9 @@
 package com.yogeshpaliyal.keypass.ui.generate
 
 import android.content.Context
+import android.util.Log
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.PasswordConfig
@@ -39,6 +42,7 @@ class GeneratePasswordViewModel @Inject constructor(
         }
     }
 
+
     fun generatePassword() {
         val currentViewState = _viewState.value
 
@@ -49,6 +53,36 @@ class GeneratePasswordViewModel @Inject constructor(
         _viewState.update {
             val newPassword = passwordGenerator.generatePassword()
             it.copy(password = newPassword)
+        }
+    }
+
+    fun selectSymbolForPassword(symbol: Char){
+        val tempList = _viewState.value.listOfSymbols.toMutableList()
+        if(tempList.size == PasswordGenerator.totalSymbol.size && tempList.contains(symbol)){
+            tempList.clear()
+        }
+        if(symbol == 's'){
+            _viewState.update {
+                it.copy(
+                    listOfSymbols = PasswordGenerator.totalSymbol
+                )
+            }
+            return
+        }
+        if(tempList.contains(symbol)){
+            tempList.remove(symbol)
+            _viewState.update {
+                it.copy(
+                    listOfSymbols = tempList.toList()
+                )
+            }
+        }else{
+            tempList.add(symbol)
+            _viewState.update {
+                it.copy(
+                    listOfSymbols = tempList.toList()
+                )
+            }
         }
     }
 

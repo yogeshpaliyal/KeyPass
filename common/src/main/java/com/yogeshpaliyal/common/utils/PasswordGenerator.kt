@@ -11,6 +11,10 @@ class PasswordGenerator(
     private val SYMBOLS = 3
     private val BLANKSPACES = 4
 
+    companion object{
+        val totalSymbol = listOf('!', '@', '#', '$', '%', '&', '*', '+', '=', '-', '~', '?', '/', '_')
+    }
+
     fun generatePassword(): String {
         var password = ""
         val list = ArrayList<Int>()
@@ -37,7 +41,7 @@ class PasswordGenerator(
                     UPPER_CASE -> password += ('A'..'Z').random().toString()
                     LOWER_CASE -> password += ('a'..'z').random().toString()
                     NUMBERS -> password += ('0'..'9').random().toString()
-                    SYMBOLS -> password += listOf('!', '@', '#', '$', '%', '&', '*', '+', '=', '-', '~', '?', '/', '_').random().toString()
+                    SYMBOLS -> password += passwordConfig.listOfSymbols.random().toString()
                     BLANKSPACES -> password += (' ').toString()
                 }
             }
