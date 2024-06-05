@@ -71,6 +71,10 @@ class GeneratePasswordViewModel @Inject constructor(
         }
         if(tempList.contains(symbol)){
             tempList.remove(symbol)
+            if(tempList.isEmpty()){
+                selectSymbolForPassword('s')
+                return
+            }
             _viewState.update {
                 it.copy(
                     listOfSymbols = tempList.toList()
