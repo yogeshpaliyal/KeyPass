@@ -31,6 +31,7 @@ fun GeneratePasswordScreen(viewModel: GeneratePasswordViewModel = hiltViewModel(
         onLowercaseCheckedChange = viewModel::onLowercaseCheckedChange,
         onNumbersCheckedChange = viewModel::onNumbersCheckedChange,
         onSymbolsCheckedChange = viewModel::onSymbolsCheckedChange,
+        selectSymbolForPassword = viewModel::selectSymbolForPassword,
         onBlankSpacesCheckedChange = viewModel::onBlankSpacesCheckedChange
     )
 }

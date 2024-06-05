@@ -52,6 +52,38 @@ class GeneratePasswordViewModel @Inject constructor(
         }
     }
 
+    fun selectSymbolForPassword(symbol: Char) {
+        val tempList = _viewState.value.listOfSymbols.toMutableList()
+
+        if (tempList.size == PasswordGenerator.totalSymbol.size && tempList.contains(symbol)) {
+            tempList.clear()
+        }
+        if (symbol == 's') {
+            _viewState.update {
+                it.copy(
+                    listOfSymbols = PasswordGenerator.totalSymbol
+                )
+            }
+            return
+        }
+        if (tempList.contains(symbol)) {
+            tempList.remove(symbol)
+
+            if (tempList.isEmpty()) {
+                selectSymbolForPassword('s')
+                return
+            }
+        } else {
+            tempList.add(symbol)
+        }
+
+        _viewState.update {
+            it.copy(
+                listOfSymbols = tempList.toList()
+            )
+        }
+    }
+
     fun onPasswordLengthSliderChange(value: Float) {
         _viewState.update {
             it.copy(length = value)

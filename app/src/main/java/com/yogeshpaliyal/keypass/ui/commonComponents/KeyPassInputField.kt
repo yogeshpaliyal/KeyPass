@@ -26,7 +26,7 @@ fun KeyPassInputField(
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    copyToClipboardClicked: ((String) -> Unit) ? = null
+    copyToClipboardClicked: ((String) -> Unit)? = null
 ) {
     OutlinedTextField(
         modifier = modifier.fillMaxWidth(),

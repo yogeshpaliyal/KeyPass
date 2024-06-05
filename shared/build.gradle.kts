@@ -39,7 +39,6 @@ kotlin {
         }
         val desktopMain by getting {
             dependencies {
-
             }
         }
         val desktopTest by getting

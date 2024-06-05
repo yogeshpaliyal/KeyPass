@@ -89,20 +89,22 @@ fun Fields(
                 },
                 leadingIcon = if (accountModel.id != null) {
                     null
-                } else (
-                    {
-                        IconButton(
-                            onClick = {
-                                updateAccountModel(accountModel.copy(password = PasswordGenerator(passwordConfig).generatePassword()))
+                } else {
+                    (
+                        {
+                            IconButton(
+                                onClick = {
+                                    updateAccountModel(accountModel.copy(password = PasswordGenerator(passwordConfig).generatePassword()))
+                                }
+                            ) {
+                                Icon(
+                                    painter = rememberVectorPainter(image = Icons.Rounded.Refresh),
+                                    contentDescription = ""
+                                )
                             }
-                        ) {
-                            Icon(
-                                painter = rememberVectorPainter(image = Icons.Rounded.Refresh),
-                                contentDescription = ""
-                            )
                         }
-                    }
-                    ),
+                        )
+                },
                 visualTransformation = visualTransformation,
                 copyToClipboardClicked = copyToClipboardClicked
             )

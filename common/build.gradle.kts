@@ -41,7 +41,7 @@ dependencies {
     // apache common codec
     implementation("commons-codec:commons-codec:1.17.0")
 
-    //Androidx Security
+    // Androidx Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
     api("androidx.documentfile:documentfile:1.0.1")
@@ -76,6 +76,4 @@ dependencies {
     implementation("androidx.sqlite:sqlite:2.3.1")
 
     api("com.opencsv:opencsv:5.8")
-
-
 }
