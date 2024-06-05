@@ -172,7 +172,6 @@ private fun LowercaseAlphabetInput(
     )
 }
 
-
 @Composable
 private fun NumberInput(
     includeNumbers: Boolean,
@@ -199,7 +198,7 @@ private fun SymbolInput(
             checked = includeSymbols,
             onCheckedChange = onSymbolsCheckedChange
         )
-        if(includeSymbols){
+        if (includeSymbols) {
             FlowRow(modifier = Modifier.fillMaxWidth()) {
                 OutlinedCard(
                     onClick = {
@@ -207,24 +206,26 @@ private fun SymbolInput(
                     },
                     shape = RoundedCornerShape(8.dp),
                     colors = CardDefaults.outlinedCardColors(
-                        containerColor = if(selectedSymbols.size == PasswordGenerator.totalSymbol.size) MaterialTheme.colorScheme.primary else Color.Unspecified
+                        containerColor = if (selectedSymbols.size == PasswordGenerator.totalSymbol.size) MaterialTheme.colorScheme.primary else Color.Unspecified
                     )
                 ) {
-                    Text(text = "All",
+                    Text(
+                        text = "All",
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
                     )
                 }
-                PasswordGenerator.totalSymbol.forEach {symbol ->
+                PasswordGenerator.totalSymbol.forEach { symbol ->
                     OutlinedCard(
                         onClick = {
                             selectSymbolForPassword(symbol)
                         },
                         shape = RoundedCornerShape(8.dp),
                         colors = CardDefaults.outlinedCardColors(
-                            if(symbol in selectedSymbols && selectedSymbols.size != PasswordGenerator.totalSymbol.size) MaterialTheme.colorScheme.primary else Color.Unspecified
+                            if (symbol in selectedSymbols && selectedSymbols.size != PasswordGenerator.totalSymbol.size) MaterialTheme.colorScheme.primary else Color.Unspecified
                         )
                     ) {
-                        Text(text = "$symbol",
+                        Text(
+                            text = "$symbol",
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
                         )
                     }

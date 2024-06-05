@@ -41,12 +41,11 @@ android {
             applicationIdSuffix = ".staging"
             signingConfig = signingConfigs.getByName("debug")
         }
-
     }
 
     productFlavors {
         create("free") {
-            isDefault=true
+            isDefault = true
         }
         create("pro") {
             applicationIdSuffix = ".pro"
@@ -61,7 +60,7 @@ android {
         jvmTarget = "17"
 
         freeCompilerArgs = listOf(
-            "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+            "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api",
         )
     }
     buildFeatures {
@@ -70,8 +69,6 @@ android {
     }
 
     flavorDimensions("default")
-
-
 
     packagingOptions {
         resources {
@@ -89,11 +86,10 @@ android {
         }
     }
 
-    lint{
+    lint {
         disable += "MissingTranslation"
         abortOnError = true
     }
-
 }
 
 ruler {
@@ -103,10 +99,9 @@ ruler {
     sdkVersion.set(27)
 }
 
-
 dependencies {
 
-    //api(project(":shared"))
+    // api(project(":shared"))
     api(project(":common"))
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -151,11 +146,9 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
-
     // zxing library
     // implementation "com.googl.ezxing:android-core:3.4.1"
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
-
 
     // For instrumented tests.
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.51.1")
@@ -171,6 +164,4 @@ dependencies {
     implementation("me.saket.cascade:cascade-compose:2.2.0")
 
     implementation("androidx.biometric:biometric:1.1.0")
-
 }
-

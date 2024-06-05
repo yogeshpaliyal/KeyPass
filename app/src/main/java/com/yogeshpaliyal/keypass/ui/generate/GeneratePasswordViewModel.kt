@@ -73,7 +73,7 @@ class GeneratePasswordViewModel @Inject constructor(
                 selectSymbolForPassword('s')
                 return
             }
-        }else {
+        } else {
             tempList.add(symbol)
         }
 

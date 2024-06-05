@@ -18,7 +18,6 @@ fun GeneratePasswordScreen(viewModel: GeneratePasswordViewModel = hiltViewModel(
 
     val viewState by viewModel.viewState.collectAsStateWithLifecycle()
 
-
     LaunchedEffect(Unit) {
         viewModel.retrieveSavedPasswordConfig(context)
     }
