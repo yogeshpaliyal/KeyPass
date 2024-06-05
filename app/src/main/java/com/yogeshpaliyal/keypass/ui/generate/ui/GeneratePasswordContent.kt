@@ -12,7 +12,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -23,14 +22,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
-import com.google.android.material.color.MaterialColors
 import com.yogeshpaliyal.common.data.PasswordConfig
 import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.CheckboxWithLabel
@@ -176,7 +172,7 @@ private fun LowercaseAlphabetInput(
     )
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+
 @Composable
 private fun NumberInput(
     includeNumbers: Boolean,
@@ -202,38 +198,40 @@ private fun SymbolInput(
             label = "Symbols",
             checked = includeSymbols,
             onCheckedChange = onSymbolsCheckedChange
-
         )
         if(includeSymbols){
             FlowRow(modifier = Modifier.fillMaxWidth()) {
-                OutlinedCard(onClick = {
-                                       selectSymbolForPassword('s')
-                },
+                OutlinedCard(
+                    onClick = {
+                        selectSymbolForPassword('s')
+                    },
                     shape = RoundedCornerShape(8.dp),
                     colors = CardDefaults.outlinedCardColors(
                         containerColor = if(selectedSymbols.size == PasswordGenerator.totalSymbol.size) MaterialTheme.colorScheme.primary else Color.Unspecified
                     )
                 ) {
                     Text(text = "All",
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                    )
                 }
                 PasswordGenerator.totalSymbol.forEach {symbol ->
-                    OutlinedCard(onClick = {
+                    OutlinedCard(
+                        onClick = {
                             selectSymbolForPassword(symbol)
                         },
                         shape = RoundedCornerShape(8.dp),
                         colors = CardDefaults.outlinedCardColors(
                             if(symbol in selectedSymbols && selectedSymbols.size != PasswordGenerator.totalSymbol.size) MaterialTheme.colorScheme.primary else Color.Unspecified
-                        )) {
+                        )
+                    ) {
                         Text(text = "$symbol",
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                        )
                     }
                 }
             }
         }
-
     }
-
 }
 
 @Composable
