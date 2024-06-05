@@ -11,7 +11,7 @@ class PasswordGenerator(
     private val SYMBOLS = 3
     private val BLANKSPACES = 4
 
-    companion object{
+    companion object {
         val totalSymbol = listOf('!', '@', '#', '$', '%', '&', '*', '+', '=', '-', '~', '?', '/', '_')
     }
 
