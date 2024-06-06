@@ -26,7 +26,7 @@
     <string name="password_set_from_settings">Por favor, defina a senha para o seu dispositivo primeiro nas configurações do telefone</string>
     <string name="authentication_failed">Falha na autenticação</string>
     <string name="last_backup_date">Último backup: %s</string>
-    <string name="delete_account_title">Tem certeza\?</string>
+    <string name="delete_account_title">Tem certeza?</string>
     <string name="delete_account_msg">Você realmente deseja apagar esses dados\? Não será possível restaurá-los</string>
     <string name="cancel">Cancelar</string>
     <string name="feedback_to_keypass">Feedback para o KeyPass</string>
@@ -39,7 +39,7 @@
     <string name="yes">Sim</string>
     <string name="create_backup">Criar backup</string>
     <string name="alert">Alerta</string>
-    <string name="copy_keypharse_msg">Copie essa senha. Ela será usada para restaurar esse backup. O KeyPass não irá exibi-la novamente. Você copiou ou guardou sua senha\?</string>
+    <string name="copy_keypharse_msg">Copie essa senha. Ela será usada para restaurar esse backup. O KeyPass não irá exibi-la novamente. Você copiou ou guardou sua senha?</string>
     <string name="help">Ajuda</string>
     <string name="security">Segurança</string>
     <string name="account_name">Nome da conta</string>
@@ -63,7 +63,7 @@
     <string name="enter_keyphrase">Digite a frase-chave</string>
     <string name="restore">Restaurar</string>
     <string name="keyphrase_restore_info">Insira a frase-chave que você obteve ao fazer backup</string>
-    <string name="custom_generated_keyphrase_info">Deseja criar sua própria frase-chave para backups ou devo gerar para você\?</string>
+    <string name="custom_generated_keyphrase_info">Deseja criar sua própria frase-chave para backups ou devo gerar para você?</string>
     <string name="ascending">Ascendente</string>
     <string name="descending">descendente</string>
     <string name="str_continue">Continuar</string>
