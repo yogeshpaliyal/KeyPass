@@ -87,4 +87,5 @@
     <string name="secret_key">இரகசிய விசை</string>
     <string name="keypass_backup">KeyPass காப்புப்பிரதி</string>
     <string name="google_backup">Google காப்புப்பிரதி</string>
+    <string name="generate_qr_code"></string>
 </resources>
