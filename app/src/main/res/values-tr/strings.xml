@@ -89,4 +89,14 @@
     <string name="keypass_backup">KeyPass Yedekleme</string>
     <string name="google_backup">Google Yedekleme</string>
     <string name="generate_qr_code">İhracat İhracatı</string>
+    <string name="about_us">Hakkımızda</string>
+    <string name="about_us_desc">Hakkında</string>
+    <string name="app_developer">Geliştirici</string>
+    <string name="keepass_backup">KeePass Backup</string>
+    <string name="keepass_backup_desc">KeePass CSV dosyasını ithal etmek için seçin</string>
+    <string name="app_desc">Açık kaynak ve çevrimdışı şifre yöneticisi. Mağaza, yönetmek, güvenli bir şekilde kontrol edin.</string>
+    <string name="app_developer_x">X (muhtemelen Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Kaynak Kodu</string>
+    <string name="app_developer_github">Github</string>
 </resources>
