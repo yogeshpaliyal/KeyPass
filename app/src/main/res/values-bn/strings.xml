@@ -87,4 +87,5 @@
     <string name="secret_key">গোপন চাবি</string>
     <string name="keypass_backup">KeyPass ব্যাকআপ</string>
     <string name="google_backup">Google ব্যাকআপ</string>
+    <string name="keepass_backup">KeyPass ব্যাকআপ</string>
 </resources>
