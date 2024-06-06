@@ -88,4 +88,14 @@
     <string name="keypass_backup">Backup KeyPass</string>
     <string name="google_backup">Google Backup</string>
     <string name="generate_qr_code">Esportazione</string>
+    <string name="app_desc">Open-source &amp; offline password manager. Conservare, gestire, prendere il controllo in modo sicuro.</string>
+    <string name="app_developer">Sviluppatore</string>
+    <string name="app_developer_x">X (precedentemente Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="about_us">Informazioni su di noi</string>
+    <string name="about_us_desc">Su di noi Desc</string>
+    <string name="source_code">Codice sorgente</string>
+    <string name="app_developer_github">Github</string>
+    <string name="keepass_backup">KeePass Backup</string>
+    <string name="keepass_backup_desc">Scegliere il file KeePass CSV per importare</string>
 </resources>
