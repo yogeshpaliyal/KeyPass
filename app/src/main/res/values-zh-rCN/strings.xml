@@ -89,4 +89,14 @@
     <string name="keypass_backup">B. 重要项目</string>
     <string name="google_backup">谷歌 Backup</string>
     <string name="generate_qr_code">出口</string>
+    <string name="about_us">大约100 000</string>
+    <string name="keepass_backup">KeePas Backup</string>
+    <string name="keepass_backup_desc">Choose KeePass CSV文档</string>
+    <string name="app_desc">开放源码和密码管理员。 储存、管理、控制.</string>
+    <string name="about_us_desc">问 题</string>
+    <string name="app_developer">投 蓬</string>
+    <string name="app_developer_x">X(原为Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">资料来源:《刑法》</string>
+    <string name="app_developer_github">Github</string>
 </resources>
