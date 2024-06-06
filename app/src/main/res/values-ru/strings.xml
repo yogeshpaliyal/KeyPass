@@ -89,4 +89,14 @@
     <string name="keypass_backup">KeyPass Backup</string>
     <string name="google_backup">Google Backup</string>
     <string name="generate_qr_code">Экспорт</string>
+    <string name="about_us">О нас</string>
+    <string name="about_us_desc">О нас Деск</string>
+    <string name="app_developer">Разработчик</string>
+    <string name="app_developer_x">X (ранее Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Код источника</string>
+    <string name="app_developer_github">Github</string>
+    <string name="app_desc">Open-source и оффлайн менеджер паролей. Хранить, управлять, надежно контролировать.</string>
+    <string name="keepass_backup">KeePass</string>
+    <string name="keepass_backup_desc">Выберите файл KeePass CSV для импорта</string>
 </resources>
