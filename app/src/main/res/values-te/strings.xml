@@ -21,7 +21,7 @@
     <string name="copied_to_clipboard">క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది</string>
     <string name="login_to_enter_keypass">కీపాస్‌ని నమోదు చేయడానికి లాగిన్ చేయండి</string>
     <string name="last_backup_date">చివరి బ్యాకప్ : %s</string>
-    <string name="delete_account_title">మీరు చెప్పేది నిజమా\?</string>
+    <string name="delete_account_title">మీరు చెప్పేది నిజమా?</string>
     <string name="delete_account_msg">మీరు నిజంగా ఈ ఎంట్రీని తొలగించాలనుకుంటున్నారా, ఇది పునరుద్ధరించబడదు</string>
     <string name="cancel">రద్దు చేయండి</string>
     <string name="feedback_to_keypass">కీపాస్‌కి అభిప్రాయం</string>
@@ -34,7 +34,7 @@
     <string name="yes">అవును</string>
     <string name="create_backup">బ్యాకప్ సృష్టించండి</string>
     <string name="alert">హెచ్చరిక</string>
-    <string name="copy_keypharse_msg">ఈ కీ పదబంధాన్ని కాపీ చేయండి, ఈ బ్యాకప్‌ని పునరుద్ధరించడానికి ఇది ఉపయోగించబడుతుంది, ఇది మళ్లీ కీపాస్ ద్వారా అందించబడదు, మీరు కాపీ చేసారా లేదా వ్రాసారా\?</string>
+    <string name="copy_keypharse_msg">ఈ కీ పదబంధాన్ని కాపీ చేయండి, ఈ బ్యాకప్‌ని పునరుద్ధరించడానికి ఇది ఉపయోగించబడుతుంది, ఇది మళ్లీ కీపాస్ ద్వారా అందించబడదు, మీరు కాపీ చేసారా లేదా వ్రాసారా?</string>
     <string name="help">సహాయం</string>
     <string name="security">భద్రత</string>
     <string name="account_name">ఖాతా పేరు</string>
@@ -56,7 +56,7 @@
     <string name="enter_keyphrase">కీఫ్రేజ్‌ని నమోదు చేయండి</string>
     <string name="restore">పునరుద్ధరించు</string>
     <string name="keyphrase_restore_info">దయచేసి మీరు బ్యాకప్ చేసినప్పుడు మీరు పొందే కీఫ్రేజ్‌ని నమోదు చేయండి</string>
-    <string name="custom_generated_keyphrase_info">మీరు బ్యాకప్‌ల కోసం మీ స్వంత కీఫ్రేజ్‌ని సృష్టించాలనుకుంటున్నారా లేదా నేను మీ కోసం రూపొందించాలా\?</string>
+    <string name="custom_generated_keyphrase_info">మీరు బ్యాకప్‌ల కోసం మీ స్వంత కీఫ్రేజ్‌ని సృష్టించాలనుకుంటున్నారా లేదా నేను మీ కోసం రూపొందించాలా?</string>
     <string name="ascending">ఆరోహణ</string>
     <string name="descending">అవరోహణ</string>
     <string name="str_continue">కొనసాగించు</string>
@@ -87,4 +87,5 @@
     <string name="secret_key">రహస్య కీ</string>
     <string name="keypass_backup">KeyPass బ్యాకప్</string>
     <string name="google_backup">Google బ్యాకప్</string>
+    <string name="generate_qr_code"></string>
 </resources>
