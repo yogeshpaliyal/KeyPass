@@ -24,13 +24,13 @@
     <string name="copied_to_clipboard">Copiado al portapapeles</string>
     <string name="login_to_enter_keypass">Inicie sesión para ingresar a KeyPass</string>
     <string name="last_backup_date">Última copia de seguridad: %s</string>
-    <string name="delete_account_title">¿Estás seguro\?</string>
+    <string name="delete_account_title">¿Estás seguro?</string>
     <string name="delete_account_msg">¿Realmente desea eliminar esta entrada, no se puede restaurar</string>
     <string name="share_keypass">Compartir KeyPass</string>
     <string name="message_no_accounts">No se encontraron cuentas, agregue desde el botón de abajo</string>
     <string name="turn_off_backup">Desactivar copias de seguridad</string>
     <string name="backup_desc">Las copias de seguridad se cifran con una frase de contraseña y se almacenan en su dispositivo</string>
-    <string name="copy_keypharse_msg">Copiar esta frase clave esto se utilizará para recuperar esta copia de seguridad, esto no será proporcionado por KeyPass de nuevo, ¿ha copiado o escrito\?</string>
+    <string name="copy_keypharse_msg">Copiar esta frase clave esto se utilizará para recuperar esta copia de seguridad, esto no será proporcionado por KeyPass de nuevo, ¿ha copiado o escrito?</string>
     <string name="security">Seguridad</string>
     <string name="tags_comma_separated_optional">Etiquetas separadas por comas (opcional)</string>
     <string name="alert_black_secret_key">Por favor, introduzca la clave secreta</string>
@@ -53,7 +53,7 @@
     <string name="custom_keyphrase">Frase clave personalizada</string>
     <string name="set_keyphrase">Establecer frase clave</string>
     <string name="keyphrase_restore_info">Ingrese la frase clave que obtiene cuando realizó la copia de seguridad</string>
-    <string name="custom_generated_keyphrase_info">¿Desea crear su propia frase clave para copias de seguridad o debo generar para usted\?</string>
+    <string name="custom_generated_keyphrase_info">¿Desea crear su propia frase clave para copias de seguridad o debo generar para usted?</string>
     <string name="back">Atrás</string>
     <string name="create_password">Crear contraseña</string>
     <string name="confirm_password">Confirmar contraseña</string>

@@ -19,9 +19,9 @@
     <string name="last_backup_date">Letzte Sicherung: %s</string>
     <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
     <string name="login_to_enter_keypass">Melden Sie sich an, um KeyPass zu betreten</string>
-    <string name="delete_account_title">Bist du dir sicher\?</string>
+    <string name="delete_account_title">Bist du dir sicher?</string>
     <string name="alert_black_secret_key">Bitte geben Sie den geheimen Schlüssel ein</string>
-    <string name="delete_account_msg">Möchten Sie diesen Eintrag wirklich löschen\? Er kann nicht wiederhergestellt werden</string>
+    <string name="delete_account_msg">Möchten Sie diesen Eintrag wirklich löschen? Er kann nicht wiederhergestellt werden</string>
     <string name="cancel">Stornieren</string>
     <string name="feedback_to_keypass">Feedback zu KeyPass</string>
     <string name="share_keypass">Teilen Sie KeyPass</string>
@@ -33,7 +33,7 @@
     <string name="yes">Ja</string>
     <string name="create_backup">Ein Backup erstellen</string>
     <string name="alert">Alarm</string>
-    <string name="copy_keypharse_msg">Kopieren Sie diesen Schlüsselsatz. Dieser wird zur Wiederherstellung dieses Backups verwendet. Dieser wird nicht von KeyPass bereitgestellt. Haben Sie ihn noch einmal kopiert oder aufgeschrieben\?</string>
+    <string name="copy_keypharse_msg">Kopieren Sie diesen Schlüsselsatz. Dieser wird zur Wiederherstellung dieses Backups verwendet. Dieser wird nicht von KeyPass bereitgestellt. Haben Sie ihn noch einmal kopiert oder aufgeschrieben?</string>
     <string name="help">Hilfe</string>
     <string name="security">Sicherheit</string>
     <string name="account_name">Kontobezeichnung</string>
@@ -57,7 +57,7 @@
     <string name="authentication_failed">Authentifizierung fehlgeschlagen</string>
     <string name="authentication_error">Authentifizierungsfehler %s</string>
     <string name="scan_password">Passwort scannen</string>
-    <string name="custom_generated_keyphrase_info">Möchten Sie Ihre eigene Schlüsselphrase für Backups erstellen oder soll ich diese für Sie generieren\?</string>
+    <string name="custom_generated_keyphrase_info">Möchten Sie Ihre eigene Schlüsselphrase für Backups erstellen oder soll ich diese für Sie generieren?</string>
     <string name="enter_keyphrase">Schlüsselwort eingeben</string>
     <string name="back">Zurück</string>
     <string name="enabled">Ermöglicht</string>

@@ -39,7 +39,7 @@
     <string name="yes">确定</string>
     <string name="create_backup">创建备份</string>
     <string name="alert">警告</string>
-    <string name="copy_keypharse_msg">请立即复制或在纸上写下下面的密码。KeyPass 将不会再次显示该密码\?</string>
+    <string name="copy_keypharse_msg">请立即复制或在纸上写下下面的密码。KeyPass 将不会再次显示该密码?</string>
     <string name="help">帮助</string>
     <string name="security">安全</string>
     <string name="account_name">账户名称</string>

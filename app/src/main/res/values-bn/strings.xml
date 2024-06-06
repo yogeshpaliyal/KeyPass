@@ -25,7 +25,7 @@
     <string name="copied_to_clipboard">ক্লিপবোর্ডে কপি করা হয়েছে</string>
     <string name="login_to_enter_keypass">কীপাসে প্রবেশ করতে লগইন করুন</string>
     <string name="last_backup_date">শেষ ব্যাকআপ: %s</string>
-    <string name="delete_account_title">তুমি কি নিশ্চিত\?</string>
+    <string name="delete_account_title">তুমি কি নিশ্চিত?</string>
     <string name="delete_account_msg">আপনি কি সত্যিই এই এন্ট্রিটি মুছতে চান, এটি পুনরুদ্ধার করা যাবে না</string>
     <string name="cancel">বাতিল করুন</string>
     <string name="feedback_to_keypass">KeyPass-এ প্রতিক্রিয়া</string>
@@ -36,7 +36,7 @@
     <string name="backup_desc">ব্যাকআপগুলি একটি পাসফ্রেজ দিয়ে এনক্রিপ্ট করা হয় এবং আপনার ডিভাইসে সংরক্ষণ করা হয়</string>
     <string name="create_backup">ব্যাকআপ তৈরি</string>
     <string name="alert">সতর্কতা</string>
-    <string name="copy_keypharse_msg">এই মূল বাক্যাংশটি অনুলিপি করুন এই ব্যাকআপটি পুনরুদ্ধার করতে এটি ব্যবহার করা হবে, এটি আবার কীপাস দ্বারা সরবরাহ করা হবে না, আপনি কি অনুলিপি করেছেন বা লিখে রেখেছেন\?</string>
+    <string name="copy_keypharse_msg">এই মূল বাক্যাংশটি অনুলিপি করুন এই ব্যাকআপটি পুনরুদ্ধার করতে এটি ব্যবহার করা হবে, এটি আবার কীপাস দ্বারা সরবরাহ করা হবে না, আপনি কি অনুলিপি করেছেন বা লিখে রেখেছেন?</string>
     <string name="help">সাহায্য</string>
     <string name="security">নিরাপত্তা</string>
     <string name="account_name">হিসাবের নাম</string>
@@ -56,7 +56,7 @@
     <string name="set_keyphrase_info">অনুগ্রহ করে আপনার ব্যাকআপ ফাইলের জন্য কীফ্রেজ তৈরি করুন, এটি ব্যাকআপ ফাইল পুনরুদ্ধার করতে ব্যবহার করা হবে। মূল বাক্যাংশ 16টি অক্ষরের হওয়া উচিত</string>
     <string name="enter_keyphrase">কীফ্রেজ লিখুন</string>
     <string name="keyphrase_restore_info">আপনি ব্যাক আপ করার সময় আপনি যে কীফ্রেজ পাবেন দয়া করে তা লিখুন</string>
-    <string name="custom_generated_keyphrase_info">আপনি কি ব্যাকআপের জন্য আপনার নিজস্ব কীফ্রেজ তৈরি করতে চান নাকি আমি আপনার জন্য তৈরি করব\?</string>
+    <string name="custom_generated_keyphrase_info">আপনি কি ব্যাকআপের জন্য আপনার নিজস্ব কীফ্রেজ তৈরি করতে চান নাকি আমি আপনার জন্য তৈরি করব?</string>
     <string name="ascending">আরোহী</string>
     <string name="descending">অবরোহী</string>
     <string name="str_continue">চালিয়ে যান</string>

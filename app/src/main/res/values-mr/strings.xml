@@ -24,7 +24,7 @@
     <string name="copied_to_clipboard">क्लिपबोर्डवर कॉपी केले</string>
     <string name="login_to_enter_keypass">कीपास प्रविष्ट करण्यासाठी लॉग इन करा</string>
     <string name="last_backup_date">शेवटचा बॅकअप : %s</string>
-    <string name="delete_account_title">तुला खात्री आहे\?</string>
+    <string name="delete_account_title">तुला खात्री आहे?</string>
     <string name="delete_account_msg">तुम्हाला ही एंट्री खरोखर हटवायची आहे का, ती पुनर्संचयित केली जाऊ शकत नाही</string>
     <string name="cancel">रद्द करा</string>
     <string name="message_no_accounts">कोणतीही खाती आढळली नाहीत, कृपया खालील बटणावरून जोडा</string>
@@ -34,7 +34,7 @@
     <string name="yes">होय</string>
     <string name="create_backup">बॅकअप तयार करा</string>
     <string name="alert">अलर्ट</string>
-    <string name="copy_keypharse_msg">हा मुख्य वाक्यांश कॉपी करा हा बॅकअप पुनर्प्राप्त करण्यासाठी वापरला जाईल, हे पुन्हा कीपासद्वारे प्रदान केले जाणार नाही, तुम्ही कॉपी केले आहे किंवा लिहून ठेवले आहे का\?</string>
+    <string name="copy_keypharse_msg">हा मुख्य वाक्यांश कॉपी करा हा बॅकअप पुनर्प्राप्त करण्यासाठी वापरला जाईल, हे पुन्हा कीपासद्वारे प्रदान केले जाणार नाही, तुम्ही कॉपी केले आहे किंवा लिहून ठेवले आहे का?</string>
     <string name="help">मदत करा</string>
     <string name="security">सुरक्षा</string>
     <string name="account_name">खात्याचे नाव</string>
@@ -57,7 +57,7 @@
     <string name="set_keyphrase_info">कृपया तुमच्या बॅकअप फाइलसाठी मुख्य वाक्यांश तयार करा, हे बॅकअप फाइल पुनर्संचयित करण्यासाठी वापरले जाईल. मुख्य वाक्यांश 16 वर्णांचा असावा</string>
     <string name="enter_keyphrase">मुख्य वाक्यांश प्रविष्ट करा</string>
     <string name="restore">पुनर्संचयित करा</string>
-    <string name="custom_generated_keyphrase_info">तुम्हाला बॅकअपसाठी तुमचा स्वतःचा मुख्य वाक्यांश तयार करायचा आहे की मी तुमच्यासाठी तयार करू\?</string>
+    <string name="custom_generated_keyphrase_info">तुम्हाला बॅकअपसाठी तुमचा स्वतःचा मुख्य वाक्यांश तयार करायचा आहे की मी तुमच्यासाठी तयार करू?</string>
     <string name="ascending">चढत्या</string>
     <string name="descending">उतरत्या</string>
     <string name="str_continue">सुरू</string>

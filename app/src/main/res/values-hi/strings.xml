@@ -26,7 +26,7 @@
     <string name="password_set_from_settings">कृपया फोन सेटिंग से पहले अपने डिवाइस के लिए पासवर्ड सेट करें</string>
     <string name="authentication_failed">प्रमाणीकरण विफल होना</string>
     <string name="last_backup_date">पिछला बैकअप: %s</string>
-    <string name="delete_account_title">क्या आप वाकई ऐसा करना चाहते हैं\?</string>
+    <string name="delete_account_title">क्या आप वाकई ऐसा करना चाहते हैं?</string>
     <string name="delete_account_msg">क्या आप वास्तव में इस प्रविष्टि को हटाना चाहते हैं, इसे बहाल नहीं किया जा सकता</string>
     <string name="cancel">रद्द करें</string>
     <string name="feedback_to_keypass">KeyPass को फ़ीडबैक</string>
@@ -39,7 +39,7 @@
     <string name="yes">हाँ</string>
     <string name="create_backup">बैकअप बनायें</string>
     <string name="alert">चेतावनी</string>
-    <string name="copy_keypharse_msg">इस कुंजी वाक्यांश को कॉपी करें इसका उपयोग इस बैकअप को पुनर्प्राप्त करने के लिए किया जाएगा, यह KeyPass अगेन द्वारा प्रदान नहीं किया जाएगा, क्या आपने कॉपी किया है या लिखा है\?</string>
+    <string name="copy_keypharse_msg">इस कुंजी वाक्यांश को कॉपी करें इसका उपयोग इस बैकअप को पुनर्प्राप्त करने के लिए किया जाएगा, यह KeyPass अगेन द्वारा प्रदान नहीं किया जाएगा, क्या आपने कॉपी किया है या लिखा है?</string>
     <string name="help">मदद</string>
     <string name="security">सुरक्षा</string>
     <string name="account_name">खाता नाम</string>
@@ -63,7 +63,7 @@
     <string name="enter_keyphrase">कीफ़्रेज़ दर्ज करें</string>
     <string name="restore">पुनर्स्थापित करना</string>
     <string name="keyphrase_restore_info">कृपया वह कीफ़्रेज़ दर्ज करें जो आपके द्वारा बैक अप लेने पर प्राप्त होता है</string>
-    <string name="custom_generated_keyphrase_info">क्या आप बैकअप के लिए अपना खुद का कीफ्रेज बनाना चाहते हैं या मुझे आपके लिए जनरेट करना चाहिए\?</string>
+    <string name="custom_generated_keyphrase_info">क्या आप बैकअप के लिए अपना खुद का कीफ्रेज बनाना चाहते हैं या मुझे आपके लिए जनरेट करना चाहिए?</string>
     <string name="ascending">आरोही</string>
     <string name="descending">अवरोही</string>
     <string name="str_continue">जारी रखना</string>
