@@ -88,4 +88,14 @@
     <string name="keypass_backup">KeyPass バックアップ</string>
     <string name="google_backup">Googleバックアップ</string>
     <string name="generate_qr_code">エクスポート</string>
+    <string name="app_desc">オープンソースとオフラインのパスワードマネージャ。 保管、管理、安全に管理します.</string>
+    <string name="about_us">私たちについて</string>
+    <string name="app_developer_x">X(主にTwitter)</string>
+    <string name="app_developer_linkedin">ログイン</string>
+    <string name="keepass_backup">KeePassバックアップ</string>
+    <string name="about_us_desc">デザートについて</string>
+    <string name="app_developer">デベロッパー</string>
+    <string name="source_code">ソースコード</string>
+    <string name="app_developer_github">ギトハブ</string>
+    <string name="keepass_backup_desc">KeePass CSVファイルを選択してインポートします</string>
 </resources>

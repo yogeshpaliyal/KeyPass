@@ -89,4 +89,14 @@
     <string name="keypass_backup">Backup do KeyPass</string>
     <string name="google_backup">Backup do Google</string>
     <string name="generate_qr_code">Exportação</string>
+    <string name="keepass_backup">Backup de KeePass</string>
+    <string name="app_desc">Gerenciador de senhas off-line e código aberto. Armazenar, gerenciar, assumir o controle com segurança.</string>
+    <string name="about_us">Sobre nós</string>
+    <string name="about_us_desc">Sobre nós Desc</string>
+    <string name="app_developer">Desenvolvedor</string>
+    <string name="app_developer_x">X (anteriormente Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Código de origem</string>
+    <string name="app_developer_github">Github</string>
+    <string name="keepass_backup_desc">Escolha o arquivo CSV KeePass para importar</string>
 </resources>

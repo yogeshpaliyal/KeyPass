@@ -87,4 +87,5 @@
     <string name="secret_key">خفیہ کلید</string>
     <string name="google_backup">Google بیک اپ</string>
     <string name="keypass_backup">KeyPass بیک اپ</string>
+    <string name="keepass_backup">KeyPass بیک اپ</string>
 </resources>

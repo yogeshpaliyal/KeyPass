@@ -88,4 +88,14 @@
     <string name="keypass_backup">دعم أساسي</string>
     <string name="google_backup">Google Backup</string>
     <string name="generate_qr_code">الصادرات</string>
+    <string name="keepass_backup">دعم كيباس</string>
+    <string name="keepass_backup_desc">Choose KeePass CSV file to import</string>
+    <string name="app_desc">مُدير كلمة المرور من مصادر مفتوحة. تخزين، إدارة، السيطرة بأمان.</string>
+    <string name="about_us">بشأننا</string>
+    <string name="about_us_desc">عنا</string>
+    <string name="app_developer">المطور</string>
+    <string name="app_developer_x">X (تويتر سابقا)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">مدونة المصدر</string>
+    <string name="app_developer_github">Github</string>
 </resources>

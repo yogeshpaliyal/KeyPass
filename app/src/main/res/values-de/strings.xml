@@ -88,4 +88,14 @@
     <string name="keypass_backup">KeyPass Backup</string>
     <string name="google_backup">Google Backup</string>
     <string name="generate_qr_code">Ausfuhr</string>
+    <string name="app_developer_x">X (vorher Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="keepass_backup">KeePass Backup</string>
+    <string name="app_desc">Open-Source &amp; Offline-Passwort-Manager. Speichern, verwalten, die Kontrolle sicher übernehmen.</string>
+    <string name="about_us">Über uns</string>
+    <string name="about_us_desc">Über uns Desc</string>
+    <string name="app_developer">Entwickler</string>
+    <string name="source_code">Quelle Code</string>
+    <string name="app_developer_github">Github</string>
+    <string name="keepass_backup_desc">Wählen Sie KeePass CSV-Datei zum Import</string>
 </resources>

@@ -88,4 +88,5 @@
     <string name="new_password">Nytt Passord</string>
     <string name="authentication_failed">Autentisering Mislukkast</string>
     <string name="generate_qr_code">Eksporter</string>
+    <string name="keepass_backup">KeyPass Tryggleikskopi</string>
 </resources>

@@ -88,4 +88,14 @@
     <string name="keypass_backup">KeyPass Backup</string>
     <string name="google_backup">Google Backup</string>
     <string name="generate_qr_code">Exportación</string>
+    <string name="app_developer_x">X (previamente Twitter)</string>
+    <string name="app_desc">Administrador de contraseñas sin conexión de código abierto. Almacenar, manejar, tomar el control de forma segura.</string>
+    <string name="about_us">Sobre nosotros</string>
+    <string name="about_us_desc">Sobre nosotros Desc</string>
+    <string name="app_developer">Desarrollado</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Código fuente</string>
+    <string name="app_developer_github">Github</string>
+    <string name="keepass_backup">KeePass Backup</string>
+    <string name="keepass_backup_desc">Elija el archivo KeePass CSV para importar</string>
 </resources>

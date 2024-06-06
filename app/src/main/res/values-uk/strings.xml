@@ -88,4 +88,14 @@
     <string name="keypass_backup">KeyPass Резервне копіювання</string>
     <string name="google_backup">Google Backup</string>
     <string name="generate_qr_code">Експорт</string>
+    <string name="app_desc">Менеджер паролів Open-source &amp; offline. Зберігати, керувати, вести контроль надійно.</string>
+    <string name="about_us">Про нас</string>
+    <string name="about_us_desc">Про нас Дес</string>
+    <string name="app_developer">Розробник</string>
+    <string name="app_developer_x">X (попередньо Twitter)</string>
+    <string name="app_developer_linkedin">Аудиторія</string>
+    <string name="source_code">Код джерела</string>
+    <string name="app_developer_github">Гитуб</string>
+    <string name="keepass_backup">KeePass Резервне копіювання</string>
+    <string name="keepass_backup_desc">Виберіть файл KeePass CSV для імпорту</string>
 </resources>
