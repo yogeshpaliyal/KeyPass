@@ -17,6 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.importer.ChromeAccountImporter
+import com.yogeshpaliyal.keypass.importer.KeePassAccountImporter
 import com.yogeshpaliyal.keypass.importer.KeyPassAccountImporter
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
 import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
@@ -27,7 +28,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.settings.OpenKeyPassBackup
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
-val listOfBackupItems = listOf(KeyPassAccountImporter(), ChromeAccountImporter())
+val listOfBackupItems = listOf(KeyPassAccountImporter(), ChromeAccountImporter(), KeePassAccountImporter())
 
 @Composable
 fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = hiltViewModel()) {

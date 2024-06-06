@@ -24,18 +24,21 @@ import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.ui.about.AboutScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
 import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
 import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPasswordLengthScreen
 import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
+import com.yogeshpaliyal.keypass.ui.generate.ui.GeneratePasswordScreen
 import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
@@ -44,6 +47,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
@@ -166,6 +170,8 @@ fun CurrentPage() {
             }
 
             is BackupImporterState -> BackupImporter(state = it)
+            is AboutState -> AboutScreen()
+            is PasswordGeneratorState -> GeneratePasswordScreen()
         }
     }
 }

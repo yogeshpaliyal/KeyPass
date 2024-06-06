@@ -1,4 +1,4 @@
-name: Generate AAB File
+name: Generate AAB File for Pro
 
 on: 
   workflow_dispatch:
@@ -27,15 +27,15 @@ jobs:
 
       - name: Build Release AAB
         id: buildRelease
-        run: ./gradlew bundleFreeRelease
+        run: ./gradlew bundleProRelease
 
       - name: Sign AAB
         id: sign
         uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/build/outputs/bundle/freeRelease
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
+          releaseDirectory: app/build/outputs/bundle/proRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: pro
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
@@ -43,5 +43,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: app/build/outputs/bundle/freeRelease/*.aab
+          path: app/build/outputs/bundle/proRelease/*.aab
           retention-days: 3

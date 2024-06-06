@@ -6,6 +6,7 @@ plugins {
     id("com.spotify.ruler")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 val appPackageId = "com.yogeshpaliyal.keypass"
@@ -18,8 +19,8 @@ android {
         applicationId = appPackageId
         minSdk = 23
         targetSdk = 34
-        versionCode = 1423
-        versionName = "1.4.23"
+        versionCode = 1428
+        versionName = "1.4.28"
 
         testInstrumentationRunner = "com.yogeshpaliyal.keypass.CustomTestRunner"
         vectorDrawables {
@@ -34,15 +35,23 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("debug")
         }
 
         debug {
             applicationIdSuffix = ".staging"
             signingConfig = signingConfigs.getByName("debug")
         }
-
     }
+
+    productFlavors {
+        create("free") {
+            isDefault = true
+        }
+        create("pro") {
+            applicationIdSuffix = ".pro"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -51,7 +60,7 @@ android {
         jvmTarget = "17"
 
         freeCompilerArgs = listOf(
-            "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+            "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api",
         )
     }
     buildFeatures {
@@ -61,11 +70,6 @@ android {
 
     flavorDimensions("default")
 
-
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.4"
-    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -82,10 +86,10 @@ android {
         }
     }
 
-    lint{
+    lint {
         disable += "MissingTranslation"
+        abortOnError = true
     }
-
 }
 
 ruler {
@@ -95,10 +99,9 @@ ruler {
     sdkVersion.set(27)
 }
 
-
 dependencies {
 
-    //api(project(":shared"))
+    // api(project(":shared"))
     api(project(":common"))
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -127,7 +130,7 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.2.1")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
 
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
 
     // XML Libraries
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
@@ -143,19 +146,17 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
-
     // zxing library
     // implementation "com.googl.ezxing:android-core:3.4.1"
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 
-
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.51")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.51.1")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     // For Robolectric tests.
-    testImplementation("com.google.dagger:hilt-android-testing:2.51")
+    testImplementation("com.google.dagger:hilt-android-testing:2.51.1")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
@@ -163,6 +164,4 @@ dependencies {
     implementation("me.saket.cascade:cascade-compose:2.2.0")
 
     implementation("androidx.biometric:biometric:1.1.0")
-
 }
-

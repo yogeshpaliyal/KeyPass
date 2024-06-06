@@ -10,6 +10,7 @@ const val DEFAULT_PASSWORD_LENGTH = 10f
 data class UserSettings(
     val keyPassPassword: String? = null,
     val dbPassword: String? = null,
+    @Deprecated("Use passwordConfig instead")
     val defaultPasswordLength: Float = DEFAULT_PASSWORD_LENGTH,
     val backupKey: String? = null,
     val isBiometricEnable: Boolean = false,
@@ -18,7 +19,8 @@ data class UserSettings(
     val autoBackupEnable: Boolean = false,
     val overrideAutoBackup: Boolean = false,
     val lastAppVersion: Int? = null,
-    val currentAppVersion: Int? = null
+    val currentAppVersion: Int? = null,
+    val passwordConfig: PasswordConfig = PasswordConfig.Initial
 ) {
     fun isKeyPresent() = backupKey != null
 }

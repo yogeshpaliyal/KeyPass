@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.setDefaultPasswordLength
-import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,7 +23,7 @@ class ChangeDefaultPasswordLengthViewModel : ViewModel() {
         viewModelScope.launch {
             _viewState.update {
                 val oldPasswordLength =
-                    context.getUserSettings().defaultPasswordLength ?: DEFAULT_PASSWORD_LENGTH
+                    context.getUserSettings().passwordConfig.length
                 ChangeDefaultPasswordLengthState(length = oldPasswordLength)
             }
         }

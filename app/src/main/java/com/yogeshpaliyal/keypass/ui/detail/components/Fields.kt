@@ -30,6 +30,7 @@ import com.yogeshpaliyal.common.utils.PasswordGenerator
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.KeyPassInputField
 import com.yogeshpaliyal.keypass.ui.commonComponents.PasswordTrailingIcon
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 
 @Composable
 fun Fields(
@@ -39,6 +40,8 @@ fun Fields(
     copyToClipboardClicked: (String) -> Unit,
     scanClicked: (scannerType: Int) -> Unit
 ) {
+    val passwordConfig = LocalUserSettings.current.passwordConfig
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -86,20 +89,22 @@ fun Fields(
                 },
                 leadingIcon = if (accountModel.id != null) {
                     null
-                } else (
-                    {
-                        IconButton(
-                            onClick = {
-                                updateAccountModel(accountModel.copy(password = PasswordGenerator().generatePassword()))
+                } else {
+                    (
+                        {
+                            IconButton(
+                                onClick = {
+                                    updateAccountModel(accountModel.copy(password = PasswordGenerator(passwordConfig).generatePassword()))
+                                }
+                            ) {
+                                Icon(
+                                    painter = rememberVectorPainter(image = Icons.Rounded.Refresh),
+                                    contentDescription = ""
+                                )
                             }
-                        ) {
-                            Icon(
-                                painter = rememberVectorPainter(image = Icons.Rounded.Refresh),
-                                contentDescription = ""
-                            )
                         }
-                    }
-                    ),
+                        )
+                },
                 visualTransformation = visualTransformation,
                 copyToClipboardClicked = copyToClipboardClicked
             )

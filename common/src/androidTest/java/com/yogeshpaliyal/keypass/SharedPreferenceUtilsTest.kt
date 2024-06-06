@@ -28,7 +28,7 @@ class SharedPreferenceUtilsTest {
 
     @Test
     fun getKeyPassPasswordLength_test() = runBlocking {
-        val result = context.getUserSettings().defaultPasswordLength
+        val result = context.getUserSettings().passwordConfig.length
         assertEquals(DEFAULT_PASSWORD_LENGTH, result)
     }
 
@@ -36,7 +36,7 @@ class SharedPreferenceUtilsTest {
     fun setKeyPassPasswordLength_test() = runBlocking {
         val expectedLength = 8f
         context.setDefaultPasswordLength(expectedLength)
-        val result = context.getUserSettings().defaultPasswordLength
+        val result = context.getUserSettings().passwordConfig.length
         assertEquals(expectedLength, result)
     }
 
