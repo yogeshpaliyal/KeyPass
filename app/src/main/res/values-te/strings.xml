@@ -87,5 +87,4 @@
     <string name="secret_key">రహస్య కీ</string>
     <string name="keypass_backup">KeyPass బ్యాకప్</string>
     <string name="google_backup">Google బ్యాకప్</string>
-    <string name="generate_qr_code"></string>
 </resources>
