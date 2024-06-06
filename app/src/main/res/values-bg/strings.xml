@@ -88,4 +88,5 @@
     <string name="backup_restored">Архивирането е възстановено</string>
     <string name="generate_keyphrase">Генериране на ключова фраза</string>
     <string name="generate_qr_code">Експортиране</string>
+    <string name="keepass_backup">Резервно копие на KeyPass</string>
 </resources>
