@@ -89,4 +89,14 @@
     <string name="keypass_backup">कुंजीपास बैकअप</string>
     <string name="google_backup">गूगल बैकअप</string>
     <string name="generate_qr_code">निर्यात</string>
+    <string name="about_us">हमारे बारे में</string>
+    <string name="about_us_desc">हमारे बारे में</string>
+    <string name="app_developer_linkedin">लिंक्डइन</string>
+    <string name="app_desc">ओपन सोर्स और ऑफलाइन पासवर्ड मैनेजर। स्टोर करें, प्रबंधित करें, सुरक्षित रूप से नियंत्रण करें।।</string>
+    <string name="app_developer">डेवलपर</string>
+    <string name="app_developer_x">एक्स (पहले ट्विटर)</string>
+    <string name="source_code">स्रोत कोड</string>
+    <string name="app_developer_github">गिथब</string>
+    <string name="keepass_backup">KeePass बैकअप</string>
+    <string name="keepass_backup_desc">आयात करने के लिए KeePass CSV फ़ाइल चुनें</string>
 </resources>
