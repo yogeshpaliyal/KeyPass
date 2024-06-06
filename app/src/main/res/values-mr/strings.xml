@@ -87,4 +87,5 @@
     <string name="secret_key">गुप्त की</string>
     <string name="keypass_backup">KeyPass बॅकअप</string>
     <string name="google_backup">Google बॅकअप</string>
+    <string name="keepass_backup">KeyPass बॅकअप</string>
 </resources>
