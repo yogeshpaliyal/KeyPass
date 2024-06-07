@@ -65,6 +65,8 @@
     <string name="enter_password">पासवर्ड टाका</string>
     <string name="create_password">पासवर्ड तयार करा</string>
     <string name="confirm_password">पासवर्डची पुष्टी करा</string>
+    <string name="create_password_description">आपला अॅप सुरक्षित करण्यासाठी एक पासवर्ड निवडा</string>
+    <string name="confirm_password_description">अॅप सुरक्षित करण्यासाठी कृपया आपला पासवर्ड पुष्टी करा</string>
     <string name="incorrect_password">चुकीचा पासवर्ड</string>
     <string name="password_no_match">पासवर्ड जुळला नाही</string>
     <string name="auto_backup_desc">जेव्हाही खाते जोडले किंवा सुधारले जाईल तेव्हा तुमच्या खात्यांचा बॅकअप घेतला जाईल</string>

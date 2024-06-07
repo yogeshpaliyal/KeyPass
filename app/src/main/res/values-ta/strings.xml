@@ -70,6 +70,8 @@
     <string name="custom_generated_keyphrase_info">காப்புப்பிரதிகளுக்காக உங்களின் சொந்த கீஃப்ரேஸை உருவாக்க விரும்புகிறீர்களா அல்லது உங்களுக்காக நான் உருவாக்க வேண்டுமா?</string>
     <string name="create_password">கடவுச்சொல்லை உருவாக்கு</string>
     <string name="confirm_password">கடவுச்சொல்லை உறுதிப்படுத்தவும்</string>
+    <string name="create_password_description">உங்கள் பயன்பாட்டை பாதுகாக்க ஒரு கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="confirm_password_description">பயன்பாட்டை பாதுகாக்க உங்கள் கடவுச்சொல்லை உறுதிப்படுத்தவும்</string>
     <string name="incorrect_password">தவறான கடவுச்சொல்</string>
     <string name="password_no_match">கடவுச்சொல் பொருந்தவில்லை</string>
     <string name="auto_backup_desc">கணக்கு சேர்க்கப்படும்போதோ அல்லது மாற்றப்படும்போதோ உங்கள் கணக்குகள் காப்புப் பிரதி எடுக்கப்படும்</string>

@@ -68,6 +68,8 @@
     <string name="enter_password">પાસવર્ડ દાખલ કરો</string>
     <string name="create_password">પાસવર્ડ બનાવો</string>
     <string name="confirm_password">પાસવર્ડની પુષ્ટિ કરો</string>
+    <string name="create_password_description">તમારી એપ્લિકેશનને સુરક્ષિત કરવા માટે પાસવર્ડ પસંદ કરો</string>
+    <string name="confirm_password_description">એપ્લિકેશનને સુરક્ષિત કરવા માટે કૃપા કરીને તમારો પાસવર્ડ ખાતરી કરો</string>
     <string name="incorrect_password">ખોટો પાસવર્ડ</string>
     <string name="password_no_match">પાસવર્ડ મેળ ખાતો નથી</string>
     <string name="auto_backup_desc">જ્યારે પણ એકાઉન્ટ ઉમેરવામાં આવશે અથવા સંશોધિત કરવામાં આવશે ત્યારે તમારા એકાઉન્ટ્સનું બેકઅપ લેવામાં આવશે</string>

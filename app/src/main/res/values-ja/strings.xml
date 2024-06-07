@@ -54,6 +54,8 @@
     <string name="enter_password">パスワードを入力する</string>
     <string name="create_password">パスワードの作成</string>
     <string name="confirm_password">パスワードを認証する</string>
+    <string name="create_password_description">アプリを保護するためのパスワードを選択してください</string>
+    <string name="confirm_password_description">アプリを保護するためにパスワードを確認してください</string>
     <string name="incorrect_password">間違ったパスワード</string>
     <string name="password_no_match">パスワードが一致しませんでした</string>
     <string name="auto_backup_desc">アカウントが追加または変更されるたびにアカウントがバックアップされます</string>

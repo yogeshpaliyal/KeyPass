@@ -67,6 +67,8 @@
     <string name="enter_password">پاس ورڈ درج کریں</string>
     <string name="create_password">پاسورڈ بنائیں</string>
     <string name="confirm_password">پاس ورڈ کی تصدیق کریں</string>
+    <string name="create_password_description">اپنی ایپ کو محفوظ بنانے کے لیے پاس ورڈ منتخب کریں</string>
+    <string name="confirm_password_description">ایپ کو محفوظ بنانے کے لیے براہ کرم اپنا پاس ورڈ کی تصدیق کریں</string>
     <string name="incorrect_password">غلط پاس ورڈ</string>
     <string name="password_no_match">پاس ورڈ مماثل نہیں ہے</string>
     <string name="auto_backup_desc">جب بھی اکاؤنٹ شامل یا تبدیل کیا جائے گا تو آپ کے اکاؤنٹس کا بیک اپ لیا جائے گا</string>

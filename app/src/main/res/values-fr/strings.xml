@@ -63,6 +63,8 @@
     <string name="enter_password">Entrer le mot de passe</string>
     <string name="create_password">Créer un mot de passe</string>
     <string name="confirm_password">Confirmez le mot de passe</string>
+    <string name="create_password_description">Choisissez un mot de passe pour sécuriser votre application</string>
+    <string name="confirm_password_description">Veuillez confirmer votre mot de passe pour sécuriser l\'application</string>
     <string name="incorrect_password">Mot de passe incorrect</string>
     <string name="password_no_match">Le mot de passe ne correspond pas</string>
     <string name="auto_backup_desc">Vos comptes seront sauvegardés chaque fois qu\'un compte sera ajouté ou modifié</string>

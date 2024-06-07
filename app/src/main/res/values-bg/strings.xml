@@ -69,6 +69,8 @@
     <string name="credentials_backups_desc">Архивиране на идентификационни данни във външно хранилище</string>
     <string name="backup_completed">Архивирането е завършено</string>
     <string name="create_password">Създаване на парола</string>
+    <string name="create_password_description">Изберете парола за защита на приложението</string>
+    <string name="confirm_password_description">Моля, потвърдете паролата, за да защитите приложението</string>
     <string name="alert_black_account_name">Моля, въведете име на акаунт</string>
     <string name="auto_backup">Автоматично архивиране</string>
     <string name="biometric_error_hw_unavailable">Биометричните функции в момента не са налични.</string>

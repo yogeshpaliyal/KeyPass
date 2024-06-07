@@ -64,6 +64,8 @@
     <string name="enter_password">Inserisci la password</string>
     <string name="create_password">Crea password</string>
     <string name="confirm_password">Conferma la password</string>
+    <string name="create_password_description">Scegli una password per proteggere l\'app</string>
+    <string name="confirm_password_description">Conferma la password per proteggere l\'app</string>
     <string name="incorrect_password">Password non corretta</string>
     <string name="password_no_match">La password non corrispondeva</string>
     <string name="auto_backup_desc">I tuoi account saranno supportati ogni volta che l\'account viene aggiunto o modificato</string>

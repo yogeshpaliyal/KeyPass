@@ -74,6 +74,8 @@
     <string name="ascending">Aufsteigend</string>
     <string name="create_password">Passwort erstellen</string>
     <string name="confirm_password">Bestätige das Passwort</string>
+    <string name="create_password_description">Wählen Sie ein Passwort, um Ihre App zu sichern</string>
+    <string name="confirm_password_description">Bitte bestätigen Sie Ihr Passwort, um die App zu sichern</string>
     <string name="incorrect_password">Falsches Passwort</string>
     <string name="change_app_password">App-Passwort ändern</string>
     <string name="alert_invalid_keyphrase">Bitte geben Sie einen gültigen Schlüsselsatz ein</string>

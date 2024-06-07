@@ -32,6 +32,8 @@
     <string name="enter_password">أدخل كلمة المرور</string>
     <string name="create_password">أنشئ كلمة مرور</string>
     <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="create_password_description">اختر كلمة مرور لتأمين التطبيق</string>
+    <string name="confirm_password_description">يرجى تأكيد كلمة المرور لتأمين التطبيق</string>
     <string name="incorrect_password">كلمة سر خاطئة</string>
     <string name="password_no_match">كلمة المرور غير متطابقة</string>
     <string name="auto_backup_desc">سيتم نسخ حساباتك احتياطيًا عند إضافة الحساب أو تعديله</string>

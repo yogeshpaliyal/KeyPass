@@ -46,6 +46,8 @@
     <string name="enter_password">Sett inn Passord</string>
     <string name="create_password">Lag Passord</string>
     <string name="confirm_password">Stadfest Passord</string>
+    <string name="create_password_description">Velg et passord for å sikre appen din</string>
+    <string name="confirm_password_description">Bekreft passordet ditt for å sikre appen</string>
     <string name="incorrect_password">Feil Passord</string>
     <string name="password_no_match">Passordet samsvara ikkje</string>
     <string name="blank_old_password">Sett inn ditt gamle passord</string>
