@@ -71,6 +71,8 @@
     <string name="enter_password">Digite a senha</string>
     <string name="create_password">Criar senha</string>
     <string name="confirm_password">Confirme sua senha</string>
+    <string name="create_password_description">Escolha uma senha para proteger seu aplicativo</string>
+    <string name="confirm_password_description">Por favor, confirme sua senha para proteger o aplicativo</string>
     <string name="incorrect_password">Senha incorreta</string>
     <string name="password_no_match">A senha não corresponde</string>
     <string name="auto_backup_desc">Será feito backup de suas contas sempre que uma conta for adicionada ou modificada</string>

@@ -65,6 +65,8 @@
     <string name="enter_password">Şifreyi Gir</string>
     <string name="create_password">Şifre Oluştur</string>
     <string name="confirm_password">Şifreyi Onayla</string>
+    <string name="create_password_description">Uygulamanızı güvenceye almak için bir şifre seçin</string>
+    <string name="confirm_password_description">Uygulamayı güvenceye almak için lütfen şifrenizi onaylayın</string>
     <string name="incorrect_password">Yanlış Şifre</string>
     <string name="password_no_match">Şifre uyuşmuyor</string>
     <string name="auto_backup_desc">Hesap eklendiğinde veya değiştirildiğinde hesaplarınız yedeklenecektir</string>

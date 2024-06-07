@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -18,7 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
@@ -70,7 +74,25 @@ fun AuthScreen(state: AuthState) {
             contentDescription = ""
         )
 
-        Text(text = stringResource(id = state.title))
+        Column(
+            modifier = Modifier
+                .fillMaxWidth(),
+            Arrangement.Center,
+            Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(id = state.title),
+                fontWeight = FontWeight.Bold
+            )
+
+            if (state.description != null) {
+                Text(
+                    text = stringResource(id = state.description),
+                    fontSize = 14.sp,
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
 
         PasswordInputField(
             password = password,

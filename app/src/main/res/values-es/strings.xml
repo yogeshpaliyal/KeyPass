@@ -57,6 +57,8 @@
     <string name="back">Atrás</string>
     <string name="create_password">Crear contraseña</string>
     <string name="confirm_password">Confirmar contraseña</string>
+    <string name="create_password_description">Elija una contraseña para asegurar su aplicación</string>
+    <string name="confirm_password_description">Por favor confirme su contraseña para asegurar la aplicación</string>
     <string name="incorrect_password">Contraseña incorrecta</string>
     <string name="password_no_match">La contraseña no coincide</string>
     <string name="change_app_password">Cambiar la contraseña de la aplicación</string>

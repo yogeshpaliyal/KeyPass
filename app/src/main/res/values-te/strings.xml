@@ -64,6 +64,8 @@
     <string name="enter_password">రహస్య సంకేతం తెలపండి</string>
     <string name="create_password">పాస్వర్డ్ సృష్టించండి</string>
     <string name="confirm_password">పాస్‌వర్డ్‌ని నిర్ధారించండి</string>
+    <string name="create_password_description">మీ యాప్‌ని సురక్షితం చేయడానికి ఒక పాస్‌వర్డ్‌ని ఎంచుకోండి</string>
+    <string name="confirm_password_description">యాప్‌ని సురక్షితం చేయడానికి దయచేసి మీ పాస్‌వర్డ్‌ని నిర్ధారించండి</string>
     <string name="incorrect_password">సరికాని పాస్వర్డ్</string>
     <string name="password_no_match">పాస్‌వర్డ్ సరిపోలలేదు</string>
     <string name="auto_backup_desc">ఖాతా జోడించబడినప్పుడు లేదా సవరించబడినప్పుడు మీ ఖాతాలు బ్యాకప్ చేయబడతాయి</string>

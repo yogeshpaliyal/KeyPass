@@ -71,6 +71,8 @@
     <string name="enter_password">कृपया पासवर्ड दर्ज करें</string>
     <string name="create_password">पासवर्ड बनाएं</string>
     <string name="confirm_password">पासवर्ड की पुष्टि कीजिये</string>
+    <string name="create_password_description">ऐप को सुरक्षित करने के लिए एक पासवर्ड चुनें</string>
+    <string name="confirm_password_description">ऐप को सुरक्षित करने के लिए कृपया अपना पासवर्ड पुष्टि करें</string>
     <string name="incorrect_password">गलत पासवर्ड</string>
     <string name="password_no_match">पासवर्ड मेल नहीं खाता</string>
     <string name="auto_backup_desc">जब भी खाता जोड़ा या संशोधित किया जाएगा, आपके खाते का बैकअप ले लिया जाएगा</string>

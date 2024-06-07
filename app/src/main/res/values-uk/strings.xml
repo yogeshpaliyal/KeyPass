@@ -50,6 +50,8 @@
     <string name="back">Назад</string>
     <string name="enter_password">Уведіть пароль</string>
     <string name="create_password">Створення паролю</string>
+    <string name="create_password_description">Виберіть пароль для захисту вашого додатка</string>
+    <string name="confirm_password_description">Будь ласка, підтвердіть свій пароль для захисту додатка</string>
     <string name="change_app_password">Змінити пароль програми</string>
     <string name="incorrect_old_password">Будь ласка, введіть правильний старий пароль</string>
     <string name="authentication_failed">Помилка автентифікації</string>

@@ -65,6 +65,8 @@
     <string name="enter_password">Введите пароль</string>
     <string name="create_password">Создайте пароль</string>
     <string name="confirm_password">Подтвердите парольd</string>
+    <string name="create_password_description">Выберите пароль для защиты вашего приложения</string>
+    <string name="confirm_password_description">Пожалуйста, подтвердите свой пароль для защиты приложения</string>
     <string name="incorrect_password">Неверный пароль</string>
     <string name="password_no_match">Пароль не совпал</string>
     <string name="auto_backup_desc">Резервные копии ваших учетных записей будут создаваться при каждом добавлении или изменении учетной записи</string>

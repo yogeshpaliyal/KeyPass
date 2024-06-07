@@ -64,6 +64,8 @@
     <string name="enter_password">পাসওয়ার্ড লিখুন</string>
     <string name="create_password">গুপ্ত সংকেত সৃষ্টি করুন</string>
     <string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
+    <string name="create_password_description">অ্যাপটি সুরক্ষিত করতে একটি পাসওয়ার্ড নির্বাচন করুন</string>
+    <string name="confirm_password_description">অ্যাপটি সুরক্ষিত করতে আপনার পাসওয়ার্ডটি নিশ্চিত করুন</string>
     <string name="incorrect_password">ভুল পাসওয়ার্ড৤</string>
     <string name="password_no_match">পাসওয়ার্ড মেলেনি</string>
     <string name="auto_backup_desc">আপনার অ্যাকাউন্ট ব্যাক আপ করা হবে যখনই অ্যাকাউন্ট যোগ বা পরিবর্তন করা হবে</string>

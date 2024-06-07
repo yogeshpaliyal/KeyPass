@@ -81,6 +81,8 @@
     <string name="enter_password">Enter Password</string>
     <string name="create_password">Create Password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="create_password_description">Choose a password to secure your app</string>
+    <string name="confirm_password_description">Please confirm your password to secure the app</string>
     <string name="incorrect_password">Incorrect Password</string>
     <string name="password_no_match">The password did not match</string>
     <string name="auto_backup_desc">Your accounts will be backed up whenever account is added or modified</string>
