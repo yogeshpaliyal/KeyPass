@@ -10,7 +10,7 @@
     <!-- Sync Preferences -->
     <string name="credentials_backups">备份</string>
     <string name="credentials_backups_desc">把密码备份到外部存储</string>
-    <string name="restore_credentials">恢复备份</string>
+    <string name="restore_credentials">导入凭据</string>
     <string name="restore_credentials_desc">从备份中恢复</string>
     <string name="send_feedback">发送反馈</string>
     <string name="send_feedback_desc">报告技术问题或建议新功能</string>
