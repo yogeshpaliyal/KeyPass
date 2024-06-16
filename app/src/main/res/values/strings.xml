@@ -111,5 +111,7 @@
     <string name="keepass_backup_desc">Choose KeePass CSV file to import</string>
     <string name="generate_qr_code">Export</string>
     <string name="invalid_secret_key">Invalid secret key format</string>
+    <string name="invalid_csv_file">Invalid CSV File</string>
+    <string name="file_not_found">File not found (please try again)</string>
 
 </resources>
