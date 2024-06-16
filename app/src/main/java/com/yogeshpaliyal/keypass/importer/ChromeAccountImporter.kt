@@ -65,7 +65,7 @@ class ChromeAccountImporter : AccountsImporter {
                 onCompleteOrCancel(ToastAction(R.string.backup_restored))
             } catch (e: CsvMalformedLineException) {
                 onCompleteOrCancel(ToastAction(R.string.invalid_csv_file))
-            }  catch (e: FileNotFoundException) {
+            } catch (e: FileNotFoundException) {
                 onCompleteOrCancel(ToastAction(R.string.file_not_found))
             }
         })
