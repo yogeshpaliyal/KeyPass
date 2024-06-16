@@ -21,10 +21,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.opencsv.CSVReader
+import com.opencsv.exceptions.CsvMalformedLineException
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import java.io.FileNotFoundException
 
 class ChromeAccountImporter : AccountsImporter {
     override fun getImporterTitle(): Int = R.string.google_backup
@@ -39,27 +41,33 @@ class ChromeAccountImporter : AccountsImporter {
         val context = LocalContext.current
 
         LaunchedEffect(key1 = file, block = {
-            val inputStream = context.contentResolver.openInputStream(file)
-            val reader = CSVReader(inputStream?.reader())
-            val myEntries: List<Array<String>> = reader.readAll()
-            val headers = myEntries[0]
-            val result = myEntries.drop(1).map { data ->
-                headers.zip(data).toMap()
-            }
-            val listOfAccounts = ArrayList<AccountModel>()
-            result.forEach {
-                listOfAccounts.add(
-                    AccountModel(
-                        title = it["name"],
-                        notes = it["note"],
-                        password = it["password"],
-                        username = it["username"],
-                        site = it["url"]
+            try {
+                val inputStream = context.contentResolver.openInputStream(file)
+                val reader = CSVReader(inputStream?.reader())
+                val myEntries: List<Array<String>> = reader.readAll()
+                val headers = myEntries[0]
+                val result = myEntries.drop(1).map { data ->
+                    headers.zip(data).toMap()
+                }
+                val listOfAccounts = ArrayList<AccountModel>()
+                result.forEach {
+                    listOfAccounts.add(
+                        AccountModel(
+                            title = it["name"],
+                            notes = it["note"],
+                            password = it["password"],
+                            username = it["username"],
+                            site = it["url"]
+                        )
                     )
-                )
+                }
+                resolve(listOfAccounts)
+                onCompleteOrCancel(ToastAction(R.string.backup_restored))
+            } catch (e: CsvMalformedLineException) {
+                onCompleteOrCancel(ToastAction(R.string.invalid_csv_file))
+            }  catch (e: FileNotFoundException) {
+                onCompleteOrCancel(ToastAction(R.string.file_not_found))
             }
-            resolve(listOfAccounts)
-            onCompleteOrCancel(ToastAction(R.string.backup_restored))
         })
 
         LoadingDialog()
