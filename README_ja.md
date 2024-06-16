@@ -59,6 +59,14 @@
 7. Hilt (Dependency Injection)
 8. Jetpack Data Store Preference
 
+
+## 🧰 前提条件
+| Tool           | Version          |
+|----------------|------------------|
+| Android Studio | Koala (2024.1.1) |
+| Java           | 17               |
+
+
 ## ✍️ 作者
 
 👤 **Yogesh Choudhary Paliyal**
