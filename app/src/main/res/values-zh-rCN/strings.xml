@@ -101,4 +101,7 @@
     <string name="app_developer_linkedin">LinkedIn</string>
     <string name="source_code">资料来源:《刑法》</string>
     <string name="app_developer_github">Github</string>
+    <string name="invalid_secret_key">无效的 secret 密钥格式</string>
+    <string name="invalid_csv_file">无效的 CSV 文件</string>
+    <string name="file_not_found">未找到文件（请重试）</string>
 </resources>
