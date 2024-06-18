@@ -100,4 +100,7 @@
     <string name="google_backup">Zálohovanie v službe Google</string>
     <string name="keepass_backup">Zálohovanie app KeePass</string>
     <string name="keepass_backup_desc">Vyberte súbor KeePass CSV na import</string>
+    <string name="invalid_secret_key">Neplatný tajný formát</string>
+    <string name="invalid_csv_file">Neplatné CSV Aktuality</string>
+    <string name="file_not_found">Súbor nebol nájdený (prosím skúste to znova)</string>
 </resources>
