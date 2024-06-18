@@ -101,4 +101,7 @@
     <string name="app_desc">Open-source и оффлайн менеджер паролей. Хранить, управлять, надежно контролировать.</string>
     <string name="keepass_backup">KeePass</string>
     <string name="keepass_backup_desc">Выберите файл KeePass CSV для импорта</string>
+    <string name="invalid_secret_key">Неверный секретный формат</string>
+    <string name="invalid_csv_file">Неверный CSV Файл</string>
+    <string name="file_not_found">Не найденный файл (пожалуйста, попробуйте еще раз)</string>
 </resources>
