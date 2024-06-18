@@ -101,4 +101,7 @@
     <string name="app_developer_linkedin">LinkedIn</string>
     <string name="source_code">Kaynak Kodu</string>
     <string name="app_developer_github">Github</string>
+    <string name="invalid_csv_file">Invalid CSV Dosya</string>
+    <string name="file_not_found">File bulunamadı (Lütfen tekrar deneyin)</string>
+    <string name="invalid_secret_key">Invalid secret key format</string>
 </resources>

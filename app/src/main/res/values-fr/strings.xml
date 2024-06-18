@@ -100,4 +100,7 @@
     <string name="app_developer_linkedin">LinkedIn</string>
     <string name="source_code">Source Code</string>
     <string name="keepass_backup_desc">Choisissez le fichier KeePass CSV pour importer</string>
+    <string name="invalid_secret_key">Format secret invalide</string>
+    <string name="invalid_csv_file">CSV non valide Fichier</string>
+    <string name="file_not_found">Fichier non trouvé (veuillez essayer de nouveau)</string>
 </resources>

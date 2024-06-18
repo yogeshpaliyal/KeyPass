@@ -100,4 +100,7 @@
     <string name="app_developer_github">Гитуб</string>
     <string name="keepass_backup">KeePass Резервне копіювання</string>
     <string name="keepass_backup_desc">Виберіть файл KeePass CSV для імпорту</string>
+    <string name="invalid_secret_key">Недійсний формат секретного ключа</string>
+    <string name="invalid_csv_file">Недійсний файл CSV</string>
+    <string name="file_not_found">Файл не знайдено (спробуйте ще раз)</string>
 </resources>

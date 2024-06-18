@@ -101,4 +101,7 @@
     <string name="app_developer_github">गिथब</string>
     <string name="keepass_backup">KeePass बैकअप</string>
     <string name="keepass_backup_desc">आयात करने के लिए KeePass CSV फ़ाइल चुनें</string>
+    <string name="invalid_secret_key">अमान्य गुप्त कुंजी प्रारूप</string>
+    <string name="invalid_csv_file">Invalid CSV फ़ाइल</string>
+    <string name="file_not_found">फ़ाइल नहीं मिली (कृपया फिर से प्रयास करें)</string>
 </resources>
