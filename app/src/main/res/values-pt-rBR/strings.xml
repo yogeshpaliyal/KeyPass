@@ -101,4 +101,7 @@
     <string name="source_code">Código de origem</string>
     <string name="app_developer_github">Github</string>
     <string name="keepass_backup_desc">Escolha o arquivo CSV KeePass para importar</string>
+    <string name="invalid_secret_key">Formato de chave secreto inválido</string>
+    <string name="invalid_csv_file">Inválido CSV Arquivo</string>
+    <string name="file_not_found">Arquivo não encontrado (por favor, tente novamente)</string>
 </resources>
