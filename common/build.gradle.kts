@@ -70,7 +70,7 @@ dependencies {
 
     // Test
     implementation("androidx.test.ext:junit-ktx:1.2.0")
-    androidTestApi("androidx.test:rules:1.5.0")
+    androidTestApi("androidx.test:rules:1.6.0")
 
     implementation("net.zetetic:android-database-sqlcipher:4.5.4")
     implementation("androidx.sqlite:sqlite:2.3.1")
