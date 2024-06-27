@@ -69,7 +69,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
 
     // Test
-    implementation("androidx.test.ext:junit-ktx:1.2.0")
+    implementation("androidx.test.ext:junit-ktx:1.2.1")
     androidTestApi("androidx.test:rules:1.6.0")
 
     implementation("net.zetetic:android-database-sqlcipher:4.5.4")
