@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="home">خانه</string>
+    <string name="generate_shortcut_short_label">زاستن گذرواژه</string>
+    <string name="backup_restored">پشتیبان‌گیری بازگردانده شد</string>
+    <string name="send_feedback_desc">گزارش مشکلات فنی یا پیشنهاد درونداشت‌های نو</string>
+    <string name="share_desc">همرسانی برنامه با دیگران</string>
+    <string name="app_developer">برنامه‌نویس</string>
+    <string name="app_developer_x">ایکس (توییتر پیشین)</string>
+    <string name="source_code">بن‌مایه‌ی دستور</string>
+    <string name="app_developer_github">گیت‌هاب</string>
+    <string name="password">گذرواژه</string>
+    <string name="copied_to_clipboard">به کلیپ‌بورد رونوشته شد</string>
+    <string name="login_to_enter_keypass">بهر اندرون شدن گذرواژه را درون کنید</string>
+    <string name="last_backup_date">واپسین پشتیبان‌گیری: %s</string>
+    <string name="delete_account_title">آیا آسوده دل هستید؟</string>
+    <string name="message_no_accounts">شناسه‌ای نیست، خواهشمند است که با دکمه پایین یکی بسازید</string>
+    <string name="turn_off_backup">خاموش کردن پشتیبان‌گیری‌ها</string>
+    <string name="backup_folder">پشتیبان‌گیری از پوشه</string>
+    <string name="yes">بله</string>
+    <string name="help">کمک</string>
+    <string name="security">هیمنا</string>
+    <string name="account_name">نام شناسه</string>
+    <string name="generate_password">زاستن گذرواژه</string>
+    <string name="delete">پاک‌کردن</string>
+    <string name="send_feedback">فرستادن بازخورد</string>
+    <string name="restore_credentials_desc">بازگرداندن زاپاس‌ها(پشتیبان‌گیری‌ها)</string>
+    <string name="share">همرسانی</string>
+    <string name="about_us">درباره‌ی ما</string>
+    <string name="app_developer_linkedin">لینکدین</string>
+    <string name="share_keypass">همرسانی کی‌پس</string>
+    <string name="delete_account_msg">آیا به راستی می‌خواهید که این شناسه را پاک کنید، زیرا بازگردانده نخواهد شد</string>
+    <string name="cancel">وازدن</string>
+    <string name="feedback_to_keypass">بازخورد به کی‌پس</string>
+    <string name="turn_on_backup">روشن کردن پشتیبان‌گیری‌ها</string>
+    <string name="backup_desc">پشتیبان‌گیری‌ها با کلیدواژه‌ای رمزگذاری خواهند‌ شد و در دستگاه شما اندوخته می‌شوند</string>
+    <string name="create_backup">ساختن زاپاس (پشتیبان‌گیری)</string>
+    <string name="alert">هشدار</string>
+    <string name="copy_keypharse_msg">از این کلیدواژه رونوشت بگیرید. این کلیدواژه برای بازیافتن این زاپاس (پشتیبان‌گیری) بکار گرفته می‌شود، این کلیدواژه دیگر فراهم نخواهد شد. آیا از آن رونوشت گرفتید یا آن را در جایی یادداشت کردید؟</string>
+    <string name="username_email_phone">نام کاربری/ایمیل/شماره تلفن</string>
+    <string name="tags_comma_separated_optional">برچسب‌ها با ویرگول جدا می‌شوند
+\n(دل‌بخواه)</string>
+</resources>
