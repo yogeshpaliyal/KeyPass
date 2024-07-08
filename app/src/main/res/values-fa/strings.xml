@@ -11,7 +11,7 @@
     <string name="app_developer_github">گیت‌هاب</string>
     <string name="password">گذرواژه</string>
     <string name="copied_to_clipboard">به کلیپ‌بورد رونوشته شد</string>
-    <string name="login_to_enter_keypass">بهر اندرون شدن گذرواژه را درون کنید</string>
+    <string name="login_to_enter_keypass">بهر درون شدن گذرواژه را اندرون کنید</string>
     <string name="last_backup_date">واپسین پشتیبان‌گیری: %s</string>
     <string name="delete_account_title">آیا آسوده دل هستید؟</string>
     <string name="message_no_accounts">شناسه‌ای نیست، خواهشمند است که با دکمه پایین یکی بسازید</string>
@@ -19,7 +19,7 @@
     <string name="backup_folder">پشتیبان‌گیری از پوشه</string>
     <string name="yes">بله</string>
     <string name="help">کمک</string>
-    <string name="security">هیمنا</string>
+    <string name="security">هیمنایی</string>
     <string name="account_name">نام شناسه</string>
     <string name="generate_password">زاستن گذرواژه</string>
     <string name="delete">پاک‌کردن</string>
@@ -58,7 +58,7 @@
     <string name="credentials_backups_desc">پشتیبان‌گیری از داده‌ها به ویر درونی</string>
     <string name="restore_credentials">درون‌برد داده‌ها</string>
     <string name="confirm_password">هایش گذرواژه</string>
-    <string name="incorrect_old_password">گذواژه پیشین درست خود را اندرون نشانید</string>
+    <string name="incorrect_old_password">خواهشمند است گذواژه پیشین درست خود را اندرون نشانید</string>
     <string name="blank_confirm_password">گذواژه را به هایش برسانید</string>
     <string name="restore">بازگردانی</string>
     <string name="ascending">بالا رونده</string>
