@@ -90,7 +90,7 @@
     <string name="google_backup">پشتیبان‌گیری گوگل</string>
     <string name="keepass_backup">پشتیبان‌گیری KeePass</string>
     <string name="keepass_backup_desc">گزینش پرونده‌ی CSV برنامه‌ی KeePass برای درون‌برد</string>
-    <string name="invalid_secret_key">فرمت کلید رازآگین اشتباه است</string>
+    <string name="invalid_secret_key">کارپ کلید رازآگین اشتباه است</string>
     <string name="invalid_csv_file">پرونده‌ی CSV نادرست</string>
     <string name="file_not_found">پرونده یافت نشد (دوباره تلاش کنید)</string>
     <string name="password_change_success">گذرواژه با پیروزی دگرش یافت</string>
