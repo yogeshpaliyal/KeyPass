@@ -90,17 +90,4 @@
     <string name="keypass_backup">KeyPass بیک اپ</string>
     <string name="google_backup">Google بیک اپ</string>
     <string name="keepass_backup">KeyPass بیک اپ</string>
-    <string name="invalid_secret_key"></string>
-    <string name="file_not_found"></string>
-    <string name="invalid_csv_file"></string>
-    <string name="app_desc"></string>
-    <string name="about_us"></string>
-    <string name="about_us_desc"></string>
-    <string name="keepass_backup_desc"></string>
-    <string name="generate_qr_code"></string>
-    <string name="source_code"></string>
-    <string name="app_developer_github"></string>
-    <string name="app_developer_x"></string>
-    <string name="app_developer_linkedin"></string>
-    <string name="app_developer"></string>
 </resources>

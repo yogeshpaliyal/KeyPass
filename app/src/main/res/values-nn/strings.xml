@@ -91,16 +91,4 @@
     <string name="authentication_failed">Autentisering Mislukkast</string>
     <string name="generate_qr_code">Eksporter</string>
     <string name="keepass_backup">KeyPass Tryggleikskopi</string>
-    <string name="invalid_secret_key"></string>
-    <string name="file_not_found"></string>
-    <string name="invalid_csv_file"></string>
-    <string name="app_developer_x"></string>
-    <string name="app_developer_linkedin"></string>
-    <string name="about_us"></string>
-    <string name="app_desc"></string>
-    <string name="about_us_desc"></string>
-    <string name="source_code"></string>
-    <string name="keepass_backup_desc"></string>
-    <string name="app_developer"></string>
-    <string name="app_developer_github"></string>
 </resources>
