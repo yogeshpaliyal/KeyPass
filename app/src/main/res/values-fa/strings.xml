@@ -101,4 +101,6 @@
     <string name="authentication_error">مشکل اُستوانش %s</string>
     <string name="set_keyphrase_info">خواهشمندیم کلیدرسته‌ای برای پرونده‌ی زاپاس(پشتیبان) خود بسازید، از آن برای بازیابی پرونده‌ی پشتیبان بهره‌مندی می‌شود. کلیدرسته باید دست‌کم ۱۶ واچ داشته باشد</string>
     <string name="new_password">گذرواژه تازه</string>
+    <string name="app_desc"></string>
+    <string name="about_us_desc"></string>
 </resources>
