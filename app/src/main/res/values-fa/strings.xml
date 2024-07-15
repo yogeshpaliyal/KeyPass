@@ -93,7 +93,7 @@
     <string name="invalid_secret_key">کارپ کلید رازآگین اشتباه است</string>
     <string name="invalid_csv_file">پرونده‌ی CSV نادرست</string>
     <string name="file_not_found">پرونده یافت نشد (دوباره تلاش کنید)</string>
-    <string name="password_change_success">گذرواژه با پیروزی دگرش یافت</string>
+    <string name="password_change_success">گذرواژه با پیروزمندی دگرش یافت</string>
     <string name="generate_qr_code">برون‌برد</string>
     <string name="biometric_error_hw_unavailable">ویژگی‌های بایومتریک هم‌اینک در دسترس نیستند.</string>
     <string name="default_password_length">درازنای پیش‌ گزیده‌ی گذرواژه</string>
@@ -101,4 +101,6 @@
     <string name="authentication_error">مشکل اُستوانش %s</string>
     <string name="set_keyphrase_info">خواهشمندیم کلیدرسته‌ای برای پرونده‌ی زاپاس(پشتیبان) خود بسازید، از آن برای بازیابی پرونده‌ی پشتیبان بهره‌مندی می‌شود. کلیدرسته باید دست‌کم ۱۶ واچ داشته باشد</string>
     <string name="new_password">گذرواژه تازه</string>
+    <string name="about_us_desc">درباره ما Desc</string>
+    <string name="app_desc">Open-source و آفلاین Password Manager فروشگاه، مدیریت، کنترل ایمن.</string>
 </resources>
