@@ -93,7 +93,7 @@
     <string name="invalid_secret_key">کارپ کلید رازآگین اشتباه است</string>
     <string name="invalid_csv_file">پرونده‌ی CSV نادرست</string>
     <string name="file_not_found">پرونده یافت نشد (دوباره تلاش کنید)</string>
-    <string name="password_change_success">گذرواژه با پیروزی دگرش یافت</string>
+    <string name="password_change_success">گذرواژه با پیروزمندی دگرش یافت</string>
     <string name="generate_qr_code">برون‌برد</string>
     <string name="biometric_error_hw_unavailable">ویژگی‌های بایومتریک هم‌اینک در دسترس نیستند.</string>
     <string name="default_password_length">درازنای پیش‌ گزیده‌ی گذرواژه</string>
