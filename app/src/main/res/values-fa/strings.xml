@@ -17,7 +17,7 @@
     <string name="message_no_accounts">شناسه‌ای نیست، خواهشمند است که با دکمه پایین یکی بسازید</string>
     <string name="turn_off_backup">خاموش کردن پشتیبان‌گیری‌ها</string>
     <string name="backup_folder">پشتیبان‌گیری از پوشه</string>
-    <string name="yes">بله</string>
+    <string name="yes">آری</string>
     <string name="help">کمک</string>
     <string name="security">هیمنایی</string>
     <string name="account_name">نام شناسه</string>
