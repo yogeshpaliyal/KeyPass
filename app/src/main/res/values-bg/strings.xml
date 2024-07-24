@@ -91,4 +91,16 @@
     <string name="generate_keyphrase">Генериране на ключова фраза</string>
     <string name="generate_qr_code">Експортиране</string>
     <string name="keepass_backup">Резервно копие на KeyPass</string>
+    <string name="invalid_csv_file">Невалиден CSV файл</string>
+    <string name="file_not_found">Файлът не е намерен (моля, опитайте отново)</string>
+    <string name="invalid_secret_key">Невалиден формат на секретния ключ</string>
+    <string name="app_desc">Мениджър на пароли с отворен код и офлайн. Съхранявайте, управлявайте, контролирайте сигурно.</string>
+    <string name="about_us">За нас</string>
+    <string name="about_us_desc">За нас Desc</string>
+    <string name="app_developer">Разработчик</string>
+    <string name="app_developer_x">X (по-рано Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Програмен код</string>
+    <string name="app_developer_github">Github</string>
+    <string name="keepass_backup_desc">Изберете KeePass CSV файл за импортиране</string>
 </resources>
