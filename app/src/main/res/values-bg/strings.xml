@@ -64,7 +64,7 @@
     <string name="disabled">Деактивирано</string>
     <string name="generate_password">Генериране на парола</string>
     <string name="message_no_accounts">Няма намерени акаунти, моля добавете от бутона по-долу</string>
-    <string name="restore_credentials">Импортиране на идентификационни данни</string>
+    <string name="restore_credentials">Изнасяне на идентификационни данни</string>
     <string name="custom_generated_keyphrase_info">Искате ли да създадете ваша собствена ключова фраза за архивиране или трябва да генерирам вместо вас?</string>
     <string name="credentials_backups_desc">Архивиране на идентификационни данни във външно хранилище</string>
     <string name="backup_completed">Архивирането е завършено</string>
