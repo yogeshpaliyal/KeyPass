@@ -1,4 +1,4 @@
-name: Create APK from Master
+name: Generate Baseline Profile
 
 on:
   workflow_dispatch:
