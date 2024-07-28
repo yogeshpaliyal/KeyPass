@@ -61,8 +61,8 @@
     <string name="incorrect_old_password">خواهشمند است گذواژه پیشین درست خود را اندرون نشانید</string>
     <string name="blank_confirm_password">گذواژه را به هایش برسانید</string>
     <string name="restore">بازگردانی</string>
-    <string name="ascending">بالا رونده</string>
-    <string name="descending">پایین رونده</string>
+    <string name="ascending">صعودی</string>
+    <string name="descending">نزولی</string>
     <string name="str_continue">ادامه</string>
     <string name="back">بازگشت</string>
     <string name="create_password">ساختن گذرواژه</string>
