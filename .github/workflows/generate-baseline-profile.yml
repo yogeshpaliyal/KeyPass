@@ -1,0 +1,31 @@
+name: Generate Baseline Profile
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+  
+    - name: Setting up project
+      uses: ./.github/actions/setup
+      
+    - name: Install GMD image for baseline profile generation
+      run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-34;aosp_atd;x86_64"
+  
+    - name: Accept Android licenses
+      run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
+  
+    - name: Generate profile
+      run: ./gradlew :app:generateProReleaseBaselineProfile
+           -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
+
+     # Upload the entire generated folder and attach it to the CI run
+    - name: Attach baseline profile
+      uses: actions/upload-artifact@v3
+      with:
+        name: Baseline profile output
+        path: benchmark/build/outputs/baseline-prof
+    
