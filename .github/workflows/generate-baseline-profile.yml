@@ -11,18 +11,25 @@ jobs:
   
     - name: Setting up project
       uses: ./.github/actions/setup
-      
-    - name: Install GMD image for baseline profile generation
-      run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-34;aosp_atd;x86_64"
-  
-    - name: Accept Android licenses
-      run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
-  
-    - name: Generate profile
-      run: ./gradlew :app:generateProReleaseBaselineProfile
-           -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
 
-     # Upload the entire generated folder and attach it to the CI run
+        # Now use reactivecircus/android-emulator-runner to spin up an emulator and run our
+        # baseline profile generator. We need to manually pull the baseline profiles off the
+        # emulator when using the GA runner
+    - name: Run benchmark
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+       api-level: 31
+       target: google_apis
+       arch: x86_64
+       profile: Galaxy Nexus
+       script: |
+         # Run our benchmark, enabling only tests using BaselineProfile
+         ./gradlew connectedProBenchmarkReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+         # Need to manually pull the generated profiles from the emulator
+         adb pull /sdcard/Android/media/app.tivi.benchmark benchmark/build/outputs/baseline-prof/
+      
+
+      # Upload the entire generated folder and attach it to the CI run
     - name: Attach baseline profile
       uses: actions/upload-artifact@v3
       with:
