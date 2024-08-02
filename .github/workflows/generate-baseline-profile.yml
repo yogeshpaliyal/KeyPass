@@ -19,7 +19,7 @@ jobs:
       id: build
       run: |
          # Run our benchmark, enabling only tests using BaselineProfile
-         ./gradlew connectedProBenchmarkReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+         ./gradlew pixel6Api34ProBenchmarkReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
          # Need to manually pull the generated profiles from the emulator
          adb pull /sdcard/Android/media/app.tivi.benchmark benchmark/build/outputs/baseline-prof/
 
