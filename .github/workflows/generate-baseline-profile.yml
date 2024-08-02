@@ -16,18 +16,12 @@ jobs:
         # baseline profile generator. We need to manually pull the baseline profiles off the
         # emulator when using the GA runner
     - name: Run benchmark
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-       api-level: 31
-       target: google_apis
-       arch: x86_64
-       profile: Galaxy Nexus
-       script: |
+      id: build
+      run: |
          # Run our benchmark, enabling only tests using BaselineProfile
          ./gradlew connectedProBenchmarkReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
          # Need to manually pull the generated profiles from the emulator
          adb pull /sdcard/Android/media/app.tivi.benchmark benchmark/build/outputs/baseline-prof/
-      
 
       # Upload the entire generated folder and attach it to the CI run
     - name: Attach baseline profile
