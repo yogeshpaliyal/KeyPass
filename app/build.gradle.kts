@@ -19,8 +19,8 @@ android {
         applicationId = appPackageId
         minSdk = 23
         targetSdk = 34
-        versionCode = 1430
-        versionName = "1.4.30"
+        versionCode = 1431
+        versionName = "1.4.31"
 
         testInstrumentationRunner = "com.yogeshpaliyal.keypass.CustomTestRunner"
         vectorDrawables {
