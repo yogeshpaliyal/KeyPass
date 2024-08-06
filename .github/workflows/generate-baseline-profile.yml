@@ -24,7 +24,7 @@ jobs:
 
      # Upload the entire generated folder and attach it to the CI run
     - name: Attach baseline profile
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Baseline profile output
         path: benchmark/build/outputs/baseline-prof
