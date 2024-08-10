@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.devtools.ksp")
 }
 
 kotlin {
@@ -15,10 +16,15 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                val room_version = "2.6.1"
                 api("androidx.compose.runtime:runtime:1.6.8")
                 api("androidx.compose.foundation:foundation:1.6.8")
                 api("androidx.compose.material:material:1.6.8")
                 implementation("org.reduxkotlin:redux-kotlin-compose:0.6.0")
+                implementation("androidx.room:room-runtime:$room_version")
+                add("kspJvm", "androidx.room:room-compiler:$room_version")
+
+
             }
         }
         val commonTest by getting {
