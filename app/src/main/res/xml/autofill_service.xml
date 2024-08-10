@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<autofill-service xmlns:android="http://schemas.android.com/apk/res/android">
+    <supportedPackages>
+        <package android:name="com.yogeshpaliyal.keypass" />
+    </supportedPackages>
+    <requiredSmartSuggestions>
+        <smartSuggestion android:type="password" />
+        <smartSuggestion android:type="creditCard" />
+    </requiredSmartSuggestions>
+</autofill-service>
