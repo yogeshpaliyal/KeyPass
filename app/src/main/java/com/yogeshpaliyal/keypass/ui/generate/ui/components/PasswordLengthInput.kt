@@ -16,7 +16,7 @@ fun PasswordLengthInput(
     Slider(
         value = length,
         onValueChange = onPasswordLengthChange,
-        valueRange = 7f..50f,
-        steps = 43
+        valueRange = 7f..256f,
+        steps = 249
     )
 }
