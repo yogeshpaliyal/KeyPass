@@ -123,6 +123,7 @@ Want to contribute to translations? [Contribute](https://hosted.weblate.org/proj
 ## Download Links
 <a href='https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass'><img align='center' height='55' src='./icons/google_play_badge.png'></a>
 <a href='https://f-droid.org/en/packages/com.yogeshpaliyal.keypass/'><img align='center' alt='Get it on F-Droid' src='./icons/fdroid_badge.png' height="55"/></a>
+<a href='https://indusapp.store/ek1z9km0'><img alt='Get it on Indus Appstore' src='https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-full-color-english.png'/></a>
 
 ## 📝 License
 
