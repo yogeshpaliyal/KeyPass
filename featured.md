@@ -1,10 +1,10 @@
 # Featured
 
 ## Youtube
-- [KeyPass on Youtube](https://www.youtube.com/results?search_query=KeyPass)
+- [8 Mind-Blowing Open-Source Android Apps You Can't Live Without! [2024]](https://www.youtube.com/watch?v=fT19my_rmlA&t=196s)
 
 ## Blogs
-- [KeyPass on DevLibrary](https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass)
+- [Android Stack Weekly — Issue#71](https://blog.canopas.com/android-stack-weekly-issue-71-4b3b20418076)
 
 ## Twitter threads
-- [KeyPass on Twitter](https://twitter.com/search?q=KeyPass)
+- [Android Dev Notes](https://x.com/androiddevnotes/status/1662433045289357312?s=19)
