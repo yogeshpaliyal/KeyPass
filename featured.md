@@ -7,6 +7,7 @@
 
 ## Blogs
 - [Android Stack Weekly — Issue#71](https://blog.canopas.com/android-stack-weekly-issue-71-4b3b20418076)
+- [🚀 7 open-source projects you should contribute to in 2023](https://dev.to/github20k/7-open-source-projects-you-should-contribute-to-in-2023-1nph)
 
 ## Twitter threads
 - [Android Dev Notes](https://x.com/androiddevnotes/status/1662433045289357312?s=19)
