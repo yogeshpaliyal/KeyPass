@@ -14,4 +14,9 @@
     <string name="share_desc">App megosztása másokkal</string>
     <string name="about_us_desc">Rólunk leírás</string>
     <string name="app_developer">Fejlesztő</string>
+    <string name="credentials_backups">Credentials Backups</string>
+    <string name="credentials_backups_desc">Biztonsági Credentials a külső tároláshoz</string>
+    <string name="restore_credentials">Imports Credentials</string>
+    <string name="restore_credentials_desc">Restore Your backups</string>
+    <string name="send_feedback_desc">Technikai kérdések bejelentése vagy új funkciók javasolása</string>
 </resources>
