@@ -6,7 +6,7 @@
     <string name="delete">Törlés</string>
     <string name="generate_shortcut_short_label">Jelszó generálása</string>
     <string name="backup_restored">Mentés visszaállítva</string>
-    <string name="invalid_keyphrase">Érvénytelen kulcsszó</string>
+    <string name="invalid_keyphrase">Érvénytelen Keyphrase</string>
     <string name="share">Megosztás</string>
     <string name="about_us">Rólunk</string>
     <string name="app_desc">Nyílt forráskódú és offline jelszókezelő. Tárold, kezeld, vedd át az irányítást biztonságosan.</string>
