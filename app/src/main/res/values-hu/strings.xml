@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="send_feedback">Visszajelzés küldése</string>
+    <string name="generate_password">Jelszó generálása</string>
+    <string name="home">Kezdőlap</string>
+    <string name="delete">Törlés</string>
+    <string name="generate_shortcut_short_label">Jelszó generálása</string>
+    <string name="backup_restored">Mentés visszaállítva</string>
+    <string name="invalid_keyphrase">Érvénytelen kulcsszó</string>
+    <string name="share">Megosztás</string>
+    <string name="about_us">Rólunk</string>
+    <string name="app_desc">Nyílt forráskódú és offline jelszókezelő. Tárold, kezeld, vedd át az irányítást biztonságosan.</string>
+    <string name="backup_completed">Mentés befejezve</string>
+    <string name="share_desc">App megosztása másokkal</string>
+    <string name="about_us_desc">Rólunk leírás</string>
+    <string name="app_developer">Fejlesztő</string>
+</resources>
