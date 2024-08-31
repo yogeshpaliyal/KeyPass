@@ -9,8 +9,8 @@
     <string name="backup_completed">بیک اپ مکمل ہو گیا</string>
     <string name="credentials_backups">اسناد کے بیک اپس</string>
     <string name="credentials_backups_desc">بیرونی اسٹوریج میں اسناد کا بیک اپ لیں</string>
-    <string name="restore_credentials">اسناد کو بحال کریں</string>
-    <string name="restore_credentials_desc">اپنا بیک اپ بحال کریں</string>
+    <string name="restore_credentials">اسناد درآمد کریں</string>
+    <string name="restore_credentials_desc">اپنے بیک اپ کو بحال کریں</string>
     <string name="send_feedback">رائے بھیجیں</string>
     <string name="send_feedback_desc">تکنیکی مسائل کی اطلاع دیں یا نئی خصوصیات تجویز کریں</string>
     <string name="share">بانٹیں</string>
@@ -89,5 +89,18 @@
     <string name="secret_key">خفیہ کلید</string>
     <string name="keypass_backup">KeyPass بیک اپ</string>
     <string name="google_backup">Google بیک اپ</string>
-    <string name="keepass_backup">KeyPass بیک اپ</string>
+    <string name="keepass_backup">KeePass بیک اپ</string>
+    <string name="keepass_backup_desc">CSV KeePass فائل کو درآمد کرنے کے لئے منتخب کریں</string>
+    <string name="app_desc">آزاد اور آف لائن پاس ورڈ منیجر۔ محفوظ طریقے سے اسٹور، منظم کریں اور کنٹرول لیں۔</string>
+    <string name="about_us">ہماری بارے ميں</string>
+    <string name="app_developer">ڈویلپر</string>
+    <string name="source_code">ماخذ کوڈ</string>
+    <string name="app_developer_github">گِٹ ہب</string>
+    <string name="app_developer_x">\'\'X (پہلے ٹوئٹر)\'\'</string>
+    <string name="app_developer_linkedin">لنکڈ ان</string>
+    <string name="generate_qr_code">برآمد</string>
+    <string name="invalid_secret_key">غلط خفیہ کلید کی شکل</string>
+    <string name="invalid_csv_file">غلط CSV فائل</string>
+    <string name="file_not_found">فائل نہیں ملی (براہ کرم دوبارہ کوشش کریں)</string>
+    <string name="about_us_desc">ہمارے بارے میں تفصیل</string>
 </resources>
