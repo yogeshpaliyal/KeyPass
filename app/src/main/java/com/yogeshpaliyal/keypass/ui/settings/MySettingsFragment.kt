@@ -67,6 +67,12 @@ fun MySettingCompose() {
         userSettings.passwordConfig.length.let { value -> savedPasswordLength = value }
     }
 
+    // Retrieving saved lock timeout
+    var savedLockTimeout by remember { mutableStateOf(0) }
+    LaunchedEffect(key1 = Unit) {
+        userSettings.lockTimeout.let { value -> savedLockTimeout = value }
+    }
+
     Column(modifier = Modifier.fillMaxSize(1f).verticalScroll(rememberScrollState())) {
         PreferenceItem(title = R.string.security, isCategory = true)
         PreferenceItem(
@@ -96,6 +102,15 @@ fun MySettingCompose() {
             summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}"
         ) {
             dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
+        }
+
+        // New setting for lock timeout
+        val lockTimeoutSummary = context.getString(R.string.lock_timeout_summary)
+        PreferenceItem(
+            title = R.string.lock_timeout,
+            summaryStr = "$lockTimeoutSummary: ${savedLockTimeout} seconds"
+        ) {
+            // Logic to update lock timeout
         }
 
         BiometricsOption()

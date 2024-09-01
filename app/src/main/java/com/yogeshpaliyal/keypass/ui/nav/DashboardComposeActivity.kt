@@ -1,6 +1,8 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -62,6 +64,9 @@ val LocalUserSettings = compositionLocalOf { UserSettings() }
 @AndroidEntryPoint
 class DashboardComposeActivity : AppCompatActivity() {
 
+    private var lockHandler: Handler? = null
+    private var lockRunnable: Runnable? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG.not()) {
@@ -94,8 +99,24 @@ class DashboardComposeActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        lockHandler?.removeCallbacks(lockRunnable)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val lockTimeout = LocalUserSettings.current.lockTimeout
+        lockHandler = Handler(Looper.getMainLooper())
+        lockRunnable = Runnable {
+            // Logic to lock the app
+        }
+        lockHandler?.postDelayed(lockRunnable, lockTimeout * 1000L)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+        lockHandler?.removeCallbacks(lockRunnable)
     }
 }
 
