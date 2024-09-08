@@ -26,33 +26,33 @@ jobs:
 
       - name: Build Free Release AAB
         id: buildRelease
-        run: ./gradlew bundleFreeRelease
+        run: ./gradlew assembleRelease
 
       - name: Sign Free AAB
         id: signPro
         uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/build/outputs/bundle/freeRelease
+          releaseDirectory: app/build/outputs/apk/freeRelease
           signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      # - name: Sign Pro AAB
-      #   id: sign
-      #   uses: r0adkll/sign-android-release@fix/bundle-signing
-      #   with:
-      #     releaseDirectory: app/build/outputs/bundle/proRelease
-      #     signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
-      #     alias: pro
-      #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-      #     keyPassword: ${{ secrets.KEY_PASSWORD }}
+      - name: Sign Pro AAB
+        id: sign
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/apks/proRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: pro
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app/build/outputs/bundle/*/*.aab
+          file: app/build/outputs/bundle/*/*.apk
           tag: ${{ inputs.tag }}
           overwrite: true
           file_glob: true
