@@ -4,7 +4,7 @@ on:
     workflow_dispatch: 
       inputs: 
         tag:
-          description: 'Release Note'
+          description: 'Enter Tag'
           required: true
           type: string
 
@@ -30,7 +30,7 @@ jobs:
 
       - name: Sign Free AAB
         id: signPro
-        uses: r0adkll/sign-android-release@fix/bundle-signing
+        uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/free/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
@@ -40,7 +40,7 @@ jobs:
 
       - name: Sign Pro AAB
         id: sign
-        uses: r0adkll/sign-android-release@fix/bundle-signing
+        uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/pro/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
