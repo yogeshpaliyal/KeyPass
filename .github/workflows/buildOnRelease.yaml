@@ -1,4 +1,4 @@
-name: Deploy App Play Store
+name: Upload on release tag
 
 on:
     workflow_dispatch: 
