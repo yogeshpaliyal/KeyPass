@@ -16,7 +16,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api("androidx.compose.runtime:runtime:1.6.8")
-                api("androidx.compose.foundation:foundation:1.6.8")
+                api("androidx.compose.foundation:foundation:1.7.1")
                 api("androidx.compose.material:material:1.6.8")
                 implementation("org.reduxkotlin:redux-kotlin-compose:0.6.0")
             }
