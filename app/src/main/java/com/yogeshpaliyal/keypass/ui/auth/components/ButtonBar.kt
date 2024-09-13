@@ -27,6 +27,7 @@ fun ButtonBar(
     state: AuthState,
     password: String,
     setPasswordError: (Int?) -> Unit,
+    passwordHint: String, // New parameter for password hint
     dispatchAction: (NavigationAction) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -69,6 +70,7 @@ fun ButtonBar(
                     if (state.password == password) {
                         coroutineScope.launch {
                             context.setKeyPassPassword(password)
+                            context.setPasswordHint(passwordHint) // Save the password hint
                             dispatchAction(NavigationAction(HomeState(), true))
                         }
                     } else {

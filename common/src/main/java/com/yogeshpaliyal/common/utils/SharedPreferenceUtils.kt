@@ -15,13 +15,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 
-/*
-* @author Yogesh Paliyal
-* techpaliyal@gmail.com
-* https://techpaliyal.com
-* created on 21-02-2021 11:18
-*/
-
 val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
@@ -134,6 +127,16 @@ suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, 
         setBackupKey(randomKey)
         Pair(true, randomKey)
     }
+}
+
+suspend fun Context.setPasswordHint(passwordHint: String?) {
+    getUserSettingsDataStore().updateData {
+        it.copy(passwordHint = passwordHint)
+    }
+}
+
+suspend fun Context.getPasswordHint(): String? {
+    return getUserSettings().passwordHint
 }
 
 private val BACKUP_KEY = stringPreferencesKey("backup_key")

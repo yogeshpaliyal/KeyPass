@@ -113,5 +113,6 @@
     <string name="invalid_secret_key">Invalid secret key format</string>
     <string name="invalid_csv_file">Invalid CSV File</string>
     <string name="file_not_found">File not found (please try again)</string>
+    <string name="enter_password_hint">Enter password hint</string>
 
 </resources>
