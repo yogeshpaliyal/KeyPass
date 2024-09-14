@@ -24,9 +24,9 @@ jobs:
         id: build
         run: ./gradlew build
 
-      - name: Build Free Release AAB
+      - name: Build Free and Pro Release AAB
         id: buildRelease
-        run: ./gradlew assembleRelease
+        run: ./gradlew bundleRelease
 
 
       - name: Sign Free AAB
