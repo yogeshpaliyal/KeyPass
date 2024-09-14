@@ -20,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
-import androidx.lifecycle.compose.LifecycleResumeEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
@@ -56,7 +55,6 @@ import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
-import com.yogeshpaliyal.keypass.ui.redux.states.generateDefaultState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -105,8 +103,6 @@ class DashboardComposeActivity : AppCompatActivity() {
             })
         }
     }
-
-
 }
 
 @Composable

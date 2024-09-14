@@ -14,7 +14,6 @@ import com.yogeshpaliyal.common.data.UserSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.flow.map
 
 val Context.dataStore by preferencesDataStore(
     name = "settings"
