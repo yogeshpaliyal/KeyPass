@@ -74,7 +74,7 @@
 ## 🧰 Prerequisites
 | Tool           | Version          |
 |----------------|------------------|
-| Android Studio | Koala (2024.1.1) |
+| Android Studio | Koala (2024.1.2) |
 | Java           | 17               |
 
 ## ✍️ Author
