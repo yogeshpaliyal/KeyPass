@@ -37,6 +37,8 @@ jobs:
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+            BUILD_TOOLS_VERSION: "34.0.0"
 
       - name: Sign Pro AAB
         id: sign
@@ -47,6 +49,8 @@ jobs:
           alias: pro
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+            BUILD_TOOLS_VERSION: "34.0.0
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
