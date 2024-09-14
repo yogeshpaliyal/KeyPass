@@ -48,20 +48,17 @@ fun AuthScreen(state: AuthState) {
         mutableStateOf<Int?>(null)
     }
 
-    val (passwordHint, setPasswordHint) = remember(state) {
-        mutableStateOf("")
-    }
-
     BackHandler(state is AuthState.ConfirmPassword) {
         dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
 
     LaunchedEffect(key1 = userSettings.keyPassPassword, block = {
+        if (userSettings.isDefault) {
+            return@LaunchedEffect
+        }
         val mPassword = userSettings.keyPassPassword
         if (mPassword == null) {
             dispatchAction(NavigationAction(AuthState.CreatePassword, true))
-        } else {
-            dispatchAction(NavigationAction(AuthState.Login, true))
         }
     })
 
@@ -107,7 +104,7 @@ fun AuthScreen(state: AuthState) {
             hint = if (state is AuthState.Login && userSettings.passwordHint != null) userSettings.passwordHint else null
         )
 
-        ButtonBar(state, password, setPasswordError, passwordHint) {
+        ButtonBar(state, password, setPasswordError) {
             dispatchAction(it)
         }
     }
