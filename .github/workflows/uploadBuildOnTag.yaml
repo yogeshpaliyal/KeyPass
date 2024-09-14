@@ -28,35 +28,50 @@ jobs:
         id: buildRelease
         run: ./gradlew assembleRelease
 
+
       - name: Sign Free AAB
         id: signFree
-        uses: r0adkll/sign-android-release@v1
+        uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/build/outputs/apk/free/release
+          releaseDirectory: app/build/outputs/bundle/freeRelease
           signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
-        env:
-          BUILD_TOOLS_VERSION: "34.0.0"
 
       - name: Sign Pro AAB
         id: signPro
-        uses: r0adkll/sign-android-release@v1
+        uses: r0adkll/sign-android-release@fix/bundle-signing
         with:
-          releaseDirectory: app/build/outputs/apk/pro/release
+          releaseDirectory: app/build/outputs/bundle/proRelease
           signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
           alias: pro
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
-        env:
-          BUILD_TOOLS_VERSION: "34.0.0"
+
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-free-generate
+        with:
+            aab-path: 'app/build/outputs/bundle/freeRelease/app-free-release.aab'
+            keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+            keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+            key-alias: ${{ secrets.ALIAS }}
+            key-password: ${{ secrets.KEY_PASSWORD }}
+            
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-pro-generate
+        with:
+            aab-path: 'app/build/outputs/bundle/proRelease/app-pro-release.aab'
+            keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+            keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+            key-alias: pro
+            key-password: ${{ secrets.KEY_PASSWORD }}
 
       - name: Upload free binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{steps.signFree.outputs.signedReleaseFile}}
+          file: ${{ steps.apk-free-generate.outputs.apk-path }}
           tag: ${{ inputs.tag }}
           overwrite: true
           file_glob: true
@@ -65,7 +80,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{steps.signPro.outputs.signedReleaseFile}}
+          file: ${{ steps.apk-pro-generate.outputs.apk-path }}
           tag: ${{ inputs.tag }}
           overwrite: true
           file_glob: true
