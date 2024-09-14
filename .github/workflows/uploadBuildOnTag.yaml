@@ -60,7 +60,6 @@ jobs:
           tag: ${{ inputs.tag }}
           overwrite: true
           file_glob: true
-                - name: Upload binaries to release
 
       - name: Upload pro binaries to release
         uses: svenstaro/upload-release-action@v2
