@@ -57,15 +57,7 @@ jobs:
             keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
             key-alias: ${{ secrets.ALIAS }}
             key-password: ${{ secrets.KEY_PASSWORD }}
-            
-      - uses: snnaplab/universal-apk-generate-action@v1
-        id: apk-pro-generate
-        with:
-            aab-path: 'app/build/outputs/bundle/proRelease/app-pro-release.aab'
-            keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
-            keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
-            key-alias: pro
-            key-password: ${{ secrets.KEY_PASSWORD }}
+
 
       - name: Upload free binaries to release
         uses: svenstaro/upload-release-action@v2
@@ -75,6 +67,20 @@ jobs:
           tag: ${{ inputs.tag }}
           overwrite: true
           file_glob: true
+
+      - name: Build with Gradle
+        id: build
+        run: rm -r /home/runner/work/snnaplab-universal-apk-generate-action
+
+        
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-pro-generate
+        with:
+            aab-path: 'app/build/outputs/bundle/proRelease/app-pro-release.aab'
+            keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+            keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+            key-alias: pro
+            key-password: ${{ secrets.KEY_PASSWORD }}
 
       - name: Upload pro binaries to release
         uses: svenstaro/upload-release-action@v2
