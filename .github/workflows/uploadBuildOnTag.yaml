@@ -1,4 +1,4 @@
-name: Upload on release tag
+name: Upload build on release tag
 
 on:
     workflow_dispatch: 
@@ -29,7 +29,7 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Sign Free AAB
-        id: signPro
+        id: signFree
         uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/free/release
@@ -37,9 +37,11 @@ jobs:
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "34.0.0"
 
       - name: Sign Pro AAB
-        id: sign
+        id: signPro
         uses: r0adkll/sign-android-release@v1
         with:
           releaseDirectory: app/build/outputs/apk/pro/release
@@ -47,12 +49,23 @@ jobs:
           alias: pro
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "34.0.0"
 
-      - name: Upload binaries to release
+      - name: Upload free binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: app/build/outputs/apk/*/*/*.apk
+          file: ${{steps.signFree.outputs.signedReleaseFile}}
+          tag: ${{ inputs.tag }}
+          overwrite: true
+          file_glob: true
+
+      - name: Upload pro binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{steps.signPro.outputs.signedReleaseFile}}
           tag: ${{ inputs.tag }}
           overwrite: true
           file_glob: true
