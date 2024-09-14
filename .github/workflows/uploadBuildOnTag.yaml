@@ -68,8 +68,7 @@ jobs:
           overwrite: true
           file_glob: true
 
-      - name: Build with Gradle
-        id: build
+      - name: Remove universal directory
         run: rm -r /home/runner/work/snnaplab-universal-apk-generate-action
 
         
