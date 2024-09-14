@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -104,14 +103,8 @@ fun AuthScreen(state: AuthState) {
             setPassword = setPassword,
             passwordVisible = passwordVisible,
             setPasswordVisible = setPasswordVisible,
-            passwordError = passwordError
-        )
-
-        OutlinedTextField(
-            value = passwordHint,
-            onValueChange = setPasswordHint,
-            label = { Text(stringResource(id = R.string.enter_password_hint)) },
-            modifier = Modifier.fillMaxWidth()
+            passwordError = passwordError,
+            hint = if (state is AuthState.Login && userSettings.passwordHint != null) userSettings.passwordHint else null
         )
 
         ButtonBar(state, password, setPasswordError, passwordHint) {
