@@ -49,10 +49,6 @@ fun AuthScreen(state: AuthState) {
         mutableStateOf<Int?>(null)
     }
 
-    val (passwordHint, setPasswordHint) = remember(state) {
-        mutableStateOf("")
-    }
-
     BackHandler(state is AuthState.ConfirmPassword) {
         dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
@@ -109,7 +105,7 @@ fun AuthScreen(state: AuthState) {
             hint = if (state is AuthState.Login && userSettings.passwordHint != null) userSettings.passwordHint else null
         )
 
-        ButtonBar(state, password, setPasswordError, passwordHint) {
+        ButtonBar(state, password, setPasswordError) {
             dispatchAction(it)
         }
     }

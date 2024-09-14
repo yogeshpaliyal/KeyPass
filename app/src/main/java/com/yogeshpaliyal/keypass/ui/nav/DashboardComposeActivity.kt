@@ -18,6 +18,8 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
@@ -118,10 +120,9 @@ fun Dashboard() {
         dispatch(GoBackAction)
     }
 
-    LifecycleResumeEffect(Unit) {
-        onPauseOrDispose {
-            dispatch(NavigationAction(AuthState.Login))
-        }
+    // Call this like any other SideEffect in your composable
+    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+        dispatch(NavigationAction(AuthState.Login))
     }
 
     LaunchedEffect(key1 = systemBackPress, block = {
@@ -186,7 +187,7 @@ fun CurrentPage() {
             is BackupImporterState -> BackupImporter(state = it)
             is AboutState -> AboutScreen()
             is PasswordGeneratorState -> GeneratePasswordScreen()
-            ChangeAppHintState -> PasswordHintScreen()
+            is ChangeAppHintState -> PasswordHintScreen()
         }
     }
 }
