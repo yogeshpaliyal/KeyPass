@@ -1,4 +1,4 @@
-name: Upload on release tag
+name: Upload build on release tag
 
 on:
     workflow_dispatch: 
