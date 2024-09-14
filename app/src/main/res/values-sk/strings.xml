@@ -103,4 +103,12 @@
     <string name="invalid_secret_key">Neplatný tajný formát</string>
     <string name="invalid_csv_file">Neplatné CSV Aktuality</string>
     <string name="file_not_found">Súbor nebol nájdený (prosím skúste to znova)</string>
+    <string name="remove_app_hint">Odstrániť Hint</string>
+    <string name="app_password_hint">App Heslo Hint</string>
+    <string name="set_app_password_hint">Nastaviť aplikáciu Heslo Hint</string>
+    <string name="change_app_password_hint">Zmena aplikácie Heslo Hint</string>
+    <string name="hint_change_success">Hint sa úspešne zmenil</string>
+    <string name="hint_removed_success">Hint sa úspešne odstránil</string>
+    <string name="enter_password_hint">Zadajte heslo</string>
+    <string name="change_app_hint">Zmeniť Hint</string>
 </resources>
