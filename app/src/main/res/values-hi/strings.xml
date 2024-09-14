@@ -104,4 +104,12 @@
     <string name="invalid_secret_key">अमान्य गुप्त कुंजी प्रारूप</string>
     <string name="invalid_csv_file">Invalid CSV फ़ाइल</string>
     <string name="file_not_found">फ़ाइल नहीं मिली (कृपया फिर से प्रयास करें)</string>
+    <string name="change_app_password_hint">ऐप पासवर्ड हिंट बदलें</string>
+    <string name="enter_password_hint">पासवर्ड संकेत</string>
+    <string name="change_app_hint">हिंट बदलें</string>
+    <string name="remove_app_hint">हिंट निकालें</string>
+    <string name="app_password_hint">ऐप पासवर्ड हिंट</string>
+    <string name="set_app_password_hint">ऐप पासवर्ड हिंट सेट करें</string>
+    <string name="hint_change_success">Hint सफलतापूर्वक बदल गया</string>
+    <string name="hint_removed_success">Hint सफलतापूर्वक हटाया</string>
 </resources>
