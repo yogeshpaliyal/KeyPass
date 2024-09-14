@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
+import com.yogeshpaliyal.common.utils.setPasswordHint
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
@@ -27,6 +28,7 @@ fun ButtonBar(
     state: AuthState,
     password: String,
     setPasswordError: (Int?) -> Unit,
+    passwordHint: String, // New parameter for password hint
     dispatchAction: (NavigationAction) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -69,6 +71,7 @@ fun ButtonBar(
                     if (state.password == password) {
                         coroutineScope.launch {
                             context.setKeyPassPassword(password)
+                            context.setPasswordHint(passwordHint) // Save the password hint
                             dispatchAction(NavigationAction(HomeState(), true))
                         }
                     } else {
