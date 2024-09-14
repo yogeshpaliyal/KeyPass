@@ -104,4 +104,12 @@
     <string name="invalid_csv_file">Invalid CSV Dosya</string>
     <string name="file_not_found">File bulunamadı (Lütfen tekrar deneyin)</string>
     <string name="invalid_secret_key">Invalid secret key format</string>
+    <string name="change_app_hint">Hint Değişimi</string>
+    <string name="remove_app_hint">Hint</string>
+    <string name="app_password_hint">App Password Hint</string>
+    <string name="set_app_password_hint">Set App Password Hint Hint Hint</string>
+    <string name="change_app_password_hint">Change App Password Hint Hint</string>
+    <string name="hint_change_success">Hint başarıyla değişti</string>
+    <string name="hint_removed_success">Hint başarıyla kaldırıldı</string>
+    <string name="enter_password_hint">Şifre ipucu</string>
 </resources>
