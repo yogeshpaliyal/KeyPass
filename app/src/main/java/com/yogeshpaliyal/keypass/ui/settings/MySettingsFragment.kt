@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
+import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.Divider
@@ -50,6 +51,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppHintState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
 import kotlinx.coroutines.launch
@@ -96,6 +98,15 @@ fun MySettingCompose() {
         ) {
             dispatchAction(NavigationAction(ChangeAppPasswordState()))
         }
+
+        PreferenceItem(
+            title = R.string.app_password_hint,
+            summary = if (userSettings.passwordHint != null) R.string.change_app_password_hint else R.string.set_app_password_hint,
+            icon = Icons.Outlined.Info
+        ) {
+            dispatchAction(NavigationAction(ChangeAppHintState))
+        }
+
         val changePasswordLengthSummary = context.getString(R.string.default_password_length)
         PreferenceItem(
             title = R.string.change_password_length,
