@@ -104,4 +104,12 @@
     <string name="invalid_secret_key">无效的 secret 密钥格式</string>
     <string name="invalid_csv_file">无效的 CSV 文件</string>
     <string name="file_not_found">未找到文件（请重试）</string>
+    <string name="enter_password_hint">前言</string>
+    <string name="change_app_hint">变化H</string>
+    <string name="remove_app_hint">Remove Hint</string>
+    <string name="app_password_hint">附 录</string>
+    <string name="set_app_password_hint">Set App Password Hint</string>
+    <string name="change_app_password_hint">更改</string>
+    <string name="hint_change_success">Hint</string>
+    <string name="hint_removed_success">甲型六氯环己烷</string>
 </resources>
