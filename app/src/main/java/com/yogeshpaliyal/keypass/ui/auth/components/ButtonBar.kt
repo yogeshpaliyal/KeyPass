@@ -18,6 +18,9 @@ import com.yogeshpaliyal.common.utils.setKeyPassPassword
 import com.yogeshpaliyal.common.utils.setPasswordHint
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
+import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
+import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
@@ -29,7 +32,7 @@ fun ButtonBar(
     password: String,
     setPasswordError: (Int?) -> Unit,
     passwordHint: String, // New parameter for password hint
-    dispatchAction: (NavigationAction) -> Unit
+    dispatchAction: (Action) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
@@ -83,7 +86,9 @@ fun ButtonBar(
                     coroutineScope.launch {
                         val savedPassword = userSettings.keyPassPassword
                         if (savedPassword == password) {
-                            dispatchAction(NavigationAction(HomeState(), true))
+                            KeyPassRedux.getLastScreen()?.let {
+                                dispatchAction(GoBackAction)
+                            } ?: dispatchAction(NavigationAction(HomeState(), true))
                         } else {
                             setPasswordError(R.string.incorrect_password)
                         }

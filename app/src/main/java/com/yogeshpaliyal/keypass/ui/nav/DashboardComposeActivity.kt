@@ -1,8 +1,6 @@
 package com.yogeshpaliyal.keypass.ui.nav
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -20,6 +18,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
@@ -40,6 +39,7 @@ import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.passwordHint.PasswordHintScreen
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
@@ -54,6 +54,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
+import com.yogeshpaliyal.keypass.ui.redux.states.generateDefaultState
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,9 +67,6 @@ val LocalUserSettings = compositionLocalOf { UserSettings() }
 @AndroidEntryPoint
 class DashboardComposeActivity : AppCompatActivity() {
 
-    private var lockHandler: Handler? = null
-    private var lockRunnable: Runnable? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG.not()) {
@@ -79,7 +77,7 @@ class DashboardComposeActivity : AppCompatActivity() {
         }
 
         setContent {
-            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
+            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings(true))
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
                 KeyPassTheme {
@@ -95,31 +93,18 @@ class DashboardComposeActivity : AppCompatActivity() {
                 val buildConfigVersion = BuildConfig.VERSION_CODE
                 val currentAppVersion = userSettings.currentAppVersion
                 if (buildConfigVersion != currentAppVersion) {
-                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = currentAppVersion, currentAppVersion = buildConfigVersion))
+                    applicationContext.setUserSettings(
+                        userSettings.copy(
+                            lastAppVersion = currentAppVersion,
+                            currentAppVersion = buildConfigVersion
+                        )
+                    )
                 }
             })
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        lockHandler?.removeCallbacks(lockRunnable)
-    }
 
-    override fun onPause() {
-        super.onPause()
-        val lockTimeout = LocalUserSettings.current.lockTimeout
-        lockHandler = Handler(Looper.getMainLooper())
-        lockRunnable = Runnable {
-            // Logic to lock the app
-        }
-        lockHandler?.postDelayed(lockRunnable, lockTimeout * 1000L)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        lockHandler?.removeCallbacks(lockRunnable)
-    }
 }
 
 @Composable
@@ -131,6 +116,12 @@ fun Dashboard() {
 
     BackHandler(!systemBackPress) {
         dispatch(GoBackAction)
+    }
+
+    LifecycleResumeEffect(Unit) {
+        onPauseOrDispose {
+            dispatch(NavigationAction(AuthState.Login))
+        }
     }
 
     LaunchedEffect(key1 = systemBackPress, block = {

@@ -27,6 +27,7 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.auth.components.ButtonBar
 import com.yogeshpaliyal.keypass.ui.auth.components.PasswordInputField
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
+import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import org.reduxkotlin.compose.rememberDispatcher
@@ -57,11 +58,12 @@ fun AuthScreen(state: AuthState) {
     }
 
     LaunchedEffect(key1 = userSettings.keyPassPassword, block = {
+        if (userSettings.isDefault) {
+            return@LaunchedEffect
+        }
         val mPassword = userSettings.keyPassPassword
         if (mPassword == null) {
             dispatchAction(NavigationAction(AuthState.CreatePassword, true))
-        } else {
-            dispatchAction(NavigationAction(AuthState.Login, true))
         }
     })
 
