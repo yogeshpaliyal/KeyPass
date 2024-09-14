@@ -103,4 +103,12 @@
     <string name="invalid_secret_key">Недійсний формат секретного ключа</string>
     <string name="invalid_csv_file">Недійсний файл CSV</string>
     <string name="file_not_found">Файл не знайдено (спробуйте ще раз)</string>
+    <string name="change_app_hint">Зміна Hint</string>
+    <string name="remove_app_hint">Видалити Хін</string>
+    <string name="app_password_hint">App Пароль Хін</string>
+    <string name="set_app_password_hint">Налаштування пароля</string>
+    <string name="change_app_password_hint">Змінити пароль</string>
+    <string name="hint_change_success">Хін змінився успішно</string>
+    <string name="hint_removed_success">Зняти успішно</string>
+    <string name="enter_password_hint">Введіть пароль</string>
 </resources>
