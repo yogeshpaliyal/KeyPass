@@ -103,4 +103,12 @@
     <string name="invalid_csv_file">Invalid CSV Datei</string>
     <string name="file_not_found">Datei nicht gefunden (bitte nochmal versuchen)</string>
     <string name="invalid_secret_key">Invalides geheimes Schlüsselformat</string>
+    <string name="change_app_hint">Hinweis ändern</string>
+    <string name="remove_app_hint">Entfernen von Hint</string>
+    <string name="app_password_hint">Passwort vergessen</string>
+    <string name="set_app_password_hint">App-Passwort-Anleitung einstellen</string>
+    <string name="change_app_password_hint">App Passwort vergessen</string>
+    <string name="hint_change_success">Hinweis erfolgreich geändert</string>
+    <string name="hint_removed_success">Hinweise erfolgreich entfernt</string>
+    <string name="enter_password_hint">Passwort vergessen</string>
 </resources>
