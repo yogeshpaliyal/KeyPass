@@ -18,6 +18,8 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
@@ -38,6 +40,7 @@ import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.passwordHint.PasswordHintScreen
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
@@ -74,7 +77,7 @@ class DashboardComposeActivity : AppCompatActivity() {
         }
 
         setContent {
-            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
+            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings(true))
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
                 KeyPassTheme {
@@ -90,14 +93,15 @@ class DashboardComposeActivity : AppCompatActivity() {
                 val buildConfigVersion = BuildConfig.VERSION_CODE
                 val currentAppVersion = userSettings.currentAppVersion
                 if (buildConfigVersion != currentAppVersion) {
-                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = currentAppVersion, currentAppVersion = buildConfigVersion))
+                    applicationContext.setUserSettings(
+                        userSettings.copy(
+                            lastAppVersion = currentAppVersion,
+                            currentAppVersion = buildConfigVersion
+                        )
+                    )
                 }
             })
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }
 
@@ -110,6 +114,11 @@ fun Dashboard() {
 
     BackHandler(!systemBackPress) {
         dispatch(GoBackAction)
+    }
+
+    // Call this like any other SideEffect in your composable
+    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+        dispatch(NavigationAction(AuthState.Login))
     }
 
     LaunchedEffect(key1 = systemBackPress, block = {
@@ -174,7 +183,7 @@ fun CurrentPage() {
             is BackupImporterState -> BackupImporter(state = it)
             is AboutState -> AboutScreen()
             is PasswordGeneratorState -> GeneratePasswordScreen()
-            ChangeAppHintState -> PasswordHintScreen()
+            is ChangeAppHintState -> PasswordHintScreen()
         }
     }
 }

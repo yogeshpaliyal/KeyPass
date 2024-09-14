@@ -26,6 +26,8 @@ object KeyPassRedux {
 
     private var arrPages = mutableListOf<ScreenState>()
 
+    fun getLastScreen() = arrPages.lastOrNull()
+
     private val reducer: Reducer<KeyPassState> = { state, action ->
         when (action) {
             is NavigationAction -> {
