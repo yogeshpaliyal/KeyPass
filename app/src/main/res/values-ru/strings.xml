@@ -104,4 +104,12 @@
     <string name="invalid_secret_key">Неверный формат секретного ключа</string>
     <string name="invalid_csv_file">Неверный CSV-файл</string>
     <string name="file_not_found">Файл не найден (пожалуйста, попробуйте снова)</string>
+    <string name="hint_removed_success">Удалено успешно</string>
+    <string name="enter_password_hint">Введите пароль</string>
+    <string name="change_app_hint">Изменение мазка</string>
+    <string name="remove_app_hint">Удалить Синт</string>
+    <string name="app_password_hint">Добавить пароль</string>
+    <string name="set_app_password_hint">Установка метка Пароль</string>
+    <string name="change_app_password_hint">Изменение списка пароля приложения</string>
+    <string name="hint_change_success">Hint успешно изменился</string>
 </resources>

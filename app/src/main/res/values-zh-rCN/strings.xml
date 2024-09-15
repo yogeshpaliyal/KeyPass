@@ -104,4 +104,12 @@
     <string name="invalid_secret_key">无效的 secret 密钥格式</string>
     <string name="invalid_csv_file">无效的 CSV 文件</string>
     <string name="file_not_found">未找到文件（请重试）</string>
+    <string name="enter_password_hint">输入密码提示</string>
+    <string name="change_app_hint">更改提示</string>
+    <string name="remove_app_hint">删除提示</string>
+    <string name="app_password_hint">应用密码的提示</string>
+    <string name="set_app_password_hint">设置应用密码提示</string>
+    <string name="change_app_password_hint">更改应用密码提示</string>
+    <string name="hint_change_success">成功更改了提示</string>
+    <string name="hint_removed_success">成功删除了提示</string>
 </resources>

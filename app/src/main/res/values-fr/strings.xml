@@ -103,4 +103,12 @@
     <string name="invalid_secret_key">Format secret invalide</string>
     <string name="invalid_csv_file">CSV non valide Fichier</string>
     <string name="file_not_found">Fichier non trouvé (veuillez essayer de nouveau)</string>
+    <string name="change_app_hint">Change Hint</string>
+    <string name="remove_app_hint">Supprimer Hint</string>
+    <string name="app_password_hint">App Password Hint</string>
+    <string name="set_app_password_hint">Set App Password Hint</string>
+    <string name="change_app_password_hint">Change App Password Hint</string>
+    <string name="enter_password_hint">Entrez le message de mot de passe</string>
+    <string name="hint_change_success">Hint a changé avec succès</string>
+    <string name="hint_removed_success">Hint enlevé avec succès</string>
 </resources>

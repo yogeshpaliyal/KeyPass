@@ -103,4 +103,12 @@
     <string name="invalid_secret_key">Invalid secret key format</string>
     <string name="invalid_csv_file">Invalid CSV File</string>
     <string name="file_not_found">الملف لم يعثر عليه (يرجى المحاولة مرة أخرى)</string>
+    <string name="hint_change_success">لقد تغير</string>
+    <string name="hint_removed_success">إزالته بنجاح</string>
+    <string name="change_app_hint">غيّر (هين)</string>
+    <string name="remove_app_hint">Remove Hint</string>
+    <string name="app_password_hint">كلمة المرور</string>
+    <string name="set_app_password_hint">وضع كلمة المرور</string>
+    <string name="change_app_password_hint">تغيير كلمة المرور</string>
+    <string name="enter_password_hint">تلميح كلمة المرور</string>
 </resources>

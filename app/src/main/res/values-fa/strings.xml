@@ -103,4 +103,12 @@
     <string name="new_password">گذرواژه تازه</string>
     <string name="about_us_desc">درباره ما Desc</string>
     <string name="app_desc">Open-source و آفلاین Password Manager فروشگاه، مدیریت، کنترل ایمن.</string>
+    <string name="remove_app_hint">حذف Hint</string>
+    <string name="app_password_hint">برنامه Password Hint</string>
+    <string name="hint_change_success">تغییر موفقیت آمیز</string>
+    <string name="hint_removed_success">Hint با موفقیت حذف شد</string>
+    <string name="enter_password_hint">ورودی Password Point</string>
+    <string name="change_app_hint">تغییر Hint</string>
+    <string name="set_app_password_hint">برنامه Password Hint</string>
+    <string name="change_app_password_hint">تغییر برنامه Password Hint</string>
 </resources>

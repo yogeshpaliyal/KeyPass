@@ -103,4 +103,12 @@
     <string name="invalid_secret_key">Érvénytelen titkos kulcs formátum</string>
     <string name="invalid_csv_file">Érvénytelen CSV File</string>
     <string name="file_not_found">File nem talált (kérlek próbálkozz újra)</string>
+    <string name="change_app_hint">Változás Hint</string>
+    <string name="remove_app_hint">Távolítsa el a Hint</string>
+    <string name="set_app_password_hint">Beállítása App Password Hint</string>
+    <string name="change_app_password_hint">Alkalmazási jelszó Hint</string>
+    <string name="hint_change_success">Hint sikeresen megváltozott</string>
+    <string name="hint_removed_success">Hint sikeresen eltávolított</string>
+    <string name="app_password_hint">App Password Hint</string>
+    <string name="enter_password_hint">Írja be a jelszót</string>
 </resources>
