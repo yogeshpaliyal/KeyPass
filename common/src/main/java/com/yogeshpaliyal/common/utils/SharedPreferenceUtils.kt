@@ -139,6 +139,12 @@ suspend fun Context.getPasswordHint(): String? {
     return getUserSettings().passwordHint
 }
 
+suspend fun Context.updateLastPasswordLoginTime(lastPasswordLoginTime: Long?) {
+    getUserSettingsDataStore().updateData {
+        it.copy(lastPasswordLoginTime = lastPasswordLoginTime)
+    }
+}
+
 private val BACKUP_KEY = stringPreferencesKey("backup_key")
 private val BIOMETRIC_ENABLE = booleanPreferencesKey("biometric_enable")
 private val KEYPASS_PASSWORD = stringPreferencesKey("keypass_password")
