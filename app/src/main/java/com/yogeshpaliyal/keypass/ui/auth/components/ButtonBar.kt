@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
+import com.yogeshpaliyal.common.utils.updateLastPasswordLoginTime
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
@@ -83,6 +84,7 @@ fun ButtonBar(
                     coroutineScope.launch {
                         val savedPassword = userSettings.keyPassPassword
                         if (savedPassword == password) {
+                            context.updateLastPasswordLoginTime(System.currentTimeMillis())
                             KeyPassRedux.getLastScreen()?.let {
                                 dispatchAction(GoBackAction)
                             } ?: dispatchAction(NavigationAction(HomeState(), true))

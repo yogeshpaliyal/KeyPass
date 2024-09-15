@@ -62,6 +62,14 @@ fun AuthScreen(state: AuthState) {
         }
     })
 
+    LaunchedEffect(key1 = userSettings.lastPasswordLoginTime, block = {
+        val lastPasswordLoginTime = userSettings.lastPasswordLoginTime
+        val currentTime = System.currentTimeMillis()
+        if (lastPasswordLoginTime != null && currentTime - lastPasswordLoginTime > 24 * 60 * 60 * 1000) {
+            dispatchAction(NavigationAction(AuthState.Login, true))
+        }
+    })
+
     Column(
         modifier = Modifier
             .padding(32.dp)
