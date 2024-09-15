@@ -23,7 +23,6 @@ data class UserSettings(
     val currentAppVersion: Int? = null,
     val passwordConfig: PasswordConfig = PasswordConfig.Initial,
     val passwordHint: String? = null,
-    val lastBiometricLoginTime: Long? = null,
     val lastPasswordLoginTime: Long? = null
 ) {
     fun isKeyPresent() = backupKey != null

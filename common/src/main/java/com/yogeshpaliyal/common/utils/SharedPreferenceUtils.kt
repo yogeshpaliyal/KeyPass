@@ -139,12 +139,6 @@ suspend fun Context.getPasswordHint(): String? {
     return getUserSettings().passwordHint
 }
 
-suspend fun Context.updateLastBiometricLoginTime(lastBiometricLoginTime: Long?) {
-    getUserSettingsDataStore().updateData {
-        it.copy(lastBiometricLoginTime = lastBiometricLoginTime)
-    }
-}
-
 suspend fun Context.updateLastPasswordLoginTime(lastPasswordLoginTime: Long?) {
     getUserSettingsDataStore().updateData {
         it.copy(lastPasswordLoginTime = lastPasswordLoginTime)

@@ -22,9 +22,12 @@ import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import kotlinx.coroutines.launch
+import kotlin.time.DurationUnit
+import kotlin.time.toDuration
 
 @Composable
 fun ButtonBar(
@@ -49,7 +52,17 @@ fun ButtonBar(
 
         if (userSettings.isBiometricEnable && state is AuthState.Login) {
             OutlinedButton(onClick = {
-                setBiometricEnable(true)
+                val currentTime = System.currentTimeMillis()
+                val lastPasswordLoginTime = userSettings.lastPasswordLoginTime ?: -1
+                if (lastPasswordLoginTime > 0 && (currentTime - lastPasswordLoginTime).toDuration(
+                        DurationUnit.MILLISECONDS
+                    ).inWholeHours < 24
+                ) {
+                    setBiometricEnable(true)
+                } else {
+                    // User exceeds 24 hours before entering the password
+                    dispatchAction(ToastAction(R.string.biometric_disabled_due_to_timeout))
+                }
             }) {
                 Text(text = stringResource(id = R.string.unlock_with_biometric))
             }
