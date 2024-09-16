@@ -112,4 +112,5 @@
     <string name="set_app_password_hint">Установка метка Пароль</string>
     <string name="change_app_password_hint">Изменение списка пароля приложения</string>
     <string name="hint_change_success">Hint успешно изменился</string>
+    <string name="biometric_disabled_due_to_timeout">Пожалуйста, войдите в систему с помощью пароля, так как вы не использовали пароль в течение последних 24 часов</string>
 </resources>
