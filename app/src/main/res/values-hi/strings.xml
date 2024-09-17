@@ -113,4 +113,5 @@
     <string name="hint_change_success">Hint सफलतापूर्वक बदल गया</string>
     <string name="hint_removed_success">Hint सफलतापूर्वक हटाया</string>
     <string name="biometric_disabled_due_to_timeout">कृपया पासवर्ड के माध्यम से लॉगिन करें क्योंकि आपने पिछले 24 घंटों में पासवर्ड का उपयोग नहीं किया है</string>
+    <string name="invalid_csv">Invalid CSV फ़ाइल</string>
 </resources>
