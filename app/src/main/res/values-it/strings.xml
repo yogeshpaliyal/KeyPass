@@ -112,4 +112,5 @@
     <string name="hint_change_success">Hint è cambiato con successo</string>
     <string name="hint_removed_success">Hint rimosso con successo</string>
     <string name="biometric_disabled_due_to_timeout">Si prega di effettuare il login tramite password perché non hai usato la password nelle ultime 24 ore</string>
+    <string name="invalid_csv">CSV non valido File</string>
 </resources>
