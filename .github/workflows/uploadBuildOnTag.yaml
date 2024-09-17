@@ -70,7 +70,6 @@ jobs:
           asset_name: 'keypass-free-${{inputs.tag || github.ref_name}}.apk'
           tag: ${{ inputs.tag || github.ref_name }}
           overwrite: true
-          file_glob: true
 
       - name: Remove universal directory
         run: rm -r /home/runner/work/snnaplab-universal-apk-generate-action
@@ -93,4 +92,3 @@ jobs:
           tag: ${{ inputs.tag || github.ref_name }}
           asset_name: 'keypass-pro-${{inputs.tag || github.ref_name}}.apk'
           overwrite: true
-          file_glob: true
