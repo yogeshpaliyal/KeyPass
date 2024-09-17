@@ -111,4 +111,5 @@
     <string name="hint_removed_success">Hint sa úspešne odstránil</string>
     <string name="enter_password_hint">Zadajte heslo</string>
     <string name="change_app_hint">Zmeniť Hint</string>
+    <string name="biometric_disabled_due_to_timeout">Prihláste sa heslom, pretože ste nepoužívali heslo v posledných 24 hodinách</string>
 </resources>
