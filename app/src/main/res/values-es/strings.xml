@@ -112,4 +112,5 @@
     <string name="remove_app_hint">Quitar Hint</string>
     <string name="app_password_hint">App Password Hint</string>
     <string name="biometric_disabled_due_to_timeout">Por favor, ingrese a través de contraseña porque no ha usado contraseña en las últimas 24 horas</string>
+    <string name="invalid_csv">CSV inválido Archivo</string>
 </resources>
