@@ -112,4 +112,5 @@
     <string name="set_app_password_hint">برنامه Password Hint</string>
     <string name="change_app_password_hint">تغییر برنامه Password Hint</string>
     <string name="biometric_disabled_due_to_timeout">لطفا از طریق رمز عبور وارد شوید زیرا در 24 ساعت گذشته از رمز عبور استفاده نکرده اید</string>
+    <string name="invalid_csv">پرونده‌ی CSV نادرست</string>
 </resources>
