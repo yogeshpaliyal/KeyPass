@@ -103,4 +103,5 @@
     <string name="invalid_csv_file">غلط CSV فائل</string>
     <string name="file_not_found">فائل نہیں ملی (براہ کرم دوبارہ کوشش کریں)</string>
     <string name="about_us_desc">ہمارے بارے میں تفصیل</string>
+    <string name="invalid_csv">غلط CSV فائل</string>
 </resources>
