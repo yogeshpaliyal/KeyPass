@@ -113,4 +113,5 @@
     <string name="hint_change_success">成功更改了提示</string>
     <string name="hint_removed_success">成功删除了提示</string>
     <string name="biometric_disabled_due_to_timeout">请通过密码登录，因为你在过去 24 小时内还没使用过密码</string>
+    <string name="invalid_csv">无效的 CSV 文件</string>
 </resources>
