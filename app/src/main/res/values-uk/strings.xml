@@ -111,4 +111,5 @@
     <string name="hint_change_success">Хін змінився успішно</string>
     <string name="hint_removed_success">Зняти успішно</string>
     <string name="enter_password_hint">Введіть пароль</string>
+    <string name="biometric_disabled_due_to_timeout">Введіть номер мобільного, який Ви вказали при укладаннi договору з нами</string>
 </resources>
