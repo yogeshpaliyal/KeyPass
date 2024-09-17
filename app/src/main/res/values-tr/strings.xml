@@ -112,4 +112,5 @@
     <string name="hint_change_success">Hint başarıyla değişti</string>
     <string name="hint_removed_success">Hint başarıyla kaldırıldı</string>
     <string name="enter_password_hint">Şifre ipucu</string>
+    <string name="biometric_disabled_due_to_timeout">Lütfen şifre ile giriş yapın çünkü son 24 saat içinde şifre kullanmadınız</string>
 </resources>
