@@ -112,4 +112,5 @@
     <string name="hint_change_success">Hint mudou com sucesso</string>
     <string name="hint_removed_success">Hint removido com sucesso</string>
     <string name="enter_password_hint">Digite a dica de senha</string>
+    <string name="biometric_disabled_due_to_timeout">Faça login via senha porque você não usou senha nas últimas 24 horas</string>
 </resources>
