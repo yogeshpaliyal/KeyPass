@@ -10,6 +10,8 @@
     <string name="generate_shortcut_short_label">Generate Password</string>
 
     <string name="backup_restored">Backup Restored</string>
+    <string name="invalid_csv">Invalid CSV file</string>
+
     <string name="invalid_keyphrase">Invalid Keyphrase</string>
 
     <string name="backup_completed">Backup Completed</string>
