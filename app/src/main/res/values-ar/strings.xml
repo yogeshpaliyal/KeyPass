@@ -111,4 +111,5 @@
     <string name="set_app_password_hint">وضع كلمة المرور</string>
     <string name="change_app_password_hint">تغيير كلمة المرور</string>
     <string name="enter_password_hint">تلميح كلمة المرور</string>
+    <string name="invalid_csv">Invalid CSV File</string>
 </resources>
