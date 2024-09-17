@@ -112,4 +112,5 @@
     <string name="app_password_hint">App Password Hint</string>
     <string name="enter_password_hint">Írja be a jelszót</string>
     <string name="biometric_disabled_due_to_timeout">Kérjük, jelentkezzen be jelszóval, mert nem használt jelszót az elmúlt 24 órában</string>
+    <string name="invalid_csv">Érvénytelen CSV File</string>
 </resources>
