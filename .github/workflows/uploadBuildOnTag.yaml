@@ -67,6 +67,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ steps.apk-free-generate.outputs.apk-path }}
+          asset_name: 'keypass-free-${{inputs.tag || github.ref_name}}.apk'
           tag: ${{ inputs.tag || github.ref_name }}
           overwrite: true
           file_glob: true
@@ -90,5 +91,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ steps.apk-pro-generate.outputs.apk-path }}
           tag: ${{ inputs.tag || github.ref_name }}
+          asset_name: 'keypass-pro-${{inputs.tag || github.ref_name}}.apk'
           overwrite: true
           file_glob: true
