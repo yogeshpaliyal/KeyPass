@@ -161,7 +161,7 @@ dependencies {
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     implementation("org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0")
-    implementation("me.saket.cascade:cascade-compose:2.2.0")
+    implementation("me.saket.cascade:cascade-compose:2.3.0")
 
     implementation("androidx.biometric:biometric:1.1.0")
 }
