@@ -111,4 +111,6 @@
     <string name="hint_change_success">Hinweis erfolgreich geändert</string>
     <string name="hint_removed_success">Hinweise erfolgreich entfernt</string>
     <string name="enter_password_hint">Passwort vergessen</string>
+    <string name="biometric_disabled_due_to_timeout">Bitte melden Sie sich per Passwort an, weil Sie in den letzten 24 Stunden kein Passwort verwendet haben</string>
+    <string name="invalid_csv">Invalid CSV Datei</string>
 </resources>

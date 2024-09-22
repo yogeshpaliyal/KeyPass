@@ -103,4 +103,14 @@
     <string name="source_code">Програмен код</string>
     <string name="app_developer_github">Github</string>
     <string name="keepass_backup_desc">Изберете KeePass CSV файл за импортиране</string>
+    <string name="change_app_hint">Промяна на подсказка</string>
+    <string name="hint_change_success">Подсказката е променена успешно</string>
+    <string name="hint_removed_success">Подсказката е премахната успешно</string>
+    <string name="enter_password_hint">Въведете подсказка за парола</string>
+    <string name="change_app_password_hint">Промяна на подсказка за парола за приложение</string>
+    <string name="biometric_disabled_due_to_timeout">Моля, влезте с парола, защото не сте използвали парола през последните 24 часа</string>
+    <string name="app_password_hint">Подсказка за парола за приложение</string>
+    <string name="set_app_password_hint">Задаване на подсказка за парола за приложение</string>
+    <string name="remove_app_hint">Премахване на подсказка</string>
+    <string name="invalid_csv">Невалиден CSV файл</string>
 </resources>

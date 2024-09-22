@@ -111,4 +111,6 @@
     <string name="set_app_password_hint">وضع كلمة المرور</string>
     <string name="change_app_password_hint">تغيير كلمة المرور</string>
     <string name="enter_password_hint">تلميح كلمة المرور</string>
+    <string name="invalid_csv">Invalid CSV File</string>
+    <string name="biometric_disabled_due_to_timeout">يرجى الدخول عبر كلمة السر لأنك لم تستخدم كلمة السر في 24 ساعة الماضية</string>
 </resources>

@@ -111,4 +111,6 @@
     <string name="hint_change_success">ヒントが正常に変更されました</string>
     <string name="hint_removed_success">ヒントは正常に削除</string>
     <string name="enter_password_hint">パスワードのヒントを入力してください</string>
+    <string name="biometric_disabled_due_to_timeout">過去24時間パスワードが使用されていないのでパスワードでログインしてください</string>
+    <string name="invalid_csv">無効なCSV ファイル</string>
 </resources>
