@@ -20,7 +20,7 @@
     <string name="website_url_optional">URL адрес на уебсайт (по избор)</string>
     <string name="notes_optional">Бележки (по избор)</string>
     <string name="turn_off_backup">Изключи архивирането</string>
-    <string name="login_to_enter_keypass">Влезте за да използвате KeyPass</string>
+    <string name="login_to_enter_keypass">Влезте, за да използвате KeyPass</string>
     <string name="restore">Възстанови</string>
     <string name="confirm_password">Потвърди парола</string>
     <string name="auto_backup_desc">Вашите акаунти ще бъдат архивирани при всяко добавяне или промяна на акаунт</string>
