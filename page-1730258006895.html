@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyPass: Secure Password Manager for Android | Open Source</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+
+    <script src="https://preline.co/assets/vendor/preline/dist/index.js?v=2.5.0"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        section {
+            padding-top: 100px !important;
+            padding-bottom: 100px !important;
+        }
+
+        @media (max-width: 1024px) {
+            section {
+                padding-top: 64px !important;
+                padding-bottom: 64px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding-top: 40px !important;
+                padding-bottom: 40px !important;
+            }
+        }
+    </style>
+    <script>
+        console.log('DOMContentLoaded');
+        
+        // Function to handle image loading errors
+        function handleImageError(img) {
+            const width = img.getAttribute('width') || img.clientWidth || 300;
+            const height = img.getAttribute('height') || img.clientHeight || 200;
+            img.src = "https://placehold.co/" + width + "x" + height;
+            img.alt = 'Placeholder image';
+        }
+
+        // Function to process an image
+        function processImage(img) {
+            console.log('New image found:', img.src);
+            img.addEventListener('error', () => handleImageError(img));
+        }
+
+        // Function to observe DOM changes and attach error handlers to new images
+        function observeImages() {
+            // Create a MutationObserver instance
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    // Check added nodes for images
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeType === Node.ELEMENT_NODE) {
+                            if (node.nodeName === 'IMG') {
+                                processImage(node);
+                            }
+                            
+                            // Also check for images within added nodes
+                            const images = node.getElementsByTagName('img');
+                            Array.from(images).forEach(processImage);
+                        }
+                    });
+                });
+            });
+
+            // Start observing the document with the configured parameters
+            const config = { childList: true, subtree: true };
+            observer.observe(document.body, config);
+
+            // Also handle existing images
+            const existingImages = document.getElementsByTagName('img');
+            Array.from(existingImages).forEach(processImage);
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', observeImages);
+        } else {
+            observeImages();
+        }
+    </script>
+</head>
+
+<body class=" leading-normal"> <element id="93037559-d67a-4273-9221-a98ef4f33d21" data-section-id="93037559-d67a-4273-9221-a98ef4f33d21">
+
+<htmlCode>
+<div id="root">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#A97BFF',
+                        secondary: '#89e051',
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @layer base {
+            body {
+                @apply font-sans text-gray-900 bg-gray-100;
+            }
+        }
+    </style>
+
+    <header class="bg-primary">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-white font-bold text-xl">KeyPass</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#features" class="text-white hover:text-gray-200">Features</a>
+                    <a href="#download" class="text-white hover:text-gray-200">Download</a>
+                    <a href="#about" class="text-white hover:text-gray-200">About</a>
+                </div>
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-primary text-white py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 lg:pr-24 md:pr-16 flex flex-col items-center md:items-start md:text-left mb-16 md:mb-0 text-center">
+                <h1 class="text-4xl sm:text-7xl font-extrabold tracking-tight mb-4">KeyPass</h1>
+                <p class="mb-8 leading-relaxed">Open Source Offline Password Manager. Store, manage, and take control securely.</p>
+                <div class="flex justify-center">
+                    <a href="#download" class="inline-flex text-white bg-secondary border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">Download Now</a>
+                    <a href="#features" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Learn More</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 w-5/6">
+                <img class="object-cover object-center rounded" alt="KeyPass" src="https://github.com/yogeshpaliyal/KeyPass/raw/master/cover.jpeg">
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="4096bdec-7d43-4b65-8538-2d137df8a004" data-section-id="4096bdec-7d43-4b65-8538-2d137df8a004">
+
+<htmlCode>
+<div id="root">
+    <section id="features" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Complete Offline</h3>
+                    <p class="text-gray-600">No internet permission has been added, ensuring your passwords stay in your hands.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Open Source</h3>
+                    <p class="text-gray-600">Code is accessible to everyone, ensuring transparency and community-driven improvements.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Encrypted Backup and Restore</h3>
+                    <p class="text-gray-600">Securely backup and restore your passwords with strong encryption.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Dark Mode Support</h3>
+                    <p class="text-gray-600">Enjoy a comfortable viewing experience in low-light environments.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Secure Authentication</h3>
+                    <p class="text-gray-600">Authenticate with device credentials (pin, pattern, biometrics) for enhanced security.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">TOTP Support</h3>
+                    <p class="text-gray-600">Generate Time-based One-Time Passwords for additional account security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="dc37a6d3-9fe8-4008-8e4e-18508ab90407" data-section-id="dc37a6d3-9fe8-4008-8e4e-18508ab90407">
+
+<htmlCode>
+<div id="root">
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">How KeyPass Works</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/2 md:pr-8">
+                    <ol class="relative border-l border-gray-200 dark:border-gray-700">
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-4 ring-white">
+                                1
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Install KeyPass</h3>
+                            <p class="mb-4 text-base font-normal text-gray-500">Download and install KeyPass on your device from trusted sources.</p>
+                        </li>
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-4 ring-white">
+                                2
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Set Up Your Account</h3>
+                            <p class="mb-4 text-base font-normal text-gray-500">Create a master password or use biometric authentication to secure your vault.</p>
+                        </li>
+                        <li class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-4 ring-white">
+                                3
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Add Your Passwords</h3>
+                            <p class="mb-4 text-base font-normal text-gray-500">Manually enter your passwords or import them from other sources.</p>
+                        </li>
+                        <li class="ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-4 ring-white">
+                                4
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Access Securely</h3>
+                            <p class="mb-4 text-base font-normal text-gray-500">Retrieve your passwords anytime, anywhere, without an internet connection.</p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="KeyPass Screenshot" class="rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="KeyPass Screenshot" class="rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" alt="KeyPass Screenshot" class="rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" alt="KeyPass Screenshot" class="rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="3afec322-e2b3-47c0-b3f2-146adcb6ad68" data-section-id="3afec322-e2b3-47c0-b3f2-146adcb6ad68">
+
+<htmlCode>
+<div id="root">
+    <section id="security" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Your Security is Our Priority</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Offline Storage</h3>
+                    <p class="text-gray-600">Your passwords are stored locally on your device, never on remote servers. This eliminates the risk of online breaches and ensures your data remains in your control.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Encrypted Backups</h3>
+                    <p class="text-gray-600">Create encrypted backups of your password database. Even if someone intercepts your backup, they won't be able to access your passwords without your encryption key.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Biometric Authentication</h3>
+                    <p class="text-gray-600">Use your device's built-in security features like fingerprint or face recognition to access your passwords quickly and securely.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <h3 class="text-xl font-semibold mb-2">Open Source Transparency</h3>
+                    <p class="text-gray-600">Our code is open for inspection. Security experts and enthusiasts can verify the implementation and contribute to making KeyPass even more secure.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-lg text-gray-600 mb-4">Your trust is our most valued asset. With KeyPass, your passwords are safe, secure, and always under your control.</p>
+                <a href="#download" class="inline-block bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300">Get Started with Secure Password Management</a>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="e7178dbe-fc9d-4d13-9b2e-6b4830d65519" data-section-id="e7178dbe-fc9d-4d13-9b2e-6b4830d65519">
+
+
+                <htmlcode>
+<div id="root" class="">
+    <section id="download" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Download KeyPass</h2>
+            <div class="flex flex-col items-center justify-center space-y-8">
+                <p class="text-xl text-gray-600 text-center max-w-2xl">
+                    Take control of your passwords today. Download KeyPass and start managing your digital security with confidence.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.yogeshpaliyal.keypass" target="_blank" rel="noopener noreferrer" class="inline-block">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/icons/google_play_badge.png" alt="Get it on Google Play" class="h-16">
+                    </a>
+                    <a href="https://f-droid.org/packages/com.yogeshpaliyal.keypass/" target="_blank" rel="noopener noreferrer" class="inline-block">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/icons/fdroid_badge.png" alt="Get it on F-Droid" class="h-16">
+                    </a>
+                </div>
+                <div class="mt-8">
+                    <h3 class="text-2xl font-semibold text-center text-gray-800 mb-4">Remove App Preview</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="KeyPass Screenshot" class="w-48 rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="KeyPass Screenshot" class="w-48 rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" alt="KeyPass Screenshot" class="w-48 rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" alt="KeyPass Screenshot" class="w-48 rounded-lg shadow-md">
+                        <img src="https://github.com/yogeshpaliyal/KeyPass/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" alt="KeyPass Screenshot" class="w-48 rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlcode>
+              </element><element id="567351ed-ec11-4518-8b8f-e7e83788b2f2" data-section-id="567351ed-ec11-4518-8b8f-e7e83788b2f2">
+
+<htmlCode>
+<div id="root">
+    <section id="open-source" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Open Source Community</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-xl text-gray-600 text-center mb-8">
+                    KeyPass is proudly open source. We believe in transparency, community-driven development, and the power of collaboration.
+                </p>
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Why Open Source Matters</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
+                        <li>Transparency: Anyone can inspect the code for security and quality.</li>
+                        <li>Community-driven: Benefit from contributions of developers worldwide.</li>
+                        <li>Customization: Adapt the software to your specific needs.</li>
+                        <li>Reliability: Constant peer review ensures a stable and secure product.</li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://github.com/yogeshpaliyal/KeyPass" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path></svg>
+                            View on GitHub
+                        </a>
+                        <a href="https://github.com/yogeshpaliyal/KeyPass/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Contribute
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <p class="text-lg text-gray-600 mb-4">
+                        Join our community of developers, security experts, and enthusiasts in making KeyPass even better!
+                    </p>
+                    <a href="https://github.com/yogeshpaliyal/KeyPass/stargazers" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary hover:underline">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        Star the project on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="50276408-d590-4ba9-b577-9997d6572a9a" data-section-id="50276408-d590-4ba9-b577-9997d6572a9a">
+
+<htmlCode>
+<div id="root">
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">What Our Users Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">"KeyPass has revolutionized how I manage my passwords. The offline storage gives me peace of mind, and the interface is intuitive. Highly recommended!"</p>
+                    <p class="font-semibold text-gray-800">- Sarah K., Cybersecurity Analyst</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">"As a privacy advocate, I appreciate KeyPass's commitment to offline storage and open-source development. It's secure, reliable, and constantly improving."</p>
+                    <p class="font-semibold text-gray-800">- Mark R., Software Developer</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The biometric authentication feature is a game-changer. It's so convenient yet secure. KeyPass has become an essential part of my digital life."</p>
+                    <p class="font-semibold text-gray-800">- Emily T., Business Owner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="a8aeec25-7023-4b93-9b48-92d338fd050e" data-section-id="a8aeec25-7023-4b93-9b48-92d338fd050e">
+
+<htmlCode>
+<div id="root">
+    <section id="faq" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex items-center justify-between w-full">
+                            <span class="text-lg font-medium text-gray-900">Is KeyPass really completely offline?</span>
+                            <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mt-2">
+                            <p class="text-gray-600">Yes, KeyPass is completely offline. It doesn't require any internet connection to function, ensuring your passwords are stored locally on your device.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex items-center justify-between w-full">
+                            <span class="text-lg font-medium text-gray-900">How secure is the encryption used in KeyPass?</span>
+                            <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mt-2">
+                            <p class="text-gray-600">KeyPass uses industry-standard encryption algorithms to secure your data. The exact details can be found in our GitHub repository, where security experts regularly review our code.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex items-center justify-between w-full">
+                            <span class="text-lg font-medium text-gray-900">Can I import passwords from other managers?</span>
+                            <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mt-2">
+                            <p class="text-gray-600">Yes, KeyPass supports importing passwords from various formats including CSV files from Google Chrome and other popular password managers.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex items-center justify-between w-full">
+                            <span class="text-lg font-medium text-gray-900">How can I contribute to KeyPass development?</span>
+                            <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mt-2">
+                            <p class="text-gray-600">We welcome contributions! You can start by checking our GitHub repository, looking at open issues, and submitting pull requests. Don't forget to read our contribution guidelines.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex items-center justify-between w-full">
+                            <span class="text-lg font-medium text-gray-900">Is KeyPass available for iOS?</span>
+                            <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="mt-2">
+                            <p class="text-gray-600">Currently, KeyPass is available for Android devices. We're considering expanding to other platforms in the future based on community demand and development resources.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="5bb44d64-fa2d-46a9-8d33-4c496b85f967" data-section-id="5bb44d64-fa2d-46a9-8d33-4c496b85f967">
+
+<htmlCode>
+<div id="root">
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-semibold mb-4">KeyPass</h3>
+                    <p class="text-gray-400">Open Source Offline Password Manager. Secure, private, and always in your control.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="#download" class="text-gray-400 hover:text-white">Download</a></li>
+                        <li><a href="#security" class="text-gray-400 hover:text-white">Security</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/yogeshpaliyal/KeyPass" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">GitHub</a></li>
+                        <li><a href="https://github.com/yogeshpaliyal/KeyPass/issues" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">Report an Issue</a></li>
+                        <li><a href="https://github.com/yogeshpaliyal/KeyPass/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">Contribute</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://twitter.com/yogeshpaliyal" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">Twitter</a></li>
+                        <li><a href="mailto:yogeshpaliyal.foss@gmail.com" class="text-gray-400 hover:text-white">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 KeyPass. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="https://github.com/yogeshpaliyal/KeyPass/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-sm">License</a>
+                    <a href="https://github.com/yogeshpaliyal/KeyPass/blob/master/SECURITY.md" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-sm">Security Policy</a>
+                    <a href="https://github.com/yogeshpaliyal/KeyPass/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-sm">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</htmlCode></element>
+                    <div id="page_complete">
+                    <script>
+                        console.log('Page complete');
+                    </script>
+                    </body>
+                    </html>
+                
