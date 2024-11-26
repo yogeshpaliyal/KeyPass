@@ -125,7 +125,7 @@ dependencies {
     implementation(Deps.Lifecycle.viewModelCompose)
     implementation(Deps.Lifecycle.viewModelKtx)
     implementation(Deps.Lifecycle.runtimeCompose)
-    implementation("androidx.navigation:navigation-compose:2.8.1")
+    implementation("androidx.navigation:navigation-compose:2.8.4")
 
     implementation("androidx.compose.material3:material3:1.2.1")
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.36.0")
