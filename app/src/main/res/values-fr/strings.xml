@@ -88,8 +88,8 @@
     <string name="default_password_length">Longueur du mot de passe par défaut</string>
     <string name="secret_key">Clé secrète</string>
     <string name="keypass_backup">Sauvegarde KeyPass</string>
-    <string name="google_backup">Google Backup</string>
-    <string name="generate_qr_code">Exportation</string>
+    <string name="google_backup">Sauvegarde Google</string>
+    <string name="generate_qr_code">Export</string>
     <string name="about_us">À propos de nous</string>
     <string name="about_us_desc">Description à propos de nous</string>
     <string name="app_developer_github">GitHub</string>
@@ -99,18 +99,18 @@
     <string name="app_developer_x">X (anciennement Twitter)</string>
     <string name="app_developer_linkedin">LinkedIn</string>
     <string name="source_code">Code source</string>
-    <string name="keepass_backup_desc">Choisissez le fichier KeePass CSV pour importer</string>
-    <string name="invalid_secret_key">Format secret invalide</string>
-    <string name="invalid_csv_file">CSV non valide Fichier</string>
-    <string name="file_not_found">Fichier non trouvé (veuillez essayer de nouveau)</string>
+    <string name="keepass_backup_desc">Choisissez le fichier CSV KeePass à importer</string>
+    <string name="invalid_secret_key">Format de clé secrète invalide</string>
+    <string name="invalid_csv_file">Fichier CSV non valide</string>
+    <string name="file_not_found">Fichier non trouvé (veuillez réessayer)</string>
     <string name="change_app_hint">Changer l\'indice</string>
     <string name="remove_app_hint">Supprimer l\'indice</string>
     <string name="app_password_hint">Indice de mot de passe d\'application</string>
     <string name="set_app_password_hint">Définir un indice de mot de passe d\'application</string>
     <string name="change_app_password_hint">Changer l\'indice de mot de passe d\'application</string>
-    <string name="enter_password_hint">Entrez le message de mot de passe</string>
+    <string name="enter_password_hint">Entrez l\'indice de mot de passe</string>
     <string name="hint_change_success">L\'indice a été modifié avec succès</string>
     <string name="hint_removed_success">L\'indice a été supprimé avec succès</string>
-    <string name="biometric_disabled_due_to_timeout">S\'il vous plaît vous connecter par mot de passe parce que vous n\'avez pas utilisé mot de passe dans les dernières 24 heures</string>
+    <string name="biometric_disabled_due_to_timeout">Veuillez vous connecter avec votre mot de passe, car vous ne l\'avez pas utilisé dans les dernières 24 heures</string>
     <string name="invalid_csv">Fichier CSV non valide</string>
 </resources>
