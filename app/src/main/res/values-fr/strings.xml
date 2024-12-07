@@ -7,7 +7,7 @@
     <string name="delete">Supprimer</string>
     <string name="generate_shortcut_short_label">Générer un mot de passe</string>
     <string name="backup_restored">Sauvegarde restaurée</string>
-    <string name="invalid_keyphrase">Phrase clé non valide</string>
+    <string name="invalid_keyphrase">Phrase-clé non valide</string>
     <string name="backup_completed">Sauvegarde terminée</string>
     <string name="credentials_backups">Sauvegardes des identifiants</string>
     <string name="credentials_backups_desc">Sauvegarder les informations d\'identification sur un stockage externe</string>
