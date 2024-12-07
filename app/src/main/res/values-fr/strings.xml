@@ -21,7 +21,7 @@
     <string name="copied_to_clipboard">Copié dans le presse-papier</string>
     <string name="login_to_enter_keypass">Connectez-vous pour entrer sur KeyPass</string>
     <string name="last_backup_date">Dernière sauvegarde : %s</string>
-    <string name="delete_account_msg">Voulez-vous vraiment supprimer cette entrée ? Elle ne pourra pas être restaurée</string>
+    <string name="delete_account_msg">Voulez-vous vraiment supprimer cette entrée ? Elle ne pourra pas être restaurée</string>
     <string name="cancel">Annuler</string>
     <string name="feedback_to_keypass">Commentaires sur KeyPass</string>
     <string name="share_keypass">Partager KeyPass</string>
@@ -33,7 +33,7 @@
     <string name="yes">Oui</string>
     <string name="create_backup">Créer une sauvegarde</string>
     <string name="alert">Alerte</string>
-    <string name="copy_keypharse_msg">Veillez à copiez cette phrase-clé qui sera utilisée pour récupérer cette sauvegarde. Elle ne sera plus fournie par KeyPass. L\'avez-vous bien notée ou copiée ?</string>
+    <string name="copy_keypharse_msg">Veillez à copiez cette phrase-clé qui sera utilisée pour récupérer cette sauvegarde. Elle ne sera plus fournie par KeyPass. L\'avez-vous bien notée ou copiée ?</string>
     <string name="help">Aide</string>
     <string name="security">Sécurité</string>
     <string name="account_name">Nom du compte</string>
@@ -55,7 +55,7 @@
     <string name="enter_keyphrase">Entrez la phrase-clé</string>
     <string name="restore">Restaurer</string>
     <string name="keyphrase_restore_info">Veuillez entrer la phrase-clé générée lors de la sauvegarde</string>
-    <string name="custom_generated_keyphrase_info">Voulez-vous créer votre propre phrase-clé pour les sauvegardes ou dois-je la générer pour vous ?</string>
+    <string name="custom_generated_keyphrase_info">Voulez-vous créer votre propre phrase-clé pour les sauvegardes ou dois-je la générer pour vous ?</string>
     <string name="ascending">Croissant</string>
     <string name="descending">Décroissant</string>
     <string name="str_continue">Continuer</string>
@@ -83,7 +83,7 @@
     <string name="password_set_from_settings">Veuillez d\'abord définir le mot de passe de votre appareil à partir des paramètres du téléphone</string>
     <string name="authentication_failed">Authentification échouée</string>
     <string name="authentication_error">Erreur d\'authentification %s</string>
-    <string name="delete_account_title">Êtes-vous sûr ?</string>
+    <string name="delete_account_title">Êtes-vous sûr ?</string>
     <string name="change_password_length">Modifier la longueur du mot de passe</string>
     <string name="default_password_length">Longueur du mot de passe par défaut</string>
     <string name="secret_key">Clé secrète</string>
