@@ -151,12 +151,12 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.53")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.54")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     // For Robolectric tests.
-    testImplementation("com.google.dagger:hilt-android-testing:2.53")
+    testImplementation("com.google.dagger:hilt-android-testing:2.54")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
