@@ -74,6 +74,7 @@
     <string name="enter_keyphrase">Enter Keyphrase</string>
     <string name="restore">Restore</string>
     <string name="keyphrase_restore_info">Please enter keyphrase you get when you backed up</string>
+    <string name="keyphrase_validate_info">Please enter the keyphrase you used to create your backup. We will occasionally show this screen to help you remember it.</string>
     <string name="custom_generated_keyphrase_info">Do you want to create your own keyphrase for backups or should I generate for you?</string>
 
     <string name="ascending">Ascending</string>
@@ -123,6 +124,10 @@
     <string name="invalid_csv_file">Invalid CSV File</string>
     <string name="file_not_found">File not found (please try again)</string>
     <string name="enter_password_hint">Enter password hint</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase does not match with backup keyphrase</string>
+    <string name="validate">Check</string>
     <string name="biometric_disabled_due_to_timeout">Please login via password because you haven\'t used password in last 24 hours</string>
 
 </resources>

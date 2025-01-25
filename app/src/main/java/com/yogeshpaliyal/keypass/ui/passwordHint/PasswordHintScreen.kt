@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.setPasswordHint
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
@@ -42,6 +43,7 @@ fun PasswordHintScreen() {
             modifier = Modifier
                 .padding(contentPadding)
                 .fillMaxWidth()
+                .padding(16.dp)
         ) {
             Column(modifier = Modifier.fillMaxSize(1f)) {
                 KeyPassInputField(

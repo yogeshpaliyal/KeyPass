@@ -22,10 +22,14 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.yogeshpaliyal.keypass.ui.home.components.AccountsList
 import com.yogeshpaliyal.keypass.ui.home.components.SearchBar
+import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
+import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import org.reduxkotlin.compose.rememberDispatcher
+import java.util.concurrent.TimeUnit
 
 /*
 * @author Yogesh Paliyal
@@ -44,12 +48,28 @@ fun Homepage(
     val sortField = homeState.sortField
     val sortAscendingOrder = homeState.sortAscending
 
+    val userSettings = LocalUserSettings.current
+
     val listOfAccountsLiveData by mViewModel.mediator.observeAsState()
 
     val dispatchAction = rememberDispatcher()
 
     LaunchedEffect(tag, keyword, sortField, sortAscendingOrder, block = {
         mViewModel.queryUpdated(keyword, tag, sortField, sortAscendingOrder)
+    })
+
+    LaunchedEffect(Unit, {
+        if (userSettings.backupKey == null) {
+            return@LaunchedEffect
+        }
+        val currentTime = System.currentTimeMillis()
+        val lastPasswordLoginTime = userSettings.lastKeyPhraseEnterTime ?: -1
+        val diff = currentTime - lastPasswordLoginTime
+        val diffInDays = TimeUnit.MILLISECONDS.toDays(diff)
+        if (diffInDays >= 7) {
+            // Show the modal
+            dispatchAction(UpdateDialogState(dialogState = ValidateKeyPhrase))
+        }
     })
 
     Column(modifier = Modifier.fillMaxSize()) {
