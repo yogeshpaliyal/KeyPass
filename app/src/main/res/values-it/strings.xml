@@ -113,4 +113,9 @@
     <string name="hint_removed_success">Hint rimosso con successo</string>
     <string name="biometric_disabled_due_to_timeout">Si prega di effettuare il login tramite password perché non hai usato la password nelle ultime 24 ore</string>
     <string name="invalid_csv">CSV non valido File</string>
+    <string name="keyphrase_validate_info">Si prega di inserire il keyphrase utilizzato per creare il backup. Di tanto in tanto mostreremo questo schermo per aiutarti a ricordarlo.</string>
+    <string name="validate_keyphrase">Controllo tastiere</string>
+    <string name="valid_keyphrase">Keyphrase valida</string>
+    <string name="mismatch_keyphrase">Keyphrase non corrisponde a keyphrase di backup</string>
+    <string name="validate">Check</string>
 </resources>
