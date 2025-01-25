@@ -113,4 +113,9 @@
     <string name="enter_password_hint">パスワードのヒントを入力してください</string>
     <string name="biometric_disabled_due_to_timeout">過去24時間パスワードが使用されていないのでパスワードでログインしてください</string>
     <string name="invalid_csv">無効なCSV ファイル</string>
+    <string name="keyphrase_validate_info">バックアップを作成するために使用したキーフレーズを入力してください。 この画面では、思い出すのに役立ちます.</string>
+    <string name="validate_keyphrase">キーフレーズチェック</string>
+    <string name="valid_keyphrase">有効なKeyphrase</string>
+    <string name="mismatch_keyphrase">キーフレーズはバックアップキーフレーズと一致しません</string>
+    <string name="validate">チェックイン</string>
 </resources>
