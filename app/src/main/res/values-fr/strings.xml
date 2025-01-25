@@ -113,4 +113,9 @@
     <string name="hint_removed_success">L\'indice a été supprimé avec succès</string>
     <string name="biometric_disabled_due_to_timeout">Veuillez vous connecter avec votre mot de passe, car vous ne l\'avez pas utilisé dans les dernières 24 heures</string>
     <string name="invalid_csv">Fichier CSV non valide</string>
+    <string name="keyphrase_validate_info">Veuillez entrer le keyphrase que vous avez utilisé pour créer votre sauvegarde. Nous montrerons occasionnellement cet écran pour vous aider à vous en souvenir.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Keyphrase valide</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase ne correspond pas avec keyphrase de sauvegarde</string>
+    <string name="validate">Check</string>
 </resources>
