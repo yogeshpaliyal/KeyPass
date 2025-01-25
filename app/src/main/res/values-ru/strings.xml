@@ -114,4 +114,9 @@
     <string name="hint_change_success">Hint успешно изменился</string>
     <string name="biometric_disabled_due_to_timeout">Пожалуйста, войдите в систему с помощью пароля, так как вы не использовали пароль в течение последних 24 часов</string>
     <string name="invalid_csv">Неверный CSV-файл</string>
+    <string name="keyphrase_validate_info">Пожалуйста, введите клавиатуру, которую вы использовали для создания резервной копии. Мы иногда покажем этот экран, чтобы помочь вам запомнить его.</string>
+    <string name="validate_keyphrase">Проверка ключей</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">Включенный Keyphrase не совпадает с резервным ключом</string>
+    <string name="validate">Проверка</string>
 </resources>
