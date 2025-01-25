@@ -119,4 +119,8 @@
     <string name="valid_keyphrase">Geçerli Keyphrase</string>
     <string name="mismatch_keyphrase">Entered Keyphrase yedekleme anahtarı ile eşleşmez</string>
     <string name="validate">Check</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">Keyphrase\'yı mı unuttunuz?</string>
+    <string name="forgot_keyphrase_info">Anahtarlarınızı hatırlayamıyorsanız, erişimin geri kazanılmasının tek yolu yedeklerden çıkmak ve sonra onları geri çevirmektir. Bu yeni bir yedekleme dosyası ve yeni bir keyphrase üretecektir.\nNot: Eski yedeklemeniz erişilebilir olacaktır.</string>
+    <string name="got_it">Got it Got it</string>
 </resources>
