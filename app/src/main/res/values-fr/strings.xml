@@ -118,4 +118,8 @@
     <string name="valid_keyphrase">Keyphrase valide</string>
     <string name="mismatch_keyphrase">Entered Keyphrase ne correspond pas avec keyphrase de sauvegarde</string>
     <string name="validate">Check</string>
+    <string name="forgot_keyphrase_question">Vous avez oublié Keyphrase ?</string>
+    <string name="got_it">Compris</string>
+    <string name="forgot_keyphrase">Mot de passe oublié</string>
+    <string name="forgot_keyphrase_info">Si vous ne vous souvenez pas de votre keyphrase, le seul moyen de retrouver l\'accès est de désactiver les sauvegardes et de les réactiver. Cela générera un nouveau fichier de sauvegarde et un nouveau keyphrase.\nRemarque : Votre ancienne sauvegarde sera inaccessible.</string>
 </resources>
