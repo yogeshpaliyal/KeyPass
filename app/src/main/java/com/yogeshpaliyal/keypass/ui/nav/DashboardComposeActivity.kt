@@ -5,8 +5,10 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -67,6 +69,7 @@ class DashboardComposeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         if (BuildConfig.DEBUG.not()) {
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_SECURE,
@@ -135,7 +138,7 @@ fun Dashboard() {
 
     Scaffold(bottomBar = {
         KeyPassBottomBar()
-    }) { paddingValues ->
+    }, modifier = Modifier.safeDrawingPadding()) { paddingValues ->
         Surface(modifier = Modifier.padding(paddingValues)) {
             CurrentPage()
 
