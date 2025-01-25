@@ -113,4 +113,9 @@
     <string name="change_app_password_hint">تغییر برنامه Password Hint</string>
     <string name="biometric_disabled_due_to_timeout">لطفا از طریق رمز عبور وارد شوید زیرا در 24 ساعت گذشته از رمز عبور استفاده نکرده اید</string>
     <string name="invalid_csv">پرونده‌ی CSV نادرست</string>
+    <string name="keyphrase_validate_info">لطفاً به keyphrase که برای ایجاد پشتیبان خود استفاده می کردید وارد شوید. ما گاهی اوقات این صفحه را به شما نشان می دهیم تا به یاد داشته باشید.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Keyphrase</string>
+    <string name="mismatch_keyphrase">Keyphrase وارد شده با کلید پشتیبان مطابقت ندارد</string>
+    <string name="validate">چک</string>
 </resources>

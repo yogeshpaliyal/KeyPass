@@ -113,4 +113,9 @@
     <string name="enter_password_hint">Введіть пароль</string>
     <string name="biometric_disabled_due_to_timeout">Введіть номер мобільного, який Ви вказали при укладаннi договору з нами</string>
     <string name="invalid_csv">Недійсний файл CSV</string>
+    <string name="validate_keyphrase">Keyphrase Перевірити</string>
+    <string name="valid_keyphrase">Реальний Keyphrase</string>
+    <string name="mismatch_keyphrase">Увімкнути Keyphrase не відповідає з резервним копіюванням</string>
+    <string name="validate">Зареєструватися</string>
+    <string name="keyphrase_validate_info">Будь ласка, введіть прапорець, який ви використовували для створення резервної копії. Ми з радістю покажемо цей екран, щоб допомогти вам запам\'ятати його.</string>
 </resources>
