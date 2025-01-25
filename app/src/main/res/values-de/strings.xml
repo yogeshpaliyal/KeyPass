@@ -113,4 +113,9 @@
     <string name="enter_password_hint">Passwort vergessen</string>
     <string name="biometric_disabled_due_to_timeout">Bitte melden Sie sich per Passwort an, weil Sie in den letzten 24 Stunden kein Passwort verwendet haben</string>
     <string name="invalid_csv">Invalid CSV Datei</string>
+    <string name="keyphrase_validate_info">Bitte geben Sie die Keyphrase ein, die Sie verwendet haben, um Ihr Backup zu erstellen. Wir werden diesen Bildschirm gelegentlich zeigen, um Ihnen zu helfen, sich daran zu erinnern.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Gültig Keyphras</string>
+    <string name="mismatch_keyphrase">Betreten Keyphrase passt nicht mit Backup keyphrase</string>
+    <string name="validate">Überprüfung</string>
 </resources>

@@ -113,4 +113,5 @@
     <string name="invalid_csv">தவறான காபிம கோப்பு</string>
     <string name="about_us">எங்களைப் பற்றி</string>
     <string name="app_developer_linkedin">சென்டர்</string>
+    <string name="valid_keyphrase">தவறான கீஃப்ரேஸ்</string>
 </resources>

@@ -114,4 +114,9 @@
     <string name="enter_password_hint">Şifre ipucu</string>
     <string name="biometric_disabled_due_to_timeout">Lütfen şifre ile giriş yapın çünkü son 24 saat içinde şifre kullanmadınız</string>
     <string name="invalid_csv">Invalid CSV Dosya</string>
+    <string name="keyphrase_validate_info">Lütfen yedeklemenizi oluşturmak için kullandığınız anahtara giriniz. Bunu hatırlamanıza yardımcı olmak için bazen bu ekranı göstereceğiz.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Geçerli Keyphrase</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase yedekleme anahtarı ile eşleşmez</string>
+    <string name="validate">Check</string>
 </resources>

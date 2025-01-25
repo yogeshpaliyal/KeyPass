@@ -113,4 +113,9 @@
     <string name="enter_password_hint">تلميح كلمة المرور</string>
     <string name="invalid_csv">Invalid CSV File</string>
     <string name="biometric_disabled_due_to_timeout">يرجى الدخول عبر كلمة السر لأنك لم تستخدم كلمة السر في 24 ساعة الماضية</string>
+    <string name="keyphrase_validate_info">من فضلك أدخلي المفترق الذي إستعملتيه لخلق دعمك سنعرض هذه الشاشة أحياناً لمساعدتك على تذكرها.</string>
+    <string name="validate_keyphrase">كش ملك</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">(كيفريز) المُدخّل لا يتطابق مع مفتاح الدعم</string>
+    <string name="validate">تحقق</string>
 </resources>

@@ -113,4 +113,9 @@
     <string name="change_password_length">Vaihda salasanan pituus</string>
     <string name="default_password_length">Oletus salasanan pituus</string>
     <string name="secret_key">Salainen avain</string>
+    <string name="validate">Check</string>
+    <string name="keyphrase_validate_info">Kirjoita avainsana, jota käytit varmuuskopion luomiseen. Näytämme näytön joskus auttaaksemme sinua muistamaan sen.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase ei vastaa varmuuskopiointia</string>
 </resources>

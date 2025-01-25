@@ -113,4 +113,9 @@
     <string name="enter_password_hint">Írja be a jelszót</string>
     <string name="biometric_disabled_due_to_timeout">Kérjük, jelentkezzen be jelszóval, mert nem használt jelszót az elmúlt 24 órában</string>
     <string name="invalid_csv">Érvénytelen CSV File</string>
+    <string name="keyphrase_validate_info">Kérjük, adja meg a kulcsfázist, amelyet a biztonsági mentés létrehozásához használt. Néha megmutatjuk ezt a képernyőt, hogy segítsünk emlékezni rá.</string>
+    <string name="validate_keyphrase">Keyphrase Ellenőrzés</string>
+    <string name="valid_keyphrase">Érvényes Keyphrase</string>
+    <string name="mismatch_keyphrase">Belépett Keyphrase nem egyezik a backup kulcsszóval</string>
+    <string name="validate">Ellenőrizze</string>
 </resources>

@@ -113,4 +113,9 @@
     <string name="app_password_hint">App Password Hint</string>
     <string name="biometric_disabled_due_to_timeout">Por favor, ingrese a través de contraseña porque no ha usado contraseña en las últimas 24 horas</string>
     <string name="invalid_csv">CSV inválido Archivo</string>
+    <string name="validate">Check</string>
+    <string name="keyphrase_validate_info">Por favor, introduzca la frase clave que utilizó para crear su respaldo. De vez en cuando mostraremos esta pantalla para ayudarte a recordarla.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Valide Keyphrase</string>
+    <string name="mismatch_keyphrase">Keyphrase entra no coincide con la clave de respaldo</string>
 </resources>
