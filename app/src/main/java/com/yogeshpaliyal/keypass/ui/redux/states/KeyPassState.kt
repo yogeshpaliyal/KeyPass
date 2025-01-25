@@ -7,6 +7,7 @@ data class KeyPassState(
     val context: Context? = null,
     val currentScreen: ScreenState,
     val bottomSheet: BottomSheetState? = null,
+    val dialog: DialogState? = null,
     val systemBackPress: Boolean = false
 )
 

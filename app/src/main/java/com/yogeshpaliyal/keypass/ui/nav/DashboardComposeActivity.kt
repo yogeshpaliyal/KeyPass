@@ -18,8 +18,6 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.compose.LifecycleEventEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
@@ -35,12 +33,12 @@ import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.generate.ui.GeneratePasswordScreen
 import com.yogeshpaliyal.keypass.ui.home.Homepage
+import com.yogeshpaliyal.keypass.ui.home.components.ValidateKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.passwordHint.PasswordHintScreen
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
@@ -53,8 +51,8 @@ import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthStat
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
-import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
+import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -77,7 +75,7 @@ class DashboardComposeActivity : AppCompatActivity() {
         }
 
         setContent {
-            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings(true))
+            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
                 KeyPassTheme {
@@ -117,9 +115,9 @@ fun Dashboard() {
     }
 
     // Call this like any other SideEffect in your composable
-    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
-        dispatch(NavigationAction(AuthState.Login))
-    }
+//    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+//        dispatch(NavigationAction(AuthState.Login))
+//    }
 
     LaunchedEffect(key1 = systemBackPress, block = {
         if (systemBackPress) {
@@ -148,9 +146,11 @@ fun Dashboard() {
 
 @Composable
 fun CurrentPage() {
-    val currentScreen by selectState<KeyPassState, ScreenState> { this.currentScreen }
+    val currentScreen by selectState<KeyPassState, KeyPassState> { this }
 
-    currentScreen.let {
+//    val currentDialog by selectState<KeyPassState, DialogState?> { this.dialog }
+
+    currentScreen.currentScreen.let {
         when (it) {
             is HomeState -> {
                 Homepage(homeState = it)
@@ -184,6 +184,14 @@ fun CurrentPage() {
             is AboutState -> AboutScreen()
             is PasswordGeneratorState -> GeneratePasswordScreen()
             is ChangeAppHintState -> PasswordHintScreen()
+        }
+    }
+
+    currentScreen.dialog?.let {
+        when (it) {
+            is ValidateKeyPhrase -> {
+                ValidateKeyPhraseDialog()
+            }
         }
     }
 }
