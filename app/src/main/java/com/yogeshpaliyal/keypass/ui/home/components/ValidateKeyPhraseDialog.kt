@@ -22,6 +22,7 @@ import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
+import com.yogeshpaliyal.keypass.ui.redux.states.ForgotKeyPhraseState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -87,6 +88,16 @@ fun ValidateKeyPhraseDialog() {
                         Text(text = stringResource(id = R.string.enter_keyphrase))
                     }
                 )
+
+                Spacer(modifier = Modifier.size(8.dp))
+
+                TextButton(onClick = {
+                    dispatchAction(UpdateDialogState(ForgotKeyPhraseState))
+                }) {
+                    Text(text = stringResource(id = R.string.forgot_keyphrase_question))
+                }
+
+                Spacer(modifier = Modifier.size(8.dp))
             }
         }
     )

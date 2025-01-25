@@ -35,6 +35,7 @@ import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
 import com.yogeshpaliyal.keypass.ui.generate.ui.GeneratePasswordScreen
 import com.yogeshpaliyal.keypass.ui.home.Homepage
+import com.yogeshpaliyal.keypass.ui.home.components.ForgotKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.home.components.ValidateKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
@@ -50,6 +51,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppHintState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
+import com.yogeshpaliyal.keypass.ui.redux.states.ForgotKeyPhraseState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
@@ -192,9 +194,8 @@ fun CurrentPage() {
 
     currentScreen.dialog?.let {
         when (it) {
-            is ValidateKeyPhrase -> {
-                ValidateKeyPhraseDialog()
-            }
+            is ValidateKeyPhrase -> ValidateKeyPhraseDialog()
+            ForgotKeyPhraseState -> ForgotKeyPhraseDialog()
         }
     }
 }
