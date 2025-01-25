@@ -113,4 +113,9 @@
     <string name="change_app_hint">Zmeniť Hint</string>
     <string name="biometric_disabled_due_to_timeout">Prihláste sa heslom, pretože ste nepoužívali heslo v posledných 24 hodinách</string>
     <string name="invalid_csv">Neplatné CSV Aktuality</string>
+    <string name="validate">Skontrolujte</string>
+    <string name="keyphrase_validate_info">Zadajte keyphrase, ktorý ste použili na vytvorenie zálohy. Ukážeme vám túto obrazovku, ktorá vám pomôže zapamätať si to.</string>
+    <string name="validate_keyphrase">Keyphrase Kontrola</string>
+    <string name="valid_keyphrase">Platné Keyphrase</string>
+    <string name="mismatch_keyphrase">Vložený Keyphrase sa nezhoduje s záložným keyphrase</string>
 </resources>
