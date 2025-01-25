@@ -109,7 +109,7 @@
     <string name="unlock_with_biometric">Avaa biometrinen</string>
     <string name="password_set_from_settings">Aseta salasana laitteellesi ensin puhelimitse</string>
     <string name="authentication_failed">Todistus epäonnistui</string>
-    <string name="authentication_error">Todistusvirhe (X21X)</string>
+    <string name="authentication_error">Todistusvirhe %s</string>
     <string name="change_password_length">Vaihda salasanan pituus</string>
     <string name="default_password_length">Oletus salasanan pituus</string>
     <string name="secret_key">Salainen avain</string>
