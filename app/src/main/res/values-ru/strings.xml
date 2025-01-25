@@ -119,4 +119,8 @@
     <string name="valid_keyphrase">Valid Keyphrase</string>
     <string name="mismatch_keyphrase">Включенный Keyphrase не совпадает с резервным ключом</string>
     <string name="validate">Проверка</string>
+    <string name="got_it">Понял</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">Забыли Кифразу?</string>
+    <string name="forgot_keyphrase_info">Если вы не можете вспомнить свою ключевую фразу, единственный способ восстановить доступ - это выключить резервные копии, а затем снова включить их. Это создаст новый файл резервного копирования и новый клавиатуру.\nПримечание: Ваша старая резервная копия будет недоступной.</string>
 </resources>
