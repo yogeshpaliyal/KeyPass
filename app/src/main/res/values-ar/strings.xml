@@ -118,4 +118,8 @@
     <string name="valid_keyphrase">Valid Keyphrase</string>
     <string name="mismatch_keyphrase">(كيفريز) المُدخّل لا يتطابق مع مفتاح الدعم</string>
     <string name="validate">تحقق</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">نسيت (كيفراس)؟?</string>
+    <string name="forgot_keyphrase_info">إذا كنت لا تستطيع أن تتذكر مفتاحك، الطريقة الوحيدة لإستعادة الوصول هو لإيقاف الدعم ثم إعادة تشغيلها. وهذا سوف يولد ملفا احتياطيا جديدا ومفتاحا جديدا.\nملاحظة: دعمك القديم سيكون غير متاح.</string>
+    <string name="got_it">حصلت عليه</string>
 </resources>
