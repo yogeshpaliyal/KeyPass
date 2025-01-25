@@ -113,4 +113,5 @@
     <string name="set_app_password_hint">Задай подсказка за парола на приложение</string>
     <string name="remove_app_hint">Премахни подсказка</string>
     <string name="invalid_csv">Невалиден CSV файл</string>
+    <string name="valid_keyphrase">Невалидна ключова фраза</string>
 </resources>
