@@ -91,4 +91,5 @@
     <string name="authentication_failed">Autentisering Mislukkast</string>
     <string name="generate_qr_code">Eksporter</string>
     <string name="keepass_backup">KeyPass Tryggleikskopi</string>
+    <string name="valid_keyphrase">Ugyldig Nykelfrase</string>
 </resources>
