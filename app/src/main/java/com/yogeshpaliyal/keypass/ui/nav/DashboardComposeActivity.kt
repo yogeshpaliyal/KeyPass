@@ -77,7 +77,7 @@ class DashboardComposeActivity : AppCompatActivity() {
         }
 
         setContent {
-            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings(true))
+            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
 
             CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
                 KeyPassTheme {
@@ -117,9 +117,9 @@ fun Dashboard() {
     }
 
     // Call this like any other SideEffect in your composable
-    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
-        dispatch(NavigationAction(AuthState.Login))
-    }
+//    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+//        dispatch(NavigationAction(AuthState.Login))
+//    }
 
     LaunchedEffect(key1 = systemBackPress, block = {
         if (systemBackPress) {

@@ -145,6 +145,12 @@ suspend fun Context.updateLastPasswordLoginTime(lastPasswordLoginTime: Long?) {
     }
 }
 
+suspend fun Context.updateLastKeyPhraseEnterTime(lastKeyPhraseEnterTime: Long?) {
+    getUserSettingsDataStore().updateData {
+        it.copy(lastKeyPhraseEnterTime = lastKeyPhraseEnterTime)
+    }
+}
+
 private val BACKUP_KEY = stringPreferencesKey("backup_key")
 private val BIOMETRIC_ENABLE = booleanPreferencesKey("biometric_enable")
 private val KEYPASS_PASSWORD = stringPreferencesKey("keypass_password")

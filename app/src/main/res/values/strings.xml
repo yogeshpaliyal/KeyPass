@@ -123,6 +123,10 @@
     <string name="invalid_csv_file">Invalid CSV File</string>
     <string name="file_not_found">File not found (please try again)</string>
     <string name="enter_password_hint">Enter password hint</string>
+    <string name="validate_keyphrase">Validate Keyphrase</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase does not match with backup keyphrase</string>
+    <string name="validate">Validate</string>
     <string name="biometric_disabled_due_to_timeout">Please login via password because you haven\'t used password in last 24 hours</string>
 
 </resources>

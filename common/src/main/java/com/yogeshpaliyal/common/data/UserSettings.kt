@@ -8,7 +8,6 @@ const val DEFAULT_PASSWORD_LENGTH = 10f
 @Keep
 @Serializable
 data class UserSettings(
-    val isDefault: Boolean = false,
     val keyPassPassword: String? = null,
     val dbPassword: String? = null,
     @Deprecated("Use passwordConfig instead")
@@ -23,7 +22,8 @@ data class UserSettings(
     val currentAppVersion: Int? = null,
     val passwordConfig: PasswordConfig = PasswordConfig.Initial,
     val passwordHint: String? = null,
-    val lastPasswordLoginTime: Long? = null
+    val lastPasswordLoginTime: Long? = null,
+    val lastKeyPhraseEnterTime: Long? = null,
 ) {
     fun isKeyPresent() = backupKey != null
 }
