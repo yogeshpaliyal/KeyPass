@@ -113,7 +113,7 @@ fun MySettingCompose() {
 
         PreferenceItem(
             title = R.string.validate_keyphrase,
-            summary = R.string.valid_keyphrase
+            summary = R.string.validate_keyphrase
         ) {
             dispatchAction(UpdateDialogState(ValidateKeyPhrase))
         }

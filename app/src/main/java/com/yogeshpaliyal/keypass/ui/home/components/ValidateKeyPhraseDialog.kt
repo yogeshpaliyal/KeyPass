@@ -77,7 +77,7 @@ fun ValidateKeyPhraseDialog() {
         },
         text = {
             Column(modifier = Modifier.fillMaxWidth(1f)) {
-                Text(text = stringResource(id = R.string.keyphrase_restore_info))
+                Text(text = stringResource(id = R.string.keyphrase_validate_info))
                 Spacer(modifier = Modifier.size(8.dp))
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(1f),
