@@ -118,4 +118,8 @@
     <string name="validate_keyphrase">Keyphrase Check</string>
     <string name="valid_keyphrase">Valide Keyphrase</string>
     <string name="mismatch_keyphrase">Keyphrase entra no coincide con la clave de respaldo</string>
+    <string name="got_it">Lo tengo</string>
+    <string name="forgot_keyphrase">Olvidé Keyphrase</string>
+    <string name="forgot_keyphrase_question">¿Olvidó Keyphrase?</string>
+    <string name="forgot_keyphrase_info">Si no puedes recordar tu frase clave, la única manera de recuperar el acceso es apagar las copias de seguridad y luego encenderlas. Esto generará un nuevo archivo de copia de seguridad y una nueva clave.\nNota: Su antiguo respaldo será inaccesible.</string>
 </resources>
