@@ -12,13 +12,13 @@ plugins {
 val appPackageId = "com.yogeshpaliyal.keypass"
 
 android {
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
 
         applicationId = appPackageId
         minSdk = 23
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1432
         versionName = "1.4.32"
 
