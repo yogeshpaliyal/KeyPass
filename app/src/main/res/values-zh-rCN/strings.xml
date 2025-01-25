@@ -119,4 +119,8 @@
     <string name="keyphrase_validate_info">请进入你用来制造支持的钥匙。 我们偶尔会展示这种屏幕,帮助你们记住.</string>
     <string name="mismatch_keyphrase">进入关键语言与背书钥匙不符</string>
     <string name="validate">检查</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">Forgot Keyphrase?</string>
+    <string name="forgot_keyphrase_info">如果你不能记住你的精髓,那么重新获得机会的唯一途径就是放弃支持,然后将其退回。 这将产生新的后备档案和新的关键词。\n注:您的原有支持将无法获得.</string>
+    <string name="got_it">签字</string>
 </resources>
