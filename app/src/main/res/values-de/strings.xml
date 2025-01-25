@@ -118,4 +118,8 @@
     <string name="valid_keyphrase">Gültig Keyphras</string>
     <string name="mismatch_keyphrase">Betreten Keyphrase passt nicht mit Backup keyphrase</string>
     <string name="validate">Überprüfung</string>
+    <string name="got_it">Verstanden</string>
+    <string name="forgot_keyphrase">Schlüsselwort vergessen</string>
+    <string name="forgot_keyphrase_question">Keyphrase vergessen?</string>
+    <string name="forgot_keyphrase_info">Wenn Sie sich nicht an Ihre Keyphrase erinnern können, ist der einzige Weg, den Zugriff wieder zu erhalten, um Backups auszuschalten und sie dann wieder einschalten. Dies wird eine neue Backup-Datei und eine neue Keyphrase generieren.\nHinweis: Ihre alte Sicherung ist unzugänglich.</string>
 </resources>
