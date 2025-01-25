@@ -118,4 +118,8 @@
     <string name="validate_keyphrase">Keyphrase Kontrola</string>
     <string name="valid_keyphrase">Platné Keyphrase</string>
     <string name="mismatch_keyphrase">Vložený Keyphrase sa nezhoduje s záložným keyphrase</string>
+    <string name="forgot_keyphrase">Zabudli ste Keyphrase</string>
+    <string name="forgot_keyphrase_question">Zabudli ste Keyphrase?</string>
+    <string name="got_it">Dostal</string>
+    <string name="forgot_keyphrase_info">Ak si nemôžete pamätať svoj keyphrase, jediný spôsob, ako získať prístup, je vypnúť zálohovanie a potom ich zase späť. To bude generovať nový záložný súbor a nový keyphrase.\nPoznámka: Vaše staré zálohovanie bude nedostupné.</string>
 </resources>
