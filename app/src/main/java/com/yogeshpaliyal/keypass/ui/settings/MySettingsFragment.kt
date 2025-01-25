@@ -48,12 +48,14 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppHintState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
+import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -107,6 +109,13 @@ fun MySettingCompose() {
             summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}"
         ) {
             dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
+        }
+
+        PreferenceItem(
+            title = R.string.validate_keyphrase,
+            summary = R.string.valid_keyphrase
+        ) {
+            dispatchAction(UpdateDialogState(ValidateKeyPhrase))
         }
 
         BiometricsOption()

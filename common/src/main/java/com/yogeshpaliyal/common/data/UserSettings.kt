@@ -23,7 +23,7 @@ data class UserSettings(
     val passwordConfig: PasswordConfig = PasswordConfig.Initial,
     val passwordHint: String? = null,
     val lastPasswordLoginTime: Long? = null,
-    val lastKeyPhraseEnterTime: Long? = null,
+    val lastKeyPhraseEnterTime: Long? = null
 ) {
     fun isKeyPresent() = backupKey != null
 }

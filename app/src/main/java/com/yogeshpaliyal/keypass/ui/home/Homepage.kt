@@ -22,13 +22,13 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.yogeshpaliyal.keypass.ui.home.components.AccountsList
 import com.yogeshpaliyal.keypass.ui.home.components.SearchBar
-import com.yogeshpaliyal.keypass.ui.home.components.ValidateKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
+import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import org.reduxkotlin.compose.rememberDispatcher
-import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 /*
@@ -68,7 +68,7 @@ fun Homepage(
         val diffInDays = TimeUnit.MILLISECONDS.toDays(diff)
         if (diffInDays >= 7) {
             // Show the modal
-            dispatchAction(NavigationAction(homeState.copy(showKeyPassValidateDialog = true), true))
+            dispatchAction(UpdateDialogState(dialogState = ValidateKeyPhrase))
         }
     })
 
@@ -113,12 +113,4 @@ fun Homepage(
 
         AccountsList(listOfAccountsLiveData)
     }
-
-
-    if (homeState.showKeyPassValidateDialog) {
-        ValidateKeyPhraseDialog() {
-            dispatchAction(NavigationAction(homeState.copy(showKeyPassValidateDialog = false), true))
-        }
-    }
-
 }

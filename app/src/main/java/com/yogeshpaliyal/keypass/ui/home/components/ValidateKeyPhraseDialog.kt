@@ -1,6 +1,5 @@
 package com.yogeshpaliyal.keypass.ui.home.components
 
-import android.net.Uri
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,22 +16,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.yogeshpaliyal.common.data.AccountModel
-import com.yogeshpaliyal.common.dbhelper.restoreBackup
-import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
-import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.updateLastKeyPhraseEnterTime
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
-fun ValidateKeyPhraseDialog(
-    hideDialog: () -> Unit
-) {
+fun ValidateKeyPhraseDialog() {
     val (keyphrase, setKeyPhrase) = remember {
         mutableStateOf("")
     }
@@ -43,6 +37,10 @@ fun ValidateKeyPhraseDialog(
     val context = LocalContext.current
 
     val coroutineScope = rememberCoroutineScope()
+
+    val hideDialog: () -> Unit = {
+        dispatchAction(UpdateDialogState(null))
+    }
 
     AlertDialog(
         onDismissRequest = {

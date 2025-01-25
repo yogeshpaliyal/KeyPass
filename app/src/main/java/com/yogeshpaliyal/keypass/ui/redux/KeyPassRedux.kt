@@ -13,6 +13,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastActionStr
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
 import com.yogeshpaliyal.keypass.ui.redux.middlewares.intentNavigationMiddleware
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
@@ -100,6 +101,9 @@ object KeyPassRedux {
                         action.globalIsBottomSheetOpen
                     )
                 )
+            }
+            is UpdateDialogState -> {
+                state.copy(dialog = action.dialogState)
             }
 
             else -> state
