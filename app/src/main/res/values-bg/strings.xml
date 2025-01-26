@@ -114,4 +114,12 @@
     <string name="remove_app_hint">Премахни подсказка</string>
     <string name="invalid_csv">Невалиден CSV файл</string>
     <string name="valid_keyphrase">Невалидна ключова фраза</string>
+    <string name="forgot_keyphrase">Забравена ключова фраза</string>
+    <string name="got_it">Разбрах</string>
+    <string name="validate">Проверете</string>
+    <string name="forgot_keyphrase_question">Забравена ключова фраза?</string>
+    <string name="forgot_keyphrase_info">Ако не можете да си спомните ключовата си фраза, единственият начин да си възвърнете достъпа е да изключите резервните копия и след това да ги включите отново. Това ще генерира нов архивен файл и нова ключова фраза. \nЗабележка: Вашият стар архив ще бъде недостъпен.</string>
+    <string name="mismatch_keyphrase">Въведената ключова фраза не съвпада с архивиращата ключова фраза</string>
+    <string name="keyphrase_validate_info">Моля, въведете ключовата фраза, която сте използвали за създаване на резервно копие. От време на време ще показваме този екран, за да ви помогнем да го запомните.</string>
+    <string name="validate_keyphrase">Проверка на ключова фраза</string>
 </resources>
