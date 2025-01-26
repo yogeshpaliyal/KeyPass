@@ -4,21 +4,33 @@ import android.content.Intent
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
+import com.yogeshpaliyal.keypass.ui.redux.actions.BatchActions
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import org.reduxkotlin.Store
 import org.reduxkotlin.middleware
 
+/**
+ * Middleware to handle intent navigation
+ */
 val intentNavigationMiddleware = middleware<KeyPassState> { store, next, action ->
     val state = store.state
+    if (action is BatchActions) {
+        action.actions.forEach {
+            store.handleAction(it, state)
+        }
+    } else {
+        store.handleAction(action, state)
+    }
 
+    next(action)
+}
+
+private fun Store<KeyPassState>.handleAction(action: Any, state: KeyPassState) {
     when (action) {
         is IntentNavigation.GeneratePassword -> {
             val intent = Intent(state.context, GeneratePasswordActivity::class.java)
             state.context?.startActivity(intent)
-        }
-
-        is IntentNavigation.BackupActivity -> {
-            // BackupActivity.start(state.context)
         }
 
         is IntentNavigation.ShareApp -> {
@@ -37,5 +49,4 @@ val intentNavigationMiddleware = middleware<KeyPassState> { store, next, action 
             )
         }
     }
-    next(action)
 }

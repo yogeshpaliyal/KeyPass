@@ -1,22 +1,16 @@
 package com.yogeshpaliyal.keypass.ui.redux
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.widget.Toast
-import androidx.core.content.ContextCompat
-import com.yogeshpaliyal.keypass.R
+import com.yogeshpaliyal.keypass.ui.redux.actions.BatchActions
 import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.RestoreAccountsAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.ToastActionStr
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateViewModalAction
 import com.yogeshpaliyal.keypass.ui.redux.middlewares.intentNavigationMiddleware
+import com.yogeshpaliyal.keypass.ui.redux.middlewares.utilityMiddleware
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
@@ -32,7 +26,17 @@ object KeyPassRedux {
     fun getLastScreen() = arrPages.lastOrNull()
 
     private val reducer: Reducer<KeyPassState> = { state, action ->
-        when (action) {
+        if (action is BatchActions) {
+            action.actions.fold(state) { acc, act ->
+                handleAction(act, acc)
+            }
+        } else {
+            handleAction(action, state)
+        }
+    }
+
+    private fun handleAction(action: Any, state: KeyPassState): KeyPassState {
+        return when (action) {
             is NavigationAction -> {
                 if (action.clearBackStack) {
                     arrPages.clear()
@@ -49,41 +53,8 @@ object KeyPassRedux {
                 state.copy(currentScreen = action.state)
             }
 
-            is CopyToClipboard -> {
-                state.context?.let {
-                    val clipboard = ContextCompat.getSystemService(
-                        it,
-                        ClipboardManager::class.java
-                    )
-                    val clip = ClipData.newPlainText("KeyPass", action.password)
-                    clipboard?.setPrimaryClip(clip)
-
-                    Toast.makeText(
-                        it,
-                        R.string.copied_to_clipboard,
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-                state
-            }
-
             is UpdateContextAction -> {
                 state.copy(context = action.context)
-            }
-
-            is ToastAction -> {
-                state.context?.let {
-                    Toast.makeText(it, action.text, Toast.LENGTH_SHORT).show()
-                }
-                state
-            }
-
-            is ToastActionStr -> {
-                state.context?.let {
-                    Toast.makeText(it, action.text, Toast.LENGTH_SHORT).show()
-                }
-                state
             }
 
             is GoBackAction -> {
@@ -104,6 +75,7 @@ object KeyPassRedux {
                     )
                 )
             }
+
             is UpdateDialogAction -> {
                 state.copy(dialog = action.dialogState)
             }
@@ -125,6 +97,6 @@ object KeyPassRedux {
         createStore(
             reducer,
             generateDefaultState(),
-            applyMiddleware(intentNavigationMiddleware)
+            applyMiddleware(utilityMiddleware, intentNavigationMiddleware)
         )
 }

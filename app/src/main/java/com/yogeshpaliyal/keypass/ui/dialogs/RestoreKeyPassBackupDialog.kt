@@ -20,6 +20,7 @@ import com.yogeshpaliyal.common.dbhelper.restoreBackup
 import com.yogeshpaliyal.common.utils.BACKUP_KEY_LENGTH
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.BatchActions
 import com.yogeshpaliyal.keypass.ui.redux.actions.RestoreAccountsAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogAction
@@ -68,9 +69,13 @@ fun RestoreKeyPassBackupDialog(
                         restoreBackup(keyphrase, context.contentResolver, selectedFile)
 
                     if (result != null) {
-                        dispatchAction(RestoreAccountsAction(result))
-                        dispatchAction(UpdateDialogAction(null))
-                        dispatchAction(ToastAction(R.string.backup_restored))
+                        dispatchAction(
+                            BatchActions(
+                                RestoreAccountsAction(result),
+                                UpdateDialogAction(null),
+                                ToastAction(R.string.backup_restored)
+                            )
+                        )
                     } else {
                         dispatchAction(ToastAction(R.string.invalid_keyphrase))
                     }

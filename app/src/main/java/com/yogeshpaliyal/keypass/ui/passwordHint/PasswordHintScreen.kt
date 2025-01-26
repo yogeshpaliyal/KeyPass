@@ -24,6 +24,7 @@ import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
 import com.yogeshpaliyal.keypass.ui.commonComponents.KeyPassInputField
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.BatchActions
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import kotlinx.coroutines.launch
@@ -54,8 +55,7 @@ fun PasswordHintScreen() {
                 Button(modifier = Modifier.fillMaxWidth(1f), onClick = {
                     coroutineScope.launch {
                         context.setPasswordHint(passwordHint)
-                        dispatchAction(ToastAction(R.string.hint_change_success))
-                        dispatchAction(GoBackAction)
+                        dispatchAction(BatchActions(GoBackAction, ToastAction(R.string.hint_change_success)))
                     }
                 }) {
                     Text(text = stringResource(id = R.string.change_app_hint))
@@ -64,8 +64,7 @@ fun PasswordHintScreen() {
                 OutlinedButton(modifier = Modifier.fillMaxWidth(1f), onClick = {
                     coroutineScope.launch {
                         context.setPasswordHint(null)
-                        dispatchAction(ToastAction(R.string.hint_removed_success))
-                        dispatchAction(GoBackAction)
+                        dispatchAction(BatchActions(GoBackAction, ToastAction(R.string.hint_removed_success)))
                     }
                 }) {
                     Text(text = stringResource(id = R.string.remove_app_hint))

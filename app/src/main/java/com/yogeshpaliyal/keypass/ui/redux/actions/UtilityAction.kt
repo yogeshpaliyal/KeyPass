@@ -1,9 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.redux.actions
 
 import androidx.annotation.StringRes
+import com.yogeshpaliyal.keypass.R
 
-data class ToastAction(@StringRes val text: Int) : Action
-data class ToastActionStr(val text: String) : Action
-data class CopyToClipboard(val password: String) : Action
+interface UtilityAction : Action
 
-object GoBackAction : Action
+data class ToastAction(@StringRes val text: Int) : UtilityAction
+data class ToastActionStr(val text: String) : UtilityAction
+data class CopyToClipboard(val password: String, @StringRes val successMessage: Int = R.string.copied_to_clipboard) : UtilityAction
