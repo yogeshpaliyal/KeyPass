@@ -9,11 +9,13 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.RestoreAccountsAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastActionStr
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateViewModalAction
 import com.yogeshpaliyal.keypass.ui.redux.middlewares.intentNavigationMiddleware
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
@@ -102,8 +104,17 @@ object KeyPassRedux {
                     )
                 )
             }
-            is UpdateDialogState -> {
+            is UpdateDialogAction -> {
                 state.copy(dialog = action.dialogState)
+            }
+
+            is UpdateViewModalAction -> {
+                state.copy(viewModel = action.viewModal)
+            }
+
+            is RestoreAccountsAction -> {
+                state.viewModel?.restoreBackup(action.accounts)
+                state
             }
 
             else -> state
