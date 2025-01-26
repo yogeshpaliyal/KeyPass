@@ -118,4 +118,8 @@
     <string name="mismatch_keyphrase">Увімкнути Keyphrase не відповідає з резервним копіюванням</string>
     <string name="validate">Зареєструватися</string>
     <string name="keyphrase_validate_info">Будь ласка, введіть прапорець, який ви використовували для створення резервної копії. Ми з радістю покажемо цей екран, щоб допомогти вам запам\'ятати його.</string>
+    <string name="forgot_keyphrase">Забули ключ</string>
+    <string name="forgot_keyphrase_question">Забули ключі?</string>
+    <string name="forgot_keyphrase_info">Якщо ви не можете запам\'ятати свій ключ, єдиний спосіб повернути доступ, щоб вимкнути резервні копії, а потім повернути їх назад. Це генерує новий резервний файл і новий брелок.\nПримітка: Ваша стара резервна копія буде недоступна.</string>
+    <string name="got_it">Про нас</string>
 </resources>

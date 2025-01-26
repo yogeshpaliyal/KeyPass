@@ -118,4 +118,8 @@
     <string name="valid_keyphrase">有効なKeyphrase</string>
     <string name="mismatch_keyphrase">キーフレーズはバックアップキーフレーズと一致しません</string>
     <string name="validate">チェックイン</string>
+    <string name="forgot_keyphrase">キーフレーズを忘れた</string>
+    <string name="forgot_keyphrase_question">キーフレーズを忘れましたか?</string>
+    <string name="forgot_keyphrase_info">キーフレーズを記憶できない場合は、アクセスを取り戻す唯一の方法は、バックアップをオフにし、バックアップをオンにします。 新しいバックアップファイルと新しいキーフレーズを生成します。\n注意: 古いバックアップはアクセスできません.</string>
+    <string name="got_it">お問い合わせ</string>
 </resources>

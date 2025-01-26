@@ -118,4 +118,8 @@
     <string name="valid_keyphrase">Keyphrase</string>
     <string name="mismatch_keyphrase">Keyphrase وارد شده با کلید پشتیبان مطابقت ندارد</string>
     <string name="validate">چک</string>
+    <string name="forgot_keyphrase">Keyphrase</string>
+    <string name="forgot_keyphrase_question">Keyphrase?</string>
+    <string name="forgot_keyphrase_info">اگر نمی توانید Keyphrase خود را به خاطر بیاورید، تنها راه برای بازیابی دسترسی این است که نسخه پشتیبان را خاموش کنید و سپس آنها را به عقب برگردانید. این یک فایل پشتیبان جدید و یک کلید جدید ایجاد می کند.\nتوجه: نسخه پشتیبان قدیمی شما قابل دسترسی خواهد بود.</string>
+    <string name="got_it">آن را</string>
 </resources>
