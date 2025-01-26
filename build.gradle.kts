@@ -63,4 +63,4 @@ subprojects {
 //    commandLine = listOf("sh", "./githooks/git-init.sh")
 //}
 
-tasks.getByPath("app:assemble").dependsOn(installGitHook)
+//tasks.getByPath("app:assemble").dependsOn(installGitHook)
