@@ -3,6 +3,9 @@ package com.yogeshpaliyal.keypass.ui.redux.actions
 import android.os.Bundle
 import com.yogeshpaliyal.keypass.ui.redux.BottomSheetRoutes
 
+/**
+ * Bottom Sheet action to open bottom sheet for different routes
+ */
 sealed class BottomSheetAction(
     val route: String,
     val globalIsBottomSheetOpen: Boolean,
