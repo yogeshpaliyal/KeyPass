@@ -120,6 +120,9 @@ Give a ⭐️ if this project helped you!
     <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donation" width="160">
 </a>
 
+## Repo Activity
+![Alt](https://repobeats.axiom.co/api/embed/3626f3a4e8216b8f5e008b9800eafbe6e8d66f30.svg "Repobeats analytics image")
+
 ## Language
 [![Translation status](https://hosted.weblate.org/widgets/keypass/-/keypass/horizontal-auto.svg)](https://hosted.weblate.org/engage/keypass/)    
 Want to contribute to translations? [Contribute](https://hosted.weblate.org/projects/keypass/keypass/)
