@@ -114,13 +114,13 @@
     <string name="hint_removed_success">成功删除了提示</string>
     <string name="biometric_disabled_due_to_timeout">请通过密码登录，因为你在过去 24 小时内还没使用过密码</string>
     <string name="invalid_csv">无效的 CSV 文件</string>
-    <string name="validate_keyphrase">关键内容核对</string>
-    <string name="valid_keyphrase">Valid Keyphrase</string>
-    <string name="keyphrase_validate_info">请进入你用来制造支持的钥匙。 我们偶尔会展示这种屏幕,帮助你们记住.</string>
-    <string name="mismatch_keyphrase">进入关键语言与背书钥匙不符</string>
+    <string name="validate_keyphrase">密钥短语检查</string>
+    <string name="valid_keyphrase">有效的密钥短语</string>
+    <string name="keyphrase_validate_info">请输入用于创建备份文件的密钥短语。我们将偶尔显示此屏幕来帮你记住它。</string>
+    <string name="mismatch_keyphrase">输入的密钥短语和备份密钥短语不相符</string>
     <string name="validate">检查</string>
-    <string name="forgot_keyphrase">Forgot Keyphrase</string>
-    <string name="forgot_keyphrase_question">Forgot Keyphrase?</string>
-    <string name="forgot_keyphrase_info">如果你不能记住你的精髓,那么重新获得机会的唯一途径就是放弃支持,然后将其退回。 这将产生新的后备档案和新的关键词。\n注:您的原有支持将无法获得.</string>
-    <string name="got_it">签字</string>
+    <string name="forgot_keyphrase">遗忘密钥短语</string>
+    <string name="forgot_keyphrase_question">要忘记密钥短语吗？</string>
+    <string name="forgot_keyphrase_info">如果你不记得密钥短语了，那么重新获得访问的唯一途径就是关闭备份，然会再打开。 这将产生新的备份文件和新的密钥短语。\n注：旧的备份文件将无法访问。</string>
+    <string name="got_it">知道了</string>
 </resources>
