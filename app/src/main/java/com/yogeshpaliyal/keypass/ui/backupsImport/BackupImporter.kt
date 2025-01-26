@@ -64,13 +64,7 @@ fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = 
     })
 
     result?.let {
-        state.selectedImported?.readFile(result, {
-            setResult(null)
-            setRestoredAccounts(it)
-        }) {
-            it?.let(dispatchAction)
-            dispatchAction(StateUpdateAction(state = state.copy(selectedImported = null)))
-        }
+        state.selectedImported?.readFileGetAction(result)?.let { it1 -> dispatchAction(it1) }
     }
 
     Scaffold(bottomBar = {

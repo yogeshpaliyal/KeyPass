@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
-import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogAction
 import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -22,7 +22,7 @@ fun ForgotKeyPhraseDialog() {
     val dispatchAction = rememberTypedDispatcher<Action>()
 
     val hideDialog: () -> Unit = {
-        dispatchAction(UpdateDialogState(ValidateKeyPhrase))
+        dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
     }
 
     AlertDialog(
