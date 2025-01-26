@@ -33,10 +33,13 @@ import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
 import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPasswordLengthScreen
 import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
+import com.yogeshpaliyal.keypass.ui.dialogs.RestoreChromeBackupDialog
+import com.yogeshpaliyal.keypass.ui.dialogs.RestoreKeePassBackupDialog
+import com.yogeshpaliyal.keypass.ui.dialogs.RestoreKeyPassBackupDialog
+import com.yogeshpaliyal.keypass.ui.dialogs.ValidateKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.generate.ui.GeneratePasswordScreen
 import com.yogeshpaliyal.keypass.ui.home.Homepage
 import com.yogeshpaliyal.keypass.ui.home.components.ForgotKeyPhraseDialog
-import com.yogeshpaliyal.keypass.ui.home.components.ValidateKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.passwordHint.PasswordHintScreen
@@ -55,6 +58,9 @@ import com.yogeshpaliyal.keypass.ui.redux.states.ForgotKeyPhraseState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
+import com.yogeshpaliyal.keypass.ui.redux.states.RestoreChromeBackupState
+import com.yogeshpaliyal.keypass.ui.redux.states.RestoreKeePassBackupState
+import com.yogeshpaliyal.keypass.ui.redux.states.RestoreKeyPassBackupState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
 import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
@@ -132,7 +138,6 @@ fun Dashboard() {
 
     DisposableEffect(KeyPassRedux, context) {
         dispatch(UpdateContextAction(context))
-
         onDispose {
             dispatch(UpdateContextAction(null))
         }
@@ -195,7 +200,10 @@ fun CurrentPage() {
     currentScreen.dialog?.let {
         when (it) {
             is ValidateKeyPhrase -> ValidateKeyPhraseDialog()
-            ForgotKeyPhraseState -> ForgotKeyPhraseDialog()
+            is ForgotKeyPhraseState -> ForgotKeyPhraseDialog()
+            is RestoreKeyPassBackupState -> RestoreKeyPassBackupDialog(it)
+            is RestoreChromeBackupState -> RestoreChromeBackupDialog(it)
+            is RestoreKeePassBackupState -> RestoreKeePassBackupDialog(it)
         }
     }
 }

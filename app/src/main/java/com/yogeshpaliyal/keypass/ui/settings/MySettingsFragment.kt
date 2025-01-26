@@ -19,7 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
-import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material3.Divider
@@ -48,7 +47,7 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
-import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogState
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
@@ -115,7 +114,7 @@ fun MySettingCompose() {
             title = R.string.validate_keyphrase,
             summary = R.string.validate_keyphrase
         ) {
-            dispatchAction(UpdateDialogState(ValidateKeyPhrase))
+            dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
         }
 
         BiometricsOption()
