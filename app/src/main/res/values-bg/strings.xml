@@ -3,7 +3,7 @@
     <string name="turn_on_backup">Включи архивирането</string>
     <string name="ascending">Възходящо</string>
     <string name="send_feedback_desc">Докладвай за технически проблеми или предложете нови функции</string>
-    <string name="account_name">Име на акаунт</string>
+    <string name="account_name">Име на профил</string>
     <string name="copied_to_clipboard">Копирано в клипборда</string>
     <string name="delete_account_title">Сигурни ли сте?</string>
     <string name="password">Парола</string>
@@ -23,7 +23,7 @@
     <string name="login_to_enter_keypass">Влезте, за да използвате KeyPass</string>
     <string name="restore">Възстанови</string>
     <string name="confirm_password">Потвърди парола</string>
-    <string name="auto_backup_desc">Вашите акаунти ще бъдат архивирани при всяко добавяне или промяна на акаунт</string>
+    <string name="auto_backup_desc">Вашите профили ще бъдат архивирани при всяко добавяне или промяна на профил</string>
     <string name="backup_folder">Архивна папка</string>
     <string name="keypass_backup">Архив KeyPass</string>
     <string name="set_keyphrase">Задай ключова фраза</string>
@@ -63,7 +63,7 @@
     <string name="tags_comma_separated_optional">Етикети, разделени със запетая (по избор)</string>
     <string name="disabled">Деактивирай</string>
     <string name="generate_password">Генерирай парола</string>
-    <string name="message_no_accounts">Няма намерени акаунти, моля добавете от бутона по-долу</string>
+    <string name="message_no_accounts">Няма намерени профили, моля добавете от бутона по-долу</string>
     <string name="restore_credentials">Изнаси идентификационни данни</string>
     <string name="custom_generated_keyphrase_info">Искате ли да създадете ваша собствена ключова фраза за архивиране или трябва да генерирам вместо вас?</string>
     <string name="credentials_backups_desc">Архивирай идентификационни данни във външно хранилище</string>
@@ -71,7 +71,7 @@
     <string name="create_password">Създай парола</string>
     <string name="create_password_description">Избери парола за защита на приложението</string>
     <string name="confirm_password_description">Моля, потвърдете паролата, за защита на приложението</string>
-    <string name="alert_black_account_name">Моля, въведете име на акаунт</string>
+    <string name="alert_black_account_name">Моля, въведете име на профил</string>
     <string name="auto_backup">Автоматично архивиране</string>
     <string name="biometric_error_hw_unavailable">Биометричните функции в момента не са налични.</string>
     <string name="old_password">Стара парола</string>
@@ -113,5 +113,13 @@
     <string name="set_app_password_hint">Задай подсказка за парола на приложение</string>
     <string name="remove_app_hint">Премахни подсказка</string>
     <string name="invalid_csv">Невалиден CSV файл</string>
-    <string name="valid_keyphrase">Невалидна ключова фраза</string>
+    <string name="valid_keyphrase">Валидна ключова фраза</string>
+    <string name="forgot_keyphrase">Забравена ключова фраза</string>
+    <string name="got_it">Разбрах</string>
+    <string name="validate">Проверете</string>
+    <string name="forgot_keyphrase_question">Забравена ключова фраза?</string>
+    <string name="forgot_keyphrase_info">Ако не можете да си спомните ключовата си фраза, единственият начин да си възвърнете достъпа е да изключите резервните копия и след това да ги включите отново. Това ще генерира нов архивен файл и нова ключова фраза. \nЗабележка: Вашият стар архив ще бъде недостъпен.</string>
+    <string name="mismatch_keyphrase">Въведената ключова фраза не съвпада с архивиращата ключова фраза</string>
+    <string name="keyphrase_validate_info">Моля, въведете ключовата фраза, която сте използвали за създаване на резервно копие. От време на време ще показваме този екран, за да ви помогнем да го запомните.</string>
+    <string name="validate_keyphrase">Проверка на ключова фраза</string>
 </resources>
