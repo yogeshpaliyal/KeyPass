@@ -13,10 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -33,52 +32,43 @@ import org.reduxkotlin.compose.rememberDispatcher
 
 @Composable
 fun AuthScreen(state: AuthState) {
-    val context = LocalContext.current
     val userSettings = LocalUserSettings.current
-
     val dispatchAction = rememberDispatcher()
 
-    val (password, setPassword) = remember(state) {
-        mutableStateOf("")
-    }
-
-    val (passwordVisible, setPasswordVisible) = remember(state) { mutableStateOf(false) }
-
-    val (passwordError, setPasswordError) = remember(state, password) {
-        mutableStateOf<Int?>(null)
-    }
+    val password = rememberSaveable { mutableStateOf("") }
+    val passwordVisible = rememberSaveable { mutableStateOf(false) }
+    val passwordError = rememberSaveable { mutableStateOf<Int?>(null) }
 
     BackHandler(state is AuthState.ConfirmPassword) {
         dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
 
-    LaunchedEffect(key1 = userSettings.keyPassPassword, block = {
+    LaunchedEffect(key1 = userSettings.keyPassPassword) {
         val mPassword = userSettings.keyPassPassword
         if (mPassword == null) {
             dispatchAction(NavigationAction(AuthState.CreatePassword, true))
         } else {
             dispatchAction(NavigationAction(AuthState.Login, true))
         }
-    })
+    }
 
     Column(
         modifier = Modifier
             .padding(32.dp)
-            .fillMaxSize(1f)
+            .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        Arrangement.SpaceEvenly,
-        Alignment.CenterHorizontally
+        verticalArrangement = Arrangement.SpaceEvenly,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
             painter = painterResource(R.drawable.ic_undraw_unlock_24mb),
-            contentDescription = ""
+            contentDescription = null
         )
 
         Column(
-            modifier = Modifier
-                .fillMaxWidth(),
-            Arrangement.Center,
-            Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = stringResource(id = state.title),
@@ -95,15 +85,21 @@ fun AuthScreen(state: AuthState) {
         }
 
         PasswordInputField(
-            password = password,
-            setPassword = setPassword,
-            passwordVisible = passwordVisible,
-            setPasswordVisible = setPasswordVisible,
-            passwordError = passwordError,
-            hint = if (state is AuthState.Login && userSettings.passwordHint != null) userSettings.passwordHint else null
+            password = password.value,
+            setPassword = { password.value = it },
+            passwordVisible = passwordVisible.value,
+            setPasswordVisible = { passwordVisible.value = it },
+            passwordError = passwordError.value,
+            hint = if (state is AuthState.Login && userSettings.passwordHint != null)
+                userSettings.passwordHint
+            else null
         )
 
-        ButtonBar(state, password, setPasswordError) {
+        ButtonBar(
+            state = state,
+            password = password.value,
+            setPasswordError = { passwordError.value = it }
+        ) {
             dispatchAction(it)
         }
     }
