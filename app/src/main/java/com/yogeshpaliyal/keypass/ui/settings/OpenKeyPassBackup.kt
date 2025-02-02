@@ -3,6 +3,7 @@ package com.yogeshpaliyal.keypass.ui.settings
 import android.content.Context
 import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContracts
+import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.importer.AccountsImporter
 
 class OpenKeyPassBackup<T : AccountsImporter>(val importer: T?) : ActivityResultContracts.OpenDocument() {
@@ -16,6 +17,9 @@ class OpenKeyPassBackup<T : AccountsImporter>(val importer: T?) : ActivityResult
             Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
                 Intent.FLAG_GRANT_READ_URI_PERMISSION
         )
+
+        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
+
         return intent
     }
 }
