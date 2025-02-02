@@ -1,36 +1,14 @@
+# KeyPass
+
+![](https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge)
+[![](https://img.shields.io/f-droid/v/com.yogeshpaliyal.keypass?style=for-the-badge)](https://f-droid.org/en/packages/com.yogeshpaliyal.keypass)
+[![](https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge)](https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass)
+[![](https://dcbadge.limes.pink/api/server/https://discord.com/invite/vfcrdVqwee)](https://discord.gg/vfcrdVqwee)
+[![](https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge)](https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-free-debug.apk)
+[![](https://img.shields.io/badge/App%20Size-Report-9cf?color=f39c12&style=for-the-badge)](https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/freeRelease/report.html)
+![](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyogeshpaliyal%2FKeyPass&count_bg=%2379C83D&title_bg=%23555555&title=hits&style=for-the-badge)
+
 ![](cover.jpeg)
-
-<div style="display: inline-block"  align="center">
-<h1>KeyPass</h1>
-<p>
-<img src="https://img.shields.io/github/v/release/yogeshpaliyal/KeyPass?style=for-the-badge" alt="latestVersion">
-  
-<a href="https://f-droid.org/en/packages/com.yogeshpaliyal.keypass">
-<img src="https://img.shields.io/f-droid/v/com.yogeshpaliyal.keypass?style=for-the-badge" />
-</a>
-
-<a href="https://devlibrary.withgoogle.com/products/android/repos/yogeshpaliyal-KeyPass">
-<img src="https://img.shields.io/badge/Part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=for-the-badge" alt="DevLibrary" />
-</a>
-
-<a href="https://discord.gg/vfcrdVqwee">
-  <img src="https://dcbadge.limes.pink/api/server/https://discord.com/invite/vfcrdVqwee"/>
-</a>
-
-
-<a href="https://github.com/yogeshpaliyal/KeyPass/releases/download/latest-master/app-free-debug.apk">
-  <img src="https://img.shields.io/badge/Master-master?color=7885FF&label=Sample%20App&logo=android&style=for-the-badge" alt="Master Sample App" />
-</a>
-
-<a href="https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/freeRelease/report.html">
-  <img src="https://img.shields.io/badge/App%20Size-Report-9cf?color=f39c12&style=for-the-badge" alt="DevLibrary" />
-</a>
-
-
-<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyogeshpaliyal%2FKeyPass&count_bg=%2379C83D&title_bg=%23555555&title=hits&style=for-the-badge%22" alt="visitCount" />
-</p>
-
-</div>
 
 
 > The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
