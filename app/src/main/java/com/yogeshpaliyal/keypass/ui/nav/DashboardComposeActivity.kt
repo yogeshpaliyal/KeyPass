@@ -20,12 +20,15 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.ui.about.AboutScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
@@ -45,6 +48,7 @@ import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
 import com.yogeshpaliyal.keypass.ui.passwordHint.PasswordHintScreen
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
@@ -126,9 +130,11 @@ fun Dashboard() {
     }
 
     // Call this like any other SideEffect in your composable
-//    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
-//        dispatch(NavigationAction(AuthState.Login))
-//    }
+    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+        if((context.applicationContext as? MyApplication)?.isActivityLaunchTriggered() == false) {
+            dispatch(NavigationAction(AuthState.Login))
+        }
+    }
 
     LaunchedEffect(key1 = systemBackPress, block = {
         if (systemBackPress) {
