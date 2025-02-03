@@ -5,5 +5,5 @@ echo   "Running git pre-commit hook"
 echo "*******************************"
 
 # Run Spotless
-./gradlew spotlessApply
-./gradlew spotlessKotlinApply
+#./gradlew spotlessApply
+#./gradlew spotlessKotlinApply

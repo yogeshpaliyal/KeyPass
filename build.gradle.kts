@@ -24,7 +24,6 @@ plugins {
     kotlin("android") version("2.0.21") apply false
     id("com.android.application") version("7.4.2") apply false
     id("com.android.library") version("7.4.2") apply false
-    id ("com.diffplug.spotless") version("6.18.0")
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
     id("com.google.dagger.hilt.android") version ("2.55") apply false
     id("com.gradle.enterprise") version("3.19.1") apply false
@@ -39,18 +38,6 @@ subprojects {
         maven("https://jitpack.io")
     }
 
-    apply(plugin = "com.diffplug.spotless")
-    spotless {
-        kotlin {
-            target("**/*.kt")
-            targetExclude("$buildDir/**/*.kt")
-            targetExclude("bin/**/*.kt")
-
-            val map = HashMap<String, String>()
-            ktlint("0.46.0").userData(map)
-           // licenseHeaderFile rootProject.file('spotless/copyright.kt')
-        }
-    }
 }
 
 //tasks.register("clean", Delete::class) {
