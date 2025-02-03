@@ -2,7 +2,6 @@ package com.yogeshpaliyal.common.utils
 
 import androidx.datastore.core.Serializer
 import com.yogeshpaliyal.common.data.UserSettings
-import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
@@ -16,16 +15,13 @@ class UserSettingsSerializer(
 
     override suspend fun readFrom(input: InputStream): UserSettings {
         val decryptedBytes = cryptoManager.decrypt(input)
-        return try {
-            val decodedString = decryptedBytes.decodeToString()
-            Json.decodeFromString(
-                deserializer = UserSettings.serializer(),
-                string = decodedString
-            )
-        } catch (e: SerializationException) {
-            e.printStackTrace()
-            defaultValue
-        }
+
+        val decodedString = decryptedBytes.decodeToString()
+        return Json.decodeFromString(
+            deserializer = UserSettings.serializer(),
+            string = decodedString
+        )
+
     }
 
     override suspend fun writeTo(t: UserSettings, output: OutputStream) {
