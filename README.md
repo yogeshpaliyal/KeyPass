@@ -55,7 +55,7 @@
 ## 🧰 Prerequisites
 | Tool           | Version          |
 |----------------|------------------|
-| Android Studio | Koala (2024.1.2) |
+| Android Studio | Ladybug Feature Drop 2024.2.2 |
 | Java           | 17               |
 
 ## ✍️ Author
