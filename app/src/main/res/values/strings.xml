@@ -109,6 +109,7 @@
     <string name="biometric_error_hw_unavailable">Biometric features are currently unavailable.</string>
     <string name="biometric_error_none_enrolled">Setup biometric on your device.</string>
     <string name="unlock_with_biometric">Unlock with biometric</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
     <string name="password_set_from_settings">Please set password for your device first from phone settings</string>
     <string name="authentication_failed">Authentication Failed</string>
     <string name="authentication_error">Authentication Error %s</string>

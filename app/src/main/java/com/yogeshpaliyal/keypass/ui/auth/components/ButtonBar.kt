@@ -52,11 +52,12 @@ fun ButtonBar(
 
         if (userSettings.isBiometricEnable && state is AuthState.Login) {
             OutlinedButton(onClick = {
+
                 val currentTime = System.currentTimeMillis()
                 val lastPasswordLoginTime = userSettings.lastPasswordLoginTime ?: -1
-                if (lastPasswordLoginTime > 0 && (currentTime - lastPasswordLoginTime).toDuration(
+                if (userSettings.biometricLoginTimeoutEnable != true || (lastPasswordLoginTime > 0 && (currentTime - lastPasswordLoginTime).toDuration(
                         DurationUnit.MILLISECONDS
-                    ).inWholeHours < 24
+                    ).inWholeHours < 24)
                 ) {
                     setBiometricEnable(true)
                 } else {
@@ -97,7 +98,9 @@ fun ButtonBar(
                     coroutineScope.launch {
                         val savedPassword = userSettings.keyPassPassword
                         if (savedPassword == password) {
-                            context.updateLastPasswordLoginTime(System.currentTimeMillis())
+                            if(userSettings.biometricLoginTimeoutEnable == true) {
+                                context.updateLastPasswordLoginTime(System.currentTimeMillis())
+                            }
                             KeyPassRedux.getLastScreen()?.let {
                                 dispatchAction(GoBackAction)
                             } ?: dispatchAction(NavigationAction(HomeState(), true))
