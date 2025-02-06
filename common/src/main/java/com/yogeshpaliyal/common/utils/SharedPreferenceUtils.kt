@@ -62,6 +62,13 @@ suspend fun Context.setBiometricEnable(isBiometricEnable: Boolean) {
     }
 }
 
+suspend fun Context.setBiometricLoginTimeoutEnable(biometricLoginTimeoutEnable: Boolean) {
+    getUserSettingsDataStore().updateData {
+        it.copy(biometricLoginTimeoutEnable = biometricLoginTimeoutEnable)
+    }
+}
+
+
 suspend fun Context.setBackupDirectory(backupDirectory: String) {
     getUserSettingsDataStore().updateData {
         it.copy(backupDirectory = backupDirectory)

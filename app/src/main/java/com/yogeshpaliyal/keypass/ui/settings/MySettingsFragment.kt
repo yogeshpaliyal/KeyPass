@@ -19,9 +19,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
+import androidx.compose.material.icons.rounded.LockReset
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,9 +36,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
+import com.yogeshpaliyal.common.utils.setBiometricLoginTimeoutEnable
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
@@ -119,7 +122,9 @@ fun MySettingCompose() {
 
         BiometricsOption()
 
-        Divider(
+        AutoDisableBiometric()
+
+        HorizontalDivider(
             modifier = Modifier
                 .fillMaxWidth(1f)
                 .height(1.dp)
@@ -245,4 +250,34 @@ fun BiometricsOption() {
             }
         }
     }
+}
+
+
+@Composable
+fun AutoDisableBiometric() {
+    val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
+
+    val coroutineScope = rememberCoroutineScope()
+
+
+    val enableDisableStr =
+        if (userSettings.biometricLoginTimeoutEnable == true) {
+            R.string.enabled
+        } else {
+            R.string.disabled
+        }
+
+    PreferenceItem(
+        title = R.string.biometric_login_timeout,
+        summary = enableDisableStr,
+        icon = Icons.Rounded.LockReset,
+        onClickItem = if (userSettings.isBiometricEnable) {
+            {
+                coroutineScope.launch {
+                    context.setBiometricLoginTimeoutEnable(userSettings.biometricLoginTimeoutEnable != true)
+                }
+            }
+        } else null
+    )
 }
