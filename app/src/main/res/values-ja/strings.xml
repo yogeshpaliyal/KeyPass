@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase_question">キーフレーズを忘れましたか?</string>
     <string name="forgot_keyphrase_info">キーフレーズを記憶できない場合は、アクセスを取り戻す唯一の方法は、バックアップをオフにし、バックアップをオンにします。 新しいバックアップファイルと新しいキーフレーズを生成します。\n注意: 古いバックアップはアクセスできません.</string>
     <string name="got_it">お問い合わせ</string>
+    <string name="biometric_login_timeout">バイオメトリックログインタイムアウト(24時間)</string>
 </resources>
