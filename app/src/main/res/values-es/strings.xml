@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase">Olvidé Keyphrase</string>
     <string name="forgot_keyphrase_question">¿Olvidó Keyphrase?</string>
     <string name="forgot_keyphrase_info">Si no puedes recordar tu frase clave, la única manera de recuperar el acceso es apagar las copias de seguridad y luego encenderlas. Esto generará un nuevo archivo de copia de seguridad y una nueva clave.\nNota: Su antiguo respaldo será inaccesible.</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
 </resources>
