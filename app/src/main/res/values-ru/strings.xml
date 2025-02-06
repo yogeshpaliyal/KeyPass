@@ -123,4 +123,5 @@
     <string name="forgot_keyphrase">Забыли ключевую фразу</string>
     <string name="forgot_keyphrase_question">Забыли ключевую фразу?</string>
     <string name="forgot_keyphrase_info">Если вы забыли ключевую фразу, единственный способ восстановить доступ - отключить резервные копии, а затем включить их обратно. Это сгенерирует новый файл резервной копии и новую ключевую фразу. \nПримечание: Старая резервная копия после этого станет недоступной.</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 часа)</string>
 </resources>
