@@ -122,4 +122,5 @@
     <string name="mismatch_keyphrase">Въведената ключова фраза не съвпада с архивиращата ключова фраза</string>
     <string name="keyphrase_validate_info">Моля, въведете ключовата фраза, която сте използвали за създаване на резервно копие. От време на време ще показваме този екран, за да ви помогнем да го запомните.</string>
     <string name="validate_keyphrase">Проверка на ключова фраза</string>
+    <string name="biometric_login_timeout">Време за биометрично влизане (24 часа)</string>
 </resources>
