@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase_question">Elfelejtett Keyphrase?</string>
     <string name="forgot_keyphrase_info">Ha nem emlékszel a kulcsfázisra, az egyetlen módja annak, hogy visszaszerezze a hozzáférést, hogy kikapcsolja a mentéseket, majd kapcsolja vissza őket. Ez egy új backup fájlt és egy új kulcsfázist fog generálni.\nMegjegyzés: A régi backup elérhető lesz.</string>
     <string name="got_it">Menj el</string>
+    <string name="biometric_login_timeout">Biometrikus Login Timeout (24 óra)</string>
 </resources>

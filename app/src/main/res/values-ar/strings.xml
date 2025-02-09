@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase_question">نسيت (كيفراس)؟?</string>
     <string name="forgot_keyphrase_info">إذا كنت لا تستطيع أن تتذكر مفتاحك، الطريقة الوحيدة لإستعادة الوصول هو لإيقاف الدعم ثم إعادة تشغيلها. وهذا سوف يولد ملفا احتياطيا جديدا ومفتاحا جديدا.\nملاحظة: دعمك القديم سيكون غير متاح.</string>
     <string name="got_it">حصلت عليه</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
 </resources>

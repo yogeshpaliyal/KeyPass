@@ -123,4 +123,5 @@
     <string name="forgot_keyphrase_question">要忘记密钥短语吗？</string>
     <string name="forgot_keyphrase_info">如果你不记得密钥短语了，那么重新获得访问的唯一途径就是关闭备份，然会再打开。 这将产生新的备份文件和新的密钥短语。\n注：旧的备份文件将无法访问。</string>
     <string name="got_it">知道了</string>
+    <string name="biometric_login_timeout">生物测量仪表征(24小时)</string>
 </resources>

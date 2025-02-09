@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase_question">Забули ключі?</string>
     <string name="forgot_keyphrase_info">Якщо ви не можете запам\'ятати свій ключ, єдиний спосіб повернути доступ, щоб вимкнути резервні копії, а потім повернути їх назад. Це генерує новий резервний файл і новий брелок.\nПримітка: Ваша стара резервна копія буде недоступна.</string>
     <string name="got_it">Про нас</string>
+    <string name="biometric_login_timeout">Біометричний час входу (24 год)</string>
 </resources>

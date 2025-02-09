@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase">Schlüsselwort vergessen</string>
     <string name="forgot_keyphrase_question">Keyphrase vergessen?</string>
     <string name="forgot_keyphrase_info">Wenn Sie sich nicht an Ihre Keyphrase erinnern können, ist der einzige Weg, den Zugriff wieder zu erhalten, um Backups auszuschalten und sie dann wieder einschalten. Dies wird eine neue Backup-Datei und eine neue Keyphrase generieren.\nHinweis: Ihre alte Sicherung ist unzugänglich.</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 Stunden)</string>
 </resources>

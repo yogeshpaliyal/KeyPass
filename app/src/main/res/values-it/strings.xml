@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase_question">Dimenticato Keyphrase?</string>
     <string name="got_it">Capito</string>
     <string name="forgot_keyphrase_info">Se non riesci a ricordare la tua keyphrase, l\'unico modo per recuperare l\'accesso è disattivare i backup e poi riaccenderli. Questo genererà un nuovo file di backup e una nuova keyphrase.\nNota: il tuo vecchio backup sarà inaccessibile.</string>
+    <string name="biometric_login_timeout">Tempo di accesso biometrico (24 ore)</string>
 </resources>

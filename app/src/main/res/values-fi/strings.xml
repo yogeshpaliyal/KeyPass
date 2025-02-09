@@ -122,4 +122,5 @@
     <string name="forgot_keyphrase_question">Unohtiko Keyfrasen?</string>
     <string name="forgot_keyphrase_info">Jos et muista näppäimistöäsi, ainoa tapa palauttaa pääsy on sammuttaa varmuuskopiot ja kääntää ne takaisin päälle. Näin luodaan uusi varmuuskopiotiedosto ja uusi avainsana.\nHuomautus: Vanha varmuuskopio ei onnistu.</string>
     <string name="got_it">Got It</string>
+    <string name="biometric_login_timeout">Biometrinen Login Timeout (24 tuntia)</string>
 </resources>
