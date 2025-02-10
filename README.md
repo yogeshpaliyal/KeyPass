@@ -22,6 +22,11 @@
 
 <a href="./README_ja.md">Japanese</a> 👈
 
+## Suggest new name for KeyPass
+Looking for new name for keypass, suggest your name or vote on discussion thread.  
+https://github.com/yogeshpaliyal/KeyPass/discussions/1085
+
+
 ## 🤩 Features
 - [x] Complete Offline: No internet permission has been added
 - [x] Open Source: Code is accessible to everyone
