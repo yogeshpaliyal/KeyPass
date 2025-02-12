@@ -7,6 +7,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("androidx.baselineprofile")
 }
 
 val appPackageId = "com.yogeshpaliyal.keypass"
@@ -103,6 +104,7 @@ dependencies {
 
     // api(project(":shared"))
     api(project(":common"))
+    implementation("androidx.profileinstaller:profileinstaller:1.3.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
@@ -110,6 +112,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit-ktx:1.2.1")
     // Test rules and transitive dependencies:
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.compose}")
+    "baselineProfile"(project(":baselineprofile"))
     // Needed for createAndroidComposeRule, but not createComposeRule:
     debugImplementation("androidx.compose.ui:ui-test-manifest:${Versions.compose}")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Versions.compose}")
