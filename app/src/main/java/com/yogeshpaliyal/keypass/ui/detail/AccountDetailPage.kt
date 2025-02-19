@@ -133,10 +133,11 @@ fun AccountDetailPage(
                 },
                 copyToClipboardClicked = { value ->
                     dispatchAction(CopyToClipboard(value))
+                },
+                scanClicked = { scannerType ->
+                    launcher.launch(scannerType)
                 }
-            ) {
-                launcher.launch(it)
-            }
+            )
             // Display the generated QR code bitmap in a popup
             if (showDialog.value) {
                 val download = remember { mutableStateOf(false) }
