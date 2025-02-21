@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContract
 import com.google.zxing.integration.android.IntentIntegrator
 import com.yogeshpaliyal.common.constants.ScannerType
+import com.yogeshpaliyal.keypass.MyApplication
 
 class QRScanner : ActivityResultContract<Int, QRScannerResult>() {
 
@@ -19,6 +20,7 @@ class QRScanner : ActivityResultContract<Int, QRScannerResult>() {
         } else {
             null
         }
+        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
         return intentIntegration?.setPrompt("")?.createScanIntent() ?: Intent()
     }
 
