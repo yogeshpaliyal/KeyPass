@@ -114,4 +114,13 @@
     <string name="about_us">எங்களைப் பற்றி</string>
     <string name="app_developer_linkedin">சென்டர்</string>
     <string name="valid_keyphrase">தவறான கீஃப்ரேஸ்</string>
+    <string name="validate"></string>
+    <string name="mismatch_keyphrase"></string>
+    <string name="validate_keyphrase"></string>
+    <string name="got_it"></string>
+    <string name="forgot_keyphrase_info"></string>
+    <string name="keyphrase_validate_info"></string>
+    <string name="forgot_keyphrase_question"></string>
+    <string name="forgot_keyphrase"></string>
+    <string name="biometric_login_timeout"></string>
 </resources>
