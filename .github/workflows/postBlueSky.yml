@@ -13,7 +13,7 @@ jobs:
     # - run: | 
     #     echo ${{ github.event.pull_request.title }} \n ${{ github.event.pull_request._links.html.href }}
       
-      - uses: zentered/bluesky-post-action@v0.1.0
+      - uses: zentered/bluesky-post-action@v0.2.0
         with:
           post: ${{ github.event.pull_request.title }} by ${{ github.event.pull_request.user.login }}
                 ${{ github.event.pull_request._links.html.href }}
