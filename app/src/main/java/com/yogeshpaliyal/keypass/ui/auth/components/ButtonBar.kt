@@ -15,19 +15,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.yogeshpaliyal.common.utils.setKeyPassPassword
+import com.yogeshpaliyal.common.utils.updateLastPasswordLoginTime
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
+import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
+import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import kotlinx.coroutines.launch
+import kotlin.time.DurationUnit
+import kotlin.time.toDuration
 
 @Composable
 fun ButtonBar(
     state: AuthState,
     password: String,
     setPasswordError: (Int?) -> Unit,
-    dispatchAction: (NavigationAction) -> Unit
+    dispatchAction: (Action) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
@@ -45,7 +52,18 @@ fun ButtonBar(
 
         if (userSettings.isBiometricEnable && state is AuthState.Login) {
             OutlinedButton(onClick = {
-                setBiometricEnable(true)
+
+                val currentTime = System.currentTimeMillis()
+                val lastPasswordLoginTime = userSettings.lastPasswordLoginTime ?: -1
+                if (userSettings.biometricLoginTimeoutEnable != true || (lastPasswordLoginTime > 0 && (currentTime - lastPasswordLoginTime).toDuration(
+                        DurationUnit.MILLISECONDS
+                    ).inWholeHours < 24)
+                ) {
+                    setBiometricEnable(true)
+                } else {
+                    // User exceeds 24 hours before entering the password
+                    dispatchAction(ToastAction(R.string.biometric_disabled_due_to_timeout))
+                }
             }) {
                 Text(text = stringResource(id = R.string.unlock_with_biometric))
             }
@@ -80,7 +98,12 @@ fun ButtonBar(
                     coroutineScope.launch {
                         val savedPassword = userSettings.keyPassPassword
                         if (savedPassword == password) {
-                            dispatchAction(NavigationAction(HomeState(), true))
+                            if(userSettings.biometricLoginTimeoutEnable == true) {
+                                context.updateLastPasswordLoginTime(System.currentTimeMillis())
+                            }
+                            KeyPassRedux.getLastScreen()?.let {
+                                dispatchAction(GoBackAction)
+                            } ?: dispatchAction(NavigationAction(HomeState(), true))
                         } else {
                             setPasswordError(R.string.incorrect_password)
                         }

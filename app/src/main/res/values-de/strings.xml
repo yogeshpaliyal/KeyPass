@@ -103,4 +103,24 @@
     <string name="invalid_csv_file">Invalid CSV Datei</string>
     <string name="file_not_found">Datei nicht gefunden (bitte nochmal versuchen)</string>
     <string name="invalid_secret_key">Invalides geheimes Schlüsselformat</string>
+    <string name="change_app_hint">Hinweis ändern</string>
+    <string name="remove_app_hint">Entfernen von Hint</string>
+    <string name="app_password_hint">Passwort vergessen</string>
+    <string name="set_app_password_hint">App-Passwort-Anleitung einstellen</string>
+    <string name="change_app_password_hint">App Passwort vergessen</string>
+    <string name="hint_change_success">Hinweis erfolgreich geändert</string>
+    <string name="hint_removed_success">Hinweise erfolgreich entfernt</string>
+    <string name="enter_password_hint">Passwort vergessen</string>
+    <string name="biometric_disabled_due_to_timeout">Bitte melden Sie sich per Passwort an, weil Sie in den letzten 24 Stunden kein Passwort verwendet haben</string>
+    <string name="invalid_csv">Invalid CSV Datei</string>
+    <string name="keyphrase_validate_info">Bitte geben Sie die Keyphrase ein, die Sie verwendet haben, um Ihr Backup zu erstellen. Wir werden diesen Bildschirm gelegentlich zeigen, um Ihnen zu helfen, sich daran zu erinnern.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Gültig Keyphras</string>
+    <string name="mismatch_keyphrase">Betreten Keyphrase passt nicht mit Backup keyphrase</string>
+    <string name="validate">Überprüfung</string>
+    <string name="got_it">Verstanden</string>
+    <string name="forgot_keyphrase">Schlüsselwort vergessen</string>
+    <string name="forgot_keyphrase_question">Keyphrase vergessen?</string>
+    <string name="forgot_keyphrase_info">Wenn Sie sich nicht an Ihre Keyphrase erinnern können, ist der einzige Weg, den Zugriff wieder zu erhalten, um Backups auszuschalten und sie dann wieder einschalten. Dies wird eine neue Backup-Datei und eine neue Keyphrase generieren.\nHinweis: Ihre alte Sicherung ist unzugänglich.</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 Stunden)</string>
 </resources>

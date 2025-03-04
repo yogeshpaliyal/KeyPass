@@ -104,4 +104,24 @@
     <string name="invalid_secret_key">अमान्य गुप्त कुंजी प्रारूप</string>
     <string name="invalid_csv_file">Invalid CSV फ़ाइल</string>
     <string name="file_not_found">फ़ाइल नहीं मिली (कृपया फिर से प्रयास करें)</string>
+    <string name="change_app_password_hint">ऐप पासवर्ड हिंट बदलें</string>
+    <string name="enter_password_hint">पासवर्ड संकेत</string>
+    <string name="change_app_hint">हिंट बदलें</string>
+    <string name="remove_app_hint">हिंट निकालें</string>
+    <string name="app_password_hint">ऐप पासवर्ड हिंट</string>
+    <string name="set_app_password_hint">ऐप पासवर्ड हिंट सेट करें</string>
+    <string name="hint_change_success">Hint सफलतापूर्वक बदल गया</string>
+    <string name="hint_removed_success">Hint सफलतापूर्वक हटाया</string>
+    <string name="biometric_disabled_due_to_timeout">कृपया पासवर्ड के माध्यम से लॉगिन करें क्योंकि आपने पिछले 24 घंटों में पासवर्ड का उपयोग नहीं किया है</string>
+    <string name="invalid_csv">Invalid CSV फ़ाइल</string>
+    <string name="keyphrase_validate_info">कृपया अपने बैकअप बनाने के लिए उपयोग किए जाने वाले keyphrase में प्रवेश करें। हम कभी-कभी इस स्क्रीन को दिखाने के लिए आपको यह याद रखने में मदद करेंगे।।</string>
+    <string name="validate_keyphrase">Keyphrase जाँच</string>
+    <string name="valid_keyphrase">मान्य Keyphrase</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase बैकअप keyphrase के साथ मिलान नहीं करता है</string>
+    <string name="validate">चेक</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">Forgot Keyphrase?</string>
+    <string name="forgot_keyphrase_info">यदि आप अपने keyphrase को याद नहीं कर सकते हैं, तो पुनः प्राप्त करने का एकमात्र तरीका बैकअप बंद करना है और फिर उन्हें वापस चालू करना है। यह एक नई बैकअप फ़ाइल और एक नई keyphrase उत्पन्न करेगा।\nध्यान दें: आपका पुराना बैकअप दुर्गम होगा।।</string>
+    <string name="got_it">यह</string>
+    <string name="biometric_login_timeout">बॉयोमीट्रिक लॉगिन टाइमआउट (24 hrs)</string>
 </resources>

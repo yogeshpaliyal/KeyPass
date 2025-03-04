@@ -103,4 +103,24 @@
     <string name="invalid_secret_key">Invalid secret key format</string>
     <string name="invalid_csv_file">Invalid CSV File</string>
     <string name="file_not_found">الملف لم يعثر عليه (يرجى المحاولة مرة أخرى)</string>
+    <string name="hint_change_success">لقد تغير</string>
+    <string name="hint_removed_success">إزالته بنجاح</string>
+    <string name="change_app_hint">غيّر (هين)</string>
+    <string name="remove_app_hint">Remove Hint</string>
+    <string name="app_password_hint">كلمة المرور</string>
+    <string name="set_app_password_hint">وضع كلمة المرور</string>
+    <string name="change_app_password_hint">تغيير كلمة المرور</string>
+    <string name="enter_password_hint">تلميح كلمة المرور</string>
+    <string name="invalid_csv">Invalid CSV File</string>
+    <string name="biometric_disabled_due_to_timeout">يرجى الدخول عبر كلمة السر لأنك لم تستخدم كلمة السر في 24 ساعة الماضية</string>
+    <string name="keyphrase_validate_info">من فضلك أدخلي المفترق الذي إستعملتيه لخلق دعمك سنعرض هذه الشاشة أحياناً لمساعدتك على تذكرها.</string>
+    <string name="validate_keyphrase">كش ملك</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">(كيفريز) المُدخّل لا يتطابق مع مفتاح الدعم</string>
+    <string name="validate">تحقق</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">نسيت (كيفراس)؟?</string>
+    <string name="forgot_keyphrase_info">إذا كنت لا تستطيع أن تتذكر مفتاحك، الطريقة الوحيدة لإستعادة الوصول هو لإيقاف الدعم ثم إعادة تشغيلها. وهذا سوف يولد ملفا احتياطيا جديدا ومفتاحا جديدا.\nملاحظة: دعمك القديم سيكون غير متاح.</string>
+    <string name="got_it">حصلت عليه</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
 </resources>

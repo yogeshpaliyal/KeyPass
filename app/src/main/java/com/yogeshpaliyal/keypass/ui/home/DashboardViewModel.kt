@@ -43,9 +43,11 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
-    suspend fun restoreBackup(
+    fun restoreBackup(
         list: List<AccountModel>
     ) {
-        return appDb.saveToDb(list)
+        viewModelScope.launch {
+            appDb.saveToDb(list)
+        }
     }
 }

@@ -1,0 +1,94 @@
+name: Upload build on release tag
+
+on:
+    push:
+        tags:
+            - '*'
+    workflow_dispatch: 
+      inputs: 
+        tag:
+          description: 'Enter Tag'
+          required: true
+          type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref_name }}
+    
+      - name: Setting up project
+        uses: ./.github/actions/setup
+
+      - name: Build with Gradle
+        id: build
+        run: ./gradlew build
+
+      - name: Build Free and Pro Release AAB
+        id: buildRelease
+        run: ./gradlew bundleRelease
+
+
+      - name: Sign Free AAB
+        id: signFree
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/bundle/freeRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Sign Pro AAB
+        id: signPro
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/bundle/proRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: pro
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-free-generate
+        with:
+            aab-path: 'app/build/outputs/bundle/freeRelease/app-free-release.aab'
+            keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+            keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+            key-alias: ${{ secrets.ALIAS }}
+            key-password: ${{ secrets.KEY_PASSWORD }}
+
+
+      - name: Upload free binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ steps.apk-free-generate.outputs.apk-path }}
+          asset_name: 'keypass-free-${{inputs.tag || github.ref_name}}.apk'
+          tag: ${{ inputs.tag || github.ref_name }}
+          overwrite: true
+
+      - name: Remove universal directory
+        run: rm -r /home/runner/work/snnaplab-universal-apk-generate-action
+
+        
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-pro-generate
+        with:
+            aab-path: 'app/build/outputs/bundle/proRelease/app-pro-release.aab'
+            keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+            keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+            key-alias: pro
+            key-password: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Upload pro binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ steps.apk-pro-generate.outputs.apk-path }}
+          tag: ${{ inputs.tag || github.ref_name }}
+          asset_name: 'keypass-pro-${{inputs.tag || github.ref_name}}.apk'
+          overwrite: true

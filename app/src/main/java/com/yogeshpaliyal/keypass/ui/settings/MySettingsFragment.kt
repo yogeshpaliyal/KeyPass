@@ -19,9 +19,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.Feedback
 import androidx.compose.material.icons.rounded.Fingerprint
+import androidx.compose.material.icons.rounded.LockReset
 import androidx.compose.material.icons.rounded.Password
 import androidx.compose.material.icons.rounded.Share
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,9 +36,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.setBiometricEnable
+import com.yogeshpaliyal.common.utils.setBiometricLoginTimeoutEnable
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
@@ -47,11 +50,14 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.ToastAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateDialogAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppHintState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
+import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import kotlinx.coroutines.launch
 import org.reduxkotlin.compose.rememberTypedDispatcher
 
@@ -90,6 +96,15 @@ fun MySettingCompose() {
         ) {
             dispatchAction(NavigationAction(ChangeAppPasswordState()))
         }
+
+        PreferenceItem(
+            title = R.string.app_password_hint,
+            summary = if (userSettings.passwordHint != null) R.string.change_app_password_hint else R.string.set_app_password_hint,
+            icon = Icons.Outlined.Info
+        ) {
+            dispatchAction(NavigationAction(ChangeAppHintState))
+        }
+
         val changePasswordLengthSummary = context.getString(R.string.default_password_length)
         PreferenceItem(
             title = R.string.change_password_length,
@@ -98,9 +113,18 @@ fun MySettingCompose() {
             dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
         }
 
+        PreferenceItem(
+            title = R.string.validate_keyphrase,
+            summary = R.string.validate_keyphrase
+        ) {
+            dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
+        }
+
         BiometricsOption()
 
-        Divider(
+        AutoDisableBiometric()
+
+        HorizontalDivider(
             modifier = Modifier
                 .fillMaxWidth(1f)
                 .height(1.dp)
@@ -226,4 +250,34 @@ fun BiometricsOption() {
             }
         }
     }
+}
+
+
+@Composable
+fun AutoDisableBiometric() {
+    val context = LocalContext.current
+    val userSettings = LocalUserSettings.current
+
+    val coroutineScope = rememberCoroutineScope()
+
+
+    val enableDisableStr =
+        if (userSettings.biometricLoginTimeoutEnable == true) {
+            R.string.enabled
+        } else {
+            R.string.disabled
+        }
+
+    PreferenceItem(
+        title = R.string.biometric_login_timeout,
+        summary = enableDisableStr,
+        icon = Icons.Rounded.LockReset,
+        onClickItem = if (userSettings.isBiometricEnable) {
+            {
+                coroutineScope.launch {
+                    context.setBiometricLoginTimeoutEnable(userSettings.biometricLoginTimeoutEnable != true)
+                }
+            }
+        } else null
+    )
 }

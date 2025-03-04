@@ -103,4 +103,24 @@
     <string name="invalid_secret_key">Недійсний формат секретного ключа</string>
     <string name="invalid_csv_file">Недійсний файл CSV</string>
     <string name="file_not_found">Файл не знайдено (спробуйте ще раз)</string>
+    <string name="change_app_hint">Зміна Hint</string>
+    <string name="remove_app_hint">Видалити Хін</string>
+    <string name="app_password_hint">App Пароль Хін</string>
+    <string name="set_app_password_hint">Налаштування пароля</string>
+    <string name="change_app_password_hint">Змінити пароль</string>
+    <string name="hint_change_success">Хін змінився успішно</string>
+    <string name="hint_removed_success">Зняти успішно</string>
+    <string name="enter_password_hint">Введіть пароль</string>
+    <string name="biometric_disabled_due_to_timeout">Введіть номер мобільного, який Ви вказали при укладаннi договору з нами</string>
+    <string name="invalid_csv">Недійсний файл CSV</string>
+    <string name="validate_keyphrase">Keyphrase Перевірити</string>
+    <string name="valid_keyphrase">Реальний Keyphrase</string>
+    <string name="mismatch_keyphrase">Увімкнути Keyphrase не відповідає з резервним копіюванням</string>
+    <string name="validate">Зареєструватися</string>
+    <string name="keyphrase_validate_info">Будь ласка, введіть прапорець, який ви використовували для створення резервної копії. Ми з радістю покажемо цей екран, щоб допомогти вам запам\'ятати його.</string>
+    <string name="forgot_keyphrase">Забули ключ</string>
+    <string name="forgot_keyphrase_question">Забули ключі?</string>
+    <string name="forgot_keyphrase_info">Якщо ви не можете запам\'ятати свій ключ, єдиний спосіб повернути доступ, щоб вимкнути резервні копії, а потім повернути їх назад. Це генерує новий резервний файл і новий брелок.\nПримітка: Ваша стара резервна копія буде недоступна.</string>
+    <string name="got_it">Про нас</string>
+    <string name="biometric_login_timeout">Біометричний час входу (24 год)</string>
 </resources>

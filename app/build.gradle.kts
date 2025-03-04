@@ -12,15 +12,15 @@ plugins {
 val appPackageId = "com.yogeshpaliyal.keypass"
 
 android {
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
 
         applicationId = appPackageId
         minSdk = 23
-        targetSdk = 34
-        versionCode = 1432
-        versionName = "1.4.32"
+        targetSdk = 35
+        versionCode = 1436
+        versionName = "1.4.36"
 
         testInstrumentationRunner = "com.yogeshpaliyal.keypass.CustomTestRunner"
         vectorDrawables {
@@ -125,16 +125,16 @@ dependencies {
     implementation(Deps.Lifecycle.viewModelCompose)
     implementation(Deps.Lifecycle.viewModelKtx)
     implementation(Deps.Lifecycle.runtimeCompose)
-    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-compose:2.8.8")
 
     implementation("androidx.compose.material3:material3:1.2.1")
-    implementation("com.google.accompanist:accompanist-themeadapter-material3:0.30.1")
+    implementation("com.google.accompanist:accompanist-themeadapter-material3:0.36.0")
 
     implementation("androidx.appcompat:appcompat:1.7.0")
 
     // XML Libraries
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
 
     kapt("androidx.room:room-compiler:${Versions.room}")
 
@@ -151,17 +151,17 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 
     // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.52")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.55")
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     // For Robolectric tests.
-    testImplementation("com.google.dagger:hilt-android-testing:2.52")
+    testImplementation("com.google.dagger:hilt-android-testing:2.55")
     // ...with Kotlin.
     kaptTest("com.google.dagger:hilt-android-compiler:${Versions.hilt}")
 
     implementation("org.reduxkotlin:redux-kotlin-compose-jvm:0.6.0")
-    implementation("me.saket.cascade:cascade-compose:2.2.0")
+    implementation("me.saket.cascade:cascade-compose:2.3.0")
 
     implementation("androidx.biometric:biometric:1.1.0")
 }

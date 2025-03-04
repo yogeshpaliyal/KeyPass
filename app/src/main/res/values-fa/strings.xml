@@ -103,4 +103,24 @@
     <string name="new_password">گذرواژه تازه</string>
     <string name="about_us_desc">درباره ما Desc</string>
     <string name="app_desc">Open-source و آفلاین Password Manager فروشگاه، مدیریت، کنترل ایمن.</string>
+    <string name="remove_app_hint">حذف Hint</string>
+    <string name="app_password_hint">برنامه Password Hint</string>
+    <string name="hint_change_success">تغییر موفقیت آمیز</string>
+    <string name="hint_removed_success">Hint با موفقیت حذف شد</string>
+    <string name="enter_password_hint">ورودی Password Point</string>
+    <string name="change_app_hint">تغییر Hint</string>
+    <string name="set_app_password_hint">برنامه Password Hint</string>
+    <string name="change_app_password_hint">تغییر برنامه Password Hint</string>
+    <string name="biometric_disabled_due_to_timeout">لطفا از طریق رمز عبور وارد شوید زیرا در 24 ساعت گذشته از رمز عبور استفاده نکرده اید</string>
+    <string name="invalid_csv">پرونده‌ی CSV نادرست</string>
+    <string name="keyphrase_validate_info">لطفاً به keyphrase که برای ایجاد پشتیبان خود استفاده می کردید وارد شوید. ما گاهی اوقات این صفحه را به شما نشان می دهیم تا به یاد داشته باشید.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Keyphrase</string>
+    <string name="mismatch_keyphrase">Keyphrase وارد شده با کلید پشتیبان مطابقت ندارد</string>
+    <string name="validate">چک</string>
+    <string name="forgot_keyphrase">Keyphrase</string>
+    <string name="forgot_keyphrase_question">Keyphrase?</string>
+    <string name="forgot_keyphrase_info">اگر نمی توانید Keyphrase خود را به خاطر بیاورید، تنها راه برای بازیابی دسترسی این است که نسخه پشتیبان را خاموش کنید و سپس آنها را به عقب برگردانید. این یک فایل پشتیبان جدید و یک کلید جدید ایجاد می کند.\nتوجه: نسخه پشتیبان قدیمی شما قابل دسترسی خواهد بود.</string>
+    <string name="got_it">آن را</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
 </resources>

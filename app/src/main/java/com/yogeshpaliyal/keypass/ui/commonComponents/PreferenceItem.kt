@@ -23,9 +23,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun PreferenceItem(
-    @StringRes title: Int? = null,
-    @StringRes summary: Int? = null,
-    summaryStr: String? = null,
+    title: String? = null,
+    summary: String? = null,
     icon: ImageVector? = null,
     painter: Painter? = null,
     isCategory: Boolean = false,
@@ -63,33 +62,49 @@ fun PreferenceItem(
                     PreferenceItemTitle(title = title)
                 }
             }
-            if (summary != null || summaryStr != null) {
-                val summaryText = if (summary != null) {
-                    stringResource(id = summary)
-                } else {
-                    summaryStr
-                }
-                if (summaryText != null) {
-                    Text(text = summaryText, style = MaterialTheme.typography.bodyMedium)
-                }
+            if (summary != null) {
+                Text(text = summary, style = MaterialTheme.typography.bodyMedium)
             }
         }
     }
 }
 
+
 @Composable
-private fun CategoryTitle(title: Int) {
+fun PreferenceItem(
+    @StringRes title: Int? = null,
+    @StringRes summary: Int? = null,
+    summaryStr: String? = null,
+    icon: ImageVector? = null,
+    painter: Painter? = null,
+    isCategory: Boolean = false,
+    removeIconSpace: Boolean = false,
+    onClickItem: (() -> Unit)? = null
+) {
+    PreferenceItem(
+        title?.let { stringResource(it) },
+        summary?.let { stringResource(summary) } ?: summaryStr,
+        icon,
+        painter,
+        isCategory,
+        removeIconSpace,
+        onClickItem
+    )
+}
+
+@Composable
+private fun CategoryTitle(title: String) {
     Text(
-        text = stringResource(id = title),
+        text = title,
         color = MaterialTheme.colorScheme.tertiary,
         style = MaterialTheme.typography.titleMedium
     )
 }
 
 @Composable
-private fun PreferenceItemTitle(title: Int) {
+private fun PreferenceItemTitle(title: String) {
     Text(
-        text = stringResource(id = title),
+        text = title,
         style = MaterialTheme.typography.bodyLarge
     )
 }

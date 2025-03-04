@@ -16,6 +16,7 @@ import com.yogeshpaliyal.common.utils.clearBackupKey
 import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
 import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
+import com.yogeshpaliyal.common.utils.updateLastKeyPhraseEnterTime
 import com.yogeshpaliyal.keypass.ui.backup.components.BackSettingOptions
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
@@ -80,6 +81,7 @@ fun BackupScreen(state: BackupScreenState) {
             if (it.not()) {
                 context.clearBackupKey()
             }
+            context.updateLastKeyPhraseEnterTime(System.currentTimeMillis())
         }
     })
 
