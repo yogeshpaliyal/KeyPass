@@ -1,0 +1,11 @@
+Figyelmeztető: Kérem, készítsen egy mentést mielőtt frissíti a klienst.
+
+Ez a modern jelszókezelő nem menti adatait a szervereken, így a jelszavai az Ön kezében vannak, nem kell aggódnia.
+
+1. Teljesen Offline
+2. Nem tartalmaz reklámokat
+3. Nyílt forráskódú (forráskód teljes mértékben áttekinthető)
+4. Adatok mentése és visszaállítása
+5. Idő alapú OTP (TOTP)
+
+https://github.com/yogeshpaliyal/KeyPass
