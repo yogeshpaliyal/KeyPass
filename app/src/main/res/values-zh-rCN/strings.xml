@@ -95,7 +95,7 @@
     <string name="keepass_backup">KeePass 备份</string>
     <string name="keepass_backup_desc">选择要导入的 KeePass CSV 文件</string>
     <string name="app_desc">开放源代码的离线密码管理器。安全地进行储存、管理和操作。</string>
-    <string name="about_us_desc">问 题</string>
+    <string name="about_us_desc">关于我们的描述</string>
     <string name="app_developer">开发者</string>
     <string name="app_developer_x">X（原 Twitter）</string>
     <string name="app_developer_linkedin">LinkedIn</string>
