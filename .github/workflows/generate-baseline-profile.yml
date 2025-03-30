@@ -12,21 +12,32 @@ jobs:
     - name: Setting up project
       uses: ./.github/actions/setup
 
+
+    - name: Install GMD image for baseline profile generation
+      run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-34;aosp_atd;x86_64"
+
+    - name: Accept Android licenses
+      run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+    - name: Generate profile
+      run: ./gradlew :app:generateFreeReleaseBaselineProfile
+        -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
+
         # Now use reactivecircus/android-emulator-runner to spin up an emulator and run our
         # baseline profile generator. We need to manually pull the baseline profiles off the
         # emulator when using the GA runner
-    - name: Run benchmark
-      id: build
-      run: |
-         # Run our benchmark, enabling only tests using BaselineProfile
-         ./gradlew pixel6Api34ProBenchmarkReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
-         # Need to manually pull the generated profiles from the emulator
-         adb pull /sdcard/Android/media/app.tivi.benchmark benchmark/build/outputs/baseline-prof/
+#    - name: Run benchmark
+#      id: build
+#      run: |
+#         # Run our benchmark, enabling only tests using BaselineProfile
+#         ./gradlew pixel6Api34ProBenchmarkReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+#         # Need to manually pull the generated profiles from the emulator
+#         adb pull /sdcard/Android/media/app.tivi.benchmark benchmark/build/outputs/baseline-prof/
 
       # Upload the entire generated folder and attach it to the CI run
     - name: Attach baseline profile
       uses: actions/upload-artifact@v4
       with:
         name: Baseline profile output
-        path: benchmark/build/outputs/baseline-prof
+        path: app/src/freeRelease/generated/baselineProfiles/
     
