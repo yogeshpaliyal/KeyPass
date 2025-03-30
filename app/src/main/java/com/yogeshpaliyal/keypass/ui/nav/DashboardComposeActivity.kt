@@ -5,8 +5,10 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -18,12 +20,15 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import com.yogeshpaliyal.common.data.UserSettings
 import com.yogeshpaliyal.common.utils.getUserSettings
 import com.yogeshpaliyal.common.utils.getUserSettingsFlow
 import com.yogeshpaliyal.common.utils.migrateOldDataToNewerDataStore
 import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.ui.about.AboutScreen
 import com.yogeshpaliyal.keypass.ui.auth.AuthScreen
 import com.yogeshpaliyal.keypass.ui.backup.BackupScreen
@@ -31,25 +36,37 @@ import com.yogeshpaliyal.keypass.ui.backupsImport.BackupImporter
 import com.yogeshpaliyal.keypass.ui.changeDefaultPasswordLength.ChangeDefaultPasswordLengthScreen
 import com.yogeshpaliyal.keypass.ui.changePassword.ChangePassword
 import com.yogeshpaliyal.keypass.ui.detail.AccountDetailPage
+import com.yogeshpaliyal.keypass.ui.dialogs.RestoreChromeBackupDialog
+import com.yogeshpaliyal.keypass.ui.dialogs.RestoreKeePassBackupDialog
+import com.yogeshpaliyal.keypass.ui.dialogs.RestoreKeyPassBackupDialog
+import com.yogeshpaliyal.keypass.ui.dialogs.ValidateKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.generate.ui.GeneratePasswordScreen
 import com.yogeshpaliyal.keypass.ui.home.Homepage
+import com.yogeshpaliyal.keypass.ui.home.components.ForgotKeyPhraseDialog
 import com.yogeshpaliyal.keypass.ui.nav.components.DashboardBottomSheet
 import com.yogeshpaliyal.keypass.ui.nav.components.KeyPassBottomBar
+import com.yogeshpaliyal.keypass.ui.passwordHint.PasswordHintScreen
 import com.yogeshpaliyal.keypass.ui.redux.KeyPassRedux
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.UpdateContextAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AboutState
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupImporterState
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppHintState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeAppPasswordState
 import com.yogeshpaliyal.keypass.ui.redux.states.ChangeDefaultPasswordLengthState
+import com.yogeshpaliyal.keypass.ui.redux.states.ForgotKeyPhraseState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.PasswordGeneratorState
-import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.RestoreChromeBackupState
+import com.yogeshpaliyal.keypass.ui.redux.states.RestoreKeePassBackupState
+import com.yogeshpaliyal.keypass.ui.redux.states.RestoreKeyPassBackupState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
+import com.yogeshpaliyal.keypass.ui.redux.states.ValidateKeyPhrase
 import com.yogeshpaliyal.keypass.ui.settings.MySettingCompose
 import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,6 +81,7 @@ class DashboardComposeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         if (BuildConfig.DEBUG.not()) {
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_SECURE,
@@ -88,14 +106,15 @@ class DashboardComposeActivity : AppCompatActivity() {
                 val buildConfigVersion = BuildConfig.VERSION_CODE
                 val currentAppVersion = userSettings.currentAppVersion
                 if (buildConfigVersion != currentAppVersion) {
-                    applicationContext.setUserSettings(userSettings.copy(lastAppVersion = currentAppVersion, currentAppVersion = buildConfigVersion))
+                    applicationContext.setUserSettings(
+                        userSettings.copy(
+                            lastAppVersion = currentAppVersion,
+                            currentAppVersion = buildConfigVersion
+                        )
+                    )
                 }
             })
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }
 
@@ -110,6 +129,13 @@ fun Dashboard() {
         dispatch(GoBackAction)
     }
 
+    // Call this like any other SideEffect in your composable
+    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+        if((context.applicationContext as? MyApplication)?.isActivityLaunchTriggered() == false) {
+            dispatch(NavigationAction(AuthState.Login))
+        }
+    }
+
     LaunchedEffect(key1 = systemBackPress, block = {
         if (systemBackPress) {
             (context as? ComponentActivity)?.finishAffinity()
@@ -118,7 +144,6 @@ fun Dashboard() {
 
     DisposableEffect(KeyPassRedux, context) {
         dispatch(UpdateContextAction(context))
-
         onDispose {
             dispatch(UpdateContextAction(null))
         }
@@ -126,7 +151,7 @@ fun Dashboard() {
 
     Scaffold(bottomBar = {
         KeyPassBottomBar()
-    }) { paddingValues ->
+    }, modifier = Modifier.safeDrawingPadding()) { paddingValues ->
         Surface(modifier = Modifier.padding(paddingValues)) {
             CurrentPage()
 
@@ -137,9 +162,11 @@ fun Dashboard() {
 
 @Composable
 fun CurrentPage() {
-    val currentScreen by selectState<KeyPassState, ScreenState> { this.currentScreen }
+    val currentScreen by selectState<KeyPassState, KeyPassState> { this }
 
-    currentScreen.let {
+//    val currentDialog by selectState<KeyPassState, DialogState?> { this.dialog }
+
+    currentScreen.currentScreen.let {
         when (it) {
             is HomeState -> {
                 Homepage(homeState = it)
@@ -172,6 +199,17 @@ fun CurrentPage() {
             is BackupImporterState -> BackupImporter(state = it)
             is AboutState -> AboutScreen()
             is PasswordGeneratorState -> GeneratePasswordScreen()
+            is ChangeAppHintState -> PasswordHintScreen()
+        }
+    }
+
+    currentScreen.dialog?.let {
+        when (it) {
+            is ValidateKeyPhrase -> ValidateKeyPhraseDialog()
+            is ForgotKeyPhraseState -> ForgotKeyPhraseDialog()
+            is RestoreKeyPassBackupState -> RestoreKeyPassBackupDialog(it)
+            is RestoreChromeBackupState -> RestoreChromeBackupDialog(it)
+            is RestoreKeePassBackupState -> RestoreKeePassBackupDialog(it)
         }
     }
 }

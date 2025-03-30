@@ -16,19 +16,19 @@ on:
 
 jobs:
   validate-pr:
-    name: 'Spotless, Tests and Build Production Debug Build'
+    name: 'Tests and Build Production Debug Build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
     
       - name: Setting up project 
         uses: ./.github/actions/setup
-
-      - name: 🛠 Build Project with Spotless Check
-        run: ./gradlew spotlessCheck
         
       - name: 🧪 Run Tests
         run: ./gradlew test
+                
+      - name: 🧪 Run Lint free Release
+        run: ./gradlew lintFreeRelease
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleFreeDebug

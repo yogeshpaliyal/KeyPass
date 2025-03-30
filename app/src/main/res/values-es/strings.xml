@@ -103,4 +103,24 @@
     <string name="invalid_secret_key">Formato clave secreto inválido</string>
     <string name="invalid_csv_file">CSV inválido Archivo</string>
     <string name="file_not_found">El archivo no encontrado (por favor, inténtelo de nuevo)</string>
+    <string name="set_app_password_hint">Establecer contraseña Hint</string>
+    <string name="change_app_password_hint">Cambiar contraseña</string>
+    <string name="hint_removed_success">Se retira con éxito</string>
+    <string name="enter_password_hint">Introducir contraseña</string>
+    <string name="change_app_hint">Cambio Hint</string>
+    <string name="hint_change_success">Hint cambió con éxito</string>
+    <string name="remove_app_hint">Quitar Hint</string>
+    <string name="app_password_hint">App Password Hint</string>
+    <string name="biometric_disabled_due_to_timeout">Por favor, ingrese a través de contraseña porque no ha usado contraseña en las últimas 24 horas</string>
+    <string name="invalid_csv">CSV inválido Archivo</string>
+    <string name="validate">Check</string>
+    <string name="keyphrase_validate_info">Por favor, introduzca la frase clave que utilizó para crear su respaldo. De vez en cuando mostraremos esta pantalla para ayudarte a recordarla.</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="valid_keyphrase">Valide Keyphrase</string>
+    <string name="mismatch_keyphrase">Keyphrase entra no coincide con la clave de respaldo</string>
+    <string name="got_it">Lo tengo</string>
+    <string name="forgot_keyphrase">Olvidé Keyphrase</string>
+    <string name="forgot_keyphrase_question">¿Olvidó Keyphrase?</string>
+    <string name="forgot_keyphrase_info">Si no puedes recordar tu frase clave, la única manera de recuperar el acceso es apagar las copias de seguridad y luego encenderlas. Esto generará un nuevo archivo de copia de seguridad y una nueva clave.\nNota: Su antiguo respaldo será inaccesible.</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
 </resources>

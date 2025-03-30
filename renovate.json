@@ -6,7 +6,8 @@
 "packageRules": [
     {
       "matchPackagePatterns": ["*"],
-      "automerge": true
+      "automerge": true,
+      "rebaseWhen": "auto"
     }
   ]
 }

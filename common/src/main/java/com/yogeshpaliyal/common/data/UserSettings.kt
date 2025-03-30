@@ -20,7 +20,11 @@ data class UserSettings(
     val overrideAutoBackup: Boolean = false,
     val lastAppVersion: Int? = null,
     val currentAppVersion: Int? = null,
-    val passwordConfig: PasswordConfig = PasswordConfig.Initial
+    val passwordConfig: PasswordConfig = PasswordConfig.Initial,
+    val passwordHint: String? = null,
+    val biometricLoginTimeoutEnable: Boolean? = null,
+    val lastPasswordLoginTime: Long? = null,
+    val lastKeyPhraseEnterTime: Long? = null
 ) {
     fun isKeyPresent() = backupKey != null
 }

@@ -104,4 +104,24 @@
     <string name="invalid_secret_key">Formato de chave secreto inválido</string>
     <string name="invalid_csv_file">Inválido CSV Arquivo</string>
     <string name="file_not_found">Arquivo não encontrado (por favor, tente novamente)</string>
+    <string name="change_app_hint">Alterar a opção</string>
+    <string name="remove_app_hint">Remover Dica</string>
+    <string name="app_password_hint">App Password Hint</string>
+    <string name="set_app_password_hint">Definir App Password Hint</string>
+    <string name="change_app_password_hint">Alterar a senha do aplicativo</string>
+    <string name="hint_change_success">Hint mudou com sucesso</string>
+    <string name="hint_removed_success">Hint removido com sucesso</string>
+    <string name="enter_password_hint">Digite a dica de senha</string>
+    <string name="biometric_disabled_due_to_timeout">Faça login via senha porque você não usou senha nas últimas 24 horas</string>
+    <string name="invalid_csv">Inválido CSV Arquivo</string>
+    <string name="keyphrase_validate_info">Digite a frase-chave que você usou para criar seu backup. Nós ocasionalmente mostraremos esta tela para ajudá-lo a se lembrar.</string>
+    <string name="validate_keyphrase">Verificação de Keyphrase</string>
+    <string name="valid_keyphrase">Chaveiro válido</string>
+    <string name="mismatch_keyphrase">Keyphrase inserido não combina com keyphrase de backup</string>
+    <string name="validate">Verificação</string>
+    <string name="got_it">Entendido</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">Esqueceu a Keyphrase?</string>
+    <string name="forgot_keyphrase_info">Se você não pode se lembrar de sua keyphrase, a única maneira de recuperar o acesso é desligar backups e, em seguida, desligá-los de volta. Isso irá gerar um novo arquivo de backup e uma nova keyphrase.\nNota: Seu backup antigo será inacessível.</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 horas)</string>
 </resources>

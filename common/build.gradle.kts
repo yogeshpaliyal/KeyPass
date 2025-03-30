@@ -35,11 +35,11 @@ android {
 
 dependencies {
 
-    api("androidx.core:core-ktx:1.13.1")
+    api("androidx.core:core-ktx:1.15.0")
     api("androidx.appcompat:appcompat:1.7.0")
 
     // apache common codec
-    implementation("commons-codec:commons-codec:1.17.1")
+    implementation("commons-codec:commons-codec:1.18.0")
 
     // Androidx Security
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
@@ -61,19 +61,19 @@ dependencies {
 
     api("com.google.android.material:material:1.12.0")
 
-    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("com.google.code.gson:gson:2.12.1")
 
-    api("com.google.code.gson:gson:2.11.0")
+    api("com.google.code.gson:gson:2.12.1")
 
-    api("androidx.datastore:datastore-preferences:1.1.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+    api("androidx.datastore:datastore-preferences:1.1.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
     // Test
     implementation("androidx.test.ext:junit-ktx:1.2.1")
     androidTestApi("androidx.test:rules:1.6.1")
 
     implementation("net.zetetic:android-database-sqlcipher:4.5.4")
-    implementation("androidx.sqlite:sqlite:2.3.1")
+    implementation("androidx.sqlite:sqlite:2.4.0")
 
-    api("com.opencsv:opencsv:5.8")
+    api("com.opencsv:opencsv:5.10")
 }

@@ -52,9 +52,8 @@ fun CreateCustomKeyphrase(saveKeyphrase: () -> Unit, dismissDialog: () -> Unit) 
 
                 coroutineScope.launch {
                     context.setBackupKey(keyphrase)
+                    saveKeyphrase.invoke()
                 }
-
-                saveKeyphrase.invoke()
             }) {
                 Text(stringResource(id = R.string.yes))
             }

@@ -10,6 +10,8 @@
     <string name="generate_shortcut_short_label">Generate Password</string>
 
     <string name="backup_restored">Backup Restored</string>
+    <string name="invalid_csv">Invalid CSV file</string>
+
     <string name="invalid_keyphrase">Invalid Keyphrase</string>
 
     <string name="backup_completed">Backup Completed</string>
@@ -72,6 +74,7 @@
     <string name="enter_keyphrase">Enter Keyphrase</string>
     <string name="restore">Restore</string>
     <string name="keyphrase_restore_info">Please enter keyphrase you get when you backed up</string>
+    <string name="keyphrase_validate_info">Please enter the keyphrase you used to create your backup. We will occasionally show this screen to help you remember it.</string>
     <string name="custom_generated_keyphrase_info">Do you want to create your own keyphrase for backups or should I generate for you?</string>
 
     <string name="ascending">Ascending</string>
@@ -87,6 +90,11 @@
     <string name="password_no_match">The password did not match</string>
     <string name="auto_backup_desc">Your accounts will be backed up whenever account is added or modified</string>
     <string name="change_app_password">Change App Password</string>
+    <string name="change_app_hint">Change Hint</string>
+    <string name="remove_app_hint">Remove Hint</string>
+    <string name="app_password_hint">App Password Hint</string>
+    <string name="set_app_password_hint">Set App Password Hint</string>
+    <string name="change_app_password_hint">Change App Password Hint</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <string name="blank_old_password">Please enter your old password</string>
@@ -94,11 +102,14 @@
     <string name="blank_new_password">Please enter your new password</string>
     <string name="blank_confirm_password">Please enter confirm password</string>
     <string name="password_change_success">Password changed successfully</string>
+    <string name="hint_change_success">Hint changed successfully</string>
+    <string name="hint_removed_success">Hint removed successfully</string>
 
     <string name="biometric_error_no_hardware">No biometric features available on this device.</string>
     <string name="biometric_error_hw_unavailable">Biometric features are currently unavailable.</string>
     <string name="biometric_error_none_enrolled">Setup biometric on your device.</string>
     <string name="unlock_with_biometric">Unlock with biometric</string>
+    <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
     <string name="password_set_from_settings">Please set password for your device first from phone settings</string>
     <string name="authentication_failed">Authentication Failed</string>
     <string name="authentication_error">Authentication Error %s</string>
@@ -113,5 +124,15 @@
     <string name="invalid_secret_key">Invalid secret key format</string>
     <string name="invalid_csv_file">Invalid CSV File</string>
     <string name="file_not_found">File not found (please try again)</string>
+    <string name="enter_password_hint">Enter password hint</string>
+    <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="forgot_keyphrase_question">Forgot Keyphrase?</string>
+    <string name="forgot_keyphrase_info">If you can\'t remember your keyphrase, the only way to regain access is to turn off backups and then turn them back on. This will generate a new backup file and a new keyphrase. \nNote: Your old backup will be inaccessible.</string>
+    <string name="valid_keyphrase">Valid Keyphrase</string>
+    <string name="mismatch_keyphrase">Entered Keyphrase does not match with backup keyphrase</string>
+    <string name="validate">Check</string>
+    <string name="got_it">Got it</string>
+    <string name="biometric_disabled_due_to_timeout">Please login via password because you haven\'t used password in last 24 hours</string>
 
 </resources>

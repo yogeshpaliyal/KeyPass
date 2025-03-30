@@ -11,7 +11,7 @@ data class PasswordConfig(
     val includeUppercaseLetters: Boolean,
     val includeLowercaseLetters: Boolean,
     val includeSymbols: Boolean,
-    val listOfSymbols: List<Char>,
+    val listOfSymbols: List<Char> = PasswordGenerator.totalSymbol,
     val includeNumbers: Boolean,
     val includeBlankSpaces: Boolean,
     val password: String

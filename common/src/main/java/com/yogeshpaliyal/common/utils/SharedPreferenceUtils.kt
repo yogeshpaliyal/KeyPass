@@ -15,13 +15,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 
-/*
-* @author Yogesh Paliyal
-* techpaliyal@gmail.com
-* https://techpaliyal.com
-* created on 21-02-2021 11:18
-*/
-
 val Context.dataStore by preferencesDataStore(
     name = "settings"
 )
@@ -68,6 +61,13 @@ suspend fun Context.setBiometricEnable(isBiometricEnable: Boolean) {
         it.copy(isBiometricEnable = isBiometricEnable)
     }
 }
+
+suspend fun Context.setBiometricLoginTimeoutEnable(biometricLoginTimeoutEnable: Boolean) {
+    getUserSettingsDataStore().updateData {
+        it.copy(biometricLoginTimeoutEnable = biometricLoginTimeoutEnable)
+    }
+}
+
 
 suspend fun Context.setBackupDirectory(backupDirectory: String) {
     getUserSettingsDataStore().updateData {
@@ -133,6 +133,28 @@ suspend fun Context.getOrCreateBackupKey(reset: Boolean = false): Pair<Boolean, 
         val randomKey = getRandomString(BACKUP_KEY_LENGTH)
         setBackupKey(randomKey)
         Pair(true, randomKey)
+    }
+}
+
+suspend fun Context.setPasswordHint(passwordHint: String?) {
+    getUserSettingsDataStore().updateData {
+        it.copy(passwordHint = passwordHint)
+    }
+}
+
+suspend fun Context.getPasswordHint(): String? {
+    return getUserSettings().passwordHint
+}
+
+suspend fun Context.updateLastPasswordLoginTime(lastPasswordLoginTime: Long?) {
+    getUserSettingsDataStore().updateData {
+        it.copy(lastPasswordLoginTime = lastPasswordLoginTime)
+    }
+}
+
+suspend fun Context.updateLastKeyPhraseEnterTime(lastKeyPhraseEnterTime: Long?) {
+    getUserSettingsDataStore().updateData {
+        it.copy(lastKeyPhraseEnterTime = lastKeyPhraseEnterTime)
     }
 }
 

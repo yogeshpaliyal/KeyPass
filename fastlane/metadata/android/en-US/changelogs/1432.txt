@@ -1,0 +1,1 @@
+Fix: Custom keyphrase not working, Added monochrome app icon

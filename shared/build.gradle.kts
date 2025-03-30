@@ -15,9 +15,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api("androidx.compose.runtime:runtime:1.6.8")
-                api("androidx.compose.foundation:foundation:1.6.8")
-                api("androidx.compose.material:material:1.6.8")
+                api("androidx.compose.runtime:runtime:1.7.8")
+                api("androidx.compose.foundation:foundation:1.7.8")
+                api("androidx.compose.material:material:1.7.8")
                 implementation("org.reduxkotlin:redux-kotlin-compose:0.6.0")
             }
         }
@@ -29,7 +29,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 api("androidx.appcompat:appcompat:1.7.0")
-                api("androidx.core:core-ktx:1.13.1")
+                api("androidx.core:core-ktx:1.15.0")
             }
         }
         val androidUnitTest by getting {
