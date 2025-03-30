@@ -19,9 +19,22 @@ jobs:
     - name: Accept Android licenses
       run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
-    - name: Generate profile
-      run: ./gradlew :app:generateFreeReleaseBaselineProfile
+    - name: Setup GMD
+      run: ./gradlew :benchmarks:pixel6Api34Setup
+        --info
+        -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
         -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
+
+    - name: Build all build type and flavor permutations including baseline profiles
+      run: ./gradlew :app:assemble
+          -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=baselineprofile
+          -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
+          -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
+
+
+#    - name: Generate profile
+#      run: ./gradlew :app:generateFreeReleaseBaselineProfile
+#        -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
 
         # Now use reactivecircus/android-emulator-runner to spin up an emulator and run our
         # baseline profile generator. We need to manually pull the baseline profiles off the
