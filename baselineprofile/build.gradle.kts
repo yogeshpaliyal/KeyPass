@@ -51,9 +51,9 @@ android {
 // You can specify to run the generators on a managed devices or connected devices.
 baselineProfile {
     // This specifies the managed devices to use that you run the tests on.
-    managedDevices.clear()
-    managedDevices += "pixel6Api34"
-    useConnectedDevices = false
+//    managedDevices.clear()
+//    managedDevices += "pixel6Api34"
+    useConnectedDevices = true
 }
 
 dependencies {
