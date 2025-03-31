@@ -28,6 +28,8 @@ plugins {
     id("com.google.dagger.hilt.android") version ("2.56.1") apply false
     id("com.gradle.enterprise") version("3.19.2") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
+    id("com.android.test") version "8.5.1" apply false
+    id("androidx.baselineprofile") version "1.2.3" apply false
 }
 
 
