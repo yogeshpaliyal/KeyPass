@@ -39,6 +39,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
+import com.yogeshpaliyal.common.utils.enableAutoFillService
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.common.utils.setBiometricLoginTimeoutEnable
 import com.yogeshpaliyal.keypass.BuildConfig
@@ -118,6 +119,13 @@ fun MySettingCompose() {
             summary = R.string.validate_keyphrase
         ) {
             dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
+        }
+
+        PreferenceItem(
+            title = R.string.autofill_service,
+            summary = R.string.autofill_service
+        ) {
+            context.enableAutoFillService()
         }
 
         BiometricsOption()

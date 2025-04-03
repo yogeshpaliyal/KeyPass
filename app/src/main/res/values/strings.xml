@@ -126,6 +126,7 @@
     <string name="file_not_found">File not found (please try again)</string>
     <string name="enter_password_hint">Enter password hint</string>
     <string name="validate_keyphrase">Keyphrase Check</string>
+    <string name="autofill_service">AutoFill Service</string>
     <string name="forgot_keyphrase">Forgot Keyphrase</string>
     <string name="forgot_keyphrase_question">Forgot Keyphrase?</string>
     <string name="forgot_keyphrase_info">If you can\'t remember your keyphrase, the only way to regain access is to turn off backups and then turn them back on. This will generate a new backup file and a new keyphrase. \nNote: Your old backup will be inaccessible.</string>

@@ -55,7 +55,9 @@
 
         <service
             android:name=".autofill.KeyPassAutofillService"
-            android:permission="android.permission.BIND_AUTOFILL_SERVICE">
+            android:permission="android.permission.BIND_AUTOFILL_SERVICE"
+            android:exported="true"
+            tools:targetApi="26">
             <intent-filter>
                 <action android:name="android.service.autofill.AutofillService" />
             </intent-filter>
