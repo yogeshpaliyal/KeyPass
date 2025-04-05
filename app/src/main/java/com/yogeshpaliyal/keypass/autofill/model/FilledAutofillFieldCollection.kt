@@ -35,7 +35,7 @@ import java.util.HashMap
 @RequiresApi(Build.VERSION_CODES.O)
 class FilledAutofillFieldCollection @JvmOverloads constructor(
         @Expose var datasetName: String? = null,
-        @Expose private val hintMap: HashMap<String, FilledAutofillField> = HashMap<String,
+        @Expose val hintMap: HashMap<String, FilledAutofillField> = HashMap<String,
                 FilledAutofillField>()
 ) {
 

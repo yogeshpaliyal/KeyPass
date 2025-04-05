@@ -33,16 +33,17 @@ object PackageVerifier {
      * certificate.
      */
     fun isValidPackage(context: Context, packageName: String): Boolean {
-        val hash: String
-        try {
-            hash = getCertificateHash(context, packageName)
-            Log.d(TAG, "Hash for $packageName: $hash")
-        } catch (e: Exception) {
-            Log.w(TAG, "Error getting hash for $packageName: $e")
-            return false
-        }
-
-        return verifyHash(context, packageName, hash)
+        return true
+//        val hash: String
+//        try {
+//            hash = getCertificateHash(context, packageName)
+//            Log.d(TAG, "Hash for $packageName: $hash")
+//        } catch (e: Exception) {
+//            Log.w(TAG, "Error getting hash for $packageName: $e")
+//            return false
+//        }
+//
+//        return verifyHash(context, packageName, hash)
     }
 
     private fun getCertificateHash(context: Context, packageName: String): String {

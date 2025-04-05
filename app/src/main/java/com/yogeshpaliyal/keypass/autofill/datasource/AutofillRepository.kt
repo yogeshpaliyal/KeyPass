@@ -25,14 +25,13 @@ interface AutofillRepository {
      * Gets saved FilledAutofillFieldCollection that contains some objects that can autofill fields with these
      * `autofillHints`.
      */
-    fun getFilledAutofillFieldCollection(context: Context, focusedAutofillHints: List<String>,
+    fun getFilledAutofillFieldCollection(packageName: String, focusedAutofillHints: List<String>,
             allAutofillHints: List<String>): HashMap<String, FilledAutofillFieldCollection>?
 
     /**
      * Saves LoginCredential under this datasetName.
      */
-    fun saveFilledAutofillFieldCollection(context: Context,
-            filledAutofillFieldCollection: FilledAutofillFieldCollection)
+    fun saveFilledAutofillFieldCollection(filledAutofillFieldCollection: FilledAutofillFieldCollection, site: String)
 
     /**
      * Clears all data.

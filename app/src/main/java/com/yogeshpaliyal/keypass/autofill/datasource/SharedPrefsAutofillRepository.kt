@@ -16,14 +16,17 @@
 package com.yogeshpaliyal.keypass.autofill.datasource
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Build
-import android.util.ArraySet
+import android.view.View
 import androidx.annotation.RequiresApi
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.yogeshpaliyal.keypass.autofill.CommonUtil
+import com.yogeshpaliyal.common.AppDatabase
+import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.keypass.autofill.model.FilledAutofillFieldCollection
+import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
 
 /**
@@ -32,20 +35,13 @@ import com.yogeshpaliyal.keypass.autofill.model.FilledAutofillFieldCollection
  * here only for simplicity and learning purposes.
  */
 @RequiresApi(Build.VERSION_CODES.O)
-object SharedPrefsAutofillRepository : AutofillRepository {
-    private val SHARED_PREF_KEY = "com.example.android.autofillframework.service"
-    private val CLIENT_FORM_DATA_KEY = "loginCredentialDatasets"
-    private val DATASET_NUMBER_KEY = "datasetNumber"
+class SharedPrefsAutofillRepository @Inject constructor(private val database: AppDatabase) : AutofillRepository {
 
-    private fun getPrefs(context: Context): SharedPreferences {
-        return context.applicationContext.getSharedPreferences(SHARED_PREF_KEY, Context.MODE_PRIVATE)
-    }
-
-    override fun getFilledAutofillFieldCollection(context: Context, focusedAutofillHints: List<String>,
+    override fun getFilledAutofillFieldCollection(packageName: String, focusedAutofillHints: List<String>,
                                                   allAutofillHints: List<String>): HashMap<String, FilledAutofillFieldCollection>? {
         var hasDataForFocusedAutofillHints = false
         val clientFormDataMap = HashMap<String, FilledAutofillFieldCollection>()
-        val clientFormDataStringSet = getAllAutofillDataStringSet(context)
+        val clientFormDataStringSet = getAllAutofillDataStringSet(packageName)
         val gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create()
         val type = object : TypeToken<FilledAutofillFieldCollection>() {}.type
         for (clientFormDataString in clientFormDataStringSet) {
@@ -71,42 +67,51 @@ object SharedPrefsAutofillRepository : AutofillRepository {
         }
     }
 
-    override fun saveFilledAutofillFieldCollection(context: Context, filledAutofillFieldCollection: FilledAutofillFieldCollection) {
-        val datasetName = "dataset-" + getDatasetNumber(context)
-        filledAutofillFieldCollection.datasetName = datasetName
-        val allAutofillData = getAllAutofillDataStringSet(context)
-        val gson = CommonUtil.createGson()
-        allAutofillData.add(gson.toJson(filledAutofillFieldCollection).toString())
-        saveAllAutofillDataStringSet(context, allAutofillData)
-        incrementDatasetNumber(context)
+    override fun saveFilledAutofillFieldCollection(filledAutofillFieldCollection: FilledAutofillFieldCollection, site: String) {
+        //filledAutofillFieldCollection.datasetName = datasetName
+        var userName = filledAutofillFieldCollection.hintMap[View.AUTOFILL_HINT_USERNAME]?.textValue
+        if (userName == null) {
+            userName = filledAutofillFieldCollection.hintMap[View.AUTOFILL_HINT_EMAIL_ADDRESS]?.textValue
+        }
+        if (userName == null) {
+            userName = filledAutofillFieldCollection.hintMap[View.AUTOFILL_HINT_PHONE]?.textValue
+        }
+        val accountModel = AccountModel(
+                title = userName,
+                username = userName,
+                password = filledAutofillFieldCollection.hintMap[View.AUTOFILL_HINT_PASSWORD]?.textValue,
+                site = site
+        )
+        runBlocking {
+            database.getDao().insertOrUpdateAccount(accountModel)
+        }
     }
 
     override fun clear(context: Context) {
-        getPrefs(context).edit().remove(CLIENT_FORM_DATA_KEY).remove(DATASET_NUMBER_KEY).apply()
+        // NO-OP
     }
 
-    private fun getAllAutofillDataStringSet(context: Context): MutableSet<String> {
-        return getPrefs(context).getStringSet(CLIENT_FORM_DATA_KEY, ArraySet<String>())
-    }
-
-    private fun saveAllAutofillDataStringSet(context: Context,
-            allAutofillDataStringSet: Set<String>) {
-        getPrefs(context).edit().putStringSet(CLIENT_FORM_DATA_KEY, allAutofillDataStringSet).apply()
-    }
-
-    /**
-     * For simplicity, datasets will be named in the form "dataset-X" where X means
-     * this was the Xth dataset saved.
-     */
-    private fun getDatasetNumber(context: Context): Int {
-        return getPrefs(context).getInt(DATASET_NUMBER_KEY, 0)
-    }
-
-    /**
-     * Every time a dataset is saved, this should be called to increment the dataset number.
-     * (only important for this service's dataset naming scheme).
-     */
-    private fun incrementDatasetNumber(context: Context) {
-        getPrefs(context).edit().putInt(DATASET_NUMBER_KEY, getDatasetNumber(context) + 1).apply()
+    private fun getAllAutofillDataStringSet(packageName: String): List<String> {
+        return runBlocking {
+            return@runBlocking database.getDao().getAllAccountsListByPackageName(packageName).map {account ->
+             val jsonObject = JsonObject()
+                jsonObject.addProperty("datasetName", account.title ?: "")
+                val hintMap = JsonObject()
+                hintMap.add(View.AUTOFILL_HINT_USERNAME, JsonObject().also {
+                    it.addProperty("textValue", account.username)
+                })
+                hintMap.add(View.AUTOFILL_HINT_PASSWORD, JsonObject().also {
+                    it.addProperty("textValue", account.password)
+                })
+                hintMap.add(View.AUTOFILL_HINT_EMAIL_ADDRESS, JsonObject().also {
+                    it.addProperty("textValue", account.username)
+                })
+                hintMap.add(View.AUTOFILL_HINT_PHONE, JsonObject().also {
+                    it.addProperty("textValue", account.username)
+                })
+                jsonObject.add("hintMap", hintMap)
+                jsonObject.toString()
+         }
+        }
     }
 }

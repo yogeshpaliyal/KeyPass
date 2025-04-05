@@ -30,9 +30,15 @@ import com.yogeshpaliyal.keypass.autofill.datasource.SharedPrefsAutofillReposito
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.autofill.CommonUtil.TAG
 import com.yogeshpaliyal.keypass.autofill.CommonUtil.bundleToString
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @RequiresApi(Build.VERSION_CODES.O)
+@AndroidEntryPoint
 class KeyPassAutofillService : AutofillService() {
+
+    @Inject
+    lateinit var sharedPrefsAutofillRepository: SharedPrefsAutofillRepository
 
     override fun onFillRequest(request: FillRequest, cancellationSignal: CancellationSignal,
             callback: FillCallback) {
@@ -51,7 +57,7 @@ class KeyPassAutofillService : AutofillService() {
         parser.parseForFill()
         val autofillFields = parser.autofillFields
 
-        val responseBuilder = FillResponse.Builder()
+//        val responseBuilder = FillResponse.Builder()
         // Check user's settings for authenticating Responses and Datasets.
         val responseAuth = false // MyPreferences.isResponseAuth(this)
         if (responseAuth && autofillFields.autofillIds.size > 0) {
@@ -65,7 +71,7 @@ class KeyPassAutofillService : AutofillService() {
 //            callback.onSuccess(responseBuilder.build())
         } else {
 //            val datasetAuth = MyPreferences.isDatasetAuth(this)
-            val clientFormDataMap = SharedPrefsAutofillRepository.getFilledAutofillFieldCollection(this,
+            val clientFormDataMap = sharedPrefsAutofillRepository.getFilledAutofillFieldCollection(structure.activityComponent.packageName,
                     autofillFields.focusedAutofillHints, autofillFields.allAutofillHints)
             val response = AutofillHelper.newResponse(this, false, autofillFields, clientFormDataMap)
             callback.onSuccess(response)
@@ -82,11 +88,10 @@ class KeyPassAutofillService : AutofillService() {
             return
         }
         val data = request.clientState
-        Log.d(TAG, "onSaveRequest(): data=" + bundleToString(data))
+//        Log.d(TAG, "onSaveRequest(): data=" + bundleToString(data))
         val parser = StructureParser(structure)
         parser.parseForSave()
-        SharedPrefsAutofillRepository.saveFilledAutofillFieldCollection(this,
-                parser.filledAutofillFieldCollection)
+        sharedPrefsAutofillRepository.saveFilledAutofillFieldCollection(parser.filledAutofillFieldCollection, structure.activityComponent.packageName)
     }
 
     override fun onConnected() {
