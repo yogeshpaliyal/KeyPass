@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath ("com.android.tools.build:gradle:8.8.2")
+        classpath ("com.android.tools.build:gradle:8.9.0")
         classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath ("com.google.gms:google-services:4.4.2")
 
@@ -25,9 +25,11 @@ plugins {
     id("com.android.application") version("7.4.2") apply false
     id("com.android.library") version("7.4.2") apply false
     id("org.jetbrains.kotlin.kapt") version(Versions.kotlin)
-    id("com.google.dagger.hilt.android") version ("2.55") apply false
+    id("com.google.dagger.hilt.android") version ("2.56.1") apply false
     id("com.gradle.enterprise") version("3.19.2") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
+    id("com.android.test") version "8.5.1" apply false
+    id("androidx.baselineprofile") version "1.2.3" apply false
 }
 
 
