@@ -123,4 +123,9 @@
     <string name="forgot_keyphrase_info">Ha nem emlékszik a kulcsmondatára, kapcsolja ki a biztonsági mentést, majd kapcsolja be újra. Ezzel új biztonsági mentést fog generálni, új kulcsmondattal egyetemben. \nMegjegyzés: A régi mentéséhez nem fog tudni hozzáférni.</string>
     <string name="got_it">Rendben</string>
     <string name="biometric_login_timeout">Biometrikus belépés időtúllépése (24 óra)</string>
+    <string name="autofill_service">AutoFill szolgáltatás</string>
+    <string name="autofill_service_enable">AutoFill szolgáltatás</string>
+    <string name="invalid_package_signature">Érvénytelen csomag aláírás</string>
+    <string name="autofill_service_disable">Az AutoFill szolgáltatás</string>
+    <string name="autofill_not_available">Csak az android 10 és annál magasabb</string>
 </resources>

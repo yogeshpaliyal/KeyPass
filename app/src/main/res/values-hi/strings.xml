@@ -124,4 +124,9 @@
     <string name="forgot_keyphrase_info">यदि आप अपने keyphrase को याद नहीं कर सकते हैं, तो पुनः प्राप्त करने का एकमात्र तरीका बैकअप बंद करना है और फिर उन्हें वापस चालू करना है। यह एक नई बैकअप फ़ाइल और एक नई keyphrase उत्पन्न करेगा।\nध्यान दें: आपका पुराना बैकअप दुर्गम होगा।।</string>
     <string name="got_it">यह</string>
     <string name="biometric_login_timeout">बॉयोमीट्रिक लॉगिन टाइमआउट (24 hrs)</string>
+    <string name="autofill_service">ऑटोफिल सेवा</string>
+    <string name="autofill_service_enable">ऑटोफिल सेवा सक्षम करें</string>
+    <string name="autofill_service_disable">अक्षम ऑटोफिल सेवा</string>
+    <string name="autofill_not_available">यह केवल Android 10 और ऊपर पर उपलब्ध है</string>
+    <string name="invalid_package_signature">अमान्य पैकेज हस्ताक्षर</string>
 </resources>

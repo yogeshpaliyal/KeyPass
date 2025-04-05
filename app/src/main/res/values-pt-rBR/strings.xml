@@ -124,4 +124,9 @@
     <string name="forgot_keyphrase_question">Esqueceu a Keyphrase?</string>
     <string name="forgot_keyphrase_info">Se você não pode se lembrar de sua keyphrase, a única maneira de recuperar o acesso é desligar backups e, em seguida, desligá-los de volta. Isso irá gerar um novo arquivo de backup e uma nova keyphrase.\nNota: Seu backup antigo será inacessível.</string>
     <string name="biometric_login_timeout">Biometric Login Timeout (24 horas)</string>
+    <string name="autofill_not_available">Ele só está disponível no android 10 e acima</string>
+    <string name="autofill_service">Serviço de AutoFill</string>
+    <string name="autofill_service_enable">Habilitar o Serviço de AutoFill</string>
+    <string name="autofill_service_disable">Desativar o Serviço de AutoFill</string>
+    <string name="invalid_package_signature">Assinatura de pacote inválido</string>
 </resources>

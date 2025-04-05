@@ -123,4 +123,9 @@
     <string name="forgot_keyphrase_info">キーフレーズを記憶できない場合は、アクセスを取り戻す唯一の方法は、バックアップをオフにし、バックアップをオンにします。 新しいバックアップファイルと新しいキーフレーズを生成します。\n注意: 古いバックアップはアクセスできません.</string>
     <string name="got_it">お問い合わせ</string>
     <string name="biometric_login_timeout">バイオメトリックログインタイムアウト(24時間)</string>
+    <string name="autofill_not_available">アンドロイド10以上でのみ使用可能です</string>
+    <string name="autofill_service">オートフィルサービス</string>
+    <string name="autofill_service_enable">AutoFillサービスを有効にする</string>
+    <string name="autofill_service_disable">無効なAutoFillサービス</string>
+    <string name="invalid_package_signature">無効なパッケージ署名</string>
 </resources>

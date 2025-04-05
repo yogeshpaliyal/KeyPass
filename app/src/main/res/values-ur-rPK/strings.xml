@@ -105,4 +105,5 @@
     <string name="about_us_desc">ہمارے بارے میں تفصیل</string>
     <string name="invalid_csv">غلط CSV فائل</string>
     <string name="valid_keyphrase">غلط کلیدی جملہ</string>
+    <string name="change_app_password_hint">ایپ پاس ورڈ تبدیل کریں</string>
 </resources>

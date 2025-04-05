@@ -123,4 +123,9 @@
     <string name="forgot_keyphrase">Mot de passe oublié</string>
     <string name="forgot_keyphrase_info">Si vous ne vous souvenez pas de votre keyphrase, le seul moyen de retrouver l\'accès est de désactiver les sauvegardes et de les réactiver. Cela générera un nouveau fichier de sauvegarde et un nouveau keyphrase.\nRemarque : Votre ancienne sauvegarde sera inaccessible.</string>
     <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
+    <string name="autofill_not_available">Il est seulement disponible sur android 10 et au-dessus</string>
+    <string name="autofill_service">AutoFill Service</string>
+    <string name="autofill_service_enable">Enable AutoFill Service</string>
+    <string name="autofill_service_disable">Disable AutoFill Service</string>
+    <string name="invalid_package_signature">Signature du colis invalide</string>
 </resources>

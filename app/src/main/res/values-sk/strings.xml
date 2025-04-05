@@ -123,4 +123,9 @@
     <string name="got_it">Dostal</string>
     <string name="forgot_keyphrase_info">Ak si nemôžete pamätať svoj keyphrase, jediný spôsob, ako získať prístup, je vypnúť zálohovanie a potom ich zase späť. To bude generovať nový záložný súbor a nový keyphrase.\nPoznámka: Vaše staré zálohovanie bude nedostupné.</string>
     <string name="biometric_login_timeout">Biometrické Prihlásenie Časout (24 hodín)</string>
+    <string name="autofill_service">AutoFill servis</string>
+    <string name="autofill_service_enable">Enable AutoFill Service</string>
+    <string name="autofill_service_disable">Disable AutoFill Service</string>
+    <string name="autofill_not_available">Je k dispozícii len na Android 10 a vyššie</string>
+    <string name="invalid_package_signature">Nesporný podpis balíka</string>
 </resources>
