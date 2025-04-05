@@ -34,8 +34,11 @@ jobs:
      # Add this step before the 'Post Merged PR to BlueSky' step
       - name: Debug Secret Availability
         run: |
-          echo "BSKY_IDENTIFIER is set: ${{ secrets.BSKY_IDENTIFIER != '' }}"
-          echo "BSKY_PASSWORD is set: ${{ secrets.BSKY_PASSWORD != '' }}"
+          echo "BSKY_IDENTIFIER is set: ${{ BSKY_IDENTIFIER != '' }}"
+          echo "BSKY_PASSWORD is set: ${{ BSKY_PASSWORD != '' }}"
+        env:
+          BSKY_IDENTIFIER: ${{ secrets.BSKY_IDENTIFIER }}
+          BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
 
       - name: Post Merged PR to BlueSky
         uses: myConsciousness/bluesky-post@v5
@@ -44,8 +47,11 @@ jobs:
           text: ${{ format('{0} by {1}', github.event.pull_request.title, github.event.pull_request.user.login) }}
           # Use the PR's HTML URL for the link preview
           link-preview-url: ${{ github.event.pull_request.html_url }} # Use html_url, it's more standard
-          identifier: ${{ secrets.BSKY_IDENTIFIER }}
-          password: ${{ secrets.BSKY_PASSWORD }}
+          identifier: ${{ BSKY_IDENTIFIER }}
+          password: ${{ BSKY_PASSWORD }}
+        env:
+          BSKY_IDENTIFIER: ${{ secrets.BSKY_IDENTIFIER }}
+          BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
 
   # Job for posting when manually triggered
   post_manually:
