@@ -4,6 +4,24 @@ on:
   pull_request:
     types:
       - closed
+  workflow_dispatch:
+    inputs:
+      text:
+        description: 'Post Text'
+        required: true
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+      link:
+        description: 'Links'
+        required: true
+        type: string
+      authorName:
+        description: 'Author Name'
+        required: true
+        type: string
 
 jobs:
   if_merged:
@@ -13,10 +31,9 @@ jobs:
     # - run: | 
     #     echo ${{ github.event.pull_request.title }} \n ${{ github.event.pull_request._links.html.href }}
       
-      - uses: zentered/bluesky-post-action@v0.2.0
+      - uses: myConsciousness/bluesky-post@v5
         with:
-          post: ${{ github.event.pull_request.title }} by ${{ github.event.pull_request.user.login }}
-                ${{ github.event.pull_request._links.html.href }}
-        env:
-          BSKY_IDENTIFIER: ${{ secrets.BSKY_IDENTIFIER }}
-          BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
+          text: ${{ github.event.pull_request.title }} by ${{ github.event.pull_request.user.login }}
+          link-preview-url: ${{ github.event.pull_request._links.html.href }}
+          identifier: ${{ secrets.BSKY_IDENTIFIER }}
+          password: ${{ secrets.BSKY_PASSWORD }}
