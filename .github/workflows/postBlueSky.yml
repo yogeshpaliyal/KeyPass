@@ -1,39 +1,57 @@
 name: Post to BlueSky
 
 on:
+  # Trigger automatically when a PR is merged
   pull_request:
     types:
       - closed
+  # Allow manual triggering
   workflow_dispatch:
     inputs:
       text:
-        description: 'Post Text'
-        required: true
-        type: choice
-        options:
-        - patch
-        - minor
-        - major
-      link:
-        description: 'Links'
+        description: 'Post Text (Required for manual trigger)'
         required: true
         type: string
-      authorName:
-        description: 'Author Name'
+      link:
+        description: 'Link URL for Preview (Required for manual trigger)'
         required: true
+        type: string
+      # authorName input is kept as requested, but not directly used in the post step below.
+      # You might want to incorporate it into the 'text' input manually when triggering.
+      authorName:
+        description: 'Author Name (Optional, for information)'
+        required: false
         type: string
 
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
+  # Job for posting when a PR is merged
+  post_on_merge:
+    # Only run this job for the pull_request trigger IF it was merged
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    # - run: | 
-    #     echo ${{ github.event.pull_request.title }} \n ${{ github.event.pull_request._links.html.href }}
-      
-      - uses: myConsciousness/bluesky-post@v5
+      - name: Post Merged PR to BlueSky
+        uses: myConsciousness/bluesky-post@v5
         with:
-          text: ${{ github.event.pull_request.title }} by ${{ github.event.pull_request.user.login }}
-          link-preview-url: ${{ github.event.pull_request._links.html.href }}
+          # Use PR title and author login for the text
+          text: ${{ format('{0} by @{1}', github.event.pull_request.title, github.event.pull_request.user.login) }}
+          # Use the PR's HTML URL for the link preview
+          link-preview-url: ${{ github.event.pull_request.html_url }} # Use html_url, it's more standard
+          identifier: ${{ secrets.BSKY_IDENTIFIER }}
+          password: ${{ secrets.BSKY_PASSWORD }}
+
+  # Job for posting when manually triggered
+  post_manually:
+    # Only run this job for the workflow_dispatch trigger
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Manually to BlueSky
+        uses: myConsciousness/bluesky-post@v5
+        with:
+          # Use the text provided in the manual trigger input
+          text: ${{ github.event.inputs.text }}
+          # Use the link provided in the manual trigger input
+          link-preview-url: ${{ github.event.inputs.link }}
           identifier: ${{ secrets.BSKY_IDENTIFIER }}
           password: ${{ secrets.BSKY_PASSWORD }}
