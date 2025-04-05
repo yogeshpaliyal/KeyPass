@@ -50,7 +50,7 @@ jobs:
         uses: myConsciousness/bluesky-post@v5
         with:
           # Use the text provided in the manual trigger input
-          text: ${{ github.event.inputs.text }}
+          text: ${{ format('{0} by @{1}', github.event.inputs.text, github.event.inputs.authorName) }}
           # Use the link provided in the manual trigger input
           link-preview-url: ${{ github.event.inputs.link }}
           identifier: ${{ secrets.BSKY_IDENTIFIER }}
