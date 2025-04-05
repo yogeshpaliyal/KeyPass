@@ -11,8 +11,6 @@
 ![](cover.jpeg)
 
 
-
-
 > The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
 
 > Disclaimer: Please take a backup before updating to the new app.
