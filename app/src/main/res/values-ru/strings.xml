@@ -124,9 +124,9 @@
     <string name="forgot_keyphrase_question">Забыли ключевую фразу?</string>
     <string name="forgot_keyphrase_info">Если вы забыли ключевую фразу, единственный способ восстановить доступ - отключить резервные копии, а затем включить их обратно. Это сгенерирует новый файл резервной копии и новую ключевую фразу. \nПримечание: Старая резервная копия после этого станет недоступной.</string>
     <string name="biometric_login_timeout">Тайм-аут биометрического входа (24 часа)</string>
-    <string name="autofill_service">Сервис AutoFill</string>
-    <string name="autofill_service_enable">Включить сервис AutoFill</string>
-    <string name="autofill_service_disable">Disable AutoFill Service</string>
+    <string name="autofill_service">Служба автозаполнения</string>
+    <string name="autofill_service_enable">Включить службу автозаполнения</string>
+    <string name="autofill_service_disable">Отключить службу автозаполнения</string>
     <string name="autofill_not_available">Он доступен только на Android 10 и выше</string>
     <string name="invalid_package_signature">Недействительная подпись пакета</string>
 </resources>
