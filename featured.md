@@ -6,6 +6,7 @@
 - [Best Android Apps June 2023 You Should Try!](https://youtu.be/nDzyNZ1ceZY)
 - [These 8 Best FREE Open Source Apps For Android are Game-Changers! [2024]](https://youtu.be/_EMzsFZ0V-Y?t=136)
 - [Top 10 Android Apps - October 2023!](https://youtu.be/OdWygxTqwlQ?t=268)
+- [Top 10.Android Apps! (January 2025)](https://youtu.be/XdhyoyFE1XE)
 
 ## Blogs
 - [Android Stack Weekly — Issue#71](https://blog.canopas.com/android-stack-weekly-issue-71-4b3b20418076)
