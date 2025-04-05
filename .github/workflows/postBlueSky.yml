@@ -27,7 +27,7 @@ jobs:
   # Job for posting when a PR is merged
   post_on_merge:
     # Only run this job for the pull_request trigger IF it was merged
-    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
 
