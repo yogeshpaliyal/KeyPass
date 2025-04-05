@@ -25,7 +25,7 @@
     <string name="confirm_password">Потвърди парола</string>
     <string name="auto_backup_desc">Вашите профили ще бъдат архивирани при всяко добавяне или промяна на профил</string>
     <string name="backup_folder">Архивна папка</string>
-    <string name="keypass_backup">Архив KeyPass</string>
+    <string name="keypass_backup">KeyPass архив</string>
     <string name="set_keyphrase">Задай ключова фраза</string>
     <string name="yes">Да</string>
     <string name="keyphrase_restore_info">Моля, въведете ключовата фраза, която получихте при архивиране</string>
@@ -81,7 +81,7 @@
     <string name="unlock_with_biometric">Отключи с биометрични данни</string>
     <string name="secret_key">Таен ключ</string>
     <string name="set_keyphrase_info">Моля, създайте ключова фраза за вашия архивен файл, това ще се използва за възстановяване на архивния файл. ключовата фраза трябва да е от 16 знака</string>
-    <string name="google_backup">Архив Google</string>
+    <string name="google_backup">Google архив</string>
     <string name="incorrect_password">Неправилна парола</string>
     <string name="share">Сподели</string>
     <string name="enter_password">Въведи парола</string>
@@ -90,7 +90,7 @@
     <string name="backup_restored">Архивирането е възстановено</string>
     <string name="generate_keyphrase">Създай ключова фраза</string>
     <string name="generate_qr_code">Изнеси</string>
-    <string name="keepass_backup">Архив KeePass</string>
+    <string name="keepass_backup">KeePass архив</string>
     <string name="invalid_csv_file">Невалиден CSV файл</string>
     <string name="file_not_found">Файлът не е намерен (моля, опитайте отново)</string>
     <string name="invalid_secret_key">Невалиден формат на таен ключ</string>
@@ -116,11 +116,16 @@
     <string name="valid_keyphrase">Валидна ключова фраза</string>
     <string name="forgot_keyphrase">Забравена ключова фраза</string>
     <string name="got_it">Разбрах</string>
-    <string name="validate">Проверете</string>
+    <string name="validate">Проверка</string>
     <string name="forgot_keyphrase_question">Забравена ключова фраза?</string>
-    <string name="forgot_keyphrase_info">Ако не можете да си спомните ключовата си фраза, единственият начин да си възвърнете достъпа е да изключите резервните копия и след това да ги включите отново. Това ще генерира нов архивен файл и нова ключова фраза. \nЗабележка: Вашият стар архив ще бъде недостъпен.</string>
+    <string name="forgot_keyphrase_info">Ако не можете да си спомните ключовата си фраза, единственият начин да възстановите достъпа си е да изключите архивирането и след това да го включите отново. Това ще генерира нов архивен файл и нова ключова фраза. \nЗабележка: Вашият стар архив ще бъде недостъпен.</string>
     <string name="mismatch_keyphrase">Въведената ключова фраза не съвпада с архивиращата ключова фраза</string>
-    <string name="keyphrase_validate_info">Моля, въведете ключовата фраза, която сте използвали за създаване на резервно копие. От време на време ще показваме този екран, за да ви помогнем да го запомните.</string>
+    <string name="keyphrase_validate_info">Моля, въведете ключовата фраза, която сте използвали за създаване на вашия архив. От време на време ще показваме този екран, за да ви помогнем да го запомните.</string>
     <string name="validate_keyphrase">Проверка на ключова фраза</string>
     <string name="biometric_login_timeout">Време за биометрично влизане (24 часа)</string>
+    <string name="autofill_service_disable">Деактивирай услугата за автоматично попълване</string>
+    <string name="invalid_package_signature">Невалиден подпис на пакета</string>
+    <string name="autofill_service_enable">Активирай услугата за автоматично попълване</string>
+    <string name="autofill_service">Услуга за автоматично попълване</string>
+    <string name="autofill_not_available">Предлага се само на android 10 и по-нова версия</string>
 </resources>
