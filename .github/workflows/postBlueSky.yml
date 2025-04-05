@@ -30,6 +30,13 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+
+     # Add this step before the 'Post Merged PR to BlueSky' step
+      - name: Debug Secret Availability
+        run: |
+          echo "BSKY_IDENTIFIER is set: ${{ secrets.BSKY_IDENTIFIER != '' }}"
+          echo "BSKY_PASSWORD is set: ${{ secrets.BSKY_PASSWORD != '' }}"
+
       - name: Post Merged PR to BlueSky
         uses: myConsciousness/bluesky-post@v5
         with:
