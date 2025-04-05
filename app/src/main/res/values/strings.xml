@@ -135,5 +135,6 @@
     <string name="validate">Check</string>
     <string name="got_it">Got it</string>
     <string name="biometric_disabled_due_to_timeout">Please login via password because you haven\'t used password in last 24 hours</string>
+    <string name="invalid_package_signature">Invalid package signature</string>
 
 </resources>
