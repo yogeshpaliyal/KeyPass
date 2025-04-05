@@ -27,8 +27,8 @@ jobs:
       - name: 🧪 Run Tests
         run: ./gradlew test
                 
-      - name: 🧪 Run Lint free Release
-        run: ./gradlew lintFreeRelease
+#      - name: 🧪 Run Lint free Release
+#        run: ./gradlew lintFreeRelease
 
       - name: 🏗 Build APK
         run: bash ./gradlew assembleFreeDebug

@@ -39,9 +39,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
+import com.yogeshpaliyal.common.utils.enableAutoFillService
+import com.yogeshpaliyal.common.utils.isAutoFillServiceEnabled
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.common.utils.setBiometricLoginTimeoutEnable
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import com.yogeshpaliyal.keypass.ui.generate.ui.components.DEFAULT_PASSWORD_LENGTH
@@ -66,11 +69,18 @@ fun MySettingCompose() {
     val dispatchAction = rememberTypedDispatcher<Action>()
     val context = LocalContext.current
     val userSettings = LocalUserSettings.current
+    var isAutoFillServiceEnable by remember { mutableStateOf(false) }
 
     // Retrieving saved password length
     var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
     LaunchedEffect(key1 = Unit) {
         userSettings.passwordConfig.length.let { value -> savedPasswordLength = value }
+    }
+
+    LaunchedEffect(context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            isAutoFillServiceEnable = context.isAutoFillServiceEnabled()
+        }
     }
 
     Column(modifier = Modifier.fillMaxSize(1f).verticalScroll(rememberScrollState())) {
@@ -119,6 +129,8 @@ fun MySettingCompose() {
         ) {
             dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
         }
+
+        AutoFillPreferenceItem()
 
         BiometricsOption()
 
@@ -170,6 +182,34 @@ fun MySettingCompose() {
         }
     }
 }
+
+@Composable
+fun AutoFillPreferenceItem() {
+    val context = LocalContext.current
+
+    var autoFillDescription = R.string.autofill_service
+    var onClick = {
+        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
+        context.enableAutoFillService()
+    }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (context.isAutoFillServiceEnabled()) {
+            autoFillDescription = R.string.autofill_service_disable
+        } else {
+            autoFillDescription = R.string.autofill_service_enable
+        }
+    } else {
+        onClick = {}
+        autoFillDescription = R.string.autofill_not_available
+    }
+
+    PreferenceItem(
+        title = R.string.autofill_service,
+        summary = autoFillDescription,
+        onClickItem = onClick
+    )
+}
+
 
 @Composable
 fun BiometricsOption() {

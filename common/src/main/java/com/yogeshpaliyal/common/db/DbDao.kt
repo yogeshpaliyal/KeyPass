@@ -31,6 +31,13 @@ interface DbDao {
     @Query("SELECT * FROM account ORDER BY title ASC")
     suspend fun getAllAccountsList(): List<AccountModel>
 
+    @Query("SELECT * FROM account WHERE site = :packageName ORDER BY title ASC")
+    suspend fun getAllAccountsListByPackageName(packageName: String): List<AccountModel>
+
+
+    @Query("SELECT * FROM account where username = :username")
+    suspend fun getAccountDetail(username: String): AccountModel?
+
     @Query(
         "SELECT * FROM account " +
             "WHERE " +
