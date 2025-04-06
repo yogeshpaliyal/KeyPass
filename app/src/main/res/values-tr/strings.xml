@@ -124,4 +124,9 @@
     <string name="forgot_keyphrase_info">Anahtarlarınızı hatırlayamıyorsanız, erişimin geri kazanılmasının tek yolu yedeklerden çıkmak ve sonra onları geri çevirmektir. Bu yeni bir yedekleme dosyası ve yeni bir keyphrase üretecektir.\nNot: Eski yedeklemeniz erişilebilir olacaktır.</string>
     <string name="got_it">Got it Got it</string>
     <string name="biometric_login_timeout">Biometric Login Timeout (24 hrs)</string>
+    <string name="autofill_service">AutoFill Service</string>
+    <string name="autofill_service_enable">Enable AutoFill Service</string>
+    <string name="autofill_service_disable">Disable AutoFill Service</string>
+    <string name="autofill_not_available">Sadece android 10 ve yukarıda mevcuttur</string>
+    <string name="invalid_package_signature">Invalid paketi imza</string>
 </resources>

@@ -123,4 +123,9 @@
     <string name="got_it">Capito</string>
     <string name="forgot_keyphrase_info">Se non riesci a ricordare la tua keyphrase, l\'unico modo per recuperare l\'accesso è disattivare i backup e poi riaccenderli. Questo genererà un nuovo file di backup e una nuova keyphrase.\nNota: il tuo vecchio backup sarà inaccessibile.</string>
     <string name="biometric_login_timeout">Tempo di accesso biometrico (24 ore)</string>
+    <string name="invalid_package_signature">Firma del pacchetto non valido</string>
+    <string name="autofill_service">Servizio di autofinanziamento</string>
+    <string name="autofill_service_enable">Abilitare il servizio di autoFill</string>
+    <string name="autofill_service_disable">Disattivare il servizio di AutoFill</string>
+    <string name="autofill_not_available">È disponibile solo su Android 10 e sopra</string>
 </resources>
