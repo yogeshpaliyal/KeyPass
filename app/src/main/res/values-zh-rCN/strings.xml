@@ -89,7 +89,7 @@
     <string name="default_password_length">默认密码长度</string>
     <string name="secret_key">密钥</string>
     <string name="keypass_backup">KeyPass 备份</string>
-    <string name="google_backup">谷歌备份</string>
+    <string name="google_backup">Google 备份</string>
     <string name="generate_qr_code">导出</string>
     <string name="about_us">关于我们</string>
     <string name="keepass_backup">KeePass 备份</string>
@@ -124,9 +124,9 @@
     <string name="forgot_keyphrase_info">如果你不记得密钥短语了，那么重新获得访问的唯一途径就是关闭备份，然会再打开。 这将产生新的备份文件和新的密钥短语。\n注：旧的备份文件将无法访问。</string>
     <string name="got_it">知道了</string>
     <string name="biometric_login_timeout">生物特征登录超时（24 小时）</string>
-    <string name="autofill_service">AutoFill Service</string>
-    <string name="autofill_service_enable">自助服务</string>
-    <string name="autofill_service_disable">残疾自动出租车服务</string>
-    <string name="autofill_not_available">甲型六氯环己烷和乙型六氯环己烷</string>
-    <string name="invalid_package_signature">无效的包裹签名</string>
+    <string name="autofill_service">自动填充服务</string>
+    <string name="autofill_service_enable">启用自动填充服务</string>
+    <string name="autofill_service_disable">停用自动填充服务</string>
+    <string name="autofill_not_available">仅在 android 10 及更高版本系统上可用</string>
+    <string name="invalid_package_signature">无效的包签名</string>
 </resources>
