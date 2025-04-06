@@ -106,26 +106,4 @@
     <string name="invalid_csv">غلط CSV فائل</string>
     <string name="valid_keyphrase">غلط کلیدی جملہ</string>
     <string name="change_app_password_hint">ایپ پاس ورڈ تبدیل کریں</string>
-    <string name="change_app_hint"></string>
-    <string name="hint_change_success"></string>
-    <string name="validate_keyphrase"></string>
-    <string name="forgot_keyphrase"></string>
-    <string name="biometric_login_timeout"></string>
-    <string name="validate"></string>
-    <string name="autofill_service"></string>
-    <string name="mismatch_keyphrase"></string>
-    <string name="app_password_hint"></string>
-    <string name="invalid_package_signature"></string>
-    <string name="autofill_not_available"></string>
-    <string name="forgot_keyphrase_question"></string>
-    <string name="autofill_service_disable"></string>
-    <string name="hint_removed_success"></string>
-    <string name="got_it"></string>
-    <string name="autofill_service_enable"></string>
-    <string name="forgot_keyphrase_info"></string>
-    <string name="biometric_disabled_due_to_timeout"></string>
-    <string name="keyphrase_validate_info"></string>
-    <string name="remove_app_hint"></string>
-    <string name="set_app_password_hint"></string>
-    <string name="enter_password_hint"></string>
 </resources>
