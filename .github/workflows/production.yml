@@ -17,10 +17,6 @@ jobs:
       - name: Setting up project
         uses: ./.github/actions/setup
 
-      - name: Build with Gradle
-        id: build
-        run: ./gradlew build
-
       - name: Build Free and Pro Release AAB
         id: buildFreeRelease
         run: ./gradlew bundleFreeRelease
