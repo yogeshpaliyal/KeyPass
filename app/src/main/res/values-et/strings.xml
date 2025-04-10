@@ -7,4 +7,5 @@
     <string name="delete">Kustuta</string>
     <string name="invalid_csv">Vigane csv-fail</string>
     <string name="invalid_keyphrase">Vigane salafraas</string>
+    <string name="valid_keyphrase">Vigane salafraas</string>
 </resources>
