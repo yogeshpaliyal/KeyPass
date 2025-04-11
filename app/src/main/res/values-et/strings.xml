@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generate_shortcut_short_label">Loo salasõna</string>
+    <string name="backup_restored">Varukoopiast taastatud</string>
+    <string name="generate_password">Loo salasõna</string>
+    <string name="home">Avaleht</string>
+    <string name="delete">Kustuta</string>
+    <string name="invalid_csv">Vigane csv-fail</string>
+    <string name="invalid_keyphrase">Vigane salafraas</string>
+    <string name="valid_keyphrase">Vigane salafraas</string>
+</resources>
