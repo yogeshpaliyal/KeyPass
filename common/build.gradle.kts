@@ -73,7 +73,7 @@ dependencies {
     androidTestApi("androidx.test:rules:1.6.1")
 
     implementation("net.zetetic:android-database-sqlcipher:4.5.4")
-    implementation("androidx.sqlite:sqlite:2.4.0")
+    implementation("androidx.sqlite:sqlite:2.5.0")
 
     api("com.opencsv:opencsv:5.10")
 }
