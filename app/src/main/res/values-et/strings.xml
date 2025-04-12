@@ -7,5 +7,12 @@
     <string name="delete">Kustuta</string>
     <string name="invalid_csv">Vigane csv-fail</string>
     <string name="invalid_keyphrase">Vigane salafraas</string>
-    <string name="valid_keyphrase">Vigane salafraas</string>
+    <string name="valid_keyphrase">Kehtiv salafraas</string>
+    <string name="app_desc">Avatud lähtekoodil põhinev ja võrguühendust mittevajav salasõnahaldur. Hoia, halda ja kontrolli oma salasõnu turvaliselt.</string>
+    <string name="backup_completed">Varukoopia on tehtud</string>
+    <string name="app_developer">Arendaja</string>
+    <string name="app_developer_x">X (varem Twitter)</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="source_code">Lähtekood</string>
+    <string name="app_developer_github">Github</string>
 </resources>
