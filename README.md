@@ -38,6 +38,7 @@ https://github.com/yogeshpaliyal/KeyPass/discussions/1085
 - [x] Auto Backup
 - [x] TOTP
 - [x] Jetpack Compose
+- [x] Autofill Service
 #### Import From
 - [x] Google Chrome CSV
 - [x] KeePass CSV
