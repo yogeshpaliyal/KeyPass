@@ -1,9 +1,9 @@
 name: Upload build on release tag
 
 on:
-    push:
-        tags:
-            - '*'
+#    push:
+#        tags:
+#            - '*'
     workflow_dispatch: 
       inputs: 
         tag:
