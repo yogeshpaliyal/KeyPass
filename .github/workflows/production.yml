@@ -1,11 +1,14 @@
 name: Deploy App Play Store
 
 on:
-  push:
-#     branches: 
-#     - master
-    tags: 
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Github release version'
+        required: true
+        type: string
+  release:
+    types: [ published ]
 
 jobs:
   build:
@@ -13,9 +16,42 @@ jobs:
     steps:
 
       - uses: actions/checkout@v4
-    
-      - name: Setting up project
-        uses: ./.github/actions/setup
+
+      - uses: robinraju/release-downloader@v1
+        with:
+          # The github tag. e.g: v1.0.1
+          # Download assets from a specific tag/version
+          tag: ${{ github.event.release.name || github.event.inputs.release }}
+          # The name of the file to download.
+          # Use this field only to specify filenames other than tarball or zipball, if any.
+          # Supports wildcard pattern (eg: '*', '*.deb', '*.zip' etc..)
+          fileName: 'keypass-free-*.apk'
+          # Relative path under $GITHUB_WORKSPACE to place the downloaded file(s)
+          # It will create the target directory automatically if not present
+          # eg: out-file-path: "my-downloads" => It will create directory $GITHUB_WORKSPACE/my-downloads
+          out-file-path: 'app/build/outputs/bundle/freeRelease'
+          # Github access token to download files from private repositories
+          # https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+          # eg: token: ${{ secrets.MY_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: robinraju/release-downloader@v1
+        with:
+          # The github tag. e.g: v1.0.1
+          # Download assets from a specific tag/version
+          tag: ${{ github.event.release.name || github.event.inputs.release }}
+          # The name of the file to download.
+          # Use this field only to specify filenames other than tarball or zipball, if any.
+          # Supports wildcard pattern (eg: '*', '*.deb', '*.zip' etc..)
+          fileName: 'keypass-pro-*.apk'
+          # Relative path under $GITHUB_WORKSPACE to place the downloaded file(s)
+          # It will create the target directory automatically if not present
+          # eg: out-file-path: "my-downloads" => It will create directory $GITHUB_WORKSPACE/my-downloads
+          out-file-path: 'app/build/outputs/bundle/proRelease'
+          # Github access token to download files from private repositories
+          # https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+          # eg: token: ${{ secrets.MY_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Free Release AAB
         id: buildFreeRelease
@@ -73,15 +109,15 @@ jobs:
            status: inProgress
            whatsNewDirectory: whatsnew/
 
-      - name: Deploy Free to Indus App Store
-        id: uploadToIndus
-        uses: yogeshpaliyal/upload-indus-appstore@v0.0.6
-        with:
-          type: UPLOAD_AAB
-          apiKey: ${{secrets.INDUS_API_KEY}}
-          packageName: com.yogeshpaliyal.keypass
-          aabFile: app/build/outputs/bundle/freeRelease/*.aab
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          keystoreAlias: ${{ secrets.ALIAS }}
-          keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
+#      - name: Deploy Free to Indus App Store
+#        id: uploadToIndus
+#        uses: yogeshpaliyal/upload-indus-appstore@v0.0.6
+#        with:
+#          type: UPLOAD_AAB
+#          apiKey: ${{secrets.INDUS_API_KEY}}
+#          packageName: com.yogeshpaliyal.keypass
+#          aabFile: app/build/outputs/bundle/freeRelease/*.aab
+#          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+#          keystoreAlias: ${{ secrets.ALIAS }}
+#          keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+#          keyPassword: ${{ secrets.KEY_PASSWORD }}
