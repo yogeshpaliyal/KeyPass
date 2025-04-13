@@ -15,4 +15,20 @@
     <string name="app_developer_linkedin">LinkedIn</string>
     <string name="source_code">Lähtekood</string>
     <string name="app_developer_github">Github</string>
+    <string name="share">Jaga</string>
+    <string name="about_us">Rakenduse teave</string>
+    <string name="share_desc">Jaga rakendust teistega</string>
+    <string name="password">Salasõna</string>
+    <string name="copied_to_clipboard">Kopeeritud lõikelauale</string>
+    <string name="login_to_enter_keypass">KeyPassi kasutamiseks logi sisse</string>
+    <string name="last_backup_date">Viimane varukoopia:%s</string>
+    <string name="delete_account_title">Kas sa oled kindel?</string>
+    <string name="delete_account_msg">Kas sa kindlasti soovid selle kirje kustutada, seda tegevust ei saa tagasi pöörata</string>
+    <string name="cancel">Katkesta</string>
+    <string name="share_keypass">Jaga KeyPassi teavet</string>
+    <string name="turn_off_backup">Lülita varukoopiate tegemine välja</string>
+    <string name="backup_folder">Varukoopiate kaust</string>
+    <string name="turn_on_backup">Lülita varukoopiate tegemine sisse</string>
+    <string name="feedback_to_keypass">Tagasiside KeyPassi kohta</string>
+    <string name="message_no_accounts">Kasutajakontosid ei leidu, palun lisa mõni all ääres olevast nupust</string>
 </resources>
