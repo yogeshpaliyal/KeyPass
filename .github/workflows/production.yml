@@ -17,6 +17,12 @@ jobs:
 
       - uses: actions/checkout@v4
 
+        # Add this step before the 'Post Merged PR to BlueSky' step
+      - name: Echo Release name
+        run: |
+          echo "${{ github.event.release.name || github.event.inputs.release }}"
+
+
       - uses: robinraju/release-downloader@v1
         with:
           # The github tag. e.g: v1.0.1
