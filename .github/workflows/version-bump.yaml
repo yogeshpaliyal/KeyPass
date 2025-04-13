@@ -22,10 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Checkout
-      #   run: |
-      #       git checkout -b autoVersionBump
-
       - name: 🏗 Bump App Version
         id: bump-app-version
         run: |
@@ -47,6 +43,34 @@ jobs:
       - name: Print newVersion
         run: echo "${{ steps.bump-app-version.outputs.newVersion }}"
 
+      - name: Build Free Release AAB
+        id: buildFreeRelease
+        run: ./gradlew bundleFreeRelease
+
+      - name: Build Pro Release AAB
+        id: buildProRelease
+        run: ./gradlew bundleProRelease
+
+      - name: Sign Free AAB
+        id: signPro
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/bundle/freeRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Sign Pro AAB
+        id: sign
+        uses: r0adkll/sign-android-release@fix/bundle-signing
+        with:
+          releaseDirectory: app/build/outputs/bundle/proRelease
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          alias: pro
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
       - name: Push to protected branch
         uses: CasperWA/push-protected@v2
         with:
@@ -59,7 +83,6 @@ jobs:
             git tag -a ${{ steps.bump-app-version.outputs.newVersion }} -m "Release version ${{ steps.bump-app-version.outputs.newVersion }}"
             git push origin ${{ steps.bump-app-version.outputs.newVersion }}
 
-
       - name: Create Release
         uses: ncipollo/release-action@v1.16.0
         with:
@@ -69,6 +92,41 @@ jobs:
           discussionCategory: "Release feedbacks"
           makeLatest: true
 
-      # - name: Create Pull Request
-      #   uses: peter-evans/create-pull-request@v5.0.0
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-free-generate
+        with:
+          aab-path: 'app/build/outputs/bundle/freeRelease/app-free-release.aab'
+          keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+          key-alias: ${{ secrets.ALIAS }}
+          key-password: ${{ secrets.KEY_PASSWORD }}
 
+      - name: Upload free binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ steps.apk-free-generate.outputs.apk-path }}
+          asset_name: 'keypass-free-${{steps.bump-app-version.outputs.newVersion}}.apk'
+          tag: ${{ inputs.tag || github.ref_name }}
+          overwrite: true
+
+      - name: Remove universal directory
+        run: rm -r /home/runner/work/snnaplab-universal-apk-generate-action
+
+      - uses: snnaplab/universal-apk-generate-action@v1
+        id: apk-pro-generate
+        with:
+          aab-path: 'app/build/outputs/bundle/proRelease/app-pro-release.aab'
+          keystore-base64: ${{ secrets.SIGNING_KEY_WITH_PRO }}
+          keystore-password: ${{ secrets.KEY_STORE_PASSWORD }}
+          key-alias: pro
+          key-password: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Upload pro binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ steps.apk-pro-generate.outputs.apk-path }}
+          tag: ${{ steps.bump-app-version.outputs.newVersion }}
+          asset_name: 'keypass-pro-${{ steps.bump-app-version.outputs.newVersion }}.apk'
+          overwrite: true
