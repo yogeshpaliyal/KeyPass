@@ -8,7 +8,7 @@
 [![](https://img.shields.io/badge/App%20Size-Report-9cf?color=f39c12&style=for-the-badge)](https://raw.githack.com/yogeshpaliyal/KeyPass/reports/ruler/freeRelease/report.html)
 ![](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyogeshpaliyal%2FKeyPass&count_bg=%2379C83D&title_bg=%23555555&title=hits&style=for-the-badge)
 
-![](cover.jpeg)
+![](cover.png)
 
 
 > The modern password manager does not store your credentials on servers so your passwords are in your hands, no need to worry.
