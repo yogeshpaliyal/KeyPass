@@ -29,7 +29,7 @@ plugins {
     id("com.gradle.enterprise") version("3.19.2") apply false
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
     id("androidx.baselineprofile") version "1.3.4" apply false
-    id("com.android.test") version "8.9.1" apply false
+    id("com.android.test") version "8.9.2" apply false
 }
 
 
