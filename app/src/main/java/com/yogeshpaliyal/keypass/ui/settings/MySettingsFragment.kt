@@ -36,13 +36,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.enableAutoFillService
 import com.yogeshpaliyal.common.utils.isAutoFillServiceEnabled
 import com.yogeshpaliyal.common.utils.setBiometricEnable
 import com.yogeshpaliyal.common.utils.setBiometricLoginTimeoutEnable
+import com.yogeshpaliyal.common.utils.setUserSettings
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.R
@@ -66,258 +66,246 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
 fun MySettingCompose() {
-    val dispatchAction = rememberTypedDispatcher<Action>()
-    val context = LocalContext.current
-    val userSettings = LocalUserSettings.current
-    var isAutoFillServiceEnable by remember { mutableStateOf(false) }
+  val dispatchAction = rememberTypedDispatcher<Action>()
+  val context = LocalContext.current
+  val userSettings = LocalUserSettings.current
+  var isAutoFillServiceEnable by remember { mutableStateOf(false) }
 
-    // Retrieving saved password length
-    var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
-    LaunchedEffect(key1 = Unit) {
-        userSettings.passwordConfig.length.let { value -> savedPasswordLength = value }
+  // Retrieving saved password length
+  var savedPasswordLength by remember { mutableStateOf(DEFAULT_PASSWORD_LENGTH) }
+  LaunchedEffect(key1 = Unit) {
+    userSettings.passwordConfig.length.let { value -> savedPasswordLength = value }
+  }
+
+  LaunchedEffect(context) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+      isAutoFillServiceEnable = context.isAutoFillServiceEnabled()
+    }
+  }
+
+  Column(modifier = Modifier.fillMaxSize(1f).verticalScroll(rememberScrollState())) {
+    PreferenceItem(title = R.string.security, isCategory = true)
+    PreferenceItem(
+        painter = painterResource(id = R.drawable.credentials_backup),
+        title = R.string.credentials_backups,
+        summary = R.string.credentials_backups_desc) {
+          dispatchAction(NavigationAction(BackupScreenState()))
+        }
+    PreferenceItem(
+        painter = painterResource(id = R.drawable.import_credentials),
+        title = R.string.restore_credentials,
+        summary = R.string.restore_credentials_desc) {
+          dispatchAction(NavigationAction(BackupImporterState()))
+        }
+    PreferenceItem(
+        title = R.string.change_app_password,
+        summary = R.string.change_app_password,
+        icon = Icons.Rounded.Password) {
+          dispatchAction(NavigationAction(ChangeAppPasswordState()))
+        }
+
+    PreferenceItem(
+        title = R.string.app_password_hint,
+        summary =
+            if (userSettings.passwordHint != null) R.string.change_app_password_hint
+            else R.string.set_app_password_hint,
+        icon = Icons.Outlined.Info) {
+          dispatchAction(NavigationAction(ChangeAppHintState))
+        }
+
+    val changePasswordLengthSummary = context.getString(R.string.default_password_length)
+    PreferenceItem(
+        title = R.string.change_password_length,
+        summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}") {
+          dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
+        }
+
+    PreferenceItem(title = R.string.validate_keyphrase, summary = R.string.validate_keyphrase) {
+      dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
     }
 
-    LaunchedEffect(context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            isAutoFillServiceEnable = context.isAutoFillServiceEnabled()
-        }
-    }
+    AutoFillPreferenceItem()
 
-    Column(modifier = Modifier.fillMaxSize(1f).verticalScroll(rememberScrollState())) {
-        PreferenceItem(title = R.string.security, isCategory = true)
-        PreferenceItem(
-            painter = painterResource(id = R.drawable.credentials_backup),
-            title = R.string.credentials_backups,
-            summary = R.string.credentials_backups_desc
-        ) {
-            dispatchAction(NavigationAction(BackupScreenState()))
+    BiometricsOption()
+
+    AutoDisableBiometric()
+
+    AutoLockPreferenceItem()
+
+    HorizontalDivider(modifier = Modifier.fillMaxWidth(1f).height(1.dp))
+    PreferenceItem(title = R.string.help, isCategory = true)
+    PreferenceItem(
+        title = R.string.send_feedback,
+        summary = R.string.send_feedback_desc,
+        icon = Icons.Rounded.Feedback) {
+          context.email(
+              context.getString(R.string.feedback_to_keypass), "yogeshpaliyal.foss@gmail.com")
         }
-        PreferenceItem(
-            painter = painterResource(id = R.drawable.import_credentials),
-            title = R.string.restore_credentials,
-            summary = R.string.restore_credentials_desc
-        ) {
-            dispatchAction(NavigationAction(BackupImporterState()))
-        }
-        PreferenceItem(
-            title = R.string.change_app_password,
-            summary = R.string.change_app_password,
-            icon = Icons.Rounded.Password
-        ) {
-            dispatchAction(NavigationAction(ChangeAppPasswordState()))
+    PreferenceItem(
+        title = R.string.share, summary = R.string.share_desc, icon = Icons.Rounded.Share) {
+          dispatchAction(IntentNavigation.ShareApp)
         }
 
-        PreferenceItem(
-            title = R.string.app_password_hint,
-            summary = if (userSettings.passwordHint != null) R.string.change_app_password_hint else R.string.set_app_password_hint,
-            icon = Icons.Outlined.Info
-        ) {
-            dispatchAction(NavigationAction(ChangeAppHintState))
+    PreferenceItem(
+        title = R.string.about_us, summary = R.string.about_us, icon = Icons.Outlined.Info) {
+          dispatchAction(NavigationAction(AboutState()))
         }
 
-        val changePasswordLengthSummary = context.getString(R.string.default_password_length)
-        PreferenceItem(
-            title = R.string.change_password_length,
-            summaryStr = "$changePasswordLengthSummary: ${savedPasswordLength.toInt()}"
-        ) {
-            dispatchAction(NavigationAction(ChangeDefaultPasswordLengthState()))
+    Row(
+        modifier = Modifier.fillMaxWidth(1f).padding(16.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically) {
+          Text(
+              text = "App Version ${BuildConfig.VERSION_NAME}",
+              style = MaterialTheme.typography.labelSmall)
         }
-
-        PreferenceItem(
-            title = R.string.validate_keyphrase,
-            summary = R.string.validate_keyphrase
-        ) {
-            dispatchAction(UpdateDialogAction(ValidateKeyPhrase))
-        }
-
-        AutoFillPreferenceItem()
-
-        BiometricsOption()
-
-        AutoDisableBiometric()
-
-        HorizontalDivider(
-            modifier = Modifier
-                .fillMaxWidth(1f)
-                .height(1.dp)
-        )
-        PreferenceItem(title = R.string.help, isCategory = true)
-        PreferenceItem(
-            title = R.string.send_feedback,
-            summary = R.string.send_feedback_desc,
-            icon = Icons.Rounded.Feedback
-        ) {
-            context.email(
-                context.getString(R.string.feedback_to_keypass),
-                "yogeshpaliyal.foss@gmail.com"
-            )
-        }
-        PreferenceItem(
-            title = R.string.share,
-            summary = R.string.share_desc,
-            icon = Icons.Rounded.Share
-        ) {
-            dispatchAction(IntentNavigation.ShareApp)
-        }
-
-        PreferenceItem(
-            title = R.string.about_us,
-            summary = R.string.about_us,
-            icon = Icons.Outlined.Info
-        ) {
-            dispatchAction(NavigationAction(AboutState()))
-        }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(1f)
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "App Version ${BuildConfig.VERSION_NAME}",
-                style = MaterialTheme.typography.labelSmall
-            )
-        }
-    }
+  }
 }
 
 @Composable
 fun AutoFillPreferenceItem() {
-    val context = LocalContext.current
+  val context = LocalContext.current
 
-    var autoFillDescription = R.string.autofill_service
-    var onClick = {
-        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
-        context.enableAutoFillService()
-    }
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        if (context.isAutoFillServiceEnabled()) {
-            autoFillDescription = R.string.autofill_service_disable
-        } else {
-            autoFillDescription = R.string.autofill_service_enable
-        }
+  var autoFillDescription = R.string.autofill_service
+  var onClick = {
+    (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
+    context.enableAutoFillService()
+  }
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    if (context.isAutoFillServiceEnabled()) {
+      autoFillDescription = R.string.autofill_service_disable
     } else {
-        onClick = {}
-        autoFillDescription = R.string.autofill_not_available
+      autoFillDescription = R.string.autofill_service_enable
     }
+  } else {
+    onClick = {}
+    autoFillDescription = R.string.autofill_not_available
+  }
 
-    PreferenceItem(
-        title = R.string.autofill_service,
-        summary = autoFillDescription,
-        onClickItem = onClick
-    )
+  PreferenceItem(
+      title = R.string.autofill_service, summary = autoFillDescription, onClickItem = onClick)
 }
-
 
 @Composable
 fun BiometricsOption() {
-    val context = LocalContext.current
-    val userSettings = LocalUserSettings.current
+  val context = LocalContext.current
+  val userSettings = LocalUserSettings.current
 
-    val (canAuthenticate, setCanAuthenticate) = remember {
-        mutableStateOf(BiometricManager.BIOMETRIC_STATUS_UNKNOWN)
+  val (canAuthenticate, setCanAuthenticate) =
+      remember { mutableStateOf(BiometricManager.BIOMETRIC_STATUS_UNKNOWN) }
+
+  val (isBiometricEnable, setIsBiometricEnable) = remember { mutableStateOf(false) }
+
+  val (subtitle, setSubtitle) = remember { mutableStateOf<Int?>(null) }
+
+  val dispatch = rememberTypedDispatcher<Action>()
+  val coroutineScope = rememberCoroutineScope()
+
+  LaunchedEffect(key1 = context) { setIsBiometricEnable(userSettings.isBiometricEnable) }
+
+  LaunchedEffect(key1 = context) {
+    val biometricManager = BiometricManager.from(context)
+    setCanAuthenticate(biometricManager.canAuthenticate(BIOMETRIC_STRONG))
+  }
+
+  LaunchedEffect(key1 = canAuthenticate, isBiometricEnable) {
+    when (canAuthenticate) {
+      BiometricManager.BIOMETRIC_SUCCESS ->
+          if (isBiometricEnable) {
+            setSubtitle(R.string.enabled)
+          } else {
+            setSubtitle(R.string.disabled)
+          }
+
+      BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
+          setSubtitle(R.string.biometric_error_no_hardware)
+
+      BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
+          setSubtitle(R.string.biometric_error_hw_unavailable)
+
+      BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+        setSubtitle(R.string.biometric_error_none_enrolled)
+      }
     }
+  }
 
-    val (isBiometricEnable, setIsBiometricEnable) = remember {
-        mutableStateOf(false)
-    }
-
-    val (subtitle, setSubtitle) = remember {
-        mutableStateOf<Int?>(null)
-    }
-
-    val dispatch = rememberTypedDispatcher<Action>()
-    val coroutineScope = rememberCoroutineScope()
-
-    LaunchedEffect(key1 = context) {
-        setIsBiometricEnable(userSettings.isBiometricEnable)
-    }
-
-    LaunchedEffect(key1 = context) {
-        val biometricManager = BiometricManager.from(context)
-        setCanAuthenticate(biometricManager.canAuthenticate(BIOMETRIC_STRONG))
-    }
-
-    LaunchedEffect(key1 = canAuthenticate, isBiometricEnable) {
+  PreferenceItem(
+      title = R.string.unlock_with_biometric,
+      summary = subtitle,
+      icon = Icons.Rounded.Fingerprint) {
         when (canAuthenticate) {
-            BiometricManager.BIOMETRIC_SUCCESS ->
-                if (isBiometricEnable) {
-                    setSubtitle(R.string.enabled)
-                } else {
-                    setSubtitle(R.string.disabled)
-                }
-
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
-                setSubtitle(R.string.biometric_error_no_hardware)
-
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
-                setSubtitle(R.string.biometric_error_hw_unavailable)
-
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-                setSubtitle(R.string.biometric_error_none_enrolled)
+          BiometricManager.BIOMETRIC_SUCCESS -> {
+            coroutineScope.launch {
+              context.setBiometricEnable(!isBiometricEnable)
+              setIsBiometricEnable(!isBiometricEnable)
             }
+          }
+
+          BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+            // Prompts the user to create credentials that your app accepts.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+              val enrollIntent =
+                  Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                    putExtra(
+                        Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                        BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
+                  }
+              context.startActivity(enrollIntent)
+            } else {
+              dispatch(ToastAction(R.string.password_set_from_settings))
+            }
+          }
         }
-    }
-
-    PreferenceItem(
-        title = R.string.unlock_with_biometric,
-        summary = subtitle,
-        icon = Icons.Rounded.Fingerprint
-    ) {
-        when (canAuthenticate) {
-            BiometricManager.BIOMETRIC_SUCCESS -> {
-                coroutineScope.launch {
-                    context.setBiometricEnable(!isBiometricEnable)
-                    setIsBiometricEnable(!isBiometricEnable)
-                }
-            }
-
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-                // Prompts the user to create credentials that your app accepts.
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
-                        putExtra(
-                            Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                            BIOMETRIC_STRONG or DEVICE_CREDENTIAL
-                        )
-                    }
-                    context.startActivity(enrollIntent)
-                } else {
-                    dispatch(ToastAction(R.string.password_set_from_settings))
-                }
-            }
-        }
-    }
+      }
 }
 
+@Composable
+fun AutoLockPreferenceItem() {
+  val context = LocalContext.current
+  val userSettings = LocalUserSettings.current
+  val coroutineScope = rememberCoroutineScope()
+
+  val autoLockStatus =
+      if (userSettings.autoLockEnabled == true) {
+        R.string.enabled
+      } else {
+        R.string.disabled
+      }
+
+  PreferenceItem(
+      title = R.string.auto_lock, summary = autoLockStatus, icon = Icons.Rounded.LockReset) {
+        coroutineScope.launch {
+          context.setUserSettings(
+              userSettings.copy(autoLockEnabled = userSettings.autoLockEnabled == false))
+        }
+      }
+}
 
 @Composable
 fun AutoDisableBiometric() {
-    val context = LocalContext.current
-    val userSettings = LocalUserSettings.current
+  val context = LocalContext.current
+  val userSettings = LocalUserSettings.current
 
-    val coroutineScope = rememberCoroutineScope()
+  val coroutineScope = rememberCoroutineScope()
 
+  val enableDisableStr =
+      if (userSettings.biometricLoginTimeoutEnable == true) {
+        R.string.enabled
+      } else {
+        R.string.disabled
+      }
 
-    val enableDisableStr =
-        if (userSettings.biometricLoginTimeoutEnable == true) {
-            R.string.enabled
-        } else {
-            R.string.disabled
-        }
-
-    PreferenceItem(
-        title = R.string.biometric_login_timeout,
-        summary = enableDisableStr,
-        icon = Icons.Rounded.LockReset,
-        onClickItem = if (userSettings.isBiometricEnable) {
+  PreferenceItem(
+      title = R.string.biometric_login_timeout,
+      summary = enableDisableStr,
+      icon = Icons.Rounded.LockReset,
+      onClickItem =
+          if (userSettings.isBiometricEnable) {
             {
-                coroutineScope.launch {
-                    context.setBiometricLoginTimeoutEnable(userSettings.biometricLoginTimeoutEnable != true)
-                }
+              coroutineScope.launch {
+                context.setBiometricLoginTimeoutEnable(
+                    userSettings.biometricLoginTimeoutEnable != true)
+              }
             }
-        } else null
-    )
+          } else null)
 }

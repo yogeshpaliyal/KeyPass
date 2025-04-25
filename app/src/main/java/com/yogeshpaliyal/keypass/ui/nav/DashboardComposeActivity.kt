@@ -79,137 +79,129 @@ val LocalUserSettings = compositionLocalOf { UserSettings() }
 @AndroidEntryPoint
 class DashboardComposeActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        if (BuildConfig.DEBUG.not()) {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_SECURE,
-                WindowManager.LayoutParams.FLAG_SECURE
-            )
-        }
-
-        setContent {
-            val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
-
-            CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
-                KeyPassTheme {
-                    StoreProvider(store = KeyPassRedux.createStore()) {
-                        Dashboard()
-                    }
-                }
-            }
-
-            LaunchedEffect(key1 = Unit, block = {
-                migrateOldDataToNewerDataStore()
-                val userSettings = getUserSettings()
-                val buildConfigVersion = BuildConfig.VERSION_CODE
-                val currentAppVersion = userSettings.currentAppVersion
-                if (buildConfigVersion != currentAppVersion) {
-                    applicationContext.setUserSettings(
-                        userSettings.copy(
-                            lastAppVersion = currentAppVersion,
-                            currentAppVersion = buildConfigVersion
-                        )
-                    )
-                }
-            })
-        }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    enableEdgeToEdge()
+    if (BuildConfig.DEBUG.not()) {
+      window.setFlags(
+          WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
     }
+
+    setContent {
+      val localUserSettings by getUserSettingsFlow().collectAsState(initial = UserSettings())
+
+      CompositionLocalProvider(LocalUserSettings provides localUserSettings) {
+        KeyPassTheme { StoreProvider(store = KeyPassRedux.createStore()) { Dashboard() } }
+      }
+
+      LaunchedEffect(
+          key1 = Unit,
+          block = {
+            migrateOldDataToNewerDataStore()
+            val userSettings = getUserSettings()
+            val buildConfigVersion = BuildConfig.VERSION_CODE
+            val currentAppVersion = userSettings.currentAppVersion
+            if (buildConfigVersion != currentAppVersion) {
+              applicationContext.setUserSettings(
+                  userSettings.copy(
+                      lastAppVersion = currentAppVersion, currentAppVersion = buildConfigVersion))
+            }
+          })
+    }
+  }
 }
 
 @Composable
 fun Dashboard() {
-    val systemBackPress by selectState<KeyPassState, Boolean> { this.systemBackPress }
+  val systemBackPress by selectState<KeyPassState, Boolean> { this.systemBackPress }
 
-    val context = LocalContext.current
-    val dispatch = rememberDispatcher()
+  val context = LocalContext.current
+  val userSettings = LocalUserSettings.current
+  val dispatch = rememberDispatcher()
 
-    BackHandler(!systemBackPress) {
-        dispatch(GoBackAction)
+  BackHandler(!systemBackPress) { dispatch(GoBackAction) }
+
+  // Call this like any other SideEffect in your composable
+  LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+    if (userSettings.autoLockEnabled == true &&
+        (context.applicationContext as? MyApplication)?.isActivityLaunchTriggered() == false) {
+      dispatch(NavigationAction(AuthState.Login))
     }
+  }
 
-    // Call this like any other SideEffect in your composable
-    LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
-        if((context.applicationContext as? MyApplication)?.isActivityLaunchTriggered() == false) {
-            dispatch(NavigationAction(AuthState.Login))
-        }
-    }
-
-    LaunchedEffect(key1 = systemBackPress, block = {
+  LaunchedEffect(
+      key1 = systemBackPress,
+      block = {
         if (systemBackPress) {
-            (context as? ComponentActivity)?.finishAffinity()
+          (context as? ComponentActivity)?.finishAffinity()
         }
-    })
+      })
 
-    DisposableEffect(KeyPassRedux, context) {
-        dispatch(UpdateContextAction(context))
-        onDispose {
-            dispatch(UpdateContextAction(null))
-        }
+  DisposableEffect(KeyPassRedux, context) {
+    dispatch(UpdateContextAction(context))
+    onDispose { dispatch(UpdateContextAction(null)) }
+  }
+
+  Scaffold(bottomBar = { KeyPassBottomBar() }, modifier = Modifier.safeDrawingPadding()) {
+      paddingValues ->
+    Surface(modifier = Modifier.padding(paddingValues)) {
+      CurrentPage()
+
+      DashboardBottomSheet()
     }
-
-    Scaffold(bottomBar = {
-        KeyPassBottomBar()
-    }, modifier = Modifier.safeDrawingPadding()) { paddingValues ->
-        Surface(modifier = Modifier.padding(paddingValues)) {
-            CurrentPage()
-
-            DashboardBottomSheet()
-        }
-    }
+  }
 }
 
 @Composable
 fun CurrentPage() {
-    val currentScreen by selectState<KeyPassState, KeyPassState> { this }
+  val currentScreen by selectState<KeyPassState, KeyPassState> { this }
 
-//    val currentDialog by selectState<KeyPassState, DialogState?> { this.dialog }
+  //    val currentDialog by selectState<KeyPassState, DialogState?> { this.dialog }
 
-    currentScreen.currentScreen.let {
-        when (it) {
-            is HomeState -> {
-                Homepage(homeState = it)
-            }
+  currentScreen.currentScreen.let {
+    when (it) {
+      is HomeState -> {
+        Homepage(homeState = it)
+      }
 
-            is SettingsState -> {
-                MySettingCompose()
-            }
+      is SettingsState -> {
+        MySettingCompose()
+      }
 
-            is AccountDetailState -> {
-                AccountDetailPage(it.accountId)
-            }
+      is AccountDetailState -> {
+        AccountDetailPage(it.accountId)
+      }
 
-            is AuthState -> {
-                AuthScreen(it)
-            }
+      is AuthState -> {
+        AuthScreen(it)
+      }
 
-            is BackupScreenState -> {
-                BackupScreen(state = it)
-            }
+      is BackupScreenState -> {
+        BackupScreen(state = it)
+      }
 
-            is ChangeAppPasswordState -> {
-                ChangePassword(it)
-            }
+      is ChangeAppPasswordState -> {
+        ChangePassword(it)
+      }
 
-            is ChangeDefaultPasswordLengthState -> {
-                ChangeDefaultPasswordLengthScreen()
-            }
+      is ChangeDefaultPasswordLengthState -> {
+        ChangeDefaultPasswordLengthScreen()
+      }
 
-            is BackupImporterState -> BackupImporter(state = it)
-            is AboutState -> AboutScreen()
-            is PasswordGeneratorState -> GeneratePasswordScreen()
-            is ChangeAppHintState -> PasswordHintScreen()
-        }
+      is BackupImporterState -> BackupImporter(state = it)
+      is AboutState -> AboutScreen()
+      is PasswordGeneratorState -> GeneratePasswordScreen()
+      is ChangeAppHintState -> PasswordHintScreen()
     }
+  }
 
-    currentScreen.dialog?.let {
-        when (it) {
-            is ValidateKeyPhrase -> ValidateKeyPhraseDialog()
-            is ForgotKeyPhraseState -> ForgotKeyPhraseDialog()
-            is RestoreKeyPassBackupState -> RestoreKeyPassBackupDialog(it)
-            is RestoreChromeBackupState -> RestoreChromeBackupDialog(it)
-            is RestoreKeePassBackupState -> RestoreKeePassBackupDialog(it)
-        }
+  currentScreen.dialog?.let {
+    when (it) {
+      is ValidateKeyPhrase -> ValidateKeyPhraseDialog()
+      is ForgotKeyPhraseState -> ForgotKeyPhraseDialog()
+      is RestoreKeyPassBackupState -> RestoreKeyPassBackupDialog(it)
+      is RestoreChromeBackupState -> RestoreChromeBackupDialog(it)
+      is RestoreKeePassBackupState -> RestoreKeePassBackupDialog(it)
     }
+  }
 }

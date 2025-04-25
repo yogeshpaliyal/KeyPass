@@ -24,7 +24,8 @@ data class UserSettings(
     val passwordHint: String? = null,
     val biometricLoginTimeoutEnable: Boolean? = null,
     val lastPasswordLoginTime: Long? = null,
-    val lastKeyPhraseEnterTime: Long? = null
+    val lastKeyPhraseEnterTime: Long? = null,
+    val autoLockEnabled: Boolean? = true
 ) {
-    fun isKeyPresent() = backupKey != null
+  fun isKeyPresent() = backupKey != null
 }
