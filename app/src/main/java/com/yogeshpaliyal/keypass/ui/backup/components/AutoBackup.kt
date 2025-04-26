@@ -20,6 +20,7 @@ fun AutoBackup(
 ) {
     PreferenceItem(
         title = R.string.auto_backup,
+        removeIconSpace = true,
         summary = if (isAutoBackupEnabled == true) R.string.enabled else R.string.disabled
     ) {
         setAutoBackupEnabled(!(isAutoBackupEnabled ?: false))
@@ -27,15 +28,16 @@ fun AutoBackup(
 
     AnimatedVisibility(visible = isAutoBackupEnabled == true) {
         Column {
-            PreferenceItem(title = R.string.auto_backup, isCategory = true)
+            PreferenceItem(title = R.string.auto_backup, isCategory = true, removeIconSpace = true,)
             Divider(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(1.dp)
             )
-            PreferenceItem(summary = R.string.auto_backup_desc)
+            PreferenceItem(summary = R.string.auto_backup_desc, removeIconSpace = true,)
             PreferenceItem(
                 title = R.string.override_auto_backup_file,
+                removeIconSpace = true,
                 summary = if (overrideAutoBackup == true) R.string.enabled else R.string.disabled
             ) {
                 setOverrideAutoBackup(!(overrideAutoBackup ?: false))

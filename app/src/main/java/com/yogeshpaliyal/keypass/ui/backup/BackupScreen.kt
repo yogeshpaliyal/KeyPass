@@ -3,25 +3,46 @@ package com.yogeshpaliyal.keypass.ui.backup
 import android.content.Intent
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Backup // Import the Backup icon
+import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material3.Icon // Import Icon composable
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.canUserAccessBackupDirectory
 import com.yogeshpaliyal.common.utils.clearBackupKey
 import com.yogeshpaliyal.common.utils.setAutoBackupEnabled
 import com.yogeshpaliyal.common.utils.setBackupDirectory
 import com.yogeshpaliyal.common.utils.setOverrideAutoBackup
 import com.yogeshpaliyal.common.utils.updateLastKeyPhraseEnterTime
+import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.backup.components.BackSettingOptions
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
+import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
 import com.yogeshpaliyal.keypass.ui.redux.states.BackupScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SelectKeyphraseType
@@ -111,13 +132,43 @@ fun BackupScreen(state: BackupScreenState) {
     })
 
     Scaffold(bottomBar = {
-        DefaultBottomAppBar()
+        DefaultBottomAppBar(
+            showBackButton = true,
+        )
     }) { contentPadding ->
-        Surface(modifier = Modifier.padding(contentPadding)) {
-            BackSettingOptions(state, updatedState = {
-                dispatchAction(StateUpdateAction(it))
-            }) {
-                launcher.launch(arrayOf())
+        Surface(modifier = Modifier.padding(contentPadding).fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(16.dp),
+            ) {
+                // Header Section
+
+                Text(
+                    text = stringResource(id = R.string.credentials_backups),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Start
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = stringResource(id = R.string.backup_screen_desc), // New string for description
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Start,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                // Backup Settings Options
+                BackSettingOptions(state, updatedState = {
+                    dispatchAction(StateUpdateAction(it))
+                }) {
+                    launcher.launch(arrayOf())
+                }
             }
         }
     }

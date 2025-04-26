@@ -19,8 +19,9 @@
     <!-- Sync Preferences -->
     <string name="credentials_backups">Credentials Backups</string>
     <string name="credentials_backups_desc">Backup Credentials to external storage</string>
-    <string name="restore_credentials">Imports Credentials</string>
-    <string name="restore_credentials_desc">Restore your backups</string>
+    <string name="backup_screen_desc">Securely back up your credentials to prevent data loss. Backups are encrypted with a keyphrase.</string>
+    <string name="restore_credentials">Import Credentials</string>
+    <string name="restore_credentials_desc">Restore your passwords from a backup</string>
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_desc">Report technical issues or suggest new features</string>
     <string name="share">Share</string>
@@ -117,9 +118,9 @@
     <string name="default_password_length">Default password length</string>
     <string name="secret_key">Secret Key</string>
     <string name="keypass_backup">KeyPass Backup</string>
-    <string name="google_backup">Google Backup</string>
-    <string name="keepass_backup">KeePass Backup</string>
-    <string name="keepass_backup_desc">Choose KeePass CSV file to import</string>
+    <string name="google_backup">Chrome/Google Password Export</string>
+    <string name="keepass_backup">KeePass CSV Export</string>
+    <string name="keepass_backup_desc">Import passwords from a KeePass CSV file</string>
     <string name="generate_qr_code">Export</string>
     <string name="invalid_secret_key">Invalid secret key format</string>
     <string name="invalid_csv_file">Invalid CSV File</string>
@@ -140,5 +141,10 @@
     <string name="biometric_disabled_due_to_timeout">Please login via password because you haven\'t used password in last 24 hours</string>
     <string name="invalid_package_signature">Invalid package signature</string>
     <string name="auto_lock">Auto Lock on background</string>
+    <string name="contact_developer">Contact Developer</string>
+    <string name="contact_via_email">Send an email for support, feedback, or suggestions</string>
+    <string name="choose_default_password_length">Choose Default Password Length</string>
 
 </resources>
+
+

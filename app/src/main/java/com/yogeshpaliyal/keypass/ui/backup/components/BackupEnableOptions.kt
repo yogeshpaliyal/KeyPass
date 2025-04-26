@@ -17,6 +17,7 @@ fun BackupEnableOptions(
 ) {
     Column {
         PreferenceItem(
+            removeIconSpace = true,
             title = R.string.create_backup,
             summaryStr = stringResource(
                 id = R.string.last_backup_date,
@@ -27,6 +28,7 @@ fun BackupEnableOptions(
         }
         PreferenceItem(
             title = R.string.backup_folder,
+            removeIconSpace = true,
             summaryStr = state.getFormattedBackupDirectory(),
             onClickItem = launchDirectorySelector
         )
@@ -41,7 +43,7 @@ fun BackupEnableOptions(
 //                title = R.string.verify_keyphrase,
 //                summary = R.string.verify_keyphrase_message
 //            )
-        PreferenceItem(title = R.string.turn_off_backup) {
+        PreferenceItem(title = R.string.turn_off_backup, removeIconSpace = true,) {
             updatedState(
                 state.copy(
                     isBackupEnabled = false,
