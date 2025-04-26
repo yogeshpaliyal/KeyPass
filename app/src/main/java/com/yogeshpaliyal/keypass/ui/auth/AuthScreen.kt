@@ -43,6 +43,15 @@ fun AuthScreen(state: AuthState) {
         dispatchAction(NavigationAction(AuthState.CreatePassword, true))
     }
 
+    // Reset password field when navigating to ConfirmPassword state
+    LaunchedEffect(state) {
+        if (state is AuthState.ConfirmPassword) {
+            password.value = ""
+            passwordVisible.value = false
+            passwordError.value = null
+        }
+    }
+
     LaunchedEffect(key1 = userSettings.keyPassPassword) {
         val mPassword = userSettings.keyPassPassword
         if (mPassword == null) {
