@@ -14,7 +14,6 @@ fun BackSettingOptions(
     launchDirectorySelector: () -> Unit
 ) {
     Column {
-        PreferenceItem(summary = R.string.backup_desc)
         AnimatedVisibility(visible = state.isBackupEnabled == true) {
             BackupEnableOptions(state, updatedState, launchDirectorySelector)
         }
