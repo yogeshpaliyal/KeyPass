@@ -30,6 +30,13 @@ import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
 import org.reduxkotlin.compose.rememberDispatcher
 
+/**
+ * Displays the authentication screen and manages user input and navigation based on the current authentication state.
+ *
+ * Renders the appropriate UI for login, password creation, or password confirmation, handling state transitions, input validation, and navigation actions according to the provided [state].
+ *
+ * @param state The current authentication state determining which UI and logic to display.
+ */
 @Composable
 fun AuthScreen(state: AuthState) {
     val userSettings = LocalUserSettings.current
@@ -41,6 +48,15 @@ fun AuthScreen(state: AuthState) {
 
     BackHandler(state is AuthState.ConfirmPassword) {
         dispatchAction(NavigationAction(AuthState.CreatePassword, true))
+    }
+
+    // Reset password field when navigating to ConfirmPassword state
+    LaunchedEffect(state) {
+        if (state is AuthState.ConfirmPassword) {
+            password.value = ""
+            passwordVisible.value = false
+            passwordError.value = null
+        }
     }
 
     LaunchedEffect(key1 = userSettings.keyPassPassword) {
