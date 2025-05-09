@@ -44,7 +44,7 @@ dependencies {
     // Androidx Security
     implementation("androidx.security:security-crypto:1.1.0-alpha07")
 
-    api("androidx.documentfile:documentfile:1.0.1")
+    api("androidx.documentfile:documentfile:1.1.0")
 
     api("androidx.room:room-runtime:${Versions.room}")
     kapt("androidx.room:room-compiler:${Versions.room}")
