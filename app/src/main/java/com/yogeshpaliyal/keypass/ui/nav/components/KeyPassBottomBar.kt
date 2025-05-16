@@ -1,12 +1,18 @@
 package com.yogeshpaliyal.keypass.ui.nav.components
 
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.Menu
-import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,14 +23,20 @@ import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
 import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
+import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
 import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 
+
+
+
 @Composable
 fun KeyPassBottomBar() {
-    val showMainBottomAppBar by selectState<KeyPassState, Boolean> { this.currentScreen.showMainBottomAppBar }
+    val currentScreen: ScreenState by selectState<KeyPassState, ScreenState> { this.currentScreen }
+    val showMainBottomAppBar = currentScreen.showMainBottomAppBar
     val dispatchAction = rememberDispatcher()
 
     if (!showMainBottomAppBar) {
@@ -32,21 +44,38 @@ fun KeyPassBottomBar() {
     }
 
     DefaultBottomAppBar(showBackButton = false, extraAction = {
-        IconButton(onClick = {
-            dispatchAction(BottomSheetAction.HomeNavigationMenu(true))
+
+        IconToggleButton (colors = IconButtonDefaults.iconToggleButtonColors(
+            checkedContainerColor = MaterialTheme.colorScheme.primaryContainer,
+            checkedContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        ), checked = currentScreen is HomeState, onCheckedChange = {
+            dispatchAction(NavigationAction(HomeState(), true))
         }) {
             Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.Menu),
-                contentDescription = "Menu",
+                painter = rememberVectorPainter(image = Icons.Outlined.Home),
+                contentDescription = "Home",
                 tint = MaterialTheme.colorScheme.onSurface
             )
         }
 
         IconButton(onClick = {
+            dispatchAction(BottomSheetAction.HomeNavigationMenu(true))
+        }) {
+            Icon(
+                painter = rememberVectorPainter(image = Icons.Outlined.Menu),
+                contentDescription = "Menu",
+                tint = MaterialTheme.colorScheme.onSurface
+            )
+        }
+
+        IconToggleButton(colors = IconButtonDefaults.iconToggleButtonColors(
+            checkedContainerColor = MaterialTheme.colorScheme.primaryContainer,
+            checkedContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        ), checked = currentScreen is SettingsState, onCheckedChange = {
             dispatchAction(NavigationAction(SettingsState))
         }) {
             Icon(
-                painter = rememberVectorPainter(image = Icons.Rounded.Settings),
+                painter = rememberVectorPainter(image = Icons.Outlined.Settings),
                 contentDescription = "Settings",
                 tint = MaterialTheme.colorScheme.onSurface
             )

@@ -11,6 +11,7 @@ import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -21,24 +22,22 @@ import com.yogeshpaliyal.keypass.ui.nav.NavigationModelItem
 
 @Composable
 fun NavItem(item: NavigationModelItem.NavMenuItem, onClick: () -> Unit) {
-    Row(
-        modifier = Modifier
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = true),
-                onClick = onClick
+    TextButton(onClick) {
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(1f)
+        ) {
+            Icon(
+                painter = painterResource(id = item.icon),
+                contentDescription = ""
             )
-            .padding(16.dp)
-            .fillMaxWidth(1f)
-    ) {
-        Icon(
-            painter = painterResource(id = item.icon),
-            contentDescription = ""
-        )
-        Spacer(modifier = Modifier.width(32.dp))
-        Text(
-            text = stringResource(id = item.titleRes),
-            style = MaterialTheme.typography.titleMedium
-        )
+            Spacer(modifier = Modifier.width(32.dp))
+            Text(
+                text = stringResource(id = item.titleRes),
+                style = MaterialTheme.typography.titleMedium
+            )
+        }
     }
+
 }
