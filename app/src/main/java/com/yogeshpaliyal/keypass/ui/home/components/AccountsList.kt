@@ -71,7 +71,7 @@ fun AccountsList(accounts: List<AccountModel>? = null) {
             ) {
                 items(it) { account ->
                     Account(
-                        modifier = Modifier.animateItemPlacement(),
+                        modifier = Modifier,
                         account,
                         onClick = {
                             dispatch(NavigationAction(AccountDetailState(it.id)))

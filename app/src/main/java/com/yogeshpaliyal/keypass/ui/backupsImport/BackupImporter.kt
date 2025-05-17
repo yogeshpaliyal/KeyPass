@@ -2,7 +2,6 @@ package com.yogeshpaliyal.keypass.ui.backupsImport
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,7 +38,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -52,6 +50,7 @@ import com.yogeshpaliyal.keypass.importer.ChromeAccountImporter
 import com.yogeshpaliyal.keypass.importer.KeePassAccountImporter
 import com.yogeshpaliyal.keypass.importer.KeyPassAccountImporter
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
+import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultTopAppBar
 import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.StateUpdateAction
@@ -129,20 +128,24 @@ fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = 
     })
 
     result?.let {
-        state.selectedImported?.readFileGetAction(result)?.let { it1 -> 
+        state.selectedImported?.readFileGetAction(result)?.let { it1 ->
             isLoading = false
-            dispatchAction(it1) 
+            dispatchAction(it1)
         }
     }
 
     Scaffold(
-        bottomBar = {
-            DefaultBottomAppBar(
-                showBackButton = true
+        topBar = {
+            DefaultTopAppBar(
+                showBackButton = true,
+                title = R.string.restore_credentials,
+                subtitle = R.string.restore_credentials_desc
             )
         }
     ) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+        Box(modifier = Modifier
+            .padding(paddingValues)
+            .fillMaxSize()) {
             if (isLoading) {
                 CircularProgressIndicator(
                     modifier = Modifier.align(Alignment.Center)
@@ -157,25 +160,7 @@ fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = 
                         Column(
                             modifier = Modifier.fillMaxWidth(),
                         ) {
-                            
-                            Text(
-                                text = stringResource(id = R.string.restore_credentials),
-                                style = MaterialTheme.typography.headlineMedium,
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Start
-                            )
-                            
-                            Spacer(modifier = Modifier.height(8.dp))
-                            
-                            Text(
-                                text = stringResource(id = R.string.restore_credentials_desc),
-                                style = MaterialTheme.typography.bodyLarge,
-                                textAlign = TextAlign.Start,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                            
-                            Spacer(modifier = Modifier.height(24.dp))
-                            
+
                             // Info card
                             Card(
                                 modifier = Modifier.fillMaxWidth(),
@@ -190,11 +175,11 @@ fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = 
                                     color = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                             }
-                            
+
                             Spacer(modifier = Modifier.height(16.dp))
                         }
                     }
-                    
+
                     items(importOptions) { option ->
                         ImportOptionCard(
                             option = option,
@@ -241,7 +226,7 @@ private fun ImportOptionCard(option: ImportOption, onClick: () -> Unit) {
                     modifier = Modifier.size(28.dp)
                 )
             }
-            
+
             Column(
                 modifier = Modifier
                     .padding(start = 16.dp)
@@ -252,14 +237,14 @@ private fun ImportOptionCard(option: ImportOption, onClick: () -> Unit) {
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold
                 )
-                
+
                 Text(
                     text = if (desc == null) "" else stringResource(id = desc),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
-            
+
             Icon(
                 imageVector = Icons.Filled.FileUpload,
                 contentDescription = "Import",
