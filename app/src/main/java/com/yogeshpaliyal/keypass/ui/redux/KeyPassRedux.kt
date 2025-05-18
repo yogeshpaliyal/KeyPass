@@ -25,6 +25,16 @@ object KeyPassRedux {
 
     fun getLastScreen() = arrPages.lastOrNull()
 
+    val newReducer: com.yogeshpaliyal.keypass.ui.keypassRedux.Reducer<KeyPassState> = { state, action ->
+        if (action is BatchActions) {
+            action.actions.fold(state) { acc, act ->
+                handleAction(act, acc)
+            }
+        } else {
+            handleAction(action, state)
+        }
+    }
+
     private val reducer: Reducer<KeyPassState> = { state, action ->
         if (action is BatchActions) {
             action.actions.fold(state) { acc, act ->

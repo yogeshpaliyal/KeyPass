@@ -1,11 +1,17 @@
 package com.yogeshpaliyal.keypass.ui.home
 
 import android.app.Application
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.viewModelScope
 import com.yogeshpaliyal.common.data.AccountModel
 import com.yogeshpaliyal.common.dbhelper.saveToDb
+import com.yogeshpaliyal.keypass.ui.redux.states.AuthState
+import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
+import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
+import com.yogeshpaliyal.keypass.ui.redux.states.generateDefaultState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +29,10 @@ class DashboardViewModel @Inject constructor(
     val appDb: com.yogeshpaliyal.common.AppDatabase
 ) :
     AndroidViewModel(application) {
+
+    private val _uiState = mutableStateOf<KeyPassState>(generateDefaultState())
+    val uiState: State<KeyPassState>
+        get() = _uiState
 
     private val appDao = appDb.getDao()
 
