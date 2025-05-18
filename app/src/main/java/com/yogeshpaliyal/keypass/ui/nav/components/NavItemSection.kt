@@ -18,12 +18,13 @@ import java.util.Locale
 @Composable
 fun NavItemSection(divider: NavigationModelItem.NavDivider) {
     Column(modifier = Modifier.padding(16.dp)) {
-        Divider()
-        Spacer(modifier = Modifier.height(32.dp))
+        if (!divider.hideDivider) {
+            Divider()
+            Spacer(modifier = Modifier.height(32.dp))
+        }
         Text(
             text = divider.title.uppercase(Locale.getDefault()),
-            style = MaterialTheme.typography.labelMedium,
-            fontSize = TextUnit(12f, TextUnitType.Sp)
+            style = MaterialTheme.typography.titleLarge
         )
     }
 }

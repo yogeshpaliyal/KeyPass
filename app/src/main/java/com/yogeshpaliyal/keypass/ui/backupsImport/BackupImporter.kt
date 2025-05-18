@@ -197,11 +197,13 @@ fun BackupImporter(state: BackupImporterState, mViewModel: DashboardViewModel = 
 @Composable
 private fun ImportOptionCard(option: ImportOption, onClick: () -> Unit) {
     val desc = option.importer.getImporterDesc()
-    ElevatedCard(
+    Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp),
-        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+        ),
         onClick = onClick,
         shape = RoundedCornerShape(12.dp)
     ) {

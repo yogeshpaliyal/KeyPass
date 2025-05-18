@@ -15,7 +15,7 @@ class KeyPassBackupDirectoryPick : ActivityResultContracts.OpenDocument() {
                 Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
                 Intent.FLAG_GRANT_READ_URI_PERMISSION
         )
-        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
+        (context.applicationContext as? MyApplication)?.knownActivityLaunchTriggered()
         return intent
     }
 

@@ -33,6 +33,7 @@ import com.yogeshpaliyal.common.constants.ScannerType
 import com.yogeshpaliyal.common.utils.TOTPHelper
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.detail.components.BottomBar
+import com.yogeshpaliyal.keypass.ui.detail.components.FABAddAccount
 import com.yogeshpaliyal.keypass.ui.detail.components.Fields
 import com.yogeshpaliyal.keypass.ui.redux.actions.CopyToClipboard
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
@@ -104,7 +105,7 @@ fun AccountDetailPage(
         }
     }
     Scaffold(
-        bottomBar = {
+        topBar = {
             BottomBar(
                 accountModel,
                 backPressed = goBack,
@@ -120,7 +121,10 @@ fun AccountDetailPage(
                 openPasswordConfiguration = {
                     dispatchAction(NavigationAction(PasswordGeneratorState()))
                 }
-            ) {
+            )
+        },
+        floatingActionButton = {
+            FABAddAccount{
                 viewModel.insertOrUpdate(accountModel, goBack)
             }
         }

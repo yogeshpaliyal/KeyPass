@@ -1,13 +1,11 @@
 package com.yogeshpaliyal.keypass.ui.nav.components
 
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.VpnKey
 import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -16,11 +14,14 @@ import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
+import com.yogeshpaliyal.keypass.ui.nav.BottomNavViewModel
 import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
+import com.yogeshpaliyal.keypass.ui.redux.actions.IntentNavigation
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
 import com.yogeshpaliyal.keypass.ui.redux.states.AccountDetailState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
@@ -34,10 +35,11 @@ import org.reduxkotlin.compose.selectState
 
 
 @Composable
-fun KeyPassBottomBar() {
+fun KeyPassBottomBar(viewModel: BottomNavViewModel) {
     val currentScreen: ScreenState by selectState<KeyPassState, ScreenState> { this.currentScreen }
     val showMainBottomAppBar = currentScreen.showMainBottomAppBar
     val dispatchAction = rememberDispatcher()
+    val navigationItems by viewModel.navigationList.observeAsState()
 
     if (!showMainBottomAppBar) {
         return
@@ -59,13 +61,25 @@ fun KeyPassBottomBar() {
         }
 
         IconButton(onClick = {
-            dispatchAction(BottomSheetAction.HomeNavigationMenu(true))
+            dispatchAction(IntentNavigation.GeneratePassword)
         }) {
             Icon(
-                painter = rememberVectorPainter(image = Icons.Outlined.Menu),
-                contentDescription = "Menu",
+                painter = rememberVectorPainter(image = Icons.Outlined.VpnKey),
+                contentDescription = "Generate Password",
                 tint = MaterialTheme.colorScheme.onSurface
             )
+        }
+
+        if (navigationItems?.isNotEmpty() == true) {
+            IconButton(onClick = {
+                dispatchAction(BottomSheetAction.HomeNavigationMenu(true))
+            }) {
+                Icon(
+                    painter = rememberVectorPainter(image = Icons.Outlined.Menu),
+                    contentDescription = "Menu",
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
+            }
         }
 
         IconToggleButton(colors = IconButtonDefaults.iconToggleButtonColors(

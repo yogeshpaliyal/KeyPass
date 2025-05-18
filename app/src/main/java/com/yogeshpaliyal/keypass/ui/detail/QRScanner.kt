@@ -20,7 +20,7 @@ class QRScanner : ActivityResultContract<Int, QRScannerResult>() {
         } else {
             null
         }
-        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
+        (context.applicationContext as? MyApplication)?.knownActivityLaunchTriggered()
         return intentIntegration?.setPrompt("")?.createScanIntent() ?: Intent()
     }
 

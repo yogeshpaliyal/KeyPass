@@ -149,7 +149,7 @@ fun ChangePassword(state: ChangeAppPasswordState) {
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.secondaryContainer
+                            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
                         )
                     ) {
                         Column(
@@ -176,7 +176,10 @@ fun ChangePassword(state: ChangeAppPasswordState) {
 
                 // Password input fields in a card
                 Card(
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+                    )
                 ) {
                     Column(
                         modifier = Modifier

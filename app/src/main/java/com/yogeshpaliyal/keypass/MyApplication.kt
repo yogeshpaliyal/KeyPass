@@ -17,11 +17,11 @@ class MyApplication : CommonMyApplication() {
 
     private var timeToLaunchActivity : Long? = null
 
-    fun activityLaunchTriggered() {
+    fun knownActivityLaunchTriggered() {
         timeToLaunchActivity = SystemClock.uptimeMillis()
     }
 
-    fun isActivityLaunchTriggered() : Boolean {
+    fun isKnownActivityLaunchTriggered() : Boolean {
         val mTimeToLaunchActivity = timeToLaunchActivity ?: return false
         timeToLaunchActivity = null
         return SystemClock.uptimeMillis() - mTimeToLaunchActivity < 1000

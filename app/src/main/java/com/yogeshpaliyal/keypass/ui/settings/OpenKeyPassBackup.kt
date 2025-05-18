@@ -18,7 +18,7 @@ class OpenKeyPassBackup<T : AccountsImporter>(val importer: T?) : ActivityResult
                 Intent.FLAG_GRANT_READ_URI_PERMISSION
         )
 
-        (context.applicationContext as? MyApplication)?.activityLaunchTriggered()
+        (context.applicationContext as? MyApplication)?.knownActivityLaunchTriggered()
 
         return intent
     }
