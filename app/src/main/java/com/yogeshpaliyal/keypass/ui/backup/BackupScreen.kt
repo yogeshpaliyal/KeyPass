@@ -40,6 +40,7 @@ import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.backup.components.BackSettingOptions
 import com.yogeshpaliyal.keypass.ui.backup.components.BackupDialogs
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
+import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultTopAppBar
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
@@ -131,10 +132,8 @@ fun BackupScreen(state: BackupScreenState) {
         )
     })
 
-    Scaffold(bottomBar = {
-        DefaultBottomAppBar(
-            showBackButton = true,
-        )
+    Scaffold(topBar = {
+        DefaultTopAppBar(showBackButton = true, title = R.string.credentials_backups, subtitle = R.string.backup_screen_desc)
     }) { contentPadding ->
         Surface(modifier = Modifier.padding(contentPadding).fillMaxSize()) {
             Column(
@@ -143,25 +142,6 @@ fun BackupScreen(state: BackupScreenState) {
                     .verticalScroll(rememberScrollState())
                     .padding(16.dp),
             ) {
-                // Header Section
-
-                Text(
-                    text = stringResource(id = R.string.credentials_backups),
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Start
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = stringResource(id = R.string.backup_screen_desc), // New string for description
-                    style = MaterialTheme.typography.bodyLarge,
-                    textAlign = TextAlign.Start,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
-                Spacer(modifier = Modifier.height(24.dp))
 
                 // Backup Settings Options
                 BackSettingOptions(state, updatedState = {

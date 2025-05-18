@@ -30,11 +30,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,6 +49,7 @@ import com.yogeshpaliyal.common.utils.openLink
 import com.yogeshpaliyal.keypass.BuildConfig
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
+import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultTopAppBar
 import com.yogeshpaliyal.keypass.ui.commonComponents.PreferenceItem
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
@@ -54,15 +57,12 @@ import org.reduxkotlin.compose.rememberTypedDispatcher
 
 @Composable
 fun AboutScreen() {
-    val dispatchAction = rememberTypedDispatcher<Action>()
-    
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold(
-        bottomBar = { 
-            // Add back button to bottom bar
-            DefaultBottomAppBar(
-                showBackButton = true
-            ) 
-        }
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            DefaultTopAppBar(title = R.string.app_name, scrollBehavior = scrollBehavior)
+        },
     ) { contentPadding ->
         Surface(
             modifier = Modifier
@@ -98,9 +98,11 @@ private fun MainContent() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // App Info Card
-        ElevatedCard(
+        Card(
             modifier = Modifier.fillMaxWidth(),
-            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+            ),
             shape = RoundedCornerShape(16.dp)
         ) {
             Column(
@@ -124,13 +126,13 @@ private fun MainContent() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // App Name
-                Text(
-                    text = stringResource(id = R.string.app_name),
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
-                )
+//                // App Name
+//                Text(
+//                    text = stringResource(id = R.string.app_name),
+//                    style = MaterialTheme.typography.headlineMedium,
+//                    fontWeight = FontWeight.Bold,
+//                    color = MaterialTheme.colorScheme.primary
+//                )
 
                 Spacer(modifier = Modifier.height(4.dp))
 
@@ -203,9 +205,11 @@ private fun MainContent() {
             textAlign = TextAlign.Start
         )
 
-        ElevatedCard(
+        Card(
             modifier = Modifier.fillMaxWidth(),
-            elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+            ),
             shape = RoundedCornerShape(16.dp)
         ) {
             Column(modifier = Modifier.fillMaxWidth()) {

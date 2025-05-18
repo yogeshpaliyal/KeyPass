@@ -7,18 +7,24 @@ import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LargeFlexibleTopAppBar
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import com.yogeshpaliyal.common.data.AccountModel
+import com.yogeshpaliyal.keypass.R
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun BottomBar(
     accountModel: AccountModel,
@@ -26,12 +32,17 @@ fun BottomBar(
     onDeleteAccount: () -> Unit,
     generateQrCodeClicked: () -> Unit,
     openPasswordConfiguration: () -> Unit,
-    onSaveClicked: () -> Unit
 ) {
     val openDialog = remember { mutableStateOf(false) }
 
-    BottomAppBar(
-        actions = {
+    LargeFlexibleTopAppBar(
+        title = {
+            Text(
+                text = stringResource(if (accountModel.id == null) R.string.create_account else R.string.edit_account),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+        },
+        navigationIcon = {
             IconButton(onClick = backPressed) {
                 Icon(
                     painter = rememberVectorPainter(image = Icons.Rounded.ArrowBackIosNew),
@@ -39,6 +50,8 @@ fun BottomBar(
                     tint = MaterialTheme.colorScheme.onSurface
                 )
             }
+        },
+        actions = {
 
             IconButton(
                 modifier = Modifier.testTag("action_configure_password"),
@@ -73,14 +86,6 @@ fun BottomBar(
                     )
                 }
             }
-        },
-        floatingActionButton = {
-            FloatingActionButton(modifier = Modifier.testTag("save"), onClick = onSaveClicked) {
-                Icon(
-                    painter = rememberVectorPainter(image = Icons.Rounded.Done),
-                    contentDescription = "Save Changes"
-                )
-            }
         }
     )
 
@@ -91,4 +96,14 @@ fun BottomBar(
         },
         onDeleteAccount
     )
+}
+
+@Composable
+fun FABAddAccount(onSaveClicked: () -> Unit) {
+    FloatingActionButton(modifier = Modifier.testTag("save"), onClick = onSaveClicked) {
+        Icon(
+            painter = rememberVectorPainter(image = Icons.Rounded.Done),
+            contentDescription = "Save Changes"
+        )
+    }
 }

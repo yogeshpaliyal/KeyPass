@@ -112,7 +112,7 @@ class DashboardComposeActivity : AppCompatActivity() {
 }
 
 @Composable
-fun Dashboard() {
+fun Dashboard(viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
   val systemBackPress by selectState<KeyPassState, Boolean> { this.systemBackPress }
 
   val context = LocalContext.current
@@ -124,7 +124,7 @@ fun Dashboard() {
   // Call this like any other SideEffect in your composable
   LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
     if (userSettings.autoLockEnabled == true &&
-        (context.applicationContext as? MyApplication)?.isActivityLaunchTriggered() == false) {
+        (context.applicationContext as? MyApplication)?.isKnownActivityLaunchTriggered() == false) {
       dispatch(NavigationAction(AuthState.Login))
     }
   }
@@ -142,12 +142,12 @@ fun Dashboard() {
     onDispose { dispatch(UpdateContextAction(null)) }
   }
 
-  Scaffold(bottomBar = { KeyPassBottomBar() }, modifier = Modifier.safeDrawingPadding()) {
+  Scaffold(bottomBar = { KeyPassBottomBar(viewModel) }, modifier = Modifier.safeDrawingPadding()) {
       paddingValues ->
     Surface(modifier = Modifier.padding(paddingValues)) {
       CurrentPage()
 
-      DashboardBottomSheet()
+      DashboardBottomSheet(viewModel)
     }
   }
 }

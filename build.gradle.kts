@@ -30,6 +30,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version (Versions.kotlin)
     id("androidx.baselineprofile") version "1.3.4" apply false
     id("com.android.test") version "8.10.0" apply false
+    id("org.jetbrains.kotlin.plugin.compose") version(Versions.kotlin) apply false
 }
 
 

@@ -2,6 +2,7 @@ package com.yogeshpaliyal.keypass.ui.redux.middlewares
 
 import android.content.Intent
 import com.yogeshpaliyal.keypass.BuildConfig
+import com.yogeshpaliyal.keypass.MyApplication
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.generate.GeneratePasswordActivity
 import com.yogeshpaliyal.keypass.ui.redux.actions.BatchActions
@@ -29,11 +30,13 @@ val intentNavigationMiddleware = middleware<KeyPassState> { store, next, action 
 private fun Store<KeyPassState>.handleAction(action: Any, state: KeyPassState) {
     when (action) {
         is IntentNavigation.GeneratePassword -> {
+            (state.context?.applicationContext as? MyApplication)?.knownActivityLaunchTriggered()
             val intent = Intent(state.context, GeneratePasswordActivity::class.java)
             state.context?.startActivity(intent)
         }
 
         is IntentNavigation.ShareApp -> {
+            (state.context?.applicationContext as? MyApplication)?.knownActivityLaunchTriggered()
             val sendIntent = Intent()
             sendIntent.action = Intent.ACTION_SEND
             sendIntent.putExtra(

@@ -21,19 +21,19 @@ import org.reduxkotlin.compose.rememberDispatcher
 import org.reduxkotlin.compose.selectState
 
 @Composable
-fun DashboardBottomSheet() {
+fun DashboardBottomSheet(viewModel: BottomNavViewModel) {
     val bottomSheetState by selectState<KeyPassState, BottomSheetState?> { this.bottomSheet }
 
     if (bottomSheetState?.isBottomSheetOpen != true) {
         return
     }
 
-    OptionBottomBar()
+    OptionBottomBar(viewModel)
 }
 
 @Composable
 fun OptionBottomBar(
-    viewModel: BottomNavViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+    viewModel: BottomNavViewModel
 ) {
     val dispatchAction = rememberDispatcher()
 

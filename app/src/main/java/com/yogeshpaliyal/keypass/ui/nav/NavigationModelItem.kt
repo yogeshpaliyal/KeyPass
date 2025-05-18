@@ -18,7 +18,7 @@ sealed class NavigationModelItem {
      * A class which is used to show a section divider (a subtitle and underline) between
      * sections of different NavigationModelItem types.
      */
-    data class NavDivider(val title: String) : NavigationModelItem()
+    data class NavDivider(val title: String, val hideDivider: Boolean = false) : NavigationModelItem()
 
     data class NavTagItem(val tag: String) : NavigationModelItem()
 }

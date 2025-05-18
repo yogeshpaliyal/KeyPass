@@ -50,6 +50,8 @@
     <string name="backup_desc">Backups are encrypted with a passphrase and stored on your device</string>
     <string name="yes">Yes</string>
     <string name="create_backup">Create Backup</string>
+    <string name="create_account">Create Account</string>
+    <string name="edit_account">Edit Account</string>
     <string name="alert">Alert</string>
     <string name="copy_keypharse_msg">Copy This Key Phrase this will be used to recover this backup, this will not be provided by KeyPass Again, have you copied or written down?</string>
     <string name="help">Help</string>
@@ -94,6 +96,7 @@
     <string name="change_app_hint">Change Hint</string>
     <string name="remove_app_hint">Remove Hint</string>
     <string name="app_password_hint">App Password Hint</string>
+    <string name="app_password_hint_desc">A password hint helps you remember your password if you forget it. Make sure it\'s a hint only you would understand.</string>
     <string name="set_app_password_hint">Set App Password Hint</string>
     <string name="change_app_password_hint">Change App Password Hint</string>
     <string name="old_password">Old Password</string>
@@ -144,6 +147,7 @@
     <string name="contact_developer">Contact Developer</string>
     <string name="contact_via_email">Send an email for support, feedback, or suggestions</string>
     <string name="choose_default_password_length">Choose Default Password Length</string>
+    <string name="choose_default_password_length_desc">This length will be used as default when generating new passwords. Longer passwords provide better security.</string>
 
 </resources>
 

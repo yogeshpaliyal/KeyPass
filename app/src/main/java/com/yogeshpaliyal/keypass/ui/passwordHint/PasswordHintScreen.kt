@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import com.yogeshpaliyal.common.utils.setPasswordHint
 import com.yogeshpaliyal.keypass.R
 import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultBottomAppBar
+import com.yogeshpaliyal.keypass.ui.commonComponents.DefaultTopAppBar
 import com.yogeshpaliyal.keypass.ui.commonComponents.KeyPassInputField
 import com.yogeshpaliyal.keypass.ui.nav.LocalUserSettings
 import com.yogeshpaliyal.keypass.ui.redux.actions.Action
@@ -61,10 +62,8 @@ fun PasswordHintScreen() {
     var showInfoDialog by remember { mutableStateOf(false) }
 
     Scaffold(
-        bottomBar = { 
-            DefaultBottomAppBar(
-                showBackButton = true
-            ) 
+        topBar = {
+            DefaultTopAppBar(title = R.string.app_password_hint, subtitle = R.string.app_password_hint_desc)
         }
     ) { contentPadding ->
         Surface(
@@ -78,26 +77,13 @@ fun PasswordHintScreen() {
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // Title and Description
-                Text(
-                    text = stringResource(id = R.string.app_password_hint),
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold
-                )
-                
-                Text(
-                    text = "A password hint helps you remember your password if you forget it. " +
-                           "Make sure it's a hint only you would understand.",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                
-                Spacer(modifier = Modifier.height(8.dp))
 
                 // Input Card
-                ElevatedCard(
+                Card(
                     modifier = Modifier.fillMaxWidth(),
-                    elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp)
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+                    )
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),

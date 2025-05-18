@@ -41,7 +41,7 @@ class BottomNavViewModel @Inject constructor(
 
     private fun postListUpdate() {
         val newList = if (tagsList.isNullOrEmpty().not()) {
-            NavigationModel.navigationMenuItems + NavigationModelItem.NavDivider("Tags") + (
+            mutableListOf<NavigationModelItem>() + NavigationModelItem.NavDivider("Tags", true) + (
                 tagsList?.filter { it != null }
                     ?.map { NavigationModelItem.NavTagItem(it) } ?: listOf()
                 )
