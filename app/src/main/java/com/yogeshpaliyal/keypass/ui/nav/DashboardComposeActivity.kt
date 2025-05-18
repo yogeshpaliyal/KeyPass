@@ -72,7 +72,7 @@ import com.yogeshpaliyal.keypass.ui.style.KeyPassTheme
 import dagger.hilt.android.AndroidEntryPoint
 import org.reduxkotlin.compose.StoreProvider
 import org.reduxkotlin.compose.rememberDispatcher
-import org.reduxkotlin.compose.selectState
+import com.yogeshpaliyal.keypass.ui.redux.selectState
 
 val LocalUserSettings = compositionLocalOf { UserSettings() }
 

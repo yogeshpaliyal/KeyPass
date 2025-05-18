@@ -14,11 +14,11 @@ import com.yogeshpaliyal.keypass.ui.nav.BottomNavViewModel
 import com.yogeshpaliyal.keypass.ui.nav.NavigationModelItem
 import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.NavigationAction
+import com.yogeshpaliyal.keypass.ui.redux.selectState
 import com.yogeshpaliyal.keypass.ui.redux.states.BottomSheetState
 import com.yogeshpaliyal.keypass.ui.redux.states.HomeState
 import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import org.reduxkotlin.compose.rememberDispatcher
-import org.reduxkotlin.compose.selectState
 
 @Composable
 fun DashboardBottomSheet(viewModel: BottomNavViewModel) {

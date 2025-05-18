@@ -1,5 +1,10 @@
 package com.yogeshpaliyal.keypass.ui.redux
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisallowComposableCalls
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.yogeshpaliyal.keypass.ui.redux.actions.BatchActions
 import com.yogeshpaliyal.keypass.ui.redux.actions.BottomSheetAction
 import com.yogeshpaliyal.keypass.ui.redux.actions.GoBackAction
@@ -16,7 +21,9 @@ import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.generateDefaultState
 import org.reduxkotlin.Reducer
+import org.reduxkotlin.TypedStore
 import org.reduxkotlin.applyMiddleware
+import org.reduxkotlin.compose.rememberStore
 import org.reduxkotlin.createStore
 
 object KeyPassRedux {
@@ -99,4 +106,45 @@ object KeyPassRedux {
             generateDefaultState(),
             applyMiddleware(utilityMiddleware, intentNavigationMiddleware)
         )
+}
+
+
+
+/**
+ * * These are function copied from
+ *  * https://github.com/reduxkotlin/redux-kotlin-compose/blob/master/redux-kotlin-compose/src/commonMain/kotlin/org/reduxkotlin/compose/selectState.kt
+ * Selects a value from the local store.
+ * @param selector to extract the value
+ * @param State state type
+ * @param Slice extracted value type
+ * @return selected value
+ */
+@Composable
+public inline fun <reified State, Slice> selectState(
+    crossinline selector: @DisallowComposableCalls State.() -> Slice
+): androidx.compose.runtime.State<Slice> {
+    return rememberStore<State>().selectState(selector)
+}
+
+/**
+ * These are function copied from
+ * https://github.com/reduxkotlin/redux-kotlin-compose/blob/master/redux-kotlin-compose/src/commonMain/kotlin/org/reduxkotlin/compose/selectState.kt
+ *
+ * Selects a value from the local store.
+ * @receiver a store to extract the value from
+ * @param selector to extract the value
+ * @param State state type
+ * @param Slice extracted value type
+ * @return selected value
+ */
+@Composable
+public inline fun <State, Slice> TypedStore<State, *>.selectState(
+    crossinline selector: @DisallowComposableCalls State.() -> Slice
+): androidx.compose.runtime.State<Slice> {
+    val result = remember { mutableStateOf(state.selector()) }
+    DisposableEffect(result) {
+        val unsubscribe = subscribe { result.value = state.selector() }
+        onDispose(unsubscribe)
+    }
+    return result
 }
