@@ -29,7 +29,7 @@ import com.yogeshpaliyal.keypass.ui.redux.states.KeyPassState
 import com.yogeshpaliyal.keypass.ui.redux.states.ScreenState
 import com.yogeshpaliyal.keypass.ui.redux.states.SettingsState
 import org.reduxkotlin.compose.rememberDispatcher
-import org.reduxkotlin.compose.selectState
+import com.yogeshpaliyal.keypass.ui.redux.selectState
 
 
 
