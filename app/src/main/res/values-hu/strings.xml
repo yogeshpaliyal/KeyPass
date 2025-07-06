@@ -128,4 +128,13 @@
     <string name="invalid_package_signature">Érvénytelen csomag aláírás</string>
     <string name="autofill_service_disable">Az AutoFill szolgáltatás</string>
     <string name="autofill_not_available">Csak az android 10 és annál magasabb</string>
+    <string name="backup_screen_desc">Biztosan támogatja hitelesítő adatait az adatvesztés megakadályozására. Biztonsági mentések titkosított egy kulcsfázis.</string>
+    <string name="create_account">Fiók létrehozása</string>
+    <string name="edit_account">Edit fiók</string>
+    <string name="app_password_hint_desc">A jelszómutató segít emlékezni a jelszóra, ha elfelejti. Győződjön meg róla, hogy ez egy utalás csak megérteni.</string>
+    <string name="auto_lock">Auto Lock a háttérben</string>
+    <string name="contact_developer">Kapcsolatfejlesztő</string>
+    <string name="contact_via_email">Küldjön e-mailt támogatásra, visszajelzésre vagy javaslatokra</string>
+    <string name="choose_default_password_length">Válassza az alapértelmezett jelszó hosszát</string>
+    <string name="choose_default_password_length_desc">Ezt a hosszúságot alapértelmezésként fogják használni, amikor új jelszavakat generálnak. A hosszabb jelszavak jobb biztonságot nyújtanak.</string>
 </resources>

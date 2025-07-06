@@ -128,4 +128,13 @@
     <string name="autofill_service_disable">خدمات التشغيل الآلي</string>
     <string name="autofill_not_available">إنها متاحة فقط على الكويكب 10 وما فوق</string>
     <string name="invalid_package_signature">توقيع حزمة غير صالحة</string>
+    <string name="backup_screen_desc">ادعموا وثائق تفويضكم لمنع فقدان البيانات المساندة مشفرة بمفتاح.</string>
+    <string name="create_account">حساب الإنشاء</string>
+    <string name="edit_account">حساب الاعتماد</string>
+    <string name="app_password_hint_desc">تلميح كلمة السر يساعدك على تذكر كلمة المرور إذا نسيتها تأكد من أنه تلميحاً فقط كنت ستفهمه.</string>
+    <string name="auto_lock">Auto lock on background</string>
+    <string name="contact_developer">مطور الاتصال</string>
+    <string name="contact_via_email">إرسال رسالة إلكترونية للدعم أو التغذية المرتدة أو الاقتراحات</string>
+    <string name="choose_default_password_length">اختر كلمة السر</string>
+    <string name="choose_default_password_length_desc">وسيستخدم هذا الطول كقصر عند توليد كلمات سر جديدة. كلمات السر الطويلة توفر أمناً أفضل.</string>
 </resources>
