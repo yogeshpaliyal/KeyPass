@@ -129,4 +129,13 @@
     <string name="autofill_service_disable">Disable AutoFill Service</string>
     <string name="autofill_not_available">Sadece android 10 ve yukarıda mevcuttur</string>
     <string name="invalid_package_signature">Invalid paketi imza</string>
+    <string name="backup_screen_desc">Verilerin kaybını önlemek için kimliklerinizi güvenli bir şekilde geri yükleyin. Backups bir keyphrase ile şifrelenir.</string>
+    <string name="create_account">Create account</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="app_password_hint_desc">Bir şifre ipucu, unutursanız şifrenizi hatırlamanıza yardımcı olur. Sadece anlamanız gereken bir ipucu olduğundan emin olun.</string>
+    <string name="auto_lock">Auto Lock on background</string>
+    <string name="contact_developer">İletişim Geliştirici Geliştirici</string>
+    <string name="contact_via_email">Destek, geri bildirim veya önerileri için bir e-posta gönderin</string>
+    <string name="choose_default_password_length">Varsayılan Şifre Uzunluk</string>
+    <string name="choose_default_password_length_desc">Bu uzunluk, yeni şifreler oluştururken varsayılan olarak kullanılacaktır. Uzun şifreler daha iyi güvenlik sağlar.</string>
 </resources>
