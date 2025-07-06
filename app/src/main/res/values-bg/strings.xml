@@ -2,7 +2,7 @@
 <resources>
     <string name="turn_on_backup">Включи архивирането</string>
     <string name="ascending">Възходящо</string>
-    <string name="send_feedback_desc">Докладвай за технически проблеми или предложете нови функции</string>
+    <string name="send_feedback_desc">Докладване на технически проблеми или предлагане на нови функции</string>
     <string name="account_name">Име на профил</string>
     <string name="copied_to_clipboard">Копирано в клипборда</string>
     <string name="delete_account_title">Сигурни ли сте?</string>
@@ -29,14 +29,14 @@
     <string name="set_keyphrase">Задай ключова фраза</string>
     <string name="yes">Да</string>
     <string name="keyphrase_restore_info">Моля, въведете ключовата фраза, която получихте при архивиране</string>
-    <string name="restore_credentials_desc">Възстановете вашите архиви</string>
+    <string name="restore_credentials_desc">Възстановяване на паролите от архив</string>
     <string name="send_feedback">Изпрати обратна връзка</string>
     <string name="alert">Предупреждение</string>
     <string name="help">Помощ</string>
     <string name="back">Назад</string>
     <string name="invalid_keyphrase">Невалидна ключова фраза</string>
     <string name="delete">Изтрий</string>
-    <string name="change_password_length">Промени дължината на паролата</string>
+    <string name="change_password_length">Промяна дължината на паролата</string>
     <string name="default_password_length">Дължина на паролата по подразбиране</string>
     <string name="authentication_failed">Неуспешно удостоверяване</string>
     <string name="password_set_from_settings">Моля, задайте парола за вашето устройство първо от настройките на телефона</string>
@@ -64,7 +64,7 @@
     <string name="disabled">Деактивирай</string>
     <string name="generate_password">Генерирай парола</string>
     <string name="message_no_accounts">Няма намерени профили, моля добавете от бутона по-долу</string>
-    <string name="restore_credentials">Изнаси идентификационни данни</string>
+    <string name="restore_credentials">Внасяне на идентификационни данни</string>
     <string name="custom_generated_keyphrase_info">Искате ли да създадете ваша собствена ключова фраза за архивиране или трябва да генерирам вместо вас?</string>
     <string name="credentials_backups_desc">Архивирай идентификационни данни във външно хранилище</string>
     <string name="backup_completed">Архивирането завърши</string>
@@ -81,17 +81,17 @@
     <string name="unlock_with_biometric">Отключи с биометрични данни</string>
     <string name="secret_key">Таен ключ</string>
     <string name="set_keyphrase_info">Моля, създайте ключова фраза за вашия архивен файл, това ще се използва за възстановяване на архивния файл. ключовата фраза трябва да е от 16 знака</string>
-    <string name="google_backup">Google архив</string>
+    <string name="google_backup">Изнасяне на пароли за Chrome/Google</string>
     <string name="incorrect_password">Неправилна парола</string>
     <string name="share">Сподели</string>
     <string name="enter_password">Въведи парола</string>
     <string name="enter_keyphrase">Въведи ключова фраза</string>
     <string name="scan_password">Сканирай парола</string>
     <string name="backup_restored">Архивирането е възстановено</string>
-    <string name="generate_keyphrase">Създай ключова фраза</string>
-    <string name="generate_qr_code">Изнеси</string>
-    <string name="keepass_backup">KeePass архив</string>
-    <string name="invalid_csv_file">Невалиден CSV файл</string>
+    <string name="generate_keyphrase">Генерирай ключова фраза</string>
+    <string name="generate_qr_code">Изнасяне</string>
+    <string name="keepass_backup">Изнасяне на KeePass CSV</string>
+    <string name="invalid_csv_file">Невалиден CSV Файл</string>
     <string name="file_not_found">Файлът не е намерен (моля, опитайте отново)</string>
     <string name="invalid_secret_key">Невалиден формат на таен ключ</string>
     <string name="app_desc">Офлайн мениджър на пароли с отворен код. Съхранявайте, управлявайте, контролирайте сигурно.</string>
@@ -102,7 +102,7 @@
     <string name="app_developer_linkedin">LinkedIn</string>
     <string name="source_code">Програмен код</string>
     <string name="app_developer_github">Github</string>
-    <string name="keepass_backup_desc">Избери KeePass CSV файл за внасяне</string>
+    <string name="keepass_backup_desc">Внасяне на пароли от KeePass CSV файл</string>
     <string name="change_app_hint">Промени подсказка</string>
     <string name="hint_change_success">Подсказката е променена успешно</string>
     <string name="hint_removed_success">Подсказката е премахната успешно</string>
@@ -128,4 +128,13 @@
     <string name="autofill_service_enable">Активирай услугата за автоматично попълване</string>
     <string name="autofill_service">Услуга за автоматично попълване</string>
     <string name="autofill_not_available">Предлага се само на android 10 и по-нова версия</string>
+    <string name="backup_screen_desc">Направете сигурно архивиране на идентификационните си данни, за да предотвратите загуба на данни. Архивните копия се криптират с ключова фраза.</string>
+    <string name="create_account">Създаване на профил</string>
+    <string name="edit_account">Редактиране на профил</string>
+    <string name="app_password_hint_desc">Подсказката за парола ви помага да си спомните паролата си, ако я забравите. Уверете се, че е подсказка, която само вие ще разберете.</string>
+    <string name="auto_lock">Автоматично заключване на заден план</string>
+    <string name="contact_developer">За връзка с разработчика</string>
+    <string name="contact_via_email">Изпратете имейл за поддръжка, обратна връзка или предложения</string>
+    <string name="choose_default_password_length">Изберете дължина на паролата по подразбиране</string>
+    <string name="choose_default_password_length_desc">Тази дължина ще се използва по подразбиране при генериране на нови пароли. По-дългите пароли осигуряват по-добра сигурност.</string>
 </resources>
