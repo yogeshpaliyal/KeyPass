@@ -29,7 +29,7 @@
     <string name="set_keyphrase">Задай ключова фраза</string>
     <string name="yes">Да</string>
     <string name="keyphrase_restore_info">Моля, въведете ключовата фраза, която получихте при архивиране</string>
-    <string name="restore_credentials_desc">Възстановете вашите архиви</string>
+    <string name="restore_credentials_desc">Възстановете паролите си от резервно копие</string>
     <string name="send_feedback">Изпрати обратна връзка</string>
     <string name="alert">Предупреждение</string>
     <string name="help">Помощ</string>
@@ -64,7 +64,7 @@
     <string name="disabled">Деактивирай</string>
     <string name="generate_password">Генерирай парола</string>
     <string name="message_no_accounts">Няма намерени профили, моля добавете от бутона по-долу</string>
-    <string name="restore_credentials">Изнаси идентификационни данни</string>
+    <string name="restore_credentials">Внасяне на идентификационни данни</string>
     <string name="custom_generated_keyphrase_info">Искате ли да създадете ваша собствена ключова фраза за архивиране или трябва да генерирам вместо вас?</string>
     <string name="credentials_backups_desc">Архивирай идентификационни данни във външно хранилище</string>
     <string name="backup_completed">Архивирането завърши</string>
@@ -128,4 +128,5 @@
     <string name="autofill_service_enable">Активирай услугата за автоматично попълване</string>
     <string name="autofill_service">Услуга за автоматично попълване</string>
     <string name="autofill_not_available">Предлага се само на android 10 и по-нова версия</string>
+    <string name="backup_screen_desc">Направете сигурно резервно копие на вашите идентификационни данни, за да предотвратите загуба на данни. Резервните копия са криптирани с ключова фраза.</string>
 </resources>
