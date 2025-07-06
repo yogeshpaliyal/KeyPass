@@ -129,4 +129,13 @@
     <string name="autofill_service_disable">停用自动填充服务</string>
     <string name="autofill_not_available">仅在 android 10 及更高版本系统上可用</string>
     <string name="invalid_package_signature">无效的包签名</string>
+    <string name="backup_screen_desc">可靠地支持你的全权证书,以防止数据损失。 备份与关键词加密.</string>
+    <string name="create_account">设立账户</string>
+    <string name="edit_account">Edit 账户</string>
+    <string name="app_password_hint_desc">如果你忘记的话,密码就帮助你记住你的密码。 只有你们才能理解它.</string>
+    <string name="auto_lock">背 景</string>
+    <string name="contact_developer">联络员</string>
+    <string name="contact_via_email">附上支持、反馈或建议电子邮件</string>
+    <string name="choose_default_password_length">Choose Default Password Length</string>
+    <string name="choose_default_password_length_desc">这一长度将在产生新的密码时用作违约。 较长的密码提供了更好的安全.</string>
 </resources>
