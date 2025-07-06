@@ -128,4 +128,13 @@
     <string name="autofill_not_available">این فقط در Android 10 و بالاتر در دسترس است</string>
     <string name="invalid_package_signature">امضای Invalid</string>
     <string name="autofill_service_enable">قابلیت AutoFill Service</string>
+    <string name="backup_screen_desc">به طور ایمن اعتبار خود را برای جلوگیری از از از دست دادن داده ها بازگردانید. پشتیبان ها با یک کلید رمزگذاری می شوند.</string>
+    <string name="create_account">ایجاد حساب</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="app_password_hint_desc">یک اشاره رمز عبور به شما کمک می کند رمز عبور خود را به یاد بیاورید اگر آن را فراموش کنید. اطمینان حاصل کنید که این تنها نشانه ای است که شما می فهمید.</string>
+    <string name="auto_lock">قفل خودکار در پس زمینه</string>
+    <string name="contact_developer">سازنده: Contact Developer</string>
+    <string name="contact_via_email">ارسال ایمیل برای پشتیبانی، بازخورد یا پیشنهادات</string>
+    <string name="choose_default_password_length">انتخاب Password Long</string>
+    <string name="choose_default_password_length_desc">این طول به عنوان پیش فرض در هنگام تولید رمز عبور جدید استفاده می شود. پسوردهای طولانی تر امنیت بهتری دارند.</string>
 </resources>
