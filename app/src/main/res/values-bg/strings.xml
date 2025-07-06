@@ -36,7 +36,7 @@
     <string name="back">Назад</string>
     <string name="invalid_keyphrase">Невалидна ключова фраза</string>
     <string name="delete">Изтрий</string>
-    <string name="change_password_length">Промени дължината на паролата</string>
+    <string name="change_password_length">Промяна на дължината на паролата</string>
     <string name="default_password_length">Дължина на паролата по подразбиране</string>
     <string name="authentication_failed">Неуспешно удостоверяване</string>
     <string name="password_set_from_settings">Моля, задайте парола за вашето устройство първо от настройките на телефона</string>
@@ -135,6 +135,6 @@
     <string name="auto_lock">Автоматично заключване на заден план</string>
     <string name="contact_developer">За връзка с разработчика</string>
     <string name="contact_via_email">Изпратете имейл за поддръжка, обратна връзка или предложения</string>
-    <string name="choose_default_password_length">Избор на дължина на паролата по подразбиране</string>
+    <string name="choose_default_password_length">Изберете дължина на паролата по подразбиране</string>
     <string name="choose_default_password_length_desc">Тази дължина ще се използва по подразбиране при генериране на нови пароли. По-дългите пароли осигуряват по-добра сигурност.</string>
 </resources>
