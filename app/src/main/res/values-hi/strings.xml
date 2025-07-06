@@ -129,4 +129,13 @@
     <string name="autofill_service_disable">अक्षम ऑटोफिल सेवा</string>
     <string name="autofill_not_available">यह केवल Android 10 और ऊपर पर उपलब्ध है</string>
     <string name="invalid_package_signature">अमान्य पैकेज हस्ताक्षर</string>
+    <string name="backup_screen_desc">डेटा हानि को रोकने के लिए अपने क्रेडेंशियल को सुरक्षित रूप से वापस करें। बैकअप एक keyphrase के साथ एन्क्रिप्ट किया जाता है।।</string>
+    <string name="create_account">खाता बनाएँ</string>
+    <string name="edit_account">लेखा</string>
+    <string name="app_password_hint_desc">यदि आप इसे भूल जाते हैं तो पासवर्ड संकेत आपको पासवर्ड याद रखने में मदद करता है। सुनिश्चित करें कि यह केवल एक संकेत है कि आप समझेंगे।।</string>
+    <string name="auto_lock">पृष्ठभूमि पर ऑटो लॉक</string>
+    <string name="contact_developer">संपर्क डेवलपर</string>
+    <string name="contact_via_email">समर्थन, प्रतिक्रिया, या सुझाव के लिए एक ईमेल भेजें</string>
+    <string name="choose_default_password_length">डिफ़ॉल्ट पासवर्ड की लंबाई चुनें</string>
+    <string name="choose_default_password_length_desc">नए पासवर्ड उत्पन्न करते समय इस लंबाई को डिफ़ॉल्ट रूप से इस्तेमाल किया जाएगा। लंबे पासवर्ड बेहतर सुरक्षा प्रदान करते हैं।।</string>
 </resources>
