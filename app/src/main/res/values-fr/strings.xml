@@ -128,4 +128,13 @@
     <string name="autofill_service_enable">Enable AutoFill Service</string>
     <string name="autofill_service_disable">Disable AutoFill Service</string>
     <string name="invalid_package_signature">Signature du colis invalide</string>
+    <string name="backup_screen_desc">Sauvegardez en toute sécurité vos identifiants pour éviter la perte de données. Les sauvegardes sont cryptées avec un keyphrase.</string>
+    <string name="create_account">Créer un compte</string>
+    <string name="edit_account">Modifier le compte</string>
+    <string name="app_password_hint_desc">Un indice de mot de passe vous aide à vous souvenir de votre mot de passe si vous l\'oubliez. Assurez-vous que c\'est un indice que vous comprendrez.</string>
+    <string name="auto_lock">Auto Lock sur fond</string>
+    <string name="contact_developer">Contact Developer</string>
+    <string name="contact_via_email">Envoyez un courriel pour le soutien, la rétroaction ou les suggestions</string>
+    <string name="choose_default_password_length">Choisir une longueur de mot de passe par défaut</string>
+    <string name="choose_default_password_length_desc">Cette longueur sera utilisée par défaut pour générer de nouveaux mots de passe. Des mots de passe plus longs assurent une meilleure sécurité.</string>
 </resources>

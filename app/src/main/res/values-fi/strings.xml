@@ -128,4 +128,13 @@
     <string name="autofill_service_enable">Automaattinen täyttöpalvelu</string>
     <string name="autofill_service_disable">Vammaiset automaattitäytepalvelut</string>
     <string name="autofill_not_available">Saatavilla vain Android 10:ssä ja sen yläpuolella</string>
+    <string name="backup_screen_desc">Varmistat varmuuskopiointisi tietojen menetyksen estämiseksi. Varmuuskopiot salataan avainsanalla.</string>
+    <string name="create_account">Luo tili</string>
+    <string name="edit_account">Edit-tili</string>
+    <string name="app_password_hint_desc">Password vihje auttaa sinua muistamaan salasanasi, jos unohdat sen. Varmista, että se on vihje, jonka vain ymmärtäisit.</string>
+    <string name="auto_lock">Autonvuokraus taustalla</string>
+    <string name="contact_developer">Contact Kehittäjä</string>
+    <string name="contact_via_email">Lähetä sähköpostia tukeen, palautteeseen tai ehdotuksiin</string>
+    <string name="choose_default_password_length">Valitse Password pituus</string>
+    <string name="choose_default_password_length_desc">Tätä pituutta käytetään oletusarvona uusien salasanojen luomisessa. Pidemmät salasanat takaavat paremman turvallisuuden.</string>
 </resources>
