@@ -36,7 +36,7 @@
     <string name="back">Назад</string>
     <string name="invalid_keyphrase">Невалидна ключова фраза</string>
     <string name="delete">Изтрий</string>
-    <string name="change_password_length">Промяна на дължината на паролата</string>
+    <string name="change_password_length">Промяна дължината на паролата</string>
     <string name="default_password_length">Дължина на паролата по подразбиране</string>
     <string name="authentication_failed">Неуспешно удостоверяване</string>
     <string name="password_set_from_settings">Моля, задайте парола за вашето устройство първо от настройките на телефона</string>
@@ -89,7 +89,7 @@
     <string name="scan_password">Сканирай парола</string>
     <string name="backup_restored">Архивирането е възстановено</string>
     <string name="generate_keyphrase">Генерирай ключова фраза</string>
-    <string name="generate_qr_code">Изнеси</string>
+    <string name="generate_qr_code">Изнасяне</string>
     <string name="keepass_backup">Изнасяне на KeePass CSV</string>
     <string name="invalid_csv_file">Невалиден CSV Файл</string>
     <string name="file_not_found">Файлът не е намерен (моля, опитайте отново)</string>
