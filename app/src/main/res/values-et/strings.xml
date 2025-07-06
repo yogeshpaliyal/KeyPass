@@ -31,4 +31,5 @@
     <string name="turn_on_backup">Lülita varukoopiate tegemine sisse</string>
     <string name="feedback_to_keypass">Tagasiside KeyPassi kohta</string>
     <string name="message_no_accounts">Kasutajakontosid ei leidu, palun lisa mõni all ääres olevast nupust</string>
+    <string name="invalid_csv_file">Vigane csv-fail</string>
 </resources>
