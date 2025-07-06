@@ -128,4 +128,13 @@
     <string name="autofill_service_disable">Вимкнена послуга AutoFill</string>
     <string name="autofill_not_available">На андроїд 10 і вище</string>
     <string name="invalid_package_signature">Імпорт пакета</string>
+    <string name="backup_screen_desc">Збережіть ваші облікові дані, щоб запобігти втраті даних. Резервуари зашифровані за допомогою брелоку.</string>
+    <string name="create_account">Створити обліковий запис</string>
+    <string name="edit_account">Редагувати обліковий запис</string>
+    <string name="app_password_hint_desc">Підказка пароля допоможе вам запам\'ятати пароль, якщо ви забули його. Переконайтеся, що це підказка тільки ви зрозуміли.</string>
+    <string name="auto_lock">Авто замок на фоні</string>
+    <string name="contact_developer">Контакти</string>
+    <string name="contact_via_email">Надішліть листа на підтримку, зворотній зв\'язок або пропозиції</string>
+    <string name="choose_default_password_length">Виберіть довжину пароля</string>
+    <string name="choose_default_password_length_desc">Ця довжина буде використовуватися як за замовчуванням при створенні нових паролів. Довгий пароль забезпечує кращу безпеку.</string>
 </resources>

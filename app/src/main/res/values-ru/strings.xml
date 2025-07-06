@@ -129,4 +129,13 @@
     <string name="autofill_service_disable">Отключить службу автозаполнения</string>
     <string name="autofill_not_available">Он доступен только на Android 10 и выше</string>
     <string name="invalid_package_signature">Недействительная подпись пакета</string>
+    <string name="backup_screen_desc">Безопасно резервируйте свои учетные данные, чтобы предотвратить потерю данных. Резервные копии зашифрованы с помощью клавиатуры.</string>
+    <string name="create_account">Создать учетную запись</string>
+    <string name="edit_account">Изменить счет</string>
+    <string name="app_password_hint_desc">Подсказка пароля помогает вам запомнить пароль, если вы его забыли. Удостоверьтесь, что это только намек, который вы поймете.</string>
+    <string name="auto_lock">Автозамок на заднем плане</string>
+    <string name="contact_developer">Контакты</string>
+    <string name="contact_via_email">Отправить электронное письмо для поддержки, обратной связи или предложений</string>
+    <string name="choose_default_password_length">Выберите длину пароля</string>
+    <string name="choose_default_password_length_desc">Эта длина будет использоваться в качестве по умолчанию при создании новых паролей. Более длинные пароли обеспечивают лучшую безопасность.</string>
 </resources>
