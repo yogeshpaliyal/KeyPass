@@ -128,4 +128,13 @@
     <string name="autofill_service_disable">Disable AutoFill Service</string>
     <string name="autofill_not_available">Je k dispozícii len na Android 10 a vyššie</string>
     <string name="invalid_package_signature">Nesporný podpis balíka</string>
+    <string name="backup_screen_desc">Bezpečne zálohujte svoje poverenia na zabránenie strate dát. Zálohovanie sú šifrované s keyphrase.</string>
+    <string name="create_account">Vytvoriť účet</string>
+    <string name="edit_account">Upraviť účet</string>
+    <string name="app_password_hint_desc">Heslo vám pomôže zapamätať si heslo, ak zabudnete. Uistite sa, že je to náznak len by ste pochopili.</string>
+    <string name="auto_lock">Auto Lock na pozadí</string>
+    <string name="contact_developer">Kontaktný vývojár</string>
+    <string name="contact_via_email">Pošlite e-mail na podporu, spätnú väzbu alebo návrhy</string>
+    <string name="choose_default_password_length">Vyberte Predvolené heslo Dĺžka</string>
+    <string name="choose_default_password_length_desc">Táto dĺžka bude použitá ako predvolené pri generovaní nových heslá. Dlhšie heslá poskytujú lepšiu bezpečnosť.</string>
 </resources>
