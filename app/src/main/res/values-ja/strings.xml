@@ -128,4 +128,13 @@
     <string name="autofill_service_enable">AutoFillサービスを有効にする</string>
     <string name="autofill_service_disable">無効なAutoFillサービス</string>
     <string name="invalid_package_signature">無効なパッケージ署名</string>
+    <string name="backup_screen_desc">データの損失を防ぐため、資格情報を安全にバックアップします。 バックアップは、キーフレーズで暗号化されます.</string>
+    <string name="create_account">アカウントの作成</string>
+    <string name="edit_account">アカウントの編集</string>
+    <string name="app_password_hint_desc">パスワードのヒントは、パスワードを忘れた場合にパスワードを記憶するのに役立ちます。 あなたが理解するだけヒントであることを確認してください.</string>
+    <string name="auto_lock">バックグラウンドで自動ロック</string>
+    <string name="contact_developer">コンタクト開発者</string>
+    <string name="contact_via_email">サポート、フィードバック、または提案のための電子メールを送って下さい</string>
+    <string name="choose_default_password_length">デフォルトパスワードの長さを選択してください</string>
+    <string name="choose_default_password_length_desc">新しいパスワードを生成するときにデフォルトでこの長さが使用されます。 より長いパスワードはより良いセキュリティを提供します.</string>
 </resources>
