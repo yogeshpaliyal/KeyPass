@@ -128,4 +128,13 @@
     <string name="autofill_service_disable">AutoFill Service deaktivieren</string>
     <string name="autofill_not_available">Es ist nur auf Android 10 und oben verfügbar</string>
     <string name="invalid_package_signature">Invalide Paketsignatur</string>
+    <string name="backup_screen_desc">Sichern Sie Ihre Anmeldeinformationen, um Datenverlust zu verhindern. Backups werden mit einer Keyphrase verschlüsselt.</string>
+    <string name="create_account">Konto erstellen</string>
+    <string name="edit_account">Konto bearbeiten</string>
+    <string name="app_password_hint_desc">Ein Passwort-Hinweis hilft Ihnen, sich an Ihr Passwort zu erinnern, wenn Sie es vergessen. Stellen Sie sicher, dass es ein Hinweis ist, nur Sie verstehen würden.</string>
+    <string name="auto_lock">Auto Lock auf Hintergrund</string>
+    <string name="contact_developer">Kontakt Entwickler</string>
+    <string name="contact_via_email">Senden Sie eine E-Mail für Support, Feedback oder Vorschläge</string>
+    <string name="choose_default_password_length">Wählen Sie Standard Passwort Länge</string>
+    <string name="choose_default_password_length_desc">Diese Länge wird standardmäßig bei der Generierung neuer Passwörter verwendet. Längere Passwörter bieten eine bessere Sicherheit.</string>
 </resources>
