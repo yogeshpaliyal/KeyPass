@@ -1,3 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="generate_password">產生密碼</string>
+    <string name="home">主頁</string>
+    <string name="delete">刪除</string>
+    <string name="share">分享</string>
+    <string name="app_developer">開發者</string>
+    <string name="app_developer_linkedin">LinkedIn</string>
+    <string name="app_developer_github">GitHub</string>
+    <string name="password">密碼</string>
+    <string name="cancel">取消</string>
+    <string name="yes">是</string>
+    <string name="alert">警告</string>
+    <string name="help">幫助</string>
+    <string name="security">安全</string>
+    <string name="disabled">已停用</string>
+    <string name="enabled">已啟用</string>
+    <string name="ascending">升序</string>
+    <string name="descending">降序</string>
+    <string name="str_continue">繼續</string>
+    <string name="back">返回</string>
+    <string name="generate_qr_code">匯出</string>
+    <string name="validate">檢查</string>
+    <string name="generate_shortcut_short_label">產生密碼</string>
+    <string name="backup_restored">備份已還原</string>
+    <string name="send_feedback">傳送意見反映</string>
+    <string name="about_us">關於我們</string>
+    <string name="source_code">原始碼</string>
+    <string name="share_keypass">分享 KeyPass</string>
+    <string name="create_backup">建立備份</string>
+    <string name="edit_account">編輯帳戶</string>
+    <string name="notes_optional">備註（選填）</string>
+    <string name="auto_backup">自動備份</string>
+    <string name="enter_password">輸入密碼</string>
+    <string name="confirm_password">確認密碼</string>
+    <string name="incorrect_password">不正確的密碼</string>
 </resources>
