@@ -128,4 +128,13 @@
     <string name="autofill_service_disable">Servicio de automatización deshabilitado</string>
     <string name="autofill_not_available">Sólo está disponible en androide 10 y superior</string>
     <string name="invalid_package_signature">Firma de paquete inválido</string>
+    <string name="backup_screen_desc">Respalde de forma segura sus credenciales para evitar la pérdida de datos. Los respaldos están encriptados con una frase clave.</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="edit_account">Editar cuenta</string>
+    <string name="app_password_hint_desc">Una pista de contraseña te ayuda a recordar tu contraseña si lo olvidas. Asegúrate de que es sólo una pista que entenderías.</string>
+    <string name="auto_lock">Cierre automático en el fondo</string>
+    <string name="contact_developer">Desarrollador de contacto</string>
+    <string name="contact_via_email">Enviar un correo electrónico para soporte, comentarios o sugerencias</string>
+    <string name="choose_default_password_length">Seleccione la duración de la contraseña predeterminada</string>
+    <string name="choose_default_password_length_desc">Esta longitud se utilizará como predeterminado al generar nuevas contraseñas. Las contraseñas más largas proporcionan una mejor seguridad.</string>
 </resources>
