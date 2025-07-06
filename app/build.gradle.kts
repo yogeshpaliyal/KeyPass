@@ -135,7 +135,7 @@ dependencies {
 
     implementation("com.google.accompanist:accompanist-themeadapter-material3:0.36.0")
 
-    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.7.1")
 
     // XML Libraries
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")

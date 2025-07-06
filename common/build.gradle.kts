@@ -36,7 +36,7 @@ android {
 dependencies {
 
     api("androidx.core:core-ktx:1.16.0")
-    api("androidx.appcompat:appcompat:1.7.0")
+    api("androidx.appcompat:appcompat:1.7.1")
 
     // apache common codec
     implementation("commons-codec:commons-codec:1.18.0")
