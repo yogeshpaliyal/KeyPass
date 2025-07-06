@@ -129,4 +129,13 @@
     <string name="autofill_service_enable">Habilitar o Serviço de AutoFill</string>
     <string name="autofill_service_disable">Desativar o Serviço de AutoFill</string>
     <string name="invalid_package_signature">Assinatura de pacote inválido</string>
+    <string name="backup_screen_desc">Faça backup seguro de suas credenciais para evitar a perda de dados. Os backups são criptografados com uma keyphrase.</string>
+    <string name="create_account">Criar conta</string>
+    <string name="edit_account">Editar Conta</string>
+    <string name="app_password_hint_desc">Uma dica de senha ajuda você a lembrar sua senha se você esquecer. Certifique-se de que é uma dica que só você entenderia.</string>
+    <string name="auto_lock">Bloqueio automático no fundo</string>
+    <string name="contact_developer">Contacte o Desenvolvedor</string>
+    <string name="contact_via_email">Enviar um e-mail para suporte, feedback ou sugestões</string>
+    <string name="choose_default_password_length">Escolha o comprimento de senha padrão</string>
+    <string name="choose_default_password_length_desc">Este comprimento será usado como padrão ao gerar novas senhas. Senhas mais longas fornecem melhor segurança.</string>
 </resources>
