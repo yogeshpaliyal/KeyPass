@@ -11,7 +11,7 @@
     <string name="credentials_backups">备份</string>
     <string name="credentials_backups_desc">把密码备份到外部存储</string>
     <string name="restore_credentials">导入凭据</string>
-    <string name="restore_credentials_desc">从备份中恢复</string>
+    <string name="restore_credentials_desc">从备份恢复密码</string>
     <string name="send_feedback">发送反馈</string>
     <string name="send_feedback_desc">报告技术问题或建议新功能</string>
     <string name="share">分享</string>
@@ -89,11 +89,11 @@
     <string name="default_password_length">默认密码长度</string>
     <string name="secret_key">密钥</string>
     <string name="keypass_backup">KeyPass 备份</string>
-    <string name="google_backup">Google 备份</string>
+    <string name="google_backup">Chrome/Google 密码导出</string>
     <string name="generate_qr_code">导出</string>
     <string name="about_us">关于我们</string>
-    <string name="keepass_backup">KeePass 备份</string>
-    <string name="keepass_backup_desc">选择要导入的 KeePass CSV 文件</string>
+    <string name="keepass_backup">KeePass CSV 导出</string>
+    <string name="keepass_backup_desc">从 KeePass CSV 文件导入密码</string>
     <string name="app_desc">开放源代码的离线密码管理器。安全地进行储存、管理和操作。</string>
     <string name="about_us_desc">关于我们的描述</string>
     <string name="app_developer">开发者</string>
@@ -129,13 +129,13 @@
     <string name="autofill_service_disable">停用自动填充服务</string>
     <string name="autofill_not_available">仅在 android 10 及更高版本系统上可用</string>
     <string name="invalid_package_signature">无效的包签名</string>
-    <string name="backup_screen_desc">可靠地支持你的全权证书,以防止数据损失。 备份与关键词加密.</string>
+    <string name="backup_screen_desc">安全地备份凭据防止数据丢失。备份文件使用关键短语加密。</string>
     <string name="create_account">设立账户</string>
-    <string name="edit_account">Edit 账户</string>
-    <string name="app_password_hint_desc">如果你忘记的话,密码就帮助你记住你的密码。 只有你们才能理解它.</string>
-    <string name="auto_lock">背 景</string>
-    <string name="contact_developer">联络员</string>
-    <string name="contact_via_email">附上支持、反馈或建议电子邮件</string>
-    <string name="choose_default_password_length">Choose Default Password Length</string>
-    <string name="choose_default_password_length_desc">这一长度将在产生新的密码时用作违约。 较长的密码提供了更好的安全.</string>
+    <string name="edit_account">编辑账户</string>
+    <string name="app_password_hint_desc">密码提示在你忘记密码时帮助你记起密码。请确保只有你能理解该提示的意思。</string>
+    <string name="auto_lock">后台自动锁定</string>
+    <string name="contact_developer">联系开发者</string>
+    <string name="contact_via_email">发送电子邮件，提出支持请求、建议、反馈等</string>
+    <string name="choose_default_password_length">选择默认的密码长度</string>
+    <string name="choose_default_password_length_desc">这个长度将用作生成密码的默认长度。更长的密码提供更好的安全性。</string>
 </resources>
