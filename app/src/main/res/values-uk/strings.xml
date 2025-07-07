@@ -30,8 +30,8 @@
     <string name="biometric_error_hw_unavailable">Біометричні функції наразі недоступні.</string>
     <string name="unlock_with_biometric">Розблокування за допомогою біометрії</string>
     <string name="credentials_backups_desc">Резервне копіювання облікових даних на зовнішнє сховище</string>
-    <string name="restore_credentials">Облікові дані імпорту</string>
-    <string name="restore_credentials_desc">Відновлення резервних копій</string>
+    <string name="restore_credentials">Імпортувати облікові дані</string>
+    <string name="restore_credentials_desc">Відновлення паролю із резервної копії</string>
     <string name="send_feedback">Надіслати відгук</string>
     <string name="login_to_enter_keypass">Увійдіть, щоб зайти в KeyPass</string>
     <string name="last_backup_date">Остання резервна копія: %s</string>
