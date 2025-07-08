@@ -11,7 +11,7 @@
     <string name="credentials_backups">Резервные копии учетных данных</string>
     <string name="credentials_backups_desc">Создать резервную копию учетных данных на внешнем хранилище</string>
     <string name="restore_credentials">Импорт учетных данных</string>
-    <string name="restore_credentials_desc">Восстановить резервные копии</string>
+    <string name="restore_credentials_desc">Восстановить пароли из резервной копии</string>
     <string name="send_feedback">Отправить отзыв</string>
     <string name="send_feedback_desc">Сообщить о технических проблемах или предложить новые функции</string>
     <string name="share">Поделиться</string>
@@ -89,7 +89,7 @@
     <string name="default_password_length">Длина пароля по умолчанию</string>
     <string name="secret_key">Секретный ключ</string>
     <string name="keypass_backup">Резервная копия KeyPass</string>
-    <string name="google_backup">Резервная копия Google</string>
+    <string name="google_backup">Экспорт паролей Chrome/Google</string>
     <string name="generate_qr_code">Экспорт</string>
     <string name="about_us">О нас</string>
     <string name="about_us_desc">Описание раздела О нас</string>
@@ -99,8 +99,8 @@
     <string name="source_code">Исходный код</string>
     <string name="app_developer_github">Github</string>
     <string name="app_desc">Менеджер паролей с открытым исходным кодом и оффлайн доступом. Безопасно храните, управляйте и контролируйте свои пароли.</string>
-    <string name="keepass_backup">Резервная копия KeePass</string>
-    <string name="keepass_backup_desc">Выберите CSV-файл KeePass для импорта</string>
+    <string name="keepass_backup">Экспорт KeePass CSV</string>
+    <string name="keepass_backup_desc">Импорт из KeePass CSV</string>
     <string name="invalid_secret_key">Неверный формат секретного ключа</string>
     <string name="invalid_csv_file">Неверный CSV-файл</string>
     <string name="file_not_found">Файл не найден (пожалуйста, попробуйте снова)</string>
