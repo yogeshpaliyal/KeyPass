@@ -11,7 +11,7 @@
     <string name="credentials_backups">Резервные копии учетных данных</string>
     <string name="credentials_backups_desc">Создать резервную копию учетных данных на внешнем хранилище</string>
     <string name="restore_credentials">Импорт учетных данных</string>
-    <string name="restore_credentials_desc">Восстановить резервные копии</string>
+    <string name="restore_credentials_desc">Восстановить пароли из резервной копии</string>
     <string name="send_feedback">Отправить отзыв</string>
     <string name="send_feedback_desc">Сообщить о технических проблемах или предложить новые функции</string>
     <string name="share">Поделиться</string>
@@ -46,7 +46,7 @@
     <string name="enabled">Включено</string>
     <string name="override_auto_backup_file">Переопределить файл автоматической резервной копии</string>
     <string name="alert_black_secret_key">Пожалуйста, введите секретный ключ</string>
-    <string name="alert_black_account_name">Пожалуйста, введите имя учетной записи</string>
+    <string name="alert_black_account_name">Введите название учетной записи</string>
     <string name="scan_password">Сканировать пароль</string>
     <string name="custom_keyphrase">Пользовательская ключевая фраза</string>
     <string name="generate_keyphrase">Генерировать ключевую фразу</string>
@@ -89,7 +89,7 @@
     <string name="default_password_length">Длина пароля по умолчанию</string>
     <string name="secret_key">Секретный ключ</string>
     <string name="keypass_backup">Резервная копия KeyPass</string>
-    <string name="google_backup">Резервная копия Google</string>
+    <string name="google_backup">Экспорт паролей Chrome/Google</string>
     <string name="generate_qr_code">Экспорт</string>
     <string name="about_us">О нас</string>
     <string name="about_us_desc">Описание раздела О нас</string>
@@ -99,8 +99,8 @@
     <string name="source_code">Исходный код</string>
     <string name="app_developer_github">Github</string>
     <string name="app_desc">Менеджер паролей с открытым исходным кодом и оффлайн доступом. Безопасно храните, управляйте и контролируйте свои пароли.</string>
-    <string name="keepass_backup">Резервная копия KeePass</string>
-    <string name="keepass_backup_desc">Выберите CSV-файл KeePass для импорта</string>
+    <string name="keepass_backup">Экспорт в KeePass CSV</string>
+    <string name="keepass_backup_desc">Импорт из KeePass CSV</string>
     <string name="invalid_secret_key">Неверный формат секретного ключа</string>
     <string name="invalid_csv_file">Неверный CSV-файл</string>
     <string name="file_not_found">Файл не найден (пожалуйста, попробуйте снова)</string>
@@ -129,13 +129,13 @@
     <string name="autofill_service_disable">Отключить службу автозаполнения</string>
     <string name="autofill_not_available">Он доступен только на Android 10 и выше</string>
     <string name="invalid_package_signature">Недействительная подпись пакета</string>
-    <string name="backup_screen_desc">Безопасно резервируйте свои учетные данные, чтобы предотвратить потерю данных. Резервные копии зашифрованы с помощью клавиатуры.</string>
+    <string name="backup_screen_desc">Безопасно сохраните резервную копию своих данных для предотвращения их утраты. Резервные копии защищаются ключевой фразой.</string>
     <string name="create_account">Создать учетную запись</string>
-    <string name="edit_account">Изменить счет</string>
-    <string name="app_password_hint_desc">Подсказка пароля помогает вам запомнить пароль, если вы его забыли. Удостоверьтесь, что это только намек, который вы поймете.</string>
-    <string name="auto_lock">Автозамок на заднем плане</string>
-    <string name="contact_developer">Контакты</string>
-    <string name="contact_via_email">Отправить электронное письмо для поддержки, обратной связи или предложений</string>
-    <string name="choose_default_password_length">Выберите длину пароля</string>
-    <string name="choose_default_password_length_desc">Эта длина будет использоваться в качестве по умолчанию при создании новых паролей. Более длинные пароли обеспечивают лучшую безопасность.</string>
+    <string name="edit_account">Изменить учетную запись</string>
+    <string name="app_password_hint_desc">Подсказка для пароля поможет вам вспомнить пароль в случае, если вы его забудете. Убедитесь, чтобы подсказка была понятна только вам.</string>
+    <string name="auto_lock">Автоблокировка при сворачивании</string>
+    <string name="contact_developer">Связаться с разработчиком</string>
+    <string name="contact_via_email">Свяжитесь с нами по email для получения поддержки, отправки отзывов или предложений</string>
+    <string name="choose_default_password_length">Выберите длину пароля по умолчанию</string>
+    <string name="choose_default_password_length_desc">Эта длина будет использоваться по умолчанию при создании новых паролей. Более длинные пароли обеспечивают лучшую безопасность.</string>
 </resources>

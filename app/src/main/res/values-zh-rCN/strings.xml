@@ -129,7 +129,7 @@
     <string name="autofill_service_disable">停用自动填充服务</string>
     <string name="autofill_not_available">仅在 android 10 及更高版本系统上可用</string>
     <string name="invalid_package_signature">无效的包签名</string>
-    <string name="backup_screen_desc">安全地备份凭据防止数据丢失。备份文件使用关键短语加密。</string>
+    <string name="backup_screen_desc">安全地备份凭据防止数据丢失。备份文件使用关键词短语加密。</string>
     <string name="create_account">设立账户</string>
     <string name="edit_account">编辑账户</string>
     <string name="app_password_hint_desc">密码提示在你忘记密码时帮助你记起密码。请确保只有你能理解该提示的意思。</string>
