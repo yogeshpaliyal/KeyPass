@@ -32,4 +32,19 @@
     <string name="feedback_to_keypass">Tagasiside KeyPassi kohta</string>
     <string name="message_no_accounts">Kasutajakontosid ei leidu, palun lisa mõni all ääres olevast nupust</string>
     <string name="invalid_csv_file">Vigane csv-fail</string>
+    <string name="backup_desc">Salafraasiga krüptitud varukoopiad salvestatakse sinu nutiseadmes</string>
+    <string name="yes">Jah</string>
+    <string name="create_backup">Tee varukoopia</string>
+    <string name="create_account">Lisa kasutajakonto</string>
+    <string name="edit_account">Muuda kasutajakontot</string>
+    <string name="alert">Hoiatus</string>
+    <string name="str_continue">Jätka</string>
+    <string name="back">Tagasi</string>
+    <string name="enter_password">Sisesta salasõna</string>
+    <string name="create_password">Loo salasõna</string>
+    <string name="confirm_password">Korda salasõna</string>
+    <string name="create_password_description">Oma rakenduse turvamiseks lisa salasõna</string>
+    <string name="confirm_password_description">Oma rakenduse turvamiseks korda salasõna</string>
+    <string name="incorrect_password">Vigane salasõna</string>
+    <string name="password_no_match">Salasõnad ei klapi</string>
 </resources>
