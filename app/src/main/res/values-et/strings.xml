@@ -106,5 +106,21 @@
     <string name="descending">Järjesta kahanevalt</string>
     <string name="invalid_secret_key">Vigane salavõtme vorming</string>
     <string name="generate_qr_code">Ekspordi</string>
-    <string name="keepass_backup_desc">Impordi salasõnu</string>
+    <string name="keepass_backup_desc">Impordi salasõnu KeePassi CSV-failist</string>
+    <string name="keepass_backup">Ekspordi salasõnu KeePassi CSV-faili</string>
+    <string name="custom_keyphrase">Sinu loodud salafraas</string>
+    <string name="generate_keyphrase">Rakenduse loodud salafraas</string>
+    <string name="alert_blank_keyphrase">Palun sisesta salafraas</string>
+    <string name="alert_invalid_keyphrase">Palun sisesta korrektne salafraas</string>
+    <string name="set_keyphrase">Lisa salafraas</string>
+    <string name="set_keyphrase_info">Palun sisesta varukoopia jaoks salafraas, seda kasutatakse ka varukoopiast taastamisel. Salafraasi pikkus peaks olema 16 tähemärki</string>
+    <string name="enter_keyphrase">Sisesta salafraas</string>
+    <string name="restore">Taasta</string>
+    <string name="keyphrase_restore_info">Palun sisesta salafraas, mille said varundamisel</string>
+    <string name="keyphrase_validate_info">Palun sisesta salafraas, mida kasutasid varukoopia tegemisel. Et ta paremini meelde jääks, siis me näitame seda ekraanivaadet mingi aja tagant.</string>
+    <string name="custom_generated_keyphrase_info">Kas soovid varukoopia salafraasi ise sisestada või lased seda teha rakendusel?</string>
+    <string name="credentials_backups">Kasutajakontode/salasõnade varundus</string>
+    <string name="credentials_backups_desc">Varunda salasõnad rakenduse väliselt</string>
+    <string name="backup_screen_desc">Andmekao vältimiseks varunda salasõnad/kasutajakontod turvaliselt. Varukoopiad on krüptitud salafraasiga.</string>
+    <string name="about_us_desc">Rakenduse teave</string>
 </resources>
