@@ -127,6 +127,14 @@
     <string name="alert_black_secret_key">Palun sisesta salavõti</string>
     <string name="alert_black_account_name">Palun sisesta kasutajakonto nimi</string>
     <string name="scan_password">Skaneeri salasõna</string>
-    <string name="biometric_error_no_hardware">Biomeetriline tuvastus pole selles nutiseadmes kasutatav</string>
+    <string name="biometric_error_no_hardware">Biomeetriline tuvastus pole selles nutiseadmes kasutatav.</string>
     <string name="biometric_error_hw_unavailable">Biomeetriline tuvastus pole hetkel kasutatav.</string>
+    <string name="biometric_error_none_enrolled">Seadista biomeetriline tuvastus selles nutiseadmes.</string>
+    <string name="unlock_with_biometric">Kasuta lukustuse eemaldamisel biomeetrilist tuvastust</string>
+    <string name="biometric_login_timeout">Biomeetrilise sisselogimise aegumine (24 tundi)</string>
+    <string name="authentication_failed">Autentimine ei õnnestunud</string>
+    <string name="authentication_error">Viga autentimisel: %s</string>
+    <string name="google_backup">Chrome\'i või Google\'i salasõnade eksport</string>
+    <string name="password_set_from_settings">Palun esmalt lisa nutiseadme seadistustet seadmele salasõna</string>
+    <string name="override_auto_backup_file">Automaatse varukoopiafaili sürjutamine</string>
 </resources>
