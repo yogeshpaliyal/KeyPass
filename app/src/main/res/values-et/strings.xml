@@ -52,5 +52,14 @@
     <string name="account_name">Kasutajakonto nimi</string>
     <string name="username_email_phone">Kasutajanimi/e-post/telefon</string>
     <string name="tags_comma_separated_optional">Komadega eraldatud sildid (kui soovid lisada)</string>
-    <string name="website_url_optional">Veebisaidi võrguadress (kui soovid lisada)</string>
+    <string name="website_url_optional">Veebisaidi võrguaadress (kui soovid lisada)</string>
+    <string name="notes_optional">Märkus (kui pead vajalikuks)</string>
+    <string name="auto_backup">Automaatne varundus</string>
+    <string name="disabled">Pole kasutusel</string>
+    <string name="enabled">Kasutusel</string>
+    <string name="auto_backup_desc">Sinu kasutajakontode/salasõnade andmekogu varundatakse iga kirje lisamisel või muutmisel</string>
+    <string name="change_app_password">Muuda rakenduse salasõna</string>
+    <string name="change_app_hint">Vihje muudatuse kohta</string>
+    <string name="remove_app_hint">Eemalda vihje</string>
+    <string name="app_password_hint">Rakenduse salasõna</string>
 </resources>
