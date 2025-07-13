@@ -47,4 +47,10 @@
     <string name="confirm_password_description">Oma rakenduse turvamiseks korda salasõna</string>
     <string name="incorrect_password">Vigane salasõna</string>
     <string name="password_no_match">Salasõnad ei klapi</string>
+    <string name="help">Abiteave</string>
+    <string name="security">Turvalisus</string>
+    <string name="account_name">Kasutajakonto nimi</string>
+    <string name="username_email_phone">Kasutajanimi/e-post/telefon</string>
+    <string name="tags_comma_separated_optional">Komadega eraldatud sildid (kui soovid lisada)</string>
+    <string name="website_url_optional">Veebisaidi võrguadress (kui soovid lisada)</string>
 </resources>
