@@ -1,0 +1,11 @@
+Hoiatus: enne uue rakenduse kasutuselevõtmist, palun tee vanast varukoopia.
+
+Tänapäevased salasõnahaldurid ei salvesta salasõnu/kasutajanimesid serveris, seega ära muretse, salasõnad on sinu kontrolli all.
+
+1. Rakendus ei vaja tööks võrguühendust
+2. Pole reklaame
+3. Avatud lähtekoodiga (kui tahad, siis saad lähtekoodi uurida)
+4. Salasõnade/kasutajanimede varundus ja taastamine varukoopiast
+5. Kahe faktoriga autentimise haldust (TOTP-põhine)
+
+Vaata ka: https://github.com/yogeshpaliyal/KeyPass
