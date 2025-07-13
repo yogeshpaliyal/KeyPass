@@ -122,5 +122,11 @@
     <string name="credentials_backups">Kasutajakontode/salasõnade varundus</string>
     <string name="credentials_backups_desc">Varunda salasõnad rakenduse väliselt</string>
     <string name="backup_screen_desc">Andmekao vältimiseks varunda salasõnad/kasutajakontod turvaliselt. Varukoopiad on krüptitud salafraasiga.</string>
-    <string name="about_us_desc">Rakenduse teave</string>
+    <string name="about_us_desc">Teave rakenduse arendaja kohta</string>
+    <string name="copy_keypharse_msg">Märgi see salafraas üles ja hoia turvaliselt. Teda kasutatakse varukoopiast taastamisel ja KeyPass ei näita teda enam uuesti. Kas oled ta kopeerinud või üles märkinud?</string>
+    <string name="alert_black_secret_key">Palun sisesta salavõti</string>
+    <string name="alert_black_account_name">Palun sisesta kasutajakonto nimi</string>
+    <string name="scan_password">Skaneeri salasõna</string>
+    <string name="biometric_error_no_hardware">Biomeetriline tuvastus pole selles nutiseadmes kasutatav</string>
+    <string name="biometric_error_hw_unavailable">Biomeetriline tuvastus pole hetkel kasutatav.</string>
 </resources>
