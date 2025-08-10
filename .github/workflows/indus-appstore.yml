@@ -21,7 +21,7 @@ jobs:
 
       - name: Echo Release name
         run: |
-          echo "${{ github.ref_name || github.event.inputs.version }}"
+          echo "${{ github.event.inputs.version || github.ref_name }}"
 
       - uses: robinraju/release-downloader@v1
         with:
