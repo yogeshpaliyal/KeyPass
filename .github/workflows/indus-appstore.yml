@@ -27,7 +27,7 @@ jobs:
         with:
           # The github tag. e.g: v1.0.1
           # Download assets from a specific tag/version
-          tag: ${{ github.ref_name || github.event.inputs.version }}
+          tag: ${{ github.event.inputs.version || github.ref_name }}
           # The name of the file to download.
           # Use this field only to specify filenames other than tarball or zipball, if any.
           # Supports wildcard pattern (eg: '*', '*.deb', '*.zip' etc..)
