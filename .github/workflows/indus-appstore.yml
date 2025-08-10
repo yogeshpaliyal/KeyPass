@@ -43,7 +43,7 @@ jobs:
 
       - name: Deploy Free to Indus App Store
         id: uploadToIndus
-        uses: yogeshpaliyal/upload-indus-appstore@fixApis
+        uses: yogeshpaliyal/upload-indus-appstore@v0.0.7
         with:
           type: UPLOAD_AAB
           apiKey: ${{secrets.INDUS_API_KEY}}
