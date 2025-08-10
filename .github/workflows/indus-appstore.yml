@@ -41,16 +41,16 @@ jobs:
           # eg: token: ${{ secrets.MY_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: Deploy Free to Indus App Store
-          id: uploadToIndus
-          uses: yogeshpaliyal/upload-indus-appstore@v0.0.6
-          with:
-            type: UPLOAD_AAB
-            apiKey: ${{secrets.INDUS_API_KEY}}
-            packageName: com.yogeshpaliyal.keypass
-            aabFile: app/build/outputs/bundle/freeRelease/*.aab
-            signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-            keystoreAlias: ${{ secrets.ALIAS }}
-            keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-            keyPassword: ${{ secrets.KEY_PASSWORD }}
+      - name: Deploy Free to Indus App Store
+        id: uploadToIndus
+        uses: yogeshpaliyal/upload-indus-appstore@v0.0.6
+        with:
+          type: UPLOAD_AAB
+          apiKey: ${{secrets.INDUS_API_KEY}}
+          packageName: com.yogeshpaliyal.keypass
+          aabFile: app/build/outputs/bundle/freeRelease/*.aab
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          keystoreAlias: ${{ secrets.ALIAS }}
+          keystorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
 
