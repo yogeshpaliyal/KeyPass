@@ -1,4 +1,4 @@
-name: Submit to Play Store
+name: Submit to Indus App Store
 on:
   workflow_dispatch:
     inputs:
