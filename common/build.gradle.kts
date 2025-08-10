@@ -42,7 +42,7 @@ dependencies {
     implementation("commons-codec:commons-codec:1.18.0")
 
     // Androidx Security
-    implementation("androidx.security:security-crypto:1.1.0-alpha07")
+    implementation("androidx.security:security-crypto:1.1.0")
 
     api("androidx.documentfile:documentfile:1.1.0")
 
