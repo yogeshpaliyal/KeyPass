@@ -4,7 +4,7 @@
     <string name="home">主页</string>
     <string name="delete">删除</string>
     <string name="generate_shortcut_short_label">生成密码</string>
-    <string name="backup_restored">备份密码</string>
+    <string name="backup_restored">密码备份已恢复</string>
     <string name="invalid_keyphrase">无效密码</string>
     <string name="backup_completed">备份完成</string>
     <!-- Sync Preferences -->
