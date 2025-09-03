@@ -22,8 +22,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.runBlocking
-import net.sqlcipher.database.SQLiteDatabase
-import net.sqlcipher.database.SupportFactory
+import net.zetetic.database.sqlcipher.SQLiteDatabase
+import net.zetetic.database.sqlcipher.SupportOpenHelperFactory
+import java.nio.charset.Charset
 import javax.inject.Singleton
 
 @Module
@@ -56,14 +57,14 @@ object AppModule {
             }
         }
 
-        SQLiteDatabase.loadLibs(context)
+        System.loadLibrary("sqlcipher");
 
         if (isMigratedFromNonEncryption) {
             context.migrateNonEncryptedToEncryptedDb(dbName, dbNameEncrypted, userEnteredPassphrase)
         }
 
-        val passphrase: ByteArray = SQLiteDatabase.getBytes(userEnteredPassphrase.toCharArray())
-        val factory = SupportFactory(passphrase)
+        val passphrase: ByteArray? = getBytes(userEnteredPassphrase)
+        val factory = SupportOpenHelperFactory(passphrase)
         builder.openHelperFactory(factory)
         builder.addMigrations(object : Migration(DB_VERSION_3, DB_VERSION_4) {
             override fun migrate(database: SupportSQLiteDatabase) {
@@ -112,7 +113,7 @@ object AppModule {
     private fun Context.migrateNonEncryptedToEncryptedDb(nonEncryptedDbName: String, encryptedDbName: String, userEnteredPassphrase: String) {
         try {
             val oldDb = getDatabasePath(nonEncryptedDbName)
-            val database = SQLiteDatabase.openOrCreateDatabase(oldDb, "", null)
+            val database = SQLiteDatabase.openOrCreateDatabase(oldDb, "", null,null)
             val encryptedDbPath = getDatabasePath(encryptedDbName).path
             database.rawExecSQL(
                 "ATTACH DATABASE '$encryptedDbPath' AS encrypted KEY '$userEnteredPassphrase'"
@@ -124,5 +125,11 @@ object AppModule {
         } catch (e: SQLiteException) {
             e.printStackTrace()
         }
+    }
+
+    private fun getBytes(data: String?): ByteArray? {
+        return if (data != null && data.length != 0) data.toByteArray(Charset.forName("UTF-8")) else ByteArray(
+            0
+        )
     }
 }
