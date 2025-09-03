@@ -128,7 +128,7 @@ dependencies {
     implementation(Deps.Lifecycle.viewModelCompose)
     implementation(Deps.Lifecycle.viewModelKtx)
     implementation(Deps.Lifecycle.runtimeCompose)
-    implementation("androidx.navigation:navigation-compose:2.9.1")
+    implementation("androidx.navigation:navigation-compose:2.9.3")
 
     implementation("androidx.compose.material3:material3:1.4.0-alpha14")
     implementation("androidx.compose.material3:material3-android:1.4.0-alpha14")
