@@ -29,4 +29,4 @@
     public void setSeed(byte[]);
 }
 
--keep class net.sqlcipher.** {*;}
+-keep class net.zetetic.** {*;}
