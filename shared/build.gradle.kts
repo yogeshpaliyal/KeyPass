@@ -17,7 +17,7 @@ kotlin {
             dependencies {
                 api("androidx.compose.runtime:runtime:1.8.3")
                 api("androidx.compose.foundation:foundation:1.8.3")
-                api("androidx.compose.material:material:1.8.1")
+                api("androidx.compose.material:material:1.9.2")
                 implementation("org.reduxkotlin:redux-kotlin-compose:0.6.0")
             }
         }
