@@ -61,9 +61,9 @@ dependencies {
 
     api("com.google.android.material:material:1.12.0")
 
-    implementation("com.google.code.gson:gson:2.13.1")
+    implementation("com.google.code.gson:gson:2.13.2")
 
-    api("com.google.code.gson:gson:2.13.1")
+    api("com.google.code.gson:gson:2.13.2")
 
     api("androidx.datastore:datastore-preferences:1.1.4")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
