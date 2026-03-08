@@ -81,11 +81,15 @@ object AutofillHelper {
             datasetAuth: Boolean, autofillFieldMetadata: AutofillFieldMetadataCollection,
             filledAutofillFieldCollectionMap: HashMap<String, FilledAutofillFieldCollection>?): FillResponse? {
         val responseBuilder = FillResponse.Builder()
+        var datasetAdded = false
         filledAutofillFieldCollectionMap?.keys?.let { datasetNames ->
             for (datasetName in datasetNames) {
                 filledAutofillFieldCollectionMap[datasetName]?.let { clientFormData ->
                     val dataset = newDataset(context, autofillFieldMetadata, clientFormData, datasetAuth)
-                    dataset?.let(responseBuilder::addDataset)
+                    dataset?.let {
+                        responseBuilder.addDataset(it)
+                        datasetAdded = true
+                    }
                 }
             }
         }
@@ -93,6 +97,8 @@ object AutofillHelper {
             val autofillIds = autofillFieldMetadata.autofillIds
             responseBuilder.setSaveInfo(SaveInfo.Builder(autofillFieldMetadata.saveType,
                     autofillIds.toTypedArray()).build())
+            return responseBuilder.build()
+        } else if (datasetAdded) {
             return responseBuilder.build()
         } else {
             Log.d(TAG, "These fields are not meant to be saved by autofill.")

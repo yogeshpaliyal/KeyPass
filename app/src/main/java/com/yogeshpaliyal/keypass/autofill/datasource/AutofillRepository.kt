@@ -26,7 +26,7 @@ interface AutofillRepository {
      * `autofillHints`.
      */
     fun getFilledAutofillFieldCollection(packageName: String, focusedAutofillHints: List<String>,
-            allAutofillHints: List<String>): HashMap<String, FilledAutofillFieldCollection>?
+            allAutofillHints: List<String>, webDomain: String? = null): HashMap<String, FilledAutofillFieldCollection>?
 
     /**
      * Saves LoginCredential under this datasetName.

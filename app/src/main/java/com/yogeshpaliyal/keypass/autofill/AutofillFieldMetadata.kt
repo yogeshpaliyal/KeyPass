@@ -27,11 +27,15 @@ import androidx.annotation.RequiresApi
  * contains a `saveType` flag that is calculated based on the [ViewNode]'s autofill hints.
  */
 @RequiresApi(Build.VERSION_CODES.O)
-class AutofillFieldMetadata(view: ViewNode) {
+class AutofillFieldMetadata(view: ViewNode, inferredHints: Array<String>? = null) {
     var saveType = 0
         private set
 
-    val autofillHints = view.autofillHints?.filter(AutofillHelper::isValidHint)?.toTypedArray()
+    val autofillHints = view.autofillHints
+        ?.filter(AutofillHelper::isValidHint)
+        ?.toTypedArray()
+        ?.takeIf { it.isNotEmpty() }
+        ?: inferredHints?.filter(AutofillHelper::isValidHint)?.toTypedArray()
     val autofillId: AutofillId? = view.autofillId
     val autofillType: Int = view.autofillType
     val autofillOptions: Array<CharSequence>? = view.autofillOptions

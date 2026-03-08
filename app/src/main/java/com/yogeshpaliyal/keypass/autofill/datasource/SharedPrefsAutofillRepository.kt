@@ -38,10 +38,10 @@ import javax.inject.Inject
 class SharedPrefsAutofillRepository @Inject constructor(private val database: AppDatabase) : AutofillRepository {
 
     override fun getFilledAutofillFieldCollection(packageName: String, focusedAutofillHints: List<String>,
-                                                  allAutofillHints: List<String>): HashMap<String, FilledAutofillFieldCollection>? {
+                                                  allAutofillHints: List<String>, webDomain: String?): HashMap<String, FilledAutofillFieldCollection>? {
         var hasDataForFocusedAutofillHints = false
         val clientFormDataMap = HashMap<String, FilledAutofillFieldCollection>()
-        val clientFormDataStringSet = getAllAutofillDataStringSet(packageName)
+        val clientFormDataStringSet = getAllAutofillDataStringSet(packageName, webDomain)
         val gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create()
         val type = object : TypeToken<FilledAutofillFieldCollection>() {}.type
         for (clientFormDataString in clientFormDataStringSet) {
@@ -91,9 +91,18 @@ class SharedPrefsAutofillRepository @Inject constructor(private val database: Ap
         // NO-OP
     }
 
-    private fun getAllAutofillDataStringSet(packageName: String): List<String> {
+    private fun getAllAutofillDataStringSet(packageName: String, webDomain: String?): List<String> {
         return runBlocking {
-            return@runBlocking database.getDao().getAllAccountsListByPackageName(packageName).map {account ->
+            val accounts = database.getDao().getAllAccountsListByPackageName(packageName).toMutableList()
+            if (!webDomain.isNullOrEmpty()) {
+                val domainAccounts = database.getDao().getAllAccountsListByDomain(webDomain)
+                for (account in domainAccounts) {
+                    if (accounts.none { it.id == account.id }) {
+                        accounts.add(account)
+                    }
+                }
+            }
+            return@runBlocking accounts.map { account ->
              val jsonObject = JsonObject()
                 jsonObject.addProperty("datasetName", account.title ?: "")
                 val hintMap = JsonObject()
