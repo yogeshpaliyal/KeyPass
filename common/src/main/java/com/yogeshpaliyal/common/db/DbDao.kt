@@ -94,6 +94,9 @@ interface DbDao {
     @Query("DELETE from account WHERE unique_id = :uniqueId")
     suspend fun deleteAccount(uniqueId: String?)
 
+    @Query("DELETE FROM account WHERE (title IS NULL OR title = '') AND (username IS NULL OR username = '') AND (password IS NULL OR password = '') AND (site IS NULL OR site = '') AND (notes IS NULL OR notes = '') AND (tags IS NULL OR tags = '') AND (secret IS NULL OR secret = '')")
+    suspend fun deleteEmptyAccounts()
+
     @Delete
     suspend fun deleteAccount(accountModel: AccountModel)
 }
