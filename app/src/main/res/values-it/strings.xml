@@ -10,8 +10,8 @@
     <string name="backup_completed">Backup completato</string>
     <string name="credentials_backups">Credenziali di backup</string>
     <string name="credentials_backups_desc">Credenziali di backup per archiviazione esterna</string>
-    <string name="restore_credentials">Ripristinare Credenziali</string>
-    <string name="restore_credentials_desc">Ripristinare il backup</string>
+    <string name="restore_credentials">Importa credenziali</string>
+    <string name="restore_credentials_desc">Ripristina le password da un backup</string>
     <string name="send_feedback">Invia feedback</string>
     <string name="send_feedback_desc">Segnala problemi tecnici o suggerisci nuove funzionalità</string>
     <string name="share">Condividi</string>
@@ -61,7 +61,7 @@
     <string name="descending">Discussione</string>
     <string name="str_continue">Continua</string>
     <string name="back">Indietro</string>
-    <string name="enter_password">Inserisci la password</string>
+    <string name="enter_password">Inserisci password</string>
     <string name="create_password">Crea password</string>
     <string name="confirm_password">Conferma la password</string>
     <string name="create_password_description">Scegli una password per proteggere l\'app</string>
@@ -88,7 +88,7 @@
     <string name="default_password_length">Lunghezza password predefinita</string>
     <string name="secret_key">Chiave segreta</string>
     <string name="keypass_backup">Backup KeyPass</string>
-    <string name="google_backup">Google Backup</string>
+    <string name="google_backup">Esportazione password Chrome/Google</string>
     <string name="generate_qr_code">Esportazione</string>
     <string name="app_desc">Open-source &amp; offline password manager. Conservare, gestire, prendere il controllo in modo sicuro.</string>
     <string name="app_developer">Sviluppatore</string>
@@ -98,13 +98,13 @@
     <string name="about_us_desc">Su di noi Desc</string>
     <string name="source_code">Codice sorgente</string>
     <string name="app_developer_github">Github</string>
-    <string name="keepass_backup">KeePass Backup</string>
-    <string name="keepass_backup_desc">Scegliere il file KeePass CSV per importare</string>
+    <string name="keepass_backup">Esportazione CSV KeepPass</string>
+    <string name="keepass_backup_desc">Importa password da file CSV KeePass</string>
     <string name="invalid_secret_key">Formato chiave segreto non valido</string>
     <string name="invalid_csv_file">CSV non valido File</string>
     <string name="file_not_found">File non trovato (per favore riprovare)</string>
     <string name="change_app_hint">Cambiare il colpo</string>
-    <string name="enter_password_hint">Inserisci la password</string>
+    <string name="enter_password_hint">Suggerimento inserisci password</string>
     <string name="remove_app_hint">Rimuovi Hint</string>
     <string name="app_password_hint">App password Hit</string>
     <string name="set_app_password_hint">Impostare App password Hit</string>
@@ -117,8 +117,8 @@
     <string name="validate_keyphrase">Controllo tastiere</string>
     <string name="valid_keyphrase">Keyphrase valida</string>
     <string name="mismatch_keyphrase">Keyphrase non corrisponde a keyphrase di backup</string>
-    <string name="validate">Check</string>
-    <string name="forgot_keyphrase">Forgot Keyphrase</string>
+    <string name="validate">Controllo</string>
+    <string name="forgot_keyphrase">Frase chiave dimenticata</string>
     <string name="forgot_keyphrase_question">Dimenticato Keyphrase?</string>
     <string name="got_it">Capito</string>
     <string name="forgot_keyphrase_info">Se non riesci a ricordare la tua keyphrase, l\'unico modo per recuperare l\'accesso è disattivare i backup e poi riaccenderli. Questo genererà un nuovo file di backup e una nuova keyphrase.\nNota: il tuo vecchio backup sarà inaccessibile.</string>
