@@ -26,7 +26,7 @@ import com.yogeshpaliyal.keypass.autofill.AutofillHelper
  * JSON serializable data class containing the same data as an [AutofillValue].
  */
 @RequiresApi(Build.VERSION_CODES.O)
-class FilledAutofillField(viewNode: AssistStructure.ViewNode) {
+class FilledAutofillField(viewNode: AssistStructure.ViewNode, inferredHints: Array<String>? = null) {
     @Expose
     var textValue: String? = null
 
@@ -36,7 +36,11 @@ class FilledAutofillField(viewNode: AssistStructure.ViewNode) {
     @Expose
     var toggleValue: Boolean? = null
 
-    val autofillHints = viewNode.autofillHints?.filter(AutofillHelper::isValidHint)?.toTypedArray()
+    val autofillHints = viewNode.autofillHints
+        ?.filter(AutofillHelper::isValidHint)
+        ?.toTypedArray()
+        ?.takeIf { it.isNotEmpty() }
+        ?: inferredHints?.filter(AutofillHelper::isValidHint)?.toTypedArray()
 
     init {
         viewNode.autofillValue?.let {

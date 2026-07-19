@@ -47,6 +47,7 @@ class KeyPassAutofillService : AutofillService() {
         if (!PackageVerifier.isValidPackage(applicationContext, packageName)) {
             Toast.makeText(applicationContext, R.string.invalid_package_signature,
                     Toast.LENGTH_SHORT).show()
+            callback.onSuccess(null)
             return
         }
         val data = request.clientState
@@ -71,8 +72,10 @@ class KeyPassAutofillService : AutofillService() {
 //            callback.onSuccess(responseBuilder.build())
         } else {
 //            val datasetAuth = MyPreferences.isDatasetAuth(this)
-            val clientFormDataMap = sharedPrefsAutofillRepository.getFilledAutofillFieldCollection(structure.activityComponent.packageName,
-                    autofillFields.focusedAutofillHints, autofillFields.allAutofillHints)
+            val clientFormDataMap = sharedPrefsAutofillRepository.getFilledAutofillFieldCollection(
+                    structure.activityComponent.packageName,
+                    autofillFields.focusedAutofillHints, autofillFields.allAutofillHints,
+                    parser.webDomain)
             val response = AutofillHelper.newResponse(this, false, autofillFields, clientFormDataMap)
             callback.onSuccess(response)
         }
@@ -85,6 +88,7 @@ class KeyPassAutofillService : AutofillService() {
         if (!PackageVerifier.isValidPackage(applicationContext, packageName)) {
             Toast.makeText(applicationContext, R.string.invalid_package_signature,
                     Toast.LENGTH_SHORT).show()
+            callback.onSuccess()
             return
         }
         val data = request.clientState
