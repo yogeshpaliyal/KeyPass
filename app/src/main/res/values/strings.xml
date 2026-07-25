@@ -149,6 +149,13 @@
     <string name="choose_default_password_length">Choose Default Password Length</string>
     <string name="choose_default_password_length_desc">This length will be used as default when generating new passwords. Longer passwords provide better security.</string>
 
+    <string name="export_credentials">Export Credentials (CSV)</string>
+    <string name="export_credentials_desc">Export all passwords into an unencrypted CSV file</string>
+    <string name="export_warning_title">Export Credentials?</string>
+    <string name="export_warning_desc">Warning: This will export all your credentials as unencrypted plain text into a CSV file. Anyone who has access to this file will be able to read your passwords. Are you sure you want to proceed?</string>
+    <string name="export_action">Export</string>
+    <string name="export_success">Credentials exported successfully</string>
+    <string name="export_failure">Failed to export credentials</string>
 </resources>
 
 
