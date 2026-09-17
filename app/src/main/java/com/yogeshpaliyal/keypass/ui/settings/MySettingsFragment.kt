@@ -45,6 +45,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.style.TextAlign
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.yogeshpaliyal.keypass.ui.home.DashboardViewModel
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.ui.res.stringResource
 import com.yogeshpaliyal.common.utils.email
 import com.yogeshpaliyal.common.utils.enableAutoFillService
 import com.yogeshpaliyal.common.utils.isAutoFillServiceEnabled
@@ -102,8 +109,34 @@ fun MySettingCompose() {
   val dispatchAction = rememberTypedDispatcher<Action>()
   val context = LocalContext.current
   val userSettings = LocalUserSettings.current
+  val viewModel: DashboardViewModel = hiltViewModel()
   var isAutoFillServiceEnable by remember { mutableStateOf(false) }
   val coroutineScope = rememberCoroutineScope()
+
+  var showExportWarningDialog by remember { mutableStateOf(false) }
+
+  val exportLauncher = rememberLauncherForActivityResult(
+    contract = ActivityResultContracts.CreateDocument("text/csv")
+  ) { uri ->
+    android.util.Log.d("CSVExport", "CreateDocument callback received, uri=$uri")
+    if (uri != null) {
+      android.util.Log.d("CSVExport", "Calling exportDataToCsv with uri=$uri")
+      viewModel.exportDataToCsv(
+        context,
+        uri,
+        onSuccess = {
+          android.util.Log.d("CSVExport", "Export success callback fired")
+          dispatchAction(ToastAction(R.string.export_success))
+        },
+        onFailure = { throwable ->
+          android.util.Log.e("CSVExport", "Export failure callback fired", throwable)
+          dispatchAction(ToastAction(R.string.export_failure))
+        }
+      )
+    } else {
+      android.util.Log.w("CSVExport", "User cancelled file picker, uri is null")
+    }
+  }
 
   // Search functionality
   var searchQuery by remember { mutableStateOf("") }
@@ -166,6 +199,13 @@ fun MySettingCompose() {
         summaryRes = R.string.restore_credentials_desc,
         iconRes = painterResource(id = R.drawable.import_credentials),
         onClick = { dispatchAction(NavigationAction(BackupImporterState())) }
+      ),
+      SettingsPreference(
+        type = PreferenceType.NORMAL,
+        titleRes = R.string.export_credentials,
+        summaryRes = R.string.export_credentials_desc,
+        iconRes = Icons.Rounded.Share,
+        onClick = { showExportWarningDialog = true }
       ),
       SettingsPreference(
         type = PreferenceType.NORMAL,
@@ -461,6 +501,32 @@ fun MySettingCompose() {
         modifier = Modifier.fillMaxWidth().padding(16.dp)
       )
     }
+  }
+
+  if (showExportWarningDialog) {
+    AlertDialog(
+      onDismissRequest = { showExportWarningDialog = false },
+      title = {
+        Text(text = stringResource(id = R.string.export_warning_title))
+      },
+      confirmButton = {
+        TextButton(onClick = {
+          showExportWarningDialog = false
+          (context.applicationContext as? MyApplication)?.knownActivityLaunchTriggered()
+          exportLauncher.launch("KeyPass_exported_passwords.csv")
+        }) {
+          Text(text = stringResource(id = R.string.export_action))
+        }
+      },
+      dismissButton = {
+        TextButton(onClick = { showExportWarningDialog = false }) {
+          Text(text = stringResource(id = R.string.cancel))
+        }
+      },
+      text = {
+        Text(text = stringResource(id = R.string.export_warning_desc))
+      }
+    )
   }
 }
 

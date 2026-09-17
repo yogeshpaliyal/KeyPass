@@ -47,3 +47,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+Doc/
+
+# Added by code-review-graph
+.code-review-graph/
+GEMINI.md
+AGENTS.md
