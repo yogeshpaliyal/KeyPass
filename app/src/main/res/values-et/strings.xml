@@ -21,7 +21,7 @@
     <string name="password">Salasõna</string>
     <string name="copied_to_clipboard">Kopeeritud lõikelauale</string>
     <string name="login_to_enter_keypass">KeyPassi kasutamiseks logi sisse</string>
-    <string name="last_backup_date">Viimane varukoopia:%s</string>
+    <string name="last_backup_date">Viimane varukoopia: %s</string>
     <string name="delete_account_title">Kas sa oled kindel?</string>
     <string name="delete_account_msg">Kas sa kindlasti soovid selle kirje kustutada, seda tegevust ei saa tagasi pöörata</string>
     <string name="cancel">Katkesta</string>
