@@ -28,7 +28,7 @@
     <string name="last_backup_date">上次备份： %s</string>
     <string name="delete_account_title">您确定吗？</string>
     <string name="delete_account_msg">您确定要删除本条目吗？此操作不可撤销</string>
-    <string name="cancel">Cancel</string>
+    <string name="cancel">取消</string>
     <string name="feedback_to_keypass">向 KeyPass 发送反馈</string>
     <string name="share_keypass">分享 KeyPass</string>
     <string name="message_no_accounts">这里空空如也。按下下方的加号以新建</string>
