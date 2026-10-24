@@ -65,7 +65,7 @@ dependencies {
 
     api("com.google.code.gson:gson:2.13.2")
 
-    api("androidx.datastore:datastore-preferences:1.1.4")
+    api("androidx.datastore:datastore-preferences:1.3.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
 
     // Test
